@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 using common;
@@ -88,11 +89,15 @@ public class MainMenuScript : MonoBehaviour
         // Fill content
         float contentWidth = 0f;
 
+        // Create menu item buttons
         foreach (TreeNode<MenuItem> menuItem in mItems.Children)
         {
-            // Create menu item buttons
             GameObject menuButton = new GameObject(menuItem.Data.Name);
             Utils.InitUIObject(menuButton, scrollAreaContent.transform);
+
+            //===========================================================================
+            // RectTransform
+            //===========================================================================
 
             float buttonWidth = 100f;
 
@@ -105,8 +110,34 @@ public class MainMenuScript : MonoBehaviour
             menuButtonTransform.sizeDelta          = new Vector2(buttonWidth, 0f);
 
             contentWidth += buttonWidth;
-        }
 
+            //===========================================================================
+            // CanvasRenderer
+            //===========================================================================
+            
+            menuButton.AddComponent<CanvasRenderer>();
+
+            //===========================================================================
+            // CanvasRenderer
+            //===========================================================================
+
+            Image image = menuButton.AddComponent<Image>();
+
+            image.type = Image.Type.Sliced;
+            //image.fillCenter = true;
+
+            //===========================================================================
+            // Image
+            //===========================================================================
+
+            menuButton.AddComponent<Button>();
+
+            //===========================================================================
+            // Button
+            //===========================================================================
+            
+        }
+        
         scrollAreaContentTransform.anchoredPosition3D = new Vector3(contentWidth / 2, 0f, 0f);
         scrollAreaContentTransform.sizeDelta          = new Vector2(contentWidth, 0f);
 	}
