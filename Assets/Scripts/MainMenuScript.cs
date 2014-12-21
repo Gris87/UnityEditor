@@ -9,6 +9,9 @@ using ui;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public Sprite buttonHighlighted;
+    public Sprite buttonPressed;
+
     private TreeNode<MenuItem> mItems;
 
 
@@ -26,44 +29,43 @@ public class MainMenuScript : MonoBehaviour
 
         // File
         {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "File", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "File", OnShowMenuSubItems);
             Debug.Log(node);
         }
 
         // Edit
         {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Edit", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Edit", OnShowMenuSubItems);
             Debug.Log(node);
         }
 
         // Assets
         {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Assets", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Assets", OnShowMenuSubItems);
             Debug.Log(node);
         }
 
         // GameObject
         {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "GameObject", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "GameObject", OnShowMenuSubItems);
             Debug.Log(node);
         }
 
         // Component
         {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Component", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Component", OnShowMenuSubItems);
             Debug.Log(node);
         }
 
         // Window
         {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Window", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Window", OnShowMenuSubItems);
             Debug.Log(node);
         }
 
         // Help
         {
-            // TODO: Translate
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Help", OnShowMenuSubItemsDown);
+            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Help", OnShowMenuSubItems);
             Debug.Log(node);
         }
     }
@@ -92,57 +94,94 @@ public class MainMenuScript : MonoBehaviour
         // Create menu item buttons
         foreach (TreeNode<MenuItem> menuItem in mItems.Children)
         {
-            GameObject menuButton = new GameObject(menuItem.Data.Name);
-            Utils.InitUIObject(menuButton, scrollAreaContent.transform);
+            //***************************************************************************
+            // Button GameObject
+            //***************************************************************************
+            #region Button GameObject
+            GameObject menuItemButton = new GameObject(menuItem.Data.Name);
+            Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
 
             //===========================================================================
-            // RectTransform
+            // RectTransform Component
             //===========================================================================
-
+            #region RectTransform Component
             float buttonWidth = 100f;
 
-            RectTransform menuButtonTransform = menuButton.AddComponent<RectTransform>();
+            RectTransform menuItemButtonTransform = menuItemButton.AddComponent<RectTransform>();
 
-            menuButtonTransform.localScale         = new Vector2(1f, 1f);
-            menuButtonTransform.anchorMin          = new Vector2(0f, 0f);
-            menuButtonTransform.anchorMax          = new Vector2(0f, 1f);
-            menuButtonTransform.anchoredPosition3D = new Vector3(contentWidth + buttonWidth / 2, 0f, 0f);
-            menuButtonTransform.sizeDelta          = new Vector2(buttonWidth, 0f);
+            menuItemButtonTransform.localScale         = new Vector2(1f, 1f);
+            menuItemButtonTransform.anchorMin          = new Vector2(0f, 0f);
+            menuItemButtonTransform.anchorMax          = new Vector2(0f, 1f);
+            menuItemButtonTransform.anchoredPosition3D = new Vector3(contentWidth + buttonWidth / 2, 0f, 0f);
+            menuItemButtonTransform.sizeDelta          = new Vector2(buttonWidth, 0f);
 
             contentWidth += buttonWidth;
+            #endregion
 
             //===========================================================================
-            // CanvasRenderer
+            // CanvasRenderer Component
             //===========================================================================
-            
-            menuButton.AddComponent<CanvasRenderer>();
+            #region CanvasRenderer Component
+            menuItemButton.AddComponent<CanvasRenderer>();
+            #endregion
 
             //===========================================================================
-            // CanvasRenderer
+            // Image Component
             //===========================================================================
+            #region Image Component
+            Image image = menuItemButton.AddComponent<Image>();
 
-            Image image = menuButton.AddComponent<Image>();
-
-            image.type = Image.Type.Sliced;
-            //image.fillCenter = true;
-
-            //===========================================================================
-            // Image
-            //===========================================================================
-
-            menuButton.AddComponent<Button>();
+            image.type   = Image.Type.Sliced;
+            #endregion
 
             //===========================================================================
             // Button
             //===========================================================================
+            #region Button Component
+            Button button = menuItemButton.AddComponent<Button>();
+
+            button.interactable = menuItem.Data.Enabled;
+            button.transition   = Selectable.Transition.SpriteSwap;
+            #endregion
+            #endregion
+
+            //***************************************************************************
+            // Text GameObject
+            //***************************************************************************
+            #region Text GameObject
+            GameObject menuItemText = new GameObject("Text");
+            Utils.InitUIObject(menuItemText, menuItemButton.transform);
+
+            //===========================================================================
+            // RectTransform Component
+            //===========================================================================
+            #region RectTransform Component            
+            RectTransform menuItemTextTransform = menuItemText.AddComponent<RectTransform>();
+            Utils.AlignRectTransformFill(menuItemTextTransform);
+            #endregion
             
+            //===========================================================================
+            // CanvasRenderer Component
+            //===========================================================================
+            #region CanvasRenderer Component
+            menuItemText.AddComponent<CanvasRenderer>();
+            #endregion
+            
+            //===========================================================================
+            // Image Component
+            //===========================================================================
+            #region Text Component
+            Text text = menuItemText.AddComponent<Text>();
+            Utils.InitTextObject(text, menuItem.Data.Name); // TODO: Translate
+            #endregion
+            #endregion
         }
         
         scrollAreaContentTransform.anchoredPosition3D = new Vector3(contentWidth / 2, 0f, 0f);
         scrollAreaContentTransform.sizeDelta          = new Vector2(contentWidth, 0f);
 	}
 
-    public void OnShowMenuSubItemsDown()
+    public void OnShowMenuSubItems()
     {
     }
 }

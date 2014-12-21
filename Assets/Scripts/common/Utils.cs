@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 
@@ -11,6 +12,12 @@ namespace common
         {
             uiObject.transform.parent = parent;
             uiObject.layer = LayerMask.NameToLayer("UI");
+        }
+
+        public static void InitTextObject(Text textObject, string text)
+        {
+            textObject.text  = text;
+            textObject.color = new Color(0, 0, 0, 1);
         }
 
         public static void AlignRectTransformFill(RectTransform transform)
