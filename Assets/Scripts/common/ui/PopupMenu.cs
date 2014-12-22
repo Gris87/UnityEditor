@@ -2,13 +2,15 @@ using System;
 
 
 
-namespace ui
+namespace common
 {
-    public class PopupMenu
-    {
-        public PopupMenu()
-        {
-        }
-    }
+	namespace ui
+	{
+		public class PopupMenu
+		{
+			public PopupMenu()
+			{
+			}
+		}
+	}
 }
-

@@ -10,7 +10,7 @@ namespace common
     {
         public static void InitUIObject(GameObject uiObject, Transform parent)
         {
-            uiObject.transform.parent = parent;
+            uiObject.transform.SetParent(parent);
             uiObject.layer = LayerMask.NameToLayer("UI");
         }
 
@@ -22,7 +22,7 @@ namespace common
 
         public static void AlignRectTransformFill(RectTransform transform)
         {
-            transform.localScale         = new Vector2(1f, 1f);
+			transform.localScale         = new Vector3(1f, 1f, 1f);
             transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
             transform.sizeDelta          = new Vector2(0f, 0f);
             transform.anchorMin          = new Vector2(0f, 0f);
@@ -30,4 +30,3 @@ namespace common
         }
     }
 }
-
