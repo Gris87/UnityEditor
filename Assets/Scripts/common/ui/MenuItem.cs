@@ -1,3 +1,4 @@
+using UnityEngine.Events;
 using System;
 
 
@@ -7,36 +8,28 @@ namespace common
 	namespace ui
 	{
 		public class MenuItem
-		{
-			public delegate void OnClickListener();
-			
-			private TreeNode<MenuItem> mNode;
-			private string             mName;
-			private OnClickListener    mOnClick;
-			private bool               mEnabled;
-			private bool               mIsSeparator;
+		{			
+			private TreeNode<MenuItem> mNode        = null;
+			private string             mName        = null;
+			private UnityAction        mOnClick     = null;
+			private bool               mEnabled     = false;
+			private bool               mIsSeparator = false;
 			
 			
 			
 			public MenuItem()
 			{
-				mNode        = null;
-				mName        = null;
-				mOnClick     = null;
-				mEnabled     = false;
-				mIsSeparator = false;
 			}
 			
-			public MenuItem(TreeNode<MenuItem> node, string name, OnClickListener onClick, bool enabled = true)
+			public MenuItem(TreeNode<MenuItem> node, string name, UnityAction onClick = null, bool enabled = true)
 			{
-				mNode        = node;
-				mName        = name;
-				mOnClick     = onClick;
-				mEnabled     = enabled;
-				mIsSeparator = false;
+				mNode    = node;
+				mName    = name;
+				mOnClick = onClick;
+				mEnabled = enabled;
 			}
 			
-			public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, string name, OnClickListener onClick, bool enabled = true)
+			public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, string name, UnityAction onClick = null, bool enabled = true)
 			{
 				TreeNode<MenuItem> node = owner.AddChild(new MenuItem());
 				
@@ -66,7 +59,7 @@ namespace common
 				get { return mName; }
 			}
 			
-			public OnClickListener OnClick
+			public UnityAction OnClick
 			{
 				get { return mOnClick; }
 			}

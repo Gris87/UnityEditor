@@ -9,8 +9,8 @@ namespace common
     public class TreeNode<T>
     {
         private T                 mData;
-        private TreeNode<T>       mParent;
-        private List<TreeNode<T>> mChildren;
+		private TreeNode<T>       mParent   = null;
+		private List<TreeNode<T>> mChildren = null;
 
 
 

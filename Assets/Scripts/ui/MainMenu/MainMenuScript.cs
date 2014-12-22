@@ -9,9 +9,17 @@ using common.ui;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public Button menuButton;
+    public Button menuButton = null;
 
-    private TreeNode<MenuItem> mItems;
+	private TreeNode<MenuItem> mItems          = null;
+	private TreeNode<MenuItem> mFileMenu       = null;
+	private TreeNode<MenuItem> mEditMenu       = null;
+	private TreeNode<MenuItem> mAssetsMenu     = null;
+	private TreeNode<MenuItem> mGameObjectMenu = null;
+	private TreeNode<MenuItem> mComponentMenu  = null;
+	private TreeNode<MenuItem> mWindowMenu     = null;
+	private TreeNode<MenuItem> mHelpMenu       = null;
+	private PopupMenu          mPopupMenu      = null;
 
 
 
@@ -27,61 +35,48 @@ public class MainMenuScript : MonoBehaviour
 		// Root
         mItems = new TreeNode<MenuItem>(new MenuItem());
 
-        // File
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "File", OnShowMenuSubItems);
+        #region File
+        mFileMenu = MenuItem.Create(mItems, "File", OnFileMenu);
+        
+        MenuItem.Create(mFileMenu, "New Scene",         OnNewScene);
+        MenuItem.Create(mFileMenu, "Open Scene",        OnOpenScene);
+        MenuItem.InsertSeparator(mFileMenu);
+        MenuItem.Create(mFileMenu, "Save Scene",        OnSaveScene);
+        MenuItem.Create(mFileMenu, "Save Scene as...",  OnSaveSceneAs);
+        MenuItem.InsertSeparator(mFileMenu);
+        MenuItem.Create(mFileMenu, "New Project...",    OnNewProject);
+        MenuItem.Create(mFileMenu, "Open Project...",   OnOpenProject);
+        MenuItem.Create(mFileMenu, "Save Project",      OnSaveProject);
+        MenuItem.InsertSeparator(mFileMenu);
+        MenuItem.Create(mFileMenu, "Build Settings...", OnBuildSettings);
+        MenuItem.Create(mFileMenu, "Build & Run",       OnBuildAndRun);
+        MenuItem.InsertSeparator(mFileMenu);
+        MenuItem.Create(mFileMenu, "Exit",              OnExit);
+        #endregion
 
-			MenuItem.Create(node, "New Scene",         OnNewScene);
-			MenuItem.Create(node, "Open Scene",        OnOpenScene);
-			MenuItem.InsertSeparator(node);
-			MenuItem.Create(node, "Save Scene",        OnSaveScene);
-			MenuItem.Create(node, "Save Scene as...",  OnSaveSceneAs);
-			MenuItem.InsertSeparator(node);
-			MenuItem.Create(node, "New Project...",    OnNewProject);
-			MenuItem.Create(node, "Open Project...",   OnOpenProject);
-			MenuItem.Create(node, "Save Project",      OnSaveProject);
-			MenuItem.InsertSeparator(node);
-			MenuItem.Create(node, "Build Settings...", OnBuildSettings);
-			MenuItem.Create(node, "Build & Run",       OnBuildAndRun);
-			MenuItem.InsertSeparator(node);
-			MenuItem.Create(node, "Exit",              OnExit);
-        }
+		#region Edit
+		mEditMenu = MenuItem.Create(mItems, "Edit", OnEditMenu);
+		#endregion
 
-        // Edit
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Edit", OnShowMenuSubItems);
-            Debug.Log(node);
-        }
+		#region Assets
+		mAssetsMenu = MenuItem.Create(mItems, "Assets", OnAssetsMenu);
+		#endregion
 
-        // Assets
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Assets", OnShowMenuSubItems);
-            Debug.Log(node);
-        }
+		#region GameObject
+		mGameObjectMenu = MenuItem.Create(mItems, "GameObject", OnGameObjectMenu);
+		#endregion
 
-        // GameObject
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "GameObject", OnShowMenuSubItems);
-            Debug.Log(node);
-        }
+		#region Component
+		mComponentMenu = MenuItem.Create(mItems, "Component", OnComponentMenu);
+		#endregion
 
-        // Component
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Component", OnShowMenuSubItems);
-            Debug.Log(node);
-        }
+		#region Window
+		mWindowMenu = MenuItem.Create(mItems, "Window", OnWindowMenu);
+		#endregion
 
-        // Window
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Window", OnShowMenuSubItems);
-            Debug.Log(node);
-        }
-
-        // Help
-        {
-            TreeNode<MenuItem> node = MenuItem.Create(mItems, "Help", OnShowMenuSubItems);
-            Debug.Log(node);
-        }
+		#region Help
+		mHelpMenu = MenuItem.Create(mItems, "Help", OnHelpMenu);
+		#endregion
     }
 
 	private void CreateUI()
@@ -91,9 +86,7 @@ public class MainMenuScript : MonoBehaviour
         Utils.InitUIObject(scrollArea, transform);
 
         RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
-		scrollAreaTransform.localScale = new Vector3(1f, 1f, 1f);
-		scrollAreaTransform.anchorMin  = new Vector2(0f, 0f);
-		scrollAreaTransform.anchorMax  = new Vector2(0f, 1f);
+		Utils.AlignRectTransformFill(scrollAreaTransform);
 		
 		// Create content for ScrollArea object
         GameObject scrollAreaContent = new GameObject("Content");
@@ -103,6 +96,7 @@ public class MainMenuScript : MonoBehaviour
 		scrollAreaContentTransform.localScale = new Vector3(1f, 1f, 1f);
         scrollAreaContentTransform.anchorMin  = new Vector2(0f, 0f);
         scrollAreaContentTransform.anchorMax  = new Vector2(0f, 1f);
+		scrollAreaContentTransform.pivot      = new Vector2(0f, 0.5f);
 
         // Fill content
         float contentWidth = 0f;
@@ -135,7 +129,7 @@ public class MainMenuScript : MonoBehaviour
 			Button button = menuItemButton.GetComponent<Button>();
 			
 			button.interactable = menuItem.Data.Enabled;
-			button.onClick.AddListener(() => menuItem.Data.OnClick());
+			button.onClick.AddListener(menuItem.Data.OnClick);
 			#endregion
 			#endregion
 
@@ -161,10 +155,7 @@ public class MainMenuScript : MonoBehaviour
 			#endregion
         }
 
-		scrollAreaTransform.anchoredPosition3D        = new Vector3(contentWidth / 2, 0f, 0f);
-		scrollAreaTransform.sizeDelta                 = new Vector2(contentWidth, 0f);
-		
-		scrollAreaContentTransform.anchoredPosition3D = new Vector3(contentWidth / 2, 0f, 0f);
+		scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
         scrollAreaContentTransform.sizeDelta          = new Vector2(contentWidth, 0f);
 
 		// Allow to scroll content
@@ -174,70 +165,133 @@ public class MainMenuScript : MonoBehaviour
 		scrollAreaScrollRect.vertical = false;
 	}
 
-    public void OnShowMenuSubItems()
+	public void OnShowMenuSubItems(TreeNode<MenuItem> node)
     {
-		Debug.Log("OnShowMenuSubItems");
+		Debug.Log("MainMenuScript.OnShowMenuSubItems(" + node.Data.Name + ")");
+
+		if (mPopupMenu != null)
+		{
+			mPopupMenu.Destroy();
+		}
+
+		mPopupMenu = new PopupMenu(node);
+
+		mPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
     }
 
+	public void OnPopupMenuDestroyed()
+	{
+		mPopupMenu = null;
+	}
+
+	#region Handlers for menu items
 	#region File
+	public void OnFileMenu()
+	{
+		OnShowMenuSubItems(mFileMenu);
+	}
+
 	public void OnNewScene()
 	{
-		Debug.Log("OnNewScene");
+		Debug.Log("MainMenuScript.OnNewScene");
 		// TODO: Implement MainMenuScript.OnNewScene
 	}
 
 	public void OnOpenScene()
 	{
-		Debug.Log("OnOpenScene");
+		Debug.Log("MainMenuScript.OnOpenScene");
 		// TODO: Implement MainMenuScript.OnOpenScene
 	}
 
 	public void OnSaveScene()
 	{
-		Debug.Log("OnSaveScene");
+		Debug.Log("MainMenuScript.OnSaveScene");
 		// TODO: Implement MainMenuScript.OnSaveScene
 	}
 
 	public void OnSaveSceneAs()
 	{
-		Debug.Log("OnSaveSceneAs");
+		Debug.Log("MainMenuScript.OnSaveSceneAs");
 		// TODO: Implement MainMenuScript.OnSaveSceneAs
 	}
 
 	public void OnNewProject()
 	{
-		Debug.Log("OnNewProject");
+		Debug.Log("MainMenuScript.OnNewProject");
 		// TODO: Implement MainMenuScript.OnNewProject
 	}
 	
 	public void OnOpenProject()
 	{
-		Debug.Log("OnOpenProject");
+		Debug.Log("MainMenuScript.OnOpenProject");
 		// TODO: Implement MainMenuScript.OnOpenProject
 	}
 	
 	public void OnSaveProject()
 	{
-		Debug.Log("OnSaveProject");
+		Debug.Log("MainMenuScript.OnSaveProject");
 		// TODO: Implement MainMenuScript.OnSaveProject
 	}
 	
 	public void OnBuildSettings()
 	{
-		Debug.Log("OnBuildSettings");
+		Debug.Log("MainMenuScript.OnBuildSettings");
 		// TODO: Implement MainMenuScript.OnBuildSettings
 	}
 	
 	public void OnBuildAndRun()
 	{
-		Debug.Log("OnBuildAndRun");
+		Debug.Log("MainMenuScript.OnBuildAndRun");
 		// TODO: Implement MainMenuScript.OnBuildAndRun
 	}
 	
 	public void OnExit()
 	{
-		Debug.Log("OnExit");
+		Debug.Log("MainMenuScript.OnExit");
 		Application.Quit();
 	}
+	#endregion
+
+	#region Edit
+	public void OnEditMenu()
+	{
+		OnShowMenuSubItems(mEditMenu);
+	}
+	#endregion
+	
+	#region Assets
+	public void OnAssetsMenu()
+	{
+		OnShowMenuSubItems(mAssetsMenu);
+	}
+	#endregion
+	
+	#region GameObject
+	public void OnGameObjectMenu()
+	{
+		OnShowMenuSubItems(mGameObjectMenu);
+	}
+	#endregion
+	
+	#region Component
+	public void OnComponentMenu()
+	{
+		OnShowMenuSubItems(mComponentMenu);
+	}
+	#endregion
+	
+	#region Window
+	public void OnWindowMenu()
+	{
+		OnShowMenuSubItems(mWindowMenu);
+	}
+	#endregion
+	
+	#region Help
+	public void OnHelpMenu()
+	{
+		OnShowMenuSubItems(mHelpMenu);
+	}
+	#endregion
 	#endregion
 }
