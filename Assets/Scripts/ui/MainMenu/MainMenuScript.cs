@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 using common;
 using common.ui;
@@ -28,6 +27,15 @@ public class MainMenuScript : MonoBehaviour
 	{
         CreateMenuItems();
 		CreateUI();
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		if (mPopupMenu != null)
+		{
+			mPopupMenu.Update();
+		}
 	}
 
     private void CreateMenuItems()
@@ -81,22 +89,39 @@ public class MainMenuScript : MonoBehaviour
 
 	private void CreateUI()
 	{
-        // Create ScrollArea object
+		//***************************************************************************
+		// ScrollArea GameObject
+		//***************************************************************************
+		#region ScrollArea GameObject
         GameObject scrollArea = new GameObject("ScrollArea");
         Utils.InitUIObject(scrollArea, transform);
 
+		//===========================================================================
+		// RectTransform Component
+		//===========================================================================
+		#region RectTransform Component
         RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
 		Utils.AlignRectTransformFill(scrollAreaTransform);
-		
-		// Create content for ScrollArea object
+		#endregion
+
+		//***************************************************************************
+		// Content for ScrollArea object
+		//***************************************************************************
+		#region Content for ScrollArea object
         GameObject scrollAreaContent = new GameObject("Content");
         Utils.InitUIObject(scrollAreaContent, scrollArea.transform);
 
-        RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();        
+		//===========================================================================
+		// RectTransform Component
+		//===========================================================================
+		#region RectTransform Component
+        RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
+
 		scrollAreaContentTransform.localScale = new Vector3(1f, 1f, 1f);
         scrollAreaContentTransform.anchorMin  = new Vector2(0f, 0f);
         scrollAreaContentTransform.anchorMax  = new Vector2(0f, 1f);
 		scrollAreaContentTransform.pivot      = new Vector2(0f, 0.5f);
+		#endregion
 
         // Fill content
         float contentWidth = 0f;
@@ -110,11 +135,12 @@ public class MainMenuScript : MonoBehaviour
 			#region Button GameObject
 			GameObject menuItemButton = Instantiate(menuButton.gameObject) as GameObject;
 			Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
+			menuItemButton.name = menuItem.Data.Name;
 
 			//===========================================================================
 			// RectTransform Component
 			//===========================================================================
-			#region RectTransform Component			
+			#region RectTransform Component
 			RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
 			
 			menuItemButtonTransform.localScale = new Vector3(1f, 1f, 1f);
@@ -157,12 +183,15 @@ public class MainMenuScript : MonoBehaviour
 
 		scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
         scrollAreaContentTransform.sizeDelta          = new Vector2(contentWidth, 0f);
+		#endregion
 
-		// Allow to scroll content
+		#region ScrollRect Component
 		ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
 
 		scrollAreaScrollRect.content  = scrollAreaContentTransform;
 		scrollAreaScrollRect.vertical = false;
+		#endregion
+		#endregion
 	}
 
 	public void OnShowMenuSubItems(TreeNode<MenuItem> node)
@@ -175,8 +204,17 @@ public class MainMenuScript : MonoBehaviour
 		}
 
 		mPopupMenu = new PopupMenu(node);
-
 		mPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
+
+		Transform menuItemTransform = transform.FindChild("ScrollArea/Content/" + node.Data.Name);
+		Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
+
+		for (int i=0; i<4; ++i)
+		{
+			Debug.Log(menuItemCorners[i]);
+		}
+
+		mPopupMenu.Show(0, 0); // TODO: menu item pos
     }
 
 	public void OnPopupMenuDestroyed()
