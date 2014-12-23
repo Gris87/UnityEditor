@@ -206,15 +206,10 @@ public class MainMenuScript : MonoBehaviour
 		mPopupMenu = new PopupMenu(node);
 		mPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
 
-		Transform menuItemTransform = transform.FindChild("ScrollArea/Content/" + node.Data.Name);
+		RectTransform menuItemTransform = transform.FindChild("ScrollArea/Content/" + node.Data.Name).GetComponent<RectTransform>();
 		Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 
-		for (int i=0; i<4; ++i)
-		{
-			Debug.Log(menuItemCorners[i]);
-		}
-
-		mPopupMenu.Show(0, 0); // TODO: menu item pos
+		mPopupMenu.Show(menuItemCorners[0].x, menuItemCorners[0].y);
     }
 
 	public void OnPopupMenuDestroyed()

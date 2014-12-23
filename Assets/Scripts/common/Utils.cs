@@ -20,45 +20,41 @@ namespace common
             textObject.color = new Color(0, 0, 0, 1);
         }
 
-		public static Vector3[] GetWindowCorners(Transform transform)
+		public static Vector3[] GetWindowCorners(RectTransform transform)
 		{
-			Vector3[] res = new Vector3[4];
-
-			for (int i=0; i<4; ++i)
-			{
-				res[i] = new Vector3();
-			}
-
-			Transform curObject = transform;
+			RectTransform canvasTransform = transform;
 
 			do
 			{
-				RectTransform rectTransform = curObject.GetComponent<RectTransform>();
+				RectTransform tempTransform = canvasTransform.parent.GetComponent<RectTransform>();
 
-				if (rectTransform == null)
+				if (tempTransform == null)
 				{
 					break;
 				}
 
+				canvasTransform = tempTransform;
+			} while (true);
 
+			Vector3[] res = new Vector3[4];
 
-				Vector3[] temp = new Vector3[4];
-				rectTransform.GetLocalCorners(temp);
+			Vector3 vMin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+			Vector3 vMax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
-				for (int i=0; i<4; ++i)
-				{
-					Debug.Log(temp[i]);
-				}
+			Matrix4x4 toLocal = canvasTransform.worldToLocalMatrix;
+			transform.GetWorldCorners(res);
 
+			for (int j = 0; j < 4; j++)
+			{
+				Vector3 v = toLocal.MultiplyPoint3x4(res[j]);
+				vMin = Vector3.Min(v, vMin);
+				vMax = Vector3.Max(v, vMax);
+			}
 
-
-				curObject = curObject.parent;
-
-				if (curObject == null)
-				{
-					break;
-				}
-			} while(true);
+			res[0].Set(vMin.x, vMin.y, 0);
+			res[1].Set(vMin.x, vMax.y, 0);
+			res[2].Set(vMax.x, vMax.y, 0);
+			res[3].Set(vMax.x, vMin.y, 0);
 
 			return res;
 		}

@@ -69,8 +69,8 @@ namespace common
 				RectTransform popupMenuTransform = mPopupMenu.AddComponent<RectTransform>();
 
 				popupMenuTransform.localScale = new Vector3(1f, 1f, 1f);
-				popupMenuTransform.anchorMin  = new Vector2(0f, 1f);
-				popupMenuTransform.anchorMax  = new Vector2(0f, 1f);
+				popupMenuTransform.anchorMin  = new Vector2(0.5f, 0.5f);
+				popupMenuTransform.anchorMax  = new Vector2(0.5f, 0.5f);
 				popupMenuTransform.pivot      = new Vector2(0.5f, 0.5f);
 				#endregion
 
