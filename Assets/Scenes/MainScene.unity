@@ -634,7 +634,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 2029541365}
+  - 114: {fileID: 2029541367}
   - 114: {fileID: 2029541366}
+  - 222: {fileID: 2029541369}
+  - 114: {fileID: 2029541368}
   m_Layer: 5
   m_Name: PopupMenuArea
   m_TagString: Untagged
@@ -674,3 +677,42 @@ MonoBehaviour:
   separator: {fileID: 21300000, guid: 6a064b45a241d8942bd8cf360a08e1e7, type: 3}
   itemButton: {fileID: 11450056, guid: c272b247ca3ca464a8d378eefd0b961b, type: 2}
   itemButtonDisabled: {fileID: 11427262, guid: 5c266115509ed584a9483595310cdeaa, type: 2}
+--- !u!114 &2029541367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029541364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524d87dd003ecb84a8c8fc73c09e9f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catchTouches: 1
+--- !u!114 &2029541368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029541364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2029541369
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029541364}
