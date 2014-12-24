@@ -167,17 +167,19 @@ public class MainMenuScript : MonoBehaviour
 
 			#region Text Component
 			Text text = menuItemText.GetComponent<Text>();
-			Utils.InitTextObject(text, menuItem.Data.Name); // TODO: Translate
+			text.text = menuItem.Data.Name; // TODO: Translate
 			#endregion
 			#endregion
 
-			#region Calculating button size
+			#region Calculating button geometry
+			++contentWidth;
+
 			float buttonWidth = text.preferredWidth + 12;
 
 			menuItemButtonTransform.anchoredPosition3D = new Vector3(contentWidth + buttonWidth / 2, 0f, 0f);
-			menuItemButtonTransform.sizeDelta          = new Vector2(buttonWidth, 0f);
+			menuItemButtonTransform.sizeDelta          = new Vector2(buttonWidth, -2f);
 			
-			contentWidth += buttonWidth;
+			contentWidth += buttonWidth + 1;
 			#endregion
         }
 

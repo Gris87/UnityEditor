@@ -11,7 +11,7 @@ namespace common
 	{
 		public class PopupMenu
 		{
-			private static float TIME_TO_LIVE = 30; // TODO: Change to 3
+			private static float TIME_TO_LIVE = 5;
 
 
 
@@ -104,6 +104,9 @@ namespace common
 				#region RectTransform Component
 				RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
 				Utils.AlignRectTransformFill(scrollAreaTransform);
+
+				scrollAreaTransform.offsetMin = new Vector2(3f, 8f);
+				scrollAreaTransform.offsetMax = new Vector2(-8f, -3f);
 				#endregion
 
 				//***************************************************************************
@@ -126,11 +129,124 @@ namespace common
 				#endregion
 
 				// Fill content
-				float contentWidth  = 100f; // TODO: Calculate content size
-				float contentHeight = 100f;
+				float contentWidth  = 0f; // TODO: Calculate content size
+				float contentHeight = 0f;
+
+				// Create menu item buttons
+				foreach (TreeNode<MenuItem> menuItem in mItems.Children)
+				{
+					if (menuItem.Data.IsSeparator)
+					{
+						//***************************************************************************
+						// Separator GameObject
+						//***************************************************************************
+						#region Separator GameObject
+						GameObject menuSeparator = new GameObject("Separator");
+						Utils.InitUIObject(menuSeparator, scrollAreaContent.transform);
+
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						float separatorHeight = 8;
+
+						RectTransform menuItemSeparatorTransform = menuSeparator.AddComponent<RectTransform>();
+						
+						menuItemSeparatorTransform.localScale         = new Vector3(1f, 1f, 1f);
+						menuItemSeparatorTransform.anchorMin          = new Vector2(0f, 1f);
+						menuItemSeparatorTransform.anchorMax          = new Vector2(1f, 1f);						
+						menuItemSeparatorTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - separatorHeight / 2, 0f);
+						menuItemSeparatorTransform.sizeDelta          = new Vector2(0f, separatorHeight);
+						menuItemSeparatorTransform.offsetMin          = new Vector2(28f, menuItemSeparatorTransform.offsetMin.y);
+												
+						contentHeight += separatorHeight;
+						#endregion
+						
+						//===========================================================================
+						// Image Component
+						//===========================================================================
+						#region Image Component
+						Image image = menuSeparator.AddComponent<Image>();
+
+						image.sprite = Global.PopupMenuArea.separator;
+						#endregion
+						#endregion
+					}
+					else
+					{
+						//***************************************************************************
+						// Button GameObject
+						//***************************************************************************
+						#region Button GameObject
+						GameObject menuItemButton;
+						
+						if (menuItem.Data.Enabled)
+						{
+							menuItemButton = UnityEngine.Object.Instantiate(Global.PopupMenuArea.itemButton.gameObject) as GameObject;
+						}
+						else
+						{
+							menuItemButton = UnityEngine.Object.Instantiate(Global.PopupMenuArea.itemButtonDisabled.gameObject) as GameObject;
+						}
+						
+						Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
+						menuItemButton.name = menuItem.Data.Name;
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
+						
+						menuItemButtonTransform.localScale = new Vector3(1f, 1f, 1f);
+						menuItemButtonTransform.anchorMin  = new Vector2(0f, 1f);
+						menuItemButtonTransform.anchorMax  = new Vector2(1f, 1f);
+						#endregion
+						
+						//===========================================================================
+						// Button Component
+						//===========================================================================
+						#region Button Component
+						Button button = menuItemButton.GetComponent<Button>();
+						
+						if (menuItem.Data.Enabled)
+						{
+							button.onClick.AddListener(menuItem.Data.OnClick);
+						}
+						#endregion
+						#endregion
+						
+						//***************************************************************************
+						// Text GameObject
+						//***************************************************************************
+						#region Text GameObject
+						GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject;
+						
+						#region Text Component
+						Text text = menuItemText.GetComponent<Text>();
+						text.text = menuItem.Data.Name; // TODO: Translate
+						#endregion
+						#endregion
+						
+						#region Calculating button geometry
+						float buttonWidth  = text.preferredWidth  + 44;
+						float buttonHeight = text.preferredHeight + 8;
+						
+						menuItemButtonTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - buttonHeight / 2, 0f);
+						menuItemButtonTransform.sizeDelta          = new Vector2(0f, buttonHeight);
+						
+						if (buttonWidth > contentWidth)
+						{
+							contentWidth = buttonWidth;
+						}
+						
+						contentHeight += buttonHeight;
+						#endregion
+					}
+				}
 
 				scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
-				scrollAreaContentTransform.sizeDelta          = new Vector2(contentWidth, contentHeight);
+				scrollAreaContentTransform.sizeDelta          = new Vector2(0f, contentHeight);
 				#endregion
 				
 				#region ScrollRect Component
@@ -141,8 +257,8 @@ namespace common
 				#endregion
 				#endregion
 
-				float popupMenuWidth  = 100f; // TODO: Calculate popup menu size
-				float popupMenuHeight = 100f;
+				float popupMenuWidth  = contentWidth  + 12; // TODO: Calculate popup menu size
+				float popupMenuHeight = contentHeight + 12;
 
 				popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f);
 				popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);

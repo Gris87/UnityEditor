@@ -8,4 +8,5 @@ public class PopupMenuAreaScript : MonoBehaviour
 	public Sprite background;
 	public Sprite separator;
 	public Button itemButton;
+	public Button itemButtonDisabled;
 }

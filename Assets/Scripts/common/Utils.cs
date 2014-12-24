@@ -14,12 +14,6 @@ namespace common
             uiObject.layer = LayerMask.NameToLayer("UI");
         }
 
-        public static void InitTextObject(Text textObject, string text)
-        {
-            textObject.text  = text;
-            textObject.color = new Color(0, 0, 0, 1);
-        }
-
 		public static Vector3[] GetWindowCorners(RectTransform transform)
 		{
 			RectTransform canvasTransform = transform;
@@ -51,10 +45,10 @@ namespace common
 				vMax = Vector3.Max(v, vMax);
 			}
 
-			res[0].Set(vMin.x, vMin.y, 0);
-			res[1].Set(vMin.x, vMax.y, 0);
-			res[2].Set(vMax.x, vMax.y, 0);
-			res[3].Set(vMax.x, vMin.y, 0);
+			res[0].Set(vMin.x, vMin.y, 0f);
+			res[1].Set(vMin.x, vMax.y, 0f);
+			res[2].Set(vMax.x, vMax.y, 0f);
+			res[3].Set(vMax.x, vMin.y, 0f);
 
 			return res;
 		}
