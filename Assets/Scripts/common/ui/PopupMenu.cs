@@ -11,14 +11,9 @@ namespace common
 	{
 		public class PopupMenu
 		{
-			private static float TIME_TO_LIVE = 5;
-
-
-
 			private TreeNode<MenuItem> mItems      = null;
 			private GameObject         mPopupMenu  = null;
 			private UnityEvent         mOnDestroy  = null;
-			private float              mTimerStart = 0;
 
 
 
@@ -28,32 +23,22 @@ namespace common
 				mOnDestroy = new UnityEvent();
 			}
 
-			public void Update()
-			{
-				float curTime = Time.realtimeSinceStartup;
-
-				if (curTime >= mTimerStart + TIME_TO_LIVE)
-				{
-					Destroy();
-				}
-			}
-
 			public void Destroy()
 			{
-				Debug.Log("PopupMenu.Destroy");
-
 				if (mPopupMenu != null)
 				{
 					UnityEngine.Object.Destroy(mPopupMenu);
 					mPopupMenu = null;
 				}
 
+				Global.PopupMenuArea.DeregisterPopupMenu(this);
+
 				mOnDestroy.Invoke();
 			}
 
 			public void Show(float x, float y)
 			{
-				RestartTimer();
+				Global.PopupMenuArea.RegisterPopupMenu(this);
 
 				//***************************************************************************
 				// PopupMenu GameObject
@@ -263,11 +248,6 @@ namespace common
 				popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f);
 				popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);
 				#endregion
-			}
-
-			private void RestartTimer()
-			{
-				mTimerStart = Time.realtimeSinceStartup;
 			}
 
 			public TreeNode<MenuItem> items

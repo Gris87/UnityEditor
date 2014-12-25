@@ -1,7 +1,8 @@
-Hide popup menu when press outside or press Esc
 Shortcuts
 Extend popup menu width
 sub popup menu
 Limit popup menu and sub popup menu
+Destroy sub popup menu
 Toolbar
 Docking area
+Undo/Redo
