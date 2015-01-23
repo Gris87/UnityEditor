@@ -211,7 +211,7 @@ namespace common
 						
 						if (menuItem.Data.Enabled)
 						{
-							button.onClick.AddListener(menuItem.Data.OnClick);
+							button.onClick.AddListener(menuItem.Data.OnClick); // TODO: If menuItem has children then we should display subitems
 						}
 						#endregion
 						#endregion
