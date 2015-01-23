@@ -6,14 +6,27 @@ using System;
 
 namespace common
 {
+	/// <summary>
+	/// Class for Unity Editor usefull functions.
+	/// </summary>
     public static class Utils
     {
+		/// <summary>
+		/// Put UI object in specified transform and initialize this UI object.
+		/// </summary>
+		/// <param name="uiObject">User interface object.</param>
+		/// <param name="parent">Parent transform.</param>
         public static void InitUIObject(GameObject uiObject, Transform parent)
         {
             uiObject.transform.SetParent(parent);
             uiObject.layer = LayerMask.NameToLayer("UI");
         }
 
+		/// <summary>
+		/// Gets the local coordinates for corners of specified transform.
+		/// </summary>
+		/// <returns>The local coordinates for corners of specified transform.</returns>
+		/// <param name="transform">RectTransform instance.</param>
 		public static Vector3[] GetWindowCorners(RectTransform transform)
 		{
 			RectTransform canvasTransform = transform;
@@ -53,13 +66,18 @@ namespace common
 			return res;
 		}
 
+		/// <summary>
+		/// Setup RectTransform to fill whole space of parent RectTransform.
+		/// </summary>
+		/// <param name="transform">RectTransform instance.</param>
         public static void AlignRectTransformFill(RectTransform transform)
         {
 			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0f, 0f);
+			transform.anchorMax          = new Vector2(1f, 1f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
             transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
-            transform.sizeDelta          = new Vector2(0f, 0f);
-            transform.anchorMin          = new Vector2(0f, 0f);
-            transform.anchorMax          = new Vector2(1f, 1f);
+            transform.sizeDelta          = new Vector2(0f, 0f);            
         }
 
 		// TODO: Add more Align functions

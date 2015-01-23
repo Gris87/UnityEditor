@@ -7,32 +7,56 @@ using common.ui;
 
 
 
+/// <summary>
+/// Script that realize behaviour for PopupMenus controller.
+/// </summary>
 public class PopupMenuAreaScript : MonoBehaviour
 {
+	/// <summary>
+	/// PopupMenu background.
+	/// </summary>
 	public Sprite background;
+
+	/// <summary>
+	/// Separator image.
+	/// </summary>
 	public Sprite separator;
+
+	/// <summary>
+	/// Item button prefab.
+	/// </summary>
 	public Button itemButton;
+
+	/// <summary>
+	/// Disabled item button prefab.
+	/// </summary>
 	public Button itemButtonDisabled;
+
+
 
 	private List<PopupMenu> mPopupMenus;
 
 
 
-	// Use this for initialization
+	/// <summary>
+	/// Script starting callback.
+	/// </summary>
 	void Start()
 	{
 		mPopupMenus = new List<PopupMenu>();
 	}
 
-	// Update is called once per frame
+	/// <summary>
+	/// Update is called once per frame.
+	/// </summary>
 	void Update()
 	{
 		if (mPopupMenus.Count > 0)
 		{
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown(0)) // TODO: InputControl
 			{
 				PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
-				pointerEvent.position = Input.mousePosition;
+				pointerEvent.position = Input.mousePosition; // TODO: InputControl
 				
 				List<RaycastResult> hits = new List<RaycastResult>();
 				EventSystem.current.RaycastAll(pointerEvent, hits);
@@ -61,18 +85,26 @@ public class PopupMenuAreaScript : MonoBehaviour
 				}
 			}
 			else
-		    if (Input.GetButtonDown("Cancel"))
+		    if (Input.GetButtonDown("Cancel")) // TODO: InputControl
 			{
 				mPopupMenus[mPopupMenus.Count - 1].Destroy();
 			}
 		}
 	}
 
+	/// <summary>
+	/// Registers specified popup menu.
+	/// </summary>
+	/// <param name="menu">Popup menu.</param>
 	public void RegisterPopupMenu(PopupMenu menu)
 	{
 		mPopupMenus.Add(menu);
 	}
 
+	/// <summary>
+	/// Deregisters specified popup menu.
+	/// </summary>
+	/// <param name="menu">Popup menu.</param>
 	public void DeregisterPopupMenu(PopupMenu menu)
 	{
 		mPopupMenus.Remove(menu);

@@ -9,6 +9,9 @@ namespace common
 {
 	namespace ui
 	{
+		/// <summary>
+		/// Popup menu.
+		/// </summary>
 		public class PopupMenu
 		{
 			private TreeNode<MenuItem> mItems      = null;
@@ -17,12 +20,19 @@ namespace common
 
 
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="common.ui.PopupMenu"/> class with specified menu items.
+			/// </summary>
+			/// <param name="items">Items.</param>
 			public PopupMenu(TreeNode<MenuItem> items)
 			{
 				mItems     = items;
 				mOnDestroy = new UnityEvent();
 			}
 
+			/// <summary>
+			/// Destroy this instance.
+			/// </summary>
 			public void Destroy()
 			{
 				if (mPopupMenu != null)
@@ -36,6 +46,11 @@ namespace common
 				mOnDestroy.Invoke();
 			}
 
+			/// <summary>
+			/// Show popup menu at the specified coordinates.
+			/// </summary>
+			/// <param name="x">The x coordinate.</param>
+			/// <param name="y">The y coordinate.</param>
 			public void Show(float x, float y)
 			{
 				Global.PopupMenuArea.RegisterPopupMenu(this);
@@ -114,7 +129,7 @@ namespace common
 				#endregion
 
 				// Fill content
-				float contentWidth  = 0f; // TODO: Calculate content size
+				float contentWidth  = 0f;
 				float contentHeight = 0f;
 
 				// Create menu item buttons
@@ -175,7 +190,7 @@ namespace common
 						}
 						
 						Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-						menuItemButton.name = menuItem.Data.Name;
+						menuItemButton.name = menuItem.Data.Name; // TODO: Token id to string
 						
 						//===========================================================================
 						// RectTransform Component
@@ -242,7 +257,7 @@ namespace common
 				#endregion
 				#endregion
 
-				float popupMenuWidth  = contentWidth  + 12; // TODO: Calculate popup menu size
+				float popupMenuWidth  = contentWidth  + 12; // TODO: Calculate popup menu size related to window size
 				float popupMenuHeight = contentHeight + 12;
 
 				popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f);
@@ -250,11 +265,19 @@ namespace common
 				#endregion
 			}
 
+			/// <summary>
+			/// Gets the menu items.
+			/// </summary>
+			/// <value>The menu items.</value>
 			public TreeNode<MenuItem> items
 			{
 				get { return mItems; }
 			}
-						
+					
+			/// <summary>
+			/// Gets the destroy event handler.
+			/// </summary>
+			/// <value>The destroy event handler.</value>
 			public UnityEvent OnDestroy
 			{
 				get { return mOnDestroy; }

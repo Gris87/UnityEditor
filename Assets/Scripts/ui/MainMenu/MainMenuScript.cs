@@ -6,9 +6,17 @@ using common.ui;
 
 
 
+/// <summary>
+/// Script that realize main menu behaviour.
+/// </summary>
 public class MainMenuScript : MonoBehaviour
 {
+	/// <summary>
+	/// Menu item button prefab.
+	/// </summary>
     public Button menuButton = null;
+
+
 
 	#region Menu items
 	private TreeNode<MenuItem> mItems = null;
@@ -149,13 +157,18 @@ public class MainMenuScript : MonoBehaviour
 
 
 
-	// Use this for initialization
+	/// <summary>
+	/// Script starting callback.
+	/// </summary>
 	void Start()
 	{
         CreateMenuItems();
 		CreateUI();
 	}
 
+	/// <summary>
+	/// Creates menu items.
+	/// </summary>
     private void CreateMenuItems()
     {
 		// Root
@@ -164,72 +177,72 @@ public class MainMenuScript : MonoBehaviour
         #region File
         mFileMenu            =   MenuItem.Create(mItems,    "File",              OnFileMenu);
         
-		/*mNewSceneItem      =*/ MenuItem.Create(mFileMenu, "New Scene",         OnNewScene);
-		/*mOpenSceneItem     =*/ MenuItem.Create(mFileMenu, "Open Scene",        OnOpenScene);
+		/*mNewSceneItem      =*/ MenuItem.Create(mFileMenu, "New Scene",         OnFile_NewScene);
+		/*mOpenSceneItem     =*/ MenuItem.Create(mFileMenu, "Open Scene",        OnFile_OpenScene);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mSaveSceneItem     =*/ MenuItem.Create(mFileMenu, "Save Scene",        OnSaveScene);
-		/*mSaveSceneAsItem   =*/ MenuItem.Create(mFileMenu, "Save Scene as...",  OnSaveSceneAs);
+		/*mSaveSceneItem     =*/ MenuItem.Create(mFileMenu, "Save Scene",        OnFile_SaveScene);
+		/*mSaveSceneAsItem   =*/ MenuItem.Create(mFileMenu, "Save Scene as...",  OnFile_SaveSceneAs);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mNewProjectItem    =*/ MenuItem.Create(mFileMenu, "New Project...",    OnNewProject);
-		/*mOpenProjectItem   =*/ MenuItem.Create(mFileMenu, "Open Project...",   OnOpenProject);
-		/*mSaveProjectItem   =*/ MenuItem.Create(mFileMenu, "Save Project",      OnSaveProject);
+		/*mNewProjectItem    =*/ MenuItem.Create(mFileMenu, "New Project...",    OnFile_NewProject);
+		/*mOpenProjectItem   =*/ MenuItem.Create(mFileMenu, "Open Project...",   OnFile_OpenProject);
+		/*mSaveProjectItem   =*/ MenuItem.Create(mFileMenu, "Save Project",      OnFile_SaveProject);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mBuildSettingsItem =*/ MenuItem.Create(mFileMenu, "Build Settings...", OnBuildSettings);
-		/*mBuildAndRunItem   =*/ MenuItem.Create(mFileMenu, "Build & Run",       OnBuildAndRun);
+		/*mBuildSettingsItem =*/ MenuItem.Create(mFileMenu, "Build Settings...", OnFile_BuildSettings);
+		/*mBuildAndRunItem   =*/ MenuItem.Create(mFileMenu, "Build & Run",       OnFile_BuildAndRun);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mExitItem          =*/ MenuItem.Create(mFileMenu, "Exit",              OnExit);
+		/*mExitItem          =*/ MenuItem.Create(mFileMenu, "Exit",              OnFile_Exit);
         #endregion
 
 		#region Edit
 		mEditMenu                            =   MenuItem.Create(mItems,    "Edit",                              OnEditMenu);
 
-		/*mUndoItem                          =*/ MenuItem.Create(mEditMenu, "Undo",                              OnUndo); // TODO: Change name of menu item after changes
-		/*mRedoItem                          =*/ MenuItem.Create(mEditMenu, "Redo",                              OnRedo); // TODO: Change name of menu item after changes
+		/*mUndoItem                          =*/ MenuItem.Create(mEditMenu, "Undo",                              OnEdit_Undo); // TODO: Change name of menu item after changes
+		/*mRedoItem                          =*/ MenuItem.Create(mEditMenu, "Redo",                              OnEdit_Redo); // TODO: Change name of menu item after changes
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mCutItem                           =*/ MenuItem.Create(mEditMenu, "Cut",                               OnCut);
-		/*mCopyItem                          =*/ MenuItem.Create(mEditMenu, "Copy",                              OnCopy);
-		/*mPasteItem                         =*/ MenuItem.Create(mEditMenu, "Paste",                             OnPaste);
+		/*mCutItem                           =*/ MenuItem.Create(mEditMenu, "Cut",                               OnEdit_Cut);
+		/*mCopyItem                          =*/ MenuItem.Create(mEditMenu, "Copy",                              OnEdit_Copy);
+		/*mPasteItem                         =*/ MenuItem.Create(mEditMenu, "Paste",                             OnEdit_Paste);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mDuplicateItem                     =*/ MenuItem.Create(mEditMenu, "Duplicate",                         OnDuplicate);
-		/*mDeleteItem                        =*/ MenuItem.Create(mEditMenu, "Delete",                            OnDelete);
+		/*mDuplicateItem                     =*/ MenuItem.Create(mEditMenu, "Duplicate",                         OnEdit_Duplicate);
+		/*mDeleteItem                        =*/ MenuItem.Create(mEditMenu, "Delete",                            OnEdit_Delete);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mFrameSelectedItem                 =*/ MenuItem.Create(mEditMenu, "Frame Selected",                    OnFrameSelected);
-		/*mLockViewToSelectedItem            =*/ MenuItem.Create(mEditMenu, "Lock View to Selected",             OnLockViewToSelected);
-		/*mFindItem                          =*/ MenuItem.Create(mEditMenu, "Find",                              OnFind);
-		/*mSelectAllItem                     =*/ MenuItem.Create(mEditMenu, "Select All",                        OnSelectAll);
+		/*mFrameSelectedItem                 =*/ MenuItem.Create(mEditMenu, "Frame Selected",                    OnEdit_FrameSelected);
+		/*mLockViewToSelectedItem            =*/ MenuItem.Create(mEditMenu, "Lock View to Selected",             OnEdit_LockViewToSelected);
+		/*mFindItem                          =*/ MenuItem.Create(mEditMenu, "Find",                              OnEdit_Find);
+		/*mSelectAllItem                     =*/ MenuItem.Create(mEditMenu, "Select All",                        OnEdit_SelectAll);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mPreferencesItem                   =*/ MenuItem.Create(mEditMenu, "Preferences...",                    OnPreferences);
-		/*mModulesItem                       =*/ MenuItem.Create(mEditMenu, "Modules...",                        OnModules);
+		/*mPreferencesItem                   =*/ MenuItem.Create(mEditMenu, "Preferences...",                    OnEdit_Preferences);
+		/*mModulesItem                       =*/ MenuItem.Create(mEditMenu, "Modules...",                        OnEdit_Modules);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mPlayItem                          =*/ MenuItem.Create(mEditMenu, "Play",                              OnPlay);
-		/*mPauseItem                         =*/ MenuItem.Create(mEditMenu, "Pause",                             OnPause);
-		/*mStepItem                          =*/ MenuItem.Create(mEditMenu, "Step",                              OnStep);
+		/*mPlayItem                          =*/ MenuItem.Create(mEditMenu, "Play",                              OnEdit_Play);
+		/*mPauseItem                         =*/ MenuItem.Create(mEditMenu, "Pause",                             OnEdit_Pause);
+		/*mStepItem                          =*/ MenuItem.Create(mEditMenu, "Step",                              OnEdit_Step);
 		MenuItem.InsertSeparator(mEditMenu);
 
 		#region Edit->Selection
 		mSelectionItem                       =   MenuItem.Create(mEditMenu, "Selection");
 		
-		/*mLoadSelection1Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 1",             OnLoadSelection1);
-		/*mLoadSelection2Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 2",             OnLoadSelection2);
-		/*mLoadSelection3Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 3",             OnLoadSelection3);
-		/*mLoadSelection4Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 4",             OnLoadSelection4);
-		/*mLoadSelection5Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 5",             OnLoadSelection5);
-		/*mLoadSelection6Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 6",             OnLoadSelection6);
-		/*mLoadSelection7Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 7",             OnLoadSelection7);
-		/*mLoadSelection8Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 8",             OnLoadSelection8);
-		/*mLoadSelection9Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 9",             OnLoadSelection9);
-		/*mLoadSelection0Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 0",             OnLoadSelection0);
+		/*mLoadSelection1Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 1",             OnEdit_Selection_LoadSelection1);
+		/*mLoadSelection2Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 2",             OnEdit_Selection_LoadSelection2);
+		/*mLoadSelection3Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 3",             OnEdit_Selection_LoadSelection3);
+		/*mLoadSelection4Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 4",             OnEdit_Selection_LoadSelection4);
+		/*mLoadSelection5Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 5",             OnEdit_Selection_LoadSelection5);
+		/*mLoadSelection6Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 6",             OnEdit_Selection_LoadSelection6);
+		/*mLoadSelection7Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 7",             OnEdit_Selection_LoadSelection7);
+		/*mLoadSelection8Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 8",             OnEdit_Selection_LoadSelection8);
+		/*mLoadSelection9Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 9",             OnEdit_Selection_LoadSelection9);
+		/*mLoadSelection0Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 0",             OnEdit_Selection_LoadSelection0);
 		
-		/*mSaveSelection1Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 1",             OnSaveSelection1);
-		/*mSaveSelection2Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 2",             OnSaveSelection2);
-		/*mSaveSelection3Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 3",             OnSaveSelection3);
-		/*mSaveSelection4Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 4",             OnSaveSelection4);
-		/*mSaveSelection5Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 5",             OnSaveSelection5);
-		/*mSaveSelection6Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 6",             OnSaveSelection6);
-		/*mSaveSelection7Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 7",             OnSaveSelection7);
-		/*mSaveSelection8Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 8",             OnSaveSelection8);
-		/*mSaveSelection9Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 9",             OnSaveSelection9);
-		/*mSaveSelection0Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 0",             OnSaveSelection0);
+		/*mSaveSelection1Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 1",             OnEdit_Selection_SaveSelection1);
+		/*mSaveSelection2Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 2",             OnEdit_Selection_SaveSelection2);
+		/*mSaveSelection3Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 3",             OnEdit_Selection_SaveSelection3);
+		/*mSaveSelection4Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 4",             OnEdit_Selection_SaveSelection4);
+		/*mSaveSelection5Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 5",             OnEdit_Selection_SaveSelection5);
+		/*mSaveSelection6Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 6",             OnEdit_Selection_SaveSelection6);
+		/*mSaveSelection7Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 7",             OnEdit_Selection_SaveSelection7);
+		/*mSaveSelection8Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 8",             OnEdit_Selection_SaveSelection8);
+		/*mSaveSelection9Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 9",             OnEdit_Selection_SaveSelection9);
+		/*mSaveSelection0Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 0",             OnEdit_Selection_SaveSelection0);
 		#endregion
 
 		MenuItem.InsertSeparator(mEditMenu);
@@ -237,43 +250,43 @@ public class MainMenuScript : MonoBehaviour
 		#region Edit->Project Settings
 		mProjectSettingsItem                 =   MenuItem.Create(mEditMenu, "Project Settings");
 		
-		/*mInputItem                         =*/ MenuItem.Create(mProjectSettingsItem, "Input",                  OnInput);
-		/*mTagsAndLayersItem                 =*/ MenuItem.Create(mProjectSettingsItem, "Tags and Layers",        OnTagsAndLayers);
-		/*mAudioItem                         =*/ MenuItem.Create(mProjectSettingsItem, "Audio",                  OnAudio);
-		/*mTimeItem                          =*/ MenuItem.Create(mProjectSettingsItem, "Time",                   OnTime);
-		/*mPlayerItem                        =*/ MenuItem.Create(mProjectSettingsItem, "Player",                 OnPlayer);
-		/*mPhysicsItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Physics",                OnPhysics);
-		/*mPhysics2DItem                     =*/ MenuItem.Create(mProjectSettingsItem, "Physics 2D",             OnPhysics2D);
-		/*mQualityItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Quality",                OnQuality);
-		/*mGraphicsItem                      =*/ MenuItem.Create(mProjectSettingsItem, "Graphics",               OnGraphics);
-		/*mNetworkItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Network",                OnNetwork);
-		/*mEditorItem                        =*/ MenuItem.Create(mProjectSettingsItem, "Editor",                 OnEditor);
-		/*mScriptExecutionOrderItem          =*/ MenuItem.Create(mProjectSettingsItem, "Script Execution Order", OnScriptExecutionOrder);
+		/*mInputItem                         =*/ MenuItem.Create(mProjectSettingsItem, "Input",                  OnEdit_ProjectSettings_Input);
+		/*mTagsAndLayersItem                 =*/ MenuItem.Create(mProjectSettingsItem, "Tags and Layers",        OnEdit_ProjectSettings_TagsAndLayers);
+		/*mAudioItem                         =*/ MenuItem.Create(mProjectSettingsItem, "Audio",                  OnEdit_ProjectSettings_Audio);
+		/*mTimeItem                          =*/ MenuItem.Create(mProjectSettingsItem, "Time",                   OnEdit_ProjectSettings_Time);
+		/*mPlayerItem                        =*/ MenuItem.Create(mProjectSettingsItem, "Player",                 OnEdit_ProjectSettings_Player);
+		/*mPhysicsItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Physics",                OnEdit_ProjectSettings_Physics);
+		/*mPhysics2DItem                     =*/ MenuItem.Create(mProjectSettingsItem, "Physics 2D",             OnEdit_ProjectSettings_Physics2D);
+		/*mQualityItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Quality",                OnEdit_ProjectSettings_Quality);
+		/*mGraphicsItem                      =*/ MenuItem.Create(mProjectSettingsItem, "Graphics",               OnEdit_ProjectSettings_Graphics);
+		/*mNetworkItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Network",                OnEdit_ProjectSettings_Network);
+		/*mEditorItem                        =*/ MenuItem.Create(mProjectSettingsItem, "Editor",                 OnEdit_ProjectSettings_Editor);
+		/*mScriptExecutionOrderItem          =*/ MenuItem.Create(mProjectSettingsItem, "Script Execution Order", OnEdit_ProjectSettings_ScriptExecutionOrder);
 		#endregion
 		
-		/*mRenderSettingsItem                =*/ MenuItem.Create(mEditMenu, "Render Settings",                   OnRenderSettings);
+		/*mRenderSettingsItem                =*/ MenuItem.Create(mEditMenu, "Render Settings",                   OnEdit_RenderSettings);
 		MenuItem.InsertSeparator(mEditMenu);
 
 		#region Edit->Network Emulation
 		mNetworkEmulationItem                =   MenuItem.Create(mEditMenu, "Network Emulation");
 		
-		/*mNetworkEmulationNoneItem          =*/ MenuItem.Create(mNetworkEmulationItem, "None",                  OnNetworkEmulationNone);
-		/*mNetworkEmulationBroadbandItem     =*/ MenuItem.Create(mNetworkEmulationItem, "Broadband",             OnNetworkEmulationBroadband);
-		/*mNetworkEmulationDSLItem           =*/ MenuItem.Create(mNetworkEmulationItem, "DSL",                   OnNetworkEmulationDSL);
-		/*mNetworkEmulationISDNItem          =*/ MenuItem.Create(mNetworkEmulationItem, "ISDN",                  OnNetworkEmulationISDN);
-		/*mNetworkEmulationDialUpItem        =*/ MenuItem.Create(mNetworkEmulationItem, "Dial-Up",               OnNetworkEmulationDialUp);
+		/*mNetworkEmulationNoneItem          =*/ MenuItem.Create(mNetworkEmulationItem, "None",                  OnEdit_NetworkEmulation_None);
+		/*mNetworkEmulationBroadbandItem     =*/ MenuItem.Create(mNetworkEmulationItem, "Broadband",             OnEdit_NetworkEmulation_Broadband);
+		/*mNetworkEmulationDSLItem           =*/ MenuItem.Create(mNetworkEmulationItem, "DSL",                   OnEdit_NetworkEmulation_DSL);
+		/*mNetworkEmulationISDNItem          =*/ MenuItem.Create(mNetworkEmulationItem, "ISDN",                  OnEdit_NetworkEmulation_ISDN);
+		/*mNetworkEmulationDialUpItem        =*/ MenuItem.Create(mNetworkEmulationItem, "Dial-Up",               OnEdit_NetworkEmulation_DialUp);
 		#endregion
 		
 		#region Edit->Graphics Emulation
 		mGraphicsEmulationItem               =   MenuItem.Create(mEditMenu, "Graphics Emulation");
 		
-		/*mGraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mGraphicsEmulationItem, "No Emulation",         OnGraphicsEmulationNoEmulation);
-		/*mGraphicsEmulationShaderModel3Item =*/ MenuItem.Create(mGraphicsEmulationItem, "Shader Model 2",       OnGraphicsEmulationShaderModel3);
-		/*mGraphicsEmulationShaderModel2Item =*/ MenuItem.Create(mGraphicsEmulationItem, "Shader Model 2",       OnGraphicsEmulationShaderModel2);
+		/*mGraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mGraphicsEmulationItem, "No Emulation",         OnEdit_GraphicsEmulation_NoEmulation);
+		/*mGraphicsEmulationShaderModel3Item =*/ MenuItem.Create(mGraphicsEmulationItem, "Shader Model 3",       OnEdit_GraphicsEmulation_ShaderModel3);
+		/*mGraphicsEmulationShaderModel2Item =*/ MenuItem.Create(mGraphicsEmulationItem, "Shader Model 2",       OnEdit_GraphicsEmulation_ShaderModel2);
 		#endregion
 
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mSnapSettingsItem                  =*/ MenuItem.Create(mEditMenu,              "Snap Settings...",     OnSnapSettings);
+		/*mSnapSettingsItem                  =*/ MenuItem.Create(mEditMenu,              "Snap Settings...",     OnEdit_SnapSettings);
 		#endregion
 
 		#region Assets
@@ -297,7 +310,10 @@ public class MainMenuScript : MonoBehaviour
 		#endregion
     }
 
-	private void CreateUI()
+	/// <summary>
+	/// Creates user interface.
+	/// </summary>
+	private void CreateUI() // TODO: Report bug for ///
 	{
 		//***************************************************************************
 		// ScrollArea GameObject
@@ -345,7 +361,7 @@ public class MainMenuScript : MonoBehaviour
 			#region Button GameObject
 			GameObject menuItemButton = Instantiate(menuButton.gameObject) as GameObject;
 			Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-			menuItemButton.name = menuItem.Data.Name;
+			menuItemButton.name = menuItem.Data.Name; // TODO: Token id to string
 
 			//===========================================================================
 			// RectTransform Component
@@ -364,7 +380,7 @@ public class MainMenuScript : MonoBehaviour
 			#region Button Component
 			Button button = menuItemButton.GetComponent<Button>();
 			
-			button.interactable = menuItem.Data.Enabled;
+			button.interactable = menuItem.Data.Enabled; // TODO: Check it. Maybe do the same as for PopupMenu
 			button.onClick.AddListener(menuItem.Data.OnClick);
 			#endregion
 			#endregion
@@ -406,6 +422,10 @@ public class MainMenuScript : MonoBehaviour
 		#endregion
 	}
 
+	/// <summary>
+	/// Creates and displays popup menu for specified menu item.
+	/// </summary>
+	/// <param name="node"><see cref="common.TreeNode`1"/> instance.</param>
 	public void OnShowMenuSubItems(TreeNode<MenuItem> node)
     {
 		Debug.Log("MainMenuScript.OnShowMenuSubItems(" + node.Data.Name + ")");
@@ -424,6 +444,9 @@ public class MainMenuScript : MonoBehaviour
 		mPopupMenu.Show(menuItemCorners[0].x, menuItemCorners[0].y);
     }
 
+	/// <summary>
+	/// Handler for popup menu destroy event.
+	/// </summary>
 	public void OnPopupMenuDestroyed()
 	{
 		Debug.Log("MainMenuScript.OnPopupMenuDestroyed");
@@ -433,436 +456,649 @@ public class MainMenuScript : MonoBehaviour
 
 	#region Handlers for menu items
 	#region File
+	/// <summary>
+	/// Handler for File.
+	/// </summary>
 	public void OnFileMenu()
 	{
 		OnShowMenuSubItems(mFileMenu);
 	}
 
-	public void OnNewScene()
+	/// <summary>
+	/// Handler for File->New Scene.
+	/// </summary>
+	public void OnFile_NewScene()
 	{
-		Debug.Log("MainMenuScript.OnNewScene");
-		// TODO: Implement MainMenuScript.OnNewScene
+		Debug.Log("MainMenuScript.OnFile_NewScene");
+		// TODO: Implement MainMenuScript.OnFile_NewScene
 	}
 
-	public void OnOpenScene()
+	/// <summary>
+	/// Handler for File->Open Scene.
+	/// </summary>
+	public void OnFile_OpenScene()
 	{
-		Debug.Log("MainMenuScript.OnOpenScene");
-		// TODO: Implement MainMenuScript.OnOpenScene
+		Debug.Log("MainMenuScript.OnFile_OpenScene");
+		// TODO: Implement MainMenuScript.OnFile_OpenScene
 	}
 
-	public void OnSaveScene()
+	/// <summary>
+	/// Handler for File->Save Scene.
+	/// </summary>
+	public void OnFile_SaveScene()
 	{
-		Debug.Log("MainMenuScript.OnSaveScene");
-		// TODO: Implement MainMenuScript.OnSaveScene
+		Debug.Log("MainMenuScript.OnFile_SaveScene");
+		// TODO: Implement MainMenuScript.OnFile_SaveScene
 	}
 
-	public void OnSaveSceneAs()
+	/// <summary>
+	/// Handler for File->Save Scene as...
+	/// </summary>
+	public void OnFile_SaveSceneAs()
 	{
-		Debug.Log("MainMenuScript.OnSaveSceneAs");
-		// TODO: Implement MainMenuScript.OnSaveSceneAs
+		Debug.Log("MainMenuScript.OnFile_SaveSceneAs");
+		// TODO: Implement MainMenuScript.OnFile_SaveSceneAs
 	}
 
-	public void OnNewProject()
+	/// <summary>
+	/// Handler for File->New Project...
+	/// </summary>
+	public void OnFile_NewProject()
 	{
-		Debug.Log("MainMenuScript.OnNewProject");
-		// TODO: Implement MainMenuScript.OnNewProject
+		Debug.Log("MainMenuScript.OnFile_NewProject");
+		// TODO: Implement MainMenuScript.OnFile_NewProject
 	}
-	
-	public void OnOpenProject()
+
+	/// <summary>
+	/// Handler for File->Open Project...
+	/// </summary>
+	public void OnFile_OpenProject()
 	{
-		Debug.Log("MainMenuScript.OnOpenProject");
-		// TODO: Implement MainMenuScript.OnOpenProject
+		Debug.Log("MainMenuScript.OnFile_OpenProject");
+		// TODO: Implement MainMenuScript.OnFile_OpenProject
 	}
-	
-	public void OnSaveProject()
+
+	/// <summary>
+	/// Handler for File->Save Project.
+	/// </summary>
+	public void OnFile_SaveProject()
 	{
-		Debug.Log("MainMenuScript.OnSaveProject");
-		// TODO: Implement MainMenuScript.OnSaveProject
+		Debug.Log("MainMenuScript.OnFile_SaveProject");
+		// TODO: Implement MainMenuScript.OnFile_SaveProject
 	}
-	
-	public void OnBuildSettings()
+
+	/// <summary>
+	/// Handler for File->Build Settings...
+	/// </summary>
+	public void OnFile_BuildSettings()
 	{
-		Debug.Log("MainMenuScript.OnBuildSettings");
-		// TODO: Implement MainMenuScript.OnBuildSettings
+		Debug.Log("MainMenuScript.OnFile_BuildSettings");
+		// TODO: Implement MainMenuScript.OnFile_BuildSettings
 	}
-	
-	public void OnBuildAndRun()
+
+	/// <summary>
+	/// Handler for File->Build & Run.
+	/// </summary>
+	public void OnFile_BuildAndRun()
 	{
-		Debug.Log("MainMenuScript.OnBuildAndRun");
-		// TODO: Implement MainMenuScript.OnBuildAndRun
+		Debug.Log("MainMenuScript.OnFile_BuildAndRun");
+		// TODO: Implement MainMenuScript.OnFile_BuildAndRun
 	}
-	
-	public void OnExit()
+
+	/// <summary>
+	/// Handler for File->Exit.
+	/// </summary>
+	public void OnFile_Exit()
 	{
-		Debug.Log("MainMenuScript.OnExit");
+		Debug.Log("MainMenuScript.OnFile_Exit");
 		Application.Quit();
 	}
 	#endregion
 
 	#region Edit
+	/// <summary>
+	/// Handler for Edit.
+	/// </summary>
 	public void OnEditMenu()
 	{
 		OnShowMenuSubItems(mEditMenu);
 	}
 
-	public void OnUndo()
+	/// <summary>
+	/// Handler for Edit->Undo.
+	/// </summary>
+	public void OnEdit_Undo()
 	{
-		Debug.Log("MainMenuScript.OnUndo");
-		// TODO: Implement MainMenuScript.OnUndo
+		Debug.Log("MainMenuScript.OnEdit_Undo");
+		// TODO: Implement MainMenuScript.OnEdit_Undo
 	}
 
-	public void OnRedo()
+	/// <summary>
+	/// Handler for Edit->Redo.
+	/// </summary>
+	public void OnEdit_Redo()
 	{
-		Debug.Log("MainMenuScript.OnRedo");
-		// TODO: Implement MainMenuScript.OnRedo
-	}
-	
-	public void OnCut()
-	{
-		Debug.Log("MainMenuScript.OnCut");
-		// TODO: Implement MainMenuScript.OnCut
+		Debug.Log("MainMenuScript.OnEdit_Redo");
+		// TODO: Implement MainMenuScript.OnEdit_Redo
 	}
 
-	public void OnCopy()
+	/// <summary>
+	/// Handler for Edit->Cut.
+	/// </summary>
+	public void OnEdit_Cut()
 	{
-		Debug.Log("MainMenuScript.OnCopy");
-		// TODO: Implement MainMenuScript.OnCopy
+		Debug.Log("MainMenuScript.OnEdit_Cut");
+		// TODO: Implement MainMenuScript.OnEdit_Cut
 	}
 
-	public void OnPaste()
+	/// <summary>
+	/// Handler for Edit->Copy.
+	/// </summary>
+	public void OnEdit_Copy()
 	{
-		Debug.Log("MainMenuScript.OnPaste");
-		// TODO: Implement MainMenuScript.OnPaste
-	}
-	
-	public void OnDuplicate()
-	{
-		Debug.Log("MainMenuScript.OnDuplicate");
-		// TODO: Implement MainMenuScript.OnDuplicate
+		Debug.Log("MainMenuScript.OnEdit_Copy");
+		// TODO: Implement MainMenuScript.OnEdit_Copy
 	}
 
-	public void OnDelete()
+	/// <summary>
+	/// Handler for Edit->Paste.
+	/// </summary>
+	public void OnEdit_Paste()
 	{
-		Debug.Log("MainMenuScript.OnDelete");
-		// TODO: Implement MainMenuScript.OnDelete
+		Debug.Log("MainMenuScript.OnEdit_Paste");
+		// TODO: Implement MainMenuScript.OnEdit_Paste
+	}
+
+	/// <summary>
+	/// Handler for Edit->Duplicate.
+	/// </summary>
+	public void OnEdit_Duplicate()
+	{
+		Debug.Log("MainMenuScript.OnEdit_Duplicate");
+		// TODO: Implement MainMenuScript.OnEdit_Duplicate
+	}
+
+	/// <summary>
+	/// Handler for Edit->Delete.
+	/// </summary>
+	public void OnEdit_Delete()
+	{
+		Debug.Log("MainMenuScript.OnEdit_Delete");
+		// TODO: Implement MainMenuScript.OnEdit_Delete
+	}
+
+	/// <summary>
+	/// Handler for Edit->Frame Selected.
+	/// </summary>
+	public void OnEdit_FrameSelected()
+	{
+		Debug.Log("MainMenuScript.OnEdit_FrameSelected");
+		// TODO: Implement MainMenuScript.OnEdit_FrameSelected
+	}
+
+	/// <summary>
+	/// Handler for Edit->Lock View to Selected.
+	/// </summary>
+	public void OnEdit_LockViewToSelected()
+	{
+		Debug.Log("MainMenuScript.OnEdit_LockViewToSelected");
+		// TODO: Implement MainMenuScript.OnEdit_LockViewToSelected
+	}
+
+	/// <summary>
+	/// Handler for Edit->Find.
+	/// </summary>
+	public void OnEdit_Find()
+	{
+		Debug.Log("MainMenuScript.OnEdit_Find");
+		// TODO: Implement MainMenuScript.OnEdit_Find
+	}
+
+	/// <summary>
+	/// Handler for Edit->Select All.
+	/// </summary>
+	public void OnEdit_SelectAll()
+	{
+		Debug.Log("MainMenuScript.OnEdit_SelectAll");
+		// TODO: Implement MainMenuScript.OnEdit_SelectAll
 	}
 		
-	public void OnFrameSelected()
+	/// <summary>
+	/// Handler for Edit->Preferences...
+	/// </summary>
+	public void OnEdit_Preferences()
 	{
-		Debug.Log("MainMenuScript.OnFrameSelected");
-		// TODO: Implement MainMenuScript.OnFrameSelected
+		Debug.Log("MainMenuScript.OnEdit_Preferences");
+		// TODO: Implement MainMenuScript.OnEdit_Preferences
 	}
 
-	public void OnLockViewToSelected()
+	/// <summary>
+	/// Handler for Edit->Modules...
+	/// </summary>
+	public void OnEdit_Modules()
 	{
-		Debug.Log("MainMenuScript.OnLockViewToSelected");
-		// TODO: Implement MainMenuScript.OnLockViewToSelected
-	}
-
-	public void OnFind()
-	{
-		Debug.Log("MainMenuScript.OnFind");
-		// TODO: Implement MainMenuScript.OnFind
-	}
-
-	public void OnSelectAll()
-	{
-		Debug.Log("MainMenuScript.OnSelectAll");
-		// TODO: Implement MainMenuScript.OnSelectAll
+		Debug.Log("MainMenuScript.OnEdit_Modules");
+		// TODO: Implement MainMenuScript.OnEdit_Modules
 	}
 		
-	public void OnPreferences()
+	/// <summary>
+	/// Handler for Edit->Play.
+	/// </summary>
+	public void OnEdit_Play()
 	{
-		Debug.Log("MainMenuScript.OnPreferences");
-		// TODO: Implement MainMenuScript.OnPreferences
+		Debug.Log("MainMenuScript.OnEdit_Play");
+		// TODO: Implement MainMenuScript.OnEdit_Play
 	}
 
-	public void OnModules()
+	/// <summary>
+	/// Handler for Edit->Pause.
+	/// </summary>
+	public void OnEdit_Pause()
 	{
-		Debug.Log("MainMenuScript.OnModules");
-		// TODO: Implement MainMenuScript.OnModules
-	}
-		
-	public void OnPlay()
-	{
-		Debug.Log("MainMenuScript.OnPlay");
-		// TODO: Implement MainMenuScript.OnPlay
+		Debug.Log("MainMenuScript.OnEdit_Pause");
+		// TODO: Implement MainMenuScript.OnEdit_Pause
 	}
 
-	public void OnPause()
+	/// <summary>
+	/// Handler for Edit->Step.
+	/// </summary>
+	public void OnEdit_Step()
 	{
-		Debug.Log("MainMenuScript.OnPause");
-		// TODO: Implement MainMenuScript.OnPause
-	}
-
-	public void OnStep()
-	{
-		Debug.Log("MainMenuScript.OnStep");
-		// TODO: Implement MainMenuScript.OnStep
+		Debug.Log("MainMenuScript.OnEdit_Step");
+		// TODO: Implement MainMenuScript.OnEdit_Step
 	}
 	
-	#region Edit->Selection	
-	public void OnLoadSelection1()
+	#region Edit->Selection
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 1.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection1()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection1");
-		// TODO: Implement MainMenuScript.OnLoadSelection1
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection1");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection1
 	}
 
-	public void OnLoadSelection2()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 2.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection2()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection2");
-		// TODO: Implement MainMenuScript.OnLoadSelection2
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection2");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection2
 	}
 
-	public void OnLoadSelection3()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 3.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection3()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection3");
-		// TODO: Implement MainMenuScript.OnLoadSelection3
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection3");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection3
 	}
 
-	public void OnLoadSelection4()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 4.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection4()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection4");
-		// TODO: Implement MainMenuScript.OnLoadSelection4
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection4");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection4
 	}
 
-	public void OnLoadSelection5()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 5.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection5()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection5");
-		// TODO: Implement MainMenuScript.OnLoadSelection5
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection5");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection5
 	}
 
-	public void OnLoadSelection6()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 6.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection6()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection6");
-		// TODO: Implement MainMenuScript.OnLoadSelection6
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection6");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection6
 	}
 
-	public void OnLoadSelection7()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 7.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection7()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection7");
-		// TODO: Implement MainMenuScript.OnLoadSelection7
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection7");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection7
 	}
 
-	public void OnLoadSelection8()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 8.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection8()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection8");
-		// TODO: Implement MainMenuScript.OnLoadSelection8
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection8");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection8
 	}
 
-	public void OnLoadSelection9()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 9.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection9()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection9");
-		// TODO: Implement MainMenuScript.OnLoadSelection9
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection9");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection9
 	}
 
-	public void OnLoadSelection0()
+	/// <summary>
+	/// Handler for Edit->Selection->Load Selection 0.
+	/// </summary>
+	public void OnEdit_Selection_LoadSelection0()
 	{
-		Debug.Log("MainMenuScript.OnLoadSelection0");
-		// TODO: Implement MainMenuScript.OnLoadSelection0
-	}
-	
-	public void OnSaveSelection1()
-	{
-		Debug.Log("MainMenuScript.OnSaveSelection1");
-		// TODO: Implement MainMenuScript.OnSaveSelection1
+		Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection0");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection0
 	}
 
-	public void OnSaveSelection2()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 1.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection1()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection2");
-		// TODO: Implement MainMenuScript.OnSaveSelection2
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection1");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection1
 	}
 
-	public void OnSaveSelection3()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 2.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection2()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection3");
-		// TODO: Implement MainMenuScript.OnSaveSelection3
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection2");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection2
 	}
 
-	public void OnSaveSelection4()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 3.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection3()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection4");
-		// TODO: Implement MainMenuScript.OnSaveSelection4
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection3");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection3
 	}
 
-	public void OnSaveSelection5()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 4.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection4()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection5");
-		// TODO: Implement MainMenuScript.OnSaveSelection5
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection4");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection4
 	}
 
-	public void OnSaveSelection6()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 5.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection5()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection6");
-		// TODO: Implement MainMenuScript.OnSaveSelection6
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection5");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection5
 	}
 
-	public void OnSaveSelection7()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 6.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection6()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection7");
-		// TODO: Implement MainMenuScript.OnSaveSelection7
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection6");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection6
 	}
 
-	public void OnSaveSelection8()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 7.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection7()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection8");
-		// TODO: Implement MainMenuScript.OnSaveSelection8
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection7");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection7
 	}
 
-	public void OnSaveSelection9()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 8.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection8()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection9");
-		// TODO: Implement MainMenuScript.OnSaveSelection9
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection8");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection8
 	}
 
-	public void OnSaveSelection0()
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 9.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection9()
 	{
-		Debug.Log("MainMenuScript.OnSaveSelection0");
-		// TODO: Implement MainMenuScript.OnSaveSelection0
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection9");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection9
+	}
+
+	/// <summary>
+	/// Handler for Edit->Selection->Save Selection 0.
+	/// </summary>
+	public void OnEdit_Selection_SaveSelection0()
+	{
+		Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection0");
+		// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection0
 	}
 	#endregion
 	
-	#region Edit->Project Settings	
-	public void OnInput()
+	#region Edit->Project Settings
+	/// <summary>
+	/// Handler for Edit->Project Settings->Input.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Input()
 	{
-		Debug.Log("MainMenuScript.OnInput");
-		// TODO: Implement MainMenuScript.OnInput
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Input");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Input
 	}
 
-	public void OnTagsAndLayers()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Tags and Layers.
+	/// </summary>
+	public void OnEdit_ProjectSettings_TagsAndLayers()
 	{
-		Debug.Log("MainMenuScript.OnTagsAndLayers");
-		// TODO: Implement MainMenuScript.OnTagsAndLayers
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers
 	}
 
-	public void OnAudio()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Audio.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Audio()
 	{
-		Debug.Log("MainMenuScript.OnAudio");
-		// TODO: Implement MainMenuScript.OnAudio
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Audio");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Audio
 	}
 
-	public void OnTime()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Time.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Time()
 	{
-		Debug.Log("MainMenuScript.OnTime");
-		// TODO: Implement MainMenuScript.OnTime
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Time");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Time
 	}
 
-	public void OnPlayer()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Player.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Player()
 	{
-		Debug.Log("MainMenuScript.OnPlayer");
-		// TODO: Implement MainMenuScript.OnPlayer
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Player");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Player
 	}
 
-	public void OnPhysics()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Physics.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Physics()
 	{
-		Debug.Log("MainMenuScript.OnPhysics");
-		// TODO: Implement MainMenuScript.OnPhysics
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Physics");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Physics
 	}
 
-	public void OnPhysics2D()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Physics 2D.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Physics2D()
 	{
-		Debug.Log("MainMenuScript.OnPhysics2D");
-		// TODO: Implement MainMenuScript.OnPhysics2D
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Physics2D");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Physics2D
 	}
 
-	public void OnQuality()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Quality.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Quality()
 	{
-		Debug.Log("MainMenuScript.OnQuality");
-		// TODO: Implement MainMenuScript.OnQuality
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Quality");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Quality
 	}
 
-	public void OnGraphics()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Graphics.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Graphics()
 	{
-		Debug.Log("MainMenuScript.OnGraphics");
-		// TODO: Implement MainMenuScript.OnGraphics
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Graphics");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Graphics
 	}
 
-	public void OnNetwork()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Network.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Network()
 	{
-		Debug.Log("MainMenuScript.OnNetwork");
-		// TODO: Implement MainMenuScript.OnNetwork
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Network");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Network
 	}
 
-	public void OnEditor()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Editor.
+	/// </summary>
+	public void OnEdit_ProjectSettings_Editor()
 	{
-		Debug.Log("MainMenuScript.OnEditor");
-		// TODO: Implement MainMenuScript.OnEditor
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Editor");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Editor
 	}
 
-	public void OnScriptExecutionOrder()
+	/// <summary>
+	/// Handler for Edit->Project Settings->Script Execution Order.
+	/// </summary>
+	public void OnEdit_ProjectSettings_ScriptExecutionOrder()
 	{
-		Debug.Log("MainMenuScript.OnScriptExecutionOrder");
-		// TODO: Implement MainMenuScript.OnScriptExecutionOrder
+		Debug.Log("MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder");
+		// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder
 	}
 	#endregion
-	
-	public void OnRenderSettings()
+
+	/// <summary>
+	/// Handler for Edit->Render Settings.
+	/// </summary>
+	public void OnEdit_RenderSettings()
 	{
-		Debug.Log("MainMenuScript.OnRenderSettings");
-		// TODO: Implement MainMenuScript.OnRenderSettings
+		Debug.Log("MainMenuScript.OnEdit_RenderSettings");
+		// TODO: Implement MainMenuScript.OnEdit_RenderSettings
 	}
 		
-	#region Edit->Network Emulation	
-	public void OnNetworkEmulationNone()
+	#region Edit->Network Emulation
+	/// <summary>
+	/// Handler for Edit->Network Emulation->None.
+	/// </summary>
+	public void OnEdit_NetworkEmulation_None()
 	{
-		Debug.Log("MainMenuScript.OnNetworkEmulationNone");
-		// TODO: Implement MainMenuScript.OnNetworkEmulationNone
+		Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_None");
+		// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_None
 	}
 
-	public void OnNetworkEmulationBroadband()
+	/// <summary>
+	/// Handler for Edit->Network Emulation->Broadband.
+	/// </summary>
+	public void OnEdit_NetworkEmulation_Broadband()
 	{
-		Debug.Log("MainMenuScript.OnNetworkEmulationBroadband");
-		// TODO: Implement MainMenuScript.OnNetworkEmulationBroadband
+		Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_Broadband");
+		// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_Broadband
 	}
 
-	public void OnNetworkEmulationDSL()
+	/// <summary>
+	/// Handler for Edit->Network Emulation->DSL.
+	/// </summary>
+	public void OnEdit_NetworkEmulation_DSL()
 	{
-		Debug.Log("MainMenuScript.OnNetworkEmulationDSL");
-		// TODO: Implement MainMenuScript.OnNetworkEmulationDSL
+		Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_DSL");
+		// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_DSL
 	}
 
-	public void OnNetworkEmulationISDN()
+	/// <summary>
+	/// Handler for Edit->Network Emulation->ISDN.
+	/// </summary>
+	public void OnEdit_NetworkEmulation_ISDN()
 	{
-		Debug.Log("MainMenuScript.OnNetworkEmulationISDN");
-		// TODO: Implement MainMenuScript.OnNetworkEmulationISDN
+		Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_ISDN");
+		// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_ISDN
 	}
 
-	public void OnNetworkEmulationDialUp()
+	/// <summary>
+	/// Handler for Edit->Network Emulation->Dial-Up.
+	/// </summary>
+	public void OnEdit_NetworkEmulation_DialUp()
 	{
-		Debug.Log("MainMenuScript.OnROnNetworkEmulationDialUpedo");
-		// TODO: Implement MainMenuScript.OnNetworkEmulationDialUp
+		Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_DialUp");
+		// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_DialUp
 	}
 	#endregion
 	
-	#region Edit->Graphics Emulation	
-	public void OnGraphicsEmulationNoEmulation()
+	#region Edit->Graphics Emulation
+	/// <summary>
+	/// Handler for Edit->Graphics Emulation->No Emulation.
+	/// </summary>
+	public void OnEdit_GraphicsEmulation_NoEmulation()
 	{
-		Debug.Log("MainMenuScript.OnGraphicsEmulationNoEmulation");
-		// TODO: Implement MainMenuScript.OnGraphicsEmulationNoEmulation
+		Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation");
+		// TODO: Implement MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation
 	}
 
-	public void OnGraphicsEmulationShaderModel3()
+	/// <summary>
+	/// Handler for Edit->Graphics Emulation->Shader Model 3.
+	/// </summary>
+	public void OnEdit_GraphicsEmulation_ShaderModel3()
 	{
-		Debug.Log("MainMenuScript.OnGraphicsEmulationShaderModel3");
-		// TODO: Implement MainMenuScript.OnReOnGraphicsEmulationShaderModel3do
+		Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel3");
+		// TODO: Implement MainMenuScript.OnEdit_ReOnEdit_GraphicsEmulation_ShaderModel3do
 	}
 
-	public void OnGraphicsEmulationShaderModel2()
+	/// <summary>
+	/// Handler for Edit->Graphics Emulation->Shader Model 2.
+	/// </summary>
+	public void OnEdit_GraphicsEmulation_ShaderModel2()
 	{
-		Debug.Log("MainMenuScript.OnGraphicsEmulationShaderModel2");
-		// TODO: Implement MainMenuScript.OnGraphicsEmulationShaderModel2
+		Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2");
+		// TODO: Implement MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2
 	}
 	#endregion
-	
-	public void OnSnapSettings()
+
+	/// <summary>
+	/// Handler for Edit->Snap Settings...
+	/// </summary>
+	public void OnEdit_SnapSettings()
 	{
-		Debug.Log("MainMenuScript.OnSnapSettings");
-		// TODO: Implement MainMenuScript.OnSnapSettings
+		Debug.Log("MainMenuScript.OnEdit_SnapSettings");
+		// TODO: Implement MainMenuScript.OnEdit_SnapSettings
 	}
 	#endregion
 	
 	#region Assets
+	/// <summary>
+	/// Handler for Assets.
+	/// </summary>
 	public void OnAssetsMenu()
 	{
 		OnShowMenuSubItems(mAssetsMenu);
@@ -870,6 +1106,9 @@ public class MainMenuScript : MonoBehaviour
 	#endregion
 	
 	#region GameObject
+	/// <summary>
+	/// Handler for GameObject.
+	/// </summary>
 	public void OnGameObjectMenu()
 	{
 		OnShowMenuSubItems(mGameObjectMenu);
@@ -877,6 +1116,9 @@ public class MainMenuScript : MonoBehaviour
 	#endregion
 	
 	#region Component
+	/// <summary>
+	/// Handler for Component.
+	/// </summary>
 	public void OnComponentMenu()
 	{
 		OnShowMenuSubItems(mComponentMenu);
@@ -884,6 +1126,9 @@ public class MainMenuScript : MonoBehaviour
 	#endregion
 	
 	#region Window
+	/// <summary>
+	/// Handler for Window.
+	/// </summary>
 	public void OnWindowMenu()
 	{
 		OnShowMenuSubItems(mWindowMenu);
@@ -891,6 +1136,9 @@ public class MainMenuScript : MonoBehaviour
 	#endregion
 	
 	#region Help
+	/// <summary>
+	/// Handler for Help.
+	/// </summary>
 	public void OnHelpMenu()
 	{
 		OnShowMenuSubItems(mHelpMenu);
