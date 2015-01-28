@@ -22,117 +22,188 @@ public class MainMenuScript : MonoBehaviour
 	private TreeNode<MenuItem> mItems = null;
 
 	#region File
-	private TreeNode<MenuItem> mFileMenu          = null;
+	private TreeNode<MenuItem> mFileMenu               = null;
 
-//	private TreeNode<MenuItem> mNewSceneItem      = null;
-//	private TreeNode<MenuItem> mOpenSceneItem     = null;
+//	private TreeNode<MenuItem> mFile_NewSceneItem      = null;
+//	private TreeNode<MenuItem> mFile_OpenSceneItem     = null;
 
-//	private TreeNode<MenuItem> mSaveSceneItem     = null;
-//	private TreeNode<MenuItem> mSaveSceneAsItem   = null;
+//	private TreeNode<MenuItem> mFile_SaveSceneItem     = null;
+//	private TreeNode<MenuItem> mFile_SaveSceneAsItem   = null;
 
-//	private TreeNode<MenuItem> mNewProjectItem    = null;
-//	private TreeNode<MenuItem> mOpenProjectItem   = null;
-//	private TreeNode<MenuItem> mSaveProjectItem   = null;
+//	private TreeNode<MenuItem> mFile_NewProjectItem    = null;
+//	private TreeNode<MenuItem> mFile_OpenProjectItem   = null;
+//	private TreeNode<MenuItem> mFile_SaveProjectItem   = null;
 
-//	private TreeNode<MenuItem> mBuildSettingsItem = null;
-//	private TreeNode<MenuItem> mBuildAndRunItem   = null;
+//	private TreeNode<MenuItem> mFile_BuildSettingsItem = null;
+//	private TreeNode<MenuItem> mFile_BuildAndRunItem   = null;
 
-//	private TreeNode<MenuItem> mExitItem          = null;
+//	private TreeNode<MenuItem> mFile_ExitItem          = null;
 	#endregion
 
 	#region Edit
-	private TreeNode<MenuItem> mEditMenu               = null;
+	private TreeNode<MenuItem> mEditMenu                    = null;
 
-//	private TreeNode<MenuItem> mUndoItem               = null;
-//	private TreeNode<MenuItem> mRedoItem               = null;
+//	private TreeNode<MenuItem> mEdit_UndoItem               = null;
+//	private TreeNode<MenuItem> mEdit_RedoItem               = null;
 
-//	private TreeNode<MenuItem> mCutItem                = null;
-//	private TreeNode<MenuItem> mCopyItem               = null;
-//	private TreeNode<MenuItem> mPasteItem              = null;
+//	private TreeNode<MenuItem> mEdit_CutItem                = null;
+//	private TreeNode<MenuItem> mEdit_CopyItem               = null;
+//	private TreeNode<MenuItem> mEdit_PasteItem              = null;
 
-//	private TreeNode<MenuItem> mDuplicateItem          = null;
-//	private TreeNode<MenuItem> mDeleteItem             = null;
+//	private TreeNode<MenuItem> mEdit_DuplicateItem          = null;
+//	private TreeNode<MenuItem> mEdit_DeleteItem             = null;
 
-//	private TreeNode<MenuItem> mFrameSelectedItem      = null;
-//	private TreeNode<MenuItem> mLockViewToSelectedItem = null;
-//	private TreeNode<MenuItem> mFindItem               = null;
-//	private TreeNode<MenuItem> mSelectAllItem          = null;
+//	private TreeNode<MenuItem> mEdit_FrameSelectedItem      = null;
+//	private TreeNode<MenuItem> mEdit_LockViewToSelectedItem = null;
+//	private TreeNode<MenuItem> mEdit_FindItem               = null;
+//	private TreeNode<MenuItem> mEdit_SelectAllItem          = null;
 
-//	private TreeNode<MenuItem> mPreferencesItem        = null;
-//	private TreeNode<MenuItem> mModulesItem            = null;
+//	private TreeNode<MenuItem> mEdit_PreferencesItem        = null;
+//	private TreeNode<MenuItem> mEdit_ModulesItem            = null;
 
-//	private TreeNode<MenuItem> mPlayItem               = null;
-//	private TreeNode<MenuItem> mPauseItem              = null;
-//	private TreeNode<MenuItem> mStepItem               = null;
+//	private TreeNode<MenuItem> mEdit_PlayItem               = null;
+//	private TreeNode<MenuItem> mEdit_PauseItem              = null;
+//	private TreeNode<MenuItem> mEdit_StepItem               = null;
 
 	#region Edit->Selection
-	private TreeNode<MenuItem> mSelectionItem      = null;
+	private TreeNode<MenuItem> mEdit_SelectionItem                = null;
 
-//	private TreeNode<MenuItem> mLoadSelection1Item = null;
-//	private TreeNode<MenuItem> mLoadSelection2Item = null;
-//	private TreeNode<MenuItem> mLoadSelection3Item = null;
-//	private TreeNode<MenuItem> mLoadSelection4Item = null;
-//	private TreeNode<MenuItem> mLoadSelection5Item = null;
-//	private TreeNode<MenuItem> mLoadSelection6Item = null;
-//	private TreeNode<MenuItem> mLoadSelection7Item = null;
-//	private TreeNode<MenuItem> mLoadSelection8Item = null;
-//	private TreeNode<MenuItem> mLoadSelection9Item = null;
-//	private TreeNode<MenuItem> mLoadSelection0Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection1Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection2Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection3Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection4Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection5Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection6Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection7Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection8Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection9Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_LoadSelection0Item = null;
 
-//	private TreeNode<MenuItem> mSaveSelection1Item = null;
-//	private TreeNode<MenuItem> mSaveSelection2Item = null;
-//	private TreeNode<MenuItem> mSaveSelection3Item = null;
-//	private TreeNode<MenuItem> mSaveSelection4Item = null;
-//	private TreeNode<MenuItem> mSaveSelection5Item = null;
-//	private TreeNode<MenuItem> mSaveSelection6Item = null;
-//	private TreeNode<MenuItem> mSaveSelection7Item = null;
-//	private TreeNode<MenuItem> mSaveSelection8Item = null;
-//	private TreeNode<MenuItem> mSaveSelection9Item = null;
-//	private TreeNode<MenuItem> mSaveSelection0Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection1Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection2Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection3Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection4Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection5Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection6Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection7Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection8Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection9Item = null;
+//	private TreeNode<MenuItem> mEdit_Selection_SaveSelection0Item = null;
 	#endregion
 
 	#region Edit->Project Settings
-	private TreeNode<MenuItem> mProjectSettingsItem      = null;
+	private TreeNode<MenuItem> mEdit_ProjectSettingsItem                      = null;
 
-//	private TreeNode<MenuItem> mInputItem                = null;
-//	private TreeNode<MenuItem> mTagsAndLayersItem        = null;
-//	private TreeNode<MenuItem> mAudioItem                = null;
-//	private TreeNode<MenuItem> mTimeItem                 = null;
-//	private TreeNode<MenuItem> mPlayerItem               = null;
-//	private TreeNode<MenuItem> mPhysicsItem              = null;
-//	private TreeNode<MenuItem> mPhysics2DItem            = null;
-//	private TreeNode<MenuItem> mQualityItem              = null;
-//	private TreeNode<MenuItem> mGraphicsItem             = null;
-//	private TreeNode<MenuItem> mNetworkItem              = null;
-//	private TreeNode<MenuItem> mEditorItem               = null;
-//	private TreeNode<MenuItem> mScriptExecutionOrderItem = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_InputItem                = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_TagsAndLayersItem        = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_AudioItem                = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_TimeItem                 = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_PlayerItem               = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_PhysicsItem              = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_Physics2DItem            = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_QualityItem              = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_GraphicsItem             = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_NetworkItem              = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_EditorItem               = null;
+//	private TreeNode<MenuItem> mEdit_ProjectSettings_ScriptExecutionOrderItem = null;
 	#endregion
 
-//	private TreeNode<MenuItem> mRenderSettingsItem     = null;
+//	private TreeNode<MenuItem> mEdit_RenderSettingsItem = null;
 
 	#region Edit->Network Emulation
-	private TreeNode<MenuItem> mNetworkEmulationItem          = null;
+	private TreeNode<MenuItem> mEdit_NetworkEmulationItem                           = null;
 	
-//	private TreeNode<MenuItem> mNetworkEmulationNoneItem      = null;
-//	private TreeNode<MenuItem> mNetworkEmulationBroadbandItem = null;
-//	private TreeNode<MenuItem> mNetworkEmulationDSLItem       = null;
-//	private TreeNode<MenuItem> mNetworkEmulationISDNItem      = null;
-//	private TreeNode<MenuItem> mNetworkEmulationDialUpItem    = null;
+//	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationNoneItem      = null;
+//	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationBroadbandItem = null;
+//	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationDSLItem       = null;
+//	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationISDNItem      = null;
+//	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationDialUpItem    = null;
 	#endregion
 
 	#region Edit->Graphics Emulation
-	private TreeNode<MenuItem> mGraphicsEmulationItem             = null;
+	private TreeNode<MenuItem> mEdit_GraphicsEmulationItem                               = null;
 	
-//	private TreeNode<MenuItem> mGraphicsEmulationNoEmulationItem  = null;
-//	private TreeNode<MenuItem> mGraphicsEmulationShaderModel3Item = null;
-//	private TreeNode<MenuItem> mGraphicsEmulationShaderModel2Item = null;
+//	private TreeNode<MenuItem> mEdit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  = null;
+//	private TreeNode<MenuItem> mEdit_GraphicsEmulation_GraphicsEmulationShaderModel3Item = null;
+//	private TreeNode<MenuItem> mEdit_GraphicsEmulation_GraphicsEmulationShaderModel2Item = null;
 	#endregion
 
-//	private TreeNode<MenuItem> mSnapSettingsItem       = null;
+//	private TreeNode<MenuItem> mEdit_SnapSettingsItem = null;
 	#endregion
 
 	#region Assets
 	private TreeNode<MenuItem> mAssetsMenu = null;
+
+	#region Assets->Create
+	private TreeNode<MenuItem> mAssets_CreateItem                           = null;
+	
+//	private TreeNode<MenuItem> mAssets_Create_FolderItem                    = null;
+
+//	private TreeNode<MenuItem> mAssets_Create_JavascriptItem                = null;
+//	private TreeNode<MenuItem> mAssets_Create_CShartScriptItem              = null;
+//	private TreeNode<MenuItem> mAssets_Create_BooScriptItem                 = null;
+//	private TreeNode<MenuItem> mAssets_Create_ShaderItem                    = null;
+//	private TreeNode<MenuItem> mAssets_Create_ComputeShaderItem             = null;
+
+//	private TreeNode<MenuItem> mAssets_Create_PrefabItem                    = null;
+
+//	private TreeNode<MenuItem> mAssets_Create_MaterialItem                  = null;
+//	private TreeNode<MenuItem> mAssets_Create_CubemapItem                   = null;
+//	private TreeNode<MenuItem> mAssets_Create_LensFlareItem                 = null;
+
+//	private TreeNode<MenuItem> mAssets_Create_AnimatorControllerItem        = null;
+//	private TreeNode<MenuItem> mAssets_Create_AnimationItem                 = null;
+//	private TreeNode<MenuItem> mAssets_Create_AnimatorOverrideContollerItem = null;
+//	private TreeNode<MenuItem> mAssets_Create_AvatarMaskItem                = null;
+
+//	private TreeNode<MenuItem> mAssets_Create_PhysicMaterialItem            = null;
+//	private TreeNode<MenuItem> mAssets_Create_Physic2dMaterialItem          = null;
+
+//	private TreeNode<MenuItem> mAssets_Create_GuiSkinItem                   = null;
+//	private TreeNode<MenuItem> mAssets_Create_CustomFontItem                = null;
+	#endregion
+
+//	private TreeNode<MenuItem> mAssets_ShowInExplorerItem = null;
+//	private TreeNode<MenuItem> mAssets_OpenItem           = null;
+//	private TreeNode<MenuItem> mAssets_DeleteItem         = null;
+
+//	private TreeNode<MenuItem> mAssets_ImportNewAssetItem = null;
+
+	#region Assets->Import Package
+	private TreeNode<MenuItem> mAssets_ImportPackageItem                         = null;
+	
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CustomPackageItem           = null;
+
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CharacterControllerItem     = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_GlassRefractionProOnlytem   = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ImageEffectsProOnlyItem     = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_LightCookiesItem            = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_LightFlaresItem             = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ParticlesItem               = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_PhysicMaterialsItem         = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ProjectorsItem              = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ScriptsItem                 = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_SkyboxesItem                = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_StandardAssetsMobileItem    = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_TerrainAssetsItem           = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_TessellationShadersDx11Item = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ToonShadingItem             = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_TreeCreatorItem             = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_WaterBasicItem              = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_WaterProOnlyItem            = null;
+	#endregion
+
+//	private TreeNode<MenuItem> mAssets_ExportPackageItem          = null;
+//	private TreeNode<MenuItem> mAssets_FindReferencesInSceneItem  = null;
+//	private TreeNode<MenuItem> mAssets_SelectDependenciestem      = null;
+
+//	private TreeNode<MenuItem> mAssets_RefreshItem                = null;
+//	private TreeNode<MenuItem> mAssets_ReimportItem               = null;
+
+//	private TreeNode<MenuItem> mAssets_ReimportAllItem            = null;
+
+//	private TreeNode<MenuItem> mAssets_SyncMonoDevelopProjectItem = null;
+
 	#endregion
 
 	#region GameObject
@@ -175,122 +246,192 @@ public class MainMenuScript : MonoBehaviour
         mItems = new TreeNode<MenuItem>(new MenuItem());
 
         #region File
-        mFileMenu            =   MenuItem.Create(mItems,    "File",              OnFileMenu);
+        mFileMenu                 =   MenuItem.Create(mItems,    "File",              OnFileMenu);
         
-		/*mNewSceneItem      =*/ MenuItem.Create(mFileMenu, "New Scene",         OnFile_NewScene);
-		/*mOpenSceneItem     =*/ MenuItem.Create(mFileMenu, "Open Scene",        OnFile_OpenScene);
+		/*mFile_NewSceneItem      =*/ MenuItem.Create(mFileMenu, "New Scene",         OnFile_NewScene);
+		/*mFile_OpenSceneItem     =*/ MenuItem.Create(mFileMenu, "Open Scene",        OnFile_OpenScene);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mSaveSceneItem     =*/ MenuItem.Create(mFileMenu, "Save Scene",        OnFile_SaveScene);
-		/*mSaveSceneAsItem   =*/ MenuItem.Create(mFileMenu, "Save Scene as...",  OnFile_SaveSceneAs);
+		/*mFile_SaveSceneItem     =*/ MenuItem.Create(mFileMenu, "Save Scene",        OnFile_SaveScene);
+		/*mFile_SaveSceneAsItem   =*/ MenuItem.Create(mFileMenu, "Save Scene as...",  OnFile_SaveSceneAs);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mNewProjectItem    =*/ MenuItem.Create(mFileMenu, "New Project...",    OnFile_NewProject);
-		/*mOpenProjectItem   =*/ MenuItem.Create(mFileMenu, "Open Project...",   OnFile_OpenProject);
-		/*mSaveProjectItem   =*/ MenuItem.Create(mFileMenu, "Save Project",      OnFile_SaveProject);
+		/*mFile_NewProjectItem    =*/ MenuItem.Create(mFileMenu, "New Project...",    OnFile_NewProject);
+		/*mFile_OpenProjectItem   =*/ MenuItem.Create(mFileMenu, "Open Project...",   OnFile_OpenProject);
+		/*mFile_SaveProjectItem   =*/ MenuItem.Create(mFileMenu, "Save Project",      OnFile_SaveProject);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mBuildSettingsItem =*/ MenuItem.Create(mFileMenu, "Build Settings...", OnFile_BuildSettings);
-		/*mBuildAndRunItem   =*/ MenuItem.Create(mFileMenu, "Build & Run",       OnFile_BuildAndRun);
+		/*mFile_BuildSettingsItem =*/ MenuItem.Create(mFileMenu, "Build Settings...", OnFile_BuildSettings);
+		/*mFile_BuildAndRunItem   =*/ MenuItem.Create(mFileMenu, "Build & Run",       OnFile_BuildAndRun);
         MenuItem.InsertSeparator(mFileMenu);
-		/*mExitItem          =*/ MenuItem.Create(mFileMenu, "Exit",              OnFile_Exit);
+		/*mFile_ExitItem          =*/ MenuItem.Create(mFileMenu, "Exit",              OnFile_Exit);
         #endregion
 
 		#region Edit
-		mEditMenu                            =   MenuItem.Create(mItems,    "Edit",                              OnEditMenu);
+		mEditMenu                      =   MenuItem.Create(mItems,    "Edit",                  OnEditMenu);
 
-		/*mUndoItem                          =*/ MenuItem.Create(mEditMenu, "Undo",                              OnEdit_Undo); // TODO: Change name of menu item after changes
-		/*mRedoItem                          =*/ MenuItem.Create(mEditMenu, "Redo",                              OnEdit_Redo); // TODO: Change name of menu item after changes
+		/*mEdit_UndoItem               =*/ MenuItem.Create(mEditMenu, "Undo",                  OnEdit_Undo); // TODO: Change name of menu item after changes
+		/*mEdit_RedoItem               =*/ MenuItem.Create(mEditMenu, "Redo",                  OnEdit_Redo); // TODO: Change name of menu item after changes
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mCutItem                           =*/ MenuItem.Create(mEditMenu, "Cut",                               OnEdit_Cut);
-		/*mCopyItem                          =*/ MenuItem.Create(mEditMenu, "Copy",                              OnEdit_Copy);
-		/*mPasteItem                         =*/ MenuItem.Create(mEditMenu, "Paste",                             OnEdit_Paste);
+		/*mEdit_CutItem                =*/ MenuItem.Create(mEditMenu, "Cut",                   OnEdit_Cut);
+		/*mEdit_CopyItem               =*/ MenuItem.Create(mEditMenu, "Copy",                  OnEdit_Copy);
+		/*mEdit_PasteItem              =*/ MenuItem.Create(mEditMenu, "Paste",                 OnEdit_Paste);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mDuplicateItem                     =*/ MenuItem.Create(mEditMenu, "Duplicate",                         OnEdit_Duplicate);
-		/*mDeleteItem                        =*/ MenuItem.Create(mEditMenu, "Delete",                            OnEdit_Delete);
+		/*mEdit_DuplicateItem          =*/ MenuItem.Create(mEditMenu, "Duplicate",             OnEdit_Duplicate);
+		/*mEdit_DeleteItem             =*/ MenuItem.Create(mEditMenu, "Delete",                OnEdit_Delete);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mFrameSelectedItem                 =*/ MenuItem.Create(mEditMenu, "Frame Selected",                    OnEdit_FrameSelected);
-		/*mLockViewToSelectedItem            =*/ MenuItem.Create(mEditMenu, "Lock View to Selected",             OnEdit_LockViewToSelected);
-		/*mFindItem                          =*/ MenuItem.Create(mEditMenu, "Find",                              OnEdit_Find);
-		/*mSelectAllItem                     =*/ MenuItem.Create(mEditMenu, "Select All",                        OnEdit_SelectAll);
+		/*mEdit_FrameSelectedItem      =*/ MenuItem.Create(mEditMenu, "Frame Selected",        OnEdit_FrameSelected);
+		/*mEdit_LockViewToSelectedItem =*/ MenuItem.Create(mEditMenu, "Lock View to Selected", OnEdit_LockViewToSelected);
+		/*mEdit_FindItem               =*/ MenuItem.Create(mEditMenu, "Find",                  OnEdit_Find);
+		/*mEdit_SelectAllItem          =*/ MenuItem.Create(mEditMenu, "Select All",            OnEdit_SelectAll);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mPreferencesItem                   =*/ MenuItem.Create(mEditMenu, "Preferences...",                    OnEdit_Preferences);
-		/*mModulesItem                       =*/ MenuItem.Create(mEditMenu, "Modules...",                        OnEdit_Modules);
+		/*mEdit_PreferencesItem        =*/ MenuItem.Create(mEditMenu, "Preferences...",        OnEdit_Preferences);
+		/*mEdit_ModulesItem            =*/ MenuItem.Create(mEditMenu, "Modules...",            OnEdit_Modules);
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mPlayItem                          =*/ MenuItem.Create(mEditMenu, "Play",                              OnEdit_Play);
-		/*mPauseItem                         =*/ MenuItem.Create(mEditMenu, "Pause",                             OnEdit_Pause);
-		/*mStepItem                          =*/ MenuItem.Create(mEditMenu, "Step",                              OnEdit_Step);
+		/*mEdit_PlayItem               =*/ MenuItem.Create(mEditMenu, "Play",                  OnEdit_Play);
+		/*mEdit_PauseItem              =*/ MenuItem.Create(mEditMenu, "Pause",                 OnEdit_Pause);
+		/*mEdit_StepItem               =*/ MenuItem.Create(mEditMenu, "Step",                  OnEdit_Step);
 		MenuItem.InsertSeparator(mEditMenu);
 
 		#region Edit->Selection
-		mSelectionItem                       =   MenuItem.Create(mEditMenu, "Selection");
+		mEdit_SelectionItem                  =   MenuItem.Create(mEditMenu,           "Selection");
 		
-		/*mLoadSelection1Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 1",             OnEdit_Selection_LoadSelection1);
-		/*mLoadSelection2Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 2",             OnEdit_Selection_LoadSelection2);
-		/*mLoadSelection3Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 3",             OnEdit_Selection_LoadSelection3);
-		/*mLoadSelection4Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 4",             OnEdit_Selection_LoadSelection4);
-		/*mLoadSelection5Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 5",             OnEdit_Selection_LoadSelection5);
-		/*mLoadSelection6Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 6",             OnEdit_Selection_LoadSelection6);
-		/*mLoadSelection7Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 7",             OnEdit_Selection_LoadSelection7);
-		/*mLoadSelection8Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 8",             OnEdit_Selection_LoadSelection8);
-		/*mLoadSelection9Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 9",             OnEdit_Selection_LoadSelection9);
-		/*mLoadSelection0Item                =*/ MenuItem.Create(mSelectionItem, "Load Selection 0",             OnEdit_Selection_LoadSelection0);
+		/*mEdit_Selection_LoadSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 1", OnEdit_Selection_LoadSelection1);
+		/*mEdit_Selection_LoadSelection2Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 2", OnEdit_Selection_LoadSelection2);
+		/*mEdit_Selection_LoadSelection3Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 3", OnEdit_Selection_LoadSelection3);
+		/*mEdit_Selection_LoadSelection4Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 4", OnEdit_Selection_LoadSelection4);
+		/*mEdit_Selection_LoadSelection5Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 5", OnEdit_Selection_LoadSelection5);
+		/*mEdit_Selection_LoadSelection6Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 6", OnEdit_Selection_LoadSelection6);
+		/*mEdit_Selection_LoadSelection7Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 7", OnEdit_Selection_LoadSelection7);
+		/*mEdit_Selection_LoadSelection8Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 8", OnEdit_Selection_LoadSelection8);
+		/*mEdit_Selection_LoadSelection9Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 9", OnEdit_Selection_LoadSelection9);
+		/*mEdit_Selection_LoadSelection0Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 0", OnEdit_Selection_LoadSelection0);
 		
-		/*mSaveSelection1Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 1",             OnEdit_Selection_SaveSelection1);
-		/*mSaveSelection2Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 2",             OnEdit_Selection_SaveSelection2);
-		/*mSaveSelection3Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 3",             OnEdit_Selection_SaveSelection3);
-		/*mSaveSelection4Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 4",             OnEdit_Selection_SaveSelection4);
-		/*mSaveSelection5Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 5",             OnEdit_Selection_SaveSelection5);
-		/*mSaveSelection6Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 6",             OnEdit_Selection_SaveSelection6);
-		/*mSaveSelection7Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 7",             OnEdit_Selection_SaveSelection7);
-		/*mSaveSelection8Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 8",             OnEdit_Selection_SaveSelection8);
-		/*mSaveSelection9Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 9",             OnEdit_Selection_SaveSelection9);
-		/*mSaveSelection0Item                =*/ MenuItem.Create(mSelectionItem, "Save Selection 0",             OnEdit_Selection_SaveSelection0);
+		/*mEdit_Selection_SaveSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 1", OnEdit_Selection_SaveSelection1);
+		/*mEdit_Selection_SaveSelection2Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 2", OnEdit_Selection_SaveSelection2);
+		/*mEdit_Selection_SaveSelection3Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 3", OnEdit_Selection_SaveSelection3);
+		/*mEdit_Selection_SaveSelection4Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 4", OnEdit_Selection_SaveSelection4);
+		/*mEdit_Selection_SaveSelection5Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 5", OnEdit_Selection_SaveSelection5);
+		/*mEdit_Selection_SaveSelection6Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 6", OnEdit_Selection_SaveSelection6);
+		/*mEdit_Selection_SaveSelection7Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 7", OnEdit_Selection_SaveSelection7);
+		/*mEdit_Selection_SaveSelection8Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 8", OnEdit_Selection_SaveSelection8);
+		/*mEdit_Selection_SaveSelection9Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 9", OnEdit_Selection_SaveSelection9);
+		/*mEdit_Selection_SaveSelection0Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 0", OnEdit_Selection_SaveSelection0);
 		#endregion
 
 		MenuItem.InsertSeparator(mEditMenu);
 
 		#region Edit->Project Settings
-		mProjectSettingsItem                 =   MenuItem.Create(mEditMenu, "Project Settings");
+		mEdit_ProjectSettingsItem                        =   MenuItem.Create(mEditMenu,                 "Project Settings");
 		
-		/*mInputItem                         =*/ MenuItem.Create(mProjectSettingsItem, "Input",                  OnEdit_ProjectSettings_Input);
-		/*mTagsAndLayersItem                 =*/ MenuItem.Create(mProjectSettingsItem, "Tags and Layers",        OnEdit_ProjectSettings_TagsAndLayers);
-		/*mAudioItem                         =*/ MenuItem.Create(mProjectSettingsItem, "Audio",                  OnEdit_ProjectSettings_Audio);
-		/*mTimeItem                          =*/ MenuItem.Create(mProjectSettingsItem, "Time",                   OnEdit_ProjectSettings_Time);
-		/*mPlayerItem                        =*/ MenuItem.Create(mProjectSettingsItem, "Player",                 OnEdit_ProjectSettings_Player);
-		/*mPhysicsItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Physics",                OnEdit_ProjectSettings_Physics);
-		/*mPhysics2DItem                     =*/ MenuItem.Create(mProjectSettingsItem, "Physics 2D",             OnEdit_ProjectSettings_Physics2D);
-		/*mQualityItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Quality",                OnEdit_ProjectSettings_Quality);
-		/*mGraphicsItem                      =*/ MenuItem.Create(mProjectSettingsItem, "Graphics",               OnEdit_ProjectSettings_Graphics);
-		/*mNetworkItem                       =*/ MenuItem.Create(mProjectSettingsItem, "Network",                OnEdit_ProjectSettings_Network);
-		/*mEditorItem                        =*/ MenuItem.Create(mProjectSettingsItem, "Editor",                 OnEdit_ProjectSettings_Editor);
-		/*mScriptExecutionOrderItem          =*/ MenuItem.Create(mProjectSettingsItem, "Script Execution Order", OnEdit_ProjectSettings_ScriptExecutionOrder);
+		/*mEdit_ProjectSettings_InputItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Input",                  OnEdit_ProjectSettings_Input);
+		/*mEdit_ProjectSettings_TagsAndLayersItem        =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Tags and Layers",        OnEdit_ProjectSettings_TagsAndLayers);
+		/*mEdit_ProjectSettings_AudioItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Audio",                  OnEdit_ProjectSettings_Audio);
+		/*mEdit_ProjectSettings_TimeItem                 =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Time",                   OnEdit_ProjectSettings_Time);
+		/*mEdit_ProjectSettings_PlayerItem               =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Player",                 OnEdit_ProjectSettings_Player);
+		/*mEdit_ProjectSettings_PhysicsItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Physics",                OnEdit_ProjectSettings_Physics);
+		/*mEdit_ProjectSettings_Physics2DItem            =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Physics 2D",             OnEdit_ProjectSettings_Physics2D);
+		/*mEdit_ProjectSettings_QualityItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Quality",                OnEdit_ProjectSettings_Quality);
+		/*mEdit_ProjectSettings_GraphicsItem             =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Graphics",               OnEdit_ProjectSettings_Graphics);
+		/*mEdit_ProjectSettings_NetworkItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Network",                OnEdit_ProjectSettings_Network);
+		/*mEdit_ProjectSettings_EditorItem               =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Editor",                 OnEdit_ProjectSettings_Editor);
+		/*mEdit_ProjectSettings_ScriptExecutionOrderItem =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Script Execution Order", OnEdit_ProjectSettings_ScriptExecutionOrder);
 		#endregion
 		
-		/*mRenderSettingsItem                =*/ MenuItem.Create(mEditMenu, "Render Settings",                   OnEdit_RenderSettings);
+		/*mEdit_RenderSettingsItem =*/ MenuItem.Create(mEditMenu, "Render Settings", OnEdit_RenderSettings);
 		MenuItem.InsertSeparator(mEditMenu);
 
 		#region Edit->Network Emulation
-		mNetworkEmulationItem                =   MenuItem.Create(mEditMenu, "Network Emulation");
+		mEdit_NetworkEmulationItem                             =   MenuItem.Create(mEditMenu,                  "Network Emulation");
 		
-		/*mNetworkEmulationNoneItem          =*/ MenuItem.Create(mNetworkEmulationItem, "None",                  OnEdit_NetworkEmulation_None);
-		/*mNetworkEmulationBroadbandItem     =*/ MenuItem.Create(mNetworkEmulationItem, "Broadband",             OnEdit_NetworkEmulation_Broadband);
-		/*mNetworkEmulationDSLItem           =*/ MenuItem.Create(mNetworkEmulationItem, "DSL",                   OnEdit_NetworkEmulation_DSL);
-		/*mNetworkEmulationISDNItem          =*/ MenuItem.Create(mNetworkEmulationItem, "ISDN",                  OnEdit_NetworkEmulation_ISDN);
-		/*mNetworkEmulationDialUpItem        =*/ MenuItem.Create(mNetworkEmulationItem, "Dial-Up",               OnEdit_NetworkEmulation_DialUp);
+		/*mEdit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "None",      OnEdit_NetworkEmulation_None);
+		/*mEdit_NetworkEmulation_NetworkEmulationBroadbandItem =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "Broadband", OnEdit_NetworkEmulation_Broadband);
+		/*mEdit_NetworkEmulation_NetworkEmulationDSLItem       =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "DSL",       OnEdit_NetworkEmulation_DSL);
+		/*mEdit_NetworkEmulation_NetworkEmulationISDNItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "ISDN",      OnEdit_NetworkEmulation_ISDN);
+		/*mEdit_NetworkEmulation_NetworkEmulationDialUpItem    =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "Dial-Up",   OnEdit_NetworkEmulation_DialUp);
 		#endregion
 		
 		#region Edit->Graphics Emulation
-		mGraphicsEmulationItem               =   MenuItem.Create(mEditMenu, "Graphics Emulation");
+		mEdit_GraphicsEmulationItem                                 =   MenuItem.Create(mEditMenu,                   "Graphics Emulation");
 		
-		/*mGraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mGraphicsEmulationItem, "No Emulation",         OnEdit_GraphicsEmulation_NoEmulation);
-		/*mGraphicsEmulationShaderModel3Item =*/ MenuItem.Create(mGraphicsEmulationItem, "Shader Model 3",       OnEdit_GraphicsEmulation_ShaderModel3);
-		/*mGraphicsEmulationShaderModel2Item =*/ MenuItem.Create(mGraphicsEmulationItem, "Shader Model 2",       OnEdit_GraphicsEmulation_ShaderModel2);
+		/*mEdit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "No Emulation",   OnEdit_GraphicsEmulation_NoEmulation);
+		/*mEdit_GraphicsEmulation_GraphicsEmulationShaderModel3Item =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "Shader Model 3", OnEdit_GraphicsEmulation_ShaderModel3);
+		/*mEdit_GraphicsEmulation_GraphicsEmulationShaderModel2Item =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "Shader Model 2", OnEdit_GraphicsEmulation_ShaderModel2);
 		#endregion
 
 		MenuItem.InsertSeparator(mEditMenu);
-		/*mSnapSettingsItem                  =*/ MenuItem.Create(mEditMenu,              "Snap Settings...",     OnEdit_SnapSettings);
+		/*mEdit_SnapSettingsItem =*/ MenuItem.Create(mEditMenu, "Snap Settings...", OnEdit_SnapSettings);
 		#endregion
 
 		#region Assets
 		mAssetsMenu = MenuItem.Create(mItems, "Assets", OnAssetsMenu);
+
+		#region Assets->Create
+		mAssets_CreateItem                             =   MenuItem.Create(mAssetsMenu,        "Create");
+
+		/*mAssets_Create_FolderItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Folder",                      OnAssets_Create_Folder);
+		MenuItem.InsertSeparator(mAssets_CreateItem);
+		/*mAssets_Create_JavascriptItem                =*/ MenuItem.Create(mAssets_CreateItem, "Javascript",                  OnAssets_Create_Javascript);
+		/*mAssets_Create_CShartScriptItem              =*/ MenuItem.Create(mAssets_CreateItem, "C# Script",                   OnAssets_Create_CShartScript);
+		/*mAssets_Create_BooScriptItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Boo Script",                  OnAssets_Create_BooScript);
+		/*mAssets_Create_ShaderItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Shader",                      OnAssets_Create_Shader);
+		/*mAssets_Create_ComputeShaderItem             =*/ MenuItem.Create(mAssets_CreateItem, "Compute Shader",              OnAssets_Create_ComputeShader);
+		MenuItem.InsertSeparator(mAssets_CreateItem);
+		/*mAssets_Create_PrefabItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Prefab",                      OnAssets_Create_Prefab);
+		MenuItem.InsertSeparator(mAssets_CreateItem);
+		/*mAssets_Create_MaterialItem                  =*/ MenuItem.Create(mAssets_CreateItem, "Material",                    OnAssets_Create_Material);
+		/*mAssets_Create_CubemapItem                   =*/ MenuItem.Create(mAssets_CreateItem, "Cubemap",                     OnAssets_Create_Cubemap);
+		/*mAssets_Create_LensFlareItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Lens Flare",                  OnAssets_Create_LensFlare);
+		MenuItem.InsertSeparator(mAssets_CreateItem);
+		/*mAssets_Create_AnimatorControllerItem        =*/ MenuItem.Create(mAssets_CreateItem, "Animator Controller",         OnAssets_Create_AnimatorController);
+		/*mAssets_Create_AnimationItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Animation",                   OnAssets_Create_Animation);
+		/*mAssets_Create_AnimatorOverrideContollerItem =*/ MenuItem.Create(mAssets_CreateItem, "Animator Override Contoller", OnAssets_Create_AnimatorOverrideContoller);
+		/*mAssets_Create_AvatarMaskItem                =*/ MenuItem.Create(mAssets_CreateItem, "Avatar Mask",                 OnAssets_Create_AvatarMask);
+		MenuItem.InsertSeparator(mAssets_CreateItem);
+		/*mAssets_Create_PhysicMaterialItem            =*/ MenuItem.Create(mAssets_CreateItem, "Physic Material",             OnAssets_Create_PhysicMaterial);
+		/*mAssets_Create_Physic2dMaterialItem          =*/ MenuItem.Create(mAssets_CreateItem, "Physic2D Material",           OnAssets_Create_Physic2dMaterial);
+		MenuItem.InsertSeparator(mAssets_CreateItem);
+		/*mAssets_Create_GuiSkinItem                   =*/ MenuItem.Create(mAssets_CreateItem, "GUI Skin",                    OnAssets_Create_GuiSkin);
+		/*mAssets_Create_CustomFontItem                =*/ MenuItem.Create(mAssets_CreateItem, "Custom Font",                 OnAssets_Create_CustomFont);
+		#endregion
+
+		/*mAssets_ShowInExplorerItem =*/ MenuItem.Create(mAssetsMenu, "Show In Explorer",    OnAssets_ShowInExplorer);
+		/*mAssets_OpenItem           =*/ MenuItem.Create(mAssetsMenu, "Open",                OnAssets_Open);
+		/*mAssets_DeleteItem         =*/ MenuItem.Create(mAssetsMenu, "Delete",              OnAssets_Delete);
+		MenuItem.InsertSeparator(mAssetsMenu);
+		/*mAssets_ImportNewAssetItem =*/ MenuItem.Create(mAssetsMenu, "Import New Asset...", OnAssets_ImportNewAsset);
+
+		#region Assets->Import Package
+		mAssets_ImportPackageItem                           =   MenuItem.Create(mAssetsMenu,               "Import Package");
+
+		/*mAssets_ImportPackage_CustomPackageItem           =*/ MenuItem.Create(mAssets_ImportPackageItem, "Custom Package...",           OnAssets_ImportPackage_CustomPackage);
+		MenuItem.InsertSeparator(mAssets_ImportPackageItem);
+		/*mAssets_ImportPackage_CharacterControllerItem     =*/ MenuItem.Create(mAssets_ImportPackageItem, "Character Controller",        OnAssets_ImportPackage_CharacterController);
+		/*mAssets_ImportPackage_GlassRefractionProOnlytem   =*/ MenuItem.Create(mAssets_ImportPackageItem, "Glass Refraction (Pro Only)", OnAssets_ImportPackage_GlassRefractionProOnly);
+		/*mAssets_ImportPackage_ImageEffectsProOnlyItem     =*/ MenuItem.Create(mAssets_ImportPackageItem, "Image Effects (Pro Only)",    OnAssets_ImportPackage_ImageEffectsProOnly);
+		/*mAssets_ImportPackage_LightCookiesItem            =*/ MenuItem.Create(mAssets_ImportPackageItem, "Light Cookies",               OnAssets_ImportPackage_LightCookies);
+		/*mAssets_ImportPackage_LightFlaresItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Light Flares",                OnAssets_ImportPackage_LightFlares);
+		/*mAssets_ImportPackage_ParticlesItem               =*/ MenuItem.Create(mAssets_ImportPackageItem, "Particles",                   OnAssets_ImportPackage_Particles);
+		/*mAssets_ImportPackage_PhysicMaterialsItem         =*/ MenuItem.Create(mAssets_ImportPackageItem, "Physic Materials",            OnAssets_ImportPackage_PhysicMaterials);
+		/*mAssets_ImportPackage_ProjectorsItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, "Projectors",                  OnAssets_ImportPackage_Projectors);
+		/*mAssets_ImportPackage_ScriptsItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Scripts",                     OnAssets_ImportPackage_Scripts);
+		/*mAssets_ImportPackage_SkyboxesItem                =*/ MenuItem.Create(mAssets_ImportPackageItem, "Skyboxes",                    OnAssets_ImportPackage_Skyboxes);
+		/*mAssets_ImportPackage_StandardAssetsMobileItem    =*/ MenuItem.Create(mAssets_ImportPackageItem, "Standard Assets (Mobile)",    OnAssets_ImportPackage_StandardAssetsMobile);
+		/*mAssets_ImportPackage_TerrainAssetsItem           =*/ MenuItem.Create(mAssets_ImportPackageItem, "Terrain Assets",              OnAssets_ImportPackage_TerrainAssets);
+		/*mAssets_ImportPackage_TessellationShadersDx11Item =*/ MenuItem.Create(mAssets_ImportPackageItem, "Tessellation Shaders (DX11)", OnAssets_ImportPackage_TessellationShadersDx11);
+		/*mAssets_ImportPackage_ToonShadingItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Toon Shading",                OnAssets_ImportPackage_ToonShading);
+		/*mAssets_ImportPackage_TreeCreatorItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Tree Creator",                OnAssets_ImportPackage_TreeCreator);
+		/*mAssets_ImportPackage_WaterBasicItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, "Water (Basic)",               OnAssets_ImportPackage_WaterBasic);
+		/*mAssets_ImportPackage_WaterProOnlyItem            =*/ MenuItem.Create(mAssets_ImportPackageItem, "Water (Pro Only)",            OnAssets_ImportPackage_WaterProOnly);
+		#endregion
+
+		/*mAssets_ExportPackageItem          =*/ MenuItem.Create(mAssetsMenu, "Export Package...",        OnAssets_ExportPackage);
+		/*mAssets_FindReferencesInSceneItem  =*/ MenuItem.Create(mAssetsMenu, "Find References In Scene", OnAssets_FindReferencesInScene);
+		/*mAssets_SelectDependenciestem      =*/ MenuItem.Create(mAssetsMenu, "Select Dependencies",      OnAssets_SelectDependencies);
+		MenuItem.InsertSeparator(mAssetsMenu);
+		/*mAssets_RefreshItem                =*/ MenuItem.Create(mAssetsMenu, "Refresh",                  OnAssets_Refresh);
+		/*mAssets_ReimportItem               =*/ MenuItem.Create(mAssetsMenu, "Reimport",                 OnAssets_Reimport);
+		MenuItem.InsertSeparator(mAssetsMenu);
+		/*mAssets_ReimportAllItem            =*/ MenuItem.Create(mAssetsMenu, "Reimport All",             OnAssets_ReimportAll);
+		MenuItem.InsertSeparator(mAssetsMenu);
+		/*mAssets_SyncMonoDevelopProjectItem =*/ MenuItem.Create(mAssetsMenu, "Sync MonoDevelop Project", OnAssets_SyncMonoDevelopProject);
 		#endregion
 
 		#region GameObject
@@ -1102,6 +1243,433 @@ public class MainMenuScript : MonoBehaviour
 	public void OnAssetsMenu()
 	{
 		OnShowMenuSubItems(mAssetsMenu);
+	}
+
+	#region Assets->Create
+	/// <summary>
+	/// Handler for Assets->Create->Folder.
+	/// </summary>
+	public void OnAssets_Create_Folder()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Folder");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Folder
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Create->Javascript.
+	/// </summary>
+	public void OnAssets_Create_Javascript()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Javascript");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Javascript
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->C# Script.
+	/// </summary>
+	public void OnAssets_Create_CShartScript()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_CShartScript");
+		// TODO: Implement MainMenuScript.OnAssets_Create_CShartScript
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Boo Script.
+	/// </summary>
+	public void OnAssets_Create_BooScript()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_BooScript");
+		// TODO: Implement MainMenuScript.OnAssets_Create_BooScript
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Shader.
+	/// </summary>
+	public void OnAssets_Create_Shader()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Shader");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Shader
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Compute Shader.
+	/// </summary>
+	public void OnAssets_Create_ComputeShader()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_ComputeShader");
+		// TODO: Implement MainMenuScript.OnAssets_Create_ComputeShader
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Prefab.
+	/// </summary>
+	public void OnAssets_Create_Prefab()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Prefab");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Prefab
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Material.
+	/// </summary>
+	public void OnAssets_Create_Material()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Material");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Material
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Cubemap.
+	/// </summary>
+	public void OnAssets_Create_Cubemap()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Cubemap");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Cubemap
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Lens Flare.
+	/// </summary>
+	public void OnAssets_Create_LensFlare()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_LensFlare");
+		// TODO: Implement MainMenuScript.OnAssets_Create_LensFlare
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Animator Controller.
+	/// </summary>
+	public void OnAssets_Create_AnimatorController()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_AnimatorController");
+		// TODO: Implement MainMenuScript.OnAssets_Create_AnimatorController
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Animation.
+	/// </summary>
+	public void OnAssets_Create_Animation()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Animation");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Animation
+	}
+
+	/// <summary>
+	/// Handler for Assets->Create->Animator Override Contoller.
+	/// </summary>
+	public void OnAssets_Create_AnimatorOverrideContoller()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_AnimatorOverrideContoller");
+		// TODO: Implement MainMenuScript.OnAssets_Create_AnimatorOverrideContoller
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Create->Avatar Mask.
+	/// </summary>
+	public void OnAssets_Create_AvatarMask()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_AvatarMask");
+		// TODO: Implement MainMenuScript.OnAssets_Create_AvatarMask
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Create->Physic Material.
+	/// </summary>
+	public void OnAssets_Create_PhysicMaterial()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_PhysicMaterial");
+		// TODO: Implement MainMenuScript.OnAssets_Create_PhysicMaterial
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Create->Physic2D Material.
+	/// </summary>
+	public void OnAssets_Create_Physic2dMaterial()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_Physic2dMaterial");
+		// TODO: Implement MainMenuScript.OnAssets_Create_Physic2dMaterial
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Create->GUI Skin.
+	/// </summary>
+	public void OnAssets_Create_GuiSkin()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_GuiSkin");
+		// TODO: Implement MainMenuScript.OnAssets_Create_GuiSkin
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Create->Custom Font.
+	/// </summary>
+	public void OnAssets_Create_CustomFont()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Create_CustomFont");
+		// TODO: Implement MainMenuScript.OnAssets_Create_CustomFont
+	}
+	#endregion
+
+	/// <summary>
+	/// Handler for Assets->Show In Explorer.
+	/// </summary>
+	public void OnAssets_ShowInExplorer()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ShowInExplorer");
+		// TODO: Implement MainMenuScript.OnAssets_ShowInExplorer
+	}
+
+	/// <summary>
+	/// Handler for Assets->Open.
+	/// </summary>
+	public void OnAssets_Open()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Open");
+		// TODO: Implement MainMenuScript.OnAssets_Open
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Delete.
+	/// </summary>
+	public void OnAssets_Delete()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Delete");
+		// TODO: Implement MainMenuScript.OnAssets_Delete
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import New Asset...
+	/// </summary>
+	public void OnAssets_ImportNewAsset()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportNewAsset");
+		// TODO: Implement MainMenuScript.OnAssets_ImportNewAsset
+	}
+
+	#region Assets->Import Package
+	/// <summary>
+	/// Handler for Assets->Import Package->Custom Package...
+	/// </summary>
+	public void OnAssets_ImportPackage_CustomPackage()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_CustomPackage");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_CustomPackage
+	}
+
+	/// <summary>
+	/// Handler for Assets->Import Package->Character Controller.
+	/// </summary>
+	public void OnAssets_ImportPackage_CharacterController()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_CharacterController");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_CharacterController
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Glass Refraction (Pro Only).
+	/// </summary>
+	public void OnAssets_ImportPackage_GlassRefractionProOnly()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_GlassRefractionProOnly");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_GlassRefractionProOnly
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Image Effects (Pro Only).
+	/// </summary>
+	public void OnAssets_ImportPackage_ImageEffectsProOnly()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_ImageEffectsProOnly");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_ImageEffectsProOnly
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Light Cookies.
+	/// </summary>
+	public void OnAssets_ImportPackage_LightCookies()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_LightCookies");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_LightCookies
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Light Flares.
+	/// </summary>
+	public void OnAssets_ImportPackage_LightFlares()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_LightFlares");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_LightFlares
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Particles.
+	/// </summary>
+	public void OnAssets_ImportPackage_Particles()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_Particles");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Particles
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Physic Materials.
+	/// </summary>
+	public void OnAssets_ImportPackage_PhysicMaterials()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_PhysicMaterials");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_PhysicMaterials
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Projectors.
+	/// </summary>
+	public void OnAssets_ImportPackage_Projectors()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_Projectors");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Projectors
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Scripts.
+	/// </summary>
+	public void OnAssets_ImportPackage_Scripts()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_Scripts");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Scripts
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Skyboxes.
+	/// </summary>
+	public void OnAssets_ImportPackage_Skyboxes()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_Skyboxes");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Skyboxes
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Standard Assets (Mobile).
+	/// </summary>
+	public void OnAssets_ImportPackage_StandardAssetsMobile()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_StandardAssetsMobile");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_StandardAssetsMobile
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Terrain Assets.
+	/// </summary>
+	public void OnAssets_ImportPackage_TerrainAssets()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_TerrainAssets");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_TerrainAssets
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Tessellation Shaders (DX11).
+	/// </summary>
+	public void OnAssets_ImportPackage_TessellationShadersDx11()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_TessellationShadersDx11");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_TessellationShadersDx11
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Toon Shading.
+	/// </summary>
+	public void OnAssets_ImportPackage_ToonShading()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_ToonShading");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_ToonShading
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Tree Creator.
+	/// </summary>
+	public void OnAssets_ImportPackage_TreeCreator()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_TreeCreator");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_TreeCreator
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Water (Basic).
+	/// </summary>
+	public void OnAssets_ImportPackage_WaterBasic()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_WaterBasic");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_WaterBasic
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Import Package->Water (Pro Only).
+	/// </summary>
+	public void OnAssets_ImportPackage_WaterProOnly()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ImportPackage_WaterProOnly");
+		// TODO: Implement MainMenuScript.OnAssets_ImportPackage_WaterProOnly
+	}
+	#endregion
+	
+	/// <summary>
+	/// Handler for Assets->Export Package...
+	/// </summary>
+	public void OnAssets_ExportPackage()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ExportPackage");
+		// TODO: Implement MainMenuScript.OnAssets_ExportPackage
+	}
+
+	/// <summary>
+	/// Handler for Assets->Find References In Scene.
+	/// </summary>
+	public void OnAssets_FindReferencesInScene()
+	{
+		Debug.Log("MainMenuScript.OnAssets_FindReferencesInScene");
+		// TODO: Implement MainMenuScript.OnAssets_FindReferencesInScene
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Select Dependencies.
+	/// </summary>
+	public void OnAssets_SelectDependencies()
+	{
+		Debug.Log("MainMenuScript.OnAssets_SelectDependencies");
+		// TODO: Implement MainMenuScript.OnAssets_SelectDependencies
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Refresh.
+	/// </summary>
+	public void OnAssets_Refresh()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Refresh");
+		// TODO: Implement MainMenuScript.OnAssets_Refresh
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Reimport.
+	/// </summary>
+	public void OnAssets_Reimport()
+	{
+		Debug.Log("MainMenuScript.OnAssets_Reimport");
+		// TODO: Implement MainMenuScript.OnAssets_Reimport
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Reimport All.
+	/// </summary>
+	public void OnAssets_ReimportAll()
+	{
+		Debug.Log("MainMenuScript.OnAssets_ReimportAll");
+		// TODO: Implement MainMenuScript.OnAssets_ReimportAll
+	}
+	
+	/// <summary>
+	/// Handler for Assets->Sync MonoDevelop Project.
+	/// </summary>
+	public void OnAssets_SyncMonoDevelopProject()
+	{
+		Debug.Log("MainMenuScript.OnAssets_SyncMonoDevelopProject");
+		// TODO: Implement MainMenuScript.OnAssets_SyncMonoDevelopProject
 	}
 	#endregion
 	

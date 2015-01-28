@@ -250,7 +250,7 @@ namespace common
 				#endregion
 				
 				#region ScrollRect Component
-				ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
+				ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>(); // TODO: Add Mask
 				
 				scrollAreaScrollRect.content    = scrollAreaContentTransform;
 				scrollAreaScrollRect.horizontal = false;
