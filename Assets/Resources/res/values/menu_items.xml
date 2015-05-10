@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--
+    ====================================================
+                            File
+    ====================================================
+-->
+
+    <!-- Menu item : File -->
+    <string name="file">File</string>
+    
+    <!-- Menu item : File -> New Scene -->
+    <string name="file__new_scene">New Scene</string>
+    
+    <!-- Menu item : File -> Open Scene -->
+    <string name="file__open_scene">Open Scene</string>
+    
+    <!-- Menu item : File -> Save Scene -->
+    <string name="file__save_scene">Save Scene</string>
+    
+    <!-- Menu item : File -> Save Scene as... -->
+    <string name="file__save_scene_as">Save Scene as...</string>
+    
+    <!-- Menu item : File -> New Project... -->
+    <string name="file__new_project">New Project...</string>
+    
+    <!-- Menu item : File -> Open Project... -->
+    <string name="file__open_project">Open Project...</string>
+    
+    <!-- Menu item : File -> Save Project -->
+    <string name="file__save_project">Save Project</string>
+    
+    <!-- Menu item : File -> Build Settings... -->
+    <string name="file__build_settings">Build Settings...</string>
+    
+    <!-- Menu item : File -> Build & Run -->
+    <string name="file__build_and_run">Build &amp; Run</string>
+    
+    <!-- Menu item : File -> Build in Cloud... -->
+    <string name="file__build_in_cloud">Build in Cloud...</string>
+    
+    <!-- Menu item : File -> Exit -->
+    <string name="file__exit">Exit</string>
+    
+<!--
+    ====================================================
+                            Edit
+    ====================================================
+-->
+
+    <!-- Menu item : Edit -->
+    <string name="edit">Edit</string>
+
+</resources>
