@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--
+    <!--
     ====================================================
                             File
     ====================================================
--->
+    -->
 
     <!-- Menu item : File -->
     <string name="file">File</string>
@@ -43,13 +43,558 @@
     <!-- Menu item : File -> Exit -->
     <string name="file__exit">Exit</string>
     
-<!--
+    
+    
+    <!--
     ====================================================
                             Edit
     ====================================================
--->
+    -->
 
     <!-- Menu item : Edit -->
     <string name="edit">Edit</string>
+    
+    <!-- Menu item : Edit -> Undo -->
+    <string name="edit__undo">Undo</string>
+    
+    <!-- Menu item : Edit -> Redo -->
+    <string name="edit__redo">Redo</string>
+    
+    <!-- Menu item : Edit -> Cut -->
+    <string name="edit__cut">Cut</string>
+    
+    <!-- Menu item : Edit -> Copy -->
+    <string name="edit__copy">Copy</string>
+    
+    <!-- Menu item : Edit -> Paste -->
+    <string name="edit__paste">Paste</string>
+    
+    <!-- Menu item : Edit -> Duplicate -->
+    <string name="edit__duplicate">Duplicate</string>
+    
+    <!-- Menu item : Edit -> Delete -->
+    <string name="edit__delete">Delete</string>
+    
+    <!-- Menu item : Edit -> Frame Selected -->
+    <string name="edit__frame_selected">Frame Selected</string>
+    
+    <!-- Menu item : Edit -> Lock View to Selected -->
+    <string name="edit__lock_view_to_selected">Lock View to Selected</string>
+    
+    <!-- Menu item : Edit -> Find -->
+    <string name="edit__find">Find</string>
+    
+    <!-- Menu item : Edit -> Select All -->
+    <string name="edit__select_all">Select All</string>
+    
+    <!-- Menu item : Edit -> Preferences... -->
+    <string name="edit__preferences">Preferences...</string>
+    
+    <!-- Menu item : Edit -> Modules... -->
+    <string name="edit__modules">Modules...</string>
+    
+    <!-- Menu item : Edit -> Play -->
+    <string name="edit__play">Play</string>
+    
+    <!-- Menu item : Edit -> Pause -->
+    <string name="edit__pause">Pause</string>
+    
+    <!-- Menu item : Edit -> Step -->
+    <string name="edit__step">Step</string>
+    
+    
+    
+    <!--
+    ====================================================
+                      Edit -> Selection
+    ====================================================
+    -->
+    
+    <!-- Menu item : Edit -> Selection -->
+    <string name="edit__selection">Selection</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 1 -->
+    <string name="edit__selection__load_selection_1">Load Selection 1</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 2 -->
+    <string name="edit__selection__load_selection_2">Load Selection 2</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 3 -->
+    <string name="edit__selection__load_selection_3">Load Selection 3</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 4 -->
+    <string name="edit__selection__load_selection_4">Load Selection 4</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 5 -->
+    <string name="edit__selection__load_selection_5">Load Selection 5</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 6 -->
+    <string name="edit__selection__load_selection_6">Load Selection 6</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 7 -->
+    <string name="edit__selection__load_selection_7">Load Selection 7</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 8 -->
+    <string name="edit__selection__load_selection_8">Load Selection 8</string>
+    
+    <!-- Menu item : Edit -> Selection -> Load Selection 9 -->
+    <string name="edit__selection__load_selection_9">Load Selection 9</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 1 -->
+    <string name="edit__selection__save_selection_1">Save Selection 1</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 2 -->
+    <string name="edit__selection__save_selection_2">Save Selection 2</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 3 -->
+    <string name="edit__selection__save_selection_3">Save Selection 3</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 4 -->
+    <string name="edit__selection__save_selection_4">Save Selection 4</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 5 -->
+    <string name="edit__selection__save_selection_5">Save Selection 5</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 6 -->
+    <string name="edit__selection__save_selection_6">Save Selection 6</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 7 -->
+    <string name="edit__selection__save_selection_7">Save Selection 7</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 8 -->
+    <string name="edit__selection__save_selection_8">Save Selection 8</string>
+    
+    <!-- Menu item : Edit -> Selection -> Save Selection 9 -->
+    <string name="edit__selection__save_selection_9">Save Selection 9</string>
+    
+    
+    
+    <!--
+    ====================================================
+                  Edit -> Project Settings
+    ====================================================
+    -->
+    
+    <!-- Menu item : Edit -> Project Settings -->
+    <string name="edit__project_settings">Project Settings</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Input -->
+    <string name="edit__project_settings__input">Input</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Tags and Layers -->
+    <string name="edit__project_settings__tags_and_layers">Tags and Layers</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Audio -->
+    <string name="edit__project_settings__audio">Audio</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Time -->
+    <string name="edit__project_settings__time">Time</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Player -->
+    <string name="edit__project_settings__player">Player</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Physics -->
+    <string name="edit__project_settings__physics">Physics</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Physics 2D -->
+    <string name="edit__project_settings__physics_2d">Physics 2D</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Quality -->
+    <string name="edit__project_settings__quality">Quality</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Graphics -->
+    <string name="edit__project_settings__graphics">Graphics</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Network -->
+    <string name="edit__project_settings__network">Network</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Editor -->
+    <string name="edit__project_settings__editor">Editor</string>
+    
+    <!-- Menu item : Edit -> Project Settings -> Script Execution Order -->
+    <string name="edit__project_settings__script_execution_order">Script Execution Order</string>
+    
+    <!--
+    ====================================================
+                 Edit -> Network Emulation
+    ====================================================
+    -->
+    
+    <!-- Menu item : Edit -> Network Emulation -->
+    <string name="edit__network_emulation">Network Emulation</string>
+    
+    <!-- Menu item : Edit -> Network Emulation -> None -->
+    <string name="edit__network_emulation__none">None</string>
+    
+    <!-- Menu item : Edit -> Network Emulation -> Broadband -->
+    <string name="edit__network_emulation__broadband">Broadband</string>
+    
+    <!-- Menu item : Edit -> Network Emulation -> DSL -->
+    <string name="edit__network_emulation__dsl">DSL</string>
+    
+    <!-- Menu item : Edit -> Network Emulation -> ISDN -->
+    <string name="edit__network_emulation__idsn">ISDN</string>
+    
+    <!-- Menu item : Edit -> Network Emulation -> Dial-Up -->
+    <string name="edit__network_emulation__dial_up">Dial-Up</string>
+    
+    
+    
+    <!--
+    ====================================================
+                 Edit -> Graphics Emulation
+    ====================================================
+    -->
+    
+    <!-- Menu item : Edit -> Graphics Emulation -->
+    <string name="edit__graphics_emulation">Graphics Emulation</string>
+    
+    <!-- Menu item : Edit -> Graphics Emulation -> No Emulation -->
+    <string name="edit__graphics_emulation__no_emulation">No Emulation</string>
+    
+    <!-- Menu item : Edit -> Graphics Emulation -> Shader Model 3 -->
+    <string name="edit__graphics_emulation__shader_model_3">Shader Model 3</string>
+    
+    <!-- Menu item : Edit -> Graphics Emulation -> Shader Model 2 -->
+    <string name="edit__graphics_emulation__shader_model_2">Shader Model 2</string>
+    
+    
+    
+    <!-- Menu item : Edit -> Snap Settings... -->
+    <string name="edit__snap_settings">Snap Settings...</string>
+    
+    
+    
+    <!--
+    ====================================================
+                          Assets
+    ====================================================
+    -->
+    
+    <!-- Menu item : Assets -->
+    <string name="assets">Assets</string>
+    
+    
+    
+    <!--
+    ====================================================
+                     Assets -> Create
+    ====================================================
+    -->
+    
+    <!-- Menu item : Assets -> Create -->
+    <string name="assets__create">Create</string>
+    
+    <!-- Menu item : Assets -> Create -> Folder -->
+    <string name="assets__create__folder">Folder</string>
+    
+    <!-- Menu item : Assets -> Create -> C# Script -->
+    <string name="assets__create__c_sharp_script">C# Script</string>
+    
+    <!-- Menu item : Assets -> Create -> Javascript -->
+    <string name="assets__create__javascript">Javascript</string>
+    
+    <!-- Menu item : Assets -> Create -> Shader -->
+    <string name="assets__create__shader">Shader</string>
+    
+    <!-- Menu item : Assets -> Create -> Compute Shader -->
+    <string name="assets__create__compute_shader">Compute Shader</string>
+    
+    <!-- Menu item : Assets -> Create -> Prefab -->
+    <string name="assets__create__prefab">Prefab</string>
+    
+    <!-- Menu item : Assets -> Create -> Audio Mixer -->
+    <string name="assets__create__audio_mixer">Audio Mixer</string>
+    
+    <!-- Menu item : Assets -> Create -> Material -->
+    <string name="assets__create__material">Material</string>
+    
+    <!-- Menu item : Assets -> Create -> Lens Flare -->
+    <string name="assets__create__lens_flare">Lens Flare</string>
+    
+    <!-- Menu item : Assets -> Create -> Render Texture -->
+    <string name="assets__create__render_texture">Render Texture</string>
+    
+    <!-- Menu item : Assets -> Create -> Lightmap Parameters -->
+    <string name="assets__create__lightmap_parameters">Lightmap Parameters</string>
+    
+    <!-- Menu item : Assets -> Create -> Animator Controller -->
+    <string name="assets__create__animator_controller">Animator Controller</string>
+    
+    <!-- Menu item : Assets -> Create -> Animation -->
+    <string name="assets__create__animation">Animation</string>
+    
+    <!-- Menu item : Assets -> Create -> Animator Override Contoller -->
+    <string name="assets__create__animator_override_contoller">Animator Override Contoller</string>
+    
+    <!-- Menu item : Assets -> Create -> Avatar Mask -->
+    <string name="assets__create__avatar_mask">Avatar Mask</string>
+    
+    <!-- Menu item : Assets -> Create -> Physic Material -->
+    <string name="assets__create__physic_material">Physic Material</string>
+    
+    <!-- Menu item : Assets -> Create -> Physic2D Material -->
+    <string name="assets__create__physic2d_material">Physic2D Material</string>
+    
+    <!-- Menu item : Assets -> Create -> GUI Skin -->
+    <string name="assets__create__gui_Skin">GUI Skin</string>
+    
+    <!-- Menu item : Assets -> Create -> Custom Font -->
+    <string name="assets__create__custom_font">Custom Font</string>
+    
+    <!-- Menu item : Assets -> Create -> Shader Variant Collection -->
+    <string name="assets__create__shader_variant_collection">Shader Variant Collection</string>
+    
+    
+    
+    <!--
+    ====================================================
+               Assets -> Create -> Legacy
+    ====================================================
+    -->
+    
+    <!-- Menu item : Assets -> Create -> Legacy -->
+    <string name="assets__create__legacy">Legacy</string>
+    
+    <!-- Menu item : Assets -> Create -> Legacy -> Cubemap -->
+    <string name="assets__create__legacy__cubemap">Cubemap</string>
+    
+        
+    
+    <!-- Menu item : Assets -> Show in Explorer -->
+    <string name="assets__show_in_explorer">Show in Explorer</string>
+    
+    <!-- Menu item : Assets -> Open -->
+    <string name="assets__open">Open</string>
+    
+    <!-- Menu item : Assets -> Delete -->
+    <string name="assets__delete">Delete</string>
+    
+    <!-- Menu item : Assets -> Import New Asset... -->
+    <string name="assets__import_new_asset">Import New Asset...</string>
+    
+    
+    
+    <!--
+    ====================================================
+                  Assets -> Import Package
+    ====================================================
+    -->
+    
+    <!-- Menu item : Assets -> Import Package -->
+    <string name="assets__import_package">Import Package</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Custom Package... -->
+    <string name="assets__import_package__custom_package">Custom Package...</string>
+    
+    <!-- Menu item : Assets -> Import Package -> 2D -->
+    <string name="assets__import_package__2d">2D</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Cameras -->
+    <string name="assets__import_package__cameras">Cameras</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Characters -->
+    <string name="assets__import_package__characters">Characters</string>
+    
+    <!-- Menu item : Assets -> Import Package -> CrossPlatformInput -->
+    <string name="assets__import_package__cross_platform_input">CrossPlatformInput</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Effects -->
+    <string name="assets__import_package__effects">Effects</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Environment -->
+    <string name="assets__import_package__environment">Environment</string>
+    
+    <!-- Menu item : Assets -> Import Package -> ParticleSystems -->
+    <string name="assets__import_package__particle_systems">ParticleSystems</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Prototyping -->
+    <string name="assets__import_package__prototyping">Prototyping</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Utility -->
+    <string name="assets__import_package__utility">Utility</string>
+    
+    <!-- Menu item : Assets -> Import Package -> Vehicles -->
+    <string name="assets__import_package__vehicles">Vehicles</string>
+    
+    
+    
+    <!-- Menu item : Assets -> Export Package... -->
+    <string name="assets__export_package">Export Package...</string>
+    
+    <!-- Menu item : Assets -> Find References In Scene -->
+    <string name="assets__find_references_in_scene">Find References In Scene</string>
+    
+    <!-- Menu item : Assets -> Select Dependencies -->
+    <string name="assets__select_dependencies">Select Dependencies</string>
+    
+    <!-- Menu item : Assets -> Refresh -->
+    <string name="assets__refresh">Refresh</string>
+    
+    <!-- Menu item : Assets -> Reimport -->
+    <string name="assets__reimport">Reimport</string>
+    
+    <!-- Menu item : Assets -> Reimport All -->
+    <string name="assets__reimport_all">Reimport All</string>
+    
+    <!-- Menu item : Assets -> Run API Updater... -->
+    <string name="assets__run_api_updater">Run API Updater...</string>
+    
+    <!-- Menu item : Assets -> Sync MonoDevelop Project -->
+    <string name="assets__sync_monodevelop_project">Sync MonoDevelop Project</string>
+    
+    
+    
+    <!--
+    ====================================================
+                         GameObject
+    ====================================================
+    -->
+    
+    <!-- Menu item : GameObject -->
+    <string name="gameobject">GameObject</string>
+    
+    <!-- Menu item : GameObject -> Create Empty -->
+    <string name="gameobject__create_empty">Create Empty</string>
+    
+    <!-- Menu item : GameObject -> Create Empty Child -->
+    <string name="gameobject__create_empty_child">Create Empty Child</string>
+    
+    
+    
+    <!--
+    ====================================================
+                   GameObject -> 3D Object
+    ====================================================
+    -->
+    
+    <!-- Menu item : GameObject -> 3D Object -->
+    <string name="gameobject__3d_object">3D Object</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Cube -->
+    <string name="gameobject__3d_object__cube">Cube</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Sphere -->
+    <string name="gameobject__3d_object__sphere">Sphere</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Capsule -->
+    <string name="gameobject__3d_object__capsule">Capsule</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Cylinder -->
+    <string name="gameobject__3d_object__cylinder">Cylinder</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Plane -->
+    <string name="gameobject__3d_object__plane">Plane</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Quad -->
+    <string name="gameobject__3d_object__quad">Quad</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Ragdoll... -->
+    <string name="gameobject__3d_object__ragdoll">Ragdoll...</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Terrain -->
+    <string name="gameobject__3d_object__terrain">Terrain</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Tree -->
+    <string name="gameobject__3d_object__tree">Tree</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> Wind Zone -->
+    <string name="gameobject__3d_object__wind_zone">Wind Zone</string>
+    
+    <!-- Menu item : GameObject -> 3D Object -> 3D Text -->
+    <string name="gameobject__3d_object__3d_text">3D Text</string>
+    
+    
+    
+    <!--
+    ====================================================
+                   GameObject -> 2D Object
+    ====================================================
+    -->
+    
+    <!-- Menu item : GameObject -> 2D Object -->
+    <string name="gameobject__2d_object">2D Object</string>
+    
+    <!-- Menu item : GameObject -> 2D Object -> Sprite -->
+    <string name="gameobject__2d_object__sprite">Sprite</string>
+    
+    
+    
+    <!--
+    ====================================================
+                    GameObject -> Light
+    ====================================================
+    -->
+    
+    <!-- Menu item : GameObject -> Light -->
+    <string name="gameobject__light">Light</string>
+    
+    <!-- Menu item : GameObject -> Light -> Directional Light -->
+    <string name="gameobject__light__directional_light">Directional Light</string>
+    
+    <!-- Menu item : GameObject -> Light -> Point Light -->
+    <string name="gameobject__light__point_light">Point Light</string>
+    
+    <!-- Menu item : GameObject -> Light -> Spotlight -->
+    <string name="gameobject__light__spotlight">Spotlight</string>
+    
+    <!-- Menu item : GameObject -> Light -> Area Light -->
+    <string name="gameobject__light__area_light">Area Light</string>
+    
+    <!-- Menu item : GameObject -> Light -> Reflection Probe -->
+    <string name="gameobject__light__reflection_probe">Reflection Probe</string>
+    
+    <!-- Menu item : GameObject -> Light -> Light Probe Group -->
+    <string name="gameobject__light__light_probe_group">Light Probe Group</string>
+    
+    
+    
+    <!--
+    ====================================================
+                    GameObject -> Audio
+    ====================================================
+    -->
+    
+    <!-- Menu item : GameObject -> Audio -->
+    <string name="gameobject__audio">Audio</string>
+    
+    <!-- Menu item : GameObject -> Audio -> Audio Source -->
+    <string name="gameobject__audio__audio_source">Audio Source</string>
+    
+    <!-- Menu item : GameObject -> Audio -> Audio Reverb Zone -->
+    <string name="gameobject__audio__audio_reverb_zone">Audio Reverb Zone</string>
+        
+    
+    
+    <!--
+    ====================================================
+                          Component
+    ====================================================
+    -->
+    
+    <!-- Menu item : Component -->
+    <string name="component">Component</string>
+    
+    
+    
+    <!--
+    ====================================================
+                           Window
+    ====================================================
+    -->
+    
+    <!-- Menu item : Window -->
+    <string name="window">Window</string>
+    
+    
+    
+    <!--
+    ====================================================
+                            Help
+    ====================================================
+    -->
+    
+    <!-- Menu item : Help -->
+    <string name="help">Help</string>
 
 </resources>

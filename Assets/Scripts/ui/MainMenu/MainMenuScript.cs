@@ -67,7 +67,7 @@ public class MainMenuScript : MonoBehaviour
 //	private TreeNode<MenuItem> mEdit_PauseItem              = null;
 //	private TreeNode<MenuItem> mEdit_StepItem               = null;
 
-    #region Edit->Selection
+    #region Edit -> Selection
     private TreeNode<MenuItem> mEdit_SelectionItem                = null;
 
 //	private TreeNode<MenuItem> mEdit_Selection_LoadSelection1Item = null;
@@ -93,7 +93,7 @@ public class MainMenuScript : MonoBehaviour
 //	private TreeNode<MenuItem> mEdit_Selection_SaveSelection0Item = null;
     #endregion
 
-    #region Edit->Project Settings
+    #region Edit -> Project Settings
     private TreeNode<MenuItem> mEdit_ProjectSettingsItem                      = null;
 
 //	private TreeNode<MenuItem> mEdit_ProjectSettings_InputItem                = null;
@@ -110,9 +110,7 @@ public class MainMenuScript : MonoBehaviour
 //	private TreeNode<MenuItem> mEdit_ProjectSettings_ScriptExecutionOrderItem = null;
     #endregion
 
-//	private TreeNode<MenuItem> mEdit_RenderSettingsItem = null;
-
-    #region Edit->Network Emulation
+    #region Edit -> Network Emulation
     private TreeNode<MenuItem> mEdit_NetworkEmulationItem                           = null;
 
 //	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationNoneItem      = null;
@@ -122,7 +120,7 @@ public class MainMenuScript : MonoBehaviour
 //	private TreeNode<MenuItem> mEdit_NetworkEmulation_NetworkEmulationDialUpItem    = null;
     #endregion
 
-    #region Edit->Graphics Emulation
+    #region Edit -> Graphics Emulation
     private TreeNode<MenuItem> mEdit_GraphicsEmulationItem                               = null;
 
 //	private TreeNode<MenuItem> mEdit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  = null;
@@ -136,22 +134,24 @@ public class MainMenuScript : MonoBehaviour
     #region Assets
     private TreeNode<MenuItem> mAssetsMenu = null;
 
-    #region Assets->Create
+    #region Assets -> Create
     private TreeNode<MenuItem> mAssets_CreateItem                           = null;
 
 //	private TreeNode<MenuItem> mAssets_Create_FolderItem                    = null;
 
-//	private TreeNode<MenuItem> mAssets_Create_JavascriptItem                = null;
-//	private TreeNode<MenuItem> mAssets_Create_CShartScriptItem              = null;
-//	private TreeNode<MenuItem> mAssets_Create_BooScriptItem                 = null;
-//	private TreeNode<MenuItem> mAssets_Create_ShaderItem                    = null;
-//	private TreeNode<MenuItem> mAssets_Create_ComputeShaderItem             = null;
+//  private TreeNode<MenuItem> mAssets_Create_CSharpScriptItem              = null;
+//  private TreeNode<MenuItem> mAssets_Create_JavascriptItem                = null;
+//  private TreeNode<MenuItem> mAssets_Create_ShaderItem                    = null;
+//  private TreeNode<MenuItem> mAssets_Create_ComputeShaderItem             = null;
 
 //	private TreeNode<MenuItem> mAssets_Create_PrefabItem                    = null;
 
+//  private TreeNode<MenuItem> mAssets_Create_AudioMixerItem                = null;
+
 //	private TreeNode<MenuItem> mAssets_Create_MaterialItem                  = null;
-//	private TreeNode<MenuItem> mAssets_Create_CubemapItem                   = null;
 //	private TreeNode<MenuItem> mAssets_Create_LensFlareItem                 = null;
+//  private TreeNode<MenuItem> mAssets_Create_RenderTextureItem             = null;
+//  private TreeNode<MenuItem> mAssets_Create_LightmapParametersItem        = null;
 
 //	private TreeNode<MenuItem> mAssets_Create_AnimatorControllerItem        = null;
 //	private TreeNode<MenuItem> mAssets_Create_AnimationItem                 = null;
@@ -163,6 +163,13 @@ public class MainMenuScript : MonoBehaviour
 
 //	private TreeNode<MenuItem> mAssets_Create_GuiSkinItem                   = null;
 //	private TreeNode<MenuItem> mAssets_Create_CustomFontItem                = null;
+//  private TreeNode<MenuItem> mAssets_Create_ShaderVariantCollectionItem   = null;
+
+    #region Assets -> Create -> Legacy
+    private TreeNode<MenuItem> mAssets_Create_LegacyItem                = null;
+//  private TreeNode<MenuItem> mAssets_Create_Legacy_CubemapItem        = null;
+    #endregion
+
     #endregion
 
 //	private TreeNode<MenuItem> mAssets_ShowInExplorerItem = null;
@@ -171,28 +178,21 @@ public class MainMenuScript : MonoBehaviour
 
 //	private TreeNode<MenuItem> mAssets_ImportNewAssetItem = null;
 
-    #region Assets->Import Package
+    #region Assets -> Import Package
     private TreeNode<MenuItem> mAssets_ImportPackageItem                         = null;
 
 //	private TreeNode<MenuItem> mAssets_ImportPackage_CustomPackageItem           = null;
 
-//	private TreeNode<MenuItem> mAssets_ImportPackage_CharacterControllerItem     = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_GlassRefractionProOnlytem   = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_ImageEffectsProOnlyItem     = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_LightCookiesItem            = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_LightFlaresItem             = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_ParticlesItem               = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_PhysicMaterialsItem         = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_ProjectorsItem              = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_ScriptsItem                 = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_SkyboxesItem                = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_StandardAssetsMobileItem    = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_TerrainAssetsItem           = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_TessellationShadersDx11Item = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_ToonShadingItem             = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_TreeCreatorItem             = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_WaterBasicItem              = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_WaterProOnlyItem            = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_2dItem                      = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CamerasItem                 = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CharactersItem              = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CrossPlatformInputItem      = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_EffectsItem                 = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_EnvironmentItem             = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ParticleSystemsItem         = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_PrototypingItem             = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_UtilityItem                 = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_VehiclesItem                = null;
     #endregion
 
 //	private TreeNode<MenuItem> mAssets_ExportPackageItem          = null;
@@ -204,7 +204,9 @@ public class MainMenuScript : MonoBehaviour
 
 //	private TreeNode<MenuItem> mAssets_ReimportAllItem            = null;
 
-//	private TreeNode<MenuItem> mAssets_SyncMonoDevelopProjectItem = null;
+//	private TreeNode<MenuItem> mAssets_RunApiUpdaterItem = null;
+
+//  private TreeNode<MenuItem> mAssets_SyncMonoDevelopProjectItem = null;
 
     #endregion
 
@@ -296,7 +298,7 @@ public class MainMenuScript : MonoBehaviour
         /*mEdit_StepItem               =*/ MenuItem.Create(mEditMenu, "Step",                  OnEdit_Step);
         MenuItem.InsertSeparator(mEditMenu);
 
-        #region Edit->Selection
+        #region Edit -> Selection
         mEdit_SelectionItem                  =   MenuItem.Create(mEditMenu,           "Selection");
 
         /*mEdit_Selection_LoadSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 1", OnEdit_Selection_LoadSelection1);
@@ -324,7 +326,7 @@ public class MainMenuScript : MonoBehaviour
 
         MenuItem.InsertSeparator(mEditMenu);
 
-        #region Edit->Project Settings
+        #region Edit -> Project Settings
         mEdit_ProjectSettingsItem                        =   MenuItem.Create(mEditMenu,                 "Project Settings");
 
         /*mEdit_ProjectSettings_InputItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Input",                  OnEdit_ProjectSettings_Input);
@@ -341,10 +343,9 @@ public class MainMenuScript : MonoBehaviour
         /*mEdit_ProjectSettings_ScriptExecutionOrderItem =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Script Execution Order", OnEdit_ProjectSettings_ScriptExecutionOrder);
         #endregion
 
-        /*mEdit_RenderSettingsItem =*/ MenuItem.Create(mEditMenu, "Render Settings", OnEdit_RenderSettings);
         MenuItem.InsertSeparator(mEditMenu);
 
-        #region Edit->Network Emulation
+        #region Edit -> Network Emulation
         mEdit_NetworkEmulationItem                             =   MenuItem.Create(mEditMenu,                  "Network Emulation");
 
         /*mEdit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "None",      OnEdit_NetworkEmulation_None);
@@ -354,7 +355,7 @@ public class MainMenuScript : MonoBehaviour
         /*mEdit_NetworkEmulation_NetworkEmulationDialUpItem    =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "Dial-Up",   OnEdit_NetworkEmulation_DialUp);
         #endregion
 
-        #region Edit->Graphics Emulation
+        #region Edit -> Graphics Emulation
         mEdit_GraphicsEmulationItem                                 =   MenuItem.Create(mEditMenu,                   "Graphics Emulation");
 
         /*mEdit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "No Emulation",   OnEdit_GraphicsEmulation_NoEmulation);
@@ -369,22 +370,24 @@ public class MainMenuScript : MonoBehaviour
         #region Assets
         mAssetsMenu = MenuItem.Create(mItems, "Assets", OnAssetsMenu);
 
-        #region Assets->Create
+        #region Assets -> Create
         mAssets_CreateItem                             =   MenuItem.Create(mAssetsMenu,        "Create");
 
         /*mAssets_Create_FolderItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Folder",                      OnAssets_Create_Folder);
         MenuItem.InsertSeparator(mAssets_CreateItem);
+        /*mAssets_Create_CSharpScriptItem              =*/ MenuItem.Create(mAssets_CreateItem, "C# Script",                   OnAssets_Create_CSharpScript);
         /*mAssets_Create_JavascriptItem                =*/ MenuItem.Create(mAssets_CreateItem, "Javascript",                  OnAssets_Create_Javascript);
-        /*mAssets_Create_CShartScriptItem              =*/ MenuItem.Create(mAssets_CreateItem, "C# Script",                   OnAssets_Create_CShartScript);
-        /*mAssets_Create_BooScriptItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Boo Script",                  OnAssets_Create_BooScript);
         /*mAssets_Create_ShaderItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Shader",                      OnAssets_Create_Shader);
         /*mAssets_Create_ComputeShaderItem             =*/ MenuItem.Create(mAssets_CreateItem, "Compute Shader",              OnAssets_Create_ComputeShader);
         MenuItem.InsertSeparator(mAssets_CreateItem);
         /*mAssets_Create_PrefabItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Prefab",                      OnAssets_Create_Prefab);
         MenuItem.InsertSeparator(mAssets_CreateItem);
+        /*mAssets_Create_AudioMixerItem                =*/ MenuItem.Create(mAssets_CreateItem, "Audio Mixer",                 OnAssets_Create_AudioMixer);
+        MenuItem.InsertSeparator(mAssets_CreateItem);
         /*mAssets_Create_MaterialItem                  =*/ MenuItem.Create(mAssets_CreateItem, "Material",                    OnAssets_Create_Material);
-        /*mAssets_Create_CubemapItem                   =*/ MenuItem.Create(mAssets_CreateItem, "Cubemap",                     OnAssets_Create_Cubemap);
         /*mAssets_Create_LensFlareItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Lens Flare",                  OnAssets_Create_LensFlare);
+        /*mAssets_Create_RenderTextureItem             =*/ MenuItem.Create(mAssets_CreateItem, "Render Texture",              OnAssets_Create_RenderTexture);
+        /*mAssets_Create_LightmapParametersItem        =*/ MenuItem.Create(mAssets_CreateItem, "Lightmap Parameters",         OnAssets_Create_LightmapParameters);
         MenuItem.InsertSeparator(mAssets_CreateItem);
         /*mAssets_Create_AnimatorControllerItem        =*/ MenuItem.Create(mAssets_CreateItem, "Animator Controller",         OnAssets_Create_AnimatorController);
         /*mAssets_Create_AnimationItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Animation",                   OnAssets_Create_Animation);
@@ -396,36 +399,37 @@ public class MainMenuScript : MonoBehaviour
         MenuItem.InsertSeparator(mAssets_CreateItem);
         /*mAssets_Create_GuiSkinItem                   =*/ MenuItem.Create(mAssets_CreateItem, "GUI Skin",                    OnAssets_Create_GuiSkin);
         /*mAssets_Create_CustomFontItem                =*/ MenuItem.Create(mAssets_CreateItem, "Custom Font",                 OnAssets_Create_CustomFont);
+        /*mAssets_Create_ShaderVariantCollectionItem   =*/ MenuItem.Create(mAssets_CreateItem, "Shader Variant Collection",   OnAssets_Create_ShaderVariantCollection);
+
+        #region Assets -> Create -> Legacy
+        mAssets_Create_LegacyItem                      =   MenuItem.Create(mAssets_CreateItem,        "Legacy");
+
+        /*mAssets_Create_Legacy_CubemapItem            =*/ MenuItem.Create(mAssets_Create_LegacyItem, "Cubemap", OnAssets_Create_Legacy_Cubemap);
         #endregion
 
-        /*mAssets_ShowInExplorerItem =*/ MenuItem.Create(mAssetsMenu, "Show In Explorer",    OnAssets_ShowInExplorer);
+        #endregion
+
+        /*mAssets_ShowInExplorerItem =*/ MenuItem.Create(mAssetsMenu, "Show in Explorer",    OnAssets_ShowInExplorer);
         /*mAssets_OpenItem           =*/ MenuItem.Create(mAssetsMenu, "Open",                OnAssets_Open);
         /*mAssets_DeleteItem         =*/ MenuItem.Create(mAssetsMenu, "Delete",              OnAssets_Delete);
         MenuItem.InsertSeparator(mAssetsMenu);
         /*mAssets_ImportNewAssetItem =*/ MenuItem.Create(mAssetsMenu, "Import New Asset...", OnAssets_ImportNewAsset);
 
-        #region Assets->Import Package
+        #region Assets -> Import Package
         mAssets_ImportPackageItem                           =   MenuItem.Create(mAssetsMenu,               "Import Package");
 
         /*mAssets_ImportPackage_CustomPackageItem           =*/ MenuItem.Create(mAssets_ImportPackageItem, "Custom Package...",           OnAssets_ImportPackage_CustomPackage);
         MenuItem.InsertSeparator(mAssets_ImportPackageItem);
-        /*mAssets_ImportPackage_CharacterControllerItem     =*/ MenuItem.Create(mAssets_ImportPackageItem, "Character Controller",        OnAssets_ImportPackage_CharacterController);
-        /*mAssets_ImportPackage_GlassRefractionProOnlytem   =*/ MenuItem.Create(mAssets_ImportPackageItem, "Glass Refraction (Pro Only)", OnAssets_ImportPackage_GlassRefractionProOnly);
-        /*mAssets_ImportPackage_ImageEffectsProOnlyItem     =*/ MenuItem.Create(mAssets_ImportPackageItem, "Image Effects (Pro Only)",    OnAssets_ImportPackage_ImageEffectsProOnly);
-        /*mAssets_ImportPackage_LightCookiesItem            =*/ MenuItem.Create(mAssets_ImportPackageItem, "Light Cookies",               OnAssets_ImportPackage_LightCookies);
-        /*mAssets_ImportPackage_LightFlaresItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Light Flares",                OnAssets_ImportPackage_LightFlares);
-        /*mAssets_ImportPackage_ParticlesItem               =*/ MenuItem.Create(mAssets_ImportPackageItem, "Particles",                   OnAssets_ImportPackage_Particles);
-        /*mAssets_ImportPackage_PhysicMaterialsItem         =*/ MenuItem.Create(mAssets_ImportPackageItem, "Physic Materials",            OnAssets_ImportPackage_PhysicMaterials);
-        /*mAssets_ImportPackage_ProjectorsItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, "Projectors",                  OnAssets_ImportPackage_Projectors);
-        /*mAssets_ImportPackage_ScriptsItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Scripts",                     OnAssets_ImportPackage_Scripts);
-        /*mAssets_ImportPackage_SkyboxesItem                =*/ MenuItem.Create(mAssets_ImportPackageItem, "Skyboxes",                    OnAssets_ImportPackage_Skyboxes);
-        /*mAssets_ImportPackage_StandardAssetsMobileItem    =*/ MenuItem.Create(mAssets_ImportPackageItem, "Standard Assets (Mobile)",    OnAssets_ImportPackage_StandardAssetsMobile);
-        /*mAssets_ImportPackage_TerrainAssetsItem           =*/ MenuItem.Create(mAssets_ImportPackageItem, "Terrain Assets",              OnAssets_ImportPackage_TerrainAssets);
-        /*mAssets_ImportPackage_TessellationShadersDx11Item =*/ MenuItem.Create(mAssets_ImportPackageItem, "Tessellation Shaders (DX11)", OnAssets_ImportPackage_TessellationShadersDx11);
-        /*mAssets_ImportPackage_ToonShadingItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Toon Shading",                OnAssets_ImportPackage_ToonShading);
-        /*mAssets_ImportPackage_TreeCreatorItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Tree Creator",                OnAssets_ImportPackage_TreeCreator);
-        /*mAssets_ImportPackage_WaterBasicItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, "Water (Basic)",               OnAssets_ImportPackage_WaterBasic);
-        /*mAssets_ImportPackage_WaterProOnlyItem            =*/ MenuItem.Create(mAssets_ImportPackageItem, "Water (Pro Only)",            OnAssets_ImportPackage_WaterProOnly);
+        /*mAssets_ImportPackage_2dItem                      =*/ MenuItem.Create(mAssets_ImportPackageItem, "2D",                          OnAssets_ImportPackage_2d);
+        /*mAssets_ImportPackage_CamerasItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Cameras",                     OnAssets_ImportPackage_Cameras);
+        /*mAssets_ImportPackage_CharactersItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, "Characters",                  OnAssets_ImportPackage_Characters);
+        /*mAssets_ImportPackage_CrossPlatformInputItem      =*/ MenuItem.Create(mAssets_ImportPackageItem, "CrossPlatformInput",          OnAssets_ImportPackage_CrossPlatformInput);
+        /*mAssets_ImportPackage_EffectsItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Effects",                     OnAssets_ImportPackage_Effects);
+        /*mAssets_ImportPackage_EnvironmentItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Environment",                 OnAssets_ImportPackage_Environment);
+        /*mAssets_ImportPackage_ParticleSystemsItem         =*/ MenuItem.Create(mAssets_ImportPackageItem, "ParticleSystems",             OnAssets_ImportPackage_ParticleSystems);
+        /*mAssets_ImportPackage_PrototypingItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Prototyping",                 OnAssets_ImportPackage_Prototyping);
+        /*mAssets_ImportPackage_UtilityItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Utility",                     OnAssets_ImportPackage_Utility);
+        /*mAssets_ImportPackage_VehiclesItem                =*/ MenuItem.Create(mAssets_ImportPackageItem, "Vehicles",                    OnAssets_ImportPackage_Vehicles);
         #endregion
 
         /*mAssets_ExportPackageItem          =*/ MenuItem.Create(mAssetsMenu, "Export Package...",        OnAssets_ExportPackage);
@@ -436,6 +440,8 @@ public class MainMenuScript : MonoBehaviour
         /*mAssets_ReimportItem               =*/ MenuItem.Create(mAssetsMenu, "Reimport",                 OnAssets_Reimport);
         MenuItem.InsertSeparator(mAssetsMenu);
         /*mAssets_ReimportAllItem            =*/ MenuItem.Create(mAssetsMenu, "Reimport All",             OnAssets_ReimportAll);
+        MenuItem.InsertSeparator(mAssetsMenu);
+        /*mAssets_RunApiUpdaterItem          =*/ MenuItem.Create(mAssetsMenu, "Run API Updater...",       OnAssets_RunApiUpdater);
         MenuItem.InsertSeparator(mAssetsMenu);
         /*mAssets_SyncMonoDevelopProjectItem =*/ MenuItem.Create(mAssetsMenu, "Sync MonoDevelop Project", OnAssets_SyncMonoDevelopProject);
         #endregion
@@ -612,7 +618,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->New Scene.
+    /// Handler for File -> New Scene.
     /// </summary>
     public void OnFile_NewScene()
     {
@@ -621,7 +627,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Open Scene.
+    /// Handler for File -> Open Scene.
     /// </summary>
     public void OnFile_OpenScene()
     {
@@ -630,7 +636,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Save Scene.
+    /// Handler for File -> Save Scene.
     /// </summary>
     public void OnFile_SaveScene()
     {
@@ -639,7 +645,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Save Scene as...
+    /// Handler for File -> Save Scene as...
     /// </summary>
     public void OnFile_SaveSceneAs()
     {
@@ -648,7 +654,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->New Project...
+    /// Handler for File -> New Project...
     /// </summary>
     public void OnFile_NewProject()
     {
@@ -657,7 +663,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Open Project...
+    /// Handler for File -> Open Project...
     /// </summary>
     public void OnFile_OpenProject()
     {
@@ -666,7 +672,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Save Project.
+    /// Handler for File -> Save Project.
     /// </summary>
     public void OnFile_SaveProject()
     {
@@ -675,7 +681,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Build Settings...
+    /// Handler for File -> Build Settings...
     /// </summary>
     public void OnFile_BuildSettings()
     {
@@ -684,7 +690,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Build & Run.
+    /// Handler for File -> Build & Run.
     /// </summary>
     public void OnFile_BuildAndRun()
     {
@@ -693,7 +699,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Build in Cloud...
+    /// Handler for File -> Build in Cloud...
     /// </summary>
     public void OnFile_BuildInCloud()
     {
@@ -702,7 +708,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for File->Exit.
+    /// Handler for File -> Exit.
     /// </summary>
     public void OnFile_Exit()
     {
@@ -721,7 +727,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Undo.
+    /// Handler for Edit -> Undo.
     /// </summary>
     public void OnEdit_Undo()
     {
@@ -730,7 +736,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Redo.
+    /// Handler for Edit -> Redo.
     /// </summary>
     public void OnEdit_Redo()
     {
@@ -739,7 +745,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Cut.
+    /// Handler for Edit -> Cut.
     /// </summary>
     public void OnEdit_Cut()
     {
@@ -748,7 +754,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Copy.
+    /// Handler for Edit -> Copy.
     /// </summary>
     public void OnEdit_Copy()
     {
@@ -757,7 +763,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Paste.
+    /// Handler for Edit -> Paste.
     /// </summary>
     public void OnEdit_Paste()
     {
@@ -766,7 +772,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Duplicate.
+    /// Handler for Edit -> Duplicate.
     /// </summary>
     public void OnEdit_Duplicate()
     {
@@ -775,7 +781,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Delete.
+    /// Handler for Edit -> Delete.
     /// </summary>
     public void OnEdit_Delete()
     {
@@ -784,7 +790,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Frame Selected.
+    /// Handler for Edit -> Frame Selected.
     /// </summary>
     public void OnEdit_FrameSelected()
     {
@@ -793,7 +799,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Lock View to Selected.
+    /// Handler for Edit -> Lock View to Selected.
     /// </summary>
     public void OnEdit_LockViewToSelected()
     {
@@ -802,7 +808,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Find.
+    /// Handler for Edit -> Find.
     /// </summary>
     public void OnEdit_Find()
     {
@@ -811,7 +817,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Select All.
+    /// Handler for Edit -> Select All.
     /// </summary>
     public void OnEdit_SelectAll()
     {
@@ -820,7 +826,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Preferences...
+    /// Handler for Edit -> Preferences...
     /// </summary>
     public void OnEdit_Preferences()
     {
@@ -829,7 +835,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Modules...
+    /// Handler for Edit -> Modules...
     /// </summary>
     public void OnEdit_Modules()
     {
@@ -838,7 +844,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Play.
+    /// Handler for Edit -> Play.
     /// </summary>
     public void OnEdit_Play()
     {
@@ -847,7 +853,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Pause.
+    /// Handler for Edit -> Pause.
     /// </summary>
     public void OnEdit_Pause()
     {
@@ -856,7 +862,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Step.
+    /// Handler for Edit -> Step.
     /// </summary>
     public void OnEdit_Step()
     {
@@ -864,9 +870,9 @@ public class MainMenuScript : MonoBehaviour
         // TODO: Implement MainMenuScript.OnEdit_Step
     }
 
-    #region Edit->Selection
+    #region Edit -> Selection
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 1.
+    /// Handler for Edit -> Selection -> Load Selection 1.
     /// </summary>
     public void OnEdit_Selection_LoadSelection1()
     {
@@ -875,7 +881,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 2.
+    /// Handler for Edit -> Selection -> Load Selection 2.
     /// </summary>
     public void OnEdit_Selection_LoadSelection2()
     {
@@ -884,7 +890,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 3.
+    /// Handler for Edit -> Selection -> Load Selection 3.
     /// </summary>
     public void OnEdit_Selection_LoadSelection3()
     {
@@ -893,7 +899,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 4.
+    /// Handler for Edit -> Selection -> Load Selection 4.
     /// </summary>
     public void OnEdit_Selection_LoadSelection4()
     {
@@ -902,7 +908,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 5.
+    /// Handler for Edit -> Selection -> Load Selection 5.
     /// </summary>
     public void OnEdit_Selection_LoadSelection5()
     {
@@ -911,7 +917,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 6.
+    /// Handler for Edit -> Selection -> Load Selection 6.
     /// </summary>
     public void OnEdit_Selection_LoadSelection6()
     {
@@ -920,7 +926,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 7.
+    /// Handler for Edit -> Selection -> Load Selection 7.
     /// </summary>
     public void OnEdit_Selection_LoadSelection7()
     {
@@ -929,7 +935,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 8.
+    /// Handler for Edit -> Selection -> Load Selection 8.
     /// </summary>
     public void OnEdit_Selection_LoadSelection8()
     {
@@ -938,7 +944,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 9.
+    /// Handler for Edit -> Selection -> Load Selection 9.
     /// </summary>
     public void OnEdit_Selection_LoadSelection9()
     {
@@ -947,7 +953,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Load Selection 0.
+    /// Handler for Edit -> Selection -> Load Selection 0.
     /// </summary>
     public void OnEdit_Selection_LoadSelection0()
     {
@@ -956,7 +962,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 1.
+    /// Handler for Edit -> Selection -> Save Selection 1.
     /// </summary>
     public void OnEdit_Selection_SaveSelection1()
     {
@@ -965,7 +971,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 2.
+    /// Handler for Edit -> Selection -> Save Selection 2.
     /// </summary>
     public void OnEdit_Selection_SaveSelection2()
     {
@@ -974,7 +980,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 3.
+    /// Handler for Edit -> Selection -> Save Selection 3.
     /// </summary>
     public void OnEdit_Selection_SaveSelection3()
     {
@@ -983,7 +989,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 4.
+    /// Handler for Edit -> Selection -> Save Selection 4.
     /// </summary>
     public void OnEdit_Selection_SaveSelection4()
     {
@@ -992,7 +998,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 5.
+    /// Handler for Edit -> Selection -> Save Selection 5.
     /// </summary>
     public void OnEdit_Selection_SaveSelection5()
     {
@@ -1001,7 +1007,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 6.
+    /// Handler for Edit -> Selection -> Save Selection 6.
     /// </summary>
     public void OnEdit_Selection_SaveSelection6()
     {
@@ -1010,7 +1016,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 7.
+    /// Handler for Edit -> Selection -> Save Selection 7.
     /// </summary>
     public void OnEdit_Selection_SaveSelection7()
     {
@@ -1019,7 +1025,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 8.
+    /// Handler for Edit -> Selection -> Save Selection 8.
     /// </summary>
     public void OnEdit_Selection_SaveSelection8()
     {
@@ -1028,7 +1034,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 9.
+    /// Handler for Edit -> Selection -> Save Selection 9.
     /// </summary>
     public void OnEdit_Selection_SaveSelection9()
     {
@@ -1037,7 +1043,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Selection->Save Selection 0.
+    /// Handler for Edit -> Selection -> Save Selection 0.
     /// </summary>
     public void OnEdit_Selection_SaveSelection0()
     {
@@ -1046,9 +1052,9 @@ public class MainMenuScript : MonoBehaviour
     }
     #endregion
 
-    #region Edit->Project Settings
+    #region Edit -> Project Settings
     /// <summary>
-    /// Handler for Edit->Project Settings->Input.
+    /// Handler for Edit -> Project Settings -> Input.
     /// </summary>
     public void OnEdit_ProjectSettings_Input()
     {
@@ -1057,7 +1063,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Tags and Layers.
+    /// Handler for Edit -> Project Settings -> Tags and Layers.
     /// </summary>
     public void OnEdit_ProjectSettings_TagsAndLayers()
     {
@@ -1066,7 +1072,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Audio.
+    /// Handler for Edit -> Project Settings -> Audio.
     /// </summary>
     public void OnEdit_ProjectSettings_Audio()
     {
@@ -1075,7 +1081,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Time.
+    /// Handler for Edit -> Project Settings -> Time.
     /// </summary>
     public void OnEdit_ProjectSettings_Time()
     {
@@ -1084,7 +1090,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Player.
+    /// Handler for Edit -> Project Settings -> Player.
     /// </summary>
     public void OnEdit_ProjectSettings_Player()
     {
@@ -1093,7 +1099,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Physics.
+    /// Handler for Edit -> Project Settings -> Physics.
     /// </summary>
     public void OnEdit_ProjectSettings_Physics()
     {
@@ -1102,7 +1108,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Physics 2D.
+    /// Handler for Edit -> Project Settings -> Physics 2D.
     /// </summary>
     public void OnEdit_ProjectSettings_Physics2D()
     {
@@ -1111,7 +1117,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Quality.
+    /// Handler for Edit -> Project Settings -> Quality.
     /// </summary>
     public void OnEdit_ProjectSettings_Quality()
     {
@@ -1120,7 +1126,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Graphics.
+    /// Handler for Edit -> Project Settings -> Graphics.
     /// </summary>
     public void OnEdit_ProjectSettings_Graphics()
     {
@@ -1129,7 +1135,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Network.
+    /// Handler for Edit -> Project Settings -> Network.
     /// </summary>
     public void OnEdit_ProjectSettings_Network()
     {
@@ -1138,7 +1144,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Editor.
+    /// Handler for Edit -> Project Settings -> Editor.
     /// </summary>
     public void OnEdit_ProjectSettings_Editor()
     {
@@ -1147,7 +1153,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Project Settings->Script Execution Order.
+    /// Handler for Edit -> Project Settings -> Script Execution Order.
     /// </summary>
     public void OnEdit_ProjectSettings_ScriptExecutionOrder()
     {
@@ -1156,18 +1162,9 @@ public class MainMenuScript : MonoBehaviour
     }
     #endregion
 
+    #region Edit -> Network Emulation
     /// <summary>
-    /// Handler for Edit->Render Settings.
-    /// </summary>
-    public void OnEdit_RenderSettings()
-    {
-        Debug.Log("MainMenuScript.OnEdit_RenderSettings");
-        // TODO: Implement MainMenuScript.OnEdit_RenderSettings
-    }
-
-    #region Edit->Network Emulation
-    /// <summary>
-    /// Handler for Edit->Network Emulation->None.
+    /// Handler for Edit -> Network Emulation -> None.
     /// </summary>
     public void OnEdit_NetworkEmulation_None()
     {
@@ -1176,7 +1173,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Network Emulation->Broadband.
+    /// Handler for Edit -> Network Emulation -> Broadband.
     /// </summary>
     public void OnEdit_NetworkEmulation_Broadband()
     {
@@ -1185,7 +1182,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Network Emulation->DSL.
+    /// Handler for Edit -> Network Emulation -> DSL.
     /// </summary>
     public void OnEdit_NetworkEmulation_DSL()
     {
@@ -1194,7 +1191,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Network Emulation->ISDN.
+    /// Handler for Edit -> Network Emulation -> ISDN.
     /// </summary>
     public void OnEdit_NetworkEmulation_ISDN()
     {
@@ -1203,7 +1200,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Network Emulation->Dial-Up.
+    /// Handler for Edit -> Network Emulation -> Dial-Up.
     /// </summary>
     public void OnEdit_NetworkEmulation_DialUp()
     {
@@ -1212,9 +1209,9 @@ public class MainMenuScript : MonoBehaviour
     }
     #endregion
 
-    #region Edit->Graphics Emulation
+    #region Edit -> Graphics Emulation
     /// <summary>
-    /// Handler for Edit->Graphics Emulation->No Emulation.
+    /// Handler for Edit -> Graphics Emulation -> No Emulation.
     /// </summary>
     public void OnEdit_GraphicsEmulation_NoEmulation()
     {
@@ -1223,7 +1220,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Graphics Emulation->Shader Model 3.
+    /// Handler for Edit -> Graphics Emulation -> Shader Model 3.
     /// </summary>
     public void OnEdit_GraphicsEmulation_ShaderModel3()
     {
@@ -1232,7 +1229,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Edit->Graphics Emulation->Shader Model 2.
+    /// Handler for Edit -> Graphics Emulation -> Shader Model 2.
     /// </summary>
     public void OnEdit_GraphicsEmulation_ShaderModel2()
     {
@@ -1242,7 +1239,7 @@ public class MainMenuScript : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Handler for Edit->Snap Settings...
+    /// Handler for Edit -> Snap Settings...
     /// </summary>
     public void OnEdit_SnapSettings()
     {
@@ -1260,9 +1257,9 @@ public class MainMenuScript : MonoBehaviour
         OnShowMenuSubItems(mAssetsMenu);
     }
 
-    #region Assets->Create
+    #region Assets -> Create
     /// <summary>
-    /// Handler for Assets->Create->Folder.
+    /// Handler for Assets -> Create -> Folder.
     /// </summary>
     public void OnAssets_Create_Folder()
     {
@@ -1271,7 +1268,16 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Javascript.
+    /// Handler for Assets -> Create -> C# Script.
+    /// </summary>
+    public void OnAssets_Create_CSharpScript()
+    {
+        Debug.Log("MainMenuScript.OnAssets_Create_CSharpScript");
+        // TODO: Implement MainMenuScript.OnAssets_Create_CSharpScript
+    }
+
+    /// <summary>
+    /// Handler for Assets -> Create -> Javascript.
     /// </summary>
     public void OnAssets_Create_Javascript()
     {
@@ -1280,25 +1286,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->C# Script.
-    /// </summary>
-    public void OnAssets_Create_CShartScript()
-    {
-        Debug.Log("MainMenuScript.OnAssets_Create_CShartScript");
-        // TODO: Implement MainMenuScript.OnAssets_Create_CShartScript
-    }
-
-    /// <summary>
-    /// Handler for Assets->Create->Boo Script.
-    /// </summary>
-    public void OnAssets_Create_BooScript()
-    {
-        Debug.Log("MainMenuScript.OnAssets_Create_BooScript");
-        // TODO: Implement MainMenuScript.OnAssets_Create_BooScript
-    }
-
-    /// <summary>
-    /// Handler for Assets->Create->Shader.
+    /// Handler for Assets -> Create -> Shader.
     /// </summary>
     public void OnAssets_Create_Shader()
     {
@@ -1307,7 +1295,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Compute Shader.
+    /// Handler for Assets -> Create -> Compute Shader.
     /// </summary>
     public void OnAssets_Create_ComputeShader()
     {
@@ -1316,7 +1304,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Prefab.
+    /// Handler for Assets -> Create -> Prefab.
     /// </summary>
     public void OnAssets_Create_Prefab()
     {
@@ -1325,7 +1313,16 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Material.
+    /// Handler for Assets -> Create -> Audio Mixer.
+    /// </summary>
+    public void OnAssets_Create_AudioMixer()
+    {
+        Debug.Log("MainMenuScript.OnAssets_Create_AudioMixer");
+        // TODO: Implement MainMenuScript.OnAssets_Create_AudioMixer
+    }
+
+    /// <summary>
+    /// Handler for Assets -> Create -> Material.
     /// </summary>
     public void OnAssets_Create_Material()
     {
@@ -1334,25 +1331,34 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Cubemap.
-    /// </summary>
-    public void OnAssets_Create_Cubemap()
-    {
-        Debug.Log("MainMenuScript.OnAssets_Create_Cubemap");
-        // TODO: Implement MainMenuScript.OnAssets_Create_Cubemap
-    }
-
-    /// <summary>
-    /// Handler for Assets->Create->Lens Flare.
+    /// Handler for Assets -> Create -> Lens Flare.
     /// </summary>
     public void OnAssets_Create_LensFlare()
     {
         Debug.Log("MainMenuScript.OnAssets_Create_LensFlare");
         // TODO: Implement MainMenuScript.OnAssets_Create_LensFlare
     }
+    
+    /// <summary>
+    /// Handler for Assets -> Create -> Render Texture.
+    /// </summary>
+    public void OnAssets_Create_RenderTexture()
+    {
+        Debug.Log("MainMenuScript.OnAssets_Create_RenderTexture");
+        // TODO: Implement MainMenuScript.OnAssets_Create_RenderTexture
+    }
+    
+    /// <summary>
+    /// Handler for Assets -> Create -> Lightmap Parameters.
+    /// </summary>
+    public void OnAssets_Create_LightmapParameters()
+    {
+        Debug.Log("MainMenuScript.OnAssets_Create_LightmapParameters");
+        // TODO: Implement MainMenuScript.OnAssets_Create_LightmapParameters
+    }
 
     /// <summary>
-    /// Handler for Assets->Create->Animator Controller.
+    /// Handler for Assets -> Create -> Animator Controller.
     /// </summary>
     public void OnAssets_Create_AnimatorController()
     {
@@ -1361,7 +1367,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Animation.
+    /// Handler for Assets -> Create -> Animation.
     /// </summary>
     public void OnAssets_Create_Animation()
     {
@@ -1370,7 +1376,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Animator Override Contoller.
+    /// Handler for Assets -> Create -> Animator Override Contoller.
     /// </summary>
     public void OnAssets_Create_AnimatorOverrideContoller()
     {
@@ -1379,7 +1385,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Avatar Mask.
+    /// Handler for Assets -> Create -> Avatar Mask.
     /// </summary>
     public void OnAssets_Create_AvatarMask()
     {
@@ -1388,7 +1394,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Physic Material.
+    /// Handler for Assets -> Create -> Physic Material.
     /// </summary>
     public void OnAssets_Create_PhysicMaterial()
     {
@@ -1397,7 +1403,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Physic2D Material.
+    /// Handler for Assets -> Create -> Physic2D Material.
     /// </summary>
     public void OnAssets_Create_Physic2dMaterial()
     {
@@ -1406,7 +1412,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->GUI Skin.
+    /// Handler for Assets -> Create -> GUI Skin.
     /// </summary>
     public void OnAssets_Create_GuiSkin()
     {
@@ -1415,17 +1421,38 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Create->Custom Font.
+    /// Handler for Assets -> Create -> Custom Font.
     /// </summary>
     public void OnAssets_Create_CustomFont()
     {
         Debug.Log("MainMenuScript.OnAssets_Create_CustomFont");
         // TODO: Implement MainMenuScript.OnAssets_Create_CustomFont
     }
+
+    /// <summary>
+    /// Handler for Assets -> Create -> Shader Variant Collection.
+    /// </summary>
+    public void OnAssets_Create_ShaderVariantCollection()
+    {
+        Debug.Log("MainMenuScript.OnAssets_Create_ShaderVariantCollection");
+        // TODO: Implement MainMenuScript.OnAssets_Create_ShaderVariantCollection
+    }
+
+    #region Assets -> Create -> Legacy
+    /// <summary>
+    /// Handler for Assets -> Create -> Legacy -> Cubemap.
+    /// </summary>
+    public void OnAssets_Create_Legacy_Cubemap()
+    {
+        Debug.Log("MainMenuScript.OnAssets_Create_Legacy_Cubemap");
+        // TODO: Implement MainMenuScript.OnAssets_Create_Legacy_Cubemap
+    }
+    #endregion
+
     #endregion
 
     /// <summary>
-    /// Handler for Assets->Show In Explorer.
+    /// Handler for Assets -> Show In Explorer.
     /// </summary>
     public void OnAssets_ShowInExplorer()
     {
@@ -1434,7 +1461,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Open.
+    /// Handler for Assets -> Open.
     /// </summary>
     public void OnAssets_Open()
     {
@@ -1443,7 +1470,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Delete.
+    /// Handler for Assets -> Delete.
     /// </summary>
     public void OnAssets_Delete()
     {
@@ -1452,7 +1479,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Import New Asset...
+    /// Handler for Assets -> Import New Asset...
     /// </summary>
     public void OnAssets_ImportNewAsset()
     {
@@ -1460,9 +1487,9 @@ public class MainMenuScript : MonoBehaviour
         // TODO: Implement MainMenuScript.OnAssets_ImportNewAsset
     }
 
-    #region Assets->Import Package
+    #region Assets -> Import Package
     /// <summary>
-    /// Handler for Assets->Import Package->Custom Package...
+    /// Handler for Assets -> Import Package -> Custom Package...
     /// </summary>
     public void OnAssets_ImportPackage_CustomPackage()
     {
@@ -1471,161 +1498,98 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Character Controller.
+    /// Handler for Assets -> Import Package -> 2D.
     /// </summary>
-    public void OnAssets_ImportPackage_CharacterController()
+    public void OnAssets_ImportPackage_2d()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_CharacterController");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_CharacterController
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_2d");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_2d
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Glass Refraction (Pro Only).
+    /// Handler for Assets -> Import Package -> Cameras.
     /// </summary>
-    public void OnAssets_ImportPackage_GlassRefractionProOnly()
+    public void OnAssets_ImportPackage_Cameras()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_GlassRefractionProOnly");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_GlassRefractionProOnly
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Cameras");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Cameras
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Image Effects (Pro Only).
+    /// Handler for Assets -> Import Package -> Characters.
     /// </summary>
-    public void OnAssets_ImportPackage_ImageEffectsProOnly()
+    public void OnAssets_ImportPackage_Characters()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_ImageEffectsProOnly");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_ImageEffectsProOnly
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Characters");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Characters
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Light Cookies.
+    /// Handler for Assets -> Import Package -> CrossPlatformInput.
     /// </summary>
-    public void OnAssets_ImportPackage_LightCookies()
+    public void OnAssets_ImportPackage_CrossPlatformInput()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_LightCookies");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_LightCookies
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Light Flares.
+    /// Handler for Assets -> Import Package -> Effects.
     /// </summary>
-    public void OnAssets_ImportPackage_LightFlares()
+    public void OnAssets_ImportPackage_Effects()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_LightFlares");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_LightFlares
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Effects");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Effects
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Particles.
+    /// Handler for Assets -> Import Package -> Environment.
     /// </summary>
-    public void OnAssets_ImportPackage_Particles()
+    public void OnAssets_ImportPackage_Environment()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Particles");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Particles
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Environment");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Environment
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Physic Materials.
+    /// Handler for Assets -> Import Package -> ParticleSystems.
     /// </summary>
-    public void OnAssets_ImportPackage_PhysicMaterials()
+    public void OnAssets_ImportPackage_ParticleSystems()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_PhysicMaterials");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_PhysicMaterials
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_ParticleSystems");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_ParticleSystems
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Projectors.
+    /// Handler for Assets -> Import Package -> Prototyping.
     /// </summary>
-    public void OnAssets_ImportPackage_Projectors()
+    public void OnAssets_ImportPackage_Prototyping()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Projectors");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Projectors
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Prototyping");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Prototyping
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Scripts.
+    /// Handler for Assets -> Import Package -> Utility.
     /// </summary>
-    public void OnAssets_ImportPackage_Scripts()
+    public void OnAssets_ImportPackage_Utility()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Scripts");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Scripts
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Utility");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Utility
     }
 
     /// <summary>
-    /// Handler for Assets->Import Package->Skyboxes.
+    /// Handler for Assets -> Import Package -> Vehicles.
     /// </summary>
-    public void OnAssets_ImportPackage_Skyboxes()
+    public void OnAssets_ImportPackage_Vehicles()
     {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Skyboxes");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Skyboxes
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Standard Assets (Mobile).
-    /// </summary>
-    public void OnAssets_ImportPackage_StandardAssetsMobile()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_StandardAssetsMobile");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_StandardAssetsMobile
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Terrain Assets.
-    /// </summary>
-    public void OnAssets_ImportPackage_TerrainAssets()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_TerrainAssets");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_TerrainAssets
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Tessellation Shaders (DX11).
-    /// </summary>
-    public void OnAssets_ImportPackage_TessellationShadersDx11()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_TessellationShadersDx11");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_TessellationShadersDx11
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Toon Shading.
-    /// </summary>
-    public void OnAssets_ImportPackage_ToonShading()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_ToonShading");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_ToonShading
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Tree Creator.
-    /// </summary>
-    public void OnAssets_ImportPackage_TreeCreator()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_TreeCreator");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_TreeCreator
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Water (Basic).
-    /// </summary>
-    public void OnAssets_ImportPackage_WaterBasic()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_WaterBasic");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_WaterBasic
-    }
-
-    /// <summary>
-    /// Handler for Assets->Import Package->Water (Pro Only).
-    /// </summary>
-    public void OnAssets_ImportPackage_WaterProOnly()
-    {
-        Debug.Log("MainMenuScript.OnAssets_ImportPackage_WaterProOnly");
-        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_WaterProOnly
+        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Vehicles");
+        // TODO: Implement MainMenuScript.OnAssets_ImportPackage_Vehicles
     }
     #endregion
 
     /// <summary>
-    /// Handler for Assets->Export Package...
+    /// Handler for Assets -> Export Package...
     /// </summary>
     public void OnAssets_ExportPackage()
     {
@@ -1634,7 +1598,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Find References In Scene.
+    /// Handler for Assets -> Find References In Scene.
     /// </summary>
     public void OnAssets_FindReferencesInScene()
     {
@@ -1643,7 +1607,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Select Dependencies.
+    /// Handler for Assets -> Select Dependencies.
     /// </summary>
     public void OnAssets_SelectDependencies()
     {
@@ -1652,7 +1616,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Refresh.
+    /// Handler for Assets -> Refresh.
     /// </summary>
     public void OnAssets_Refresh()
     {
@@ -1661,7 +1625,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Reimport.
+    /// Handler for Assets -> Reimport.
     /// </summary>
     public void OnAssets_Reimport()
     {
@@ -1670,16 +1634,25 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Assets->Reimport All.
+    /// Handler for Assets -> Reimport All.
     /// </summary>
     public void OnAssets_ReimportAll()
     {
         Debug.Log("MainMenuScript.OnAssets_ReimportAll");
         // TODO: Implement MainMenuScript.OnAssets_ReimportAll
     }
+    
+    /// <summary>
+    /// Handler for Assets -> Run API Updater...
+    /// </summary>
+    public void OnAssets_RunApiUpdater()
+    {
+        Debug.Log("MainMenuScript.OnAssets_RunApiUpdater");
+        // TODO: Implement MainMenuScript.OnAssets_RunApiUpdater
+    }
 
     /// <summary>
-    /// Handler for Assets->Sync MonoDevelop Project.
+    /// Handler for Assets -> Sync MonoDevelop Project.
     /// </summary>
     public void OnAssets_SyncMonoDevelopProject()
     {
