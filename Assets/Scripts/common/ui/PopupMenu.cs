@@ -190,7 +190,7 @@ namespace common
                         }
 
                         Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-                        menuItemButton.name = menuItem.Data.Name; // TODO: Token id to string
+                        menuItemButton.name = menuItem.Data.Name;
 
                         //===========================================================================
                         // RectTransform Component
@@ -224,7 +224,7 @@ namespace common
 
                         #region Text Component
                         Text text = menuItemText.GetComponent<Text>();
-                        text.text = menuItem.Data.Name; // TODO: Translate
+                        text.text = menuItem.Data.Text;
                         #endregion
                         #endregion
 

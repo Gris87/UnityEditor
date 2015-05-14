@@ -18,6 +18,7 @@ public static class Controls
         public KeyMapping left;
         public KeyMapping right;
         public KeyMapping jump;
+        public KeyMapping cancel;
     }
 
     /// <summary>
@@ -36,11 +37,12 @@ public static class Controls
 
     static Controls()
     {
-        buttons.up      = InputControl.setKey("Up",    KeyCode.W,     KeyCode.UpArrow,    new JoystickInput(JoystickAxis.Axis2Negative));
-        buttons.down    = InputControl.setKey("Down",  KeyCode.S,     KeyCode.DownArrow,  new JoystickInput(JoystickAxis.Axis2Positive));
-        buttons.left    = InputControl.setKey("Left",  KeyCode.A,     KeyCode.LeftArrow,  new JoystickInput(JoystickAxis.Axis1Negative));
-        buttons.right   = InputControl.setKey("Right", KeyCode.D,     KeyCode.RightArrow, new JoystickInput(JoystickAxis.Axis1Positive));
-        buttons.jump    = InputControl.setKey("Jump",  KeyCode.Space, KeyCode.None,       new JoystickInput(JoystickButton.Button1));
+        buttons.up      = InputControl.setKey("Up",     KeyCode.W,     KeyCode.UpArrow,    new JoystickInput(JoystickAxis.Axis2Negative));
+        buttons.down    = InputControl.setKey("Down",   KeyCode.S,     KeyCode.DownArrow,  new JoystickInput(JoystickAxis.Axis2Positive));
+        buttons.left    = InputControl.setKey("Left",   KeyCode.A,     KeyCode.LeftArrow,  new JoystickInput(JoystickAxis.Axis1Negative));
+        buttons.right   = InputControl.setKey("Right",  KeyCode.D,     KeyCode.RightArrow, new JoystickInput(JoystickAxis.Axis1Positive));
+        buttons.jump    = InputControl.setKey("Jump",   KeyCode.Space, KeyCode.None,       new JoystickInput(JoystickButton.Button1));
+        buttons.cancel  = InputControl.setKey("Cancel", KeyCode.Escape);
 
         axes.vertical   = InputControl.setAxis("Vertical",   buttons.down, buttons.up);
         axes.horizontal = InputControl.setAxis("Horizontal", buttons.left, buttons.right);

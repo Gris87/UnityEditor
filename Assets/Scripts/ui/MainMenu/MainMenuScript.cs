@@ -167,6 +167,7 @@ public class MainMenuScript : MonoBehaviour
 
     #region Assets -> Create -> Legacy
     private TreeNode<MenuItem> mAssets_Create_LegacyItem                = null;
+
 //  private TreeNode<MenuItem> mAssets_Create_Legacy_CubemapItem        = null;
     #endregion
 
@@ -179,32 +180,32 @@ public class MainMenuScript : MonoBehaviour
 //	private TreeNode<MenuItem> mAssets_ImportNewAssetItem = null;
 
     #region Assets -> Import Package
-    private TreeNode<MenuItem> mAssets_ImportPackageItem                         = null;
+    private TreeNode<MenuItem> mAssets_ImportPackageItem                    = null;
 
-//	private TreeNode<MenuItem> mAssets_ImportPackage_CustomPackageItem           = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CustomPackageItem      = null;
 
-//	private TreeNode<MenuItem> mAssets_ImportPackage_2dItem                      = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_CamerasItem                 = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_CharactersItem              = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_CrossPlatformInputItem      = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_EffectsItem                 = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_EnvironmentItem             = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_ParticleSystemsItem         = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_PrototypingItem             = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_UtilityItem                 = null;
-//	private TreeNode<MenuItem> mAssets_ImportPackage_VehiclesItem                = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_2dItem                 = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CamerasItem            = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CharactersItem         = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_CrossPlatformInputItem = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_EffectsItem            = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_EnvironmentItem        = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_ParticleSystemsItem    = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_PrototypingItem        = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_UtilityItem            = null;
+//	private TreeNode<MenuItem> mAssets_ImportPackage_VehiclesItem           = null;
     #endregion
 
 //	private TreeNode<MenuItem> mAssets_ExportPackageItem          = null;
 //	private TreeNode<MenuItem> mAssets_FindReferencesInSceneItem  = null;
-//	private TreeNode<MenuItem> mAssets_SelectDependenciestem      = null;
+//	private TreeNode<MenuItem> mAssets_SelectDependenciesItem     = null;
 
 //	private TreeNode<MenuItem> mAssets_RefreshItem                = null;
 //	private TreeNode<MenuItem> mAssets_ReimportItem               = null;
 
 //	private TreeNode<MenuItem> mAssets_ReimportAllItem            = null;
 
-//	private TreeNode<MenuItem> mAssets_RunApiUpdaterItem = null;
+//	private TreeNode<MenuItem> mAssets_RunApiUpdaterItem          = null;
 
 //  private TreeNode<MenuItem> mAssets_SyncMonoDevelopProjectItem = null;
 
@@ -212,10 +213,292 @@ public class MainMenuScript : MonoBehaviour
 
     #region GameObject
     private TreeNode<MenuItem> mGameObjectMenu = null;
+
+//  private TreeNode<MenuItem> mGameObject_CreateEmptyItem      = null;
+//  private TreeNode<MenuItem> mGameObject_CreateEmptyChildItem = null;
+
+    #region GameObject -> 3D Object    
+    private TreeNode<MenuItem> mGameObject_3dObjectItem          = null;
+
+//  private TreeNode<MenuItem> mGameObject_3dObject_CubeItem     = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_SphereItem   = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_CapsuleItem  = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_CylinderItem = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_PlaneItem    = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_QuadItem     = null;
+
+//  private TreeNode<MenuItem> mGameObject_3dObject_RagdollItem  = null;
+
+//  private TreeNode<MenuItem> mGameObject_3dObject_TerrainItem  = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_TreeItem     = null;
+//  private TreeNode<MenuItem> mGameObject_3dObject_WindZoneItem = null;
+
+//  private TreeNode<MenuItem> mGameObject_3dObject_3dTextItem   = null;
+    #endregion
+
+    #region GameObject -> 2D Object    
+    private TreeNode<MenuItem> mGameObject_2dObjectItem        = null;
+
+//  private TreeNode<MenuItem> mGameObject_2dObject_SpriteItem = null;
+    #endregion
+
+    #region GameObject -> Light
+    private TreeNode<MenuItem> mGameObject_LightItem                  = null;
+    
+//  private TreeNode<MenuItem> mGameObject_Light_DirectionalLightItem = null;
+//  private TreeNode<MenuItem> mGameObject_Light_PointLightItem       = null;
+//  private TreeNode<MenuItem> mGameObject_Light_SpotlightItem        = null;
+//  private TreeNode<MenuItem> mGameObject_Light_AreaLightItem        = null;
+
+//  private TreeNode<MenuItem> mGameObject_Light_ReflectionProbeItem  = null;
+//  private TreeNode<MenuItem> mGameObject_Light_LightProbeGroupItem  = null;
+    #endregion
+
+    #region GameObject -> Audio
+    private TreeNode<MenuItem> mGameObject_AudioItem                 = null;
+    
+//  private TreeNode<MenuItem> mGameObject_Audio_AudioSourceItem     = null;
+//  private TreeNode<MenuItem> mGameObject_Audio_AudioReverbZoneItem = null;
+    #endregion
+
+    #region GameObject -> UI
+    private TreeNode<MenuItem> mGameObject_UiItem             = null;
+    
+//  private TreeNode<MenuItem> mGameObject_Ui_PanelItem       = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_ButtonItem      = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_TextItem        = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_ImageItem       = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_RawImageItem    = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_SliderItem      = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_ScrollbarItem   = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_ToggleItem      = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_InputFieldItem  = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_CanvasItem      = null;
+//  private TreeNode<MenuItem> mGameObject_Ui_EventSystemItem = null;
+    #endregion
+
+//  private TreeNode<MenuItem> mGameObject_ParticleSystemItem       = null;
+//  private TreeNode<MenuItem> mGameObject_CameraItem               = null;
+
+//  private TreeNode<MenuItem> mGameObject_CenterOnChildrenItem     = null;
+
+//  private TreeNode<MenuItem> mGameObject_MakeParentItem           = null;
+//  private TreeNode<MenuItem> mGameObject_ClearParentItem          = null;
+//  private TreeNode<MenuItem> mGameObject_ApplyChangesToPrefabItem = null;
+//  private TreeNode<MenuItem> mGameObject_BreakPrefabInstanceItem  = null;
+
+//  private TreeNode<MenuItem> mGameObject_SetAsFirstSiblingItem    = null;
+//  private TreeNode<MenuItem> mGameObject_SetAsLastSiblingItem     = null;
+//  private TreeNode<MenuItem> mGameObject_MoveToViewItem           = null;
+//  private TreeNode<MenuItem> mGameObject_AlignWithViewItem        = null;
+//  private TreeNode<MenuItem> mGameObject_AlignViewToSelectedItem  = null;
+//  private TreeNode<MenuItem> mGameObject_ToggleActiveStateItem    = null;
     #endregion
 
     #region Component
-    private TreeNode<MenuItem> mComponentMenu = null;
+    private TreeNode<MenuItem> mComponentMenu     = null;
+
+//  private TreeNode<MenuItem> mComponent_AddItem = null;
+
+    #region Component -> Mesh
+    private TreeNode<MenuItem> mComponent_MeshItem                     = null;
+    
+//  private TreeNode<MenuItem> mComponent_Mesh_MeshFilterItem          = null;
+//  private TreeNode<MenuItem> mComponent_Mesh_TextMeshItem            = null;
+
+//  private TreeNode<MenuItem> mComponent_Mesh_MeshRendererItem        = null;
+//  private TreeNode<MenuItem> mComponent_Mesh_SkinnedMeshRendererItem = null;
+    #endregion
+
+    #region Component -> Effects
+    private TreeNode<MenuItem> mComponent_EffectsItem                = null;
+    
+    private TreeNode<MenuItem> mComponent_Effects_ParticleSystemItem = null;
+    private TreeNode<MenuItem> mComponent_Effects_TrailRendererItem  = null;
+    private TreeNode<MenuItem> mComponent_Effects_LineRendererItem   = null;
+    private TreeNode<MenuItem> mComponent_Effects_LensFlareItem      = null;
+    private TreeNode<MenuItem> mComponent_Effects_HaloItem           = null;
+    private TreeNode<MenuItem> mComponent_Effects_ProjectorItem      = null;
+
+    #region Component -> Effects -> Legacy Particles
+    private TreeNode<MenuItem> mComponent_Effects_LegacyParticlesItem                          = null;
+    
+    private TreeNode<MenuItem> mComponent_Effects_LegacyParticles_EllipsoidParticleEmitterItem = null;
+    private TreeNode<MenuItem> mComponent_Effects_LegacyParticles_MeshParticleEmitterItem      = null;
+
+    private TreeNode<MenuItem> mComponent_Effects_LegacyParticles_ParticleAnimatorItem         = null;
+    private TreeNode<MenuItem> mComponent_Effects_LegacyParticles_WorldParticleColliderItem    = null;
+
+    private TreeNode<MenuItem> mComponent_Effects_LegacyParticles_ParticleRendererItem         = null;
+    #endregion
+
+    #endregion
+
+    #region Component -> Physics
+    private TreeNode<MenuItem> mComponent_PhysicsItem                     = null;
+    
+    private TreeNode<MenuItem> mComponent_Physics_RigidbodyItem           = null;
+    private TreeNode<MenuItem> mComponent_Physics_CharacterControllerItem = null;
+
+    private TreeNode<MenuItem> mComponent_Physics_BoxColliderItem         = null;
+    private TreeNode<MenuItem> mComponent_Physics_SphereColliderItem      = null;
+    private TreeNode<MenuItem> mComponent_Physics_CapsuleColliderItem     = null;
+    private TreeNode<MenuItem> mComponent_Physics_MeshColliderItem        = null;
+    private TreeNode<MenuItem> mComponent_Physics_WheelColliderItem       = null;
+    private TreeNode<MenuItem> mComponent_Physics_TerrainColliderItem     = null;
+
+    private TreeNode<MenuItem> mComponent_Physics_ClothItem               = null;
+
+    private TreeNode<MenuItem> mComponent_Physics_HingeJointItem          = null;
+    private TreeNode<MenuItem> mComponent_Physics_FixedJointItem          = null;
+    private TreeNode<MenuItem> mComponent_Physics_SpringJointItem         = null;
+    private TreeNode<MenuItem> mComponent_Physics_CharacterJointItem      = null;
+    private TreeNode<MenuItem> mComponent_Physics_ConfigurableJointItem   = null;
+
+    private TreeNode<MenuItem> mComponent_Physics_ConstantForceItem       = null;
+    #endregion
+
+    #region Component -> Physics 2D
+    private TreeNode<MenuItem> mComponent_Physics2dItem                           = null;
+    
+    private TreeNode<MenuItem> mComponent_Physics2d_Rigidbody2dItem               = null;
+
+    private TreeNode<MenuItem> mComponent_Physics2d_CircleCollider2dItem          = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_BoxCollider2dItem             = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_EdgeCollider2dItem            = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_PolygonCollider2dItem         = null;
+
+    private TreeNode<MenuItem> mComponent_Physics2d_SpringJoint2dItem             = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_DistanceJoint2dItem           = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_HingeJoint2dItem              = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_SliderJoint2dItem             = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_WheelJoint2dItem              = null;
+
+    private TreeNode<MenuItem> mComponent_Physics2d_ConstantForce2dItem           = null;
+
+    private TreeNode<MenuItem> mComponent_Physics2d_AreaEffector2dItem            = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_PointEffector2dItem           = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_PlatformEffector2dItem        = null;
+    private TreeNode<MenuItem> mComponent_Physics2d_SurfaceEffectorEffector2dItem = null;
+    #endregion
+
+    #region Component -> Navigation
+    private TreeNode<MenuItem> mComponent_NavigationItem                 = null;
+    
+    private TreeNode<MenuItem> mComponent_Navigation_NavMeshAgentItem    = null;
+    private TreeNode<MenuItem> mComponent_Navigation_OffMeshLinkItem     = null;
+    private TreeNode<MenuItem> mComponent_Navigation_NavMeshObstacleItem = null;
+    #endregion
+
+    #region Component -> Audio
+    private TreeNode<MenuItem> mComponent_AudioItem                       = null;
+    
+    private TreeNode<MenuItem> mComponent_Audio_AudioListenerItem         = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioSourceItem           = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioReverbZoneItem       = null;
+
+    private TreeNode<MenuItem> mComponent_Audio_AudioLowPassFilterItem    = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioHighPassFilterItem   = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioEchoFilterItem       = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioDistortionFilterItem = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioReverbFilterItem     = null;
+    private TreeNode<MenuItem> mComponent_Audio_AudioChorusFilterItem     = null;
+    #endregion
+
+    #region Component -> Rendering
+    private TreeNode<MenuItem> mComponent_RenderingItem                 = null;
+    
+    private TreeNode<MenuItem> mComponent_Rendering_CameraItem          = null;
+    private TreeNode<MenuItem> mComponent_Rendering_SkyboxItem          = null;
+    private TreeNode<MenuItem> mComponent_Rendering_FlareLayerItem      = null;
+    private TreeNode<MenuItem> mComponent_Rendering_GuiLayerItem        = null;
+
+    private TreeNode<MenuItem> mComponent_Rendering_LightItem           = null;
+    private TreeNode<MenuItem> mComponent_Rendering_LightProbeGroupItem = null;
+    private TreeNode<MenuItem> mComponent_Rendering_ReflectionProbeItem = null;
+
+    private TreeNode<MenuItem> mComponent_Rendering_OcclusionAreaItem   = null;
+    private TreeNode<MenuItem> mComponent_Rendering_OcclusionPortalItem = null;
+    private TreeNode<MenuItem> mComponent_Rendering_LodGroupItem        = null;
+
+    private TreeNode<MenuItem> mComponent_Rendering_SpriteRendererItem  = null;
+    private TreeNode<MenuItem> mComponent_Rendering_CanvasRendererItem  = null;
+
+    private TreeNode<MenuItem> mComponent_Rendering_GuiTextureItem      = null;
+    private TreeNode<MenuItem> mComponent_Rendering_GuiTextItem         = null;
+    #endregion
+
+    #region Component -> Layout
+    private TreeNode<MenuItem> mComponent_LayoutItem                       = null;
+    
+    private TreeNode<MenuItem> mComponent_Layout_RectTransformItem         = null;
+    private TreeNode<MenuItem> mComponent_Layout_CanvasItem                = null;
+    private TreeNode<MenuItem> mComponent_Layout_CanvasGroupItem           = null;
+
+    private TreeNode<MenuItem> mComponent_Layout_CanvasScalerItem          = null;
+
+    private TreeNode<MenuItem> mComponent_Layout_LayoutElementItem         = null;
+    private TreeNode<MenuItem> mComponent_Layout_ContentSizeFitterItem     = null;
+    private TreeNode<MenuItem> mComponent_Layout_AspectRatioFitterItem     = null;
+    private TreeNode<MenuItem> mComponent_Layout_HorizontalLayoutGroupItem = null;
+    private TreeNode<MenuItem> mComponent_Layout_VerticalLayoutGroupItem   = null;
+    private TreeNode<MenuItem> mComponent_Layout_GridLayoutGroupItem       = null;
+    #endregion
+
+    #region Component -> Miscellaneous
+    private TreeNode<MenuItem> mComponent_MiscellaneousItem                   = null;
+    
+    private TreeNode<MenuItem> mComponent_Miscellaneous_AnimatorItem          = null;
+    private TreeNode<MenuItem> mComponent_Miscellaneous_AnimationItem         = null;
+    private TreeNode<MenuItem> mComponent_Miscellaneous_NetworkViewItem       = null;
+    private TreeNode<MenuItem> mComponent_Miscellaneous_WindZoneItem          = null;
+    private TreeNode<MenuItem> mComponent_Miscellaneous_TerrainItem           = null;
+    private TreeNode<MenuItem> mComponent_Miscellaneous_BillboardRendererItem = null;
+    #endregion
+
+    #region Component -> Event
+    private TreeNode<MenuItem> mComponent_EventItem                       = null;
+    
+    private TreeNode<MenuItem> mComponent_Event_EventSystemItem           = null;
+    private TreeNode<MenuItem> mComponent_Event_EventTriggerItem          = null;
+    private TreeNode<MenuItem> mComponent_Event_Physics2dRaycasterItem    = null;
+    private TreeNode<MenuItem> mComponent_Event_PhysicsRaycasterItem      = null;
+    private TreeNode<MenuItem> mComponent_Event_StandaloneInputModuleItem = null;
+    private TreeNode<MenuItem> mComponent_Event_TouchInputModuleItem      = null;
+    private TreeNode<MenuItem> mComponent_Event_GraphicRaycasterItem      = null;
+    #endregion
+
+    #region Component -> UI
+    private TreeNode<MenuItem> mComponent_UiItem = null;
+
+    #region Component -> UI -> Effects
+    private TreeNode<MenuItem> mComponent_Ui_EffectsItem               = null;
+    
+    private TreeNode<MenuItem> mComponent_Ui_Effects_ShadowItem        = null;
+    private TreeNode<MenuItem> mComponent_Ui_Effects_OutlineItem       = null;
+    private TreeNode<MenuItem> mComponent_Ui_Effects_PositionAsUv1Item = null;
+    #endregion
+    
+    private TreeNode<MenuItem> mComponent_Ui_ImageItem       = null;
+    private TreeNode<MenuItem> mComponent_Ui_TextItem        = null;
+    private TreeNode<MenuItem> mComponent_Ui_RawImageItem    = null;
+    private TreeNode<MenuItem> mComponent_Ui_MaskItem        = null;
+
+    private TreeNode<MenuItem> mComponent_Ui_ButtonItem      = null;
+    private TreeNode<MenuItem> mComponent_Ui_InputFieldItem  = null;
+    private TreeNode<MenuItem> mComponent_Ui_ScrollbarItem   = null;
+    private TreeNode<MenuItem> mComponent_Ui_ScrollRectItem  = null;
+    private TreeNode<MenuItem> mComponent_Ui_SliderItem      = null;
+    private TreeNode<MenuItem> mComponent_Ui_ToggleItem      = null;
+    private TreeNode<MenuItem> mComponent_Ui_ToggleGroupItem = null;
+
+    private TreeNode<MenuItem> mComponent_Ui_SelectableItem  = null;
+    #endregion
+
+    #region Component -> Scripts
+    private TreeNode<MenuItem> mComponent_ScriptsItem = null;
+    #endregion
+
     #endregion
 
     #region Window
@@ -253,213 +536,293 @@ public class MainMenuScript : MonoBehaviour
         mItems = new TreeNode<MenuItem>(new MenuItem());
 
         #region File
-        mFileMenu                 =   MenuItem.Create(mItems,    "File",              OnFileMenu);
+        mFileMenu                 =   MenuItem.Create(mItems,    R.sections.MenuItems.strings.file,                 OnFileMenu);
 
-        /*mFile_NewSceneItem      =*/ MenuItem.Create(mFileMenu, "New Scene",         OnFile_NewScene);
-        /*mFile_OpenSceneItem     =*/ MenuItem.Create(mFileMenu, "Open Scene",        OnFile_OpenScene);
+        /*mFile_NewSceneItem      =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__new_scene,      OnFile_NewScene);
+        /*mFile_OpenSceneItem     =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__open_scene,     OnFile_OpenScene);
         MenuItem.InsertSeparator(mFileMenu);
-        /*mFile_SaveSceneItem     =*/ MenuItem.Create(mFileMenu, "Save Scene",        OnFile_SaveScene);
-        /*mFile_SaveSceneAsItem   =*/ MenuItem.Create(mFileMenu, "Save Scene as...",  OnFile_SaveSceneAs);
+        /*mFile_SaveSceneItem     =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__save_scene,     OnFile_SaveScene);
+        /*mFile_SaveSceneAsItem   =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__save_scene_as,  OnFile_SaveSceneAs);
         MenuItem.InsertSeparator(mFileMenu);
-        /*mFile_NewProjectItem    =*/ MenuItem.Create(mFileMenu, "New Project...",    OnFile_NewProject);
-        /*mFile_OpenProjectItem   =*/ MenuItem.Create(mFileMenu, "Open Project...",   OnFile_OpenProject);
-        /*mFile_SaveProjectItem   =*/ MenuItem.Create(mFileMenu, "Save Project",      OnFile_SaveProject);
+        /*mFile_NewProjectItem    =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__new_project,    OnFile_NewProject);
+        /*mFile_OpenProjectItem   =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__open_project,   OnFile_OpenProject);
+        /*mFile_SaveProjectItem   =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__save_project,   OnFile_SaveProject);
         MenuItem.InsertSeparator(mFileMenu);
-        /*mFile_BuildSettingsItem =*/ MenuItem.Create(mFileMenu, "Build Settings...", OnFile_BuildSettings);
-        /*mFile_BuildAndRunItem   =*/ MenuItem.Create(mFileMenu, "Build & Run",       OnFile_BuildAndRun);
-        /*mFile_BuildInCloudItem  =*/ MenuItem.Create(mFileMenu, "Build in Cloud...", OnFile_BuildInCloud);
+        /*mFile_BuildSettingsItem =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__build_settings, OnFile_BuildSettings);
+        /*mFile_BuildAndRunItem   =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__build_and_run,  OnFile_BuildAndRun);
+        /*mFile_BuildInCloudItem  =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__build_in_cloud, OnFile_BuildInCloud);
         MenuItem.InsertSeparator(mFileMenu);
-        /*mFile_ExitItem          =*/ MenuItem.Create(mFileMenu, "Exit",              OnFile_Exit);
+        /*mFile_ExitItem          =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__exit,           OnFile_Exit);
         #endregion
 
         #region Edit
-        mEditMenu                      =   MenuItem.Create(mItems,    "Edit",                  OnEditMenu);
+        mEditMenu                      =   MenuItem.Create(mItems,    R.sections.MenuItems.strings.edit,                        OnEditMenu);
 
-        /*mEdit_UndoItem               =*/ MenuItem.Create(mEditMenu, "Undo",                  OnEdit_Undo); // TODO: Change name of menu item after changes
-        /*mEdit_RedoItem               =*/ MenuItem.Create(mEditMenu, "Redo",                  OnEdit_Redo); // TODO: Change name of menu item after changes
+        /*mEdit_UndoItem               =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__undo,                  OnEdit_Undo); // TODO: Change name of menu item after changes
+        /*mEdit_RedoItem               =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__redo,                  OnEdit_Redo); // TODO: Change name of menu item after changes
         MenuItem.InsertSeparator(mEditMenu);
-        /*mEdit_CutItem                =*/ MenuItem.Create(mEditMenu, "Cut",                   OnEdit_Cut);
-        /*mEdit_CopyItem               =*/ MenuItem.Create(mEditMenu, "Copy",                  OnEdit_Copy);
-        /*mEdit_PasteItem              =*/ MenuItem.Create(mEditMenu, "Paste",                 OnEdit_Paste);
+        /*mEdit_CutItem                =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__cut,                   OnEdit_Cut);
+        /*mEdit_CopyItem               =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__copy,                  OnEdit_Copy);
+        /*mEdit_PasteItem              =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__paste,                 OnEdit_Paste);
         MenuItem.InsertSeparator(mEditMenu);
-        /*mEdit_DuplicateItem          =*/ MenuItem.Create(mEditMenu, "Duplicate",             OnEdit_Duplicate);
-        /*mEdit_DeleteItem             =*/ MenuItem.Create(mEditMenu, "Delete",                OnEdit_Delete);
+        /*mEdit_DuplicateItem          =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__duplicate,             OnEdit_Duplicate);
+        /*mEdit_DeleteItem             =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__delete,                OnEdit_Delete);
         MenuItem.InsertSeparator(mEditMenu);
-        /*mEdit_FrameSelectedItem      =*/ MenuItem.Create(mEditMenu, "Frame Selected",        OnEdit_FrameSelected);
-        /*mEdit_LockViewToSelectedItem =*/ MenuItem.Create(mEditMenu, "Lock View to Selected", OnEdit_LockViewToSelected);
-        /*mEdit_FindItem               =*/ MenuItem.Create(mEditMenu, "Find",                  OnEdit_Find);
-        /*mEdit_SelectAllItem          =*/ MenuItem.Create(mEditMenu, "Select All",            OnEdit_SelectAll);
+        /*mEdit_FrameSelectedItem      =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__frame_selected,        OnEdit_FrameSelected);
+        /*mEdit_LockViewToSelectedItem =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__lock_view_to_selected, OnEdit_LockViewToSelected);
+        /*mEdit_FindItem               =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__find,                  OnEdit_Find);
+        /*mEdit_SelectAllItem          =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__select_all,            OnEdit_SelectAll);
         MenuItem.InsertSeparator(mEditMenu);
-        /*mEdit_PreferencesItem        =*/ MenuItem.Create(mEditMenu, "Preferences...",        OnEdit_Preferences);
-        /*mEdit_ModulesItem            =*/ MenuItem.Create(mEditMenu, "Modules...",            OnEdit_Modules);
+        /*mEdit_PreferencesItem        =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__preferences,           OnEdit_Preferences);
+        /*mEdit_ModulesItem            =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__modules,               OnEdit_Modules);
         MenuItem.InsertSeparator(mEditMenu);
-        /*mEdit_PlayItem               =*/ MenuItem.Create(mEditMenu, "Play",                  OnEdit_Play);
-        /*mEdit_PauseItem              =*/ MenuItem.Create(mEditMenu, "Pause",                 OnEdit_Pause);
-        /*mEdit_StepItem               =*/ MenuItem.Create(mEditMenu, "Step",                  OnEdit_Step);
+        /*mEdit_PlayItem               =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__play,                  OnEdit_Play);
+        /*mEdit_PauseItem              =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__pause,                 OnEdit_Pause);
+        /*mEdit_StepItem               =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__step,                  OnEdit_Step);
         MenuItem.InsertSeparator(mEditMenu);
 
         #region Edit -> Selection
-        mEdit_SelectionItem                  =   MenuItem.Create(mEditMenu,           "Selection");
+        mEdit_SelectionItem                  =   MenuItem.Create(mEditMenu,           R.sections.MenuItems.strings.edit__selection);
 
-        /*mEdit_Selection_LoadSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 1", OnEdit_Selection_LoadSelection1);
-        /*mEdit_Selection_LoadSelection2Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 2", OnEdit_Selection_LoadSelection2);
-        /*mEdit_Selection_LoadSelection3Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 3", OnEdit_Selection_LoadSelection3);
-        /*mEdit_Selection_LoadSelection4Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 4", OnEdit_Selection_LoadSelection4);
-        /*mEdit_Selection_LoadSelection5Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 5", OnEdit_Selection_LoadSelection5);
-        /*mEdit_Selection_LoadSelection6Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 6", OnEdit_Selection_LoadSelection6);
-        /*mEdit_Selection_LoadSelection7Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 7", OnEdit_Selection_LoadSelection7);
-        /*mEdit_Selection_LoadSelection8Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 8", OnEdit_Selection_LoadSelection8);
-        /*mEdit_Selection_LoadSelection9Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 9", OnEdit_Selection_LoadSelection9);
-        /*mEdit_Selection_LoadSelection0Item =*/ MenuItem.Create(mEdit_SelectionItem, "Load Selection 0", OnEdit_Selection_LoadSelection0);
+        /*mEdit_Selection_LoadSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_1, OnEdit_Selection_LoadSelection1);
+        /*mEdit_Selection_LoadSelection2Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_2, OnEdit_Selection_LoadSelection2);
+        /*mEdit_Selection_LoadSelection3Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_3, OnEdit_Selection_LoadSelection3);
+        /*mEdit_Selection_LoadSelection4Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_4, OnEdit_Selection_LoadSelection4);
+        /*mEdit_Selection_LoadSelection5Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_5, OnEdit_Selection_LoadSelection5);
+        /*mEdit_Selection_LoadSelection6Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_6, OnEdit_Selection_LoadSelection6);
+        /*mEdit_Selection_LoadSelection7Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_7, OnEdit_Selection_LoadSelection7);
+        /*mEdit_Selection_LoadSelection8Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_8, OnEdit_Selection_LoadSelection8);
+        /*mEdit_Selection_LoadSelection9Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_9, OnEdit_Selection_LoadSelection9);
+        /*mEdit_Selection_LoadSelection0Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_0, OnEdit_Selection_LoadSelection0);
 
-        /*mEdit_Selection_SaveSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 1", OnEdit_Selection_SaveSelection1);
-        /*mEdit_Selection_SaveSelection2Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 2", OnEdit_Selection_SaveSelection2);
-        /*mEdit_Selection_SaveSelection3Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 3", OnEdit_Selection_SaveSelection3);
-        /*mEdit_Selection_SaveSelection4Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 4", OnEdit_Selection_SaveSelection4);
-        /*mEdit_Selection_SaveSelection5Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 5", OnEdit_Selection_SaveSelection5);
-        /*mEdit_Selection_SaveSelection6Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 6", OnEdit_Selection_SaveSelection6);
-        /*mEdit_Selection_SaveSelection7Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 7", OnEdit_Selection_SaveSelection7);
-        /*mEdit_Selection_SaveSelection8Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 8", OnEdit_Selection_SaveSelection8);
-        /*mEdit_Selection_SaveSelection9Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 9", OnEdit_Selection_SaveSelection9);
-        /*mEdit_Selection_SaveSelection0Item =*/ MenuItem.Create(mEdit_SelectionItem, "Save Selection 0", OnEdit_Selection_SaveSelection0);
+        /*mEdit_Selection_SaveSelection1Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_1, OnEdit_Selection_SaveSelection1);
+        /*mEdit_Selection_SaveSelection2Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_2, OnEdit_Selection_SaveSelection2);
+        /*mEdit_Selection_SaveSelection3Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_3, OnEdit_Selection_SaveSelection3);
+        /*mEdit_Selection_SaveSelection4Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_4, OnEdit_Selection_SaveSelection4);
+        /*mEdit_Selection_SaveSelection5Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_5, OnEdit_Selection_SaveSelection5);
+        /*mEdit_Selection_SaveSelection6Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_6, OnEdit_Selection_SaveSelection6);
+        /*mEdit_Selection_SaveSelection7Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_7, OnEdit_Selection_SaveSelection7);
+        /*mEdit_Selection_SaveSelection8Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_8, OnEdit_Selection_SaveSelection8);
+        /*mEdit_Selection_SaveSelection9Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_9, OnEdit_Selection_SaveSelection9);
+        /*mEdit_Selection_SaveSelection0Item =*/ MenuItem.Create(mEdit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_0, OnEdit_Selection_SaveSelection0);
         #endregion
 
         MenuItem.InsertSeparator(mEditMenu);
 
         #region Edit -> Project Settings
-        mEdit_ProjectSettingsItem                        =   MenuItem.Create(mEditMenu,                 "Project Settings");
+        mEdit_ProjectSettingsItem                        =   MenuItem.Create(mEditMenu,                 R.sections.MenuItems.strings.edit__project_settings);
 
-        /*mEdit_ProjectSettings_InputItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Input",                  OnEdit_ProjectSettings_Input);
-        /*mEdit_ProjectSettings_TagsAndLayersItem        =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Tags and Layers",        OnEdit_ProjectSettings_TagsAndLayers);
-        /*mEdit_ProjectSettings_AudioItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Audio",                  OnEdit_ProjectSettings_Audio);
-        /*mEdit_ProjectSettings_TimeItem                 =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Time",                   OnEdit_ProjectSettings_Time);
-        /*mEdit_ProjectSettings_PlayerItem               =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Player",                 OnEdit_ProjectSettings_Player);
-        /*mEdit_ProjectSettings_PhysicsItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Physics",                OnEdit_ProjectSettings_Physics);
-        /*mEdit_ProjectSettings_Physics2DItem            =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Physics 2D",             OnEdit_ProjectSettings_Physics2D);
-        /*mEdit_ProjectSettings_QualityItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Quality",                OnEdit_ProjectSettings_Quality);
-        /*mEdit_ProjectSettings_GraphicsItem             =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Graphics",               OnEdit_ProjectSettings_Graphics);
-        /*mEdit_ProjectSettings_NetworkItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Network",                OnEdit_ProjectSettings_Network);
-        /*mEdit_ProjectSettings_EditorItem               =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Editor",                 OnEdit_ProjectSettings_Editor);
-        /*mEdit_ProjectSettings_ScriptExecutionOrderItem =*/ MenuItem.Create(mEdit_ProjectSettingsItem, "Script Execution Order", OnEdit_ProjectSettings_ScriptExecutionOrder);
+        /*mEdit_ProjectSettings_InputItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__input,                  OnEdit_ProjectSettings_Input);
+        /*mEdit_ProjectSettings_TagsAndLayersItem        =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__tags_and_layers,        OnEdit_ProjectSettings_TagsAndLayers);
+        /*mEdit_ProjectSettings_AudioItem                =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__audio,                  OnEdit_ProjectSettings_Audio);
+        /*mEdit_ProjectSettings_TimeItem                 =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__time,                   OnEdit_ProjectSettings_Time);
+        /*mEdit_ProjectSettings_PlayerItem               =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__player,                 OnEdit_ProjectSettings_Player);
+        /*mEdit_ProjectSettings_PhysicsItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__physics,                OnEdit_ProjectSettings_Physics);
+        /*mEdit_ProjectSettings_Physics2DItem            =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__physics_2d,             OnEdit_ProjectSettings_Physics2D);
+        /*mEdit_ProjectSettings_QualityItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__quality,                OnEdit_ProjectSettings_Quality);
+        /*mEdit_ProjectSettings_GraphicsItem             =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__graphics,               OnEdit_ProjectSettings_Graphics);
+        /*mEdit_ProjectSettings_NetworkItem              =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__network,                OnEdit_ProjectSettings_Network);
+        /*mEdit_ProjectSettings_EditorItem               =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__editor,                 OnEdit_ProjectSettings_Editor);
+        /*mEdit_ProjectSettings_ScriptExecutionOrderItem =*/ MenuItem.Create(mEdit_ProjectSettingsItem, R.sections.MenuItems.strings.edit__project_settings__script_execution_order, OnEdit_ProjectSettings_ScriptExecutionOrder);
         #endregion
 
         MenuItem.InsertSeparator(mEditMenu);
 
         #region Edit -> Network Emulation
-        mEdit_NetworkEmulationItem                             =   MenuItem.Create(mEditMenu,                  "Network Emulation");
+        mEdit_NetworkEmulationItem                             =   MenuItem.Create(mEditMenu,                  R.sections.MenuItems.strings.edit__network_emulation);
 
-        /*mEdit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "None",      OnEdit_NetworkEmulation_None);
-        /*mEdit_NetworkEmulation_NetworkEmulationBroadbandItem =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "Broadband", OnEdit_NetworkEmulation_Broadband);
-        /*mEdit_NetworkEmulation_NetworkEmulationDSLItem       =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "DSL",       OnEdit_NetworkEmulation_DSL);
-        /*mEdit_NetworkEmulation_NetworkEmulationISDNItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "ISDN",      OnEdit_NetworkEmulation_ISDN);
-        /*mEdit_NetworkEmulation_NetworkEmulationDialUpItem    =*/ MenuItem.Create(mEdit_NetworkEmulationItem, "Dial-Up",   OnEdit_NetworkEmulation_DialUp);
+        /*mEdit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__none,      OnEdit_NetworkEmulation_None);
+        /*mEdit_NetworkEmulation_NetworkEmulationBroadbandItem =*/ MenuItem.Create(mEdit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__broadband, OnEdit_NetworkEmulation_Broadband);
+        /*mEdit_NetworkEmulation_NetworkEmulationDSLItem       =*/ MenuItem.Create(mEdit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__dsl,       OnEdit_NetworkEmulation_DSL);
+        /*mEdit_NetworkEmulation_NetworkEmulationISDNItem      =*/ MenuItem.Create(mEdit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__isdn,      OnEdit_NetworkEmulation_ISDN);
+        /*mEdit_NetworkEmulation_NetworkEmulationDialUpItem    =*/ MenuItem.Create(mEdit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__dial_up,   OnEdit_NetworkEmulation_DialUp);
         #endregion
 
         #region Edit -> Graphics Emulation
-        mEdit_GraphicsEmulationItem                                 =   MenuItem.Create(mEditMenu,                   "Graphics Emulation");
+        mEdit_GraphicsEmulationItem                                 =   MenuItem.Create(mEditMenu,                   R.sections.MenuItems.strings.edit__graphics_emulation);
 
-        /*mEdit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "No Emulation",   OnEdit_GraphicsEmulation_NoEmulation);
-        /*mEdit_GraphicsEmulation_GraphicsEmulationShaderModel3Item =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "Shader Model 3", OnEdit_GraphicsEmulation_ShaderModel3);
-        /*mEdit_GraphicsEmulation_GraphicsEmulationShaderModel2Item =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, "Shader Model 2", OnEdit_GraphicsEmulation_ShaderModel2);
+        /*mEdit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__no_emulation,   OnEdit_GraphicsEmulation_NoEmulation);
+        /*mEdit_GraphicsEmulation_GraphicsEmulationShaderModel3Item =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_3, OnEdit_GraphicsEmulation_ShaderModel3);
+        /*mEdit_GraphicsEmulation_GraphicsEmulationShaderModel2Item =*/ MenuItem.Create(mEdit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_2, OnEdit_GraphicsEmulation_ShaderModel2);
         #endregion
 
         MenuItem.InsertSeparator(mEditMenu);
-        /*mEdit_SnapSettingsItem =*/ MenuItem.Create(mEditMenu, "Snap Settings...", OnEdit_SnapSettings);
+        /*mEdit_SnapSettingsItem =*/ MenuItem.Create(mEditMenu, R.sections.MenuItems.strings.edit__snap_settings, OnEdit_SnapSettings);
         #endregion
 
         #region Assets
-        mAssetsMenu = MenuItem.Create(mItems, "Assets", OnAssetsMenu);
+        mAssetsMenu = MenuItem.Create(mItems, R.sections.MenuItems.strings.assets, OnAssetsMenu);
 
         #region Assets -> Create
-        mAssets_CreateItem                             =   MenuItem.Create(mAssetsMenu,        "Create");
+        mAssets_CreateItem                             =   MenuItem.Create(mAssetsMenu,        R.sections.MenuItems.strings.assets__create);
 
-        /*mAssets_Create_FolderItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Folder",                      OnAssets_Create_Folder);
+        /*mAssets_Create_FolderItem                    =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__folder,                      OnAssets_Create_Folder);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_CSharpScriptItem              =*/ MenuItem.Create(mAssets_CreateItem, "C# Script",                   OnAssets_Create_CSharpScript);
-        /*mAssets_Create_JavascriptItem                =*/ MenuItem.Create(mAssets_CreateItem, "Javascript",                  OnAssets_Create_Javascript);
-        /*mAssets_Create_ShaderItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Shader",                      OnAssets_Create_Shader);
-        /*mAssets_Create_ComputeShaderItem             =*/ MenuItem.Create(mAssets_CreateItem, "Compute Shader",              OnAssets_Create_ComputeShader);
+        /*mAssets_Create_CSharpScriptItem              =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__c_sharp_script,              OnAssets_Create_CSharpScript);
+        /*mAssets_Create_JavascriptItem                =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__javascript,                  OnAssets_Create_Javascript);
+        /*mAssets_Create_ShaderItem                    =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__shader,                      OnAssets_Create_Shader);
+        /*mAssets_Create_ComputeShaderItem             =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__compute_shader,              OnAssets_Create_ComputeShader);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_PrefabItem                    =*/ MenuItem.Create(mAssets_CreateItem, "Prefab",                      OnAssets_Create_Prefab);
+        /*mAssets_Create_PrefabItem                    =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__prefab,                      OnAssets_Create_Prefab);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_AudioMixerItem                =*/ MenuItem.Create(mAssets_CreateItem, "Audio Mixer",                 OnAssets_Create_AudioMixer);
+        /*mAssets_Create_AudioMixerItem                =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__audio_mixer,                 OnAssets_Create_AudioMixer);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_MaterialItem                  =*/ MenuItem.Create(mAssets_CreateItem, "Material",                    OnAssets_Create_Material);
-        /*mAssets_Create_LensFlareItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Lens Flare",                  OnAssets_Create_LensFlare);
-        /*mAssets_Create_RenderTextureItem             =*/ MenuItem.Create(mAssets_CreateItem, "Render Texture",              OnAssets_Create_RenderTexture);
-        /*mAssets_Create_LightmapParametersItem        =*/ MenuItem.Create(mAssets_CreateItem, "Lightmap Parameters",         OnAssets_Create_LightmapParameters);
+        /*mAssets_Create_MaterialItem                  =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__material,                    OnAssets_Create_Material);
+        /*mAssets_Create_LensFlareItem                 =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__lens_flare,                  OnAssets_Create_LensFlare);
+        /*mAssets_Create_RenderTextureItem             =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__render_texture,              OnAssets_Create_RenderTexture);
+        /*mAssets_Create_LightmapParametersItem        =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__lightmap_parameters,         OnAssets_Create_LightmapParameters);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_AnimatorControllerItem        =*/ MenuItem.Create(mAssets_CreateItem, "Animator Controller",         OnAssets_Create_AnimatorController);
-        /*mAssets_Create_AnimationItem                 =*/ MenuItem.Create(mAssets_CreateItem, "Animation",                   OnAssets_Create_Animation);
-        /*mAssets_Create_AnimatorOverrideContollerItem =*/ MenuItem.Create(mAssets_CreateItem, "Animator Override Contoller", OnAssets_Create_AnimatorOverrideContoller);
-        /*mAssets_Create_AvatarMaskItem                =*/ MenuItem.Create(mAssets_CreateItem, "Avatar Mask",                 OnAssets_Create_AvatarMask);
+        /*mAssets_Create_AnimatorControllerItem        =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__animator_controller,         OnAssets_Create_AnimatorController);
+        /*mAssets_Create_AnimationItem                 =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__animation,                   OnAssets_Create_Animation);
+        /*mAssets_Create_AnimatorOverrideContollerItem =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__animator_override_contoller, OnAssets_Create_AnimatorOverrideContoller);
+        /*mAssets_Create_AvatarMaskItem                =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__avatar_mask,                 OnAssets_Create_AvatarMask);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_PhysicMaterialItem            =*/ MenuItem.Create(mAssets_CreateItem, "Physic Material",             OnAssets_Create_PhysicMaterial);
-        /*mAssets_Create_Physic2dMaterialItem          =*/ MenuItem.Create(mAssets_CreateItem, "Physic2D Material",           OnAssets_Create_Physic2dMaterial);
+        /*mAssets_Create_PhysicMaterialItem            =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__physic_material,             OnAssets_Create_PhysicMaterial);
+        /*mAssets_Create_Physic2dMaterialItem          =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__physic2d_material,           OnAssets_Create_Physic2dMaterial);
         MenuItem.InsertSeparator(mAssets_CreateItem);
-        /*mAssets_Create_GuiSkinItem                   =*/ MenuItem.Create(mAssets_CreateItem, "GUI Skin",                    OnAssets_Create_GuiSkin);
-        /*mAssets_Create_CustomFontItem                =*/ MenuItem.Create(mAssets_CreateItem, "Custom Font",                 OnAssets_Create_CustomFont);
-        /*mAssets_Create_ShaderVariantCollectionItem   =*/ MenuItem.Create(mAssets_CreateItem, "Shader Variant Collection",   OnAssets_Create_ShaderVariantCollection);
+        /*mAssets_Create_GuiSkinItem                   =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__gui_skin,                    OnAssets_Create_GuiSkin);
+        /*mAssets_Create_CustomFontItem                =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__custom_font,                 OnAssets_Create_CustomFont);
+        /*mAssets_Create_ShaderVariantCollectionItem   =*/ MenuItem.Create(mAssets_CreateItem, R.sections.MenuItems.strings.assets__create__shader_variant_collection,   OnAssets_Create_ShaderVariantCollection);
 
         #region Assets -> Create -> Legacy
-        mAssets_Create_LegacyItem                      =   MenuItem.Create(mAssets_CreateItem,        "Legacy");
+        mAssets_Create_LegacyItem                      =   MenuItem.Create(mAssets_CreateItem,        R.sections.MenuItems.strings.assets__create__legacy);
 
-        /*mAssets_Create_Legacy_CubemapItem            =*/ MenuItem.Create(mAssets_Create_LegacyItem, "Cubemap", OnAssets_Create_Legacy_Cubemap);
+        /*mAssets_Create_Legacy_CubemapItem            =*/ MenuItem.Create(mAssets_Create_LegacyItem, R.sections.MenuItems.strings.assets__create__legacy__cubemap, OnAssets_Create_Legacy_Cubemap);
         #endregion
 
         #endregion
 
-        /*mAssets_ShowInExplorerItem =*/ MenuItem.Create(mAssetsMenu, "Show in Explorer",    OnAssets_ShowInExplorer);
-        /*mAssets_OpenItem           =*/ MenuItem.Create(mAssetsMenu, "Open",                OnAssets_Open);
-        /*mAssets_DeleteItem         =*/ MenuItem.Create(mAssetsMenu, "Delete",              OnAssets_Delete);
+        /*mAssets_ShowInExplorerItem =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__show_in_explorer, OnAssets_ShowInExplorer);
+        /*mAssets_OpenItem           =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__open,             OnAssets_Open);
+        /*mAssets_DeleteItem         =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__delete,           OnAssets_Delete);
         MenuItem.InsertSeparator(mAssetsMenu);
-        /*mAssets_ImportNewAssetItem =*/ MenuItem.Create(mAssetsMenu, "Import New Asset...", OnAssets_ImportNewAsset);
+        /*mAssets_ImportNewAssetItem =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__import_new_asset, OnAssets_ImportNewAsset);
 
         #region Assets -> Import Package
-        mAssets_ImportPackageItem                           =   MenuItem.Create(mAssetsMenu,               "Import Package");
+        mAssets_ImportPackageItem                           =   MenuItem.Create(mAssetsMenu,               R.sections.MenuItems.strings.assets__import_package);
 
-        /*mAssets_ImportPackage_CustomPackageItem           =*/ MenuItem.Create(mAssets_ImportPackageItem, "Custom Package...",           OnAssets_ImportPackage_CustomPackage);
+        /*mAssets_ImportPackage_CustomPackageItem           =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__custom_package,       OnAssets_ImportPackage_CustomPackage);
         MenuItem.InsertSeparator(mAssets_ImportPackageItem);
-        /*mAssets_ImportPackage_2dItem                      =*/ MenuItem.Create(mAssets_ImportPackageItem, "2D",                          OnAssets_ImportPackage_2d);
-        /*mAssets_ImportPackage_CamerasItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Cameras",                     OnAssets_ImportPackage_Cameras);
-        /*mAssets_ImportPackage_CharactersItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, "Characters",                  OnAssets_ImportPackage_Characters);
-        /*mAssets_ImportPackage_CrossPlatformInputItem      =*/ MenuItem.Create(mAssets_ImportPackageItem, "CrossPlatformInput",          OnAssets_ImportPackage_CrossPlatformInput);
-        /*mAssets_ImportPackage_EffectsItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Effects",                     OnAssets_ImportPackage_Effects);
-        /*mAssets_ImportPackage_EnvironmentItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Environment",                 OnAssets_ImportPackage_Environment);
-        /*mAssets_ImportPackage_ParticleSystemsItem         =*/ MenuItem.Create(mAssets_ImportPackageItem, "ParticleSystems",             OnAssets_ImportPackage_ParticleSystems);
-        /*mAssets_ImportPackage_PrototypingItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, "Prototyping",                 OnAssets_ImportPackage_Prototyping);
-        /*mAssets_ImportPackage_UtilityItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, "Utility",                     OnAssets_ImportPackage_Utility);
-        /*mAssets_ImportPackage_VehiclesItem                =*/ MenuItem.Create(mAssets_ImportPackageItem, "Vehicles",                    OnAssets_ImportPackage_Vehicles);
+        /*mAssets_ImportPackage_2dItem                      =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__2d,                   OnAssets_ImportPackage_2d);
+        /*mAssets_ImportPackage_CamerasItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__cameras,              OnAssets_ImportPackage_Cameras);
+        /*mAssets_ImportPackage_CharactersItem              =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__characters,           OnAssets_ImportPackage_Characters);
+        /*mAssets_ImportPackage_CrossPlatformInputItem      =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__cross_platform_input, OnAssets_ImportPackage_CrossPlatformInput);
+        /*mAssets_ImportPackage_EffectsItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__effects,              OnAssets_ImportPackage_Effects);
+        /*mAssets_ImportPackage_EnvironmentItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__environment,          OnAssets_ImportPackage_Environment);
+        /*mAssets_ImportPackage_ParticleSystemsItem         =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__particle_systems,     OnAssets_ImportPackage_ParticleSystems);
+        /*mAssets_ImportPackage_PrototypingItem             =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__prototyping,          OnAssets_ImportPackage_Prototyping);
+        /*mAssets_ImportPackage_UtilityItem                 =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__utility,              OnAssets_ImportPackage_Utility);
+        /*mAssets_ImportPackage_VehiclesItem                =*/ MenuItem.Create(mAssets_ImportPackageItem, R.sections.MenuItems.strings.assets__import_package__vehicles,             OnAssets_ImportPackage_Vehicles);
         #endregion
 
-        /*mAssets_ExportPackageItem          =*/ MenuItem.Create(mAssetsMenu, "Export Package...",        OnAssets_ExportPackage);
-        /*mAssets_FindReferencesInSceneItem  =*/ MenuItem.Create(mAssetsMenu, "Find References In Scene", OnAssets_FindReferencesInScene);
-        /*mAssets_SelectDependenciestem      =*/ MenuItem.Create(mAssetsMenu, "Select Dependencies",      OnAssets_SelectDependencies);
+        /*mAssets_ExportPackageItem          =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__export_package,           OnAssets_ExportPackage);
+        /*mAssets_FindReferencesInSceneItem  =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__find_references_in_scene, OnAssets_FindReferencesInScene);
+        /*mAssets_SelectDependenciesItem     =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__select_dependencies,      OnAssets_SelectDependencies);
         MenuItem.InsertSeparator(mAssetsMenu);
-        /*mAssets_RefreshItem                =*/ MenuItem.Create(mAssetsMenu, "Refresh",                  OnAssets_Refresh);
-        /*mAssets_ReimportItem               =*/ MenuItem.Create(mAssetsMenu, "Reimport",                 OnAssets_Reimport);
+        /*mAssets_RefreshItem                =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__refresh,                  OnAssets_Refresh);
+        /*mAssets_ReimportItem               =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__reimport,                 OnAssets_Reimport);
         MenuItem.InsertSeparator(mAssetsMenu);
-        /*mAssets_ReimportAllItem            =*/ MenuItem.Create(mAssetsMenu, "Reimport All",             OnAssets_ReimportAll);
+        /*mAssets_ReimportAllItem            =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__reimport_all,             OnAssets_ReimportAll);
         MenuItem.InsertSeparator(mAssetsMenu);
-        /*mAssets_RunApiUpdaterItem          =*/ MenuItem.Create(mAssetsMenu, "Run API Updater...",       OnAssets_RunApiUpdater);
+        /*mAssets_RunApiUpdaterItem          =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__run_api_updater,          OnAssets_RunApiUpdater);
         MenuItem.InsertSeparator(mAssetsMenu);
-        /*mAssets_SyncMonoDevelopProjectItem =*/ MenuItem.Create(mAssetsMenu, "Sync MonoDevelop Project", OnAssets_SyncMonoDevelopProject);
+        /*mAssets_SyncMonoDevelopProjectItem =*/ MenuItem.Create(mAssetsMenu, R.sections.MenuItems.strings.assets__sync_monodevelop_project, OnAssets_SyncMonoDevelopProject);
         #endregion
 
         #region GameObject
-        mGameObjectMenu = MenuItem.Create(mItems, "GameObject", OnGameObjectMenu);
+        mGameObjectMenu                    =   MenuItem.Create(mItems,          R.sections.MenuItems.strings.gameobject, OnGameObjectMenu);
+
+        /*mGameObject_CreateEmptyItem      =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__create_empty,       OnGameObject_CreateEmpty);
+        /*mGameObject_CreateEmptyChildItem =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__create_empty_child, OnGameObject_CreateEmptyChild);
+        
+        #region GameObject -> 3D Object    
+        mGameObject_3dObjectItem            =   MenuItem.Create(mGameObjectMenu,          R.sections.MenuItems.strings.gameobject__3d_object);
+        
+        /*mGameObject_3dObject_CubeItem     =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__cube,      OnGameObject_3dObject_Cube);
+        /*mGameObject_3dObject_SphereItem   =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__sphere,    OnGameObject_3dObject_Sphere);
+        /*mGameObject_3dObject_CapsuleItem  =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__capsule,   OnGameObject_3dObject_Capsule);
+        /*mGameObject_3dObject_CylinderItem =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__cylinder,  OnGameObject_3dObject_Cylinder);
+        /*mGameObject_3dObject_PlaneItem    =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__plane,     OnGameObject_3dObject_Plane);
+        /*mGameObject_3dObject_QuadItem     =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__quad,      OnGameObject_3dObject_Quad);
+        MenuItem.InsertSeparator(mGameObject_3dObjectItem);
+        /*mGameObject_3dObject_RagdollItem  =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__ragdoll,   OnGameObject_3dObject_Ragdoll);
+        MenuItem.InsertSeparator(mGameObject_3dObjectItem);
+        /*mGameObject_3dObject_TerrainItem  =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__terrain,   OnGameObject_3dObject_Terrain);
+        /*mGameObject_3dObject_TreeItem     =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__tree,      OnGameObject_3dObject_Tree);
+        /*mGameObject_3dObject_WindZoneItem =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__wind_zone, OnGameObject_3dObject_WindZone);
+        
+        /*mGameObject_3dObject_3dTextItem   =*/ MenuItem.Create(mGameObject_3dObjectItem, R.sections.MenuItems.strings.gameobject__3d_object__3d_text,   OnGameObject_3dObject_3dText);
+        #endregion
+        
+        #region GameObject -> 2D Object    
+        mGameObject_2dObjectItem          =   MenuItem.Create(mGameObjectMenu,          R.sections.MenuItems.strings.gameobject__2d_object);
+        
+        /*mGameObject_2dObject_SpriteItem =*/ MenuItem.Create(mGameObject_2dObjectItem, R.sections.MenuItems.strings.gameobject__2d_object__sprite, OnGameObject_2dObject_Sprite);
+        #endregion
+        
+        #region GameObject -> Light
+        mGameObject_LightItem                    =   MenuItem.Create(mGameObjectMenu,       R.sections.MenuItems.strings.gameobject__light);
+        
+        /*mGameObject_Light_DirectionalLightItem =*/ MenuItem.Create(mGameObject_LightItem, R.sections.MenuItems.strings.gameobject__light__directional_light, OnGameObject_Light_DirectionalLight);
+        /*mGameObject_Light_PointLightItem       =*/ MenuItem.Create(mGameObject_LightItem, R.sections.MenuItems.strings.gameobject__light__point_light,       OnGameObject_Light_PointLight);
+        /*mGameObject_Light_SpotlightItem        =*/ MenuItem.Create(mGameObject_LightItem, R.sections.MenuItems.strings.gameobject__light__spotlight,         OnGameObject_Light_Spotlight);
+        /*mGameObject_Light_AreaLightItem        =*/ MenuItem.Create(mGameObject_LightItem, R.sections.MenuItems.strings.gameobject__light__area_light,        OnGameObject_Light_AreaLight);
+        MenuItem.InsertSeparator(mGameObject_LightItem);
+        /*mGameObject_Light_ReflectionProbeItem  =*/ MenuItem.Create(mGameObject_LightItem, R.sections.MenuItems.strings.gameobject__light__reflection_probe,  OnGameObject_Light_ReflectionProbe);
+        /*mGameObject_Light_LightProbeGroupItem  =*/ MenuItem.Create(mGameObject_LightItem, R.sections.MenuItems.strings.gameobject__light__light_probe_group, OnGameObject_Light_LightProbeGroup);
+        #endregion
+        
+        #region GameObject -> Audio
+        mGameObject_AudioItem                   =   MenuItem.Create(mGameObjectMenu,       R.sections.MenuItems.strings.gameobject__audio);
+        
+        /*mGameObject_Audio_AudioSourceItem     =*/ MenuItem.Create(mGameObject_AudioItem, R.sections.MenuItems.strings.gameobject__audio__audio_source,      OnGameObject_Audio_AudioSource);
+        /*mGameObject_Audio_AudioReverbZoneItem =*/ MenuItem.Create(mGameObject_AudioItem, R.sections.MenuItems.strings.gameobject__audio__audio_reverb_zone, OnGameObject_Audio_AudioReverbZone);
+        #endregion
+        
+        #region GameObject -> UI
+        mGameObject_UiItem               =   MenuItem.Create(mGameObjectMenu,    R.sections.MenuItems.strings.gameobject__ui);
+        
+        /*mGameObject_Ui_PanelItem       =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__panel,        OnGameObject_Ui_Panel);
+        /*mGameObject_Ui_ButtonItem      =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__button,       OnGameObject_Ui_Button);
+        /*mGameObject_Ui_TextItem        =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__text,         OnGameObject_Ui_Text);
+        /*mGameObject_Ui_ImageItem       =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__image,        OnGameObject_Ui_Image);
+        /*mGameObject_Ui_RawImageItem    =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__raw_image,    OnGameObject_Ui_RawImage);
+        /*mGameObject_Ui_SliderItem      =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__slider,       OnGameObject_Ui_Slider);
+        /*mGameObject_Ui_ScrollbarItem   =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__scrollbar,    OnGameObject_Ui_Scrollbar);
+        /*mGameObject_Ui_ToggleItem      =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__toggle,       OnGameObject_Ui_Toggle);
+        /*mGameObject_Ui_InputFieldItem  =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__input_field,  OnGameObject_Ui_InputField);
+        /*mGameObject_Ui_CanvasItem      =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__canvas,       OnGameObject_Ui_Canvas);
+        /*mGameObject_Ui_EventSystemItem =*/ MenuItem.Create(mGameObject_UiItem, R.sections.MenuItems.strings.gameobject__ui__event_system, OnGameObject_Ui_EventSystem);
+        #endregion
+        
+        /*mGameObject_ParticleSystemItem       =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__particle_system,         OnGameObject_ParticleSystem);
+        /*mGameObject_CameraItem               =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__camera,                  OnGameObject_Camera);
+        MenuItem.InsertSeparator(mGameObjectMenu);
+        /*mGameObject_CenterOnChildrenItem     =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__center_on_children,      OnGameObject_CenterOnChildren);
+        MenuItem.InsertSeparator(mGameObjectMenu);
+        /*mGameObject_MakeParentItem           =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__make_parent,             OnGameObject_MakeParent);
+        /*mGameObject_ClearParentItem          =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__clear_parent,            OnGameObject_ClearParent);
+        /*mGameObject_ApplyChangesToPrefabItem =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__apply_changes_to_prefab, OnGameObject_ApplyChangesToPrefab);
+        /*mGameObject_BreakPrefabInstanceItem  =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__break_prefab_instance,   OnGameObject_BreakPrefabInstance);
+        MenuItem.InsertSeparator(mGameObjectMenu);
+        /*mGameObject_SetAsFirstSiblingItem    =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__set_as_first_sibling,    OnGameObject_SetAsFirstSibling);
+        /*mGameObject_SetAsLastSiblingItem     =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__set_as_last_sibling,     OnGameObject_SetAsLastSibling);
+        /*mGameObject_MoveToViewItem           =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__move_to_view,            OnGameObject_MoveToView);
+        /*mGameObject_AlignWithViewItem        =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__align_with_view,         OnGameObject_AlignWithView);
+        /*mGameObject_AlignViewToSelectedItem  =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__align_view_to_selected,  OnGameObject_AlignViewToSelected);
+        /*mGameObject_ToggleActiveStateItem    =*/ MenuItem.Create(mGameObjectMenu, R.sections.MenuItems.strings.gameobject__toggle_active_state,     OnGameObject_ToggleActiveState);
         #endregion
 
         #region Component
-        mComponentMenu = MenuItem.Create(mItems, "Component", OnComponentMenu);
+        mComponentMenu = MenuItem.Create(mItems, R.sections.MenuItems.strings.component, OnComponentMenu);
         #endregion
 
         #region Window
-        mWindowMenu = MenuItem.Create(mItems, "Window", OnWindowMenu);
+        mWindowMenu = MenuItem.Create(mItems, R.sections.MenuItems.strings.window, OnWindowMenu);
         #endregion
 
         #region Help
-        mHelpMenu = MenuItem.Create(mItems, "Help", OnHelpMenu);
+        mHelpMenu = MenuItem.Create(mItems, R.sections.MenuItems.strings.help, OnHelpMenu);
         #endregion
     }
 
@@ -514,7 +877,7 @@ public class MainMenuScript : MonoBehaviour
             #region Button GameObject
             GameObject menuItemButton = Instantiate(menuButton.gameObject) as GameObject;
             Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-            menuItemButton.name = menuItem.Data.Name; // TODO: Token id to string
+            menuItemButton.name = menuItem.Data.Name;
 
             //===========================================================================
             // RectTransform Component
@@ -546,7 +909,7 @@ public class MainMenuScript : MonoBehaviour
 
             #region Text Component
             Text text = menuItemText.GetComponent<Text>();
-            text.text = menuItem.Data.Name; // TODO: Translate
+            text.text = menuItem.Data.Text;
             #endregion
             #endregion
 
@@ -1669,8 +2032,432 @@ public class MainMenuScript : MonoBehaviour
     {
         OnShowMenuSubItems(mGameObjectMenu);
     }
+
+    /// <summary>
+    /// Handler for GameObject -> Create Empty.
+    /// </summary>
+    public void OnGameObject_CreateEmpty()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_CreateEmpty");
+        // TODO: Implement MainMenuScript.OnGameObject_CreateEmpty
+    }
+        
+    /// <summary>
+    /// Handler for GameObject -> Create Empty Child.
+    /// </summary>
+    public void OnGameObject_CreateEmptyChild()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_CreateEmptyChild");
+        // TODO: Implement MainMenuScript.OnGameObject_CreateEmptyChild
+    }
+            
+    #region GameObject -> 3D Object
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Cube.
+    /// </summary>
+    public void OnGameObject_3dObject_Cube()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Cube");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Cube
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Sphere.
+    /// </summary>
+    public void OnGameObject_3dObject_Sphere()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Sphere");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Sphere
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Capsule.
+    /// </summary>
+    public void OnGameObject_3dObject_Capsule()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Capsule");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Capsule
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Cylinder.
+    /// </summary>
+    public void OnGameObject_3dObject_Cylinder()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Cylinder");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Cylinder
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Plane.
+    /// </summary>
+    public void OnGameObject_3dObject_Plane()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Plane");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Plane
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Quad.
+    /// </summary>
+    public void OnGameObject_3dObject_Quad()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Quad");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Quad
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Ragdoll...
+    /// </summary>
+    public void OnGameObject_3dObject_Ragdoll()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Ragdoll");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Ragdoll
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Terrain.
+    /// </summary>
+    public void OnGameObject_3dObject_Terrain()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Terrain");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Terrain
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Tree.
+    /// </summary>
+    public void OnGameObject_3dObject_Tree()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_Tree");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_Tree
+    }
+    
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> Wind Zone.
+    /// </summary>
+    public void OnGameObject_3dObject_WindZone()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_WindZone");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_WindZone
+    }
+    
+    /// <summary>
+    /// Handler for GameObject -> 3D Object -> 3D Text.
+    /// </summary>
+    public void OnGameObject_3dObject_3dText()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_3dObject_3dText");
+        // TODO: Implement MainMenuScript.OnGameObject_3dObject_3dText
+    }
+    #endregion
+    
+    #region GameObject -> 2D Object    
+    /// <summary>
+    /// Handler for GameObject -> 2D Object -> Sprite.
+    /// </summary>
+    public void OnGameObject_2dObject_Sprite()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_2dObject_Sprite");
+        // TODO: Implement MainMenuScript.OnGameObject_2dObject_Sprite
+    }
+    #endregion
+    
+    #region GameObject -> Light
+    /// <summary>
+    /// Handler for GameObject -> Light -> Directional Light.
+    /// </summary>
+    public void OnGameObject_Light_DirectionalLight()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Light_DirectionalLight");
+        // TODO: Implement MainMenuScript.OnGameObject_Light_DirectionalLight
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Light -> Point Light.
+    /// </summary>
+    public void OnGameObject_Light_PointLight()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Light_PointLight");
+        // TODO: Implement MainMenuScript.OnGameObject_Light_PointLight
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Light -> Spotlight.
+    /// </summary>
+    public void OnGameObject_Light_Spotlight()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Light_Spotlight");
+        // TODO: Implement MainMenuScript.OnGameObject_Light_Spotlight
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Light -> Area Light.
+    /// </summary>
+    public void OnGameObject_Light_AreaLight()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Light_AreaLight");
+        // TODO: Implement MainMenuScript.OnGameObject_Light_AreaLight
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Light -> Reflection Probe.
+    /// </summary>
+    public void OnGameObject_Light_ReflectionProbe()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Light_ReflectionProbe");
+        // TODO: Implement MainMenuScript.OnGameObject_Light_ReflectionProbe
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Light -> Light Probe Group.
+    /// </summary>
+    public void OnGameObject_Light_LightProbeGroup()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Light_LightProbeGroup");
+        // TODO: Implement MainMenuScript.OnGameObject_Light_LightProbeGroup
+    }
+    #endregion
+    
+    #region GameObject -> Audio
+    /// <summary>
+    /// Handler for GameObject -> Audio -> Audio Source.
+    /// </summary>
+    public void OnGameObject_Audio_AudioSource()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Audio_AudioSource");
+        // TODO: Implement MainMenuScript.OnGameObject_Audio_AudioSource
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Audio -> Audio Reverb Zone.
+    /// </summary>
+    public void OnGameObject_Audio_AudioReverbZone()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Audio_AudioReverbZone");
+        // TODO: Implement MainMenuScript.OnGameObject_Audio_AudioReverbZone
+    }
+    #endregion
+    
+    #region GameObject -> UI
+    /// <summary>
+    /// Handler for GameObject -> UI -> Panel.
+    /// </summary>
+    public void OnGameObject_Ui_Panel()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Panel");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Panel
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Button.
+    /// </summary>
+    public void OnGameObject_Ui_Button()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Button");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Button
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Text.
+    /// </summary>
+    public void OnGameObject_Ui_Text()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Text");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Text
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Image.
+    /// </summary>
+    public void OnGameObject_Ui_Image()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Image");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Image
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Raw Image.
+    /// </summary>
+    public void OnGameObject_Ui_RawImage()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_RawImage");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_RawImage
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Slider.
+    /// </summary>
+    public void OnGameObject_Ui_Slider()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Slider");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Slider
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Scrollbar.
+    /// </summary>
+    public void OnGameObject_Ui_Scrollbar()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Scrollbar");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Scrollbar
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Toggle.
+    /// </summary>
+    public void OnGameObject_Ui_Toggle()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Toggle");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Toggle
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Input Field.
+    /// </summary>
+    public void OnGameObject_Ui_InputField()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_InputField");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_InputField
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Canvas.
+    /// </summary>
+    public void OnGameObject_Ui_Canvas()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_Canvas");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_Canvas
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> UI -> Event System.
+    /// </summary>
+    public void OnGameObject_Ui_EventSystem()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Ui_EventSystem");
+        // TODO: Implement MainMenuScript.OnGameObject_Ui_EventSystem
+    }
     #endregion
 
+    /// <summary>
+    /// Handler for GameObject -> Particle System.
+    /// </summary>
+    public void OnGameObject_ParticleSystem()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_ParticleSystem");
+        // TODO: Implement MainMenuScript.OnGameObject_ParticleSystem
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Camera.
+    /// </summary>
+    public void OnGameObject_Camera()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_Camera");
+        // TODO: Implement MainMenuScript.OnGameObject_Camera
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Center On Children.
+    /// </summary>
+    public void OnGameObject_CenterOnChildren()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_CenterOnChildren");
+        // TODO: Implement MainMenuScript.OnGameObject_CenterOnChildren
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Make Parent.
+    /// </summary>
+    public void OnGameObject_MakeParent()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_MakeParent");
+        // TODO: Implement MainMenuScript.OnGameObject_MakeParent
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Clear Parent.
+    /// </summary>
+    public void OnGameObject_ClearParent()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_ClearParent");
+        // TODO: Implement MainMenuScript.OnGameObject_ClearParent
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Apply Changes To Prefab.
+    /// </summary>
+    public void OnGameObject_ApplyChangesToPrefab()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_ApplyChangesToPrefab");
+        // TODO: Implement MainMenuScript.OnGameObject_ApplyChangesToPrefab
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Break Prefab Instance.
+    /// </summary>
+    public void OnGameObject_BreakPrefabInstance()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_BreakPrefabInstance");
+        // TODO: Implement MainMenuScript.OnGameObject_BreakPrefabInstance
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Set as first sibling.
+    /// </summary>
+    public void OnGameObject_SetAsFirstSibling()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_SetAsFirstSibling");
+        // TODO: Implement MainMenuScript.OnGameObject_SetAsFirstSibling
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Set as last sibling.
+    /// </summary>
+    public void OnGameObject_SetAsLastSibling()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_SetAsLastSibling");
+        // TODO: Implement MainMenuScript.OnGameObject_SetAsLastSibling
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Move To View.
+    /// </summary>
+    public void OnGameObject_MoveToView()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_MoveToView");
+        // TODO: Implement MainMenuScript.OnGameObject_MoveToView
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Align With View.
+    /// </summary>
+    public void OnGameObject_AlignWithView()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_AlignWithView");
+        // TODO: Implement MainMenuScript.OnGameObject_AlignWithView
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Align View to Selected.
+    /// </summary>
+    public void OnGameObject_AlignViewToSelected()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_AlignViewToSelected");
+        // TODO: Implement MainMenuScript.OnGameObject_AlignViewToSelected
+    }
+
+    /// <summary>
+    /// Handler for GameObject -> Toggle Active State.
+    /// </summary>
+    public void OnGameObject_ToggleActiveState()
+    {
+        Debug.Log("MainMenuScript.OnGameObject_ToggleActiveState");
+        // TODO: Implement MainMenuScript.OnGameObject_ToggleActiveState
+    }
+    #endregion
+    
     #region Component
     /// <summary>
     /// Handler for Component.
@@ -1680,7 +2467,7 @@ public class MainMenuScript : MonoBehaviour
         OnShowMenuSubItems(mComponentMenu);
     }
     #endregion
-
+    
     #region Window
     /// <summary>
     /// Handler for Window.
@@ -1690,7 +2477,7 @@ public class MainMenuScript : MonoBehaviour
         OnShowMenuSubItems(mWindowMenu);
     }
     #endregion
-
+    
     #region Help
     /// <summary>
     /// Handler for Help.

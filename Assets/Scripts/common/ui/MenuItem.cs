@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityTranslation;
 
@@ -13,11 +14,13 @@ namespace common
         /// </summary>
         public class MenuItem
         {
-            private TreeNode<MenuItem> mNode        = null;
-            private string             mName        = null; // TODO: Name => token id
-            private UnityAction        mOnClick     = null;
-            private bool               mEnabled     = false;
-            private bool               mIsSeparator = false;
+            private TreeNode<MenuItem>           mNode           = null;
+            private R.sections.MenuItems.strings mTokenId        = R.sections.MenuItems.strings.Count;
+            private object[]                     mTokenArguments = null;
+            private string                       mText           = null;
+            private UnityAction                  mOnClick        = null;
+            private bool                         mEnabled        = false;
+            private bool                         mIsSeparator    = false;
 
 
 
@@ -29,22 +32,42 @@ namespace common
             }
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="common.ui.MenuItem"/> class with given name and with
+            /// Initializes a new instance of the <see cref="common.ui.MenuItem"/> class with given token ID and with
             /// assigning to specified <see cref="common.TreeNode`1"/> instance.
             /// </summary>
             /// <param name="owner"><see cref="common.TreeNode`1"/> instance.</param>
-            /// <param name="name">Menu item name.</param>
+            /// <param name="tokenId">Token ID for translation.</param>
             /// <param name="onClick">Click event handler.</param>
             /// <param name="enabled">Is this menu item enabled or not.</param>
-            public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, string name, UnityAction onClick = null, bool enabled = true)
+            public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, R.sections.MenuItems.strings tokenId, UnityAction onClick = null, bool enabled = true)
             {
                 TreeNode<MenuItem> node = owner.AddChild(new MenuItem());
 
                 node.Data.mNode    = node;
-                node.Data.mName    = name;
+                node.Data.mTokenId = tokenId;
                 node.Data.mOnClick = onClick;
                 node.Data.mEnabled = enabled;
 
+                return node;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="common.ui.MenuItem"/> class with given text and with
+            /// assigning to specified <see cref="common.TreeNode`1"/> instance.
+            /// </summary>
+            /// <param name="owner"><see cref="common.TreeNode`1"/> instance.</param>
+            /// <param name="text">Menu item text.</param>
+            /// <param name="onClick">Click event handler.</param>
+            /// <param name="enabled">Is this menu item enabled or not.</param>
+            public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, string text, UnityAction onClick = null, bool enabled = true)
+            {
+                TreeNode<MenuItem> node = owner.AddChild(new MenuItem());
+                
+                node.Data.mNode    = node;
+                node.Data.mText    = text;
+                node.Data.mOnClick = onClick;
+                node.Data.mEnabled = enabled;
+                
                 return node;
             }
 
@@ -70,13 +93,90 @@ namespace common
                 get { return mNode; }
             }
 
+            
+            /// <summary>
+            /// Gets or sets the token ID.
+            /// </summary>
+            /// <value>The token identifier.</value>
+            public R.sections.MenuItems.strings TokenId
+            {
+                get { return mTokenId;  }
+                set { mTokenId = value; }
+            }
+
+            /// <summary>
+            /// Gets or sets the token arguments.
+            /// </summary>
+            /// <value>The token arguments.</value>
+            public object[] TokenArguments
+            {
+                get { return mTokenArguments;  }
+                set { mTokenArguments = value; }
+            }
+
             /// <summary>
             /// Gets the menu item name.
             /// </summary>
             /// <value>The menu item name.</value>
             public string Name
             {
-                get { return mName; }
+                get
+                {
+                    if (mText != null)
+                    {
+                        return mText;
+                    }
+
+                    if (mTokenId != R.sections.MenuItems.strings.Count)
+                    {
+                        return mTokenId.ToString();
+                    }
+
+                    Debug.LogError("MenuItem.Name returns empty string");
+                    return "";
+                }
+            }
+
+            /// <summary>
+            /// Gets or sets the menu item text.
+            /// </summary>
+            /// <value>The menu item text.</value>
+            public string Text
+            {
+                get
+                {
+                    if (mText != null)
+                    {
+                        return mText;
+                    }
+
+                    if (mTokenId != R.sections.MenuItems.strings.Count)
+                    {
+                        if (mTokenArguments == null || mTokenArguments.Length == 0)
+                        {
+                            return Translator.getString(mTokenId);
+                        }
+                        else
+                        {
+                            return Translator.getString(mTokenId, mTokenArguments);
+                        }
+                    }
+
+                    Debug.LogError("MenuItem.Text returns empty string");
+                    return "";
+                }
+
+                set
+                {
+                    if (value == null || value == "")
+                    {
+                        mText = null;
+                    }
+                    else
+                    {
+                        mText = value;
+                    }
+                }
             }
 
             /// <summary>

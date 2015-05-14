@@ -8,40 +8,40 @@
     -->
 
     <!-- Menu item : File -->
-    <string name="file">File</string>
+    <string name="file">Файл</string>
 
     <!-- Menu item : File -> New Scene -->
-    <string name="file__new_scene">New Scene</string>
+    <string name="file__new_scene">Новая сцена</string>
 
     <!-- Menu item : File -> Open Scene -->
-    <string name="file__open_scene">Open Scene</string>
+    <string name="file__open_scene">Открыть сцену</string>
 
     <!-- Menu item : File -> Save Scene -->
-    <string name="file__save_scene">Save Scene</string>
+    <string name="file__save_scene">Сохранить сцену</string>
 
     <!-- Menu item : File -> Save Scene as... -->
-    <string name="file__save_scene_as">Save Scene as...</string>
+    <string name="file__save_scene_as">Сохранить сцену как...</string>
 
     <!-- Menu item : File -> New Project... -->
-    <string name="file__new_project">New Project...</string>
+    <string name="file__new_project">Новый проект...</string>
 
     <!-- Menu item : File -> Open Project... -->
-    <string name="file__open_project">Open Project...</string>
+    <string name="file__open_project">Открыть проект...</string>
 
     <!-- Menu item : File -> Save Project -->
-    <string name="file__save_project">Save Project</string>
+    <string name="file__save_project">Сохранить проект</string>
 
     <!-- Menu item : File -> Build Settings... -->
-    <string name="file__build_settings">Build Settings...</string>
+    <string name="file__build_settings">Настройки сборки...</string>
 
     <!-- Menu item : File -> Build & Run -->
-    <string name="file__build_and_run">Build &amp; Run</string>
+    <string name="file__build_and_run">Собрать и запустить</string>
 
     <!-- Menu item : File -> Build in Cloud... -->
-    <string name="file__build_in_cloud">Build in Cloud...</string>
+    <string name="file__build_in_cloud">Сборка в облаке...</string>
 
     <!-- Menu item : File -> Exit -->
-    <string name="file__exit">Exit</string>
+    <string name="file__exit">Выход</string>
 
 
 
@@ -52,28 +52,28 @@
     -->
 
     <!-- Menu item : Edit -->
-    <string name="edit">Edit</string>
+    <string name="edit">Правка</string>
 
     <!-- Menu item : Edit -> Undo -->
-    <string name="edit__undo">Undo</string>
+    <string name="edit__undo">Отменить</string>
 
     <!-- Menu item : Edit -> Redo -->
-    <string name="edit__redo">Redo</string>
+    <string name="edit__redo">Повторить</string>
 
     <!-- Menu item : Edit -> Cut -->
-    <string name="edit__cut">Cut</string>
+    <string name="edit__cut">Вырезать</string>
 
     <!-- Menu item : Edit -> Copy -->
-    <string name="edit__copy">Copy</string>
+    <string name="edit__copy">Копировать</string>
 
     <!-- Menu item : Edit -> Paste -->
-    <string name="edit__paste">Paste</string>
+    <string name="edit__paste">Вставить</string>
 
     <!-- Menu item : Edit -> Duplicate -->
-    <string name="edit__duplicate">Duplicate</string>
+    <string name="edit__duplicate">Дубликат</string>
 
     <!-- Menu item : Edit -> Delete -->
-    <string name="edit__delete">Delete</string>
+    <string name="edit__delete">Удалить</string>
 
     <!-- Menu item : Edit -> Frame Selected -->
     <string name="edit__frame_selected">Frame Selected</string>

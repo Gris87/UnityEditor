@@ -53,10 +53,10 @@ public class PopupMenuAreaScript : MonoBehaviour
     {
         if (mPopupMenus.Count > 0)
         {
-            if (Input.GetMouseButtonDown(0)) // TODO: InputControl
+            if (InputControl.GetMouseButtonDown(MouseButton.Left))
             {
                 PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
-                pointerEvent.position = Input.mousePosition; // TODO: InputControl
+                pointerEvent.position = InputControl.mousePosition;
 
                 List<RaycastResult> hits = new List<RaycastResult>();
                 EventSystem.current.RaycastAll(pointerEvent, hits);
@@ -85,7 +85,7 @@ public class PopupMenuAreaScript : MonoBehaviour
                 }
             }
             else
-            if (Input.GetButtonDown("Cancel")) // TODO: InputControl
+            if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
             {
                 mPopupMenus[mPopupMenus.Count - 1].Destroy();
             }
