@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -211,8 +212,17 @@ namespace common
 
                         if (menuItem.Data.Enabled)
                         {
-                            button.onClick.AddListener(menuItem.Data.OnClick); // TODO: If menuItem has children then we should display subitems
-                            button.onClick.AddListener(Destroy);
+                            ReadOnlyCollection<TreeNode<MenuItem>> children = menuItem.Children;
+
+                            if (children == null || children.Count == 0)
+                            {
+                                button.onClick.AddListener(menuItem.Data.OnClick);
+                                button.onClick.AddListener(Destroy);
+                            }
+                            else
+                            {
+                                button.onClick.AddListener(OnMenuWithSubItemsClick);
+                            }
                         }
                         #endregion
                         #endregion
@@ -282,6 +292,15 @@ namespace common
             public UnityEvent OnDestroy
             {
                 get { return mOnDestroy; }
+            }
+
+            /// <summary>
+            /// Handler for click event on menu with sub-items.
+            /// </summary>
+            public void OnMenuWithSubItemsClick()
+            {
+                Debug.Log("PopupMenu.OnMenuWithSubItemsClick()");
+                // TODO: Implement PopupMenu.OnMenuWithSubItemsClick
             }
         }
     }

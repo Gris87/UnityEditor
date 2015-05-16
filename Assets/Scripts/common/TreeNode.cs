@@ -12,8 +12,8 @@ namespace common
     public class TreeNode<T>
     {
         private T                 mData;
-        private TreeNode<T>       mParent   = null;
-        private List<TreeNode<T>> mChildren = null;
+        private TreeNode<T>       mParent;
+        private List<TreeNode<T>> mChildren;
 
 
 
@@ -25,7 +25,7 @@ namespace common
         {
             mData     = data;
             mParent   = null;
-            mChildren = new List<TreeNode<T>>();
+            mChildren = null;
         }
 
         /// <summary>
@@ -35,6 +35,11 @@ namespace common
         /// <param name="data">Data value.</param>
         public TreeNode<T> AddChild(T data)
         {
+            if (mChildren == null)
+            {
+                mChildren = new List<TreeNode<T>>();
+            }
+
             TreeNode<T> node = new TreeNode<T>(data);
 
             node.mParent = this;
@@ -67,11 +72,21 @@ namespace common
         /// <param name="node">The child <see cref="common.TreeNode`1"/> instance.</param>
         public bool RemoveChild(TreeNode<T> node)
         {
+            if (mChildren == null)
+            {
+                return true;
+            }
+
             bool res = mChildren.Remove(node);
 
             if (res)
             {
                 node.mParent = null;
+
+                if (mChildren.Count == 0)
+                {
+                    mChildren = null;
+                }
             }
 
             return res;
@@ -102,7 +117,15 @@ namespace common
         /// <value>The children list.</value>
         public ReadOnlyCollection<TreeNode<T>> Children
         {
-            get { return mChildren.AsReadOnly(); }
+            get
+            {
+                if (mChildren == null)
+                {
+                    return null;
+                }
+
+                return mChildren.AsReadOnly();
+            }
         }
     }
 }
