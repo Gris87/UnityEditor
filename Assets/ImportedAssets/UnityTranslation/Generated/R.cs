@@ -2211,9 +2211,9 @@ namespace UnityTranslation
                     window__layouts__2_by_3
                     ,
                     /// <summary>
-                    /// <para>Menu item : Window -&gt; Layouts -&gt; 4 split</para>
+                    /// <para>Menu item : Window -&gt; Layouts -&gt; 4 Split</para>
                     /// <para>Value:</para>
-                    ///   <para>4 split</para>
+                    ///   <para>4 Split</para>
                     /// </summary>
                     window__layouts__4_split
                     ,

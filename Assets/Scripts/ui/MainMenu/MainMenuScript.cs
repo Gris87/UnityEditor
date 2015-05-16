@@ -544,7 +544,25 @@ public class MainMenuScript : MonoBehaviour
     #endregion
 
     #region Help
-    private TreeNode<MenuItem> mHelpMenu = null;
+    private TreeNode<MenuItem> mHelpMenu                    = null;
+
+//  private TreeNode<MenuItem> mHelp_AboutUnityItem         = null;
+
+//  private TreeNode<MenuItem> mHelp_ManageLicenseItem      = null;
+
+//  private TreeNode<MenuItem> mHelp_UnityManualItem        = null;
+//  private TreeNode<MenuItem> mHelp_ScriptingReferenceItem = null;
+
+//  private TreeNode<MenuItem> mHelp_UnityConnectItem       = null;
+//  private TreeNode<MenuItem> mHelp_UnityForumItem         = null;
+//  private TreeNode<MenuItem> mHelp_UnityAnswersItem       = null;
+//  private TreeNode<MenuItem> mHelp_UnityFeedbackItem      = null;
+
+//  private TreeNode<MenuItem> mHelp_CheckForUpdatesItem    = null;
+//  private TreeNode<MenuItem> mHelp_DownloadBetaItem       = null;
+
+//  private TreeNode<MenuItem> mHelp_ReleaseNotesItem       = null;
+//  private TreeNode<MenuItem> mHelp_ReportABugItem         = null;
     #endregion
 
     #endregion
@@ -558,9 +576,6 @@ public class MainMenuScript : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // TODO: REMOVE IT
-        Debug.Log(Translator.language);
-
         CreateMenuItems();
         CreateUI();
     }
@@ -574,7 +589,7 @@ public class MainMenuScript : MonoBehaviour
         mItems = new TreeNode<MenuItem>(new MenuItem());
 
         #region File
-        mFileMenu                 =   MenuItem.Create(mItems,    R.sections.MenuItems.strings.file,                 OnFileMenu);
+        mFileMenu                 =   MenuItem.Create(mItems,    R.sections.MenuItems.strings.file,                 OnFileMenu); // TODO: Shortcuts
 
         /*mFile_NewSceneItem      =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__new_scene,      OnFile_NewScene);
         /*mFile_OpenSceneItem     =*/ MenuItem.Create(mFileMenu, R.sections.MenuItems.strings.file__open_scene,     OnFile_OpenScene);
@@ -1103,7 +1118,25 @@ public class MainMenuScript : MonoBehaviour
         #endregion
 
         #region Help
-        mHelpMenu = MenuItem.Create(mItems, R.sections.MenuItems.strings.help, OnHelpMenu);
+        mHelpMenu                      =   MenuItem.Create(mItems,    R.sections.MenuItems.strings.help,                      OnHelpMenu);
+
+		/*mHelp_AboutUnityItem         =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__about_unity,         OnHelp_AboutUnity);
+		MenuItem.InsertSeparator(mHelpMenu);
+		/*mHelp_ManageLicenseItem      =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__manage_license,      OnHelp_ManageLicense);
+		MenuItem.InsertSeparator(mHelpMenu);
+		/*mHelp_UnityManualItem        =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__unity_manual,        OnHelp_UnityManual);
+		/*mHelp_ScriptingReferenceItem =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__scripting_reference, OnHelp_ScriptingReference);
+        MenuItem.InsertSeparator(mHelpMenu);
+		/*mHelp_UnityConnectItem       =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__unity_connect,       OnHelp_UnityConnect);
+		/*mHelp_UnityForumItem         =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__unity_forum,         OnHelp_UnityForum);
+		/*mHelp_UnityAnswersItem       =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__unity_answers,       OnHelp_UnityAnswers);
+		/*mHelp_UnityFeedbackItem      =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__unity_feedback,      OnHelp_UnityFeedback);
+		MenuItem.InsertSeparator(mHelpMenu);
+		/*mHelp_CheckForUpdatesItem    =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__check_for_updates,   OnHelp_CheckForUpdates);
+		/*mHelp_DownloadBetaItem       =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__download_beta,       OnHelp_DownloadBeta);
+		MenuItem.InsertSeparator(mHelpMenu);
+		/*mHelp_ReleaseNotesItem       =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__release_notes,       OnHelp_ReleaseNotes);
+		/*mHelp_ReportABugItem         =*/ MenuItem.Create(mHelpMenu, R.sections.MenuItems.strings.help__report_a_bug,        OnHelp_ReportABug);
         #endregion
     }
 
@@ -1177,8 +1210,10 @@ public class MainMenuScript : MonoBehaviour
             #region Button Component
             Button button = menuItemButton.GetComponent<Button>();
 
-            button.interactable = menuItem.Data.Enabled; // TODO: Check it. Maybe do the same as for PopupMenu
-            button.onClick.AddListener(menuItem.Data.OnClick);
+            if (menuItem.Data.Enabled)
+            {
+                button.onClick.AddListener(menuItem.Data.OnClick);
+            }
             #endregion
             #endregion
 
@@ -3806,7 +3841,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Handler for Window -> Layouts -> 4 split.
+    /// Handler for Window -> Layouts -> 4 Split.
     /// </summary>
     public void OnWindow_Layouts_4_split()
     {
@@ -4039,6 +4074,114 @@ public class MainMenuScript : MonoBehaviour
     public void OnHelpMenu()
     {
         OnShowMenuSubItems(mHelpMenu);
+    }
+
+    /// <summary>
+    /// Handler for Help -> About Unity...
+    /// </summary>
+    public void OnHelp_AboutUnity()
+    {
+        Debug.Log("MainMenuScript.OnHelp_AboutUnity");
+        // TODO: Implement MainMenuScript.OnHelp_AboutUnity
+    }
+
+    /// <summary>
+    /// Handler for Help -> Manage License...
+    /// </summary>
+    public void OnHelp_ManageLicense()
+    {
+        Debug.Log("MainMenuScript.OnHelp_ManageLicense");
+        // TODO: Implement MainMenuScript.OnHelp_ManageLicense
+    }
+
+    /// <summary>
+    /// Handler for Help -> Unity Manual.
+    /// </summary>
+    public void OnHelp_UnityManual()
+    {
+        Debug.Log("MainMenuScript.OnHelp_UnityManual");
+        // TODO: Implement MainMenuScript.OnHelp_UnityManual
+    }
+
+    /// <summary>
+    /// Handler for Help -> Scripting Reference.
+    /// </summary>
+    public void OnHelp_ScriptingReference()
+    {
+        Debug.Log("MainMenuScript.OnHelp_ScriptingReference");
+        // TODO: Implement MainMenuScript.OnHelp_ScriptingReference
+    }
+
+    /// <summary>
+    /// Handler for Help -> Unity Connect.
+    /// </summary>
+    public void OnHelp_UnityConnect()
+    {
+        Debug.Log("MainMenuScript.OnHelp_UnityConnect");
+        // TODO: Implement MainMenuScript.OnHelp_UnityConnect
+    }
+
+    /// <summary>
+    /// Handler for Help -> Unity Forum.
+    /// </summary>
+    public void OnHelp_UnityForum()
+    {
+        Debug.Log("MainMenuScript.OnHelp_UnityForum");
+        // TODO: Implement MainMenuScript.OnHelp_UnityForum
+    }
+
+    /// <summary>
+    /// Handler for Help -> Unity Answers.
+    /// </summary>
+    public void OnHelp_UnityAnswers()
+    {
+        Debug.Log("MainMenuScript.OnHelp_UnityAnswers");
+        // TODO: Implement MainMenuScript.OnHelp_UnityAnswers
+    }
+
+    /// <summary>
+    /// Handler for Help -> Unity Feedback.
+    /// </summary>
+    public void OnHelp_UnityFeedback()
+    {
+        Debug.Log("MainMenuScript.OnHelp_UnityFeedback");
+        // TODO: Implement MainMenuScript.OnHelp_UnityFeedback
+    }
+
+    /// <summary>
+    /// Handler for Help -> Check for Updates.
+    /// </summary>    
+    public void OnHelp_CheckForUpdates()
+    {
+        Debug.Log("MainMenuScript.OnHelp_CheckForUpdates");
+        // TODO: Implement MainMenuScript.OnHelp_CheckForUpdates
+    }
+
+    /// <summary>
+    /// Handler for Help -> Download Beta...
+    /// </summary>
+    public void OnHelp_DownloadBeta()
+    {
+        Debug.Log("MainMenuScript.OnHelp_DownloadBeta");
+        // TODO: Implement MainMenuScript.OnHelp_DownloadBeta
+    }
+
+    /// <summary>
+    /// Handler for Help -> Release Notes.
+    /// </summary>
+    public void OnHelp_ReleaseNotes()
+    {
+        Debug.Log("MainMenuScript.OnHelp_ReleaseNotes");
+        // TODO: Implement MainMenuScript.OnHelp_ReleaseNotes
+    }
+
+    /// <summary>
+    /// Handler for Help -> Report a Bug...
+    /// </summary>
+    public void OnHelp_ReportABug()
+    {
+        Debug.Log("MainMenuScript.OnHelp_ReportABug");
+        // TODO: Implement MainMenuScript.OnHelp_ReportABug
     }
     #endregion
     #endregion
