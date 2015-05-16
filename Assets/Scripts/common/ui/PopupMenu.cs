@@ -15,9 +15,11 @@ namespace common
         /// </summary>
         public class PopupMenu
         {
-            private TreeNode<MenuItem> mItems      = null;
-            private GameObject         mPopupMenu  = null;
-            private UnityEvent         mOnDestroy  = null;
+            private TreeNode<MenuItem> mItems          = null;
+            private GameObject         mGameObject     = null;
+            private UnityEvent         mOnDestroy      = null;
+
+            private PopupMenu          mChildPopupMenu = null;
 
 
 
@@ -36,10 +38,16 @@ namespace common
             /// </summary>
             public void Destroy()
             {
-                if (mPopupMenu != null)
+                if (mChildPopupMenu != null)
                 {
-                    UnityEngine.Object.Destroy(mPopupMenu);
-                    mPopupMenu = null;
+                    mChildPopupMenu.Destroy();
+                    mChildPopupMenu = null;
+                }
+
+                if (mGameObject != null)
+                {
+                    UnityEngine.Object.Destroy(mGameObject);
+                    mGameObject = null;
                 }
 
                 Global.PopupMenuArea.DeregisterPopupMenu(this);
@@ -60,14 +68,14 @@ namespace common
                 // PopupMenu GameObject
                 //***************************************************************************
                 #region PopupMenu GameObject
-                mPopupMenu = new GameObject("PopupMenu");
-                Utils.InitUIObject(mPopupMenu, Global.PopupMenuAreaTransform);
+                mGameObject = new GameObject("PopupMenu");
+                Utils.InitUIObject(mGameObject, Global.PopupMenuAreaTransform);
 
                 //===========================================================================
                 // RectTransform Component
                 //===========================================================================
                 #region RectTransform Component
-                RectTransform popupMenuTransform = mPopupMenu.AddComponent<RectTransform>();
+                RectTransform popupMenuTransform = mGameObject.AddComponent<RectTransform>();
 
                 popupMenuTransform.localScale = new Vector3(1f, 1f, 1f);
                 popupMenuTransform.anchorMin  = new Vector2(0.5f, 0.5f);
@@ -79,14 +87,14 @@ namespace common
                 // CanvasRenderer Component
                 //===========================================================================
                 #region CanvasRenderer Component
-                mPopupMenu.AddComponent<CanvasRenderer>();
+                mGameObject.AddComponent<CanvasRenderer>();
                 #endregion
 
                 //===========================================================================
                 // Image Component
                 //===========================================================================
                 #region Image Component
-                Image popupMenuImage = mPopupMenu.AddComponent<Image>();
+                Image popupMenuImage = mGameObject.AddComponent<Image>();
 
                 popupMenuImage.sprite = Global.PopupMenuArea.background;
                 popupMenuImage.type   = Image.Type.Sliced;
@@ -97,7 +105,7 @@ namespace common
                 //***************************************************************************
                 #region ScrollArea GameObject
                 GameObject scrollArea = new GameObject("ScrollArea");
-                Utils.InitUIObject(scrollArea, mPopupMenu.transform);
+                Utils.InitUIObject(scrollArea, mGameObject.transform);
 
                 //===========================================================================
                 // RectTransform Component
@@ -217,11 +225,13 @@ namespace common
                             if (children == null || children.Count == 0)
                             {
                                 button.onClick.AddListener(menuItem.Data.OnClick);
-                                button.onClick.AddListener(Destroy);
+                                button.onClick.AddListener(Global.PopupMenuArea.DestroyAll);
                             }
                             else
                             {
-                                button.onClick.AddListener(OnMenuWithSubItemsClick);
+                                TreeNode<MenuItem> currentMenuItem = menuItem;
+
+                                button.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
                             }
                         }
                         #endregion
@@ -271,7 +281,7 @@ namespace common
                 float popupMenuWidth  = contentWidth  + 12; // TODO: Calculate popup menu size related to window size
                 float popupMenuHeight = contentHeight + 12;
 
-                popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f);
+                popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f); // TODO: Move popup menu when needed
                 popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);
                 #endregion
             }
@@ -295,12 +305,35 @@ namespace common
             }
 
             /// <summary>
-            /// Handler for click event on menu with sub-items.
+            /// Creates and displays popup menu for specified menu item.
             /// </summary>
-            public void OnMenuWithSubItemsClick()
+            /// <param name="node"><see cref="common.TreeNode`1"/> instance.</param>
+            public void OnShowMenuSubItems(TreeNode<MenuItem> node)
             {
-                Debug.Log("PopupMenu.OnMenuWithSubItemsClick()");
-                // TODO: Implement PopupMenu.OnMenuWithSubItemsClick
+                Debug.Log("PopupMenu.OnShowMenuSubItems(" + node.Data.Name + ")");
+                
+                if (mChildPopupMenu != null)
+                {
+                    mChildPopupMenu.Destroy();
+                }
+                
+                mChildPopupMenu = new PopupMenu(node);
+                mChildPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
+                
+                RectTransform menuItemTransform = mGameObject.transform.FindChild("ScrollArea/Content/" + node.Data.Name).GetComponent<RectTransform>();
+                Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
+                
+                mChildPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y); // TODO: Add alternative position
+            }
+
+            /// <summary>
+            /// Handler for popup menu destroy event.
+            /// </summary>
+            public void OnPopupMenuDestroyed()
+            {
+                Debug.Log("PopupMenu.OnPopupMenuDestroyed");
+                
+                mChildPopupMenu = null;
             }
         }
     }

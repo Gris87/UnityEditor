@@ -109,4 +109,15 @@ public class PopupMenuAreaScript : MonoBehaviour
     {
         mPopupMenus.Remove(menu);
     }
+
+    /// <summary>
+    /// This method will destroy all popup menus.
+    /// </summary>
+    public void DestroyAll()
+    {
+        if (mPopupMenus.Count > 0)
+        {
+            mPopupMenus[0].Destroy();
+        }
+    }
 }

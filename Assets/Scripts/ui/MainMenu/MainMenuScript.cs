@@ -19,6 +19,7 @@ public class MainMenuScript : MonoBehaviour
 
 
 
+    // TODO: Move this stuff to separate file
     #region Menu items
     private TreeNode<MenuItem> mItems = null;
 
