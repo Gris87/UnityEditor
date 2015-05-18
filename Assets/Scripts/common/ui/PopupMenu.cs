@@ -15,11 +15,11 @@ namespace common
         /// </summary>
         public class PopupMenu
         {
-            private TreeNode<MenuItem> mItems          = null;
-            private GameObject         mGameObject     = null;
-            private UnityEvent         mOnDestroy      = null;
+            private TreeNode<CustomMenuItem> mItems;
+            private GameObject               mGameObject;
+            private UnityEvent               mOnDestroy;
 
-            private PopupMenu          mChildPopupMenu = null;
+            private PopupMenu                mChildPopupMenu;
 
 
 
@@ -27,10 +27,13 @@ namespace common
             /// Initializes a new instance of the <see cref="common.ui.PopupMenu"/> class with specified menu items.
             /// </summary>
             /// <param name="items">Items.</param>
-            public PopupMenu(TreeNode<MenuItem> items)
+            public PopupMenu(TreeNode<CustomMenuItem> items)
             {
-                mItems     = items;
-                mOnDestroy = new UnityEvent();
+                mItems          = items;
+				mGameObject     = null;
+                mOnDestroy      = new UnityEvent();
+
+				mChildPopupMenu = null;
             }
 
             /// <summary>
@@ -142,9 +145,9 @@ namespace common
                 float contentHeight = 0f;
 
                 // Create menu item buttons
-                foreach (TreeNode<MenuItem> menuItem in mItems.Children)
+                foreach (TreeNode<CustomMenuItem> menuItem in mItems.Children)
                 {
-                    if (menuItem.Data.IsSeparator)
+                    if (menuItem.Data is MenuSeparatorItem)
                     {
                         //***************************************************************************
                         // Separator GameObject
@@ -182,14 +185,17 @@ namespace common
                         #endregion
                     }
                     else
+				    if (menuItem.Data is MenuItem)
                     {
+						MenuItem item = menuItem.Data as MenuItem;
+
                         //***************************************************************************
                         // Button GameObject
                         //***************************************************************************
                         #region Button GameObject
                         GameObject menuItemButton;
 
-                        if (menuItem.Data.Enabled)
+                        if (item.Enabled)
                         {
                             menuItemButton = UnityEngine.Object.Instantiate(Global.PopupMenuArea.itemButton.gameObject) as GameObject;
                         }
@@ -199,7 +205,7 @@ namespace common
                         }
 
                         Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-                        menuItemButton.name = menuItem.Data.Name;
+                        menuItemButton.name = item.Name;
 
                         //===========================================================================
                         // RectTransform Component
@@ -218,18 +224,18 @@ namespace common
                         #region Button Component
                         Button button = menuItemButton.GetComponent<Button>();
 
-                        if (menuItem.Data.Enabled)
+                        if (item.Enabled)
                         {
-                            ReadOnlyCollection<TreeNode<MenuItem>> children = menuItem.Children;
+                            ReadOnlyCollection<TreeNode<CustomMenuItem>> children = menuItem.Children;
 
                             if (children == null || children.Count == 0)
                             {
-                                button.onClick.AddListener(menuItem.Data.OnClick);
+                                button.onClick.AddListener(item.OnClick);
                                 button.onClick.AddListener(Global.PopupMenuArea.DestroyAll);
                             }
                             else
                             {
-                                TreeNode<MenuItem> currentMenuItem = menuItem;
+                                TreeNode<CustomMenuItem> currentMenuItem = menuItem;
 
                                 button.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
                             }
@@ -245,7 +251,7 @@ namespace common
 
                         #region Text Component
                         Text text = menuItemText.GetComponent<Text>();
-                        text.text = menuItem.Data.Text;
+                        text.text = item.Text;
                         #endregion
                         #endregion
 
@@ -264,6 +270,10 @@ namespace common
                         contentHeight += buttonHeight;
                         #endregion
                     }
+					else
+					{
+						Debug.LogError("Unknown menu item type");
+					}
                 }
 
                 scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
@@ -287,43 +297,33 @@ namespace common
             }
 
             /// <summary>
-            /// Gets the menu items.
-            /// </summary>
-            /// <value>The menu items.</value>
-            public TreeNode<MenuItem> items
-            {
-                get { return mItems; }
-            }
-
-            /// <summary>
-            /// Gets the destroy event handler.
-            /// </summary>
-            /// <value>The destroy event handler.</value>
-            public UnityEvent OnDestroy
-            {
-                get { return mOnDestroy; }
-            }
-
-            /// <summary>
             /// Creates and displays popup menu for specified menu item.
             /// </summary>
             /// <param name="node"><see cref="common.TreeNode`1"/> instance.</param>
-            public void OnShowMenuSubItems(TreeNode<MenuItem> node)
+            public void OnShowMenuSubItems(TreeNode<CustomMenuItem> node)
             {
-                Debug.Log("PopupMenu.OnShowMenuSubItems(" + node.Data.Name + ")");
-                
-                if (mChildPopupMenu != null)
-                {
-                    mChildPopupMenu.Destroy();
-                }
-                
-                mChildPopupMenu = new PopupMenu(node);
-                mChildPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
-                
-                RectTransform menuItemTransform = mGameObject.transform.FindChild("ScrollArea/Content/" + node.Data.Name).GetComponent<RectTransform>();
-                Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
-                
-                mChildPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y); // TODO: Add alternative position
+				if (node.Data is MenuItem)
+				{
+					MenuItem item = node.Data as MenuItem;
+	                Debug.Log("PopupMenu.OnShowMenuSubItems(" + item.Name + ")");
+	                
+	                if (mChildPopupMenu != null)
+	                {
+	                    mChildPopupMenu.Destroy();
+	                }
+	                
+	                mChildPopupMenu = new PopupMenu(node);
+	                mChildPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
+	                
+	                RectTransform menuItemTransform = mGameObject.transform.FindChild("ScrollArea/Content/" + item.Name).GetComponent<RectTransform>();
+	                Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
+	                
+	                mChildPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y); // TODO: Add alternative position
+				}
+				else
+				{
+					Debug.LogError("Unknown menu item type");
+				}
             }
 
             /// <summary>
@@ -334,7 +334,25 @@ namespace common
                 Debug.Log("PopupMenu.OnPopupMenuDestroyed");
                 
                 mChildPopupMenu = null;
-            }
+			}
+			
+			/// <summary>
+			/// Gets the menu items.
+			/// </summary>
+			/// <value>The menu items.</value>
+			public TreeNode<CustomMenuItem> items
+			{
+				get { return mItems; }
+			}
+			
+			/// <summary>
+			/// Gets the destroy event handler.
+			/// </summary>
+			/// <value>The destroy event handler.</value>
+			public UnityEvent OnDestroy
+			{
+				get { return mOnDestroy; }
+			}
         }
     }
 }

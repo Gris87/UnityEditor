@@ -12,23 +12,56 @@ namespace common
         /// <summary>
         /// Menu item.
         /// </summary>
-        public class MenuItem
+		public class MenuItem : CustomMenuItem
         {
-            private TreeNode<MenuItem>           mNode           = null;
-            private R.sections.MenuItems.strings mTokenId        = R.sections.MenuItems.strings.Count;
-            private object[]                     mTokenArguments = null;
-            private string                       mText           = null;
-            private UnityAction                  mOnClick        = null;
-            private bool                         mEnabled        = false;
-            private bool                         mIsSeparator    = false;
+            private R.sections.MenuItems.strings mTokenId;
+            private object[]                     mTokenArguments;
+            private string                       mText;
+			private bool                         mEnabled;
+            private UnityAction                  mOnClick;
+			private IShortcutHandler             mShortcutHandler;
+			private KeyboardInput                mShortcut;
 
 
 
             /// <summary>
             /// Initializes a new instance of the <see cref="common.ui.MenuItem"/> class.
             /// </summary>
-            public MenuItem()
+			/// <param name="tokenId">Token ID for translation.</param>
+			/// <param name="tokenArguments">Arguments for provided token ID.</param>
+			/// <param name="text">Menu item text.</param>
+			/// <param name="enabled">Is this menu item enabled or not.</param>
+			/// <param name="onClick">Click event handler.</param>
+			/// <param name="shortcutHandler">Shortcut handler.</param>
+			/// <param name="shortcut">Shortcut.</param>
+            private MenuItem(
+							   R.sections.MenuItems.strings tokenId         = R.sections.MenuItems.strings.Count
+							 , object[]                     tokenArguments  = null
+							 , string                       text            = null
+			   	             , bool                         enabled         = false
+							 , UnityAction                  onClick         = null
+							 , IShortcutHandler             shortcutHandler = null
+							 , KeyboardInput                shortcut        = null
+				            )
+				: base()
             {
+				mTokenId         = tokenId;
+				mTokenArguments  = tokenArguments;
+				mText            = text;
+				mEnabled         = enabled;
+				mOnClick         = onClick;
+				mShortcutHandler = shortcutHandler;
+				mShortcut        = shortcut;
+
+				if (mShortcut == null)
+				{
+					mShortcutHandler = null;
+				}
+
+				if ((mShortcutHandler != null) && mEnabled)
+				{
+					mShortcutHandler.RegisterShortcut(this);
+				}
             }
 
             /// <summary>
@@ -39,14 +72,30 @@ namespace common
             /// <param name="tokenId">Token ID for translation.</param>
             /// <param name="onClick">Click event handler.</param>
             /// <param name="enabled">Is this menu item enabled or not.</param>
-            public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, R.sections.MenuItems.strings tokenId, UnityAction onClick = null, bool enabled = true)
+			/// <param name="shortcutHandler">Shortcut handler.</param>
+			/// <param name="shortcut">Shortcut.</param>
+			public static TreeNode<CustomMenuItem> Create(
+														    TreeNode<CustomMenuItem>     owner
+														  , R.sections.MenuItems.strings tokenId
+														  , UnityAction                  onClick         = null
+													  	  , bool                         enabled         = true
+														  , IShortcutHandler             shortcutHandler = null
+														  , string                       shortcut        = null
+														 )
             {
-                TreeNode<MenuItem> node = owner.AddChild(new MenuItem());
+				MenuItem item = new MenuItem(
+					                           tokenId                            // Token ID
+					                         , null                               // Token arguments
+				  	                         , null                               // Text
+											 , enabled                            // Enabled
+											 , onClick                            // Click event handler
+											 , shortcutHandler    			      // Shortcut handler
+											 , KeyboardInput.FromString(shortcut) // Shortcut
+					                        );
 
-                node.Data.mNode    = node;
-                node.Data.mTokenId = tokenId;
-                node.Data.mOnClick = onClick;
-                node.Data.mEnabled = enabled;
+				TreeNode<CustomMenuItem> node = owner.AddChild(item);
+                
+                item.mNode = node;
 
                 return node;
             }
@@ -59,40 +108,49 @@ namespace common
             /// <param name="text">Menu item text.</param>
             /// <param name="onClick">Click event handler.</param>
             /// <param name="enabled">Is this menu item enabled or not.</param>
-            public static TreeNode<MenuItem> Create(TreeNode<MenuItem> owner, string text, UnityAction onClick = null, bool enabled = true)
+			/// <param name="shortcutHandler">Shortcut handler.</param>
+			/// <param name="shortcut">Shortcut.</param>
+			public static TreeNode<CustomMenuItem> Create(
+														    TreeNode<CustomMenuItem> owner
+														  , string 		             text
+														  , UnityAction              onClick         = null
+														  , bool                     enabled         = true
+														  , IShortcutHandler         shortcutHandler = null
+														  , string                   shortcut        = null
+														 )
             {
-                TreeNode<MenuItem> node = owner.AddChild(new MenuItem());
-                
-                node.Data.mNode    = node;
-                node.Data.mText    = text;
-                node.Data.mOnClick = onClick;
-                node.Data.mEnabled = enabled;
-                
-                return node;
+				MenuItem item = new MenuItem(
+											   R.sections.MenuItems.strings.Count // Token ID
+											 , null    							  // Token arguments
+											 , text                               // Text
+											 , enabled 							  // Enabled
+											 , onClick 							  // Click event handler
+											 , shortcutHandler    			      // Shortcut handler
+											 , KeyboardInput.FromString(shortcut) // Shortcut
+											);
+				
+				TreeNode<CustomMenuItem> node = owner.AddChild(item);
+				
+				item.mNode = node;
+				
+				return node;
             }
 
-            /// <summary>
-            /// Creates <see cref="common.ui.MenuItem"/> instance that representing separator and adds it to
-            /// <see cref="common.TreeNode`1"/> instance.
-            /// </summary>
-            /// <param name="owner"><see cref="common.TreeNode`1"/> instance.</param>
-            public static void InsertSeparator(TreeNode<MenuItem> owner)
-            {
-                TreeNode<MenuItem> node = owner.AddChild(new MenuItem());
+			/// <summary>
+			/// Verifies that shortcut was pressed and call click event handler.
+			/// </summary>
+			/// <returns><c>true</c>, if shortcut was handled, <c>false</c> otherwise.</returns>
+			public bool HandleShortcut()
+			{
+				if (mShortcut.getInputDown(true) != 0)
+				{
+					OnClick.Invoke();
 
-                node.Data.mNode        = node;
-                node.Data.mIsSeparator = true;
-            }
+					return true;
+				}
 
-            /// <summary>
-            /// Gets the assigned <see cref="common.TreeNode`1"/> instance.
-            /// </summary>
-            /// <value>The assigned <see cref="common.TreeNode`1"/> instance.</value>
-            public TreeNode<MenuItem> Node
-            {
-                get { return mNode; }
-            }
-
+				return false;
+			}
             
             /// <summary>
             /// Gets or sets the token ID.
@@ -194,17 +252,30 @@ namespace common
             /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
             public bool Enabled
             {
-                get { return mEnabled;  }
-                set { mEnabled = value; }
-            }
+                get
+				{
+					return mEnabled; 
+				}
 
-            /// <summary>
-            /// Gets a value indicating whether this instance is separator.
-            /// </summary>
-            /// <value><c>true</c> if this instance is separator; otherwise, <c>false</c>.</value>
-            public bool IsSeparator
-            {
-                get { return mIsSeparator; }
+                set
+				{
+					if (mEnabled != value)
+					{
+						mEnabled = value; 
+
+						if (mShortcutHandler != null)
+						{
+							if (mEnabled)
+							{
+								mShortcutHandler.RegisterShortcut(this);
+							}
+							else
+							{
+								mShortcutHandler.DeregisterShortcut(this);
+							}
+						}
+					}
+				}
             }
         }
     }
