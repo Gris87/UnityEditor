@@ -640,59 +640,59 @@ namespace ui
 			/*mFile_BuildAndRunItem   =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__build_and_run,  mScript.OnFile_BuildAndRun,   true, "Ctrl+B");
 	        /*mFile_BuildInCloudItem  =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__build_in_cloud, mScript.OnFile_BuildInCloud);
 	        MenuSeparatorItem.Create(fileMenu);
-	        /*mFile_ExitItem          =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__exit,           mScript.OnFile_Exit);
+			/*mFile_ExitItem          =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__exit,           mScript.OnFile_Exit);
 	        #endregion
 	        
 	        #region Edit
 	        editMenu                      =   MakeItem(mItems,   R.sections.MenuItems.strings.edit,                        mScript.OnEditMenu);
 	        
-			/*edit_UndoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__undo,                  mScript.OnEdit_Undo,               true, "Ctrl+Z"); // TODO: Change name of menu item after changes
-			/*edit_RedoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__redo,                  mScript.OnEdit_Redo,               true, "Ctrl+Y"); // TODO: Change name of menu item after changes
+			/*edit_UndoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__undo,                  mScript.OnEdit_Undo,               false, "Ctrl+Z"); // TODO: Change name of menu item after changes
+			/*edit_RedoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__redo,                  mScript.OnEdit_Redo,               false, "Ctrl+Y"); // TODO: Change name of menu item after changes
 	        MenuSeparatorItem.Create(editMenu);
-			/*edit_CutItem                =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__cut,                   mScript.OnEdit_Cut,                true, "Ctrl+X");
-			/*edit_CopyItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__copy,                  mScript.OnEdit_Copy,               true, "Ctrl+C");
-			/*edit_PasteItem              =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__paste,                 mScript.OnEdit_Paste,              true, "Ctrl+V");
+			/*edit_CutItem                =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__cut,                   mScript.OnEdit_Cut,                true,  "Ctrl+X");
+			/*edit_CopyItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__copy,                  mScript.OnEdit_Copy,               true,  "Ctrl+C");
+			/*edit_PasteItem              =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__paste,                 mScript.OnEdit_Paste,              true,  "Ctrl+V");
 	        MenuSeparatorItem.Create(editMenu);
-			/*edit_DuplicateItem          =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__duplicate,             mScript.OnEdit_Duplicate,          true, "Ctrl+D");
-			/*edit_DeleteItem             =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__delete,                mScript.OnEdit_Delete,             true, "Shift+Del");
+			/*edit_DuplicateItem          =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__duplicate,             mScript.OnEdit_Duplicate,          true,  "Ctrl+D");
+			/*edit_DeleteItem             =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__delete,                mScript.OnEdit_Delete,             true,  "Shift+Del");
 	        MenuSeparatorItem.Create(editMenu);
-			/*edit_FrameSelectedItem      =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__frame_selected,        mScript.OnEdit_FrameSelected,      true, "F");
-			/*edit_LockViewToSelectedItem =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__lock_view_to_selected, mScript.OnEdit_LockViewToSelected, true, "Shift+F");
-			/*edit_FindItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__find,                  mScript.OnEdit_Find,               true, "Ctrl+F");
-			/*edit_SelectAllItem          =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__select_all,            mScript.OnEdit_SelectAll,          true, "Ctrl+A");
+			/*edit_FrameSelectedItem      =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__frame_selected,        mScript.OnEdit_FrameSelected,      true,  "F");
+			/*edit_LockViewToSelectedItem =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__lock_view_to_selected, mScript.OnEdit_LockViewToSelected, true,  "Shift+F");
+			/*edit_FindItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__find,                  mScript.OnEdit_Find,               true,  "Ctrl+F");
+			/*edit_SelectAllItem          =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__select_all,            mScript.OnEdit_SelectAll,          true,  "Ctrl+A");
 	        MenuSeparatorItem.Create(editMenu);
 	        /*edit_PreferencesItem        =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__preferences,           mScript.OnEdit_Preferences);
 	        /*edit_ModulesItem            =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__modules,               mScript.OnEdit_Modules);
 	        MenuSeparatorItem.Create(editMenu);
-			/*edit_PlayItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__play,                  mScript.OnEdit_Play,  true, "Ctrl+P");
-			/*edit_PauseItem              =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__pause,                 mScript.OnEdit_Pause, true, "Ctrl+Shift+P");
-			/*edit_StepItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__step,                  mScript.OnEdit_Step,  true, "Ctrl+Alt+P");
+			/*edit_PlayItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__play,                  mScript.OnEdit_Play,               true,  "Ctrl+P");
+			/*edit_PauseItem              =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__pause,                 mScript.OnEdit_Pause,              true,  "Ctrl+Shift+P");
+			/*edit_StepItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__step,                  mScript.OnEdit_Step,               true,  "Ctrl+Alt+P");
 	        MenuSeparatorItem.Create(editMenu);
 	        
 	        #region Edit -> Selection
 	        edit_SelectionItem                  =   MakeItem(editMenu,           R.sections.MenuItems.strings.edit__selection);
 	        
-			/*edit_Selection_LoadSelection1Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_1, mScript.OnEdit_Selection_LoadSelection1, true, "Ctrl+Shift+1");
-			/*edit_Selection_LoadSelection2Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_2, mScript.OnEdit_Selection_LoadSelection2, true, "Ctrl+Shift+2");
-			/*edit_Selection_LoadSelection3Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_3, mScript.OnEdit_Selection_LoadSelection3, true, "Ctrl+Shift+3");
-			/*edit_Selection_LoadSelection4Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_4, mScript.OnEdit_Selection_LoadSelection4, true, "Ctrl+Shift+4");
-			/*edit_Selection_LoadSelection5Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_5, mScript.OnEdit_Selection_LoadSelection5, true, "Ctrl+Shift+5");
-			/*edit_Selection_LoadSelection6Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_6, mScript.OnEdit_Selection_LoadSelection6, true, "Ctrl+Shift+6");
-			/*edit_Selection_LoadSelection7Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_7, mScript.OnEdit_Selection_LoadSelection7, true, "Ctrl+Shift+7");
-			/*edit_Selection_LoadSelection8Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_8, mScript.OnEdit_Selection_LoadSelection8, true, "Ctrl+Shift+8");
-			/*edit_Selection_LoadSelection9Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_9, mScript.OnEdit_Selection_LoadSelection9, true, "Ctrl+Shift+9");
-			/*edit_Selection_LoadSelection0Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_0, mScript.OnEdit_Selection_LoadSelection0, true, "Ctrl+Shift+0");
+			/*edit_Selection_LoadSelection1Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_1, mScript.OnEdit_Selection_LoadSelection1, false, "Ctrl+Shift+1");
+			/*edit_Selection_LoadSelection2Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_2, mScript.OnEdit_Selection_LoadSelection2, false, "Ctrl+Shift+2");
+			/*edit_Selection_LoadSelection3Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_3, mScript.OnEdit_Selection_LoadSelection3, false, "Ctrl+Shift+3");
+			/*edit_Selection_LoadSelection4Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_4, mScript.OnEdit_Selection_LoadSelection4, false, "Ctrl+Shift+4");
+			/*edit_Selection_LoadSelection5Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_5, mScript.OnEdit_Selection_LoadSelection5, false, "Ctrl+Shift+5");
+			/*edit_Selection_LoadSelection6Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_6, mScript.OnEdit_Selection_LoadSelection6, false, "Ctrl+Shift+6");
+			/*edit_Selection_LoadSelection7Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_7, mScript.OnEdit_Selection_LoadSelection7, false, "Ctrl+Shift+7");
+			/*edit_Selection_LoadSelection8Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_8, mScript.OnEdit_Selection_LoadSelection8, false, "Ctrl+Shift+8");
+			/*edit_Selection_LoadSelection9Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_9, mScript.OnEdit_Selection_LoadSelection9, false, "Ctrl+Shift+9");
+			/*edit_Selection_LoadSelection0Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__load_selection_0, mScript.OnEdit_Selection_LoadSelection0, false, "Ctrl+Shift+0");
 	        
-			/*edit_Selection_SaveSelection1Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_1, mScript.OnEdit_Selection_SaveSelection1, true, "Ctrl+Alt+1");
-			/*edit_Selection_SaveSelection2Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_2, mScript.OnEdit_Selection_SaveSelection2, true, "Ctrl+Alt+2");
-			/*edit_Selection_SaveSelection3Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_3, mScript.OnEdit_Selection_SaveSelection3, true, "Ctrl+Alt+3");
-			/*edit_Selection_SaveSelection4Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_4, mScript.OnEdit_Selection_SaveSelection4, true, "Ctrl+Alt+4");
-			/*edit_Selection_SaveSelection5Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_5, mScript.OnEdit_Selection_SaveSelection5, true, "Ctrl+Alt+5");
-			/*edit_Selection_SaveSelection6Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_6, mScript.OnEdit_Selection_SaveSelection6, true, "Ctrl+Alt+6");
-			/*edit_Selection_SaveSelection7Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_7, mScript.OnEdit_Selection_SaveSelection7, true, "Ctrl+Alt+7");
-			/*edit_Selection_SaveSelection8Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_8, mScript.OnEdit_Selection_SaveSelection8, true, "Ctrl+Alt+8");
-			/*edit_Selection_SaveSelection9Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_9, mScript.OnEdit_Selection_SaveSelection9, true, "Ctrl+Alt+9");
-			/*edit_Selection_SaveSelection0Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_0, mScript.OnEdit_Selection_SaveSelection0, true, "Ctrl+Alt+0");
+			/*edit_Selection_SaveSelection1Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_1, mScript.OnEdit_Selection_SaveSelection1, false, "Ctrl+Alt+1");
+			/*edit_Selection_SaveSelection2Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_2, mScript.OnEdit_Selection_SaveSelection2, false, "Ctrl+Alt+2");
+			/*edit_Selection_SaveSelection3Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_3, mScript.OnEdit_Selection_SaveSelection3, false, "Ctrl+Alt+3");
+			/*edit_Selection_SaveSelection4Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_4, mScript.OnEdit_Selection_SaveSelection4, false, "Ctrl+Alt+4");
+			/*edit_Selection_SaveSelection5Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_5, mScript.OnEdit_Selection_SaveSelection5, false, "Ctrl+Alt+5");
+			/*edit_Selection_SaveSelection6Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_6, mScript.OnEdit_Selection_SaveSelection6, false, "Ctrl+Alt+6");
+			/*edit_Selection_SaveSelection7Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_7, mScript.OnEdit_Selection_SaveSelection7, false, "Ctrl+Alt+7");
+			/*edit_Selection_SaveSelection8Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_8, mScript.OnEdit_Selection_SaveSelection8, false, "Ctrl+Alt+8");
+			/*edit_Selection_SaveSelection9Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_9, mScript.OnEdit_Selection_SaveSelection9, false, "Ctrl+Alt+9");
+			/*edit_Selection_SaveSelection0Item =*/ MakeItem(edit_SelectionItem, R.sections.MenuItems.strings.edit__selection__save_selection_0, mScript.OnEdit_Selection_SaveSelection0, false, "Ctrl+Alt+0");
 	        #endregion
 	        
 	        MenuSeparatorItem.Create(editMenu);
@@ -717,7 +717,7 @@ namespace ui
 	        MenuSeparatorItem.Create(editMenu);
 	        
 	        #region Edit -> Network Emulation
-	        edit_NetworkEmulationItem                             =   MakeItem(editMenu,                  R.sections.MenuItems.strings.edit__network_emulation);
+	        edit_NetworkEmulationItem                             =   MakeItem(editMenu,                  R.sections.MenuItems.strings.edit__network_emulation); // TODO: Checkbox
 	        
 	        /*edit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__none,      mScript.OnEdit_NetworkEmulation_None);
 	        /*edit_NetworkEmulation_NetworkEmulationBroadbandItem =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__broadband, mScript.OnEdit_NetworkEmulation_Broadband);
@@ -727,8 +727,8 @@ namespace ui
 	        #endregion
 	        
 	        #region Edit -> Graphics Emulation
-	        edit_GraphicsEmulationItem                                 =   MakeItem(editMenu,                   R.sections.MenuItems.strings.edit__graphics_emulation);
-	        
+			edit_GraphicsEmulationItem                                 =   MakeItem(editMenu,                   R.sections.MenuItems.strings.edit__graphics_emulation); // TODO: Checkbox
+            
 	        /*edit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__no_emulation,   mScript.OnEdit_GraphicsEmulation_NoEmulation);
 	        /*edit_GraphicsEmulation_GraphicsEmulationShaderModel3Item =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_3, mScript.OnEdit_GraphicsEmulation_ShaderModel3);
 	        /*edit_GraphicsEmulation_GraphicsEmulationShaderModel2Item =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_2, mScript.OnEdit_GraphicsEmulation_ShaderModel2);
@@ -781,8 +781,8 @@ namespace ui
 	        #endregion
 	        
 	        /*assets_ShowInExplorerItem =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__show_in_explorer, mScript.OnAssets_ShowInExplorer);
-	        /*assets_OpenItem           =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__open,             mScript.OnAssets_Open);
-	        /*assets_DeleteItem         =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__delete,           mScript.OnAssets_Delete);
+	        /*assets_OpenItem           =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__open,             mScript.OnAssets_Open,   false);
+	        /*assets_DeleteItem         =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__delete,           mScript.OnAssets_Delete, false);
 	        MenuSeparatorItem.Create(assetsMenu);
 	        /*assets_ImportNewAssetItem =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__import_new_asset, mScript.OnAssets_ImportNewAsset);
 	        
@@ -804,15 +804,15 @@ namespace ui
 	        #endregion
 	        
 	        /*assets_ExportPackageItem          =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__export_package,           mScript.OnAssets_ExportPackage);
-	        /*assets_FindReferencesInSceneItem  =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__find_references_in_scene, mScript.OnAssets_FindReferencesInScene);
+	        /*assets_FindReferencesInSceneItem  =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__find_references_in_scene, mScript.OnAssets_FindReferencesInScene, false);
 	        /*assets_SelectDependenciesItem     =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__select_dependencies,      mScript.OnAssets_SelectDependencies);
 	        MenuSeparatorItem.Create(assetsMenu);
-	        /*assets_RefreshItem                =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__refresh,                  mScript.OnAssets_Refresh);
-	        /*assets_ReimportItem               =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__reimport,                 mScript.OnAssets_Reimport);
+	        /*assets_RefreshItem                =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__refresh,                  mScript.OnAssets_Refresh,               true, "Ctrl+R");
+	        /*assets_ReimportItem               =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__reimport,                 mScript.OnAssets_Reimport,              false);
 	        MenuSeparatorItem.Create(assetsMenu);
 	        /*assets_ReimportAllItem            =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__reimport_all,             mScript.OnAssets_ReimportAll);
 	        MenuSeparatorItem.Create(assetsMenu);
-	        /*assets_RunApiUpdaterItem          =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__run_api_updater,          mScript.OnAssets_RunApiUpdater);
+	        /*assets_RunApiUpdaterItem          =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__run_api_updater,          mScript.OnAssets_RunApiUpdater,         false);
 	        MenuSeparatorItem.Create(assetsMenu);
 	        /*assets_SyncMonoDevelopProjectItem =*/ MakeItem(assetsMenu, R.sections.MenuItems.strings.assets__sync_monodevelop_project, mScript.OnAssets_SyncMonoDevelopProject);
 	        #endregion
@@ -820,9 +820,9 @@ namespace ui
 	        #region GameObject
 	        gameObjectMenu                    =   MakeItem(mItems,         R.sections.MenuItems.strings.gameobject, mScript.OnGameObjectMenu);
 	        
-	        /*gameObject_CreateEmptyItem      =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__create_empty,       mScript.OnGameObject_CreateEmpty);
-	        /*gameObject_CreateEmptyChildItem =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__create_empty_child, mScript.OnGameObject_CreateEmptyChild);
-	        
+			/*gameObject_CreateEmptyItem      =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__create_empty,       mScript.OnGameObject_CreateEmpty,      true, "Ctrl+Shift+N");
+			/*gameObject_CreateEmptyChildItem =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__create_empty_child, mScript.OnGameObject_CreateEmptyChild, true, "Alt+Shift+N");
+            
 	        #region GameObject -> 3D Object    
 	        gameObject_3dObjectItem            =   MakeItem(gameObjectMenu,          R.sections.MenuItems.strings.gameobject__3d_object);
 	        
@@ -886,194 +886,194 @@ namespace ui
 	        /*gameObject_ParticleSystemItem       =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__particle_system,         mScript.OnGameObject_ParticleSystem);
 	        /*gameObject_CameraItem               =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__camera,                  mScript.OnGameObject_Camera);
 	        MenuSeparatorItem.Create(gameObjectMenu);
-	        /*gameObject_CenterOnChildrenItem     =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__center_on_children,      mScript.OnGameObject_CenterOnChildren);
+	        /*gameObject_CenterOnChildrenItem     =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__center_on_children,      mScript.OnGameObject_CenterOnChildren,     false);
 	        MenuSeparatorItem.Create(gameObjectMenu);
-	        /*gameObject_MakeParentItem           =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__make_parent,             mScript.OnGameObject_MakeParent);
-	        /*gameObject_ClearParentItem          =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__clear_parent,            mScript.OnGameObject_ClearParent);
-	        /*gameObject_ApplyChangesToPrefabItem =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__apply_changes_to_prefab, mScript.OnGameObject_ApplyChangesToPrefab);
-	        /*gameObject_BreakPrefabInstanceItem  =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__break_prefab_instance,   mScript.OnGameObject_BreakPrefabInstance);
-	        MenuSeparatorItem.Create(gameObjectMenu);
-	        /*gameObject_SetAsFirstSiblingItem    =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__set_as_first_sibling,    mScript.OnGameObject_SetAsFirstSibling);
-	        /*gameObject_SetAsLastSiblingItem     =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__set_as_last_sibling,     mScript.OnGameObject_SetAsLastSibling);
-	        /*gameObject_MoveToViewItem           =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__move_to_view,            mScript.OnGameObject_MoveToView);
-	        /*gameObject_AlignWithViewItem        =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__align_with_view,         mScript.OnGameObject_AlignWithView);
-	        /*gameObject_AlignViewToSelectedItem  =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__align_view_to_selected,  mScript.OnGameObject_AlignViewToSelected);
-	        /*gameObject_ToggleActiveStateItem    =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__toggle_active_state,     mScript.OnGameObject_ToggleActiveState);
-	        #endregion
+			/*gameObject_MakeParentItem           =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__make_parent,             mScript.OnGameObject_MakeParent,           false);
+			/*gameObject_ClearParentItem          =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__clear_parent,            mScript.OnGameObject_ClearParent,          false);
+			/*gameObject_ApplyChangesToPrefabItem =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__apply_changes_to_prefab, mScript.OnGameObject_ApplyChangesToPrefab, false);
+            /*gameObject_BreakPrefabInstanceItem  =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__break_prefab_instance,   mScript.OnGameObject_BreakPrefabInstance,  false);
+            MenuSeparatorItem.Create(gameObjectMenu);
+			/*gameObject_SetAsFirstSiblingItem    =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__set_as_first_sibling,    mScript.OnGameObject_SetAsFirstSibling,    false, "Ctrl+=");
+			/*gameObject_SetAsLastSiblingItem     =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__set_as_last_sibling,     mScript.OnGameObject_SetAsLastSibling,     false, "Ctrl+-");
+			/*gameObject_MoveToViewItem           =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__move_to_view,            mScript.OnGameObject_MoveToView,           false, "Ctrl+Alt+F");
+			/*gameObject_AlignWithViewItem        =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__align_with_view,         mScript.OnGameObject_AlignWithView,        false, "Ctrl+Shift+F");
+			/*gameObject_AlignViewToSelectedItem  =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__align_view_to_selected,  mScript.OnGameObject_AlignViewToSelected,  false);
+			/*gameObject_ToggleActiveStateItem    =*/ MakeItem(gameObjectMenu, R.sections.MenuItems.strings.gameobject__toggle_active_state,     mScript.OnGameObject_ToggleActiveState,    false, "Alt+Shift+A");
+            #endregion
 	        
 	        #region Component
 	        componentMenu       =   MakeItem(mItems,        R.sections.MenuItems.strings.component,      mScript.OnComponentMenu);
 	        
-	        /*component_AddItem =*/ MakeItem(componentMenu, R.sections.MenuItems.strings.component__add, mScript.OnComponent_Add);
-	        
+			/*component_AddItem =*/ MakeItem(componentMenu, R.sections.MenuItems.strings.component__add, mScript.OnComponent_Add, false, "Ctrl+Shift+A");
+            
 	        #region Component -> Mesh
 	        component_MeshItem                       =   MakeItem(componentMenu,      R.sections.MenuItems.strings.component__mesh);
 	        
-	        /*component_Mesh_MeshFilterItem          =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__mesh_filter,           mScript.OnComponent_Mesh_MeshFilter);
-	        /*component_Mesh_TextMeshItem            =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__text_mesh,             mScript.OnComponent_Mesh_TextMesh);
-	        MenuSeparatorItem.Create(component_MeshItem);
-	        /*component_Mesh_MeshRendererItem        =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__mesh_renderer,         mScript.OnComponent_Mesh_MeshRenderer);
-	        /*component_Mesh_SkinnedMeshRendererItem =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__skinned_mesh_renderer, mScript.OnComponent_Mesh_SkinnedMeshRenderer);
-	        #endregion
+			/*component_Mesh_MeshFilterItem          =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__mesh_filter,           mScript.OnComponent_Mesh_MeshFilter,          false);
+            /*component_Mesh_TextMeshItem            =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__text_mesh,             mScript.OnComponent_Mesh_TextMesh,            false);
+            MenuSeparatorItem.Create(component_MeshItem);
+			/*component_Mesh_MeshRendererItem        =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__mesh_renderer,         mScript.OnComponent_Mesh_MeshRenderer,        false);
+			/*component_Mesh_SkinnedMeshRendererItem =*/ MakeItem(component_MeshItem, R.sections.MenuItems.strings.component__mesh__skinned_mesh_renderer, mScript.OnComponent_Mesh_SkinnedMeshRenderer, false);
+            #endregion
 	        
 	        #region Component -> Effects
 	        component_EffectsItem                  =   MakeItem(componentMenu,         R.sections.MenuItems.strings.component__effects);
 	        
-	        /*component_Effects_ParticleSystemItem =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__particle_system, mScript.OnComponent_Effects_ParticleSystem);
-	        /*component_Effects_TrailRendererItem  =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__trail_renderer,  mScript.OnComponent_Effects_TrailRenderer);
-	        /*component_Effects_LineRendererItem   =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__line_renderer,   mScript.OnComponent_Effects_LineRenderer);
-	        /*component_Effects_LensFlareItem      =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__lens_flare,      mScript.OnComponent_Effects_LensFlare);
-	        /*component_Effects_HaloItem           =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__halo,            mScript.OnComponent_Effects_Halo);
-	        /*component_Effects_ProjectorItem      =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__projector,       mScript.OnComponent_Effects_Projector);
-	        MenuSeparatorItem.Create(component_MeshItem);
+			/*component_Effects_ParticleSystemItem =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__particle_system, mScript.OnComponent_Effects_ParticleSystem, false);
+			/*component_Effects_TrailRendererItem  =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__trail_renderer,  mScript.OnComponent_Effects_TrailRenderer,  false);
+			/*component_Effects_LineRendererItem   =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__line_renderer,   mScript.OnComponent_Effects_LineRenderer,   false);
+			/*component_Effects_LensFlareItem      =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__lens_flare,      mScript.OnComponent_Effects_LensFlare,      false);
+			/*component_Effects_HaloItem           =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__halo,            mScript.OnComponent_Effects_Halo,           false);
+			/*component_Effects_ProjectorItem      =*/ MakeItem(component_EffectsItem, R.sections.MenuItems.strings.component__effects__projector,       mScript.OnComponent_Effects_Projector,      false);
+			MenuSeparatorItem.Create(component_EffectsItem);
 	        
 	        #region Component -> Effects -> Legacy Particles
 	        component_Effects_LegacyParticlesItem                            =   MakeItem(component_EffectsItem,                 R.sections.MenuItems.strings.component__effects__legacy_particles);
 	        
-	        /*component_Effects_LegacyParticles_EllipsoidParticleEmitterItem =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__ellipsoid_particle_emitter, mScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter);
-	        /*component_Effects_LegacyParticles_MeshParticleEmitterItem      =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__mesh_particle_emitter,      mScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter);
-	        MenuSeparatorItem.Create(component_Effects_LegacyParticlesItem);
-	        /*component_Effects_LegacyParticles_ParticleAnimatorItem         =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__particle_animator,          mScript.OnComponent_Effects_LegacyParticles_ParticleAnimator);
-	        /*component_Effects_LegacyParticles_WorldParticleColliderItem    =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__world_particle_collider,    mScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider);
-	        MenuSeparatorItem.Create(component_Effects_LegacyParticlesItem);
-	        /*component_Effects_LegacyParticles_ParticleRendererItem         =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__particle_renderer,          mScript.OnComponent_Effects_LegacyParticles_ParticleRenderer);
-	        #endregion
+			/*component_Effects_LegacyParticles_EllipsoidParticleEmitterItem =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__ellipsoid_particle_emitter, mScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter, false);
+            /*component_Effects_LegacyParticles_MeshParticleEmitterItem      =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__mesh_particle_emitter,      mScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter,      false);
+            MenuSeparatorItem.Create(component_Effects_LegacyParticlesItem);
+			/*component_Effects_LegacyParticles_ParticleAnimatorItem         =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__particle_animator,          mScript.OnComponent_Effects_LegacyParticles_ParticleAnimator,         false);
+			/*component_Effects_LegacyParticles_WorldParticleColliderItem    =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__world_particle_collider,    mScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider,    false);
+            MenuSeparatorItem.Create(component_Effects_LegacyParticlesItem);
+			/*component_Effects_LegacyParticles_ParticleRendererItem         =*/ MakeItem(component_Effects_LegacyParticlesItem, R.sections.MenuItems.strings.component__effects__legacy_particles__particle_renderer,          mScript.OnComponent_Effects_LegacyParticles_ParticleRenderer,         false);
+            #endregion
 	        
 	        #endregion
 	        
 	        #region Component -> Physics
 	        component_PhysicsItem                       =   MakeItem(componentMenu,         R.sections.MenuItems.strings.component__physics);
 	        
-	        /*component_Physics_RigidbodyItem           =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__rigidbody,            mScript.OnComponent_Physics_Rigidbody);
-	        /*component_Physics_CharacterControllerItem =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__character_controller, mScript.OnComponent_Physics_CharacterController);
-	        MenuSeparatorItem.Create(component_PhysicsItem);
-	        /*component_Physics_BoxColliderItem         =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__box_collider,         mScript.OnComponent_Physics_BoxCollider);
-	        /*component_Physics_SphereColliderItem      =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__sphere_collider,      mScript.OnComponent_Physics_SphereCollider);
-	        /*component_Physics_CapsuleColliderItem     =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__capsule_collider,     mScript.OnComponent_Physics_CapsuleCollider);
-	        /*component_Physics_MeshColliderItem        =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__mesh_collider,        mScript.OnComponent_Physics_MeshCollider);
-	        /*component_Physics_WheelColliderItem       =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__wheel_collider,       mScript.OnComponent_Physics_WheelCollider);
-	        /*component_Physics_TerrainColliderItem     =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__terrain_collider,     mScript.OnComponent_Physics_TerrainCollider);
-	        MenuSeparatorItem.Create(component_PhysicsItem);
-	        /*component_Physics_ClothItem               =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__cloth,                mScript.OnComponent_Physics_Cloth);
-	        MenuSeparatorItem.Create(component_PhysicsItem);
-	        /*component_Physics_HingeJointItem          =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__hinge_joint,          mScript.OnComponent_Physics_HingeJoint);
-	        /*component_Physics_FixedJointItem          =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__fixed_joint,          mScript.OnComponent_Physics_FixedJoint);
-	        /*component_Physics_SpringJointItem         =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__spring_joint,         mScript.OnComponent_Physics_SpringJoint);
-	        /*component_Physics_CharacterJointItem      =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__character_joint,      mScript.OnComponent_Physics_CharacterJoint);
-	        /*component_Physics_ConfigurableJointItem   =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__configurable_joint,   mScript.OnComponent_Physics_ConfigurableJoint);
-	        MenuSeparatorItem.Create(component_PhysicsItem);
-	        /*component_Physics_ConstantForceItem       =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__constant_force,       mScript.OnComponent_Physics_ConstantForce);
-	        #endregion
+			/*component_Physics_RigidbodyItem           =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__rigidbody,            mScript.OnComponent_Physics_Rigidbody,           false);
+			/*component_Physics_CharacterControllerItem =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__character_controller, mScript.OnComponent_Physics_CharacterController, false);
+            MenuSeparatorItem.Create(component_PhysicsItem);
+			/*component_Physics_BoxColliderItem         =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__box_collider,         mScript.OnComponent_Physics_BoxCollider,         false);
+			/*component_Physics_SphereColliderItem      =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__sphere_collider,      mScript.OnComponent_Physics_SphereCollider,      false);
+			/*component_Physics_CapsuleColliderItem     =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__capsule_collider,     mScript.OnComponent_Physics_CapsuleCollider,     false);
+			/*component_Physics_MeshColliderItem        =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__mesh_collider,        mScript.OnComponent_Physics_MeshCollider,        false);
+			/*component_Physics_WheelColliderItem       =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__wheel_collider,       mScript.OnComponent_Physics_WheelCollider,       false);
+			/*component_Physics_TerrainColliderItem     =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__terrain_collider,     mScript.OnComponent_Physics_TerrainCollider,     false);
+            MenuSeparatorItem.Create(component_PhysicsItem);
+			/*component_Physics_ClothItem               =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__cloth,                mScript.OnComponent_Physics_Cloth,               false);
+            MenuSeparatorItem.Create(component_PhysicsItem);
+			/*component_Physics_HingeJointItem          =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__hinge_joint,          mScript.OnComponent_Physics_HingeJoint,          false);
+			/*component_Physics_FixedJointItem          =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__fixed_joint,          mScript.OnComponent_Physics_FixedJoint,          false);
+			/*component_Physics_SpringJointItem         =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__spring_joint,         mScript.OnComponent_Physics_SpringJoint,         false);
+			/*component_Physics_CharacterJointItem      =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__character_joint,      mScript.OnComponent_Physics_CharacterJoint,      false);
+			/*component_Physics_ConfigurableJointItem   =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__configurable_joint,   mScript.OnComponent_Physics_ConfigurableJoint,   false);
+            MenuSeparatorItem.Create(component_PhysicsItem);
+			/*component_Physics_ConstantForceItem       =*/ MakeItem(component_PhysicsItem, R.sections.MenuItems.strings.component__physics__constant_force,       mScript.OnComponent_Physics_ConstantForce,       false);
+            #endregion
 	        
 	        #region Component -> Physics 2D
 	        component_Physics2dItem                      =   MakeItem(componentMenu,           R.sections.MenuItems.strings.component__physics_2d);
 	        
-	        /*component_Physics2d_Rigidbody2dItem        =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__rigidbody_2d,         mScript.OnComponent_Physics2d_Rigidbody2d);
-	        MenuSeparatorItem.Create(component_Physics2dItem);
-	        /*component_Physics2d_CircleCollider2dItem   =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__circle_collider_2d,   mScript.OnComponent_Physics2d_CircleCollider2d);
-	        /*component_Physics2d_BoxCollider2dItem      =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__box_collider_2d,      mScript.OnComponent_Physics2d_BoxCollider2d);
-	        /*component_Physics2d_EdgeCollider2dItem     =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__edge_collider_2d,     mScript.OnComponent_Physics2d_EdgeCollider2d);
-	        /*component_Physics2d_PolygonCollider2dItem  =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__polygon_collider_2d,  mScript.OnComponent_Physics2d_PolygonCollider2d);
-	        MenuSeparatorItem.Create(component_Physics2dItem);
-	        /*component_Physics2d_SpringJoint2dItem      =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__spring_joint_2d,      mScript.OnComponent_Physics2d_SpringJoint2d);
-	        /*component_Physics2d_DistanceJoint2dItem    =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__distance_joint_2d,    mScript.OnComponent_Physics2d_DistanceJoint2d);
-	        /*component_Physics2d_HingeJoint2dItem       =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__hinge_joint_2d,       mScript.OnComponent_Physics2d_HingeJoint2d);
-	        /*component_Physics2d_SliderJoint2dItem      =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__slider_joint_2d,      mScript.OnComponent_Physics2d_SliderJoint2d);
-	        /*component_Physics2d_WheelJoint2dItem       =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__wheel_joint_2d,       mScript.OnComponent_Physics2d_WheelJoint2d);
-	        MenuSeparatorItem.Create(component_Physics2dItem);
-	        /*component_Physics2d_ConstantForce2dItem    =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__constant_force_2d,    mScript.OnComponent_Physics2d_ConstantForce2d);
-	        MenuSeparatorItem.Create(component_Physics2dItem);
-	        /*component_Physics2d_AreaEffector2dItem     =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__area_effector_2d,     mScript.OnComponent_Physics2d_AreaEffector2d);
-	        /*component_Physics2d_PointEffector2dItem    =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__point_effector_2d,    mScript.OnComponent_Physics2d_PointEffector2d);
-	        /*component_Physics2d_PlatformEffector2dItem =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__platform_effector_2d, mScript.OnComponent_Physics2d_PlatformEffector2d);
-	        /*component_Physics2d_SurfaceEffector2dItem  =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__surface_effector_2d,  mScript.OnComponent_Physics2d_SurfaceEffector2d);
-	        #endregion
+			/*component_Physics2d_Rigidbody2dItem        =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__rigidbody_2d,         mScript.OnComponent_Physics2d_Rigidbody2d,        false);
+            MenuSeparatorItem.Create(component_Physics2dItem);
+			/*component_Physics2d_CircleCollider2dItem   =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__circle_collider_2d,   mScript.OnComponent_Physics2d_CircleCollider2d,   false);
+			/*component_Physics2d_BoxCollider2dItem      =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__box_collider_2d,      mScript.OnComponent_Physics2d_BoxCollider2d,      false);
+			/*component_Physics2d_EdgeCollider2dItem     =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__edge_collider_2d,     mScript.OnComponent_Physics2d_EdgeCollider2d,     false);
+			/*component_Physics2d_PolygonCollider2dItem  =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__polygon_collider_2d,  mScript.OnComponent_Physics2d_PolygonCollider2d,  false);
+            MenuSeparatorItem.Create(component_Physics2dItem);
+			/*component_Physics2d_SpringJoint2dItem      =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__spring_joint_2d,      mScript.OnComponent_Physics2d_SpringJoint2d,      false);
+			/*component_Physics2d_DistanceJoint2dItem    =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__distance_joint_2d,    mScript.OnComponent_Physics2d_DistanceJoint2d,    false);
+			/*component_Physics2d_HingeJoint2dItem       =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__hinge_joint_2d,       mScript.OnComponent_Physics2d_HingeJoint2d,       false);
+			/*component_Physics2d_SliderJoint2dItem      =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__slider_joint_2d,      mScript.OnComponent_Physics2d_SliderJoint2d,      false);
+			/*component_Physics2d_WheelJoint2dItem       =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__wheel_joint_2d,       mScript.OnComponent_Physics2d_WheelJoint2d,       false);
+            MenuSeparatorItem.Create(component_Physics2dItem);
+			/*component_Physics2d_ConstantForce2dItem    =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__constant_force_2d,    mScript.OnComponent_Physics2d_ConstantForce2d,    false);
+            MenuSeparatorItem.Create(component_Physics2dItem);
+			/*component_Physics2d_AreaEffector2dItem     =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__area_effector_2d,     mScript.OnComponent_Physics2d_AreaEffector2d,     false);
+			/*component_Physics2d_PointEffector2dItem    =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__point_effector_2d,    mScript.OnComponent_Physics2d_PointEffector2d,    false);
+			/*component_Physics2d_PlatformEffector2dItem =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__platform_effector_2d, mScript.OnComponent_Physics2d_PlatformEffector2d, false);
+            /*component_Physics2d_SurfaceEffector2dItem  =*/ MakeItem(component_Physics2dItem, R.sections.MenuItems.strings.component__physics_2d__surface_effector_2d,  mScript.OnComponent_Physics2d_SurfaceEffector2d,  false);
+            #endregion
 	        
 	        #region Component -> Navigation
 	        component_NavigationItem                   =   MakeItem(componentMenu,            R.sections.MenuItems.strings.component__navigation);
 	        
-	        /*component_Navigation_NavMeshAgentItem    =*/ MakeItem(component_NavigationItem, R.sections.MenuItems.strings.component__navigation__nav_mesh_agent,    mScript.OnComponent_Navigation_NavMeshAgent);
-	        /*component_Navigation_OffMeshLinkItem     =*/ MakeItem(component_NavigationItem, R.sections.MenuItems.strings.component__navigation__off_mesh_link,     mScript.OnComponent_Navigation_OffMeshLink);
-	        /*component_Navigation_NavMeshObstacleItem =*/ MakeItem(component_NavigationItem, R.sections.MenuItems.strings.component__navigation__nav_mesh_obstacle, mScript.OnComponent_Navigation_NavMeshObstacle);
-	        #endregion
+			/*component_Navigation_NavMeshAgentItem    =*/ MakeItem(component_NavigationItem, R.sections.MenuItems.strings.component__navigation__nav_mesh_agent,    mScript.OnComponent_Navigation_NavMeshAgent,    false);
+			/*component_Navigation_OffMeshLinkItem     =*/ MakeItem(component_NavigationItem, R.sections.MenuItems.strings.component__navigation__off_mesh_link,     mScript.OnComponent_Navigation_OffMeshLink,     false);
+			/*component_Navigation_NavMeshObstacleItem =*/ MakeItem(component_NavigationItem, R.sections.MenuItems.strings.component__navigation__nav_mesh_obstacle, mScript.OnComponent_Navigation_NavMeshObstacle, false);
+            #endregion
 	        
 	        #region Component -> Audio
 	        component_AudioItem                         =   MakeItem(componentMenu,       R.sections.MenuItems.strings.component__audio);
 	        
-	        /*component_Audio_AudioListenerItem         =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_listener,          mScript.OnComponent_Audio_AudioListener);
-	        /*component_Audio_AudioSourceItem           =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_source,            mScript.OnComponent_Audio_AudioSource);
-	        /*component_Audio_AudioReverbZoneItem       =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_reverb_zone,       mScript.OnComponent_Audio_AudioReverbZone);
-	        MenuSeparatorItem.Create(component_AudioItem);
-	        /*component_Audio_AudioLowPassFilterItem    =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_low_pass_filter,   mScript.OnComponent_Audio_AudioLowPassFilter);
-	        /*component_Audio_AudioHighPassFilterItem   =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_high_pass_filter,  mScript.OnComponent_Audio_AudioHighPassFilter);
-	        /*component_Audio_AudioEchoFilterItem       =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_echo_filter,       mScript.OnComponent_Audio_AudioEchoFilter);
-	        /*component_Audio_AudioDistortionFilterItem =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_distortion_filter, mScript.OnComponent_Audio_AudioDistortionFilter);
-	        /*component_Audio_AudioReverbFilterItem     =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_reverb_filter,     mScript.OnComponent_Audio_AudioReverbFilter);
-	        /*component_Audio_AudioChorusFilterItem     =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_chorus_filter,     mScript.OnComponent_Audio_AudioChorusFilter);
-	        #endregion
+			/*component_Audio_AudioListenerItem         =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_listener,          mScript.OnComponent_Audio_AudioListener,         false);
+            /*component_Audio_AudioSourceItem           =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_source,            mScript.OnComponent_Audio_AudioSource,           false);
+			/*component_Audio_AudioReverbZoneItem       =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_reverb_zone,       mScript.OnComponent_Audio_AudioReverbZone,       false);
+            MenuSeparatorItem.Create(component_AudioItem);
+			/*component_Audio_AudioLowPassFilterItem    =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_low_pass_filter,   mScript.OnComponent_Audio_AudioLowPassFilter,    false);
+			/*component_Audio_AudioHighPassFilterItem   =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_high_pass_filter,  mScript.OnComponent_Audio_AudioHighPassFilter,   false);
+			/*component_Audio_AudioEchoFilterItem       =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_echo_filter,       mScript.OnComponent_Audio_AudioEchoFilter,       false);
+			/*component_Audio_AudioDistortionFilterItem =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_distortion_filter, mScript.OnComponent_Audio_AudioDistortionFilter, false);
+			/*component_Audio_AudioReverbFilterItem     =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_reverb_filter,     mScript.OnComponent_Audio_AudioReverbFilter,     false);
+			/*component_Audio_AudioChorusFilterItem     =*/ MakeItem(component_AudioItem, R.sections.MenuItems.strings.component__audio__audio_chorus_filter,     mScript.OnComponent_Audio_AudioChorusFilter,     false);
+            #endregion
 	        
 	        #region Component -> Rendering
 	        component_RenderingItem                   =   MakeItem(componentMenu,           R.sections.MenuItems.strings.component__rendering);
 	        
-	        /*component_Rendering_CameraItem          =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__camera,            mScript.OnComponent_Rendering_Camera);
-	        /*component_Rendering_SkyboxItem          =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__skybox,            mScript.OnComponent_Rendering_Skybox);
-	        /*component_Rendering_FlareLayerItem      =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__flare_layer,       mScript.OnComponent_Rendering_FlareLayer);
-	        /*component_Rendering_GuiLayerItem        =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__gui_layer,         mScript.OnComponent_Rendering_GuiLayer);
-	        MenuSeparatorItem.Create(component_RenderingItem);
-	        /*component_Rendering_LightItem           =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__light,             mScript.OnComponent_Rendering_Light);
-	        /*component_Rendering_LightProbeGroupItem =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__light_probe_group, mScript.OnComponent_Rendering_LightProbeGroup);
-	        /*component_Rendering_ReflectionProbeItem =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__reflection_probe,  mScript.OnComponent_Rendering_ReflectionProbe);
-	        MenuSeparatorItem.Create(component_RenderingItem);
-	        /*component_Rendering_OcclusionAreaItem   =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__occlusion_area,    mScript.OnComponent_Rendering_OcclusionArea);
-	        /*component_Rendering_OcclusionPortalItem =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__occlusion_portal,  mScript.OnComponent_Rendering_OcclusionPortal);
-	        /*component_Rendering_LodGroupItem        =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__lod_group,         mScript.OnComponent_Rendering_LodGroup);
-	        MenuSeparatorItem.Create(component_RenderingItem);
-	        /*component_Rendering_SpriteRendererItem  =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__sprite_renderer,   mScript.OnComponent_Rendering_SpriteRenderer);
-	        /*component_Rendering_CanvasRendererItem  =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__canvas_renderer,   mScript.OnComponent_Rendering_CanvasRenderer);
-	        MenuSeparatorItem.Create(component_RenderingItem);
-	        /*component_Rendering_GuiTextureItem      =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__gui_texture,       mScript.OnComponent_Rendering_GuiTexture);
-	        /*component_Rendering_GuiTextItem         =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__gui_text,          mScript.OnComponent_Rendering_GuiText);
-	        #endregion
+			/*component_Rendering_CameraItem          =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__camera,            mScript.OnComponent_Rendering_Camera,          false);
+			/*component_Rendering_SkyboxItem          =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__skybox,            mScript.OnComponent_Rendering_Skybox,          false);
+			/*component_Rendering_FlareLayerItem      =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__flare_layer,       mScript.OnComponent_Rendering_FlareLayer,      false);
+			/*component_Rendering_GuiLayerItem        =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__gui_layer,         mScript.OnComponent_Rendering_GuiLayer,        false);
+            MenuSeparatorItem.Create(component_RenderingItem);
+			/*component_Rendering_LightItem           =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__light,             mScript.OnComponent_Rendering_Light,           false);
+			/*component_Rendering_LightProbeGroupItem =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__light_probe_group, mScript.OnComponent_Rendering_LightProbeGroup, false);
+			/*component_Rendering_ReflectionProbeItem =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__reflection_probe,  mScript.OnComponent_Rendering_ReflectionProbe, false);
+            MenuSeparatorItem.Create(component_RenderingItem);
+			/*component_Rendering_OcclusionAreaItem   =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__occlusion_area,    mScript.OnComponent_Rendering_OcclusionArea,   false);
+			/*component_Rendering_OcclusionPortalItem =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__occlusion_portal,  mScript.OnComponent_Rendering_OcclusionPortal, false);
+			/*component_Rendering_LodGroupItem        =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__lod_group,         mScript.OnComponent_Rendering_LodGroup,        false);
+            MenuSeparatorItem.Create(component_RenderingItem);
+			/*component_Rendering_SpriteRendererItem  =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__sprite_renderer,   mScript.OnComponent_Rendering_SpriteRenderer,  false);
+			/*component_Rendering_CanvasRendererItem  =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__canvas_renderer,   mScript.OnComponent_Rendering_CanvasRenderer,  false);
+            MenuSeparatorItem.Create(component_RenderingItem);
+			/*component_Rendering_GuiTextureItem      =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__gui_texture,       mScript.OnComponent_Rendering_GuiTexture,      false);
+			/*component_Rendering_GuiTextItem         =*/ MakeItem(component_RenderingItem, R.sections.MenuItems.strings.component__rendering__gui_text,          mScript.OnComponent_Rendering_GuiText,         false);
+            #endregion
 	        
 	        #region Component -> Layout
 	        component_LayoutItem                         =   MakeItem(componentMenu,        R.sections.MenuItems.strings.component__layout);
 	        
-	        /*component_Layout_RectTransformItem         =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__rect_transform,          mScript.OnComponent_Layout_RectTransform);
-	        /*component_Layout_CanvasItem                =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__canvas,                  mScript.OnComponent_Layout_Canvas);
-	        /*component_Layout_CanvasGroupItem           =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__canvas_group,            mScript.OnComponent_Layout_CanvasGroup);
-	        MenuSeparatorItem.Create(component_LayoutItem);
-	        /*component_Layout_CanvasScalerItem          =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__canvas_scaler,           mScript.OnComponent_Layout_CanvasScaler);
-	        MenuSeparatorItem.Create(component_LayoutItem);
-	        /*component_Layout_LayoutElementItem         =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__layout_element,          mScript.OnComponent_Layout_LayoutElement);
-	        /*component_Layout_ContentSizeFitterItem     =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__content_size_fitter,     mScript.OnComponent_Layout_ContentSizeFitter);
-	        /*component_Layout_AspectRatioFitterItem     =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__aspect_ratio_fitter,     mScript.OnComponent_Layout_AspectRatioFitter);
-	        /*component_Layout_HorizontalLayoutGroupItem =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__horizontal_layout_group, mScript.OnComponent_Layout_HorizontalLayoutGroup);
-	        /*component_Layout_VerticalLayoutGroupItem   =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__vertical_layout_group,   mScript.OnComponent_Layout_VerticalLayoutGroup);
-	        /*component_Layout_GridLayoutGroupItem       =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__grid_layout_group,       mScript.OnComponent_Layout_GridLayoutGroup);
-	        #endregion
+			/*component_Layout_RectTransformItem         =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__rect_transform,          mScript.OnComponent_Layout_RectTransform,         false);
+			/*component_Layout_CanvasItem                =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__canvas,                  mScript.OnComponent_Layout_Canvas,                false);
+			/*component_Layout_CanvasGroupItem           =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__canvas_group,            mScript.OnComponent_Layout_CanvasGroup,           false);
+            MenuSeparatorItem.Create(component_LayoutItem);
+			/*component_Layout_CanvasScalerItem          =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__canvas_scaler,           mScript.OnComponent_Layout_CanvasScaler,          false);
+            MenuSeparatorItem.Create(component_LayoutItem);
+			/*component_Layout_LayoutElementItem         =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__layout_element,          mScript.OnComponent_Layout_LayoutElement,         false);
+			/*component_Layout_ContentSizeFitterItem     =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__content_size_fitter,     mScript.OnComponent_Layout_ContentSizeFitter,     false);
+			/*component_Layout_AspectRatioFitterItem     =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__aspect_ratio_fitter,     mScript.OnComponent_Layout_AspectRatioFitter,     false);
+			/*component_Layout_HorizontalLayoutGroupItem =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__horizontal_layout_group, mScript.OnComponent_Layout_HorizontalLayoutGroup, false);
+			/*component_Layout_VerticalLayoutGroupItem   =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__vertical_layout_group,   mScript.OnComponent_Layout_VerticalLayoutGroup,   false);
+			/*component_Layout_GridLayoutGroupItem       =*/ MakeItem(component_LayoutItem, R.sections.MenuItems.strings.component__layout__grid_layout_group,       mScript.OnComponent_Layout_GridLayoutGroup,       false);
+            #endregion
 	        
 	        #region Component -> Miscellaneous
 	        component_MiscellaneousItem                     =   MakeItem(componentMenu,               R.sections.MenuItems.strings.component__miscellaneous);
 	        
-	        /*component_Miscellaneous_AnimatorItem          =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__animator,           mScript.OnComponent_Miscellaneous_Animator);
-	        /*component_Miscellaneous_AnimationItem         =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__animation,          mScript.OnComponent_Miscellaneous_Animation);
-	        /*component_Miscellaneous_NetworkViewItem       =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__network_view,       mScript.OnComponent_Miscellaneous_NetworkView);
-	        /*component_Miscellaneous_WindZoneItem          =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__wind_zone,          mScript.OnComponent_Miscellaneous_WindZone);
-	        /*component_Miscellaneous_TerrainItem           =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__terrain,            mScript.OnComponent_Miscellaneous_Terrain);
-	        /*component_Miscellaneous_BillboardRendererItem =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__billboard_renderer, mScript.OnComponent_Miscellaneous_BillboardRenderer);
-	        #endregion
+			/*component_Miscellaneous_AnimatorItem          =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__animator,           mScript.OnComponent_Miscellaneous_Animator,          false);
+            /*component_Miscellaneous_AnimationItem         =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__animation,          mScript.OnComponent_Miscellaneous_Animation,         false);
+            /*component_Miscellaneous_NetworkViewItem       =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__network_view,       mScript.OnComponent_Miscellaneous_NetworkView,       false);
+            /*component_Miscellaneous_WindZoneItem          =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__wind_zone,          mScript.OnComponent_Miscellaneous_WindZone,          false);
+            /*component_Miscellaneous_TerrainItem           =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__terrain,            mScript.OnComponent_Miscellaneous_Terrain,           false);
+            /*component_Miscellaneous_BillboardRendererItem =*/ MakeItem(component_MiscellaneousItem, R.sections.MenuItems.strings.component__miscellaneous__billboard_renderer, mScript.OnComponent_Miscellaneous_BillboardRenderer, false);
+            #endregion
 	        
 	        #region Component -> Event
 	        component_EventItem                         =   MakeItem(componentMenu,       R.sections.MenuItems.strings.component__event);
 	        
-	        /*component_Event_EventSystemItem           =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__event_system,            mScript.OnComponent_Event_EventSystem);
-	        /*component_Event_EventTriggerItem          =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__event_trigger,           mScript.OnComponent_Event_EventTrigger);
-	        /*component_Event_Physics2dRaycasterItem    =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__physics_2d_raycaster,    mScript.OnComponent_Event_Physics2dRaycaster);
-	        /*component_Event_PhysicsRaycasterItem      =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__physics_raycaster,       mScript.OnComponent_Event_PhysicsRaycaster);
-	        /*component_Event_StandaloneInputModuleItem =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__standalone_input_module, mScript.OnComponent_Event_StandaloneInputModule);
-	        /*component_Event_TouchInputModuleItem      =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__touch_input_module,      mScript.OnComponent_Event_TouchInputModule);
-	        /*component_Event_GraphicRaycasterItem      =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__graphic_raycaster,       mScript.OnComponent_Event_GraphicRaycaster);
-	        #endregion
+			/*component_Event_EventSystemItem           =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__event_system,            mScript.OnComponent_Event_EventSystem,           false);
+            /*component_Event_EventTriggerItem          =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__event_trigger,           mScript.OnComponent_Event_EventTrigger,          false);
+            /*component_Event_Physics2dRaycasterItem    =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__physics_2d_raycaster,    mScript.OnComponent_Event_Physics2dRaycaster,    false);
+            /*component_Event_PhysicsRaycasterItem      =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__physics_raycaster,       mScript.OnComponent_Event_PhysicsRaycaster,      false);
+            /*component_Event_StandaloneInputModuleItem =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__standalone_input_module, mScript.OnComponent_Event_StandaloneInputModule, false);
+			/*component_Event_TouchInputModuleItem      =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__touch_input_module,      mScript.OnComponent_Event_TouchInputModule,      false);
+			/*component_Event_GraphicRaycasterItem      =*/ MakeItem(component_EventItem, R.sections.MenuItems.strings.component__event__graphic_raycaster,       mScript.OnComponent_Event_GraphicRaycaster,      false);
+            #endregion
 	        
 	        #region Component -> UI
 	        component_UiItem = MakeItem(componentMenu, R.sections.MenuItems.strings.component__ui);
@@ -1081,26 +1081,26 @@ namespace ui
 	        #region Component -> UI -> Effects
 	        component_Ui_EffectsItem                 =   MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__effects);
 	        
-	        /*component_Ui_Effects_ShadowItem        =*/ MakeItem(component_Ui_EffectsItem, R.sections.MenuItems.strings.component__ui__effects__shadow,          mScript.OnComponent_Ui_Effects_Shadow);
-	        /*component_Ui_Effects_OutlineItem       =*/ MakeItem(component_Ui_EffectsItem, R.sections.MenuItems.strings.component__ui__effects__outline,         mScript.OnComponent_Ui_Effects_Outline);
-	        /*component_Ui_Effects_PositionAsUv1Item =*/ MakeItem(component_Ui_EffectsItem, R.sections.MenuItems.strings.component__ui__effects__position_as_uv1, mScript.OnComponent_Ui_Effects_PositionAsUv1);
-	        #endregion
+			/*component_Ui_Effects_ShadowItem        =*/ MakeItem(component_Ui_EffectsItem, R.sections.MenuItems.strings.component__ui__effects__shadow,          mScript.OnComponent_Ui_Effects_Shadow,        false);
+            /*component_Ui_Effects_OutlineItem       =*/ MakeItem(component_Ui_EffectsItem, R.sections.MenuItems.strings.component__ui__effects__outline,         mScript.OnComponent_Ui_Effects_Outline,       false);
+            /*component_Ui_Effects_PositionAsUv1Item =*/ MakeItem(component_Ui_EffectsItem, R.sections.MenuItems.strings.component__ui__effects__position_as_uv1, mScript.OnComponent_Ui_Effects_PositionAsUv1, false);
+            #endregion
 	        
-	        /*component_Ui_ImageItem       =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__image,        mScript.OnComponent_Ui_Image);
-	        /*component_Ui_TextItem        =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__text,         mScript.OnComponent_Ui_Text);
-	        /*component_Ui_RawImageItem    =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__raw_image,    mScript.OnComponent_Ui_RawImage);
-	        /*component_Ui_MaskItem        =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__mask,         mScript.OnComponent_Ui_Mask);
-	        MenuSeparatorItem.Create(component_UiItem);
-	        /*component_Ui_ButtonItem      =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__button,       mScript.OnComponent_Ui_Button);
-	        /*component_Ui_InputFieldItem  =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__input_field,  mScript.OnComponent_Ui_InputField);
-	        /*component_Ui_ScrollbarItem   =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__scrollbar,    mScript.OnComponent_Ui_Scrollbar);
-	        /*component_Ui_ScrollRectItem  =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__scroll_rect,  mScript.OnComponent_Ui_ScrollRect);
-	        /*component_Ui_SliderItem      =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__slider,       mScript.OnComponent_Ui_Slider);
-	        /*component_Ui_ToggleItem      =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__toggle,       mScript.OnComponent_Ui_Toggle);
-	        /*component_Ui_ToggleGroupItem =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__toggle_group, mScript.OnComponent_Ui_ToggleGroup);
-	        MenuSeparatorItem.Create(component_UiItem);
-	        /*component_Ui_SelectableItem  =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__selectable,   mScript.OnComponent_Ui_Selectable);
-	        #endregion
+			/*component_Ui_ImageItem       =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__image,        mScript.OnComponent_Ui_Image,       false);
+            /*component_Ui_TextItem        =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__text,         mScript.OnComponent_Ui_Text,        false);
+            /*component_Ui_RawImageItem    =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__raw_image,    mScript.OnComponent_Ui_RawImage,    false);
+            /*component_Ui_MaskItem        =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__mask,         mScript.OnComponent_Ui_Mask,        false);
+            MenuSeparatorItem.Create(component_UiItem);
+			/*component_Ui_ButtonItem      =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__button,       mScript.OnComponent_Ui_Button,      false);
+            /*component_Ui_InputFieldItem  =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__input_field,  mScript.OnComponent_Ui_InputField,  false);
+            /*component_Ui_ScrollbarItem   =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__scrollbar,    mScript.OnComponent_Ui_Scrollbar,   false);
+            /*component_Ui_ScrollRectItem  =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__scroll_rect,  mScript.OnComponent_Ui_ScrollRect,  false);
+            /*component_Ui_SliderItem      =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__slider,       mScript.OnComponent_Ui_Slider,      false);
+            /*component_Ui_ToggleItem      =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__toggle,       mScript.OnComponent_Ui_Toggle,      false);
+            /*component_Ui_ToggleGroupItem =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__toggle_group, mScript.OnComponent_Ui_ToggleGroup, false);
+            MenuSeparatorItem.Create(component_UiItem);
+			/*component_Ui_SelectableItem  =*/ MakeItem(component_UiItem, R.sections.MenuItems.strings.component__ui__selectable,   mScript.OnComponent_Ui_Selectable,  false);
+            #endregion
 	        
 	        #region Component -> Scripts
 	        /*component_ScriptsItem =*/ MakeItem(componentMenu, R.sections.MenuItems.strings.component__scripts);
@@ -1111,9 +1111,9 @@ namespace ui
 	        #region Window
 	        windowMenu                  =   MakeItem(mItems,     R.sections.MenuItems.strings.window,                  mScript.OnWindowMenu);
 	        
-	        /*window_NextWindowItem     =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__next_window,     mScript.OnWindow_NextWindow);
-	        /*window_PreviousWindowItem =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__previous_window, mScript.OnWindow_PreviousWindow);
-	        MenuSeparatorItem.Create(windowMenu);
+	        /*window_NextWindowItem     =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__next_window,     mScript.OnWindow_NextWindow,     true, "Ctrl+Tab");
+			/*window_PreviousWindowItem =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__previous_window, mScript.OnWindow_PreviousWindow, true, "Ctrl+Shift+Tab");
+            MenuSeparatorItem.Create(windowMenu);
 	        
 	        #region Window -> Layouts
 	        window_LayoutsItem                         =   MakeItem(windowMenu,         R.sections.MenuItems.strings.window__layouts);
@@ -1130,16 +1130,16 @@ namespace ui
 	        #endregion
 	        
 	        MenuSeparatorItem.Create(windowMenu);
-	        /*window_SceneItem             =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__scene,              mScript.OnWindow_Scene);
-	        /*window_GameItem              =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__game,               mScript.OnWindow_Game);
-	        /*window_InspectorItem         =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__inspector,          mScript.OnWindow_Inspector);
-	        /*window_HierarchyItem         =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__hierarchy,          mScript.OnWindow_Hierarchy);
-	        /*window_ProjectItem           =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__project,            mScript.OnWindow_Project);
-	        /*window_AnimationItem         =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__animation,          mScript.OnWindow_Animation);
-	        /*window_ProfilerItem          =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__profiler,           mScript.OnWindow_Profiler);
-	        /*window_AudioMixerItem        =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__audio_mixer,        mScript.OnWindow_AudioMixer);
-	        /*window_AssetStoreItem        =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__asset_store,        mScript.OnWindow_AssetStore);
-	        /*window_VersionControlItem    =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__version_control,    mScript.OnWindow_VersionControl);
+			/*window_SceneItem             =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__scene,              mScript.OnWindow_Scene,          true,  "Ctrl+1");
+			/*window_GameItem              =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__game,               mScript.OnWindow_Game,           true,  "Ctrl+2");
+			/*window_InspectorItem         =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__inspector,          mScript.OnWindow_Inspector,      true,  "Ctrl+3");
+			/*window_HierarchyItem         =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__hierarchy,          mScript.OnWindow_Hierarchy,      true,  "Ctrl+4");
+			/*window_ProjectItem           =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__project,            mScript.OnWindow_Project,        true,  "Ctrl+5");
+			/*window_AnimationItem         =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__animation,          mScript.OnWindow_Animation,      true,  "Ctrl+6");
+			/*window_ProfilerItem          =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__profiler,           mScript.OnWindow_Profiler,       true,  "Ctrl+7");
+			/*window_AudioMixerItem        =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__audio_mixer,        mScript.OnWindow_AudioMixer,     true,  "Ctrl+8");
+			/*window_AssetStoreItem        =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__asset_store,        mScript.OnWindow_AssetStore,     true,  "Ctrl+9");
+			/*window_VersionControlItem    =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__version_control,    mScript.OnWindow_VersionControl, false, "Ctrl+0");
 	        /*window_AnimatorParameterItem =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__animator_parameter, mScript.OnWindow_AnimatorParameter);
 	        /*window_AnimatorItem          =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__animator,           mScript.OnWindow_Animator);
 	        /*window_SpritePackerItem      =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__sprite_packer,      mScript.OnWindow_SpritePacker);
@@ -1149,7 +1149,7 @@ namespace ui
 	        /*window_FrameDebuggerItem     =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__frame_debugger,     mScript.OnWindow_FrameDebugger);
 	        /*window_NavigationItem        =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__navigation,         mScript.OnWindow_Navigation);
 	        MenuSeparatorItem.Create(windowMenu);
-	        /*window_ConsoleItem           =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__console,            mScript.OnWindow_Console);
+			/*window_ConsoleItem           =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__console,            mScript.OnWindow_Console,        true,  "Ctrl+Shift+C");
 	        #endregion
 	        
 	        #region Help
@@ -1260,7 +1260,7 @@ namespace ui
 					// Text GameObject
 					//***************************************************************************
 					#region Text GameObject
-					GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject;
+					GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject; // Button/Text
 					
 					#region Text Component
 					Text text = menuItemText.GetComponent<Text>();

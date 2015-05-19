@@ -238,15 +238,6 @@ namespace common
             }
 
             /// <summary>
-            /// Gets the click event handler.
-            /// </summary>
-            /// <value>The click event handler.</value>
-            public UnityAction OnClick
-            {
-                get { return mOnClick; }
-            }
-
-            /// <summary>
             /// Gets or sets a value indicating whether this <see cref="common.ui.MenuItem"/> is enabled.
             /// </summary>
             /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
@@ -276,7 +267,33 @@ namespace common
 						}
 					}
 				}
-            }
+			}
+			
+			/// <summary>
+			/// Gets the click event handler.
+			/// </summary>
+			/// <value>The click event handler.</value>
+			public UnityAction OnClick
+			{
+				get { return mOnClick; }
+			}
+
+			/// <summary>
+			/// Gets the shortcut.
+			/// </summary>
+			/// <value>The shortcut.</value>
+			public string Shortcut
+			{
+				get
+				{
+					if (mShortcut != null)
+					{
+						return mShortcut.ToString();
+					}
+
+					return null; 
+				}
+			}
         }
     }
 }

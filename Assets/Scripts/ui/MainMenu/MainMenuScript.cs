@@ -93,8 +93,10 @@ namespace ui
 				
 				mPopupMenu = new PopupMenu(node);
 				mPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
-				
-				RectTransform menuItemTransform = transform.FindChild("ScrollArea/Content/" + item.Name).GetComponent<RectTransform>();
+
+				int index = node.Parent.Children.IndexOf(node);
+
+				RectTransform menuItemTransform = transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
 				Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 				
 				mPopupMenu.Show(menuItemCorners[0].x, menuItemCorners[0].y);

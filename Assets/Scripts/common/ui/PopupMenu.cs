@@ -145,7 +145,9 @@ namespace common
                 float contentHeight = 0f;
 
                 // Create menu item buttons
-                foreach (TreeNode<CustomMenuItem> menuItem in mItems.Children)
+				ReadOnlyCollection<TreeNode<CustomMenuItem>> menuItems = mItems.Children;
+
+				foreach (TreeNode<CustomMenuItem> menuItem in menuItems)
                 {
                     if (menuItem.Data is MenuSeparatorItem)
                     {
@@ -247,7 +249,7 @@ namespace common
                         // Text GameObject
                         //***************************************************************************
                         #region Text GameObject
-                        GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject;
+                        GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject; // Button/Text
 
                         #region Text Component
                         Text text = menuItemText.GetComponent<Text>();
@@ -276,6 +278,152 @@ namespace common
 					}
                 }
 
+				//***************************************************************************
+				// Shortcuts
+				//***************************************************************************
+				#region Shortcuts
+                float shortcutWidth = 0f;
+
+				for (int i = 0; i < menuItems.Count; ++i)
+				{
+					if (menuItems[i].Data is MenuItem)
+					{
+						MenuItem item   = menuItems[i].Data as MenuItem;
+						string shortcut = item.Shortcut;
+
+						if (shortcut != null)
+						{
+							//***************************************************************************
+							// Text GameObject
+							//***************************************************************************
+                            #region Text GameObject
+                            Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+							
+							GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
+							GameObject shortcutText = UnityEngine.Object.Instantiate(menuItemText) as GameObject;								
+							
+							Utils.InitUIObject(shortcutText, menuItemButtonTransform);
+                            shortcutText.name = "Shortcut";
+
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+							
+							shortcutTextTransform.localScale = new Vector3(1f, 1f, 1f);
+							shortcutTextTransform.anchorMin  = new Vector2(1f, 0f);
+							shortcutTextTransform.anchorMax  = new Vector2(1f, 1f);
+							#endregion
+							
+							//===========================================================================
+							// Text Component
+							//===========================================================================
+							#region Text Component
+							Text text      = shortcutText.GetComponent<Text>();
+							text.text      = shortcut;
+							text.alignment = TextAnchor.MiddleRight;
+
+							float shortcutTextWidth = text.preferredWidth;
+							
+							if (shortcutTextWidth > shortcutWidth)
+							{
+								shortcutWidth = shortcutTextWidth;
+							}
+                            #endregion
+                            #endregion
+                        }
+                    }
+                }
+                
+                if (shortcutWidth > 0f)
+                {
+                    for (int i = 0; i < menuItems.Count; ++i)
+                    {
+                        if (menuItems[i].Data is MenuItem)
+                        {
+                            MenuItem item   = menuItems[i].Data as MenuItem;
+                            string shortcut = item.Shortcut;
+                            
+                            if (shortcut != null)
+                            {
+								//***************************************************************************
+								// Text GameObject
+								//***************************************************************************
+								#region Text GameObject
+								Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+								
+								GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
+								GameObject shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
+
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
+								
+								menuItemTextTransform.offsetMax = new Vector2(-shortcutWidth, 0f);
+                                #endregion
+
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+
+								shortcutTextTransform.anchoredPosition3D = new Vector3(-shortcutWidth / 2 - 4, 0f, 0f); // TODO: Need to check 4
+								shortcutTextTransform.sizeDelta          = new Vector2(shortcutWidth, 0f);
+                                #endregion
+								#endregion
+                            }
+                        }
+                    }
+                    
+					contentWidth += shortcutWidth + 8; // TODO: Need to check 8 and check whole image
+                }
+                #endregion
+
+				//***************************************************************************
+				// Arrow
+				//***************************************************************************
+				#region Arrow
+				float arrowWidth = 0f;
+				
+				for (int i = 0; i < menuItems.Count; ++i)
+				{
+					if (menuItems[i].Data is MenuItem)
+					{
+						ReadOnlyCollection<TreeNode<CustomMenuItem>> children = mItems.Children;
+
+						if (children != null && children.Count > 0)
+						{
+							arrowWidth = 32f;
+
+							break;
+						}
+					}
+				}
+				
+				if (arrowWidth > 0f)
+				{
+					for (int i = 0; i < menuItems.Count; ++i)
+					{
+						if (menuItems[i].Data is MenuItem)
+						{
+							// TODO: Complete it
+
+							ReadOnlyCollection<TreeNode<CustomMenuItem>> children = mItems.Children;
+							
+                            if (children != null && children.Count > 0)
+                            {
+							}
+						}
+					}
+
+					contentWidth += arrowWidth + 8; // TODO: Need to check 8 and check whole image
+				}
+				#endregion
+                
                 scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
                 scrollAreaContentTransform.sizeDelta          = new Vector2(0f, contentHeight);
                 #endregion
@@ -291,6 +439,7 @@ namespace common
                 float popupMenuWidth  = contentWidth  + 12; // TODO: Calculate popup menu size related to window size
                 float popupMenuHeight = contentHeight + 12;
 
+				// TODO: Shall use top-left corner as pivot
                 popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f); // TODO: Move popup menu when needed
                 popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);
                 #endregion
@@ -314,11 +463,13 @@ namespace common
 	                
 	                mChildPopupMenu = new PopupMenu(node);
 	                mChildPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
-	                
-	                RectTransform menuItemTransform = mGameObject.transform.FindChild("ScrollArea/Content/" + item.Name).GetComponent<RectTransform>();
+
+					int index = node.Parent.Children.IndexOf(node);
+
+					RectTransform menuItemTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
 	                Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 	                
-	                mChildPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y); // TODO: Add alternative position
+	                mChildPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y); // TODO: Add alternative positions (All 4 corners)
 				}
 				else
 				{
