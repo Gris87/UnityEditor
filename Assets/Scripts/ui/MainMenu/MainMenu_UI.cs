@@ -107,6 +107,7 @@ namespace ui
 	    
 	    #region Edit -> Network Emulation
 	    public TreeNode<CustomMenuItem> edit_NetworkEmulationItem;
+		public MenuRadioGroup           edit_NetworkEmulationRadioGroup;
 	    
 //      public TreeNode<CustomMenuItem> edit_NetworkEmulation_NetworkEmulationNoneItem;
 //      public TreeNode<CustomMenuItem> edit_NetworkEmulation_NetworkEmulationBroadbandItem;
@@ -117,6 +118,7 @@ namespace ui
 	    
 	    #region Edit -> Graphics Emulation
 	    public TreeNode<CustomMenuItem> edit_GraphicsEmulationItem;
+		public MenuRadioGroup           edit_GraphicsEmulationRadioGroup;
 	    
 //      public TreeNode<CustomMenuItem> edit_GraphicsEmulation_GraphicsEmulationNoEmulationItem;
 //      public TreeNode<CustomMenuItem> edit_GraphicsEmulation_GraphicsEmulationShaderModel3Item;
@@ -584,15 +586,17 @@ namespace ui
 		/// <param name="onClick">Click event handler.</param>
 		/// <param name="enabled">Is this menu item enabled or not.</param>
 		/// <param name="shortcut">Shortcut.</param>
+		/// <param name="radioGroup">Menu radio group.</param>
 		private TreeNode<CustomMenuItem> MakeItem(
 							        			    TreeNode<CustomMenuItem>     owner
 						 	      				  , R.sections.MenuItems.strings tokenId
-							      				  , UnityAction                  onClick  = null
-							      				  , bool                         enabled  = true
-							      				  , string                       shortcut = null
+							      				  , UnityAction                  onClick    = null
+							      				  , bool                         enabled    = true
+							      				  , string                       shortcut   = null
+			                                      , MenuRadioGroup               radioGroup = null
 						   	     				 )
 		{
-			return MenuItem.Create(owner, tokenId, onClick, enabled, mScript, shortcut);
+			return MenuItem.Create(owner, tokenId, onClick, enabled, mScript, shortcut, radioGroup);
 		}
 
 		/// <summary>
@@ -604,15 +608,17 @@ namespace ui
 		/// <param name="onClick">Click event handler.</param>
 		/// <param name="enabled">Is this menu item enabled or not.</param>
 		/// <param name="shortcut">Shortcut.</param>
+		/// <param name="radioGroup">Menu radio group.</param>
 		private TreeNode<CustomMenuItem> MakeItem(
 							        				TreeNode<CustomMenuItem> owner
 							      				  , string 		             text
-							      				  , UnityAction              onClick  = null
-							      				  , bool                     enabled  = true
-							      				  , string                   shortcut = null
+							      				  , UnityAction              onClick    = null
+							      				  , bool                     enabled    = true
+							      				  , string                   shortcut   = null
+			                                      , MenuRadioGroup           radioGroup = null
 							     				 )
 		{
-			return MenuItem.Create(owner, text, onClick, enabled, mScript, shortcut);
+			return MenuItem.Create(owner, text, onClick, enabled, mScript, shortcut, radioGroup);
 		}
 
 	    /// <summary>
@@ -624,7 +630,7 @@ namespace ui
 			mItems = new TreeNode<CustomMenuItem>(new CustomMenuItem());
 	        
 	        #region File
-	        fileMenu                  =   MakeItem(mItems,   R.sections.MenuItems.strings.file,                 mScript.OnFileMenu); // TODO: Shortcuts
+	        fileMenu                  =   MakeItem(mItems,   R.sections.MenuItems.strings.file,                 mScript.OnFileMenu);
 	        
 	        /*mFile_NewSceneItem      =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__new_scene,      mScript.OnFile_NewScene,      true, "Ctrl+N");
 			/*mFile_OpenSceneItem     =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__open_scene,     mScript.OnFile_OpenScene,     true, "Ctrl+O");
@@ -717,21 +723,23 @@ namespace ui
 	        MenuSeparatorItem.Create(editMenu);
 	        
 	        #region Edit -> Network Emulation
-	        edit_NetworkEmulationItem                             =   MakeItem(editMenu,                  R.sections.MenuItems.strings.edit__network_emulation); // TODO: Checkbox
+	        edit_NetworkEmulationItem                             =   MakeItem(editMenu,                  R.sections.MenuItems.strings.edit__network_emulation);
+			edit_NetworkEmulationRadioGroup                       =   new MenuRadioGroup();
 	        
-	        /*edit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__none,      mScript.OnEdit_NetworkEmulation_None);
-	        /*edit_NetworkEmulation_NetworkEmulationBroadbandItem =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__broadband, mScript.OnEdit_NetworkEmulation_Broadband);
-	        /*edit_NetworkEmulation_NetworkEmulationDSLItem       =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__dsl,       mScript.OnEdit_NetworkEmulation_DSL);
-	        /*edit_NetworkEmulation_NetworkEmulationISDNItem      =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__isdn,      mScript.OnEdit_NetworkEmulation_ISDN);
-	        /*edit_NetworkEmulation_NetworkEmulationDialUpItem    =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__dial_up,   mScript.OnEdit_NetworkEmulation_DialUp);
+			/*edit_NetworkEmulation_NetworkEmulationNoneItem      =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__none,      mScript.OnEdit_NetworkEmulation_None,      true, null, edit_NetworkEmulationRadioGroup);
+			/*edit_NetworkEmulation_NetworkEmulationBroadbandItem =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__broadband, mScript.OnEdit_NetworkEmulation_Broadband, true, null, edit_NetworkEmulationRadioGroup);
+			/*edit_NetworkEmulation_NetworkEmulationDSLItem       =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__dsl,       mScript.OnEdit_NetworkEmulation_DSL,       true, null, edit_NetworkEmulationRadioGroup);
+			/*edit_NetworkEmulation_NetworkEmulationISDNItem      =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__isdn,      mScript.OnEdit_NetworkEmulation_ISDN,      true, null, edit_NetworkEmulationRadioGroup);
+			/*edit_NetworkEmulation_NetworkEmulationDialUpItem    =*/ MakeItem(edit_NetworkEmulationItem, R.sections.MenuItems.strings.edit__network_emulation__dial_up,   mScript.OnEdit_NetworkEmulation_DialUp,    true, null, edit_NetworkEmulationRadioGroup);
 	        #endregion
 	        
 	        #region Edit -> Graphics Emulation
-			edit_GraphicsEmulationItem                                 =   MakeItem(editMenu,                   R.sections.MenuItems.strings.edit__graphics_emulation); // TODO: Checkbox
+			edit_GraphicsEmulationItem                                 =   MakeItem(editMenu,                   R.sections.MenuItems.strings.edit__graphics_emulation);
+			edit_GraphicsEmulationRadioGroup                           =   new MenuRadioGroup();
             
-	        /*edit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__no_emulation,   mScript.OnEdit_GraphicsEmulation_NoEmulation);
-	        /*edit_GraphicsEmulation_GraphicsEmulationShaderModel3Item =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_3, mScript.OnEdit_GraphicsEmulation_ShaderModel3);
-	        /*edit_GraphicsEmulation_GraphicsEmulationShaderModel2Item =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_2, mScript.OnEdit_GraphicsEmulation_ShaderModel2);
+			/*edit_GraphicsEmulation_GraphicsEmulationNoEmulationItem  =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__no_emulation,   mScript.OnEdit_GraphicsEmulation_NoEmulation,  true, null, edit_GraphicsEmulationRadioGroup);
+			/*edit_GraphicsEmulation_GraphicsEmulationShaderModel3Item =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_3, mScript.OnEdit_GraphicsEmulation_ShaderModel3, true, null, edit_GraphicsEmulationRadioGroup);
+			/*edit_GraphicsEmulation_GraphicsEmulationShaderModel2Item =*/ MakeItem(edit_GraphicsEmulationItem, R.sections.MenuItems.strings.edit__graphics_emulation__shader_model_2, mScript.OnEdit_GraphicsEmulation_ShaderModel2, true, null, edit_GraphicsEmulationRadioGroup);
 	        #endregion
 	        
 	        MenuSeparatorItem.Create(editMenu);

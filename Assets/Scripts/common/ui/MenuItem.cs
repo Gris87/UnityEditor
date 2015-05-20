@@ -21,6 +21,7 @@ namespace common
             private UnityAction                  mOnClick;
 			private IShortcutHandler             mShortcutHandler;
 			private KeyboardInput                mShortcut;
+			private MenuRadioGroup               mRadioGroup;
 
 
 
@@ -34,6 +35,7 @@ namespace common
 			/// <param name="onClick">Click event handler.</param>
 			/// <param name="shortcutHandler">Shortcut handler.</param>
 			/// <param name="shortcut">Shortcut.</param>
+			/// <param name="radioGroup">Menu radio group.</param>
             private MenuItem(
 							   R.sections.MenuItems.strings tokenId         = R.sections.MenuItems.strings.Count
 							 , object[]                     tokenArguments  = null
@@ -42,6 +44,7 @@ namespace common
 							 , UnityAction                  onClick         = null
 							 , IShortcutHandler             shortcutHandler = null
 							 , KeyboardInput                shortcut        = null
+				             , MenuRadioGroup               radioGroup      = null
 				            )
 				: base()
             {
@@ -52,6 +55,7 @@ namespace common
 				mOnClick         = onClick;
 				mShortcutHandler = shortcutHandler;
 				mShortcut        = shortcut;
+				mRadioGroup      = null;
 
 				if (mShortcut == null)
 				{
@@ -61,6 +65,11 @@ namespace common
 				if ((mShortcutHandler != null) && mEnabled)
 				{
 					mShortcutHandler.RegisterShortcut(this);
+				}
+
+				if (radioGroup != null)
+				{
+					radioGroup.Register(this);
 				}
             }
 
@@ -74,6 +83,7 @@ namespace common
             /// <param name="enabled">Is this menu item enabled or not.</param>
 			/// <param name="shortcutHandler">Shortcut handler.</param>
 			/// <param name="shortcut">Shortcut.</param>
+			/// <param name="radioGroup">Menu radio group.</param>
 			public static TreeNode<CustomMenuItem> Create(
 														    TreeNode<CustomMenuItem>     owner
 														  , R.sections.MenuItems.strings tokenId
@@ -81,6 +91,7 @@ namespace common
 													  	  , bool                         enabled         = true
 														  , IShortcutHandler             shortcutHandler = null
 														  , string                       shortcut        = null
+				                                          , MenuRadioGroup               radioGroup      = null
 														 )
             {
 				MenuItem item = new MenuItem(
@@ -91,6 +102,7 @@ namespace common
 											 , onClick                            // Click event handler
 											 , shortcutHandler    			      // Shortcut handler
 											 , KeyboardInput.FromString(shortcut) // Shortcut
+					                         , radioGroup                         // Menu radio group
 					                        );
 
 				TreeNode<CustomMenuItem> node = owner.AddChild(item);
@@ -110,6 +122,7 @@ namespace common
             /// <param name="enabled">Is this menu item enabled or not.</param>
 			/// <param name="shortcutHandler">Shortcut handler.</param>
 			/// <param name="shortcut">Shortcut.</param>
+			/// <param name="radioGroup">Menu radio group.</param>
 			public static TreeNode<CustomMenuItem> Create(
 														    TreeNode<CustomMenuItem> owner
 														  , string 		             text
@@ -117,6 +130,7 @@ namespace common
 														  , bool                     enabled         = true
 														  , IShortcutHandler         shortcutHandler = null
 														  , string                   shortcut        = null
+				                                          , MenuRadioGroup           radioGroup      = null
 														 )
             {
 				MenuItem item = new MenuItem(
@@ -127,6 +141,7 @@ namespace common
 											 , onClick 							  // Click event handler
 											 , shortcutHandler    			      // Shortcut handler
 											 , KeyboardInput.FromString(shortcut) // Shortcut
+					                         , radioGroup                         // Menu radio group
 											);
 				
 				TreeNode<CustomMenuItem> node = owner.AddChild(item);
@@ -293,6 +308,16 @@ namespace common
 
 					return null; 
 				}
+			}
+
+			/// <summary>
+			/// Gets or sets menu radio group.
+			/// </summary>
+			/// <value>Menu radio group.</value>
+			public MenuRadioGroup RadioGroup
+			{
+				get { return mRadioGroup;  }
+				set { mRadioGroup = value; }
 			}
         }
     }

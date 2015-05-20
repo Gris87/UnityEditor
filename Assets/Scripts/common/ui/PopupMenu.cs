@@ -169,6 +169,7 @@ namespace common
                         menuItemSeparatorTransform.localScale         = new Vector3(1f, 1f, 1f);
                         menuItemSeparatorTransform.anchorMin          = new Vector2(0f, 1f);
                         menuItemSeparatorTransform.anchorMax          = new Vector2(1f, 1f);
+						menuItemSeparatorTransform.pivot              = new Vector2(0.5f, 0.5f);
                         menuItemSeparatorTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - separatorHeight / 2, 0f);
                         menuItemSeparatorTransform.sizeDelta          = new Vector2(0f, separatorHeight);
                         menuItemSeparatorTransform.offsetMin          = new Vector2(28f, menuItemSeparatorTransform.offsetMin.y);
@@ -191,13 +192,16 @@ namespace common
                     {
 						MenuItem item = menuItem.Data as MenuItem;
 
+						bool hasChildren = menuItem.HasChildren();
+						bool enabled     = item.Enabled && (hasChildren || item.OnClick != null);
+
                         //***************************************************************************
                         // Button GameObject
                         //***************************************************************************
                         #region Button GameObject
                         GameObject menuItemButton;
 
-                        if (item.Enabled)
+						if (enabled)
                         {
                             menuItemButton = UnityEngine.Object.Instantiate(Global.PopupMenuArea.itemButton.gameObject) as GameObject;
                         }
@@ -226,20 +230,24 @@ namespace common
                         #region Button Component
                         Button button = menuItemButton.GetComponent<Button>();
 
-                        if (item.Enabled)
-                        {
-                            ReadOnlyCollection<TreeNode<CustomMenuItem>> children = menuItem.Children;
-
-                            if (children == null || children.Count == 0)
+						if (enabled)
+						{
+                            if (hasChildren)
                             {
-                                button.onClick.AddListener(item.OnClick);
-                                button.onClick.AddListener(Global.PopupMenuArea.DestroyAll);
+								TreeNode<CustomMenuItem> currentMenuItem = menuItem;
+								
+								button.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
                             }
                             else
                             {
-                                TreeNode<CustomMenuItem> currentMenuItem = menuItem;
+								button.onClick.AddListener(item.OnClick);
 
-                                button.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
+								if (item.RadioGroup != null)
+								{
+									button.onClick.AddListener(() => OnSelectItem(item));
+								}
+
+								button.onClick.AddListener(Global.PopupMenuArea.DestroyAll);                                
                             }
                         }
                         #endregion
@@ -293,12 +301,12 @@ namespace common
 
 						if (shortcut != null)
 						{
+							Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+
 							//***************************************************************************
 							// Text GameObject
 							//***************************************************************************
                             #region Text GameObject
-                            Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
-							
 							GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
 							GameObject shortcutText = UnityEngine.Object.Instantiate(menuItemText) as GameObject;								
 							
@@ -347,12 +355,12 @@ namespace common
                             
                             if (shortcut != null)
                             {
+								Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+
 								//***************************************************************************
 								// Text GameObject
 								//***************************************************************************
-								#region Text GameObject
-								Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
-								
+								#region Text GameObject								
 								GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
 								GameObject shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
 
@@ -393,11 +401,9 @@ namespace common
 				{
 					if (menuItems[i].Data is MenuItem)
 					{
-						ReadOnlyCollection<TreeNode<CustomMenuItem>> children = mItems.Children;
-
-						if (children != null && children.Count > 0)
+						if (menuItems[i].HasChildren())
 						{
-							arrowWidth = 32f;
+							arrowWidth = 16f;
 
 							break;
 						}
@@ -410,17 +416,149 @@ namespace common
 					{
 						if (menuItems[i].Data is MenuItem)
 						{
-							// TODO: Complete it
+							Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
 
-							ReadOnlyCollection<TreeNode<CustomMenuItem>> children = mItems.Children;
+							//***************************************************************************
+							// Text GameObject
+							//***************************************************************************
+							#region Text GameObject							
+							GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
+							GameObject shortcutText = null;
+
+							if (menuItemButtonTransform.childCount > 1)
+							{
+								shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
+							}								
 							
-                            if (children != null && children.Count > 0)
-                            {
-							}
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
+							
+							menuItemTextTransform.offsetMax = new Vector2(menuItemTextTransform.offsetMax.x - arrowWidth, 0f);
+							#endregion
+
+							if (shortcutText != null)
+							{
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+
+								shortcutTextTransform.offsetMin = new Vector2(shortcutTextTransform.offsetMin.x - arrowWidth, 0f);
+								shortcutTextTransform.offsetMax = new Vector2(shortcutTextTransform.offsetMax.x - arrowWidth, 0f);
+                                #endregion
+                            }
+                            #endregion
+                            
+                            if (menuItems[i].HasChildren())
+							{
+								//***************************************************************************
+								// Image GameObject
+								//***************************************************************************
+								#region Image GameObject
+								GameObject arrow = new GameObject("Arrow");
+								Utils.InitUIObject(arrow, menuItemButtonTransform);
+								
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform arrowTransform = arrow.AddComponent<RectTransform>();
+								
+								arrowTransform.localScale         = new Vector3(1f, 1f, 1f);
+								arrowTransform.anchorMin          = new Vector2(1f, 0f);
+								arrowTransform.anchorMax          = new Vector2(1f, 1f);
+								arrowTransform.pivot              = new Vector2(0.5f, 0.5f);
+								arrowTransform.anchoredPosition3D = new Vector3(-arrowWidth / 2 - 4, 0f, 0f); // TODO: Need to check 4
+								arrowTransform.sizeDelta          = new Vector2(arrowWidth, 0f);
+								arrowTransform.offsetMin          = new Vector2(arrowTransform.offsetMin.x, 3f);
+								arrowTransform.offsetMax          = new Vector2(arrowTransform.offsetMax.x, -3f);
+                                #endregion
+
+								//===========================================================================
+								// CanvasRenderer Component
+								//===========================================================================
+								#region CanvasRenderer Component
+								arrow.AddComponent<CanvasRenderer>();
+								#endregion
+								
+								//===========================================================================
+								// Image Component
+								//===========================================================================
+								#region Image Component
+								Image arrowImage = arrow.AddComponent<Image>();
+								
+								arrowImage.sprite = Global.PopupMenuArea.arrow;
+								arrowImage.type   = Image.Type.Sliced;
+								#endregion
+								#endregion
+                            }
+                        }
+                    }
+                    
+                    contentWidth += arrowWidth + 8; // TODO: Need to check 8 and check whole image
+				}
+				#endregion
+
+				//***************************************************************************
+				// Checkbox
+				//***************************************************************************
+				#region Checkbox
+				float checkboxWidth = 22f;
+
+				for (int i = 0; i < menuItems.Count; ++i)
+				{
+					if (menuItems[i].Data is MenuItem)
+					{
+						MenuItem item = menuItems[i].Data as MenuItem;
+
+						if (item.RadioGroup != null && item.RadioGroup.SelectedItem == item)
+						{
+							Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+
+							//***************************************************************************
+							// Image GameObject
+							//***************************************************************************
+							#region Image GameObject
+							GameObject checkbox = new GameObject("Checkbox");
+							Utils.InitUIObject(checkbox, menuItemButtonTransform);
+							
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform checkboxTransform = checkbox.AddComponent<RectTransform>();
+							
+							checkboxTransform.localScale         = new Vector3(1f, 1f, 1f);
+							checkboxTransform.anchorMin          = new Vector2(0f, 0f);
+							checkboxTransform.anchorMax          = new Vector2(0f, 1f);
+							checkboxTransform.pivot              = new Vector2(0.5f, 0.5f);
+							checkboxTransform.anchoredPosition3D = new Vector3(checkboxWidth / 2, 0f, 0f);
+							checkboxTransform.sizeDelta          = new Vector2(checkboxWidth, 0f);
+							#endregion
+							
+							//===========================================================================
+							// CanvasRenderer Component
+							//===========================================================================
+							#region CanvasRenderer Component
+							checkbox.AddComponent<CanvasRenderer>();
+							#endregion
+							
+							//===========================================================================
+							// Image Component
+							//===========================================================================
+							#region Image Component
+							Image checkboxImage = checkbox.AddComponent<Image>();
+							
+							checkboxImage.sprite = Global.PopupMenuArea.checkbox;
+							checkboxImage.type   = Image.Type.Sliced;
+							#endregion
+							#endregion
 						}
 					}
-
-					contentWidth += arrowWidth + 8; // TODO: Need to check 8 and check whole image
 				}
 				#endregion
                 
@@ -444,6 +582,22 @@ namespace common
                 popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);
                 #endregion
             }
+
+			/// <summary>
+			/// Handler for menu item selection.
+			/// </summary>
+			/// <param name="item">Item.</param>
+			public void OnSelectItem(MenuItem item)
+			{
+				if (item.RadioGroup != null)
+				{
+					item.RadioGroup.SelectedItem = item;
+				}
+				else
+				{
+					Debug.LogError("Unexpected OnSelectItem call");
+				}
+			}
 
             /// <summary>
             /// Creates and displays popup menu for specified menu item.

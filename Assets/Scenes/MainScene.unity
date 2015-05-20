@@ -698,5 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: a86ad9e172c1dd0448360f578c6f9b81, type: 3}
   separator: {fileID: 21300000, guid: 6a064b45a241d8942bd8cf360a08e1e7, type: 3}
+  arrow: {fileID: 21300000, guid: b9450fecce133b74aa4537401b99ad81, type: 3}
+  checkbox: {fileID: 21300000, guid: 123314cce39a39e4391085a79712ac4b, type: 3}
   itemButton: {fileID: 11450056, guid: c272b247ca3ca464a8d378eefd0b961b, type: 2}
   itemButtonDisabled: {fileID: 11427262, guid: 5c266115509ed584a9483595310cdeaa, type: 2}

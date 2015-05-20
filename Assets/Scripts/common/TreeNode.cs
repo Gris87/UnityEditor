@@ -92,6 +92,15 @@ namespace common
             return res;
         }
 
+		/// <summary>
+		/// Determines whether this instance has children.
+		/// </summary>
+		/// <returns><c>true</c> if this instance has children; otherwise, <c>false</c>.</returns>
+		public bool HasChildren()
+		{
+			return (mChildren != null && mChildren.Count > 0);
+		}
+
         /// <summary>
         /// Gets or sets the data value.
         /// </summary>

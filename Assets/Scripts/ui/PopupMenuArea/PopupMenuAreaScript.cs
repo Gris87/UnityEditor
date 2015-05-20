@@ -23,6 +23,16 @@ namespace ui
 		/// Separator image.
 		/// </summary>
 		public Sprite separator;
+
+		/// <summary>
+		/// Arrow image.
+		/// </summary>
+		public Sprite arrow;
+
+		/// <summary>
+		/// Checkbox image.
+		/// </summary>
+		public Sprite checkbox;
 		
 		/// <summary>
 		/// Item button prefab.
