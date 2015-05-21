@@ -81,8 +81,8 @@ namespace common
                 RectTransform popupMenuTransform = mGameObject.AddComponent<RectTransform>();
 
                 popupMenuTransform.localScale = new Vector3(1f, 1f, 1f);
-                popupMenuTransform.anchorMin  = new Vector2(0.5f, 0.5f);
-                popupMenuTransform.anchorMax  = new Vector2(0.5f, 0.5f);
+				popupMenuTransform.anchorMin  = new Vector2(0f, 1f);
+				popupMenuTransform.anchorMax  = new Vector2(0f, 1f);
                 popupMenuTransform.pivot      = new Vector2(0.5f, 0.5f);
                 #endregion
 
@@ -99,7 +99,7 @@ namespace common
                 #region Image Component
                 Image popupMenuImage = mGameObject.AddComponent<Image>();
 
-                popupMenuImage.sprite = Global.PopupMenuArea.background;
+                popupMenuImage.sprite = Global.PopupMenuArea.popupBackground;
                 popupMenuImage.type   = Image.Type.Sliced;
                 #endregion
 
@@ -115,10 +115,7 @@ namespace common
                 //===========================================================================
                 #region RectTransform Component
                 RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
-                Utils.AlignRectTransformFill(scrollAreaTransform);
-
-                scrollAreaTransform.offsetMin = new Vector2(3f, 8f);
-                scrollAreaTransform.offsetMax = new Vector2(-8f, -3f);
+                Utils.AlignRectTransformStretchStretch(scrollAreaTransform, 3f, 8f, 8f, 3f);
                 #endregion
 
                 //***************************************************************************
@@ -259,12 +256,18 @@ namespace common
                         #region Text GameObject
                         GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject; // Button/Text
 
+						//***************************************************************************
+						// Text Component
+						//***************************************************************************
                         #region Text Component
                         Text text = menuItemText.GetComponent<Text>();
                         text.text = item.Text;
                         #endregion
                         #endregion
 
+						//***************************************************************************
+						// Calculating button geometry
+						//***************************************************************************
                         #region Calculating button geometry
                         float buttonWidth  = text.preferredWidth  + 44;
                         float buttonHeight = text.preferredHeight + 8;
@@ -301,7 +304,7 @@ namespace common
 
 						if (shortcut != null)
 						{
-							Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
 
 							//***************************************************************************
 							// Text GameObject
@@ -355,7 +358,7 @@ namespace common
                             
                             if (shortcut != null)
                             {
-								Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+								Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
 
 								//***************************************************************************
 								// Text GameObject
@@ -416,7 +419,7 @@ namespace common
 					{
 						if (menuItems[i].Data is MenuItem)
 						{
-							Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
 
 							//***************************************************************************
 							// Text GameObject
@@ -517,7 +520,7 @@ namespace common
 
 						if (item.RadioGroup != null && item.RadioGroup.SelectedItem == item)
 						{
-							Transform menuItemButtonTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(i); // ScrollArea/Content/NODE
+							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
 
 							//***************************************************************************
 							// Image GameObject
@@ -566,19 +569,57 @@ namespace common
                 scrollAreaContentTransform.sizeDelta          = new Vector2(0f, contentHeight);
                 #endregion
 
+				//===========================================================================
+				// ScrollRect Component
+				//===========================================================================
                 #region ScrollRect Component
-                ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>(); // TODO: Add Mask
+                ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
 
                 scrollAreaScrollRect.content    = scrollAreaContentTransform;
                 scrollAreaScrollRect.horizontal = false;
                 #endregion
+
+				//===========================================================================
+				// CanvasRenderer Component
+				//===========================================================================
+				#region CanvasRenderer Component
+				scrollArea.AddComponent<CanvasRenderer>();
+				#endregion
+				
+				//===========================================================================
+				// Image Component
+				//===========================================================================
+				#region Image Component
+				Image scrollAreaImage = scrollArea.AddComponent<Image>();
+				
+				scrollAreaImage.sprite = Global.PopupMenuArea.background;
+				scrollAreaImage.type   = Image.Type.Sliced;
+				#endregion
+
+				//===========================================================================
+				// Mask Component
+				//===========================================================================
+				#region Mask Component
+				scrollArea.AddComponent<Mask>();
+				#endregion
                 #endregion
 
-                float popupMenuWidth  = contentWidth  + 12; // TODO: Calculate popup menu size related to window size
-                float popupMenuHeight = contentHeight + 12;
+                float popupMenuWidth  = contentWidth  + 11;
+                float popupMenuHeight = contentHeight + 11;
+				int   screenWidth     = Screen.width;
+				int   screenHeight    = Screen.height;
 
-				// TODO: Shall use top-left corner as pivot
-                popupMenuTransform.anchoredPosition3D = new Vector3(x + popupMenuWidth / 2, y - popupMenuHeight / 2, 0f); // TODO: Move popup menu when needed
+				if (popupMenuWidth > screenWidth)
+				{
+					popupMenuWidth = screenWidth;
+				}
+
+				if (popupMenuHeight > screenHeight)
+				{
+					popupMenuHeight = screenHeight;
+				}
+
+				popupMenuTransform.anchoredPosition3D = new Vector3(x + (screenWidth + popupMenuWidth) / 2, y - (screenHeight + popupMenuHeight) / 2, 0f); // TODO: Move popup menu when needed
                 popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);
                 #endregion
             }

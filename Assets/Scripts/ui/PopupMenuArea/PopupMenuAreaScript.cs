@@ -17,6 +17,11 @@ namespace ui
 		/// <summary>
 		/// PopupMenu background.
 		/// </summary>
+		public Sprite popupBackground; // TODO: Master script
+
+		/// <summary>
+		/// Background.
+		/// </summary>
 		public Sprite background;
 		
 		/// <summary>

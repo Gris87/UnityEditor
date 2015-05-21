@@ -696,6 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e593fb89f27c6c44d8ca769fd384050a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupBackground: {fileID: 21300000, guid: 3a4689b1225cfea4abf01907c52366eb, type: 3}
   background: {fileID: 21300000, guid: a86ad9e172c1dd0448360f578c6f9b81, type: 3}
   separator: {fileID: 21300000, guid: 6a064b45a241d8942bd8cf360a08e1e7, type: 3}
   arrow: {fileID: 21300000, guid: b9450fecce133b74aa4537401b99ad81, type: 3}

@@ -1200,7 +1200,7 @@ namespace ui
 	        //===========================================================================
 	        #region RectTransform Component
 	        RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
-	        Utils.AlignRectTransformFill(scrollAreaTransform);
+	        Utils.AlignRectTransformStretchStretch(scrollAreaTransform);
 	        #endregion
 	        
 	        //***************************************************************************

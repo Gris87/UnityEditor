@@ -30,6 +30,8 @@ public static class Controls
         public Axis horizontal;
     }
 
+
+
     public static Buttons buttons;
     public static Axes    axes;
 

@@ -68,20 +68,104 @@ namespace common
             return res;
         }
 
-        /// <summary>
-        /// Setup RectTransform to fill whole space of parent RectTransform.
-        /// </summary>
-        /// <param name="transform">RectTransform instance.</param>
-        public static void AlignRectTransformFill(RectTransform transform)
-        {
-            transform.localScale         = new Vector3(1f, 1f, 1f);
-            transform.anchorMin          = new Vector2(0f, 0f);
-            transform.anchorMax          = new Vector2(1f, 1f);
-            transform.pivot              = new Vector2(0.5f, 0.5f);
-            transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
-            transform.sizeDelta          = new Vector2(0f, 0f);
-        }
+		public static void AlignRectTransformTopLeft()
+		{
+			// TODO: Implement Utils.AlignRectTransformTopLeft
+		}
 
-        // TODO: Add more Align functions
+		public static void AlignRectTransformTopCenter()
+		{
+			// TODO: Implement Utils.AlignRectTransformTopCenter
+		}
+
+		public static void AlignRectTransformTopRight()
+		{
+			// TODO: Implement Utils.AlignRectTransformTopRight
+		}
+
+		public static void AlignRectTransformTopStretch()
+		{
+			// TODO: Implement Utils.AlignRectTransformTopStretch
+		}
+
+		public static void AlignRectTransformMiddleLeft()
+		{
+			// TODO: Implement Utils.AlignRectTransformMiddleLeft
+		}
+
+		public static void AlignRectTransformMiddleCenter()
+		{
+			// TODO: Implement Utils.AlignRectTransformMiddleCenter
+		}
+
+		public static void AlignRectTransformMiddleRight()
+		{
+			// TODO: Implement Utils.AlignRectTransformMiddleRight
+		}
+
+		public static void AlignRectTransformMiddleStretch()
+		{
+			// TODO: Implement Utils.AlignRectTransformMiddleStretch
+		}
+
+		public static void AlignRectTransformBottomLeft()
+		{
+			// TODO: Implement Utils.AlignRectTransformBottomLeft
+		}
+
+		public static void AlignRectTransformBottomCenter()
+		{
+			// TODO: Implement Utils.AlignRectTransformBottomCenter
+		}
+
+		public static void AlignRectTransformBottomRight()
+		{
+			// TODO: Implement Utils.AlignRectTransformBottomRight
+		}
+
+		public static void AlignRectTransformBottomStretch()
+		{
+			// TODO: Implement Utils.AlignRectTransformBottomStretch
+		}
+
+		public static void AlignRectTransformStretchLeft()
+		{
+			// TODO: Implement Utils.AlignRectTransformStretchLeft
+		}
+
+		public static void AlignRectTransformStretchCenter()
+		{
+			// TODO: Implement Utils.AlignRectTransformStretchCenter
+		}
+
+		public static void AlignRectTransformStretchRight()
+		{
+			// TODO: Implement Utils.AlignRectTransformStretchRight
+		}
+
+		/// <summary>
+		/// Setup RectTransform to fill whole space of parent RectTransform.
+		/// </summary>
+		/// <param name="transform">RectTransform instance.</param>
+		/// <param name="offsetLeft">Left offset.</param>
+		/// <param name="offsetTop">Top offset.</param>
+		/// <param name="offsetRight">Right offset.</param>
+		/// <param name="offsetBottom">Bottom offset.</param>
+		public static void AlignRectTransformStretchStretch(
+															  RectTransform transform
+															, float offsetLeft = 0
+															, float offsetTop = 0
+															, float offsetRight = 0
+															, float offsetBottom = 0
+														   )
+		{
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0f, 0f);
+			transform.anchorMax          = new Vector2(1f, 1f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
+			transform.offsetMin          = new Vector2(offsetLeft,    offsetTop);
+			transform.offsetMax          = new Vector2(-offsetRight, -offsetBottom);
+		}
     }
 }
