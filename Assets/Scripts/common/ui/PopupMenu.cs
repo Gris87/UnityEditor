@@ -167,7 +167,7 @@ namespace common
                         menuItemSeparatorTransform.anchorMin          = new Vector2(0f, 1f);
                         menuItemSeparatorTransform.anchorMax          = new Vector2(1f, 1f);
 						menuItemSeparatorTransform.pivot              = new Vector2(0.5f, 0.5f);
-                        menuItemSeparatorTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - separatorHeight / 2, 0f);
+                        menuItemSeparatorTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - separatorHeight / 2, 0f); // TODO: Incorrect position
                         menuItemSeparatorTransform.sizeDelta          = new Vector2(0f, separatorHeight);
                         menuItemSeparatorTransform.offsetMin          = new Vector2(28f, menuItemSeparatorTransform.offsetMin.y);
 
@@ -382,7 +382,7 @@ namespace common
 								#region RectTransform Component
 								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
 
-								shortcutTextTransform.anchoredPosition3D = new Vector3(-shortcutWidth / 2 - 4, 0f, 0f); // TODO: Need to check 4
+								shortcutTextTransform.anchoredPosition3D = new Vector3(-shortcutWidth / 2 - 4, 0f, 0f);
 								shortcutTextTransform.sizeDelta          = new Vector2(shortcutWidth, 0f);
                                 #endregion
 								#endregion
@@ -390,7 +390,7 @@ namespace common
                         }
                     }
                     
-					contentWidth += shortcutWidth + 8; // TODO: Need to check 8 and check whole image
+					contentWidth += shortcutWidth + 8;
                 }
                 #endregion
 
@@ -475,7 +475,7 @@ namespace common
 								arrowTransform.anchorMin          = new Vector2(1f, 0f);
 								arrowTransform.anchorMax          = new Vector2(1f, 1f);
 								arrowTransform.pivot              = new Vector2(0.5f, 0.5f);
-								arrowTransform.anchoredPosition3D = new Vector3(-arrowWidth / 2 - 4, 0f, 0f); // TODO: Need to check 4
+								arrowTransform.anchoredPosition3D = new Vector3(-arrowWidth / 2 - 4, 0f, 0f);
 								arrowTransform.sizeDelta          = new Vector2(arrowWidth, 0f);
 								arrowTransform.offsetMin          = new Vector2(arrowTransform.offsetMin.x, 3f);
 								arrowTransform.offsetMax          = new Vector2(arrowTransform.offsetMax.x, -3f);
@@ -502,7 +502,7 @@ namespace common
                         }
                     }
                     
-                    contentWidth += arrowWidth + 8; // TODO: Need to check 8 and check whole image
+                    contentWidth += arrowWidth + 8;
 				}
 				#endregion
 
