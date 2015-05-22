@@ -60,52 +60,209 @@ namespace common
                 vMax = Vector3.Max(v, vMax);
             }
 
-            res[0].Set(vMin.x, vMin.y, 0f);
-            res[1].Set(vMin.x, vMax.y, 0f);
-            res[2].Set(vMax.x, vMax.y, 0f);
-            res[3].Set(vMax.x, vMin.y, 0f);
+			int screenWidthDiv2  = Screen.width  / 2;
+			int screenHeightDiv2 = Screen.height / 2;
+		
+			res[0].Set(vMin.x + screenWidthDiv2, -vMax.y + screenHeightDiv2, 0f);
+			res[1].Set(vMax.x + screenWidthDiv2, -vMax.y + screenHeightDiv2, 0f);
+			res[2].Set(vMin.x + screenWidthDiv2, -vMin.y + screenHeightDiv2, 0f);            
+			res[3].Set(vMax.x + screenWidthDiv2, -vMin.y + screenHeightDiv2, 0f);
 
             return res;
         }
 
-		public static void AlignRectTransformTopLeft() // TODO: Replace related code with this
+		/// <summary>
+		/// Aligns RectTransform to top left corner.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="x">The x coordinate.</param>
+		/// <param name="y">The y coordinate.</param>
+		public static void AlignRectTransformTopLeft( // TODO: Replace related code with this
+													   RectTransform transform
+													 , float width
+													 , float height
+													 , float x = 0
+													 , float y = 0
+		                                            )
 		{
-			// TODO: Implement Utils.AlignRectTransformTopLeft
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0f, 1f);
+			transform.anchorMax          = new Vector2(0f, 1f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(x + width / 2, -(y + height / 2), 0f);
+			transform.sizeDelta          = new Vector2(width, height);
 		}
 
-		public static void AlignRectTransformTopCenter()
+		/// <summary>
+		/// Aligns RectTransform to top center.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetX">Offset by X axis.</param>
+		/// <param name="offsetTop">Top offset.</param>
+		public static void AlignRectTransformTopCenter(
+		                                                 RectTransform transform
+		                                               , float width
+		                                               , float height
+		                                               , float offsetX    = 0
+		                                               , float offsetTop  = 0
+		                                              )
 		{
-			// TODO: Implement Utils.AlignRectTransformTopCenter
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0.5f, 1f);
+			transform.anchorMax          = new Vector2(0.5f, 1f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(offsetX, -(offsetTop + height / 2), 0f);
+			transform.sizeDelta          = new Vector2(width, height);
 		}
 
-		public static void AlignRectTransformTopRight()
+		/// <summary>
+		/// Aligns RectTransform to top right corner.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetRight">Right offset.</param>
+		/// <param name="offsetTop">Top offset.</param>
+		public static void AlignRectTransformTopRight(
+													    RectTransform transform
+													  , float width
+													  , float height
+													  , float offsetRight = 0
+													  , float offsetTop   = 0
+													 )
 		{
-			// TODO: Implement Utils.AlignRectTransformTopRight
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(1f, 1f);
+			transform.anchorMax          = new Vector2(1f, 1f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(-offsetRight - width / 2, -(offsetTop + height / 2), 0f);
+			transform.sizeDelta          = new Vector2(width, height);
 		}
 
-		public static void AlignRectTransformTopStretch()
+		/// <summary>
+		/// Aligns RectTransform to top edge.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetTop">Top offset.</param>
+		/// <param name="offsetLeft">Left offset.</param>
+		/// <param name="offsetRight">Right offset.</param>
+		public static void AlignRectTransformTopStretch(
+													      RectTransform transform
+													    , float height
+														, float offsetTop   = 0
+													    , float offsetLeft  = 0
+													    , float offsetRight = 0
+													   )
 		{
-			// TODO: Implement Utils.AlignRectTransformTopStretch
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0f, 1f);
+			transform.anchorMax          = new Vector2(1f, 1f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
+			transform.offsetMin          = new Vector2(offsetLeft,   -(offsetTop + height));
+			transform.offsetMax          = new Vector2(-offsetRight, -(offsetTop));
 		}
 
-		public static void AlignRectTransformMiddleLeft()
+		/// <summary>
+		/// Aligns RectTransform to middle left.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetLeft">Left offset.</param>
+		/// <param name="offsetY">Offset by Y axis.</param>
+		public static void AlignRectTransformMiddleLeft(
+														  RectTransform transform
+														, float width
+														, float height
+														, float offsetLeft = 0
+														, float offsetY    = 0
+													   )
 		{
-			// TODO: Implement Utils.AlignRectTransformMiddleLeft
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0f, 0.5f);
+			transform.anchorMax          = new Vector2(0f, 0.5f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(offsetLeft + width / 2, -offsetY, 0f);
+			transform.sizeDelta          = new Vector2(width, height);
 		}
 
-		public static void AlignRectTransformMiddleCenter()
+		/// <summary>
+		/// Aligns RectTransform to center.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetX">Offset by X axis.</param>
+		/// <param name="offsetY">Offset by Y axis.</param>
+		public static void AlignRectTransformMiddleCenter(
+															RectTransform transform
+														  , float width
+														  , float height
+														  , float offsetX = 0
+														  , float offsetY = 0
+														 )
 		{
-			// TODO: Implement Utils.AlignRectTransformMiddleCenter
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0.5f, 0.5f);
+			transform.anchorMax          = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(offsetX, -offsetY, 0f);
+			transform.sizeDelta          = new Vector2(width, height);
 		}
 
-		public static void AlignRectTransformMiddleRight()
+		/// <summary>
+		/// Aligns RectTransform to middle right.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetRight">Right offset.</param>
+		/// <param name="offsetY">Offset by Y axis.</param>
+		public static void AlignRectTransformMiddleRight(
+														   RectTransform transform
+														 , float width
+														 , float height
+														 , float offsetRight = 0
+														 , float offsetY     = 0
+														)
 		{
-			// TODO: Implement Utils.AlignRectTransformMiddleRight
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(1f, 0.5f);
+			transform.anchorMax          = new Vector2(1f, 0.5f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(-offsetRight - width / 2, -offsetY, 0f);
+			transform.sizeDelta          = new Vector2(width, height);
 		}
 
-		public static void AlignRectTransformMiddleStretch()
+		/// <summary>
+		/// Aligns RectTransform to middle.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="offsetY">Offset by Y axis.</param>
+		/// <param name="offsetLeft">Left offset.</param>
+		/// <param name="offsetRight">Right offset.</param>
+		public static void AlignRectTransformMiddleStretch(
+															 RectTransform transform
+														   , float height
+														   , float offsetY     = 0
+														   , float offsetLeft  = 0
+														   , float offsetRight = 0
+														  )
 		{
-			// TODO: Implement Utils.AlignRectTransformMiddleStretch
+			transform.localScale         = new Vector3(1f, 1f, 1f);
+			transform.anchorMin          = new Vector2(0f, 0.5f);
+			transform.anchorMax          = new Vector2(1f, 0.5f);
+			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
+			transform.offsetMin          = new Vector2(offsetLeft,   -(offsetY + height / 2));
+			transform.offsetMax          = new Vector2(-offsetRight, -(offsetY - height / 2));
 		}
 
 		public static void AlignRectTransformBottomLeft()

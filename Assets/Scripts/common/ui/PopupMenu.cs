@@ -63,7 +63,9 @@ namespace common
             /// </summary>
             /// <param name="x">The x coordinate.</param>
             /// <param name="y">The y coordinate.</param>
-            public void Show(float x, float y)
+			/// <param name="left">Left edge for button of parent popup if present.</param>
+			/// <param name="bottom">Bottom edge for button of parent popup if present.</param>
+			public void Show(float x, float y, float left = -1, float bottom = -1)
             {
                 Global.PopupMenuArea.RegisterPopupMenu(this);
 
@@ -79,11 +81,6 @@ namespace common
                 //===========================================================================
                 #region RectTransform Component
                 RectTransform popupMenuTransform = mGameObject.AddComponent<RectTransform>();
-
-                popupMenuTransform.localScale = new Vector3(1f, 1f, 1f);
-				popupMenuTransform.anchorMin  = new Vector2(0f, 1f);
-				popupMenuTransform.anchorMax  = new Vector2(0f, 1f);
-                popupMenuTransform.pivot      = new Vector2(0.5f, 0.5f);
                 #endregion
 
                 //===========================================================================
@@ -604,7 +601,7 @@ namespace common
 				#endregion
                 #endregion
 
-                float popupMenuWidth  = contentWidth  + 11;
+				float popupMenuWidth  = contentWidth  + 11;
                 float popupMenuHeight = contentHeight + 11;
 				int   screenWidth     = Screen.width;
 				int   screenHeight    = Screen.height;
@@ -619,8 +616,50 @@ namespace common
 					popupMenuHeight = screenHeight;
 				}
 
-				popupMenuTransform.anchoredPosition3D = new Vector3(x + (screenWidth + popupMenuWidth) / 2, y - (screenHeight + popupMenuHeight) / 2, 0f); // TODO: Move popup menu when needed
-                popupMenuTransform.sizeDelta          = new Vector2(popupMenuWidth, popupMenuHeight);
+				if (x + popupMenuWidth > screenWidth)
+				{
+					if (left == -1)
+					{
+						x = left - popupMenuWidth;
+
+						if (x < 0)
+						{
+							x = screenWidth - popupMenuWidth;
+						}
+					}
+					else
+					{
+						x = screenWidth - popupMenuWidth;
+					}
+				}
+
+				if (y + popupMenuHeight > screenHeight)
+				{
+					if (bottom != -1)
+					{
+						y = bottom - popupMenuHeight;
+						
+						if (y < 0)
+						{
+							y = screenHeight - popupMenuHeight;
+						}
+					}
+					else
+					{
+						y = screenHeight - popupMenuHeight;
+					}
+				}
+
+				Utils.AlignRectTransformTopLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, x, y);
+				//Utils.AlignRectTransformTopLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
+				//Utils.AlignRectTransformTopCenter(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
+				//Utils.AlignRectTransformTopRight(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
+				//Utils.AlignRectTransformTopStretch(popupMenuTransform, popupMenuHeight, 30, 3, 10);
+				//Utils.AlignRectTransformMiddleLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
+				//Utils.AlignRectTransformMiddleCenter(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
+				//Utils.AlignRectTransformMiddleRight(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
+				//Utils.AlignRectTransformMiddleStretch(popupMenuTransform, popupMenuHeight, 30, 3, 10);
+				// TODO: Remove this stuff
                 #endregion
             }
 
@@ -664,7 +703,12 @@ namespace common
 					RectTransform menuItemTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
 	                Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 	                
-	                mChildPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y); // TODO: Add alternative positions (All 4 corners)
+					mChildPopupMenu.Show(
+						                 menuItemCorners[1].x,
+						                 menuItemCorners[1].y,
+					                     menuItemCorners[2].x,
+					                     menuItemCorners[2].y
+						                );
 				}
 				else
 				{

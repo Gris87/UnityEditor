@@ -652,8 +652,8 @@ namespace ui
 	        #region Edit
 	        editMenu                      =   MakeItem(mItems,   R.sections.MenuItems.strings.edit,                        mScript.OnEditMenu);
 	        
-			/*edit_UndoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__undo,                  mScript.OnEdit_Undo,               false, "Ctrl+Z"); // TODO: Change name of menu item after changes
-			/*edit_RedoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__redo,                  mScript.OnEdit_Redo,               false, "Ctrl+Y"); // TODO: Change name of menu item after changes
+			/*edit_UndoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__undo,                  mScript.OnEdit_Undo,               false, "Ctrl+Z"); // TODO: Change text of menu item after changes
+			/*edit_RedoItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__redo,                  mScript.OnEdit_Redo,               false, "Ctrl+Y"); // TODO: Change text of menu item after changes
 	        MenuSeparatorItem.Create(editMenu);
 			/*edit_CutItem                =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__cut,                   mScript.OnEdit_Cut,                true,  "Ctrl+X");
 			/*edit_CopyItem               =*/ MakeItem(editMenu, R.sections.MenuItems.strings.edit__copy,                  mScript.OnEdit_Copy,               true,  "Ctrl+C");
@@ -1272,7 +1272,7 @@ namespace ui
 					
 					#region Text Component
 					Text text = menuItemText.GetComponent<Text>();
-					text.text = item.Text;
+					text.text = item.Text; // TODO: Try to autotranslate somehow
 					#endregion
 					#endregion
 					

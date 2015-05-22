@@ -99,7 +99,7 @@ namespace ui
 				RectTransform menuItemTransform = transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
 				Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 				
-				mPopupMenu.Show(menuItemCorners[0].x, menuItemCorners[0].y);
+				mPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y);
 			}
 			else
 			{
