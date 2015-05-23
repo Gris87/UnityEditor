@@ -618,7 +618,7 @@ namespace common
 
 				if (x + popupMenuWidth > screenWidth)
 				{
-					if (left == -1)
+					if (left != -1)
 					{
 						x = left - popupMenuWidth;
 
@@ -651,15 +651,6 @@ namespace common
 				}
 
 				Utils.AlignRectTransformTopLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, x, y);
-				//Utils.AlignRectTransformTopLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
-				//Utils.AlignRectTransformTopCenter(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
-				//Utils.AlignRectTransformTopRight(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
-				//Utils.AlignRectTransformTopStretch(popupMenuTransform, popupMenuHeight, 30, 3, 10);
-				//Utils.AlignRectTransformMiddleLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
-				//Utils.AlignRectTransformMiddleCenter(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
-				//Utils.AlignRectTransformMiddleRight(popupMenuTransform, popupMenuWidth, popupMenuHeight, 10, 30);
-				//Utils.AlignRectTransformMiddleStretch(popupMenuTransform, popupMenuHeight, 30, 3, 10);
-				// TODO: Remove this stuff
                 #endregion
             }
 

@@ -14,6 +14,9 @@ public static class Global
 
 
 
+	/// <summary>
+	/// Initializes the <see cref="Global"/> class.
+	/// </summary>
     static Global ()
     {
         mMainMenu      = GameObject.Find("/UI/Canvas/MainMenu").GetComponent<MainMenuScript>();
