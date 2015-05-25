@@ -9,44 +9,63 @@ using ui;
 /// </summary>
 public static class Global
 {
-    private static MainMenuScript      mMainMenu;
-    private static PopupMenuAreaScript mPopupMenuArea;
-
-
+	/// <summary>
+	/// MainMenu GameObject.
+	/// </summary>
+    public static GameObject mainMenu;
 
 	/// <summary>
-	/// Initializes the <see cref="Global"/> class.
+	/// MainMenu transform.
 	/// </summary>
-    static Global ()
-    {
-        mMainMenu      = GameObject.Find("/UI/Canvas/MainMenu").GetComponent<MainMenuScript>();
-        mPopupMenuArea = GameObject.Find("/UI/Canvas/PopupMenuArea").GetComponent<PopupMenuAreaScript>();
-    }
+	public static Transform mainMenuTransform;
 
-    /// <summary>
-    /// MainMenuScript instance.
-    /// </summary>
-    /// <value>The instance of MainMenuScript.</value>
-    public static MainMenuScript MainMenu
-    {
-        get { return mMainMenu; }
-    }
+	/// <summary>
+	/// MainMenu script.
+	/// </summary>
+	public static MainMenuScript mainMenuScript;
 
-    /// <summary>
-    /// PopupMenuAreaScript instance.
-    /// </summary>
-    /// <value>The instance of PopupMenuAreaScript.</value>
-    public static PopupMenuAreaScript PopupMenuArea
-    {
-        get { return mPopupMenuArea; }
-    }
+	/// <summary>
+	/// Toolbar GameObject.
+	/// </summary>
+	public static GameObject toolbar;
+	
+	/// <summary>
+	/// Toolbar transform.
+	/// </summary>
+	public static Transform toolbarTransform;
 
-    /// <summary>
-    /// Transform of PopupMenuAreaScript instance.
-    /// </summary>
-    /// <value>The transform of PopupMenuAreaScript instance.</value>
-    public static Transform PopupMenuAreaTransform
-    {
-        get { return mPopupMenuArea.transform; }
-    }
+	/// <summary>
+	/// Toolbar script.
+	/// </summary>
+	public static ToolbarScript toolbarScript;
+
+	/// <summary>
+	/// DockingArea GameObject.
+	/// </summary>
+	public static GameObject dockingArea;
+	
+	/// <summary>
+	/// DockingArea transform.
+	/// </summary>
+	public static Transform dockingAreaTransform;
+
+	/// <summary>
+	/// DockingArea script.
+	/// </summary>
+	public static DockingAreaScript dockingAreaScript;
+
+	/// <summary>
+	/// PopupMenuArea GameObject.
+	/// </summary>
+	public static GameObject popupMenuArea;
+	
+	/// <summary>
+	/// PopupMenuArea transform.
+	/// </summary>
+	public static Transform popupMenuAreaTransform;
+	
+	/// <summary>
+	/// PopupMenuArea script.
+	/// </summary>
+	public static PopupMenuAreaScript popupMenuAreaScript;
 }

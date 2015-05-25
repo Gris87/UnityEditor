@@ -13,44 +13,7 @@ namespace ui
 	/// Script that realize behaviour for PopupMenus controller.
 	/// </summary>
 	public class PopupMenuAreaScript : MonoBehaviour
-	{
-		/// <summary>
-		/// PopupMenu background.
-		/// </summary>
-		public Sprite popupBackground; // TODO: Master script
-
-		/// <summary>
-		/// Background.
-		/// </summary>
-		public Sprite background;
-		
-		/// <summary>
-		/// Separator image.
-		/// </summary>
-		public Sprite separator;
-
-		/// <summary>
-		/// Arrow image.
-		/// </summary>
-		public Sprite arrow;
-
-		/// <summary>
-		/// Checkbox image.
-		/// </summary>
-		public Sprite checkbox;
-		
-		/// <summary>
-		/// Item button prefab.
-		/// </summary>
-		public Button itemButton;
-		
-		/// <summary>
-		/// Disabled item button prefab.
-		/// </summary>
-		public Button itemButtonDisabled;
-		
-		
-		
+	{	
 		private List<PopupMenu> mPopupMenus;
 		
 		
@@ -66,7 +29,7 @@ namespace ui
 		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
-		void Update()
+		void Update() // Auto-show sub-popups on cover
 		{
 			if (mPopupMenus.Count > 0)
 			{
@@ -102,7 +65,7 @@ namespace ui
 					}
 				}
 				else
-					if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
+				if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
 				{
 					mPopupMenus[mPopupMenus.Count - 1].Destroy();
 				}

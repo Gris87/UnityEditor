@@ -10,7 +10,7 @@ using common.ui;
 
 namespace ui
 {
-	public class MainMenu_UI
+	public class MainMenuUI
 	{
 	    private MainMenuScript mScript;
 
@@ -567,15 +567,21 @@ namespace ui
 
 
 	    /// <summary>
-	    /// Initializes a new instance of the <see cref="MainMenu_UI"/> class.
+	    /// Initializes a new instance of the <see cref="MainMenuUI"/> class.
 	    /// </summary>
-	    public MainMenu_UI(MainMenuScript script)
+	    public MainMenuUI(MainMenuScript script)
 	    {
-	        mScript = script;
-
-	        CreateMenuItems();
-	        CreateUI();
+	        mScript = script;	        
 	    }
+
+		/// <summary>
+		/// Setup user interface.
+		/// </summary>
+		public void SetupUI()
+		{
+			CreateMenuItems();
+			CreateUI();
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="common.ui.MenuItem"/> class with given token ID and with
@@ -1203,6 +1209,7 @@ namespace ui
 	        Utils.AlignRectTransformStretchStretch(scrollAreaTransform);
 	        #endregion
 	        
+			// TODO: Stars???
 	        //***************************************************************************
 	        // Content for ScrollArea object
 	        //***************************************************************************
@@ -1215,11 +1222,6 @@ namespace ui
 	        //===========================================================================
 	        #region RectTransform Component
 	        RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
-	        
-	        scrollAreaContentTransform.localScale = new Vector3(1f, 1f, 1f);
-	        scrollAreaContentTransform.anchorMin  = new Vector2(0f, 0f);
-	        scrollAreaContentTransform.anchorMax  = new Vector2(0f, 1f);
-	        scrollAreaContentTransform.pivot      = new Vector2(0f, 0.5f);
 	        #endregion
 	        
 	        // Fill content
@@ -1236,7 +1238,7 @@ namespace ui
 					// Button GameObject
 					//***************************************************************************
 					#region Button GameObject
-					GameObject menuItemButton = Object.Instantiate(mScript.menuButton.gameObject) as GameObject;
+					GameObject menuItemButton = Object.Instantiate(Assets.MainMenu.Prefabs.button) as GameObject;
 					Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
 					menuItemButton.name = item.Name;
 					
@@ -1245,10 +1247,6 @@ namespace ui
 					//===========================================================================
 					#region RectTransform Component
 					RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
-					
-					menuItemButtonTransform.localScale = new Vector3(1f, 1f, 1f);
-					menuItemButtonTransform.anchorMin  = new Vector2(0f, 0f);
-					menuItemButtonTransform.anchorMax  = new Vector2(0f, 1f);
 					#endregion
 					
 					//===========================================================================
@@ -1280,9 +1278,8 @@ namespace ui
 					++contentWidth;
 					
 					float buttonWidth = text.preferredWidth + 12;
-					
-					menuItemButtonTransform.anchoredPosition3D = new Vector3(contentWidth + buttonWidth / 2, 0f, 0f);
-					menuItemButtonTransform.sizeDelta          = new Vector2(buttonWidth, -2f);
+
+					Utils.AlignRectTransformStretchLeft(menuItemButtonTransform, buttonWidth, contentWidth, 1, 1);
 					
 					contentWidth += buttonWidth + 1;
 					#endregion
@@ -1293,8 +1290,8 @@ namespace ui
 				}
 	        }
 	        
-	        scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
-	        scrollAreaContentTransform.sizeDelta          = new Vector2(contentWidth, 0f);
+			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth);
+			scrollAreaContentTransform.pivot = new Vector2(0f, 0.5f); // TODO: Try to do it in AlignRectTransformStretchLeft
 	        #endregion
 	        
 	        #region ScrollRect Component
@@ -1304,6 +1301,29 @@ namespace ui
 	        scrollAreaScrollRect.vertical = false;
 	        #endregion
 
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			scrollArea.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image scrollAreaImage = scrollArea.AddComponent<Image>();
+			
+			scrollAreaImage.sprite = Assets.MainMenu.Textures.background;
+			scrollAreaImage.type   = Image.Type.Sliced;
+			#endregion
+
+			//===========================================================================
+			// Mask Component
+			//===========================================================================
+			#region Mask Component
+			scrollArea.AddComponent<Mask>();
+			#endregion
 	        #endregion
 	    }
 	}

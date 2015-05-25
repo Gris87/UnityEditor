@@ -303,7 +303,7 @@ namespace common
 				{
 					if (mShortcut != null)
 					{
-						return mShortcut.ToString(); // TODO: Incorrect convertion
+						return mShortcut.ToString();
 					}
 
 					return null; 

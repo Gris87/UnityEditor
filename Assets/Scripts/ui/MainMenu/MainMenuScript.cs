@@ -14,15 +14,8 @@ namespace ui
 	/// </summary>
 	public class MainMenuScript : MonoBehaviour, IShortcutHandler
 	{
-	    /// <summary>
-	    /// Menu item button prefab.
-	    /// </summary>
-	    public Button menuButton = null;
-
-
-
+		private MainMenuUI     mUi;
 		private List<MenuItem> mShortcuts;
-	    private MainMenu_UI    mUi;
 	    private PopupMenu      mPopupMenu;
 
 
@@ -32,9 +25,11 @@ namespace ui
 	    /// </summary>
 	    void Start()
 	    {
-			mShortcuts = new List<MenuItem>();
-	        mUi        = new MainMenu_UI(this);
+			mUi        = new MainMenuUI(this);
+			mShortcuts = new List<MenuItem>();	        
 			mPopupMenu = null;
+
+			mUi.SetupUI();
 	    }
 
 		/// <summary>

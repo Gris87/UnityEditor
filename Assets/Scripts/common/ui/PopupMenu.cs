@@ -53,7 +53,7 @@ namespace common
                     mGameObject = null;
                 }
 
-                Global.PopupMenuArea.DeregisterPopupMenu(this);
+                Global.popupMenuAreaScript.DeregisterPopupMenu(this);
 
                 mOnDestroy.Invoke();
             }
@@ -67,14 +67,14 @@ namespace common
 			/// <param name="bottom">Bottom edge for button of parent popup if present.</param>
 			public void Show(float x, float y, float left = -1, float bottom = -1)
             {
-                Global.PopupMenuArea.RegisterPopupMenu(this);
+				Global.popupMenuAreaScript.RegisterPopupMenu(this);
 
                 //***************************************************************************
                 // PopupMenu GameObject
                 //***************************************************************************
                 #region PopupMenu GameObject
                 mGameObject = new GameObject("PopupMenu");
-                Utils.InitUIObject(mGameObject, Global.PopupMenuAreaTransform);
+				Utils.InitUIObject(mGameObject, Global.popupMenuAreaTransform);
 
                 //===========================================================================
                 // RectTransform Component
@@ -96,7 +96,7 @@ namespace common
                 #region Image Component
                 Image popupMenuImage = mGameObject.AddComponent<Image>();
 
-                popupMenuImage.sprite = Global.PopupMenuArea.popupBackground;
+                popupMenuImage.sprite = Assets.PopupMenuArea.Textures.popupBackground;
                 popupMenuImage.type   = Image.Type.Sliced;
                 #endregion
 
@@ -127,11 +127,6 @@ namespace common
                 //===========================================================================
                 #region RectTransform Component
                 RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
-
-                scrollAreaContentTransform.localScale = new Vector3(1f, 1f, 1f);
-                scrollAreaContentTransform.anchorMin  = new Vector2(0f, 1f);
-                scrollAreaContentTransform.anchorMax  = new Vector2(1f, 1f);
-                scrollAreaContentTransform.pivot      = new Vector2(0.5f, 1f);
                 #endregion
 
                 // Fill content
@@ -160,13 +155,7 @@ namespace common
 
                         RectTransform menuItemSeparatorTransform = menuSeparator.AddComponent<RectTransform>();
 
-                        menuItemSeparatorTransform.localScale         = new Vector3(1f, 1f, 1f);
-                        menuItemSeparatorTransform.anchorMin          = new Vector2(0f, 1f);
-                        menuItemSeparatorTransform.anchorMax          = new Vector2(1f, 1f);
-						menuItemSeparatorTransform.pivot              = new Vector2(0.5f, 0.5f);
-                        menuItemSeparatorTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - separatorHeight / 2, 0f); // TODO: Incorrect position
-                        menuItemSeparatorTransform.sizeDelta          = new Vector2(0f, separatorHeight);
-                        menuItemSeparatorTransform.offsetMin          = new Vector2(28f, menuItemSeparatorTransform.offsetMin.y);
+						Utils.AlignRectTransformTopStretch(menuItemSeparatorTransform, separatorHeight, contentHeight, 28f); // TODO: Incorrect position
 
                         contentHeight += separatorHeight;
                         #endregion
@@ -177,7 +166,7 @@ namespace common
                         #region Image Component
                         Image image = menuSeparator.AddComponent<Image>();
 
-                        image.sprite = Global.PopupMenuArea.separator;
+                        image.sprite = Assets.PopupMenuArea.Textures.separator;
                         #endregion
                         #endregion
                     }
@@ -197,11 +186,11 @@ namespace common
 
 						if (enabled)
                         {
-                            menuItemButton = UnityEngine.Object.Instantiate(Global.PopupMenuArea.itemButton.gameObject) as GameObject;
+                            menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.button) as GameObject;
                         }
                         else
                         {
-                            menuItemButton = UnityEngine.Object.Instantiate(Global.PopupMenuArea.itemButtonDisabled.gameObject) as GameObject;
+							menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.buttonDisabled) as GameObject;
                         }
 
                         Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
@@ -212,10 +201,6 @@ namespace common
                         //===========================================================================
                         #region RectTransform Component
                         RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
-
-                        menuItemButtonTransform.localScale = new Vector3(1f, 1f, 1f);
-                        menuItemButtonTransform.anchorMin  = new Vector2(0f, 1f);
-                        menuItemButtonTransform.anchorMax  = new Vector2(1f, 1f);
                         #endregion
 
                         //===========================================================================
@@ -241,7 +226,7 @@ namespace common
 									button.onClick.AddListener(() => OnSelectItem(item));
 								}
 
-								button.onClick.AddListener(Global.PopupMenuArea.DestroyAll);                                
+								button.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll);                                
                             }
                         }
                         #endregion
@@ -269,8 +254,7 @@ namespace common
                         float buttonWidth  = text.preferredWidth  + 44;
                         float buttonHeight = text.preferredHeight + 8;
 
-                        menuItemButtonTransform.anchoredPosition3D = new Vector3(0f, -contentHeight - buttonHeight / 2, 0f);
-                        menuItemButtonTransform.sizeDelta          = new Vector2(0f, buttonHeight);
+						Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
 
                         if (buttonWidth > contentWidth)
                         {
@@ -313,17 +297,6 @@ namespace common
 							Utils.InitUIObject(shortcutText, menuItemButtonTransform);
                             shortcutText.name = "Shortcut";
 
-							//===========================================================================
-							// RectTransform Component
-							//===========================================================================
-							#region RectTransform Component
-							RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
-							
-							shortcutTextTransform.localScale = new Vector3(1f, 1f, 1f);
-							shortcutTextTransform.anchorMin  = new Vector2(1f, 0f);
-							shortcutTextTransform.anchorMax  = new Vector2(1f, 1f);
-							#endregion
-							
 							//===========================================================================
 							// Text Component
 							//===========================================================================
@@ -379,8 +352,7 @@ namespace common
 								#region RectTransform Component
 								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
 
-								shortcutTextTransform.anchoredPosition3D = new Vector3(-shortcutWidth / 2 - 4, 0f, 0f);
-								shortcutTextTransform.sizeDelta          = new Vector2(shortcutWidth, 0f);
+								Utils.AlignRectTransformStretchRight(shortcutTextTransform, shortcutWidth, 4);
                                 #endregion
 								#endregion
                             }
@@ -467,15 +439,8 @@ namespace common
 								//===========================================================================
 								#region RectTransform Component
 								RectTransform arrowTransform = arrow.AddComponent<RectTransform>();
-								
-								arrowTransform.localScale         = new Vector3(1f, 1f, 1f);
-								arrowTransform.anchorMin          = new Vector2(1f, 0f);
-								arrowTransform.anchorMax          = new Vector2(1f, 1f);
-								arrowTransform.pivot              = new Vector2(0.5f, 0.5f);
-								arrowTransform.anchoredPosition3D = new Vector3(-arrowWidth / 2 - 4, 0f, 0f);
-								arrowTransform.sizeDelta          = new Vector2(arrowWidth, 0f);
-								arrowTransform.offsetMin          = new Vector2(arrowTransform.offsetMin.x, 3f);
-								arrowTransform.offsetMax          = new Vector2(arrowTransform.offsetMax.x, -3f);
+
+								Utils.AlignRectTransformStretchRight(arrowTransform, arrowWidth, 4, 3, 3);
                                 #endregion
 
 								//===========================================================================
@@ -491,7 +456,7 @@ namespace common
 								#region Image Component
 								Image arrowImage = arrow.AddComponent<Image>();
 								
-								arrowImage.sprite = Global.PopupMenuArea.arrow;
+								arrowImage.sprite = Assets.PopupMenuArea.Textures.arrow;
 								arrowImage.type   = Image.Type.Sliced;
 								#endregion
 								#endregion
@@ -531,13 +496,8 @@ namespace common
 							//===========================================================================
 							#region RectTransform Component
 							RectTransform checkboxTransform = checkbox.AddComponent<RectTransform>();
-							
-							checkboxTransform.localScale         = new Vector3(1f, 1f, 1f);
-							checkboxTransform.anchorMin          = new Vector2(0f, 0f);
-							checkboxTransform.anchorMax          = new Vector2(0f, 1f);
-							checkboxTransform.pivot              = new Vector2(0.5f, 0.5f);
-							checkboxTransform.anchoredPosition3D = new Vector3(checkboxWidth / 2, 0f, 0f);
-							checkboxTransform.sizeDelta          = new Vector2(checkboxWidth, 0f);
+
+							Utils.AlignRectTransformStretchLeft(checkboxTransform, checkboxWidth);
 							#endregion
 							
 							//===========================================================================
@@ -553,7 +513,7 @@ namespace common
 							#region Image Component
 							Image checkboxImage = checkbox.AddComponent<Image>();
 							
-							checkboxImage.sprite = Global.PopupMenuArea.checkbox;
+							checkboxImage.sprite = Assets.PopupMenuArea.Textures.checkbox;
 							checkboxImage.type   = Image.Type.Sliced;
 							#endregion
 							#endregion
@@ -562,8 +522,7 @@ namespace common
 				}
 				#endregion
                 
-                scrollAreaContentTransform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
-                scrollAreaContentTransform.sizeDelta          = new Vector2(0f, contentHeight);
+				Utils.AlignRectTransformTopStretch(scrollAreaContentTransform, contentHeight);
                 #endregion
 
 				//===========================================================================
@@ -589,7 +548,7 @@ namespace common
 				#region Image Component
 				Image scrollAreaImage = scrollArea.AddComponent<Image>();
 				
-				scrollAreaImage.sprite = Global.PopupMenuArea.background;
+				scrollAreaImage.sprite = Assets.PopupMenuArea.Textures.background;
 				scrollAreaImage.type   = Image.Type.Sliced;
 				#endregion
 

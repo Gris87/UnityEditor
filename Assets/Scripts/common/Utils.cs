@@ -13,6 +13,8 @@ namespace common
     {
         private static int UI_LAYER = LayerMask.NameToLayer("UI");
 
+
+
         /// <summary>
         /// Put UI object in specified transform and initialize this UI object.
         /// </summary>
@@ -79,7 +81,7 @@ namespace common
 		/// <param name="height">Height.</param>
 		/// <param name="x">The x coordinate.</param>
 		/// <param name="y">The y coordinate.</param>
-		public static void AlignRectTransformTopLeft( // TODO: Replace related code with this
+		public static void AlignRectTransformTopLeft(
 													   RectTransform transform
 													 , float width
 													 , float height
@@ -458,8 +460,8 @@ namespace common
 			transform.anchorMax          = new Vector2(1f, 1f);
 			transform.pivot              = new Vector2(0.5f, 0.5f);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
-			transform.offsetMin          = new Vector2(offsetLeft,    offsetTop);
-			transform.offsetMax          = new Vector2(-offsetRight, -offsetBottom);
+			transform.offsetMin          = new Vector2(offsetLeft,    offsetBottom);
+			transform.offsetMax          = new Vector2(-offsetRight, -offsetTop);
 		}
     }
 }

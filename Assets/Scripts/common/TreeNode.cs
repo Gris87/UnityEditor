@@ -74,7 +74,7 @@ namespace common
         {
             if (mChildren == null)
             {
-                return true;
+                return false;
             }
 
             bool res = mChildren.Remove(node);

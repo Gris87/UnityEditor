@@ -132,7 +132,7 @@ public static class Controls
     {
         CustomInput res;
 
-        res = KeyboardInput.FromString(value);
+        res = JoystickInput.FromString(value);
 
         if (res != null)
         {
@@ -146,7 +146,7 @@ public static class Controls
             return res;
         }
 
-        res = JoystickInput.FromString(value);
+		res = KeyboardInput.FromString(value);
 
         if (res != null)
         {
