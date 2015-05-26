@@ -59,6 +59,16 @@ namespace UnityTranslation
                 MenuItems
                 ,
                 /// <summary>
+                /// Section ID for "toolbar.xml" file.
+                /// </summary>
+                Toolbar
+                ,
+                /// <summary>
+                /// Section ID for "tooltips.xml" file.
+                /// </summary>
+                Tooltips
+                ,
+                /// <summary>
                 /// Total amount of sections.
                 /// </summary>
                 Count // Should be last
@@ -70,6 +80,8 @@ namespace UnityTranslation
             public static readonly string[] xmlFiles = new string[]
             {
                   "menu_items.xml" // MenuItems
+                , "toolbar.xml"    // Toolbar
+                , "tooltips.xml"   // Tooltips
             };
 
             /// <summary>
@@ -2504,6 +2516,161 @@ namespace UnityTranslation
                     Count // Should be last
                 }
             }
+
+            /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/toolbar.xml" file.
+            /// </summary>
+            public static class Toolbar
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/toolbar.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>Base point : Center</para>
+                    /// <para>Value:</para>
+                    ///   <para>Center</para>
+                    /// </summary>
+                    center
+                    ,
+                    /// <summary>
+                    /// <para>Base point : Pivot</para>
+                    /// <para>Value:</para>
+                    ///   <para>Pivot</para>
+                    /// </summary>
+                    pivot
+                    ,
+                    /// <summary>
+                    /// <para>Coordinate system : Local</para>
+                    /// <para>Value:</para>
+                    ///   <para>Local</para>
+                    /// </summary>
+                    local
+                    ,
+                    /// <summary>
+                    /// <para>Coordinate system : Global</para>
+                    /// <para>Value:</para>
+                    ///   <para>Global</para>
+                    /// </summary>
+                    global
+                    ,
+                    /// <summary>
+                    /// <para>Popup : Layers</para>
+                    /// <para>Value:</para>
+                    ///   <para>Layers</para>
+                    /// </summary>
+                    layers
+                    ,
+                    /// <summary>
+                    /// <para>Popup : Layout</para>
+                    /// <para>Value:</para>
+                    ///   <para>Layout</para>
+                    /// </summary>
+                    layout
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/toolbar.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/toolbar.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
+
+            /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/tooltips.xml" file.
+            /// </summary>
+            public static class Tooltips
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/tooltips.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>Base point : Tooltip for Center</para>
+                    /// <para>Value:</para>
+                    ///   <para>The tool handle is placed at the center of the selection</para>
+                    /// </summary>
+                    center_tooltip
+                    ,
+                    /// <summary>
+                    /// <para>Base point : Tooltip for Pivot</para>
+                    /// <para>Value:</para>
+                    ///   <para>The tool handle is placed at the active object&apos;s pivot point</para>
+                    /// </summary>
+                    pivot_tooltip
+                    ,
+                    /// <summary>
+                    /// <para>Coordinate system : Tooltip for Local</para>
+                    /// <para>Value:</para>
+                    ///   <para>Tool handles are in active object&apos;s rotation</para>
+                    /// </summary>
+                    local_tooltip
+                    ,
+                    /// <summary>
+                    /// <para>Coordinate system : Tooltip for Global</para>
+                    /// <para>Value:</para>
+                    ///   <para>Tool handles are in global rotation</para>
+                    /// </summary>
+                    global_tooltip
+                    ,
+                    /// <summary>
+                    /// <para>Popup : Tooltip for Layers</para>
+                    /// <para>Value:</para>
+                    ///   <para>Which layers are visible in the Scene views</para>
+                    /// </summary>
+                    layers_tooltip
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/tooltips.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/tooltips.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
         }
 
         /// <summary>
@@ -2876,6 +3043,47 @@ namespace UnityTranslation
                     , { "help__download_beta"                                             , (int)R.sections.MenuItems.strings.help__download_beta                           }
                     , { "help__release_notes"                                             , (int)R.sections.MenuItems.strings.help__release_notes                           }
                     , { "help__report_a_bug"                                              , (int)R.sections.MenuItems.strings.help__report_a_bug                            }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // Toolbar
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "center", (int)R.sections.Toolbar.strings.center }
+                    , { "pivot" , (int)R.sections.Toolbar.strings.pivot }
+                    , { "local" , (int)R.sections.Toolbar.strings.local }
+                    , { "global", (int)R.sections.Toolbar.strings.global }
+                    , { "layers", (int)R.sections.Toolbar.strings.layers }
+                    , { "layout", (int)R.sections.Toolbar.strings.layout }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // Tooltips
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "center_tooltip", (int)R.sections.Tooltips.strings.center_tooltip }
+                    , { "pivot_tooltip" , (int)R.sections.Tooltips.strings.pivot_tooltip }
+                    , { "local_tooltip" , (int)R.sections.Tooltips.strings.local_tooltip }
+                    , { "global_tooltip", (int)R.sections.Tooltips.strings.global_tooltip }
+                    , { "layers_tooltip", (int)R.sections.Tooltips.strings.layers_tooltip }
                 }
                 ,
                 new Dictionary<string, int> // array

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityTranslation;
 
 using common;
 
@@ -11,6 +12,13 @@ namespace ui
 	{
 		private ToolbarScript mScript;
 
+		private SpriteState mLeftButtonSpriteState;
+		private SpriteState mLeftButtonActiveSpriteState;
+		private SpriteState mMiddleButtonSpriteState;
+		private SpriteState mMiddleButtonActiveSpriteState;
+		private SpriteState mRightButtonSpriteState;
+		private SpriteState mRightButtonActiveSpriteState;
+
 
 
 		/// <summary>
@@ -20,6 +28,37 @@ namespace ui
 		public ToolbarUI(ToolbarScript script)
 		{
 			mScript = script;
+
+			mLeftButtonSpriteState         = new SpriteState();
+			mLeftButtonActiveSpriteState   = new SpriteState();
+			mMiddleButtonSpriteState       = new SpriteState();
+			mMiddleButtonActiveSpriteState = new SpriteState();
+			mRightButtonSpriteState        = new SpriteState();
+			mRightButtonActiveSpriteState  = new SpriteState();
+
+			mLeftButtonSpriteState.disabledSprite            = Assets.Toolbar.Textures.toolLeftButton;
+			mLeftButtonSpriteState.highlightedSprite         = Assets.Toolbar.Textures.toolLeftButton;
+			mLeftButtonSpriteState.pressedSprite             = Assets.Toolbar.Textures.toolLeftButtonPressed;
+
+			mLeftButtonActiveSpriteState.disabledSprite      = Assets.Toolbar.Textures.toolLeftButtonActive;
+			mLeftButtonActiveSpriteState.highlightedSprite   = Assets.Toolbar.Textures.toolLeftButtonActive;
+			mLeftButtonActiveSpriteState.pressedSprite       = Assets.Toolbar.Textures.toolLeftButtonActivePressed;
+
+			mMiddleButtonSpriteState.disabledSprite          = Assets.Toolbar.Textures.toolMiddleButton;
+			mMiddleButtonSpriteState.highlightedSprite       = Assets.Toolbar.Textures.toolMiddleButton;
+			mMiddleButtonSpriteState.pressedSprite           = Assets.Toolbar.Textures.toolMiddleButtonPressed;
+			
+			mMiddleButtonActiveSpriteState.disabledSprite    = Assets.Toolbar.Textures.toolMiddleButtonActive;
+			mMiddleButtonActiveSpriteState.highlightedSprite = Assets.Toolbar.Textures.toolMiddleButtonActive;
+			mMiddleButtonActiveSpriteState.pressedSprite     = Assets.Toolbar.Textures.toolMiddleButtonActivePressed;
+			  
+			mRightButtonSpriteState.disabledSprite           = Assets.Toolbar.Textures.toolRightButton;
+			mRightButtonSpriteState.highlightedSprite        = Assets.Toolbar.Textures.toolRightButton;
+			mRightButtonSpriteState.pressedSprite            = Assets.Toolbar.Textures.toolRightButtonPressed;
+			
+			mRightButtonActiveSpriteState.disabledSprite     = Assets.Toolbar.Textures.toolRightButtonActive;
+			mRightButtonActiveSpriteState.highlightedSprite  = Assets.Toolbar.Textures.toolRightButtonActive;
+			mRightButtonActiveSpriteState.pressedSprite      = Assets.Toolbar.Textures.toolRightButtonActivePressed;
 		}
 
 		/// <summary>
@@ -49,8 +88,46 @@ namespace ui
 			RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
 			Utils.AlignRectTransformStretchStretch(scrollAreaTransform);
 			#endregion
+
+			//***************************************************************************
+			// Content GameObject
+			//***************************************************************************
+			#region Content GameObject
+			GameObject scrollAreaContent = new GameObject("Content");
+			Utils.InitUIObject(scrollAreaContent, scrollArea.transform);
 			
-			// TODO: Implement ToolbarUI.CreateUI
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
+			#endregion
+			
+			float contentWidth = 10f; // Offset from the left
+			
+			//===========================================================================
+			// Fill content
+			//===========================================================================
+			#region Fill content
+			CreateToolsGameObject(    scrollAreaContent.transform, ref contentWidth);
+			CreateBasePointGameObject(scrollAreaContent.transform, ref contentWidth);
+			CreatePopupsGameObject(   scrollAreaContent.transform, ref contentWidth);
+			CreatePlaybackGameObject( scrollAreaContent.transform, ref contentWidth);
+			#endregion
+			
+			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth);
+			scrollAreaContentTransform.pivot = new Vector2(0f, 0.5f); // TODO: Try to do it in AlignRectTransformStretchLeft
+			#endregion
+
+			//===========================================================================
+			// ScrollRect Component
+			//===========================================================================
+			#region ScrollRect Component
+			ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
+			
+			scrollAreaScrollRect.content  = scrollAreaContentTransform;
+			scrollAreaScrollRect.vertical = false;
+			#endregion
 			
 			//===========================================================================
 			// CanvasRenderer Component
@@ -76,6 +153,749 @@ namespace ui
 			scrollArea.AddComponent<Mask>();
 			#endregion
 			#endregion
+		}
+
+		/// <summary>
+		/// Creates Tools GameObject.
+		/// </summary>
+		/// <param name="parentTransform">Parent transform.</param>
+		/// <param name="contentWidth">Content width.</param>
+		private void CreateToolsGameObject(Transform parentTransform, ref float contentWidth)
+		{
+			//***************************************************************************
+			// Tools GameObject
+			//***************************************************************************
+			#region Tools GameObject
+			GameObject tools = new GameObject("Tools");
+			Utils.InitUIObject(tools, parentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toolsTransform = tools.AddComponent<RectTransform>();
+			#endregion
+			
+			float width = 0f;
+			
+			//===========================================================================
+			// Fill content
+			//===========================================================================
+			#region Fill content
+			float buttonWidth = 32f;
+			
+			//***************************************************************************
+			// ToolHand GameObject
+			//***************************************************************************
+			#region ToolHand GameObject
+			GameObject toolHand = new GameObject("ToolHand");
+			Utils.InitUIObject(toolHand, tools.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toolHandTransform = toolHand.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(toolHandTransform, buttonWidth + 1, width); // One button overlaps another one
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			toolHand.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image toolHandImage = toolHand.AddComponent<Image>();
+			
+			toolHandImage.sprite = Assets.Toolbar.Textures.toolLeftButton;
+			toolHandImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button toolHandButton = toolHand.AddComponent<Button>();
+			
+			toolHandButton.targetGraphic = toolHandImage;
+			toolHandButton.transition    = Selectable.Transition.SpriteSwap;
+			toolHandButton.spriteState   = mLeftButtonSpriteState;
+			toolHandButton.onClick.AddListener(mScript.OnToolHandClicked);
+			#endregion
+			
+			//***************************************************************************
+			// HandImage GameObject
+			//***************************************************************************
+			#region HandImage GameObject
+			GameObject handImage = new GameObject("Image");
+			Utils.InitUIObject(handImage, toolHand.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform handImageTransform = handImage.AddComponent<RectTransform>();
+			Utils.AlignRectTransformMiddleCenter(handImageTransform, 16f, 16f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			handImage.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image handImageImage = handImage.AddComponent<Image>();
+			
+			handImageImage.sprite = Assets.Toolbar.Textures.toolHand;
+			handImageImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+			
+			width += buttonWidth;
+			#endregion
+
+			//***************************************************************************
+			// ToolMove GameObject
+			//***************************************************************************
+			#region ToolMove GameObject
+			GameObject toolMove = new GameObject("ToolMove");
+			Utils.InitUIObject(toolMove, tools.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toolMoveTransform = toolMove.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(toolMoveTransform, buttonWidth + 1, width); // One button overlaps another one
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			toolMove.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image toolMoveImage = toolMove.AddComponent<Image>();
+			
+			toolMoveImage.sprite = Assets.Toolbar.Textures.toolMiddleButton;
+			toolMoveImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button toolMoveButton = toolMove.AddComponent<Button>();
+			
+			toolMoveButton.targetGraphic = toolMoveImage;
+			toolMoveButton.transition    = Selectable.Transition.SpriteSwap;
+			toolMoveButton.spriteState   = mMiddleButtonSpriteState;
+			toolMoveButton.onClick.AddListener(mScript.OnToolMoveClicked);
+			#endregion
+			
+			//***************************************************************************
+			// MoveImage GameObject
+			//***************************************************************************
+			#region MoveImage GameObject
+			GameObject moveImage = new GameObject("Image");
+			Utils.InitUIObject(moveImage, toolMove.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform moveImageTransform = moveImage.AddComponent<RectTransform>();
+			Utils.AlignRectTransformMiddleCenter(moveImageTransform, 16f, 16f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			moveImage.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image moveImageImage = moveImage.AddComponent<Image>();
+			
+			moveImageImage.sprite = Assets.Toolbar.Textures.toolMove;
+			moveImageImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+			
+			width += buttonWidth;
+			#endregion
+
+			//***************************************************************************
+			// ToolRotate GameObject
+			//***************************************************************************
+			#region ToolRotate GameObject
+			GameObject toolRotate = new GameObject("ToolRotate");
+			Utils.InitUIObject(toolRotate, tools.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toolRotateTransform = toolRotate.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(toolRotateTransform, buttonWidth + 1, width); // One button overlaps another one
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			toolRotate.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image toolRotateImage = toolRotate.AddComponent<Image>();
+			
+			toolRotateImage.sprite = Assets.Toolbar.Textures.toolMiddleButton;
+			toolRotateImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button toolRotateButton = toolRotate.AddComponent<Button>();
+			
+			toolRotateButton.targetGraphic = toolRotateImage;
+			toolRotateButton.transition    = Selectable.Transition.SpriteSwap;
+			toolRotateButton.spriteState   = mMiddleButtonSpriteState;
+			toolRotateButton.onClick.AddListener(mScript.OnToolRotateClicked);
+			#endregion
+			
+			//***************************************************************************
+			// RotateImage GameObject
+			//***************************************************************************
+			#region RotateImage GameObject
+			GameObject rotateImage = new GameObject("Image");
+			Utils.InitUIObject(rotateImage, toolRotate.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform rotateImageTransform = rotateImage.AddComponent<RectTransform>();
+			Utils.AlignRectTransformMiddleCenter(rotateImageTransform, 16f, 16f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			rotateImage.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image rotateImageImage = rotateImage.AddComponent<Image>();
+			
+			rotateImageImage.sprite = Assets.Toolbar.Textures.toolRotate;
+			rotateImageImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+			
+			width += buttonWidth;
+			#endregion
+
+			//***************************************************************************
+			// ToolScale GameObject
+			//***************************************************************************
+			#region ToolScale GameObject
+			GameObject toolScale = new GameObject("ToolScale");
+			Utils.InitUIObject(toolScale, tools.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toolScaleTransform = toolScale.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(toolScaleTransform, buttonWidth + 1, width); // One button overlaps another one
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			toolScale.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image toolScaleImage = toolScale.AddComponent<Image>();
+			
+			toolScaleImage.sprite = Assets.Toolbar.Textures.toolMiddleButton;
+			toolScaleImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button toolScaleButton = toolScale.AddComponent<Button>();
+			
+			toolScaleButton.targetGraphic = toolScaleImage;
+			toolScaleButton.transition    = Selectable.Transition.SpriteSwap;
+			toolScaleButton.spriteState   = mMiddleButtonSpriteState;
+			toolScaleButton.onClick.AddListener(mScript.OnToolScaleClicked);
+			#endregion
+			
+			//***************************************************************************
+			// ScaleImage GameObject
+			//***************************************************************************
+			#region ScaleImage GameObject
+			GameObject scaleImage = new GameObject("Image");
+			Utils.InitUIObject(scaleImage, toolScale.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform scaleImageTransform = scaleImage.AddComponent<RectTransform>();
+			Utils.AlignRectTransformMiddleCenter(scaleImageTransform, 16f, 16f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			scaleImage.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image scaleImageImage = scaleImage.AddComponent<Image>();
+			
+			scaleImageImage.sprite = Assets.Toolbar.Textures.toolScale;
+			scaleImageImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+			
+			width += buttonWidth;
+			#endregion
+
+			//***************************************************************************
+			// ToolRectTransform GameObject
+			//***************************************************************************
+			#region ToolRectTransform GameObject
+			GameObject toolRectTransform = new GameObject("ToolRectTransform");
+			Utils.InitUIObject(toolRectTransform, tools.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toolRectTransformTransform = toolRectTransform.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(toolRectTransformTransform, buttonWidth, width);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			toolRectTransform.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image toolRectTransformImage = toolRectTransform.AddComponent<Image>();
+			
+			toolRectTransformImage.sprite = Assets.Toolbar.Textures.toolRightButton;
+			toolRectTransformImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button toolRectTransformButton = toolRectTransform.AddComponent<Button>();
+			
+			toolRectTransformButton.targetGraphic = toolRectTransformImage;
+			toolRectTransformButton.transition    = Selectable.Transition.SpriteSwap;
+			toolRectTransformButton.spriteState   = mRightButtonSpriteState;
+			toolRectTransformButton.onClick.AddListener(mScript.OnToolRectTransformClicked);
+			#endregion
+			
+			//***************************************************************************
+			// RectTransformImage GameObject
+			//***************************************************************************
+			#region RectTransformImage GameObject
+			GameObject rectTransformImage = new GameObject("Image");
+			Utils.InitUIObject(rectTransformImage, toolRectTransform.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform rectTransformImageTransform = rectTransformImage.AddComponent<RectTransform>();
+			Utils.AlignRectTransformMiddleCenter(rectTransformImageTransform, 16f, 16f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			rectTransformImage.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image rectTransformImageImage = rectTransformImage.AddComponent<Image>();
+			
+			rectTransformImageImage.sprite = Assets.Toolbar.Textures.toolRectTransform;
+			rectTransformImageImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+			
+			width += buttonWidth;
+			#endregion
+			#endregion
+			
+			Utils.AlignRectTransformStretchLeft(toolsTransform, width, contentWidth, 5f, 5f);
+			
+			contentWidth += width + 20f;
+			#endregion
+		}
+				
+		/// <summary>
+		/// Creates BasePoint GameObject.
+		/// </summary>
+		/// <param name="parentTransform">Parent transform.</param>
+		/// <param name="contentWidth">Content width.</param>
+		private void CreateBasePointGameObject(Transform parentTransform, ref float contentWidth)
+		{
+			//***************************************************************************
+			// BasePoint GameObject
+			//***************************************************************************
+			#region BasePoint GameObject
+			GameObject basePoint = new GameObject("BasePoint");
+			Utils.InitUIObject(basePoint, parentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform basePointTransform = basePoint.AddComponent<RectTransform>();
+			#endregion
+
+			float width = 0f;
+			
+			//===========================================================================
+			// Fill content
+			//===========================================================================
+			#region Fill content
+			//***************************************************************************
+			// Point GameObject
+			//***************************************************************************
+			#region Point GameObject
+			GameObject point = new GameObject("Point");
+			Utils.InitUIObject(point, basePoint.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform pointTransform = point.AddComponent<RectTransform>();
+			#endregion
+
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			point.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image pointImage = point.AddComponent<Image>();
+			
+			pointImage.sprite = Assets.Toolbar.Textures.toolLeftButton;
+			pointImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button pointButton = point.AddComponent<Button>();
+			
+			pointButton.targetGraphic = pointImage;
+			pointButton.transition    = Selectable.Transition.SpriteSwap;
+			pointButton.spriteState   = mLeftButtonSpriteState;
+			pointButton.onClick.AddListener(mScript.OnBasePointClicked); // TODO: Add Tooltip
+			#endregion
+
+			//***************************************************************************
+			// PointImage GameObject
+			//***************************************************************************
+			#region PointImage GameObject
+			GameObject pointImageObject = new GameObject("Image");
+			Utils.InitUIObject(pointImageObject, point.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform pointImageTransform = pointImageObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(pointImageTransform, 12f, 8f, 4f, 4f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			pointImageObject.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+            #region Image Component
+			Image pointImageImage = pointImageObject.AddComponent<Image>();
+            
+			pointImageImage.sprite = Assets.Toolbar.Textures.center;
+			pointImageImage.type   = Image.Type.Sliced;
+            #endregion
+			#endregion
+
+			//***************************************************************************
+			// PointText GameObject
+			//***************************************************************************
+			#region PointText GameObject
+			GameObject pointTextObject = new GameObject("Text");
+			Utils.InitUIObject(pointTextObject, point.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform pointTextTransform = pointTextObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(pointTextTransform, 24f);
+			#endregion
+						
+			//===========================================================================
+			// Text Component
+			//===========================================================================
+			#region Text Component
+            Text pointText = pointTextObject.AddComponent<Text>();
+            
+			pointText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			pointText.fontSize  = 11;
+			pointText.alignment = TextAnchor.MiddleLeft;
+			pointText.color     = new Color(0f, 0f, 0f, 1f);
+            #endregion
+            #endregion
+            #endregion
+            
+            //***************************************************************************
+			// CoordinateSystem GameObject
+			//***************************************************************************
+			#region CoordinateSystem GameObject
+			GameObject coordinateSystem = new GameObject("CoordinateSystem");
+			Utils.InitUIObject(coordinateSystem, basePoint.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform coordinateSystemTransform = coordinateSystem.AddComponent<RectTransform>();
+			#endregion
+
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			coordinateSystem.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image coordinateSystemImage = coordinateSystem.AddComponent<Image>();
+			
+			coordinateSystemImage.sprite = Assets.Toolbar.Textures.toolRightButton;
+			coordinateSystemImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button coordinateSystemButton = coordinateSystem.AddComponent<Button>();
+			
+			coordinateSystemButton.targetGraphic = coordinateSystemImage;
+			coordinateSystemButton.transition    = Selectable.Transition.SpriteSwap;
+			coordinateSystemButton.spriteState   = mRightButtonSpriteState;
+			coordinateSystemButton.onClick.AddListener(mScript.OnCoordinateSystemClicked); // TODO: Add Tooltip
+			#endregion
+
+			//***************************************************************************
+            // CoordinateSystemImage GameObject
+			//***************************************************************************
+			#region CoordinateSystemImage GameObject
+			GameObject coordinateSystemImageObject = new GameObject("Image");
+			Utils.InitUIObject(coordinateSystemImageObject, coordinateSystem.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform coordinateSystemImageTransform = coordinateSystemImageObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchLeft(coordinateSystemImageTransform, 12f, 8f, 4f, 4f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			coordinateSystemImageObject.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+            Image coordinateSystemImageImage = coordinateSystemImageObject.AddComponent<Image>();
+            
+            coordinateSystemImageImage.sprite = Assets.Toolbar.Textures.local;
+            coordinateSystemImageImage.type   = Image.Type.Sliced;
+            #endregion
+            #endregion
+
+			//***************************************************************************
+			// CoordinateSystemText GameObject
+			//***************************************************************************
+			#region CoordinateSystemText GameObject
+			GameObject coordinateSystemTextObject = new GameObject("Text");
+			Utils.InitUIObject(coordinateSystemTextObject, coordinateSystem.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform coordinateSystemTextTransform = coordinateSystemTextObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(coordinateSystemTextTransform, 24f);
+			#endregion
+			
+			//===========================================================================
+			// Text Component
+			//===========================================================================
+			#region Text Component
+			Text coordinateSystemText = coordinateSystemTextObject.AddComponent<Text>();
+            
+			coordinateSystemText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			coordinateSystemText.fontSize  = 11;
+			coordinateSystemText.alignment = TextAnchor.MiddleLeft;
+			coordinateSystemText.color     = new Color(0f, 0f, 0f, 1f);
+            #endregion
+            #endregion
+            #endregion
+            
+            #region Calculate geometry
+			float buttonWidth;
+			float maxButtonWidth = 0f;
+
+			pointText.text            = Translator.getString(R.sections.Toolbar.strings.pivot);
+			coordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.global);
+
+			buttonWidth = pointText.preferredWidth + 32f;
+
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+			}
+
+			buttonWidth = coordinateSystemText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+            }
+
+			pointText.text            = Translator.getString(R.sections.Toolbar.strings.center);
+			coordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.local);
+
+			buttonWidth = pointText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+			}
+			
+			buttonWidth = coordinateSystemText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+            {
+				maxButtonWidth = buttonWidth;
+            }
+            
+            Utils.AlignRectTransformStretchLeft(pointTransform,            maxButtonWidth + 1, width); // One button overlaps another one
+			width += maxButtonWidth;
+
+			Utils.AlignRectTransformStretchLeft(coordinateSystemTransform, maxButtonWidth,     width);
+			width += maxButtonWidth;
+			#endregion
+			#endregion
+
+			Utils.AlignRectTransformStretchLeft(basePointTransform, width, contentWidth, 8f, 6f);
+			
+			contentWidth += width;
+			#endregion
+		}
+
+		/// <summary>
+		/// Creates Popups GameObject.
+		/// </summary>
+		/// <param name="parentTransform">Parent transform.</param>
+		/// <param name="contentWidth">Content width.</param>
+		private void CreatePopupsGameObject(Transform parentTransform, ref float contentWidth)
+		{
+		}
+
+		/// <summary>
+		/// Creates Playback GameObject.
+		/// </summary>
+		/// <param name="parentTransform">Parent transform.</param>
+		/// <param name="contentWidth">Content width.</param>
+		private void CreatePlaybackGameObject(Transform parentTransform, ref float contentWidth)
+		{
 		}
 	}
 }

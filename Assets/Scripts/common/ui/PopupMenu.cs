@@ -116,9 +116,9 @@ namespace common
                 #endregion
 
                 //***************************************************************************
-                // Content for ScrollArea object
+				// Content GameObject
                 //***************************************************************************
-                #region Content for ScrollArea object
+				#region Content GameObject
                 GameObject scrollAreaContent = new GameObject("Content");
                 Utils.InitUIObject(scrollAreaContent, scrollArea.transform);
 
@@ -129,10 +129,13 @@ namespace common
                 RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
                 #endregion
 
-                // Fill content
-                float contentWidth  = 0f;
-                float contentHeight = 0f;
+				float contentWidth  = 0f;
+				float contentHeight = 0f;
 
+				//===========================================================================
+				// Fill content
+				//===========================================================================
+				#region Fill content
                 // Create menu item buttons
 				ReadOnlyCollection<TreeNode<CustomMenuItem>> menuItems = mItems.Children;
 
@@ -186,11 +189,11 @@ namespace common
 
 						if (enabled)
                         {
-                            menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.button) as GameObject;
+							menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.button) as GameObject; // TODO: Try to do the same without prefabs
                         }
                         else
                         {
-							menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.buttonDisabled) as GameObject;
+							menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.buttonDisabled) as GameObject; // TODO: Try to do the same without prefabs
                         }
 
                         Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
@@ -238,19 +241,15 @@ namespace common
                         #region Text GameObject
                         GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject; // Button/Text
 
-						//***************************************************************************
+						//===========================================================================
 						// Text Component
-						//***************************************************************************
+						//===========================================================================
                         #region Text Component
                         Text text = menuItemText.GetComponent<Text>();
                         text.text = item.Text;
                         #endregion
                         #endregion
 
-						//***************************************************************************
-						// Calculating button geometry
-						//***************************************************************************
-                        #region Calculating button geometry
                         float buttonWidth  = text.preferredWidth  + 44;
                         float buttonHeight = text.preferredHeight + 8;
 
@@ -262,7 +261,6 @@ namespace common
                         }
 
                         contentHeight += buttonHeight;
-                        #endregion
                     }
 					else
 					{
@@ -521,7 +519,8 @@ namespace common
 					}
 				}
 				#endregion
-                
+				#endregion
+
 				Utils.AlignRectTransformTopStretch(scrollAreaContentTransform, contentHeight);
                 #endregion
 

@@ -1209,11 +1209,10 @@ namespace ui
 	        Utils.AlignRectTransformStretchStretch(scrollAreaTransform);
 	        #endregion
 	        
-			// TODO: Stars???
 	        //***************************************************************************
-	        // Content for ScrollArea object
+			// Content GameObject
 	        //***************************************************************************
-	        #region Content for ScrollArea object
+	        #region Content GameObject
 	        GameObject scrollAreaContent = new GameObject("Content");
 	        Utils.InitUIObject(scrollAreaContent, scrollArea.transform);
 	        
@@ -1224,9 +1223,12 @@ namespace ui
 	        RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
 	        #endregion
 	        
-	        // Fill content
 	        float contentWidth = 0f;
-	        
+
+			//===========================================================================
+			// Fill content
+			//===========================================================================
+			#region Fill content
 	        // Create menu item buttons
 	        foreach (TreeNode<CustomMenuItem> menuItem in mItems.Children)
 	        {
@@ -1238,7 +1240,7 @@ namespace ui
 					// Button GameObject
 					//***************************************************************************
 					#region Button GameObject
-					GameObject menuItemButton = Object.Instantiate(Assets.MainMenu.Prefabs.button) as GameObject;
+					GameObject menuItemButton = Object.Instantiate(Assets.MainMenu.Prefabs.button) as GameObject; // TODO: Try to do the same without prefabs
 					Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
 					menuItemButton.name = item.Name;
 					
@@ -1289,11 +1291,15 @@ namespace ui
 					Debug.LogError("Unknown menu item type");
 				}
 	        }
-	        
+			#endregion
+
 			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth);
 			scrollAreaContentTransform.pivot = new Vector2(0f, 0.5f); // TODO: Try to do it in AlignRectTransformStretchLeft
 	        #endregion
 	        
+			//===========================================================================
+			// ScrollRect Component
+			//===========================================================================
 	        #region ScrollRect Component
 	        ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
 	        
