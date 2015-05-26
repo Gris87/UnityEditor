@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace ui
 {
+	/// <summary>
+	/// Script that realize dock windows behaviour.
+	/// </summary>
 	public class DockingAreaScript : MonoBehaviour
 	{
 		/// <summary>

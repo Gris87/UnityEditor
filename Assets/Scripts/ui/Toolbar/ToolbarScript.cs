@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace ui
 {
+	/// <summary>
+	/// Script that realize toolbar behaviour.
+	/// </summary>
 	public class ToolbarScript : MonoBehaviour
 	{
 		private ToolbarUI mUi;
@@ -81,6 +84,51 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnCoordinateSystemClicked");
 			// TODO: Implement ToolbarScript.OnCoordinateSystemClicked
+		}
+		
+		/// <summary>
+		/// Handler for play button.
+		/// </summary>
+		public void OnPlayClicked()
+		{
+			Debug.Log("ToolbarScript.OnPlayClicked");
+			// TODO: Implement ToolbarScript.OnPlayClicked
+		}
+		
+		/// <summary>
+		/// Handler for pause button.
+		/// </summary>
+		public void OnPauseClicked()
+		{
+			Debug.Log("ToolbarScript.OnPauseClicked");
+			// TODO: Implement ToolbarScript.OnPauseClicked
+		}
+		
+		/// <summary>
+		/// Handler for step button.
+		/// </summary>
+		public void OnStepClicked()
+		{
+			Debug.Log("ToolbarScript.OnStepClicked");
+			// TODO: Implement ToolbarScript.OnStepClicked
+		}
+				
+		/// <summary>
+		/// Handler for layers popup button.
+		/// </summary>
+		public void OnLayersClicked()
+		{
+			Debug.Log("ToolbarScript.OnLayersClicked");
+			// TODO: Implement ToolbarScript.OnLayersClicked
+		}
+				
+		/// <summary>
+		/// Handler for layout popup button.
+		/// </summary>
+		public void OnLayoutClicked()
+		{
+			Debug.Log("ToolbarScript.OnLayoutClicked");
+			// TODO: Implement ToolbarScript.OnLayoutClicked
 		}
 	}
 }

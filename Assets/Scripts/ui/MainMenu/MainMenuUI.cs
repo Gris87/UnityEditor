@@ -10,6 +10,9 @@ using common.ui;
 
 namespace ui
 {
+	/// <summary>
+	/// Main menu user interface.
+	/// </summary>
 	public class MainMenuUI
 	{
 	    private MainMenuScript mScript;
