@@ -2,18 +2,18 @@
 <resources>
     
     <!-- Base point : Tooltip for Center -->
-    <string name="center_tooltip">The tool handle is placed at the center of the selection</string>
+    <string name="center">The tool handle is placed at the center of the selection</string>
 
     <!-- Base point : Tooltip for Pivot -->
-    <string name="pivot_tooltip">The tool handle is placed at the active object's pivot point</string>
+    <string name="pivot">The tool handle is placed at the active object's pivot point</string>
     
     <!-- Coordinate system : Tooltip for Local -->
-    <string name="local_tooltip">Tool handles are in active object's rotation</string>
+    <string name="local">Tool handles are in active object's rotation</string>
     
     <!-- Coordinate system : Tooltip for Global -->
-    <string name="global_tooltip">Tool handles are in global rotation</string>
+    <string name="global">Tool handles are in global rotation</string>
     
     <!-- Popup : Tooltip for Layers -->
-    <string name="layers_tooltip">Which layers are visible in the Scene views</string>
+    <string name="layers">Which layers are visible in the Scene views</string>
 
 </resources>

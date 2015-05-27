@@ -27,6 +27,7 @@ namespace UnityTranslation
         void Start()
         {
             mText = GetComponent<Text>();
+            mText.text = Translator.getString(id);
 
             Translator.addLanguageChangedListener(OnLanguageChanged);
         }

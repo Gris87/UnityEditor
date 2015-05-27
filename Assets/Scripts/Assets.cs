@@ -13,7 +13,7 @@ public static class Assets
 	/// <returns>The asset at path if it can be found otherwise returns null.</returns>
 	/// <param name="path">Pathname of the target folder.</param>
 	/// <typeparam name="T">Type of resource.</typeparam>
-	public static T LoadResource<T>(string path) where T : Object
+	public static T LoadResource<T>(string path) where T : UnityEngine.Object
 	{
 		T res = Resources.Load<T>(path);
 		
@@ -277,5 +277,31 @@ public static class Assets
 			}
 		}
 	}
+	#endregion
+
+	#region Assets for TooltipArea
+	/// <summary>
+	/// Assets for TooltipArea.
+	/// </summary>
+	public static class TooltipArea
+	{		
+		/// <summary>
+		/// Texture assets for TooltipArea.
+		/// </summary>
+		public static class Textures
+		{
+			public static Sprite tooltipBackground;
+			
+			
+			
+			/// <summary>
+			/// Initializes the <see cref="Assets+TooltipArea+Textures"/> class.
+			/// </summary>
+			static Textures()
+			{
+				tooltipBackground = LoadResource<Sprite>("Textures/ui/TooltipArea/TooltipBackground");
+            }
+        }
+    }
 	#endregion
 }

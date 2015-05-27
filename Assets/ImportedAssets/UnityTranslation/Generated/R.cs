@@ -2613,35 +2613,35 @@ namespace UnityTranslation
                     /// <para>Value:</para>
                     ///   <para>The tool handle is placed at the center of the selection</para>
                     /// </summary>
-                    center_tooltip
+                    center
                     ,
                     /// <summary>
                     /// <para>Base point : Tooltip for Pivot</para>
                     /// <para>Value:</para>
                     ///   <para>The tool handle is placed at the active object&apos;s pivot point</para>
                     /// </summary>
-                    pivot_tooltip
+                    pivot
                     ,
                     /// <summary>
                     /// <para>Coordinate system : Tooltip for Local</para>
                     /// <para>Value:</para>
                     ///   <para>Tool handles are in active object&apos;s rotation</para>
                     /// </summary>
-                    local_tooltip
+                    local
                     ,
                     /// <summary>
                     /// <para>Coordinate system : Tooltip for Global</para>
                     /// <para>Value:</para>
                     ///   <para>Tool handles are in global rotation</para>
                     /// </summary>
-                    global_tooltip
+                    global
                     ,
                     /// <summary>
                     /// <para>Popup : Tooltip for Layers</para>
                     /// <para>Value:</para>
                     ///   <para>Which layers are visible in the Scene views</para>
                     /// </summary>
-                    layers_tooltip
+                    layers
                     ,
                     /// <summary>
                     /// Total amount of strings.
@@ -3079,11 +3079,11 @@ namespace UnityTranslation
             {
                 new Dictionary<string, int> // strings
                 {
-                      { "center_tooltip", (int)R.sections.Tooltips.strings.center_tooltip }
-                    , { "pivot_tooltip" , (int)R.sections.Tooltips.strings.pivot_tooltip }
-                    , { "local_tooltip" , (int)R.sections.Tooltips.strings.local_tooltip }
-                    , { "global_tooltip", (int)R.sections.Tooltips.strings.global_tooltip }
-                    , { "layers_tooltip", (int)R.sections.Tooltips.strings.layers_tooltip }
+                      { "center", (int)R.sections.Tooltips.strings.center }
+                    , { "pivot" , (int)R.sections.Tooltips.strings.pivot }
+                    , { "local" , (int)R.sections.Tooltips.strings.local }
+                    , { "global", (int)R.sections.Tooltips.strings.global }
+                    , { "layers", (int)R.sections.Tooltips.strings.layers }
                 }
                 ,
                 new Dictionary<string, int> // array

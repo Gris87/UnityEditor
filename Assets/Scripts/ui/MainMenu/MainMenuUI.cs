@@ -1243,7 +1243,7 @@ namespace ui
 					// Button GameObject
 					//***************************************************************************
 					#region Button GameObject
-					GameObject menuItemButton = Object.Instantiate(Assets.MainMenu.Prefabs.button) as GameObject; // TODO: Try to do the same without prefabs
+					GameObject menuItemButton = UnityEngine.Object.Instantiate(Assets.MainMenu.Prefabs.button) as GameObject; // TODO: Try to do the same without prefabs
 					Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
 					menuItemButton.name = item.Name;
 					

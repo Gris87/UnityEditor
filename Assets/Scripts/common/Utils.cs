@@ -74,6 +74,76 @@ namespace common
         }
 
 		/// <summary>
+		/// Fits RectTransform to screen.
+		/// </summary>
+		/// <param name="transform">Transform.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		/// <param name="x">The x coordinate.</param>
+		/// <param name="y">The y coordinate.</param>
+		/// <param name="left">Left edge of alternative position.</param>
+		/// <param name="bottom">Bottom edge of alternative position.</param>
+		public static void FitRectTransformToScreen(
+												  	  RectTransform transform
+													, float width
+													, float height
+													, float x      = 0
+													, float y      = 0
+													, float left   = -1
+													, float bottom = -1
+												   )
+		{
+			int   screenWidth  = Screen.width;
+			int   screenHeight = Screen.height;
+			
+			if (width > screenWidth)
+			{
+				width = screenWidth;
+			}
+			
+			if (height > screenHeight)
+			{
+				height = screenHeight;
+			}
+			
+			if (x + width > screenWidth)
+			{
+				if (left != -1)
+				{
+					x = left - width;
+					
+					if (x < 0)
+					{
+						x = screenWidth - width;
+					}
+				}
+				else
+				{
+					x = screenWidth - width;
+				}
+			}
+			
+			if (y + height > screenHeight)
+			{
+				if (bottom != -1)
+				{
+					y = bottom - height;
+					
+					if (y < 0)
+					{
+						y = screenHeight - height;
+					}
+				}
+				else
+				{
+					y = screenHeight - height;
+				}
+			}
+
+			Utils.AlignRectTransformTopLeft(transform, width, height, x, y);
+		}
+
+		/// <summary>
 		/// Aligns RectTransform to top left corner.
 		/// </summary>
 		/// <param name="transform">Transform.</param>

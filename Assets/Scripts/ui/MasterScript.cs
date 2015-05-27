@@ -145,6 +145,33 @@ namespace ui
 			Global.popupMenuAreaScript = Global.popupMenuArea.AddComponent<PopupMenuAreaScript>();
 			#endregion
 			#endregion
+
+
+
+			//***************************************************************************
+			// TooltipArea GameObject
+			//***************************************************************************
+			#region TooltipArea GameObject
+			Global.tooltipArea = new GameObject("TooltipArea");
+			Utils.InitUIObject(Global.tooltipArea, transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform tooltipAreaTransform = Global.tooltipArea.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(tooltipAreaTransform);
+			
+			Global.tooltipAreaTransform = tooltipAreaTransform;
+			#endregion
+			
+			//===========================================================================
+			// TooltipAreaScript Component
+			//===========================================================================
+			#region TooltipAreaScript Component
+			Global.tooltipAreaScript = Global.tooltipArea.AddComponent<TooltipAreaScript>();
+			#endregion
+			#endregion
 		}
 	}
 }

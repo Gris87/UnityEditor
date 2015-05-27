@@ -198,13 +198,12 @@ namespace UnityTranslationInternal
         }
 
         /// <summary>
-        /// Adds specified language changed listener and invoke it.
+        /// Adds specified language changed listener.
         /// </summary>
         /// <param name="listener">Language changed listener.</param>
         public static void addLanguageChangedListener(UnityAction listener)
         {
             mLanguageChangedAction.AddListener(listener);
-            listener.Invoke();
         }
 
         /// <summary>

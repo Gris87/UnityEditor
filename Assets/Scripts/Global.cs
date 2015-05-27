@@ -68,4 +68,19 @@ public static class Global
 	/// PopupMenuArea script.
 	/// </summary>
 	public static PopupMenuAreaScript popupMenuAreaScript;
+	
+	/// <summary>
+	/// TooltipArea GameObject.
+	/// </summary>
+	public static GameObject tooltipArea;
+	
+	/// <summary>
+	/// TooltipArea transform.
+	/// </summary>
+	public static Transform tooltipAreaTransform;
+	
+	/// <summary>
+	/// TooltipArea script.
+	/// </summary>
+	public static TooltipAreaScript tooltipAreaScript;
 }

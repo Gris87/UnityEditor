@@ -29,7 +29,7 @@ namespace ui
 		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
-		void Update() // Auto-show sub-popups on cover
+		void Update() // TODO: Auto-show sub-popups on cover
 		{
 			if (mPopupMenus.Count > 0)
 			{

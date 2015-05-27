@@ -561,54 +561,8 @@ namespace common
 
 				float popupMenuWidth  = contentWidth  + 11;
                 float popupMenuHeight = contentHeight + 11;
-				int   screenWidth     = Screen.width;
-				int   screenHeight    = Screen.height;
 
-				if (popupMenuWidth > screenWidth)
-				{
-					popupMenuWidth = screenWidth;
-				}
-
-				if (popupMenuHeight > screenHeight)
-				{
-					popupMenuHeight = screenHeight;
-				}
-
-				if (x + popupMenuWidth > screenWidth)
-				{
-					if (left != -1)
-					{
-						x = left - popupMenuWidth;
-
-						if (x < 0)
-						{
-							x = screenWidth - popupMenuWidth;
-						}
-					}
-					else
-					{
-						x = screenWidth - popupMenuWidth;
-					}
-				}
-
-				if (y + popupMenuHeight > screenHeight)
-				{
-					if (bottom != -1)
-					{
-						y = bottom - popupMenuHeight;
-						
-						if (y < 0)
-						{
-							y = screenHeight - popupMenuHeight;
-						}
-					}
-					else
-					{
-						y = screenHeight - popupMenuHeight;
-					}
-				}
-
-				Utils.AlignRectTransformTopLeft(popupMenuTransform, popupMenuWidth, popupMenuHeight, x, y);
+				Utils.FitRectTransformToScreen(popupMenuTransform, popupMenuWidth, popupMenuHeight, x, y, left, bottom);
                 #endregion
             }
 
