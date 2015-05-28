@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityTranslation;
 
 
 
@@ -30,6 +31,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnToolHandClicked");
 			// TODO: Implement ToolbarScript.OnToolHandClicked
+
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 
 		/// <summary>
@@ -39,6 +42,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnToolMoveClicked");
 			// TODO: Implement ToolbarScript.OnToolMoveClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 
 		/// <summary>
@@ -48,6 +53,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnToolRotateClicked");
 			// TODO: Implement ToolbarScript.OnToolRotateClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 
 		/// <summary>
@@ -57,6 +64,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnToolScaleClicked");
 			// TODO: Implement ToolbarScript.OnToolScaleClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 
 		/// <summary>
@@ -66,6 +75,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnToolRectTransformClicked");
 			// TODO: Implement ToolbarScript.OnToolRectTransformClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 		
 		/// <summary>
@@ -75,6 +86,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnBasePointClicked");
 			// TODO: Implement ToolbarScript.OnBasePointClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 		
 		/// <summary>
@@ -84,6 +97,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnCoordinateSystemClicked");
 			// TODO: Implement ToolbarScript.OnCoordinateSystemClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 		
 		/// <summary>
@@ -93,6 +108,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnPlayClicked");
 			// TODO: Implement ToolbarScript.OnPlayClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 		
 		/// <summary>
@@ -102,6 +119,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnPauseClicked");
 			// TODO: Implement ToolbarScript.OnPauseClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 		
 		/// <summary>
@@ -111,6 +130,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnStepClicked");
 			// TODO: Implement ToolbarScript.OnStepClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 				
 		/// <summary>
@@ -120,6 +141,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnLayersClicked");
 			// TODO: Implement ToolbarScript.OnLayersClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 				
 		/// <summary>
@@ -129,6 +152,8 @@ namespace ui
 		{
 			Debug.Log("ToolbarScript.OnLayoutClicked");
 			// TODO: Implement ToolbarScript.OnLayoutClicked
+			
+			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
 		}
 	}
 }

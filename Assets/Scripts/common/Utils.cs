@@ -93,8 +93,8 @@ namespace common
 													, float bottom = -1
 												   )
 		{
-			int   screenWidth  = Screen.width;
-			int   screenHeight = Screen.height;
+			int screenWidth  = Screen.width;
+			int screenHeight = Screen.height;
 			
 			if (width > screenWidth)
 			{
@@ -223,18 +223,22 @@ namespace common
 		/// <param name="offsetTop">Top offset.</param>
 		/// <param name="offsetLeft">Left offset.</param>
 		/// <param name="offsetRight">Right offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformTopStretch(
 													      RectTransform transform
 													    , float height
 														, float offsetTop   = 0
 													    , float offsetLeft  = 0
 													    , float offsetRight = 0
+														, float pivotX      = 0.5f
+														, float pivotY      = 0.5f
 													   )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(0f, 1f);
 			transform.anchorMax          = new Vector2(1f, 1f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(offsetLeft,   -(offsetTop + height));
 			transform.offsetMax          = new Vector2(-offsetRight, -(offsetTop));
@@ -320,18 +324,22 @@ namespace common
 		/// <param name="offsetY">Offset by Y axis.</param>
 		/// <param name="offsetLeft">Left offset.</param>
 		/// <param name="offsetRight">Right offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformMiddleStretch(
 															 RectTransform transform
 														   , float height
 														   , float offsetY     = 0
 														   , float offsetLeft  = 0
 														   , float offsetRight = 0
+														   , float pivotX      = 0.5f
+														   , float pivotY      = 0.5f
 														  )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(0f, 0.5f);
 			transform.anchorMax          = new Vector2(1f, 0.5f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(offsetLeft,   -(offsetY + height / 2));
 			transform.offsetMax          = new Vector2(-offsetRight, -(offsetY - height / 2));
@@ -417,18 +425,22 @@ namespace common
 		/// <param name="offsetBottom">Bottom offset.</param>
 		/// <param name="offsetLeft">Left offset.</param>
 		/// <param name="offsetRight">Right offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformBottomStretch(
 															 RectTransform transform
 														   , float height
 														   , float offsetBottom = 0
 														   , float offsetLeft   = 0
 														   , float offsetRight  = 0
+														   , float pivotX       = 0.5f
+														   , float pivotY       = 0.5f
 														  )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(0f, 0f);
 			transform.anchorMax          = new Vector2(1f, 0f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(offsetLeft,   offsetBottom);
 			transform.offsetMax          = new Vector2(-offsetRight, offsetBottom + height);
@@ -442,18 +454,22 @@ namespace common
 		/// <param name="offsetLeft">Left offset.</param>
 		/// <param name="offsetTop">Top offset.</param>
 		/// <param name="offsetBottom">Bottom offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformStretchLeft(
 														   RectTransform transform
 														 , float width
 														 , float offsetLeft   = 0
 														 , float offsetTop    = 0
 														 , float offsetBottom = 0
+			         									 , float pivotX       = 0.5f
+														 , float pivotY       = 0.5f
 														)
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(0f, 0f);
 			transform.anchorMax          = new Vector2(0f, 1f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(offsetLeft,          offsetBottom);
 			transform.offsetMax          = new Vector2(offsetLeft + width, -offsetTop);
@@ -467,18 +483,22 @@ namespace common
 		/// <param name="offsetX">Offset by X axis.</param>
 		/// <param name="offsetTop">Top offset.</param>
 		/// <param name="offsetBottom">Bottom offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformStretchCenter(
 															 RectTransform transform
 														   , float width
 														   , float offsetX      = 0
 														   , float offsetTop    = 0
 														   , float offsetBottom = 0
+														   , float pivotX       = 0.5f
+														   , float pivotY       = 0.5f
 														  )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(0.5f, 0f);
 			transform.anchorMax          = new Vector2(0.5f, 1f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(offsetX - width / 2,  offsetBottom);
 			transform.offsetMax          = new Vector2(offsetX + width / 2, -offsetTop);
@@ -492,18 +512,22 @@ namespace common
 		/// <param name="offsetRight">Right offset.</param>
 		/// <param name="offsetTop">Top offset.</param>
 		/// <param name="offsetBottom">Bottom offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformStretchRight(
 															RectTransform transform
 														  , float width
 														  , float offsetRight  = 0
 														  , float offsetTop    = 0
 														  , float offsetBottom = 0
+														  , float pivotX       = 0.5f
+														  , float pivotY       = 0.5f
 														 )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(1f, 0f);
 			transform.anchorMax          = new Vector2(1f, 1f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(-offsetRight - width,  offsetBottom);
 			transform.offsetMax          = new Vector2(-offsetRight,         -offsetTop);
@@ -517,18 +541,22 @@ namespace common
 		/// <param name="offsetTop">Top offset.</param>
 		/// <param name="offsetRight">Right offset.</param>
 		/// <param name="offsetBottom">Bottom offset.</param>
+		/// <param name="pivotX">The x coordinate of pivot.</param>
+		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformStretchStretch(
 															  RectTransform transform
-															, float offsetLeft = 0
-															, float offsetTop = 0
-															, float offsetRight = 0
+															, float offsetLeft   = 0
+															, float offsetTop    = 0
+															, float offsetRight  = 0
 															, float offsetBottom = 0
+															, float pivotX       = 0.5f
+															, float pivotY       = 0.5f
 														   )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
 			transform.anchorMin          = new Vector2(0f, 0f);
 			transform.anchorMax          = new Vector2(1f, 1f);
-			transform.pivot              = new Vector2(0.5f, 0.5f);
+			transform.pivot              = new Vector2(pivotX, pivotY);
 			transform.anchoredPosition3D = new Vector3(0f, 0f, 0f);
 			transform.offsetMin          = new Vector2(offsetLeft,    offsetBottom);
 			transform.offsetMax          = new Vector2(-offsetRight, -offsetTop);

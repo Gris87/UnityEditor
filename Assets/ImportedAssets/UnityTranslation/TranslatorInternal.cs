@@ -354,7 +354,7 @@ namespace UnityTranslationInternal
                                             }
                                         }
                                         else
-                                            if (reader.Name == "string-array")
+                                        if (reader.Name == "string-array")
                                         {
                                             string tokenName = reader.GetAttribute("name");
 
@@ -403,7 +403,7 @@ namespace UnityTranslationInternal
                                             }
                                         }
                                         else
-                                            if (reader.Name == "plurals")
+                                        if (reader.Name == "plurals")
                                         {
                                             string tokenName = reader.GetAttribute("name");
 

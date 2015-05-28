@@ -14,7 +14,13 @@ namespace ui
 	/// </summary>
 	public class PopupMenuAreaScript : MonoBehaviour
 	{	
-		private List<PopupMenu> mPopupMenus;
+		private static float TIMER_NOT_ACTIVE = -10000f;
+
+
+
+		private List<PopupMenu>     mPopupMenus;
+		private AutoPopupItemScript mAutoPopupItem;
+		private float               mRemainingTime;
 		
 		
 		
@@ -23,13 +29,15 @@ namespace ui
 		/// </summary>
 		void Start()
 		{
-			mPopupMenus = new List<PopupMenu>();
+			mPopupMenus    = new List<PopupMenu>();
+			mAutoPopupItem = null;
+			mRemainingTime = TIMER_NOT_ACTIVE;
 		}
 		
 		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
-		void Update() // TODO: Auto-show sub-popups on cover
+		void Update()
 		{
 			if (mPopupMenus.Count > 0)
 			{
@@ -69,6 +77,59 @@ namespace ui
 				{
 					mPopupMenus[mPopupMenus.Count - 1].Destroy();
 				}
+
+				if (IsTimerActive())
+				{
+					mRemainingTime -= Time.deltaTime;
+					
+					if (mRemainingTime <= 0)
+					{
+						mAutoPopupItem.Click();
+						StopTimer();
+					}
+				}
+			}
+		}
+
+		public void OnAutoPopupItemDestroy(AutoPopupItemScript item)
+		{
+			if (mPopupMenus.Count > 0)
+			{
+				if (mAutoPopupItem == item)
+				{
+					mAutoPopupItem = null;
+					StopTimer();
+				}
+			}
+		}
+
+		public void OnAutoPopupItemDisable(AutoPopupItemScript item)
+		{
+			if (mPopupMenus.Count > 0)
+			{
+				if (mAutoPopupItem == item)
+				{
+					mAutoPopupItem = null;
+					StopTimer();
+				}
+			}
+		}
+
+		public void OnAutoPopupItemEnter(AutoPopupItemScript item)
+		{
+			if (mPopupMenus.Count > 0)
+			{
+				mAutoPopupItem = item;
+				StartTimer(mAutoPopupItem.delay);
+			}
+		}
+
+		public void OnAutoPopupItemExit(AutoPopupItemScript item)
+		{
+			if (mPopupMenus.Count > 0)
+			{
+				mAutoPopupItem = null;
+				StopTimer();
 			}
 		}
 		
@@ -88,6 +149,12 @@ namespace ui
 		public void DeregisterPopupMenu(PopupMenu menu)
 		{
 			mPopupMenus.Remove(menu);
+
+			if (mPopupMenus.Count == 0)
+			{
+				mAutoPopupItem = null;
+				StopTimer();
+			}
 		}
 		
 		/// <summary>
@@ -99,6 +166,37 @@ namespace ui
 			{
 				mPopupMenus[0].Destroy();
 			}
+		}
+
+		/// <summary>
+		/// Starts timer with specified delay.
+		/// </summary>
+		/// <param name="ms">Delay in ms.</param>
+		private void StartTimer(float ms)
+		{
+			if (ms < 0f)
+			{
+				Debug.LogError("Incorrect delay value: " + ms);
+			}
+			
+			mRemainingTime = ms / 1000f;
+		}
+		
+		/// <summary>
+		/// Stops timer.
+		/// </summary>
+		private void StopTimer()
+		{
+			mRemainingTime = TIMER_NOT_ACTIVE;
+		}
+		
+		/// <summary>
+		/// Determines whether timer is active.
+		/// </summary>
+		/// <returns><c>true</c> if timer is active; otherwise, <c>false</c>.</returns>
+		private bool IsTimerActive()
+		{
+			return mRemainingTime != TIMER_NOT_ACTIVE;
 		}
 	}
 }

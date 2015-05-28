@@ -59,6 +59,11 @@ namespace UnityTranslation
                 MenuItems
                 ,
                 /// <summary>
+                /// Section ID for "toasts.xml" file.
+                /// </summary>
+                Toasts
+                ,
+                /// <summary>
                 /// Section ID for "toolbar.xml" file.
                 /// </summary>
                 Toolbar
@@ -80,6 +85,7 @@ namespace UnityTranslation
             public static readonly string[] xmlFiles = new string[]
             {
                   "menu_items.xml" // MenuItems
+                , "toasts.xml"     // Toasts
                 , "toolbar.xml"    // Toolbar
                 , "tooltips.xml"   // Tooltips
             };
@@ -2518,6 +2524,53 @@ namespace UnityTranslation
             }
 
             /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/toasts.xml" file.
+            /// </summary>
+            public static class Toasts
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/toasts.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>Toast: Please contribute</para>
+                    /// <para>Value:</para>
+                    ///   <para>This feature is not implemented yet.</para>
+                    ///   <para>Please contribute to our project: https://github.com/Gris87/UnityEditor</para>
+                    /// </summary>
+                    contribute
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/toasts.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/toasts.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
+
+            /// <summary>
             /// Container for all tokens specified in "Assets/Resources/res/values/toolbar.xml" file.
             /// </summary>
             public static class Toolbar
@@ -3043,6 +3096,22 @@ namespace UnityTranslation
                     , { "help__download_beta"                                             , (int)R.sections.MenuItems.strings.help__download_beta                           }
                     , { "help__release_notes"                                             , (int)R.sections.MenuItems.strings.help__release_notes                           }
                     , { "help__report_a_bug"                                              , (int)R.sections.MenuItems.strings.help__report_a_bug                            }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // Toasts
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "contribute", (int)R.sections.Toasts.strings.contribute }
                 }
                 ,
                 new Dictionary<string, int> // array

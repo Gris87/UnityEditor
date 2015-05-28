@@ -58,24 +58,6 @@ public static class Assets
 	public static class MainMenu
 	{
 		/// <summary>
-		/// Prefabs for MainMenu.
-		/// </summary>
-		public static class Prefabs
-		{
-			public static GameObject button;
-
-
-
-			/// <summary>
-			/// Initializes the <see cref="Assets+MainMenu+Prefabs"/> class.
-			/// </summary>
-			static Prefabs()
-			{
-				button = LoadResource<GameObject>("Prefabs/ui/MainMenu/Button");
-			}
-		}
-
-		/// <summary>
 		/// Texture assets for MainMenu.
 		/// </summary>
 		public static class Textures
@@ -224,27 +206,7 @@ public static class Assets
 	/// Assets for PopupMenuArea.
 	/// </summary>
 	public static class PopupMenuArea
-	{
-		/// <summary>
-		/// Prefabs for PopupMenuArea.
-		/// </summary>
-		public static class Prefabs
-		{
-			public static GameObject button;
-			public static GameObject buttonDisabled;
-
-
-			
-			/// <summary>
-			/// Initializes the <see cref="Assets+PopupMenuArea+Prefabs"/> class.
-			/// </summary>
-			static Prefabs()
-			{
-				button         = LoadResource<GameObject>("Prefabs/ui/PopupMenuArea/Button");
-				buttonDisabled = LoadResource<GameObject>("Prefabs/ui/PopupMenuArea/ButtonDisabled");
-			}
-		}
-		
+	{		
 		/// <summary>
 		/// Texture assets for PopupMenuArea.
 		/// </summary>
@@ -304,4 +266,30 @@ public static class Assets
         }
     }
 	#endregion
+
+	#region Assets for ToastArea
+	/// <summary>
+	/// Assets for ToastArea.
+	/// </summary>
+	public static class ToastArea
+	{		
+		/// <summary>
+		/// Texture assets for ToastArea.
+		/// </summary>
+		public static class Textures
+		{
+			public static Sprite toastBackground;
+			
+			
+			
+			/// <summary>
+			/// Initializes the <see cref="Assets+ToastArea+Textures"/> class.
+			/// </summary>
+			static Textures()
+			{
+				toastBackground = LoadResource<Sprite>("Textures/ui/ToastArea/ToastBackground");
+            }
+        }
+    }
+    #endregion
 }

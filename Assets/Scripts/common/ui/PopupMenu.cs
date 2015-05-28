@@ -4,17 +4,60 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+using ui;
+
 
 
 namespace common
 {
     namespace ui
     {
+		namespace Internal
+		{
+			/// <summary>
+			/// Popup menu common things.
+			/// </summary>
+			static class PopupMenuCommon
+			{
+				public static SpriteState buttonSpriteState;
+				public static SpriteState buttonDisabledSpriteState;
+				public static Navigation  defaultNavigation;
+				public static Navigation  noneNavigation;
+
+
+
+				/// <summary>
+				/// Initializes the <see cref="common.ui.Internal.PopupMenuCommon"/> class.
+				/// </summary>
+				static PopupMenuCommon()
+				{
+					buttonSpriteState         = new SpriteState();
+					buttonDisabledSpriteState = new SpriteState();
+					
+					buttonSpriteState.disabledSprite            = Assets.PopupMenuArea.Textures.button;
+					buttonSpriteState.highlightedSprite         = Assets.PopupMenuArea.Textures.buttonHighlighted;
+					buttonSpriteState.pressedSprite             = Assets.PopupMenuArea.Textures.buttonHighlighted;
+					
+					buttonDisabledSpriteState.disabledSprite    = Assets.PopupMenuArea.Textures.button;
+					buttonDisabledSpriteState.highlightedSprite = Assets.PopupMenuArea.Textures.buttonDisabled;
+					buttonDisabledSpriteState.pressedSprite     = Assets.PopupMenuArea.Textures.buttonDisabled;
+
+					defaultNavigation   = Navigation.defaultNavigation;
+					noneNavigation      = new Navigation();
+					noneNavigation.mode = Navigation.Mode.None;
+				}
+			}
+		}
+
         /// <summary>
         /// Popup menu.
         /// </summary>
         public class PopupMenu
         {
+			private static float AUTO_POPUP_DELAY = 500f;
+
+
+
             private TreeNode<CustomMenuItem> mItems;
             private GameObject               mGameObject;
             private UnityEvent               mOnDestroy;
@@ -185,53 +228,79 @@ namespace common
                         // Button GameObject
                         //***************************************************************************
                         #region Button GameObject
-                        GameObject menuItemButton;
-
-						if (enabled)
-                        {
-							menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.button) as GameObject; // TODO: Try to do the same without prefabs
-                        }
-                        else
-                        {
-							menuItemButton = UnityEngine.Object.Instantiate(Assets.PopupMenuArea.Prefabs.buttonDisabled) as GameObject; // TODO: Try to do the same without prefabs
-                        }
-
-                        Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-                        menuItemButton.name = item.Name;
-
+						GameObject menuItemButton = new GameObject(item.Name);
+						Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
+						                        
                         //===========================================================================
                         // RectTransform Component
                         //===========================================================================
                         #region RectTransform Component
-                        RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
+						RectTransform menuItemButtonTransform = menuItemButton.AddComponent<RectTransform>();
                         #endregion
+
+						//===========================================================================
+						// CanvasRenderer Component
+						//===========================================================================
+						#region CanvasRenderer Component
+						menuItemButton.AddComponent<CanvasRenderer>();
+						#endregion
+						
+						//===========================================================================
+						// Image Component
+						//===========================================================================
+						#region Image Component
+						Image menuItemButtonImage = menuItemButton.AddComponent<Image>();
+						
+						menuItemButtonImage.sprite = Assets.PopupMenuArea.Textures.button;
+						menuItemButtonImage.type   = Image.Type.Sliced;
+						#endregion
 
                         //===========================================================================
                         // Button Component
                         //===========================================================================
                         #region Button Component
-                        Button button = menuItemButton.GetComponent<Button>();
+						Button menuItemButtonButton = menuItemButton.AddComponent<Button>();
+
+						menuItemButtonButton.targetGraphic = menuItemButtonImage;
+						menuItemButtonButton.transition    = Selectable.Transition.SpriteSwap;
 
 						if (enabled)
 						{
+							menuItemButtonButton.spriteState = Internal.PopupMenuCommon.buttonSpriteState;
+							menuItemButtonButton.navigation  = Internal.PopupMenuCommon.defaultNavigation;
+
                             if (hasChildren)
                             {
 								TreeNode<CustomMenuItem> currentMenuItem = menuItem;
 								
-								button.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
+								menuItemButtonButton.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
+
+								//===========================================================================
+								// AutoPopupItemScript Component
+								//===========================================================================
+								#region AutoPopupItemScript Component
+								AutoPopupItemScript menuItemButtonAutoPopup = menuItemButton.AddComponent<AutoPopupItemScript>();
+								
+								menuItemButtonAutoPopup.delay = AUTO_POPUP_DELAY;
+								#endregion
                             }
                             else
                             {
-								button.onClick.AddListener(item.OnClick);
+								menuItemButtonButton.onClick.AddListener(item.OnClick);
 
 								if (item.RadioGroup != null)
 								{
-									button.onClick.AddListener(() => OnSelectItem(item));
+									menuItemButtonButton.onClick.AddListener(() => OnSelectItem(item));
 								}
 
-								button.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll);                                
+								menuItemButtonButton.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll);                                
                             }
                         }
+						else
+						{
+							menuItemButtonButton.spriteState = Internal.PopupMenuCommon.buttonDisabledSpriteState;
+							menuItemButtonButton.navigation  = Internal.PopupMenuCommon.noneNavigation;
+						}
                         #endregion
                         #endregion
 
@@ -239,19 +308,40 @@ namespace common
                         // Text GameObject
                         //***************************************************************************
                         #region Text GameObject
-                        GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject; // Button/Text
+						GameObject menuItemText = new GameObject("Text");
+						Utils.InitUIObject(menuItemText, menuItemButton.transform);
 
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform menuItemTextTransform = menuItemText.AddComponent<RectTransform>();
+						Utils.AlignRectTransformStretchStretch(menuItemTextTransform, 32f);
+						#endregion
+						
 						//===========================================================================
 						// Text Component
 						//===========================================================================
-                        #region Text Component
-                        Text text = menuItemText.GetComponent<Text>();
-                        text.text = item.Text;
-                        #endregion
+						#region Text Component
+						Text menuItemTextText      = menuItemText.AddComponent<Text>();
+						menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
+						menuItemTextText.fontSize  = 12;
+						menuItemTextText.alignment = TextAnchor.MiddleLeft;
+						menuItemTextText.text      = item.Text;
+
+						if (enabled)
+						{
+							menuItemTextText.color = new Color(0f, 0f, 0f, 1f);
+						}
+						else
+						{
+							menuItemTextText.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+						}
+						#endregion
                         #endregion
 
-                        float buttonWidth  = text.preferredWidth  + 44;
-                        float buttonHeight = text.preferredHeight + 8;
+						float buttonWidth  = menuItemTextText.preferredWidth + 44f;
+						float buttonHeight = 22f; // TODO: prefferedHeight for specified width
 
 						Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
 

@@ -236,18 +236,17 @@ namespace ui
 			Vector3 mousePos = InputControl.mousePosition;
 
 			float tooltipWidth = tooltipText.preferredWidth  + 10f;
-			tooltipTransform.sizeDelta = new Vector2(tooltipWidth, 0f);
+			int   screenWidth  = Screen.width;
 
-			float tooltipHeight;
-			int attempt = 0;
-
-			do
+			if (tooltipWidth > screenWidth)
 			{
-				++attempt;
+				tooltipWidth = screenWidth;
+			}
 
-				tooltipHeight = tooltipText.preferredHeight + 14f;				
-				Utils.FitRectTransformToScreen(tooltipTransform, tooltipWidth, tooltipHeight, mousePos.x, -mousePos.y + Screen.height);
-			} while (attempt < 3 && tooltipTransform.sizeDelta.x != tooltipWidth);
+			tooltipTransform.sizeDelta = new Vector2(tooltipWidth, 0f);
+			float tooltipHeight = tooltipText.preferredHeight + 14f;
+
+			Utils.FitRectTransformToScreen(tooltipTransform, tooltipWidth, tooltipHeight, mousePos.x, -mousePos.y + Screen.height);
 			#endregion
 		}
 

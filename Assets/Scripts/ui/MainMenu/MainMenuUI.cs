@@ -15,7 +15,13 @@ namespace ui
 	/// </summary>
 	public class MainMenuUI
 	{
+		private static float AUTO_POPUP_DELAY = 0f;
+
+
+
 	    private MainMenuScript mScript;
+
+		private SpriteState mButtonSpriteState;
 
 	    #region Menu items
 	    private TreeNode<CustomMenuItem> mItems;
@@ -574,7 +580,13 @@ namespace ui
 	    /// </summary>
 	    public MainMenuUI(MainMenuScript script)
 	    {
-	        mScript = script;	        
+	        mScript = script;
+
+			mButtonSpriteState = new SpriteState();
+
+			mButtonSpriteState.disabledSprite    = Assets.MainMenu.Textures.button;
+			mButtonSpriteState.highlightedSprite = Assets.MainMenu.Textures.buttonHighlighted;
+			mButtonSpriteState.pressedSprite     = Assets.MainMenu.Textures.buttonPressed;
 	    }
 
 		/// <summary>
@@ -1243,27 +1255,56 @@ namespace ui
 					// Button GameObject
 					//***************************************************************************
 					#region Button GameObject
-					GameObject menuItemButton = UnityEngine.Object.Instantiate(Assets.MainMenu.Prefabs.button) as GameObject; // TODO: Try to do the same without prefabs
+					GameObject menuItemButton = new GameObject(item.Name);
 					Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-					menuItemButton.name = item.Name;
-					
+															
 					//===========================================================================
 					// RectTransform Component
 					//===========================================================================
 					#region RectTransform Component
-					RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
+					RectTransform menuItemButtonTransform = menuItemButton.AddComponent<RectTransform>();
+					#endregion
+
+					//===========================================================================
+					// CanvasRenderer Component
+					//===========================================================================
+					#region CanvasRenderer Component
+					menuItemButton.AddComponent<CanvasRenderer>();
+					#endregion
+					
+					//===========================================================================
+					// Image Component
+					//===========================================================================
+					#region Image Component
+					Image menuItemButtonImage = menuItemButton.AddComponent<Image>();
+					
+					menuItemButtonImage.sprite = Assets.MainMenu.Textures.button;
+					menuItemButtonImage.type   = Image.Type.Sliced;
 					#endregion
 					
 					//===========================================================================
 					// Button Component
 					//===========================================================================
 					#region Button Component
-					Button button = menuItemButton.GetComponent<Button>();
-					
+					Button menuItemButtonButton = menuItemButton.AddComponent<Button>();
+
+					menuItemButtonButton.targetGraphic = menuItemButtonImage;
+					menuItemButtonButton.transition    = Selectable.Transition.SpriteSwap;
+					menuItemButtonButton.spriteState   = mButtonSpriteState;
+
 					if (item.Enabled)
 					{
-						button.onClick.AddListener(item.OnClick);
+						menuItemButtonButton.onClick.AddListener(item.OnClick);
 					}
+					#endregion
+
+					//===========================================================================
+					// AutoPopupItemScript Component
+					//===========================================================================
+					#region AutoPopupItemScript Component
+					AutoPopupItemScript menuItemButtonAutoPopup = menuItemButton.AddComponent<AutoPopupItemScript>();
+
+					menuItemButtonAutoPopup.delay = AUTO_POPUP_DELAY;
 					#endregion
 					#endregion
 					
@@ -1271,23 +1312,37 @@ namespace ui
 					// Text GameObject
 					//***************************************************************************
 					#region Text GameObject
-					GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject; // Button/Text
+					GameObject menuItemText = new GameObject("Text");
+					Utils.InitUIObject(menuItemText, menuItemButton.transform);
 					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform menuItemTextTransform = menuItemText.AddComponent<RectTransform>();
+					Utils.AlignRectTransformStretchStretch(menuItemTextTransform);
+					#endregion
+
+					//===========================================================================
+					// Text Component
+					//===========================================================================
 					#region Text Component
-					Text text = menuItemText.GetComponent<Text>();
-					text.text = item.Text; // TODO: Try to autotranslate somehow
+					Text menuItemTextText      = menuItemText.AddComponent<Text>();
+					menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
+					menuItemTextText.fontSize  = 12;
+					menuItemTextText.alignment = TextAnchor.MiddleCenter;
+					menuItemTextText.color     = new Color(0f, 0f, 0f, 1f);
+					menuItemTextText.text      = item.Text; // TODO: Try to autotranslate somehow
 					#endregion
 					#endregion
-					
-					#region Calculating button geometry
+
 					++contentWidth;
 					
-					float buttonWidth = text.preferredWidth + 12;
+					float buttonWidth = menuItemTextText.preferredWidth + 12;
 
 					Utils.AlignRectTransformStretchLeft(menuItemButtonTransform, buttonWidth, contentWidth, 1, 1);
 					
 					contentWidth += buttonWidth + 1;
-					#endregion
 				}
 				else
 				{
@@ -1296,8 +1351,7 @@ namespace ui
 	        }
 			#endregion
 
-			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth);
-			scrollAreaContentTransform.pivot = new Vector2(0f, 0.5f); // TODO: Try to do it in AlignRectTransformStretchLeft
+			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
 	        #endregion
 	        
 			//===========================================================================

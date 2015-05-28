@@ -83,4 +83,19 @@ public static class Global
 	/// TooltipArea script.
 	/// </summary>
 	public static TooltipAreaScript tooltipAreaScript;
+	
+	/// <summary>
+	/// ToastArea GameObject.
+	/// </summary>
+	public static GameObject toastArea;
+	
+	/// <summary>
+	/// ToastArea transform.
+	/// </summary>
+	public static Transform toastAreaTransform;
+	
+	/// <summary>
+	/// ToastArea script.
+	/// </summary>
+	public static ToastAreaScript toastAreaScript;
 }

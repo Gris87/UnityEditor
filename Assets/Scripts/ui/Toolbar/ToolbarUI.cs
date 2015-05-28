@@ -132,8 +132,7 @@ namespace ui
 			CreatePlaybackGameObject( scrollAreaContent.transform, ref contentWidth);
 			#endregion
 			
-			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth);
-			scrollAreaContentTransform.pivot = new Vector2(0f, 0.5f); // TODO: Try to do it in AlignRectTransformStretchLeft
+			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
 			#endregion
 
 			//===========================================================================
@@ -867,7 +866,7 @@ namespace ui
 			float buttonWidth;
 			float maxButtonWidth = 0f;
 
-			pointText.text            = Translator.getString(R.sections.Toolbar.strings.pivot);
+			pointText.text            = Translator.getString(R.sections.Toolbar.strings.pivot);  // TODO: Try to autotranslate somehow
 			coordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.global);
 
 			buttonWidth = pointText.preferredWidth + 32f;
@@ -884,7 +883,7 @@ namespace ui
 				maxButtonWidth = buttonWidth;
             }
 
-			pointText.text            = Translator.getString(R.sections.Toolbar.strings.center);
+			pointText.text            = Translator.getString(R.sections.Toolbar.strings.center);  // TODO: Try to autotranslate somehow
 			coordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.local);
 
 			buttonWidth = pointText.preferredWidth + 32f;
@@ -1099,7 +1098,7 @@ namespace ui
 			float buttonWidth;
 			float maxButtonWidth = 0f;
 			
-			layersText.text = Translator.getString(R.sections.Toolbar.strings.layers);
+			layersText.text = Translator.getString(R.sections.Toolbar.strings.layers); // TODO: Try to autotranslate somehow
 			layoutText.text = Translator.getString(R.sections.Toolbar.strings.layout);
 			
 			buttonWidth = layersText.preferredWidth + 32f;

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 using common;
 
@@ -170,6 +170,31 @@ namespace ui
 			//===========================================================================
 			#region TooltipAreaScript Component
 			Global.tooltipAreaScript = Global.tooltipArea.AddComponent<TooltipAreaScript>();
+			#endregion
+			#endregion
+
+			//***************************************************************************
+			// ToastArea GameObject
+			//***************************************************************************
+			#region ToastArea GameObject
+			Global.toastArea = new GameObject("ToastArea");
+			Utils.InitUIObject(Global.toastArea, transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform toastAreaTransform = Global.toastArea.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(toastAreaTransform);
+			
+			Global.toastAreaTransform = toastAreaTransform;
+			#endregion
+			
+			//===========================================================================
+			// ToastAreaScript Component
+			//===========================================================================
+			#region ToastAreaScript Component
+			Global.toastAreaScript = Global.toastArea.AddComponent<ToastAreaScript>();
 			#endregion
 			#endregion
 		}
