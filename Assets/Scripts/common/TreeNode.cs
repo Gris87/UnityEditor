@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 
 
-namespace common
+namespace Common
 {
     /// <summary>
     /// Class that representing tree node with children.
@@ -18,7 +17,7 @@ namespace common
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="common.TreeNode`1"/> class with specified data.
+        /// Initializes a new instance of the <see cref="Common.TreeNode`1"/> class with specified data.
         /// </summary>
         /// <param name="data">Data value.</param>
         public TreeNode(T data)
@@ -29,9 +28,9 @@ namespace common
         }
 
         /// <summary>
-        /// Creates a new <see cref="common.TreeNode`1"/> instance and adds it to the children list.
+        /// Creates a new <see cref="Common.TreeNode`1"/> instance and adds it to the children list.
         /// </summary>
-        /// <returns>The child <see cref="common.TreeNode`1"/> instance.</returns>
+        /// <returns>The child <see cref="Common.TreeNode`1"/> instance.</returns>
         /// <param name="data">Data value.</param>
         public TreeNode<T> AddChild(T data)
         {
@@ -49,9 +48,9 @@ namespace common
         }
 
         /// <summary>
-        /// Creates a new <see cref="common.TreeNode`1"/> instances for each children and adds them to the children list.
+        /// Creates a new <see cref="Common.TreeNode`1"/> instances for each children and adds them to the children list.
         /// </summary>
-        /// <returns>The array of <see cref="common.TreeNode`1"/> instances.</returns>
+        /// <returns>The array of <see cref="Common.TreeNode`1"/> instances.</returns>
         /// <param name="values">Data values.</param>
         public TreeNode<T>[] AddChildren(params T[] values)
         {
@@ -69,7 +68,7 @@ namespace common
         /// Removes child from the children list.
         /// </summary>
         /// <returns><c>true</c>, if child was removed, <c>false</c> otherwise.</returns>
-        /// <param name="node">The child <see cref="common.TreeNode`1"/> instance.</param>
+        /// <param name="node">The child <see cref="Common.TreeNode`1"/> instance.</param>
         public bool RemoveChild(TreeNode<T> node)
         {
             if (mChildren == null)
@@ -112,9 +111,9 @@ namespace common
         }
 
         /// <summary>
-        /// Gets the parent <see cref="common.TreeNode`1"/> instance.
+        /// Gets the parent <see cref="Common.TreeNode`1"/> instance.
         /// </summary>
-        /// <value>The parent <see cref="common.TreeNode`1"/> instance.</value>
+        /// <value>The parent <see cref="Common.TreeNode`1"/> instance.</value>
         public TreeNode<T> Parent
         {
             get { return mParent; }

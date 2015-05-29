@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 
-namespace common
+namespace Common
 {
     /// <summary>
     /// Class for Unity Editor usefull functions.

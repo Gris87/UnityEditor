@@ -1,4 +1,4 @@
-namespace common
+namespace Common
 {
 	/// <summary>
 	/// Combination of two types in one.
@@ -18,7 +18,7 @@ namespace common
 
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="common.Pair`2"/> class.
+		/// Initializes a new instance of the <see cref="Common.Pair`2"/> class.
 		/// </summary>
 		/// <param name="v1">First value.</param>
 		/// <param name="v2">Second value.</param>
