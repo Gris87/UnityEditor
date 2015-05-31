@@ -57,6 +57,66 @@ public static class Assets
 	/// </summary>
 	public static class Windows
 	{
+		#region Common assets for windows
+		/// <summary>
+		/// Common assets for windows.
+		/// </summary>
+		public static class Common
+		{
+			/// <summary>
+			/// Common texture assets for windows.
+			/// </summary>
+			public static class Textures
+			{
+				public static Sprite window;
+				public static Sprite subWindow;
+				public static Sprite drawer;
+				public static Sprite minimizeButton;
+				public static Sprite minimizeButtonHighlighted;
+				public static Sprite minimizeButtonPressed;
+				public static Sprite maximizeButton;
+				public static Sprite maximizeButtonHighlighted;
+				public static Sprite maximizeButtonPressed;
+				public static Sprite normalizeButton;
+				public static Sprite normalizeButtonHighlighted;
+				public static Sprite normalizeButtonPressed;
+				public static Sprite closeButton;
+				public static Sprite closeButtonHighlighted;
+				public static Sprite closeButtonPressed;
+				public static Sprite toolCloseButton;
+				public static Sprite toolCloseButtonHighlighted;
+				public static Sprite toolCloseButtonPressed;
+
+
+
+				/// <summary>
+				/// Initializes the <see cref="Assets+Windows+Common+Textures"/> class.
+				/// </summary>
+				static Textures()
+				{
+					window                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Window");
+					subWindow                  = LoadResource<Sprite>("Textures/UI/Windows/Common/SubWindow");
+					drawer                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Drawer");
+					minimizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButton");
+					minimizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonHighlighted");
+					minimizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonPressed");
+					maximizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButton");
+					maximizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonHighlighted");
+					maximizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonPressed");
+					normalizeButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButton");
+					normalizeButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonHighlighted");
+					normalizeButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonPressed");
+					closeButton                = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButton");
+					closeButtonHighlighted     = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonHighlighted");
+					closeButtonPressed         = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonPressed");
+					toolCloseButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButton");
+					toolCloseButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonHighlighted");
+					toolCloseButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonPressed");
+				}
+			}
+		}
+		#endregion
+
 		#region Assets for MainWindow
 		/// <summary>
 		/// Assets for MainWindow.

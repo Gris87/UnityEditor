@@ -14,6 +14,9 @@ using UI.Windows.MainWindow.Toolbar;
 
 namespace UI
 {
+	/// <summary>
+	/// Master script.
+	/// </summary>
 	public class MasterScript : MonoBehaviour
 	{
 		/// <summary>
