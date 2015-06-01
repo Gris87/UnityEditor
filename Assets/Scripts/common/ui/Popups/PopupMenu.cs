@@ -152,8 +152,8 @@ namespace Common.UI.Popups
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(scrollAreaTransform, 3f, 8f, 8f, 3f);
+			RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>(); // TODO: Add shadow image
+			Utils.AlignRectTransformStretchStretch(scrollAreaTransform, 3f, 8f, 8f, 3f); // TODO: Borders from image
 			#endregion
 			
 			//***************************************************************************

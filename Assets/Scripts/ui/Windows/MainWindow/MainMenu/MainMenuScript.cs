@@ -6,6 +6,7 @@ using Common;
 using Common.UI.MenuItems;
 using Common.UI.Popups;
 using UI.Toasts;
+using UI.Windows.AboutDialog;
 
 
 
@@ -3499,10 +3500,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    /// </summary>
 	    public void OnHelp_AboutUnity()
 	    {
-	        Debug.Log("MainMenuScript.OnHelp_AboutUnity");
-			// TODO: Implement MainMenuScript.OnHelp_AboutUnity
-			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			AboutDialogScript.Create().Show();
 	    }
 
 	    /// <summary>

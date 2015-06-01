@@ -216,8 +216,8 @@ namespace UI.Tooltips
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform tooltipTextTransform = tooltipTextObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(tooltipTextTransform, 3f, 5f, 7f, 9f);
+			RectTransform tooltipTextTransform = tooltipTextObject.AddComponent<RectTransform>(); // TODO: Add shadow image
+			Utils.AlignRectTransformStretchStretch(tooltipTextTransform, 3f, 5f, 7f, 9f); // TODO: Borders from image
 			#endregion
 
 			//===========================================================================

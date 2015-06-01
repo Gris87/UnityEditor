@@ -36,17 +36,7 @@ public static class Assets
 		/// </summary>
         public static class Fonts
         {
-			public static Font microsoftSansSerif;
-			
-			
-			
-			/// <summary>
-			/// Initializes the <see cref="Assets+Common+Fonts"/> class.
-			/// </summary>
-			static Fonts()
-            {
-				microsoftSansSerif = LoadResource<Font>("Fonts/micross");
-			}
+			public static Font microsoftSansSerif = LoadResource<Font>("Fonts/micross");
         }
 	}
 	#endregion
@@ -68,51 +58,24 @@ public static class Assets
 			/// </summary>
 			public static class Textures
 			{
-				public static Sprite window;
-				public static Sprite subWindow;
-				public static Sprite drawer;
-				public static Sprite minimizeButton;
-				public static Sprite minimizeButtonHighlighted;
-				public static Sprite minimizeButtonPressed;
-				public static Sprite maximizeButton;
-				public static Sprite maximizeButtonHighlighted;
-				public static Sprite maximizeButtonPressed;
-				public static Sprite normalizeButton;
-				public static Sprite normalizeButtonHighlighted;
-				public static Sprite normalizeButtonPressed;
-				public static Sprite closeButton;
-				public static Sprite closeButtonHighlighted;
-				public static Sprite closeButtonPressed;
-				public static Sprite toolCloseButton;
-				public static Sprite toolCloseButtonHighlighted;
-				public static Sprite toolCloseButtonPressed;
-
-
-
-				/// <summary>
-				/// Initializes the <see cref="Assets+Windows+Common+Textures"/> class.
-				/// </summary>
-				static Textures()
-				{
-					window                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Window");
-					subWindow                  = LoadResource<Sprite>("Textures/UI/Windows/Common/SubWindow");
-					drawer                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Drawer");
-					minimizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButton");
-					minimizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonHighlighted");
-					minimizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonPressed");
-					maximizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButton");
-					maximizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonHighlighted");
-					maximizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonPressed");
-					normalizeButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButton");
-					normalizeButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonHighlighted");
-					normalizeButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonPressed");
-					closeButton                = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButton");
-					closeButtonHighlighted     = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonHighlighted");
-					closeButtonPressed         = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonPressed");
-					toolCloseButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButton");
-					toolCloseButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonHighlighted");
-					toolCloseButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonPressed");
-				}
+				public static Sprite window                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Window");
+				public static Sprite subWindow                  = LoadResource<Sprite>("Textures/UI/Windows/Common/SubWindow");
+				public static Sprite drawer                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Drawer");
+				public static Sprite minimizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButton");
+				public static Sprite minimizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonHighlighted");
+				public static Sprite minimizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonPressed");
+				public static Sprite maximizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButton");
+				public static Sprite maximizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonHighlighted");
+				public static Sprite maximizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonPressed");
+				public static Sprite normalizeButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButton");
+				public static Sprite normalizeButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonHighlighted");
+				public static Sprite normalizeButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonPressed");
+				public static Sprite closeButton                = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButton");
+				public static Sprite closeButtonHighlighted     = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonHighlighted");
+				public static Sprite closeButtonPressed         = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonPressed");
+				public static Sprite toolCloseButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButton");
+				public static Sprite toolCloseButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonHighlighted");
+				public static Sprite toolCloseButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonPressed");
 			}
 		}
 		#endregion
@@ -134,23 +97,10 @@ public static class Assets
 				/// </summary>
 				public static class Textures
 				{
-					public static Sprite background;
-					public static Sprite button;
-					public static Sprite buttonHighlighted;
-					public static Sprite buttonPressed;
-					
-					
-					
-					/// <summary>
-					/// Initializes the <see cref="Assets+Windows+MainWindow+MainMenu+Textures"/> class.
-					/// </summary>
-					static Textures()
-					{
-						background        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/Background");
-						button            = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/Button");
-						buttonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonHighlighted");
-						buttonPressed     = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonPressed");
-					}
+					public static Sprite background        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/Background");
+					public static Sprite button            = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/Button");
+					public static Sprite buttonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonHighlighted");
+					public static Sprite buttonPressed     = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonPressed");
 				}
 			}
 			#endregion
@@ -166,83 +116,40 @@ public static class Assets
 				/// </summary>
 				public static class Textures
 				{
-					public static Sprite background;
-					public static Sprite toolLeftButton;
-					public static Sprite toolLeftButtonPressed;
-					public static Sprite toolLeftButtonActive;
-					public static Sprite toolLeftButtonActivePressed;
-					public static Sprite toolMiddleButton;
-					public static Sprite toolMiddleButtonPressed;
-					public static Sprite toolMiddleButtonActive;
-					public static Sprite toolMiddleButtonActivePressed;
-					public static Sprite toolRightButton;
-					public static Sprite toolRightButtonPressed;
-					public static Sprite toolRightButtonActive;
-					public static Sprite toolRightButtonActivePressed;
-					public static Sprite toolHand;
-					public static Sprite toolHandActive;
-					public static Sprite toolMove;
-					public static Sprite toolMoveActive;
-					public static Sprite toolRotate;
-					public static Sprite toolRotateActive;
-					public static Sprite toolScale;
-					public static Sprite toolScaleActive;
-					public static Sprite toolRectTransform;
-					public static Sprite toolRectTransformActive;
-					public static Sprite center;
-					public static Sprite pivot;
-					public static Sprite local;
-					public static Sprite global;
-					public static Sprite play;
-					public static Sprite playActive;
-					public static Sprite pause;
-					public static Sprite pauseActive;
-					public static Sprite step;
-					public static Sprite stepActive;
-					public static Sprite popupButton;
-					
-					
-					
-					/// <summary>
-					/// Initializes the <see cref="Assets+Windows+MainWindow+Toolbar+Textures"/> class.
-					/// </summary>
-					static Textures()
-					{
-						background                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Background");
-						toolLeftButton                = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButton");
-						toolLeftButtonPressed         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonPressed");
-						toolLeftButtonActive          = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonActive");
-						toolLeftButtonActivePressed   = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonActivePressed");
-						toolMiddleButton              = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButton");
-						toolMiddleButtonPressed       = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButtonPressed");
-						toolMiddleButtonActive        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButtonActive");
-						toolMiddleButtonActivePressed = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButtonActivePressed");
-						toolRightButton               = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButton");
-						toolRightButtonPressed        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButtonPressed");
-						toolRightButtonActive         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButtonActive");
-						toolRightButtonActivePressed  = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButtonActivePressed");
-						toolHand                      = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolHand");
-						toolHandActive                = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolHandActive");
-						toolMove                      = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMove");
-						toolMoveActive                = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMoveActive");
-						toolRotate                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRotate");
-						toolRotateActive              = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRotateActive");
-						toolScale                     = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolScale");
-						toolScaleActive               = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolScaleActive");
-						toolRectTransform             = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRectTransform");
-						toolRectTransformActive       = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRectTransformActive");
-						center                        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Center");
-						pivot                         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Pivot");
-						local                         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Local");
-						global                        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Global");
-						play                          = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Play");
-						playActive                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/PlayActive");
-						pause                         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Pause");
-						pauseActive                   = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/PauseActive");
-						step                          = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Step");
-						stepActive                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/StepActive");
-						popupButton                   = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/PopupButton");
-					}
+					public static Sprite background                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Background");
+					public static Sprite toolLeftButton                = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButton");
+					public static Sprite toolLeftButtonPressed         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonPressed");
+					public static Sprite toolLeftButtonActive          = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonActive");
+					public static Sprite toolLeftButtonActivePressed   = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonActivePressed");
+					public static Sprite toolMiddleButton              = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButton");
+					public static Sprite toolMiddleButtonPressed       = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButtonPressed");
+					public static Sprite toolMiddleButtonActive        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButtonActive");
+					public static Sprite toolMiddleButtonActivePressed = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMiddleButtonActivePressed");
+					public static Sprite toolRightButton               = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButton");
+					public static Sprite toolRightButtonPressed        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButtonPressed");
+					public static Sprite toolRightButtonActive         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButtonActive");
+					public static Sprite toolRightButtonActivePressed  = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRightButtonActivePressed");
+					public static Sprite toolHand                      = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolHand");
+					public static Sprite toolHandActive                = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolHandActive");
+					public static Sprite toolMove                      = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMove");
+					public static Sprite toolMoveActive                = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolMoveActive");
+					public static Sprite toolRotate                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRotate");
+					public static Sprite toolRotateActive              = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRotateActive");
+					public static Sprite toolScale                     = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolScale");
+					public static Sprite toolScaleActive               = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolScaleActive");
+					public static Sprite toolRectTransform             = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRectTransform");
+					public static Sprite toolRectTransformActive       = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/ToolRectTransformActive");
+					public static Sprite center                        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Center");
+					public static Sprite pivot                         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Pivot");
+					public static Sprite local                         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Local");
+					public static Sprite global                        = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Global");
+					public static Sprite play                          = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Play");
+					public static Sprite playActive                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/PlayActive");
+					public static Sprite pause                         = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Pause");
+					public static Sprite pauseActive                   = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/PauseActive");
+					public static Sprite step                          = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/Step");
+					public static Sprite stepActive                    = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/StepActive");
+					public static Sprite popupButton                   = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/Toolbar/PopupButton");
 				}
 			}
 			#endregion
@@ -264,17 +171,7 @@ public static class Assets
 					/// </summary>
 					public static class Textures
 					{
-						public static Sprite background;
-						
-						
-						
-						/// <summary>
-						/// Initializes the <see cref="Assets+Windows+MainWindow+DockWidgets+DockingArea+Textures"/> class.
-						/// </summary>
-						static Textures()
-						{
-							background = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/DockingArea/Background");
-						}
+						public static Sprite background = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/DockingArea/Background");
 					}
 				}
 				#endregion
@@ -296,31 +193,15 @@ public static class Assets
 		/// </summary>
 		public static class Textures
 		{
-			public static Sprite popupBackground; // TODO: Looks bad
-			public static Sprite background;
-			public static Sprite separator;
-			public static Sprite button;
-			public static Sprite buttonDisabled;
-			public static Sprite buttonHighlighted;
-			public static Sprite arrow;
-			public static Sprite checkbox;
-
-
-			
-			/// <summary>
-			/// Initializes the <see cref="Assets+Popups+Textures"/> class.
-			/// </summary>
-			static Textures()
-			{
-				popupBackground   = LoadResource<Sprite>("Textures/UI/Popups/PopupBackground");
-				background        = LoadResource<Sprite>("Textures/UI/Popups/Background");
-				separator         = LoadResource<Sprite>("Textures/UI/Popups/Separator");
-				button            = LoadResource<Sprite>("Textures/UI/Popups/Button");
-				buttonDisabled    = LoadResource<Sprite>("Textures/UI/Popups/ButtonDisabled");
-				buttonHighlighted = LoadResource<Sprite>("Textures/UI/Popups/ButtonHighlighted");
-				arrow             = LoadResource<Sprite>("Textures/UI/Popups/Arrow");
-				checkbox          = LoadResource<Sprite>("Textures/UI/Popups/Checkbox");
-			}
+			// TODO: Looks bad
+			public static Sprite popupBackground   = LoadResource<Sprite>("Textures/UI/Popups/PopupBackground");
+			public static Sprite background        = LoadResource<Sprite>("Textures/UI/Popups/Background");
+			public static Sprite separator         = LoadResource<Sprite>("Textures/UI/Popups/Separator");
+			public static Sprite button            = LoadResource<Sprite>("Textures/UI/Popups/Button");
+			public static Sprite buttonDisabled    = LoadResource<Sprite>("Textures/UI/Popups/ButtonDisabled");
+			public static Sprite buttonHighlighted = LoadResource<Sprite>("Textures/UI/Popups/ButtonHighlighted");
+			public static Sprite arrow             = LoadResource<Sprite>("Textures/UI/Popups/Arrow");
+			public static Sprite checkbox          = LoadResource<Sprite>("Textures/UI/Popups/Checkbox");
 		}
 	}
 	#endregion
@@ -336,17 +217,7 @@ public static class Assets
 		/// </summary>
 		public static class Textures
 		{
-			public static Sprite tooltipBackground;
-			
-			
-			
-			/// <summary>
-			/// Initializes the <see cref="Assets+Tooltips+Textures"/> class.
-			/// </summary>
-			static Textures()
-			{
-				tooltipBackground = LoadResource<Sprite>("Textures/UI/Tooltips/TooltipBackground");
-            }
+			public static Sprite tooltipBackground = LoadResource<Sprite>("Textures/UI/Tooltips/TooltipBackground");
         }
     }
 	#endregion
@@ -362,17 +233,7 @@ public static class Assets
 		/// </summary>
 		public static class Textures
 		{
-			public static Sprite toastBackground;
-			
-			
-			
-			/// <summary>
-			/// Initializes the <see cref="Assets+Toasts+Textures"/> class.
-			/// </summary>
-			static Textures()
-			{
-				toastBackground = LoadResource<Sprite>("Textures/UI/Toasts/ToastBackground");
-            }
+			public static Sprite toastBackground = LoadResource<Sprite>("Textures/UI/Toasts/ToastBackground");
         }
     }
     #endregion
