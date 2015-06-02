@@ -894,12 +894,12 @@ namespace Common.UI.Windows
 				case WindowState.Minimized:
 				{
 					Utils.AlignRectTransformTopLeft(
-						mWindowTransform
-						, MINIMIZED_WIDTH
-						, MINIMIZED_HEIGHT
-						, MINIMIZED_OFFSET_LEFT
-						, Screen.height - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT
-						);
+													  mWindowTransform
+													, MINIMIZED_WIDTH
+													, MINIMIZED_HEIGHT
+													, MINIMIZED_OFFSET_LEFT
+													, Screen.height - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT
+												   );
 				}
 				break;
 
@@ -908,12 +908,12 @@ namespace Common.UI.Windows
 					if (mFrame != WindowFrameType.Frameless)
 					{
 						Utils.AlignRectTransformStretchStretch(
-							mWindowTransform
-							, -SHADOW_WIDTH - MAXIMIZED_OFFSET
-							, -SHADOW_WIDTH - MAXIMIZED_OFFSET
-							, -SHADOW_WIDTH - MAXIMIZED_OFFSET
-							, -SHADOW_WIDTH - MAXIMIZED_OFFSET
-							);
+																 mWindowTransform
+															   , -SHADOW_WIDTH - MAXIMIZED_OFFSET
+															   , -SHADOW_WIDTH - MAXIMIZED_OFFSET
+															   , -SHADOW_WIDTH - MAXIMIZED_OFFSET
+															   , -SHADOW_WIDTH - MAXIMIZED_OFFSET
+															  );
 					}
 					else
 					{
@@ -954,18 +954,25 @@ namespace Common.UI.Windows
 		{
 			if (IsFramePresent())
 			{
-				// TODO: Implement it
-				Vector2 localPos = mWindowTransform.worldToLocalMatrix.MultiplyPoint(sp);
-
-				Debug.LogError(localPos);
+				float x = sp.x;
+				float y = Screen.height - sp.y;
 				
-				return localPos.x >= SHADOW_WIDTH && localPos.x <= SHADOW_WIDTH
+				return x >= mX + SHADOW_WIDTH && x <= mX + mWidth  - SHADOW_WIDTH
 					   &&
-					   localPos.y >= SHADOW_WIDTH && localPos.y <= SHADOW_WIDTH;
+					   y >= mY + SHADOW_WIDTH && y <= mY + mHeight - SHADOW_WIDTH;
 			}
 
 			return true;
 		}
+
+		/// <summary>
+		/// Update is called once per frame.
+		/// </summary>
+		void Update()
+		{
+			// TODO: Implement
+		}
+
 
 		/// <summary>
 		/// Show window.

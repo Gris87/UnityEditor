@@ -167,6 +167,8 @@ namespace UI.Windows.MainWindow
 			Global.dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 			#endregion
 			#endregion
+
+			enabled = false;
 		}
 	}
 }
