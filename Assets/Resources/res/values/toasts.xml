@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Toast: Please contribute -->
+    <string name="contribute">This feature is not implemented yet.\nPlease contribute to our project: https://github.com/Gris87/UnityEditor</string>
+
+</resources>
