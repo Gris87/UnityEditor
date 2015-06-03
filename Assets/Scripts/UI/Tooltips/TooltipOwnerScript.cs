@@ -46,6 +46,7 @@ namespace UI.Tooltips
 		/// <summary>
 		/// Handler for pointer enter event.
 		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerEnter(PointerEventData eventData)
 		{
 			Global.tooltipAreaScript.OnTooltipOwnerEnter(this);
@@ -54,6 +55,7 @@ namespace UI.Tooltips
 		/// <summary>
 		/// Handler for pointer exit event.
 		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerExit(PointerEventData eventData)
         {
 			Global.tooltipAreaScript.OnTooltipOwnerExit(this);

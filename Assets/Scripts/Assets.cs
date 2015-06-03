@@ -41,6 +41,19 @@ public static class Assets
 	}
 	#endregion
 
+	#region Assets for Cursors
+	/// <summary>
+	/// Assets for Cursors.
+	/// </summary>
+	public static class Cursors
+	{
+		public static Texture2D eastWest           = LoadResource<Texture2D>("Cursors/EastWest");
+		public static Texture2D northEastSouthWest = LoadResource<Texture2D>("Cursors/NorthEastSouthWest");
+		public static Texture2D northSouth         = LoadResource<Texture2D>("Cursors/NorthSouth");
+		public static Texture2D northWestSouthEast = LoadResource<Texture2D>("Cursors/NorthWestSouthEast");
+	}
+	#endregion
+
 	#region Assets for Windows
 	/// <summary>
 	/// Assets for Windows.
@@ -211,7 +224,7 @@ public static class Assets
 	/// Assets for Tooltips.
 	/// </summary>
 	public static class Tooltips
-	{		
+	{
 		/// <summary>
 		/// Texture assets for Tooltips.
 		/// </summary>

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -11,11 +12,70 @@ namespace Common.UI.Windows
 	/// <summary>
 	/// Script that realize behaviour for window.
 	/// </summary>
-	public class WindowScript : MonoBehaviour, ICanvasRaycastFilter
+	public class WindowScript : MonoBehaviour, ICanvasRaycastFilter, IPointerEnterHandler, IPointerExitHandler
 	{
+		private class MouseContext
+		{
+			public float previousMouseX;
+			public float previousMouseY;
+			public float previousX;
+			public float previousY;
+			public float previousWidth;
+			public float previousHeight;
+
+
+
+			/// <summary>
+			/// Initializes a new instance of the <see cref="Common.UI.Windows.WindowScript+MouseContext"/> class.
+			/// </summary>
+			public MouseContext(
+				                  float mouseX
+			                    , float mouseY
+			                    , float x
+			                    , float y
+			                    , float width
+			                    , float height
+			                   )
+			{
+				previousMouseX = mouseX;
+				previousMouseY = mouseY;
+				previousX      = x;
+				previousY      = y;
+				previousWidth  = width;
+				previousHeight = height;
+			}
+		}
+
+		private enum MouseLocation
+		{
+			  Outside
+			, Header
+			, North
+			, South
+			, West
+			, East
+			, NorthWest
+			, NorthEast
+			, SouthWest
+			, SouthEast
+			, Inside
+		}
+
+		private enum MouseState
+		{
+			  NoState
+			, Dragging
+			, Resizing
+		}
+
+
+
 		private static float SHADOW_WIDTH     = 15f;
 		private static float MAXIMIZED_OFFSET = 3f;
-		private static float MINIMAL_WIDTH    = 100f;
+		private static float RESIZING_GAP     = 8f;
+		private static float DRAGGING_GAP     = 15f;
+
+		private static float MINIMAL_WIDTH    = 100f; // TODO: Allow to setup user minimal sizes
 		private static float MINIMAL_HEIGHT   = 38f;
 
 		private static float MINIMIZED_OFFSET_LEFT   = 8f;
@@ -32,6 +92,11 @@ namespace Common.UI.Windows
 		private float           mWidth;
 		private float           mHeight;
 		private Color           mBackgroundColor;
+		private bool            mResizable;
+		private float           mMinimumWidth;
+		private float           mMinimumHeight;
+		private float           mMaximumWidth;
+		private float           mMaximumHeight;
 
 		private RectTransform   mWindowTransform;
 		private GameObject      mBorderGameObject;
@@ -42,6 +107,9 @@ namespace Common.UI.Windows
 		private float           mBorderTop;
 		private float           mBorderRight;
 		private float           mBorderBottom;
+		private MouseLocation   mMouseLocation;
+		private MouseState      mMouseState;
+		private MouseContext    mMouseContext;
 
 
 
@@ -634,6 +702,53 @@ namespace Common.UI.Windows
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets a value indicating whether this window is resizable.
+		/// </summary>
+		/// <value><c>true</c> if window is resizable; otherwise, <c>false</c>.</value>
+		public bool resizable
+		{
+			get { return mResizable;  }
+			set { mResizable = value; }
+		}
+
+		public float minimumWidth
+		{
+			get
+			{
+				return mMinimumWidth;
+			}
+
+			set
+			{
+				if (mMinimumWidth != value)
+				{
+					mMinimumWidth = value;
+
+					if (mMinimumWidth != 0f)
+					{
+						if (mWidth != 0f)
+						{
+							if (width < mMinimumWidth)
+							{
+								width = mMinimumWidth;
+							}
+						}
+
+						if (mMaximumWidth != 0f)
+						{
+							if (mMaximumWidth < mMinimumWidth)
+							{
+								mMaximumWidth = mMinimumWidth;
+							}
+						}
+					}
+				}
+			}
+
+			// TODO: Implement
+		}
+
 
 
 		/// <summary>
@@ -649,6 +764,11 @@ namespace Common.UI.Windows
 			mWidth           = 0f;
 			mHeight          = 0f;
 			mBackgroundColor = new Color(1f, 1f, 1f, 1f);
+			mResizable       = true;
+			mMinimumWidth    = 0f;
+			mMinimumHeight   = 0f;
+			mMaximumWidth    = 0f;
+			mMaximumHeight   = 0f;
 
 			mWindowTransform        = null;
 			mBorderGameObject       = null;
@@ -659,6 +779,9 @@ namespace Common.UI.Windows
 			mBorderTop              = 0f;
 			mBorderRight            = 0f;
 			mBorderBottom           = 0f;
+			mMouseState             = MouseState.NoState;
+			mMouseLocation          = MouseLocation.Outside;
+			mMouseContext           = null;
 
 			Hide();
 		}
@@ -730,14 +853,29 @@ namespace Common.UI.Windows
 				mWidth  = mBorderLeft + contentWidth  + mBorderRight;
 				mHeight = mBorderTop  + contentHeight + mBorderBottom;
 
-				if (mWidth < MINIMAL_WIDTH)
+				if (IsFramePresent())
 				{
-					mWidth = MINIMAL_WIDTH;
+					if (mWidth < MINIMAL_WIDTH + SHADOW_WIDTH * 2)
+					{
+						mWidth = MINIMAL_WIDTH + SHADOW_WIDTH * 2;
+					}
+					
+					if (mHeight < MINIMAL_HEIGHT + SHADOW_WIDTH * 2)
+					{
+						mHeight = MINIMAL_HEIGHT + SHADOW_WIDTH * 2;
+					}
 				}
-
-				if (mHeight < MINIMAL_HEIGHT)
+				else
 				{
-					mHeight = MINIMAL_HEIGHT;
+					if (mWidth < MINIMAL_WIDTH)
+					{
+						mWidth = MINIMAL_WIDTH;
+					}
+					
+					if (mHeight < MINIMAL_HEIGHT)
+					{
+						mHeight = MINIMAL_HEIGHT;
+					}
 				}
 
 				mX = (Screen.width  - mWidth)  / 2; // Screen.width  / 2 - mWidth / 2;
@@ -954,15 +1092,64 @@ namespace Common.UI.Windows
 		{
 			if (IsFramePresent())
 			{
-				float x = sp.x;
-				float y = Screen.height - sp.y;
+				float mouseX = sp.x;
+				float mouseY = Screen.height - sp.y;
 				
-				return x >= mX + SHADOW_WIDTH && x <= mX + mWidth  - SHADOW_WIDTH
+				return mouseX >= mX + SHADOW_WIDTH && mouseX <= mX + mWidth  - SHADOW_WIDTH
 					   &&
-					   y >= mY + SHADOW_WIDTH && y <= mY + mHeight - SHADOW_WIDTH;
+					   mouseY >= mY + SHADOW_WIDTH && mouseY <= mY + mHeight - SHADOW_WIDTH;
 			}
 
 			return true;
+		}
+
+		/// <summary>
+		/// Handler for pointer enter event.
+		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
+		public void OnPointerEnter(PointerEventData eventData)
+		{
+			if (mMouseState == MouseState.NoState)
+			{
+				mMouseLocation = MouseLocation.Inside;
+			}
+		}
+
+		/// <summary>
+		/// Handler for pointer exit event.
+		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
+		public void OnPointerExit(PointerEventData eventData)
+		{
+			if (mMouseState == MouseState.NoState)
+			{
+				if (
+					mResizable
+					&&
+					(
+					 mMouseLocation == MouseLocation.North
+					 ||
+					 mMouseLocation == MouseLocation.South
+					 ||
+					 mMouseLocation == MouseLocation.West
+					 ||
+					 mMouseLocation == MouseLocation.East
+					 ||
+					 mMouseLocation == MouseLocation.NorthWest
+					 ||
+					 mMouseLocation == MouseLocation.NorthEast
+					 ||
+					 mMouseLocation == MouseLocation.SouthWest
+					 ||
+					 mMouseLocation == MouseLocation.SouthEast
+					)
+				   )
+				{
+					Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+				}
+
+				mMouseLocation = MouseLocation.Outside;
+			}
 		}
 
 		/// <summary>
@@ -970,7 +1157,428 @@ namespace Common.UI.Windows
 		/// </summary>
 		void Update()
 		{
-			// TODO: Implement
+			if (IsFramePresent())
+			{
+				switch (mMouseState)
+				{
+					case MouseState.NoState:
+					{
+						if (mMouseLocation != MouseLocation.Outside)
+						{
+							Vector3 mousePos = InputControl.mousePosition;
+							
+							float mouseX = mousePos.x;
+							float mouseY = Screen.height - mousePos.y;
+
+							switch (mState)
+							{
+								case WindowState.NoState:
+								{
+									MouseLocation oldLocation = mMouseLocation;
+
+									if (mouseY <= mY + SHADOW_WIDTH + RESIZING_GAP)
+									{
+										if (mouseX <= mX + mBorderLeft)
+										{
+											mMouseLocation = MouseLocation.NorthWest;
+										}
+										else
+										if (mouseX < mX + mWidth - mBorderRight)
+										{
+											mMouseLocation = MouseLocation.North;
+										}
+										else
+										{
+											mMouseLocation = MouseLocation.NorthEast;
+										}
+									}
+									else
+									if (mouseY <= mY + mBorderTop)
+									{
+										if (mouseX <= mX + mBorderLeft)
+										{
+											mMouseLocation = MouseLocation.West;
+										}
+										else
+										if (mouseX < mX + mWidth - mBorderRight)
+										{
+											mMouseLocation = MouseLocation.Header;
+										}
+										else
+										{
+											mMouseLocation = MouseLocation.East;
+										}
+									}
+									else
+									if (mouseY < mY + mHeight - mBorderBottom)
+									{
+										if (mouseX <= mX + mBorderLeft)
+										{
+											mMouseLocation = MouseLocation.West;
+										}
+										else
+										if (mouseX < mX + mWidth - mBorderRight)
+										{
+											mMouseLocation = MouseLocation.Inside;
+										}
+										else
+										{
+											mMouseLocation = MouseLocation.East;
+										}
+									}
+									else
+									{
+										if (mouseX <= mX + mBorderLeft)
+										{
+											mMouseLocation = MouseLocation.SouthWest;
+										}
+										else
+										if (mouseX < mX + mWidth - mBorderRight)
+										{
+											mMouseLocation = MouseLocation.South;
+										}
+										else
+										{
+											mMouseLocation = MouseLocation.SouthEast;
+										}
+									}
+									
+									if (mResizable && oldLocation != mMouseLocation)
+									{
+										switch (mMouseLocation)
+										{
+											case MouseLocation.North:
+											case MouseLocation.South:
+											{
+												Cursor.SetCursor(Assets.Cursors.northSouth, new Vector2(32f, 32f), CursorMode.Auto);
+											}
+											break;
+											
+											case MouseLocation.West:
+											case MouseLocation.East:
+											{
+												Cursor.SetCursor(Assets.Cursors.eastWest, new Vector2(32f, 32f), CursorMode.Auto);
+											}
+											break;
+											
+											case MouseLocation.NorthWest:
+											case MouseLocation.SouthEast:
+											{
+												Cursor.SetCursor(Assets.Cursors.northWestSouthEast, new Vector2(32f, 32f), CursorMode.Auto);
+											}
+											break;
+											
+											case MouseLocation.NorthEast:
+											case MouseLocation.SouthWest:
+											{
+												Cursor.SetCursor(Assets.Cursors.northEastSouthWest, new Vector2(32f, 32f), CursorMode.Auto);
+											}
+											break;
+											
+											case MouseLocation.Header:
+											case MouseLocation.Inside:
+											{
+												Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+											}
+											break;
+											
+											case MouseLocation.Outside:
+											{
+												Debug.LogError("Incorrect mouse location");
+											}
+											break;
+											
+											default:
+											{
+												Debug.LogError("Unknown mouse location");
+											}
+											break;
+										}
+									}
+								}
+								break;
+
+								case WindowState.Minimized:
+								{
+									mMouseLocation = MouseLocation.Header;
+								}
+								break;
+
+								case WindowState.Maximized:
+								{
+									if (mouseY <= mY + mBorderTop)
+									{
+										mMouseLocation = MouseLocation.Header;
+									}
+									else
+									{
+										mMouseLocation = MouseLocation.Inside;
+									}
+								}
+								break;
+
+								case WindowState.FullScreen:
+								{
+									Debug.LogError("Incorrect window state");
+								}
+								break;
+
+								default:
+								{
+									Debug.LogError("unknown window state");
+								}
+								break;
+							}
+
+							switch (mMouseLocation)
+							{
+								case MouseLocation.Header:
+								{
+									if (InputControl.GetMouseButtonDown(MouseButton.Left))
+									{
+										mMouseState = MouseState.Dragging;
+										
+										mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height);
+									}
+								}
+								break;
+
+								case MouseLocation.North:
+								case MouseLocation.South:
+								case MouseLocation.West:
+								case MouseLocation.East:
+								case MouseLocation.NorthWest:
+								case MouseLocation.SouthEast:
+								case MouseLocation.NorthEast:
+								case MouseLocation.SouthWest:
+								{
+									if (mResizable && mState == WindowState.NoState)
+									{
+										if (InputControl.GetMouseButtonDown(MouseButton.Left))
+										{
+											mMouseState = MouseState.Resizing;
+											
+											mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height);
+										}
+									}									
+								}
+								break;
+
+								case MouseLocation.Inside:
+								{
+									// Nothing
+								}
+								break;
+
+								case MouseLocation.Outside:
+								{
+									Debug.LogError("Incorrect mouse location");
+								}
+								break;
+
+								default:
+								{
+									Debug.LogError("Unknown mouse location");
+								}
+								break;
+							}
+						}
+					}
+					break;
+
+					case MouseState.Dragging:
+					{
+						Vector3 mousePos = InputControl.mousePosition;
+						
+						float mouseX = mousePos.x;
+						float mouseY = Screen.height - mousePos.y;
+
+						#region Calculate new position
+						int screenWidth  = Screen.width;
+						int screenHeight = Screen.height;
+
+						if (mState == WindowState.Maximized)
+						{
+							// TODO: Go to NoState
+						}
+
+						float newX = mMouseContext.previousX + mouseX - mMouseContext.previousMouseX; 
+						float newY = mMouseContext.previousY + mouseY - mMouseContext.previousMouseY;
+						float windowWidth = width;
+
+						if (newX + windowWidth < DRAGGING_GAP)
+						{
+							newX = -windowWidth + DRAGGING_GAP; // TODO: Show new transform aligned to the left
+						}
+						else
+						if (newX > screenWidth - DRAGGING_GAP)
+						{
+							newX = screenWidth - DRAGGING_GAP; // TODO: Show new transform aligned to the right
+						}
+
+						if (newY < -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH)
+						{
+							newY = -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH; // TODO: Show new transform stretch to screen
+						}
+						else
+						if (newY > screenHeight - DRAGGING_GAP)
+						{
+							newY = screenHeight - DRAGGING_GAP;
+						}
+
+						x = newX; 
+						y = newY;
+						#endregion
+
+						if (InputControl.GetMouseButtonUp(MouseButton.Left))
+						{
+							mMouseState   = MouseState.NoState;							
+							mMouseContext = null;
+							
+							if (mouseX < mX + SHADOW_WIDTH || mouseX > mX + mWidth  - SHADOW_WIDTH
+							    ||
+							    mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH)
+							{
+								mMouseLocation = MouseLocation.Outside;
+							}
+						}
+					}
+					break;
+
+					case MouseState.Resizing:
+					{
+						Vector3 mousePos = InputControl.mousePosition;
+						
+						float mouseX = mousePos.x;
+						float mouseY = Screen.height - mousePos.y;
+
+						#region Calculate new geometry
+						int screenWidth  = Screen.width;
+						int screenHeight = Screen.height;
+
+						#region West
+						if (
+						    mMouseLocation == MouseLocation.West
+						    || 
+							mMouseLocation == MouseLocation.NorthWest
+							||
+							mMouseLocation == MouseLocation.SouthWest
+						   )
+						{
+							float newX     = mMouseContext.previousX     + mouseX - mMouseContext.previousMouseX;
+							float newWidth = mMouseContext.previousWidth - mouseX + mMouseContext.previousMouseX;
+							
+							if (newWidth < MINIMAL_WIDTH)
+							{
+								newX     -= MINIMAL_WIDTH - newWidth;
+								newWidth  = MINIMAL_WIDTH;
+							}
+
+							if (newX > screenWidth - DRAGGING_GAP)
+							{
+								newWidth += newX - (screenWidth - DRAGGING_GAP);
+								newX      = screenWidth - DRAGGING_GAP;								
+							}
+
+							x     = newX;
+							width = newWidth;
+						}
+						#endregion
+						else
+						#region East
+						if (
+							mMouseLocation == MouseLocation.East
+							|| 
+							mMouseLocation == MouseLocation.NorthEast
+							||
+							mMouseLocation == MouseLocation.SouthEast
+						   )
+						{
+							float newWidth = mMouseContext.previousWidth + mouseX - mMouseContext.previousMouseX;
+
+							if (mMouseContext.previousX + newWidth < DRAGGING_GAP)
+							{
+								newWidth = -mMouseContext.previousX + DRAGGING_GAP;
+							}
+							
+							width = newWidth;
+						}
+						#endregion
+
+						#region North
+						if (
+							mMouseLocation == MouseLocation.North
+							|| 
+							mMouseLocation == MouseLocation.NorthWest
+							||
+							mMouseLocation == MouseLocation.NorthEast
+						   )
+						{
+							float newY      = mMouseContext.previousY      + mouseY - mMouseContext.previousMouseY;
+							float newHeight = mMouseContext.previousHeight - mouseY + mMouseContext.previousMouseY;
+							
+							if (newHeight < MINIMAL_HEIGHT)
+							{
+								newY      -= MINIMAL_HEIGHT - newHeight;
+								newHeight  = MINIMAL_HEIGHT;
+							}
+							
+							if (newY < -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH)
+							{
+								newHeight -= -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH - newY; // TODO: Show new transform stretch to height
+								newY       = -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH;
+							}
+							else
+							if (newY > screenHeight - DRAGGING_GAP)
+							{
+								newHeight += newY - (screenHeight - DRAGGING_GAP);
+								newY       = screenHeight - DRAGGING_GAP;
+							}
+							
+							y      = newY;
+							height = newHeight;	
+						}
+						#endregion
+						else
+						#region South
+						if (
+							mMouseLocation == MouseLocation.South
+							|| 
+							mMouseLocation == MouseLocation.SouthWest
+							||
+							mMouseLocation == MouseLocation.SouthEast
+						   )
+						{							
+							height = mMouseContext.previousHeight + mouseY - mMouseContext.previousMouseY; // TODO: Show new transform stretch to height
+						}
+						#endregion
+						#endregion
+
+						if (InputControl.GetMouseButtonUp(MouseButton.Left))
+						{
+							// TODO: Apply transform if showed
+
+							mMouseState   = MouseState.NoState;							
+							mMouseContext = null;
+
+							if (mouseX < mX + SHADOW_WIDTH || mouseX > mX + mWidth  - SHADOW_WIDTH
+							    ||
+							    mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH)
+							{
+								Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+								mMouseLocation = MouseLocation.Outside;
+							}
+						}
+					}
+					break;
+
+					default:
+					{
+						Debug.LogError("Unknown mouse state");
+					}
+					break;
+				}
+			}
 		}
 
 

@@ -59,6 +59,7 @@ namespace UI.Popups
 		/// <summary>
 		/// Handler for pointer enter event.
 		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerEnter(PointerEventData eventData)
 		{
 			Global.popupMenuAreaScript.OnAutoPopupItemEnter(this);
@@ -67,6 +68,7 @@ namespace UI.Popups
 		/// <summary>
 		/// Handler for pointer exit event.
 		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerExit(PointerEventData eventData)
 		{
 			Global.popupMenuAreaScript.OnAutoPopupItemExit(this);

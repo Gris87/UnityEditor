@@ -339,7 +339,7 @@ namespace Common.UI.Popups
 					#endregion
 					
 					float buttonWidth  = menuItemTextText.preferredWidth + 44f;
-					float buttonHeight = 22f; // TODO: prefferedHeight for specified width
+					float buttonHeight = 22f; // TODO: Report request for prefferedHeight for specified width
 					
 					Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
 					
