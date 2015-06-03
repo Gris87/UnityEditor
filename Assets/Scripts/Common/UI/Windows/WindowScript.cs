@@ -343,6 +343,16 @@ namespace Common.UI.Windows
 					value = MINIMAL_WIDTH;
 				}
 
+				if (mMinimumWidth != 0 && value < mMinimumWidth)
+				{
+					value = mMinimumWidth;
+				}
+
+				if (mMaximumWidth != 0 && value > mMaximumWidth)
+				{
+					value = mMaximumWidth;
+				}
+
 				if (mFrame != WindowFrameType.Frameless)
 				{
 					value += SHADOW_WIDTH * 2;
@@ -391,6 +401,16 @@ namespace Common.UI.Windows
 				if (value < MINIMAL_HEIGHT)
 				{
 					value = MINIMAL_HEIGHT;
+				}
+
+				if (mMinimumHeight != 0 && value < mMinimumHeight)
+				{
+					value = mMinimumHeight;
+				}
+				
+				if (mMaximumHeight != 0 && value > mMaximumHeight)
+				{
+					value = mMaximumHeight;
 				}
 
 				if (mFrame != WindowFrameType.Frameless)
@@ -712,6 +732,10 @@ namespace Common.UI.Windows
 			set { mResizable = value; }
 		}
 
+		/// <summary>
+		/// Gets or sets the minimum width.
+		/// </summary>
+		/// <value>The minimum width.</value>
 		public float minimumWidth
 		{
 			get
@@ -745,8 +769,123 @@ namespace Common.UI.Windows
 					}
 				}
 			}
+		}
 
-			// TODO: Implement
+		/// <summary>
+		/// Gets or sets the maximum width.
+		/// </summary>
+		/// <value>The maximum width.</value>
+		public float maximumWidth
+		{
+			get
+			{
+				return mMaximumWidth;
+			}
+			
+			set
+			{
+				if (mMaximumWidth != value)
+				{
+					mMaximumWidth = value;
+					
+					if (mMaximumWidth != 0f)
+					{
+						if (mWidth != 0f)
+						{
+							if (width > mMaximumWidth)
+							{
+								width = mMaximumWidth;
+							}
+						}
+						
+						if (mMinimumWidth != 0f)
+						{
+							if (mMinimumWidth > mMaximumWidth)
+							{
+								mMinimumWidth = mMaximumWidth;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the minimum height.
+		/// </summary>
+		/// <value>The minimum height.</value>
+		public float minimumHeight
+		{
+			get
+			{
+				return mMinimumHeight;
+			}
+			
+			set
+			{
+				if (mMinimumHeight != value)
+				{
+					mMinimumHeight = value;
+					
+					if (mMinimumHeight != 0f)
+					{
+						if (mHeight != 0f)
+						{
+							if (height < mMinimumHeight)
+							{
+								height = mMinimumHeight;
+							}
+						}
+						
+						if (mMaximumHeight != 0f)
+						{
+							if (mMaximumHeight < mMinimumHeight)
+							{
+								mMaximumHeight = mMinimumHeight;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Gets or sets the maximum height.
+		/// </summary>
+		/// <value>The maximum height.</value>
+		public float maximumHeight
+		{
+			get
+			{
+				return mMaximumHeight;
+			}
+			
+			set
+			{
+				if (mMaximumHeight != value)
+				{
+					mMaximumHeight = value;
+					
+					if (mMaximumHeight != 0f)
+					{
+						if (mHeight != 0f)
+						{
+							if (height > mMaximumHeight)
+							{
+								height = mMaximumHeight;
+							}
+						}
+						
+						if (mMinimumHeight != 0f)
+						{
+							if (mMinimumHeight > mMaximumHeight)
+							{
+								mMinimumHeight = mMaximumHeight;
+							}
+						}
+					}
+				}
+			}
 		}
 
 
@@ -859,10 +998,30 @@ namespace Common.UI.Windows
 					{
 						mWidth = MINIMAL_WIDTH + SHADOW_WIDTH * 2;
 					}
+
+					if (mMinimumWidth != 0 && mWidth < mMinimumWidth + SHADOW_WIDTH * 2)
+					{
+						mWidth = mMinimumWidth + SHADOW_WIDTH * 2;
+					}
+					
+					if (mMaximumWidth != 0 && mWidth > mMaximumWidth + SHADOW_WIDTH * 2)
+					{
+						mWidth = mMaximumWidth + SHADOW_WIDTH * 2;
+					}
 					
 					if (mHeight < MINIMAL_HEIGHT + SHADOW_WIDTH * 2)
 					{
 						mHeight = MINIMAL_HEIGHT + SHADOW_WIDTH * 2;
+					}
+
+					if (mMinimumHeight != 0 && mHeight < mMinimumHeight + SHADOW_WIDTH * 2)
+					{
+						mHeight = mMinimumHeight + SHADOW_WIDTH * 2;
+					}
+					
+					if (mMaximumHeight != 0 && mHeight > mMaximumHeight + SHADOW_WIDTH * 2)
+					{
+						mHeight = mMaximumHeight + SHADOW_WIDTH * 2;
 					}
 				}
 				else
@@ -871,10 +1030,30 @@ namespace Common.UI.Windows
 					{
 						mWidth = MINIMAL_WIDTH;
 					}
+
+					if (mMinimumWidth != 0 && mWidth < mMinimumWidth)
+					{
+						mWidth = mMinimumWidth;
+					}
+					
+					if (mMaximumWidth != 0 && mWidth > mMaximumWidth)
+					{
+						mWidth = mMaximumWidth;
+					}
 					
 					if (mHeight < MINIMAL_HEIGHT)
 					{
 						mHeight = MINIMAL_HEIGHT;
+					}
+
+					if (mMinimumHeight != 0 && mHeight < mMinimumHeight)
+					{
+						mHeight = mMinimumHeight;
+					}
+					
+					if (mMaximumHeight != 0 && mHeight > mMaximumHeight)
+					{
+						mHeight = mMaximumHeight;
 					}
 				}
 
@@ -1474,6 +1653,18 @@ namespace Common.UI.Windows
 								newWidth  = MINIMAL_WIDTH;
 							}
 
+							if (mMinimumWidth != 0 && newWidth < mMinimumWidth)
+							{
+								newX     -= mMinimumWidth - newWidth;
+								newWidth  = mMinimumWidth;
+							}
+							
+							if (mMaximumWidth != 0 && newWidth > mMaximumWidth)
+							{
+								newX     -= mMaximumWidth - newWidth;
+								newWidth  = mMaximumWidth;
+							}
+
 							if (newX > screenWidth - DRAGGING_GAP)
 							{
 								newWidth += newX - (screenWidth - DRAGGING_GAP);
@@ -1521,6 +1712,18 @@ namespace Common.UI.Windows
 							{
 								newY      -= MINIMAL_HEIGHT - newHeight;
 								newHeight  = MINIMAL_HEIGHT;
+							}
+
+							if (mMinimumHeight != 0 && newHeight < mMinimumHeight)
+							{
+								newY      -= mMinimumHeight - newHeight;
+								newHeight  = mMinimumHeight;
+							}
+							
+							if (mMaximumHeight != 0 && newHeight > mMaximumHeight)
+							{
+								newY      -= mMaximumHeight - newHeight;
+								newHeight  = mMaximumHeight;
 							}
 							
 							if (newY < -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH)
