@@ -14,7 +14,6 @@ namespace UI.Tooltips
 	/// </summary>
 	public class TooltipAreaScript : MonoBehaviour
 	{
-		private static float SHADOW_WIDTH     = 4f;
 		private static float TIMER_NOT_ACTIVE = -10000f;
 		private static float SHOW_DELAY       = 500f;
 		private static float HIDE_DELAY       = 500f;

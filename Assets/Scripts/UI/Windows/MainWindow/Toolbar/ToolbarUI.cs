@@ -1006,7 +1006,13 @@ namespace UI.Windows.MainWindow.Toolbar
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform layersTextTransform = layersTextObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(layersTextTransform, 8f, 0f, 16f, 0f);
+			Utils.AlignRectTransformStretchStretch(
+				                                     layersTextTransform
+												   , layersImage.sprite.border.x + 4f
+												   , layersImage.sprite.border.w
+												   , layersImage.sprite.border.z + 4f
+												   , layersImage.sprite.border.y
+												  );
 			#endregion
 			
 			//===========================================================================
@@ -1078,7 +1084,13 @@ namespace UI.Windows.MainWindow.Toolbar
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform layoutTextTransform = layoutTextObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(layoutTextTransform, 8f, 0f, 16f, 0f);
+			Utils.AlignRectTransformStretchStretch(
+												     layoutTextTransform
+												   , layoutImage.sprite.border.x + 4f
+												   , layoutImage.sprite.border.w
+												   , layoutImage.sprite.border.z + 4f
+												   , layoutImage.sprite.border.y
+												  );
 			#endregion
 			
 			//===========================================================================

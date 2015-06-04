@@ -97,6 +97,7 @@ namespace Common.UI.Windows
 		private float           mMinimumHeight;
 		private float           mMaximumWidth;
 		private float           mMaximumHeight;
+		// TODO: Buttons
 
 		private RectTransform   mWindowTransform;
 		private GameObject      mBorderGameObject;

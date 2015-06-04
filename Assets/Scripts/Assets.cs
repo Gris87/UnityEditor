@@ -206,7 +206,6 @@ public static class Assets
 		/// </summary>
 		public static class Textures
 		{
-			// TODO: Report bug for incorrect sprite loading
 			public static Sprite popupBackground   = LoadResource<Sprite>("Textures/UI/Popups/PopupBackground");
 			public static Sprite background        = LoadResource<Sprite>("Textures/UI/Popups/Background");
 			public static Sprite separator         = LoadResource<Sprite>("Textures/UI/Popups/Separator");
