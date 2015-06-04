@@ -75,7 +75,7 @@ namespace Common.UI.Windows
 		private static float RESIZING_GAP     = 8f;
 		private static float DRAGGING_GAP     = 15f;
 
-		private static float MINIMAL_WIDTH    = 100f; // TODO: Allow to setup user minimal sizes
+		private static float MINIMAL_WIDTH    = 100f;
 		private static float MINIMAL_HEIGHT   = 38f;
 
 		private static float MINIMIZED_OFFSET_LEFT   = 8f;

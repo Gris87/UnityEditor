@@ -52,6 +52,7 @@ namespace Common.UI.Popups
 	/// </summary>
 	public class PopupMenu
 	{
+		private static float SHADOW_WIDTH     = 5f;
 		private static float AUTO_POPUP_DELAY = 500f;
 		
 		
@@ -152,8 +153,14 @@ namespace Common.UI.Popups
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>(); // TODO: Add shadow image
-			Utils.AlignRectTransformStretchStretch(scrollAreaTransform, 3f, 8f, 8f, 3f); // TODO: Borders from image
+			RectTransform scrollAreaTransform = scrollArea.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(
+				                                     scrollAreaTransform
+												   , popupMenuImage.sprite.border.x
+												   , popupMenuImage.sprite.border.w
+												   , popupMenuImage.sprite.border.z
+												   , popupMenuImage.sprite.border.y
+												  );
 			#endregion
 			
 			//***************************************************************************
@@ -215,7 +222,7 @@ namespace Common.UI.Popups
 					#endregion
 				}
 				else
-					if (menuItem.Data is MenuItem)
+				if (menuItem.Data is MenuItem)
 				{
 					MenuItem item = menuItem.Data as MenuItem;
 					
@@ -314,7 +321,7 @@ namespace Common.UI.Popups
 					//===========================================================================
 					#region RectTransform Component
 					RectTransform menuItemTextTransform = menuItemText.AddComponent<RectTransform>();
-					Utils.AlignRectTransformStretchStretch(menuItemTextTransform, 32f);
+					Utils.AlignRectTransformStretchStretch(menuItemTextTransform, Assets.Popups.Textures.background.border.x + 4f);
 					#endregion
 					
 					//===========================================================================
@@ -338,7 +345,7 @@ namespace Common.UI.Popups
 					#endregion
 					#endregion
 					
-					float buttonWidth  = menuItemTextText.preferredWidth + 44f;
+					float buttonWidth  = menuItemTextText.preferredWidth + Assets.Popups.Textures.background.border.x + 16f;
 					float buttonHeight = 22f; // TODO: Report request for prefferedHeight for specified width
 					
 					Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
@@ -650,7 +657,7 @@ namespace Common.UI.Popups
 			float popupMenuWidth  = contentWidth  + 11;
 			float popupMenuHeight = contentHeight + 11;
 			
-			Utils.FitRectTransformToScreen(popupMenuTransform, popupMenuWidth, popupMenuHeight, x, y, left, bottom);
+			Utils.FitRectTransformToScreen(popupMenuTransform, popupMenuWidth, popupMenuHeight, x, y, left, bottom, SHADOW_WIDTH, SHADOW_WIDTH);
 			#endregion
 		}
 		

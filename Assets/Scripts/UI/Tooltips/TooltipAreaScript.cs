@@ -14,6 +14,7 @@ namespace UI.Tooltips
 	/// </summary>
 	public class TooltipAreaScript : MonoBehaviour
 	{
+		private static float SHADOW_WIDTH     = 4f;
 		private static float TIMER_NOT_ACTIVE = -10000f;
 		private static float SHOW_DELAY       = 500f;
 		private static float HIDE_DELAY       = 500f;
@@ -194,6 +195,13 @@ namespace UI.Tooltips
 			
 			tooltipImage.sprite = Assets.Tooltips.Textures.tooltipBackground;
 			tooltipImage.type   = Image.Type.Sliced;
+
+			Vector4 tooltipBorders = tooltipImage.sprite.border;
+
+			float tooltipBorderLeft   = tooltipBorders.x + 2f;
+			float tooltipBorderTop    = tooltipBorders.w + 4f;
+			float tooltipBorderRight  = tooltipBorders.y + 2f;
+			float tooltipBorderBottom = tooltipBorders.z + 4f;
 			#endregion
 
 			//===========================================================================
@@ -216,8 +224,14 @@ namespace UI.Tooltips
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform tooltipTextTransform = tooltipTextObject.AddComponent<RectTransform>(); // TODO: Add shadow image
-			Utils.AlignRectTransformStretchStretch(tooltipTextTransform, 3f, 5f, 7f, 9f); // TODO: Borders from image
+			RectTransform tooltipTextTransform = tooltipTextObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(
+				                                     tooltipTextTransform
+												   , tooltipBorderLeft
+												   , tooltipBorderTop
+											       , tooltipBorderRight
+												   , tooltipBorderBottom
+												  );
 			#endregion
 
 			//===========================================================================
@@ -235,7 +249,7 @@ namespace UI.Tooltips
 
 			Vector3 mousePos = InputControl.mousePosition;
 
-			float tooltipWidth = tooltipText.preferredWidth  + 10f;
+			float tooltipWidth = tooltipText.preferredWidth + tooltipBorderLeft + tooltipBorderRight;
 			int   screenWidth  = Screen.width;
 
 			if (tooltipWidth > screenWidth)
@@ -244,7 +258,7 @@ namespace UI.Tooltips
 			}
 
 			tooltipTransform.sizeDelta = new Vector2(tooltipWidth, 0f);
-			float tooltipHeight = tooltipText.preferredHeight + 14f;
+			float tooltipHeight = tooltipText.preferredHeight + tooltipBorderTop + tooltipBorderBottom;
 
 			Utils.FitRectTransformToScreen(tooltipTransform, tooltipWidth, tooltipHeight, mousePos.x, -mousePos.y + Screen.height);
 			#endregion

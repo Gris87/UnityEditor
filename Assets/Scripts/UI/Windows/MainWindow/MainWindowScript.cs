@@ -78,6 +78,9 @@ namespace UI.Windows.MainWindow
 			width  = 0f;
 			height = 0f;
 
+			float mainMenuHeight = 20f;
+			float toolbarHeight  = 32f;
+
 			//***************************************************************************
 			// MainMenu GameObject
 			//***************************************************************************
@@ -90,7 +93,7 @@ namespace UI.Windows.MainWindow
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform mainMenuTransform = mainMenu.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopStretch(mainMenuTransform, 20f);
+			Utils.AlignRectTransformTopStretch(mainMenuTransform, mainMenuHeight);
 			#endregion
 			
 			//===========================================================================
@@ -115,7 +118,7 @@ namespace UI.Windows.MainWindow
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform toolbarTransform = toolbar.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopStretch(toolbarTransform, 32f, 20f);
+			Utils.AlignRectTransformTopStretch(toolbarTransform, toolbarHeight, mainMenuHeight);
 			#endregion
 			
 			//===========================================================================
@@ -140,7 +143,7 @@ namespace UI.Windows.MainWindow
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, 52f, 0f, 0f);
+			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
 			#endregion
 			
 			//===========================================================================

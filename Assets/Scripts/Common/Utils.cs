@@ -81,14 +81,18 @@ namespace Common
 		/// <param name="y">The y coordinate.</param>
 		/// <param name="left">Left edge of alternative position.</param>
 		/// <param name="bottom">Bottom edge of alternative position.</param>
+		/// <param name="shadowRight">Shadow right offset.</param>
+		/// <param name="shadowBottom">Shadow bottom offset.</param>
 		public static void FitRectTransformToScreen(
 												  	  RectTransform transform
 													, float width
 													, float height
-													, float x      = 0
-													, float y      = 0
-													, float left   = -1
-													, float bottom = -1
+													, float x            = 0
+													, float y            = 0
+													, float left         = -1
+													, float bottom       = -1
+													, float shadowRight  = 0
+													, float shadowBottom = 0
 												   )
 		{
 			int screenWidth  = Screen.width;
@@ -108,7 +112,7 @@ namespace Common
 			{
 				if (left != -1)
 				{
-					x = left - width;
+					x = left - width + shadowRight;
 					
 					if (x < 0)
 					{
@@ -125,7 +129,7 @@ namespace Common
 			{
 				if (bottom != -1)
 				{
-					y = bottom - height;
+					y = bottom - height + shadowBottom;
 					
 					if (y < 0)
 					{

@@ -192,7 +192,13 @@ namespace UI.Toasts
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform toastTextTransform = toastTextObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(toastTextTransform, 10f, 10f, 10f, 10f);
+			Utils.AlignRectTransformStretchStretch(
+				                                     toastTextTransform
+				                                   , toastImage.sprite.border.x
+												   , toastImage.sprite.border.w
+												   , toastImage.sprite.border.z
+												   , toastImage.sprite.border.y
+												  );
 			#endregion
 			
 			//===========================================================================
