@@ -9,6 +9,55 @@ using Common;
 
 namespace Common.UI.Windows
 {
+	namespace Internal
+	{
+		/// <summary>
+		/// Window common things.
+		/// </summary>
+		static class WindowCommon
+		{
+			public static SpriteState minimizeButtonSpriteState;
+			public static SpriteState maximizeButtonSpriteState;
+			public static SpriteState normalizeButtonSpriteState;
+			public static SpriteState closeButtonSpriteState;
+			public static SpriteState toolCloseButtonSpriteState;
+			
+			
+			
+			/// <summary>
+			/// Initializes the <see cref="Common.UI.Popups.Internal.PopupMenuCommon"/> class.
+			/// </summary>
+			static WindowCommon()
+			{
+				minimizeButtonSpriteState  = new SpriteState();
+				maximizeButtonSpriteState  = new SpriteState();
+				normalizeButtonSpriteState = new SpriteState();
+				closeButtonSpriteState     = new SpriteState();
+				toolCloseButtonSpriteState = new SpriteState();
+				
+				minimizeButtonSpriteState.disabledSprite     = Assets.Windows.Common.Textures.minimizeButton;
+				minimizeButtonSpriteState.highlightedSprite  = Assets.Windows.Common.Textures.minimizeButtonHighlighted;
+				minimizeButtonSpriteState.pressedSprite      = Assets.Windows.Common.Textures.minimizeButtonPressed;
+
+				maximizeButtonSpriteState.disabledSprite     = Assets.Windows.Common.Textures.maximizeButton;
+				maximizeButtonSpriteState.highlightedSprite  = Assets.Windows.Common.Textures.maximizeButtonHighlighted;
+				maximizeButtonSpriteState.pressedSprite      = Assets.Windows.Common.Textures.maximizeButtonPressed;
+
+				normalizeButtonSpriteState.disabledSprite    = Assets.Windows.Common.Textures.normalizeButton;
+				normalizeButtonSpriteState.highlightedSprite = Assets.Windows.Common.Textures.normalizeButtonHighlighted;
+				normalizeButtonSpriteState.pressedSprite     = Assets.Windows.Common.Textures.normalizeButtonPressed;
+
+				closeButtonSpriteState.disabledSprite        = Assets.Windows.Common.Textures.closeButton;
+				closeButtonSpriteState.highlightedSprite     = Assets.Windows.Common.Textures.closeButtonHighlighted;
+				closeButtonSpriteState.pressedSprite         = Assets.Windows.Common.Textures.closeButtonPressed;
+
+				toolCloseButtonSpriteState.disabledSprite    = Assets.Windows.Common.Textures.toolCloseButton;
+				toolCloseButtonSpriteState.highlightedSprite = Assets.Windows.Common.Textures.toolCloseButtonHighlighted;
+				toolCloseButtonSpriteState.pressedSprite     = Assets.Windows.Common.Textures.minimizeButtonPressed;
+			}
+		}
+	}
+
 	/// <summary>
 	/// Script that realize behaviour for window.
 	/// </summary>
@@ -70,13 +119,14 @@ namespace Common.UI.Windows
 
 
 
-		private static float SHADOW_WIDTH     = 15f;
-		private static float MAXIMIZED_OFFSET = 3f;
-		private static float RESIZING_GAP     = 8f;
-		private static float DRAGGING_GAP     = 15f;
+		private static float SHADOW_WIDTH      = 15f;
+		private static float BUTTON_GLOW_WIDTH = 8f;
+		private static float MAXIMIZED_OFFSET  = 3f;
+		private static float RESIZING_GAP      = 8f;
+		private static float DRAGGING_GAP      = 15f;
 
-		private static float MINIMAL_WIDTH    = 100f;
-		private static float MINIMAL_HEIGHT   = 38f;
+		private static float MINIMAL_WIDTH  = 100f;
+		private static float MINIMAL_HEIGHT = 38f;
 
 		private static float MINIMIZED_OFFSET_LEFT   = 8f;
 		private static float MINIMIZED_OFFSET_BOTTOM = 8f;
@@ -97,11 +147,19 @@ namespace Common.UI.Windows
 		private float           mMinimumHeight;
 		private float           mMaximumWidth;
 		private float           mMaximumHeight;
+		private bool            mAllowMinimize;
+		private bool            mAllowMaximize;
 		// TODO: Buttons
+		// TODO: Label
 
 		private RectTransform   mWindowTransform;
 		private GameObject      mBorderGameObject;
 		private Image           mBorderImage;
+		private GameObject      mMinimizeGameObject;
+		private Image           mMinimizeImage;
+		private GameObject      mMaximizeGameObject;
+		private Image           mMaximizeImage;
+		private GameObject      mCloseGameObject;
 		private RectTransform   mContentTransform;
 		private Image           mContentBackgroundImage;
 		private float           mBorderLeft;
@@ -163,6 +221,12 @@ namespace Common.UI.Windows
 						{
 							UpdateBorderImage();
 							UpdateBorders();
+
+							if ((oldValue == WindowFrameType.Drawer) || (mFrame == WindowFrameType.Drawer))
+							{
+								DestroyButtons();
+								CreateButtons();
+							}
 						}
 
 						mContentTransform.offsetMin = new Vector2(mBorderLeft,    mBorderBottom);
@@ -449,12 +513,12 @@ namespace Common.UI.Windows
 			{
 				if (mBackgroundColor != value)
 				{
+					mBackgroundColor = value;
+
 					if (IsUICreated())
 					{
-						mContentBackgroundImage.color = value;
+						mContentBackgroundImage.color = mBackgroundColor;
 					}
-
-					mBackgroundColor = value;
 				}
 			}
 		}
@@ -889,6 +953,56 @@ namespace Common.UI.Windows
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets a value indicating whether this window allow to be minimized.
+		/// </summary>
+		/// <value><c>true</c> if allow to minimize; otherwise, <c>false</c>.</value>
+		public bool allowMinimize
+		{
+			get
+			{
+				return mAllowMinimize;
+			}
+
+			set
+			{
+				if (mAllowMinimize != value)
+				{
+					mAllowMinimize = value;
+
+					if (IsUICreated())
+					{
+						// TODO: Implement
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this window allow to be maximized.
+		/// </summary>
+		/// <value><c>true</c> if allow to maximize; otherwise, <c>false</c>.</value>
+		public bool allowMaximize
+		{
+			get
+			{
+				return mAllowMaximize;
+			}
+			
+			set
+			{
+				if (mAllowMaximize != value)
+				{
+					mAllowMaximize = value;
+					
+					if (IsUICreated())
+					{
+						// TODO: Implement
+					}
+				}
+			}
+		}
+
 
 
 		/// <summary>
@@ -909,10 +1023,17 @@ namespace Common.UI.Windows
 			mMinimumHeight   = 0f;
 			mMaximumWidth    = 0f;
 			mMaximumHeight   = 0f;
+			mAllowMinimize   = true;
+			mAllowMaximize   = true;
 
 			mWindowTransform        = null;
 			mBorderGameObject       = null;
 			mBorderImage            = null;
+			mMinimizeGameObject     = null;
+			mMinimizeImage          = null;
+			mMaximizeGameObject     = null;
+			mMaximizeImage          = null;
+			mCloseGameObject        = null;
 			mContentTransform       = null;
 			mContentBackgroundImage = null;
 			mBorderLeft             = 0f;
@@ -1108,6 +1229,8 @@ namespace Common.UI.Windows
 				UpdateBorders();
 				#endregion
 				#endregion
+
+				CreateButtons();
 			}
 			else
 			{
@@ -1176,11 +1299,294 @@ namespace Common.UI.Windows
 		/// </summary>
 		private void DestroyBorder()
 		{
+			DestroyButtons();
+
 			UnityEngine.Object.DestroyObject(mBorderGameObject);
 			mBorderGameObject = null;
 			mBorderImage      = null;
 
 			UpdateBorders();
+		}
+
+		/// <summary>
+		/// Creates control buttons.
+		/// </summary>
+		private void CreateButtons()
+		{
+			switch (mFrame)
+			{
+				case WindowFrameType.Window:
+				{
+					float buttonWidth;
+					float buttonHeight = 20f;
+					float contentWidth = SHADOW_WIDTH + 4f;
+
+					buttonWidth = 48f;
+
+					//***************************************************************************
+					// Close GameObject
+					//***************************************************************************
+					#region Close GameObject
+				 	mCloseGameObject = new GameObject("Close");
+					Utils.InitUIObject(mCloseGameObject, mBorderGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform closeTransform = mCloseGameObject.AddComponent<RectTransform>();
+					Utils.AlignRectTransformTopRight(closeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
+					#endregion
+					
+					//***************************************************************************
+					// CloseImage GameObject
+					//***************************************************************************
+					#region CloseImage GameObject
+					GameObject closeImage = new GameObject("Image");
+					Utils.InitUIObject(closeImage, mCloseGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform closeImageTransform = closeImage.AddComponent<RectTransform>();
+					Utils.AlignRectTransformStretchStretch(closeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
+					#endregion
+					
+					//===========================================================================
+					// CanvasRenderer Component
+					//===========================================================================
+					#region CanvasRenderer Component
+					closeImage.AddComponent<CanvasRenderer>();
+					#endregion
+					
+					//===========================================================================
+					// Image Component
+					//===========================================================================
+					#region Image Component
+					Image closeImageImage = closeImage.AddComponent<Image>();
+						
+					closeImageImage.sprite = Assets.Windows.Common.Textures.closeButton;
+					closeImageImage.type   = Image.Type.Sliced;
+					#endregion
+
+					//===========================================================================
+					// ButtonGlowScript Component
+					//===========================================================================
+					#region ButtonGlowScript Component
+					ButtonGlowScript closeButtonGlowScript = closeImage.AddComponent<ButtonGlowScript>();
+					
+					closeButtonGlowScript.rectTransform = closeTransform;
+					#endregion
+					#endregion
+					
+					//===========================================================================
+					// Button Component
+					//===========================================================================
+					#region Button Component
+					Button closeButton = mCloseGameObject.AddComponent<Button>();
+					
+					closeButton.targetGraphic = closeImageImage;
+					closeButton.transition    = Selectable.Transition.SpriteSwap;
+					closeButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
+					closeButton.onClick.AddListener(Close);
+					#endregion
+					#endregion
+
+					contentWidth += buttonWidth - 1; // One button overlaps another one
+					buttonWidth = 28f;
+					
+					//***************************************************************************
+					// Maximize GameObject
+					//***************************************************************************
+					#region Maximize GameObject
+					mMaximizeGameObject = new GameObject("Maximize");
+					Utils.InitUIObject(mMaximizeGameObject, mBorderGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform maximizeTransform = mMaximizeGameObject.AddComponent<RectTransform>();
+					Utils.AlignRectTransformTopRight(maximizeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
+					#endregion
+					
+					//***************************************************************************
+					// MaximizeImage GameObject
+					//***************************************************************************
+					#region MaximizeImage GameObject
+					GameObject maximizeImage = new GameObject("Image");
+					Utils.InitUIObject(maximizeImage, mMaximizeGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform maximizeImageTransform = maximizeImage.AddComponent<RectTransform>();
+					Utils.AlignRectTransformStretchStretch(maximizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
+					#endregion
+					
+					//===========================================================================
+					// CanvasRenderer Component
+					//===========================================================================
+					#region CanvasRenderer Component
+					maximizeImage.AddComponent<CanvasRenderer>();
+					#endregion
+					
+					//===========================================================================
+					// Image Component
+					//===========================================================================
+					#region Image Component
+					Image maximizeImageImage = maximizeImage.AddComponent<Image>();
+					
+					maximizeImageImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
+					maximizeImageImage.type   = Image.Type.Sliced;
+					#endregion
+					
+					//===========================================================================
+					// ButtonGlowScript Component
+					//===========================================================================
+					#region ButtonGlowScript Component
+					ButtonGlowScript maximizeButtonGlowScript = maximizeImage.AddComponent<ButtonGlowScript>();
+					
+					maximizeButtonGlowScript.rectTransform = maximizeTransform;
+					#endregion
+					#endregion
+					
+					//===========================================================================
+					// Button Component
+					//===========================================================================
+					#region Button Component
+					Button maximizeButton = mMaximizeGameObject.AddComponent<Button>();
+					
+					maximizeButton.targetGraphic = maximizeImageImage;
+					maximizeButton.transition    = Selectable.Transition.SpriteSwap;
+					maximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
+					maximizeButton.onClick.AddListener(OnMaximizeClicked);
+					#endregion
+					#endregion
+
+					contentWidth += buttonWidth - 1; // One button overlaps another one
+					buttonWidth = 29f;
+					
+					//***************************************************************************
+					// Minimize GameObject
+					//***************************************************************************
+					#region Minimize GameObject
+					mMinimizeGameObject = new GameObject("Minimize");
+					Utils.InitUIObject(mMinimizeGameObject, mBorderGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform minimizeTransform = mMinimizeGameObject.AddComponent<RectTransform>();
+					Utils.AlignRectTransformTopRight(minimizeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
+					#endregion
+					
+					//***************************************************************************
+					// MinimizeImage GameObject
+					//***************************************************************************
+					#region MinimizeImage GameObject
+					GameObject minimizeImage = new GameObject("Image");
+					Utils.InitUIObject(minimizeImage, mMinimizeGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform minimizeImageTransform = minimizeImage.AddComponent<RectTransform>();
+					Utils.AlignRectTransformStretchStretch(minimizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
+					#endregion
+					
+					//===========================================================================
+					// CanvasRenderer Component
+					//===========================================================================
+					#region CanvasRenderer Component
+					minimizeImage.AddComponent<CanvasRenderer>();
+					#endregion
+					
+					//===========================================================================
+					// Image Component
+					//===========================================================================
+					#region Image Component
+					Image minimizeImageImage = minimizeImage.AddComponent<Image>();
+					
+					minimizeImageImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
+					minimizeImageImage.type   = Image.Type.Sliced;
+					#endregion
+					
+					//===========================================================================
+					// ButtonGlowScript Component
+					//===========================================================================
+					#region ButtonGlowScript Component
+					ButtonGlowScript minimizeButtonGlowScript = minimizeImage.AddComponent<ButtonGlowScript>();
+					
+					minimizeButtonGlowScript.rectTransform = minimizeTransform;
+					#endregion
+					#endregion
+					
+					//===========================================================================
+					// Button Component
+					//===========================================================================
+					#region Button Component
+					Button minimizeButton = mMinimizeGameObject.AddComponent<Button>();
+					
+					minimizeButton.targetGraphic = minimizeImageImage;
+					minimizeButton.transition    = Selectable.Transition.SpriteSwap;
+					minimizeButton.spriteState   = Internal.WindowCommon.minimizeButtonSpriteState;
+					minimizeButton.onClick.AddListener(OnMinimizeClicked);
+					#endregion
+					#endregion
+				}
+				break;
+
+				case WindowFrameType.SubWindow:
+				{
+				}
+				break;
+
+				case WindowFrameType.Drawer:
+				{
+				}
+				break;
+
+				case WindowFrameType.Frameless:
+				{
+				}
+				break;
+
+				default:
+				{
+					Debug.LogError("Unknown window frame");
+				}
+				break;
+			}
+
+			// TODO: Implement CreateButtons
+		}
+
+		/// <summary>
+		/// Destroies control buttons.
+		/// </summary>
+		private void DestroyButtons()
+		{
+			if (mMinimizeGameObject != null)
+			{
+				UnityEngine.Object.DestroyObject(mMinimizeGameObject);
+				mMinimizeGameObject = null;
+				mMinimizeImage      = null;
+			}
+
+			if (mMaximizeGameObject != null)
+			{
+				UnityEngine.Object.DestroyObject(mMaximizeGameObject);
+				mMaximizeGameObject = null;
+				mMaximizeImage      = null;
+			}
+
+			UnityEngine.Object.DestroyObject(mCloseGameObject);
+			mCloseGameObject = null;
 		}
 
 		/// <summary>
@@ -1255,9 +1661,35 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
-		/// Destroy this instance.
+		/// Handler for click event on mimimize button.
 		/// </summary>
-		public void Destroy()
+		private void OnMinimizeClicked()
+		{
+			if (mState != WindowState.Minimized) 
+			{
+				state = WindowState.Minimized;
+			}
+		}
+
+		/// <summary>
+		/// Handler for click event on mimimize button.
+		/// </summary>
+		private void OnMaximizeClicked()
+		{
+			if (mState != WindowState.Maximized) 
+			{
+				state = WindowState.Maximized;
+			}
+			else
+			{
+				state = WindowState.NoState;
+			}
+		}
+
+		/// <summary>
+		/// Close this window.
+		/// </summary>
+		public void Close()
 		{
 			UnityEngine.Object.DestroyObject(gameObject);
 		}
@@ -1342,13 +1774,81 @@ namespace Common.UI.Windows
 				switch (mMouseState)
 				{
 					case MouseState.NoState:
-					{
+					{							
 						if (mMouseLocation != MouseLocation.Outside)
 						{
+							bool isInsideButtons = false;
+
 							Vector3 mousePos = InputControl.mousePosition;
-							
+
 							float mouseX = mousePos.x;
 							float mouseY = Screen.height - mousePos.y;
+							
+							if (mMinimizeGameObject != null)
+							{
+								RectTransform buttonTransform = mMinimizeGameObject.GetComponent<RectTransform>();
+								
+								float buttonWidth  = buttonTransform.sizeDelta.x;
+								float buttonHeight = buttonTransform.sizeDelta.y;
+								float buttonX      = buttonTransform.offsetMin.x + mX + mWidth;
+								
+								if (
+									mouseX >= buttonX
+									&&
+									mouseX <= buttonX + buttonWidth
+									&&
+									mouseY <= mY + SHADOW_WIDTH + buttonWidth
+									)
+								{
+									isInsideButtons = true;
+
+									mMinimizeGameObject.transform.SetAsLastSibling();
+								}
+							}
+							
+							if (mMaximizeGameObject != null)
+							{
+								RectTransform buttonTransform = mMaximizeGameObject.GetComponent<RectTransform>();
+								
+								float buttonWidth  = buttonTransform.sizeDelta.x;
+								float buttonHeight = buttonTransform.sizeDelta.y;
+								float buttonX      = buttonTransform.offsetMin.x + mX + mWidth;
+								
+								if (
+									mouseX >= buttonX
+									&&
+									mouseX <= buttonX + buttonWidth
+									&&
+									mouseY <= mY + SHADOW_WIDTH + buttonWidth
+									)
+								{
+									isInsideButtons = true;
+
+									mMaximizeGameObject.transform.SetAsLastSibling();
+								}
+							}
+							
+							if (mCloseGameObject != null)
+							{
+								RectTransform buttonTransform = mCloseGameObject.GetComponent<RectTransform>();
+
+								float buttonWidth  = buttonTransform.sizeDelta.x;
+								float buttonHeight = buttonTransform.sizeDelta.y;
+								float buttonX      = buttonTransform.offsetMin.x + mX + mWidth;
+
+								if (
+									mouseX >= buttonX
+									&&
+									mouseX <= buttonX + buttonWidth
+									&&
+									mouseY <= mY + SHADOW_WIDTH + buttonWidth
+								   )
+								{
+									isInsideButtons = true;
+
+									mCloseGameObject.transform.SetAsLastSibling();
+								}
+							}
 
 							switch (mState)
 							{
@@ -1356,70 +1856,77 @@ namespace Common.UI.Windows
 								{
 									MouseLocation oldLocation = mMouseLocation;
 
-									if (mouseY <= mY + SHADOW_WIDTH + RESIZING_GAP)
+									if (isInsideButtons)
 									{
-										if (mouseX <= mX + mBorderLeft)
-										{
-											mMouseLocation = MouseLocation.NorthWest;
-										}
-										else
-										if (mouseX < mX + mWidth - mBorderRight)
-										{
-											mMouseLocation = MouseLocation.North;
-										}
-										else
-										{
-											mMouseLocation = MouseLocation.NorthEast;
-										}
-									}
-									else
-									if (mouseY <= mY + mBorderTop)
-									{
-										if (mouseX <= mX + mBorderLeft)
-										{
-											mMouseLocation = MouseLocation.West;
-										}
-										else
-										if (mouseX < mX + mWidth - mBorderRight)
-										{
-											mMouseLocation = MouseLocation.Header;
-										}
-										else
-										{
-											mMouseLocation = MouseLocation.East;
-										}
-									}
-									else
-									if (mouseY < mY + mHeight - mBorderBottom)
-									{
-										if (mouseX <= mX + mBorderLeft)
-										{
-											mMouseLocation = MouseLocation.West;
-										}
-										else
-										if (mouseX < mX + mWidth - mBorderRight)
-										{
-											mMouseLocation = MouseLocation.Inside;
-										}
-										else
-										{
-											mMouseLocation = MouseLocation.East;
-										}
+										mMouseLocation = MouseLocation.Inside;
 									}
 									else
 									{
-										if (mouseX <= mX + mBorderLeft)
+										if (mouseY <= mY + SHADOW_WIDTH + RESIZING_GAP)
 										{
-											mMouseLocation = MouseLocation.SouthWest;
+											if (mouseX <= mX + mBorderLeft)
+											{
+												mMouseLocation = MouseLocation.NorthWest;
+											}
+											else
+											if (mouseX < mX + mWidth - mBorderRight)
+											{
+												mMouseLocation = MouseLocation.North;
+											}
+											else
+											{
+												mMouseLocation = MouseLocation.NorthEast;
+											}
 										}
 										else
-										if (mouseX < mX + mWidth - mBorderRight)
+										if (mouseY <= mY + mBorderTop)
 										{
-											mMouseLocation = MouseLocation.South;
+											if (mouseX <= mX + mBorderLeft)
+											{
+												mMouseLocation = MouseLocation.West;
+											}
+											else
+											if (mouseX < mX + mWidth - mBorderRight)
+											{
+												mMouseLocation = MouseLocation.Header;
+											}
+											else
+											{
+												mMouseLocation = MouseLocation.East;
+											}
+										}
+										else
+										if (mouseY < mY + mHeight - mBorderBottom)
+										{
+											if (mouseX <= mX + mBorderLeft)
+											{
+												mMouseLocation = MouseLocation.West;
+											}
+											else
+											if (mouseX < mX + mWidth - mBorderRight)
+											{
+												mMouseLocation = MouseLocation.Inside;
+											}
+											else
+											{
+												mMouseLocation = MouseLocation.East;
+											}
 										}
 										else
 										{
-											mMouseLocation = MouseLocation.SouthEast;
+											if (mouseX <= mX + mBorderLeft)
+											{
+												mMouseLocation = MouseLocation.SouthWest;
+											}
+											else
+											if (mouseX < mX + mWidth - mBorderRight)
+											{
+												mMouseLocation = MouseLocation.South;
+											}
+											else
+											{
+												mMouseLocation = MouseLocation.SouthEast;
+											}
 										}
 									}
 									
@@ -1480,19 +1987,33 @@ namespace Common.UI.Windows
 
 								case WindowState.Minimized:
 								{
-									mMouseLocation = MouseLocation.Header;
+									if (isInsideButtons)
+									{
+										mMouseLocation = MouseLocation.Inside;
+									}
+									else
+									{
+										mMouseLocation = MouseLocation.Header;
+									}
 								}
 								break;
 
 								case WindowState.Maximized:
 								{
-									if (mouseY <= mY + mBorderTop)
+									if (isInsideButtons)
 									{
-										mMouseLocation = MouseLocation.Header;
+										mMouseLocation = MouseLocation.Inside;
 									}
 									else
 									{
-										mMouseLocation = MouseLocation.Inside;
+										if (mouseY <= mY + mBorderTop)
+										{
+											mMouseLocation = MouseLocation.Header;
+										}
+										else
+										{
+											mMouseLocation = MouseLocation.Inside;
+										}
 									}
 								}
 								break;
@@ -1505,7 +2026,7 @@ namespace Common.UI.Windows
 
 								default:
 								{
-									Debug.LogError("unknown window state");
+									Debug.LogError("Unknown window state");
 								}
 								break;
 							}
@@ -1784,7 +2305,6 @@ namespace Common.UI.Windows
 				}
 			}
 		}
-
 
 		/// <summary>
 		/// Show window.

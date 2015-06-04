@@ -1415,7 +1415,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
 			int screenWidth = Screen.width;
 
-			if (contentWidth + 40f > screenWidth)
+			if (contentWidth + width + 40f > screenWidth)
 			{
 				contentWidth += width + 40f;
 			}
