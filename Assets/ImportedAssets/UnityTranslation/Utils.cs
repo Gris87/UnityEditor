@@ -143,8 +143,6 @@ namespace UnityTranslationInternal
 								
 								break;
 							}
-							res.Remove(i, 2);
-							res.Insert(i, "\t");
 						}
 					}
 					else

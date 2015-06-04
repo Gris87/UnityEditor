@@ -841,7 +841,7 @@ public class KeyboardInput : CustomInput
         float sensitivity = 1;
 
         if (
-            axis!=null
+            axis != null
             &&
             (
              axis.Equals("Mouse X")
