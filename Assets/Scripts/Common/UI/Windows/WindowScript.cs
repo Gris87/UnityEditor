@@ -1553,6 +1553,7 @@ namespace Common.UI.Windows
 
 				case WindowFrameType.Frameless:
 				{
+					Debug.LogError("Incorrect window frame");
 				}
 				break;
 
