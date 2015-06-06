@@ -1211,6 +1211,7 @@ namespace Common.UI.Windows
 				mWidth  = mBorderLeft + contentWidth  + mBorderRight;
 				mHeight = mBorderTop  + contentHeight + mBorderBottom;
 
+				#region Apply constraints
 				if (IsFramePresent())
 				{
 					if (mWidth < MINIMAL_WIDTH + SHADOW_WIDTH * 2)
@@ -1275,6 +1276,7 @@ namespace Common.UI.Windows
 						mHeight = mMaximumHeight;
 					}
 				}
+				#endregion
 
 				mX = (Screen.width  - mWidth)  / 2; // Screen.width  / 2 - mWidth / 2;
 				mY = (Screen.height - mHeight) / 2; // Screen.height / 2 - mHeight / 2;
@@ -1822,8 +1824,6 @@ namespace Common.UI.Windows
 				float windowY      = -mWindowTransform.offsetMax.y + SHADOW_WIDTH;
 				float windowWidth  = mWindowTransform.sizeDelta.x - 2 * SHADOW_WIDTH;
 				float windowHeight = mWindowTransform.sizeDelta.y - 2 * SHADOW_WIDTH;
-
-				Debug.Log(windowX + " " +windowY + " " +windowWidth + " " +windowHeight + " " +mouseX + " " +mouseY);
 
 				return (
 						mouseX >= windowX
