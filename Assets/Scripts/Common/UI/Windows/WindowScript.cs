@@ -9,6 +9,7 @@ using Common;
 
 namespace Common.UI.Windows
 {
+	#region Internal namespace
 	namespace Internal
 	{
 		/// <summary>
@@ -57,12 +58,18 @@ namespace Common.UI.Windows
 			}
 		}
 	}
+	#endregion
+
+
 
 	/// <summary>
 	/// Script that realize behaviour for window.
 	/// </summary>
 	public class WindowScript : MonoBehaviour, ICanvasRaycastFilter, IPointerEnterHandler, IPointerExitHandler
 	{
+		/// <summary>
+		/// Class for data that used while lef mouse button pressed.
+		/// </summary>
 		private class MouseContext
 		{
 			public float previousMouseX;
@@ -119,11 +126,12 @@ namespace Common.UI.Windows
 
 
 
-		private static float SHADOW_WIDTH      = 15f;
-		private static float BUTTON_GLOW_WIDTH = 8f;
-		private static float MAXIMIZED_OFFSET  = 3f;
-		private static float RESIZING_GAP      = 8f;
-		private static float DRAGGING_GAP      = 15f;
+		private static float SHADOW_WIDTH           = 15f;
+		private static float BUTTON_GLOW_WIDTH      = 8f;
+		private static float TOOL_BUTTON_GLOW_WIDTH = 4f;
+		private static float MAXIMIZED_OFFSET       = 3f;
+		private static float RESIZING_GAP           = 8f;
+		private static float DRAGGING_GAP           = 15f;
 
 		private static float MINIMAL_WIDTH  = 100f;
 		private static float MINIMAL_HEIGHT = 38f;
@@ -149,6 +157,7 @@ namespace Common.UI.Windows
 		private float           mMaximumHeight;
 		private bool            mAllowMinimize;
 		private bool            mAllowMaximize;
+		private bool            mAllowClose;
 		// TODO: Buttons
 		// TODO: Label
 
@@ -156,10 +165,11 @@ namespace Common.UI.Windows
 		private GameObject      mBorderGameObject;
 		private Image           mBorderImage;
 		private GameObject      mMinimizeGameObject;
-		private Image           mMinimizeImage;
+		private Button          mMinimizeButton;
 		private GameObject      mMaximizeGameObject;
-		private Image           mMaximizeImage;
+		private Button          mMaximizeButton;
 		private GameObject      mCloseGameObject;
+		private Button          mCloseButton;
 		private RectTransform   mContentTransform;
 		private Image           mContentBackgroundImage;
 		private float           mBorderLeft;
@@ -1003,6 +1013,31 @@ namespace Common.UI.Windows
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets a value indicating whether this window allow to close.
+		/// </summary>
+		/// <value><c>true</c> if allow to close; otherwise, <c>false</c>.</value>
+		public bool allowClose
+		{
+			get
+			{
+				return mAllowClose;
+			}
+			
+			set
+			{
+				if (mAllowClose != value)
+				{
+					mAllowClose = value;
+					
+					if (IsUICreated())
+					{
+						// TODO: Implement
+					}
+				}
+			}
+		}
+
 
 
 		/// <summary>
@@ -1025,15 +1060,17 @@ namespace Common.UI.Windows
 			mMaximumHeight   = 0f;
 			mAllowMinimize   = true;
 			mAllowMaximize   = true;
+			mAllowClose      = true;
 
 			mWindowTransform        = null;
 			mBorderGameObject       = null;
 			mBorderImage            = null;
 			mMinimizeGameObject     = null;
-			mMinimizeImage          = null;
+			mMinimizeButton         = null;
 			mMaximizeGameObject     = null;
-			mMaximizeImage          = null;
+			mMaximizeButton         = null;
 			mCloseGameObject        = null;
+			mCloseButton            = null;
 			mContentTransform       = null;
 			mContentBackgroundImage = null;
 			mBorderLeft             = 0f;
@@ -1384,12 +1421,12 @@ namespace Common.UI.Windows
 					// Button Component
 					//===========================================================================
 					#region Button Component
-					Button closeButton = mCloseGameObject.AddComponent<Button>();
+					mCloseButton = mCloseGameObject.AddComponent<Button>();
 					
-					closeButton.targetGraphic = closeImageImage;
-					closeButton.transition    = Selectable.Transition.SpriteSwap;
-					closeButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
-					closeButton.onClick.AddListener(Close);
+					mCloseButton.targetGraphic = closeImageImage;
+					mCloseButton.transition    = Selectable.Transition.SpriteSwap;
+					mCloseButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
+					mCloseButton.onClick.AddListener(Close);
 					#endregion
 					#endregion
 
@@ -1457,12 +1494,12 @@ namespace Common.UI.Windows
 					// Button Component
 					//===========================================================================
 					#region Button Component
-					Button maximizeButton = mMaximizeGameObject.AddComponent<Button>();
+					mMaximizeButton = mMaximizeGameObject.AddComponent<Button>();
 					
-					maximizeButton.targetGraphic = maximizeImageImage;
-					maximizeButton.transition    = Selectable.Transition.SpriteSwap;
-					maximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
-					maximizeButton.onClick.AddListener(OnMaximizeClicked);
+					mMaximizeButton.targetGraphic = maximizeImageImage;
+					mMaximizeButton.transition    = Selectable.Transition.SpriteSwap;
+					mMaximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
+					mMaximizeButton.onClick.AddListener(OnMaximizeClicked);
 					#endregion
 					#endregion
 
@@ -1530,12 +1567,12 @@ namespace Common.UI.Windows
 					// Button Component
 					//===========================================================================
 					#region Button Component
-					Button minimizeButton = mMinimizeGameObject.AddComponent<Button>();
+					mMinimizeButton = mMinimizeGameObject.AddComponent<Button>();
 					
-					minimizeButton.targetGraphic = minimizeImageImage;
-					minimizeButton.transition    = Selectable.Transition.SpriteSwap;
-					minimizeButton.spriteState   = Internal.WindowCommon.minimizeButtonSpriteState;
-					minimizeButton.onClick.AddListener(OnMinimizeClicked);
+					mMinimizeButton.targetGraphic = minimizeImageImage;
+					mMinimizeButton.transition    = Selectable.Transition.SpriteSwap;
+					mMinimizeButton.spriteState   = Internal.WindowCommon.minimizeButtonSpriteState;
+					mMinimizeButton.onClick.AddListener(OnMinimizeClicked);
 					#endregion
 					#endregion
 				}
@@ -1576,18 +1613,22 @@ namespace Common.UI.Windows
 			{
 				UnityEngine.Object.DestroyObject(mMinimizeGameObject);
 				mMinimizeGameObject = null;
-				mMinimizeImage      = null;
+				mMinimizeButton     = null;
 			}
 
 			if (mMaximizeGameObject != null)
 			{
 				UnityEngine.Object.DestroyObject(mMaximizeGameObject);
 				mMaximizeGameObject = null;
-				mMaximizeImage      = null;
+				mMaximizeButton     = null;
 			}
 
-			UnityEngine.Object.DestroyObject(mCloseGameObject);
-			mCloseGameObject = null;
+			if (mCloseGameObject != null)
+			{
+				UnityEngine.Object.DestroyObject(mCloseGameObject);
+				mCloseGameObject = null;
+				mCloseButton     = null;
+			}
 		}
 
 		/// <summary>
@@ -1791,15 +1832,18 @@ namespace Common.UI.Windows
 								
 								float buttonWidth  = buttonTransform.sizeDelta.x;
 								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x + mX + mWidth;
+								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth;
+								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight;
 								
 								if (
 									mouseX >= buttonX
 									&&
 									mouseX <= buttonX + buttonWidth
 									&&
-									mouseY <= mY + SHADOW_WIDTH + buttonWidth
-									)
+									mouseY >= buttonY
+									&&
+									mouseY <= buttonY + buttonHeight
+								   )
 								{
 									isInsideButtons = true;
 
@@ -1813,15 +1857,18 @@ namespace Common.UI.Windows
 								
 								float buttonWidth  = buttonTransform.sizeDelta.x;
 								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x + mX + mWidth;
+								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth;
+								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight;
 								
 								if (
 									mouseX >= buttonX
 									&&
 									mouseX <= buttonX + buttonWidth
 									&&
-									mouseY <= mY + SHADOW_WIDTH + buttonWidth
-									)
+									mouseY >= buttonY
+									&&
+									mouseY <= buttonY + buttonHeight
+								   )
 								{
 									isInsideButtons = true;
 
@@ -1835,14 +1882,17 @@ namespace Common.UI.Windows
 
 								float buttonWidth  = buttonTransform.sizeDelta.x;
 								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x + mX + mWidth;
-
+								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth;
+								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight;
+								
 								if (
 									mouseX >= buttonX
 									&&
 									mouseX <= buttonX + buttonWidth
 									&&
-									mouseY <= mY + SHADOW_WIDTH + buttonWidth
+									mouseY >= buttonY
+									&&
+									mouseY <= buttonY + buttonHeight
 								   )
 								{
 									isInsideButtons = true;

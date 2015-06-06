@@ -10,6 +10,7 @@ using UI.Popups;
 
 namespace Common.UI.Popups
 {
+	#region Internal namespace
 	namespace Internal
 	{
 		/// <summary>
@@ -46,7 +47,10 @@ namespace Common.UI.Popups
 			}
 		}
 	}
-	
+	#endregion
+
+
+
 	/// <summary>
 	/// Popup menu.
 	/// </summary>
