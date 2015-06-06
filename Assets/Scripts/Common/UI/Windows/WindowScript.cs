@@ -35,25 +35,25 @@ namespace Common.UI.Windows
 				closeButtonSpriteState     = new SpriteState();
 				toolCloseButtonSpriteState = new SpriteState();
 				
-				minimizeButtonSpriteState.disabledSprite     = Assets.Windows.Common.Textures.minimizeButton;
+				minimizeButtonSpriteState.disabledSprite     = Assets.Windows.Common.Textures.minimizeButtonDisabled;
 				minimizeButtonSpriteState.highlightedSprite  = Assets.Windows.Common.Textures.minimizeButtonHighlighted;
 				minimizeButtonSpriteState.pressedSprite      = Assets.Windows.Common.Textures.minimizeButtonPressed;
 
-				maximizeButtonSpriteState.disabledSprite     = Assets.Windows.Common.Textures.maximizeButton;
+				maximizeButtonSpriteState.disabledSprite     = Assets.Windows.Common.Textures.maximizeButtonDisabled;
 				maximizeButtonSpriteState.highlightedSprite  = Assets.Windows.Common.Textures.maximizeButtonHighlighted;
 				maximizeButtonSpriteState.pressedSprite      = Assets.Windows.Common.Textures.maximizeButtonPressed;
 
-				normalizeButtonSpriteState.disabledSprite    = Assets.Windows.Common.Textures.normalizeButton;
+				normalizeButtonSpriteState.disabledSprite    = Assets.Windows.Common.Textures.normalizeButtonDisabled;
 				normalizeButtonSpriteState.highlightedSprite = Assets.Windows.Common.Textures.normalizeButtonHighlighted;
 				normalizeButtonSpriteState.pressedSprite     = Assets.Windows.Common.Textures.normalizeButtonPressed;
 
-				closeButtonSpriteState.disabledSprite        = Assets.Windows.Common.Textures.closeButton;
+				closeButtonSpriteState.disabledSprite        = Assets.Windows.Common.Textures.closeButtonDisabled;
 				closeButtonSpriteState.highlightedSprite     = Assets.Windows.Common.Textures.closeButtonHighlighted;
 				closeButtonSpriteState.pressedSprite         = Assets.Windows.Common.Textures.closeButtonPressed;
 
-				toolCloseButtonSpriteState.disabledSprite    = Assets.Windows.Common.Textures.toolCloseButton;
+				toolCloseButtonSpriteState.disabledSprite    = Assets.Windows.Common.Textures.toolCloseButtonDisabled;
 				toolCloseButtonSpriteState.highlightedSprite = Assets.Windows.Common.Textures.toolCloseButtonHighlighted;
-				toolCloseButtonSpriteState.pressedSprite     = Assets.Windows.Common.Textures.minimizeButtonPressed;
+				toolCloseButtonSpriteState.pressedSprite     = Assets.Windows.Common.Textures.toolCloseButtonPressed;
 			}
 		}
 	}

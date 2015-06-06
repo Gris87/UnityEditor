@@ -75,18 +75,23 @@ public static class Assets
 				public static Sprite subWindow                  = LoadResource<Sprite>("Textures/UI/Windows/Common/SubWindow");
 				public static Sprite drawer                     = LoadResource<Sprite>("Textures/UI/Windows/Common/Drawer");
 				public static Sprite minimizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButton");
+				public static Sprite minimizeButtonDisabled     = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonDisabled");
 				public static Sprite minimizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonHighlighted");
 				public static Sprite minimizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MinimizeButtonPressed");
 				public static Sprite maximizeButton             = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButton");
+				public static Sprite maximizeButtonDisabled     = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonDisabled");
 				public static Sprite maximizeButtonHighlighted  = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonHighlighted");
 				public static Sprite maximizeButtonPressed      = LoadResource<Sprite>("Textures/UI/Windows/Common/MaximizeButtonPressed");
 				public static Sprite normalizeButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButton");
+				public static Sprite normalizeButtonDisabled    = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonDisabled");
 				public static Sprite normalizeButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonHighlighted");
 				public static Sprite normalizeButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/NormalizeButtonPressed");
 				public static Sprite closeButton                = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButton");
+				public static Sprite closeButtonDisabled        = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonDisabled");
 				public static Sprite closeButtonHighlighted     = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonHighlighted");
 				public static Sprite closeButtonPressed         = LoadResource<Sprite>("Textures/UI/Windows/Common/CloseButtonPressed");
 				public static Sprite toolCloseButton            = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButton");
+				public static Sprite toolCloseButtonDisabled    = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonDisabled");
 				public static Sprite toolCloseButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonHighlighted");
 				public static Sprite toolCloseButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonPressed");
 			}
