@@ -299,6 +299,10 @@ namespace Common.UI.Windows
 							mContentTransform.offsetMin = new Vector2(mBorderLeft,    mBorderBottom);
 							mContentTransform.offsetMax = new Vector2(-mBorderRight, -mBorderTop);
 						}
+						else
+						{
+							// TODO: Do something with buttons
+						}
 
 						UpdateState();
 					}
@@ -553,7 +557,14 @@ namespace Common.UI.Windows
 
 				if (mState == WindowState.Maximized)
 				{
-					return -MAXIMIZED_OFFSET;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return -MAXIMIZED_OFFSET;
+					}
+					else
+					{
+						return 0;
+					}
 				}
 
 				if (mFrame != WindowFrameType.Frameless)
@@ -587,7 +598,14 @@ namespace Common.UI.Windows
 				
 				if (mState == WindowState.Maximized)
 				{
-					return -MAXIMIZED_OFFSET;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return -MAXIMIZED_OFFSET;
+					}
+					else
+					{
+						return 0;
+					}
 				}				
 				
 				if (mFrame != WindowFrameType.Frameless)
@@ -621,7 +639,14 @@ namespace Common.UI.Windows
 
 				if (mState == WindowState.Maximized)
 				{
-					return Screen.width + MAXIMIZED_OFFSET * 2;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return Screen.width + MAXIMIZED_OFFSET * 2;
+					}
+					else
+					{
+						return Screen.width;
+					}
 				}
 
 				if (mFrame != WindowFrameType.Frameless)
@@ -655,7 +680,14 @@ namespace Common.UI.Windows
 				
 				if (mState == WindowState.Maximized)
 				{
-					return Screen.height + MAXIMIZED_OFFSET * 2;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return Screen.height + MAXIMIZED_OFFSET * 2;
+					}
+					else
+					{
+						return Screen.height;
+					}
 				}
 				
 				if (mFrame != WindowFrameType.Frameless)
@@ -689,7 +721,14 @@ namespace Common.UI.Windows
 				
 				if (mState == WindowState.Maximized)
 				{
-					return mBorderLeft - SHADOW_WIDTH - MAXIMIZED_OFFSET;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return mBorderLeft - SHADOW_WIDTH - MAXIMIZED_OFFSET;
+					}
+					else
+					{
+						return 0;
+					}
 				}
 
 				if (mState == WindowState.Minimized)
@@ -721,7 +760,14 @@ namespace Common.UI.Windows
                 
                 if (mState == WindowState.Maximized)
                 {
-					return mBorderTop - SHADOW_WIDTH - MAXIMIZED_OFFSET;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return mBorderTop - SHADOW_WIDTH - MAXIMIZED_OFFSET;
+					}
+					else
+					{
+						return 0;
+					}
                 }
 
 				if (mState == WindowState.Minimized)
@@ -753,7 +799,14 @@ namespace Common.UI.Windows
 
 				if (mState == WindowState.Maximized)
 				{
-					return Screen.width - mBorderLeft - mBorderRight + MAXIMIZED_OFFSET * 2;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return Screen.width - mBorderLeft - mBorderRight + MAXIMIZED_OFFSET * 2;
+					}
+					else
+					{
+						return Screen.width;
+					}
 				}
 
 				if (mState == WindowState.Minimized)
@@ -785,7 +838,14 @@ namespace Common.UI.Windows
 				
 				if (mState == WindowState.Maximized)
 				{
-					return Screen.height - mBorderTop - mBorderBottom + MAXIMIZED_OFFSET * 2;
+					if (mFrame != WindowFrameType.Frameless)
+					{
+						return Screen.height - mBorderTop - mBorderBottom + MAXIMIZED_OFFSET * 2;
+					}
+					else
+					{
+						return Screen.height;
+					}
 				}
 
 				if (mState == WindowState.Minimized)
@@ -1077,8 +1137,8 @@ namespace Common.UI.Windows
 			mBorderTop              = 0f;
 			mBorderRight            = 0f;
 			mBorderBottom           = 0f;
-			mMouseState             = MouseState.NoState;
 			mMouseLocation          = MouseLocation.Outside;
+			mMouseState             = MouseState.NoState;
 			mMouseContext           = null;
 
 			Hide();
@@ -1710,6 +1770,10 @@ namespace Common.UI.Windows
 			if (mState != WindowState.Minimized) 
 			{
 				state = WindowState.Minimized;
+			}
+			else
+			{
+				state = WindowState.NoState;
 			}
 		}
 
