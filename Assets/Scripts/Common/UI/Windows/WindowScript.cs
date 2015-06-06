@@ -1746,12 +1746,30 @@ namespace Common.UI.Windows
 		{
 			if (IsFramePresent())
 			{
+				if (mState == WindowState.Maximized)
+				{
+					return true;
+				}
+
 				float mouseX = sp.x;
 				float mouseY = Screen.height - sp.y;
-				
-				return mouseX >= mX + SHADOW_WIDTH && mouseX <= mX + mWidth  - SHADOW_WIDTH
-					   &&
-					   mouseY >= mY + SHADOW_WIDTH && mouseY <= mY + mHeight - SHADOW_WIDTH;
+
+				float windowX      = mWindowTransform.offsetMin.x  + SHADOW_WIDTH;
+				float windowY      = -mWindowTransform.offsetMax.y + SHADOW_WIDTH;
+				float windowWidth  = mWindowTransform.sizeDelta.x - 2 * SHADOW_WIDTH;
+				float windowHeight = mWindowTransform.sizeDelta.y - 2 * SHADOW_WIDTH;
+
+				Debug.Log(windowX + " " +windowY + " " +windowWidth + " " +windowHeight + " " +mouseX + " " +mouseY);
+
+				return (
+						mouseX >= windowX
+						&&
+						mouseX <= windowX + windowWidth
+						&&
+						mouseY >= windowY
+						&&
+						mouseY <= windowY + windowHeight
+					   );
 			}
 
 			return true;
