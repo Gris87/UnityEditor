@@ -133,13 +133,13 @@ namespace Common.UI.Windows
 		private static float RESIZING_GAP           = 8f;
 		private static float DRAGGING_GAP           = 15f;
 
-		private static float MINIMAL_WIDTH  = 100f;
+		private static float MINIMAL_WIDTH  = 120f;
 		private static float MINIMAL_HEIGHT = 38f;
 
 		private static float MINIMIZED_OFFSET_LEFT   = 8f;
 		private static float MINIMIZED_OFFSET_BOTTOM = 8f;
-		private static float MINIMIZED_WIDTH         = 100f;
-		private static float MINIMIZED_HEIGHT        = 38f;
+		private static float MINIMIZED_WIDTH         = 120f;
+		private static float MINIMIZED_HEIGHT        = 20f;
 
 
 
@@ -158,7 +158,6 @@ namespace Common.UI.Windows
 		private bool            mAllowMinimize;
 		private bool            mAllowMaximize;
 		private bool            mAllowClose;
-		// TODO: Buttons
 		// TODO: Label
 
 		private RectTransform   mWindowTransform;
@@ -301,7 +300,8 @@ namespace Common.UI.Windows
 						}
 						else
 						{
-							// TODO: Do something with buttons
+							DestroyButtons();
+							CreateButtons();
 						}
 
 						UpdateState();
@@ -1042,7 +1042,8 @@ namespace Common.UI.Windows
 
 					if (IsUICreated())
 					{
-						// TODO: Implement
+						DestroyButtons();
+						CreateButtons();
 					}
 				}
 			}
@@ -1067,7 +1068,8 @@ namespace Common.UI.Windows
 					
 					if (IsUICreated())
 					{
-						// TODO: Implement
+						DestroyButtons();
+						CreateButtons();
 					}
 				}
 			}
@@ -1092,7 +1094,8 @@ namespace Common.UI.Windows
 					
 					if (IsUICreated())
 					{
-						// TODO: Implement
+						DestroyButtons();
+						CreateButtons();
 					}
 				}
 			}
@@ -1415,238 +1418,360 @@ namespace Common.UI.Windows
 			switch (mFrame)
 			{
 				case WindowFrameType.Window:
-				{
-					float buttonWidth;
-					float buttonHeight = 20f;
-					float contentWidth = SHADOW_WIDTH + 4f;
-
-					buttonWidth = 48f;
-
-					//***************************************************************************
-					// Close GameObject
-					//***************************************************************************
-					#region Close GameObject
-				 	mCloseGameObject = new GameObject("Close");
-					Utils.InitUIObject(mCloseGameObject, mBorderGameObject.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform closeTransform = mCloseGameObject.AddComponent<RectTransform>();
-					Utils.AlignRectTransformTopRight(closeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
-					#endregion
-					
-					//***************************************************************************
-					// CloseImage GameObject
-					//***************************************************************************
-					#region CloseImage GameObject
-					GameObject closeImage = new GameObject("Image");
-					Utils.InitUIObject(closeImage, mCloseGameObject.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform closeImageTransform = closeImage.AddComponent<RectTransform>();
-					Utils.AlignRectTransformStretchStretch(closeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
-					#endregion
-					
-					//===========================================================================
-					// CanvasRenderer Component
-					//===========================================================================
-					#region CanvasRenderer Component
-					closeImage.AddComponent<CanvasRenderer>();
-					#endregion
-					
-					//===========================================================================
-					// Image Component
-					//===========================================================================
-					#region Image Component
-					Image closeImageImage = closeImage.AddComponent<Image>();
-						
-					closeImageImage.sprite = Assets.Windows.Common.Textures.closeButton;
-					closeImageImage.type   = Image.Type.Sliced;
-					#endregion
-
-					//===========================================================================
-					// ButtonGlowScript Component
-					//===========================================================================
-					#region ButtonGlowScript Component
-					ButtonGlowScript closeButtonGlowScript = closeImage.AddComponent<ButtonGlowScript>();
-					
-					closeButtonGlowScript.rectTransform = closeTransform;
-					#endregion
-					#endregion
-					
-					//===========================================================================
-					// Button Component
-					//===========================================================================
-					#region Button Component
-					mCloseButton = mCloseGameObject.AddComponent<Button>();
-					
-					mCloseButton.targetGraphic = closeImageImage;
-					mCloseButton.transition    = Selectable.Transition.SpriteSwap;
-					mCloseButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
-					mCloseButton.onClick.AddListener(Close);
-					#endregion
-					#endregion
-
-					contentWidth += buttonWidth - 1; // One button overlaps another one
-					buttonWidth = 28f;
-					
-					//***************************************************************************
-					// Maximize GameObject
-					//***************************************************************************
-					#region Maximize GameObject
-					mMaximizeGameObject = new GameObject("Maximize");
-					Utils.InitUIObject(mMaximizeGameObject, mBorderGameObject.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform maximizeTransform = mMaximizeGameObject.AddComponent<RectTransform>();
-					Utils.AlignRectTransformTopRight(maximizeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
-					#endregion
-					
-					//***************************************************************************
-					// MaximizeImage GameObject
-					//***************************************************************************
-					#region MaximizeImage GameObject
-					GameObject maximizeImage = new GameObject("Image");
-					Utils.InitUIObject(maximizeImage, mMaximizeGameObject.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform maximizeImageTransform = maximizeImage.AddComponent<RectTransform>();
-					Utils.AlignRectTransformStretchStretch(maximizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
-					#endregion
-					
-					//===========================================================================
-					// CanvasRenderer Component
-					//===========================================================================
-					#region CanvasRenderer Component
-					maximizeImage.AddComponent<CanvasRenderer>();
-					#endregion
-					
-					//===========================================================================
-					// Image Component
-					//===========================================================================
-					#region Image Component
-					Image maximizeImageImage = maximizeImage.AddComponent<Image>();
-					
-					maximizeImageImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
-					maximizeImageImage.type   = Image.Type.Sliced;
-					#endregion
-					
-					//===========================================================================
-					// ButtonGlowScript Component
-					//===========================================================================
-					#region ButtonGlowScript Component
-					ButtonGlowScript maximizeButtonGlowScript = maximizeImage.AddComponent<ButtonGlowScript>();
-					
-					maximizeButtonGlowScript.rectTransform = maximizeTransform;
-					#endregion
-					#endregion
-					
-					//===========================================================================
-					// Button Component
-					//===========================================================================
-					#region Button Component
-					mMaximizeButton = mMaximizeGameObject.AddComponent<Button>();
-					
-					mMaximizeButton.targetGraphic = maximizeImageImage;
-					mMaximizeButton.transition    = Selectable.Transition.SpriteSwap;
-					mMaximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
-					mMaximizeButton.onClick.AddListener(OnMaximizeClicked);
-					#endregion
-					#endregion
-
-					contentWidth += buttonWidth - 1; // One button overlaps another one
-					buttonWidth = 29f;
-					
-					//***************************************************************************
-					// Minimize GameObject
-					//***************************************************************************
-					#region Minimize GameObject
-					mMinimizeGameObject = new GameObject("Minimize");
-					Utils.InitUIObject(mMinimizeGameObject, mBorderGameObject.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform minimizeTransform = mMinimizeGameObject.AddComponent<RectTransform>();
-					Utils.AlignRectTransformTopRight(minimizeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
-					#endregion
-					
-					//***************************************************************************
-					// MinimizeImage GameObject
-					//***************************************************************************
-					#region MinimizeImage GameObject
-					GameObject minimizeImage = new GameObject("Image");
-					Utils.InitUIObject(minimizeImage, mMinimizeGameObject.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform minimizeImageTransform = minimizeImage.AddComponent<RectTransform>();
-					Utils.AlignRectTransformStretchStretch(minimizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
-					#endregion
-					
-					//===========================================================================
-					// CanvasRenderer Component
-					//===========================================================================
-					#region CanvasRenderer Component
-					minimizeImage.AddComponent<CanvasRenderer>();
-					#endregion
-					
-					//===========================================================================
-					// Image Component
-					//===========================================================================
-					#region Image Component
-					Image minimizeImageImage = minimizeImage.AddComponent<Image>();
-					
-					minimizeImageImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
-					minimizeImageImage.type   = Image.Type.Sliced;
-					#endregion
-					
-					//===========================================================================
-					// ButtonGlowScript Component
-					//===========================================================================
-					#region ButtonGlowScript Component
-					ButtonGlowScript minimizeButtonGlowScript = minimizeImage.AddComponent<ButtonGlowScript>();
-					
-					minimizeButtonGlowScript.rectTransform = minimizeTransform;
-					#endregion
-					#endregion
-					
-					//===========================================================================
-					// Button Component
-					//===========================================================================
-					#region Button Component
-					mMinimizeButton = mMinimizeGameObject.AddComponent<Button>();
-					
-					mMinimizeButton.targetGraphic = minimizeImageImage;
-					mMinimizeButton.transition    = Selectable.Transition.SpriteSwap;
-					mMinimizeButton.spriteState   = Internal.WindowCommon.minimizeButtonSpriteState;
-					mMinimizeButton.onClick.AddListener(OnMinimizeClicked);
-					#endregion
-					#endregion
-				}
-				break;
-
 				case WindowFrameType.SubWindow:
 				{
+					if (
+						mAllowMinimize
+					    ||
+						mAllowMaximize
+						||
+						mAllowClose
+					   )
+					{
+						float buttonWidth;
+						float buttonHeight = 20f;
+						float contentWidth = SHADOW_WIDTH + 4f;
+						
+						buttonWidth = 48f;
+
+						//***************************************************************************
+						// Close GameObject
+						//***************************************************************************
+						#region Close GameObject
+						mCloseGameObject = new GameObject("Close");
+						Utils.InitUIObject(mCloseGameObject, mBorderGameObject.transform);
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform closeTransform = mCloseGameObject.AddComponent<RectTransform>();
+						Utils.AlignRectTransformTopRight(closeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
+						#endregion
+						
+						//***************************************************************************
+						// CloseImage GameObject
+						//***************************************************************************
+						#region CloseImage GameObject
+						GameObject closeImage = new GameObject("Image");
+						Utils.InitUIObject(closeImage, mCloseGameObject.transform);
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform closeImageTransform = closeImage.AddComponent<RectTransform>();
+						Utils.AlignRectTransformStretchStretch(closeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
+						#endregion
+						
+						//===========================================================================
+						// CanvasRenderer Component
+						//===========================================================================
+						#region CanvasRenderer Component
+						closeImage.AddComponent<CanvasRenderer>();
+						#endregion
+						
+						//===========================================================================
+						// Image Component
+						//===========================================================================
+						#region Image Component
+						Image closeImageImage = closeImage.AddComponent<Image>();
+						
+						closeImageImage.sprite = Assets.Windows.Common.Textures.closeButton;
+						closeImageImage.type   = Image.Type.Sliced;
+						#endregion
+						
+						//===========================================================================
+						// ButtonGlowScript Component
+						//===========================================================================
+						#region ButtonGlowScript Component
+						ButtonGlowScript closeButtonGlowScript = closeImage.AddComponent<ButtonGlowScript>();
+						
+						closeButtonGlowScript.rectTransform = closeTransform;
+						#endregion
+						#endregion
+						
+						//===========================================================================
+						// Button Component
+						//===========================================================================
+						#region Button Component
+						mCloseButton = mCloseGameObject.AddComponent<Button>();
+						
+						mCloseButton.interactable  = mAllowClose;
+						mCloseButton.targetGraphic = closeImageImage;
+						mCloseButton.transition    = Selectable.Transition.SpriteSwap;
+						mCloseButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
+						mCloseButton.onClick.AddListener(Close);
+						#endregion
+						#endregion
+
+						if (
+							mAllowMinimize
+							||
+							mAllowMaximize
+						   )
+						{
+							contentWidth += buttonWidth - 1; // One button overlaps another one
+							buttonWidth = 28f;
+							
+							//***************************************************************************
+							// Maximize GameObject
+							//***************************************************************************
+							#region Maximize GameObject
+							mMaximizeGameObject = new GameObject("Maximize");
+							Utils.InitUIObject(mMaximizeGameObject, mBorderGameObject.transform);
+							
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform maximizeTransform = mMaximizeGameObject.AddComponent<RectTransform>();
+							Utils.AlignRectTransformTopRight(maximizeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
+							#endregion
+							
+							//***************************************************************************
+							// MaximizeImage GameObject
+							//***************************************************************************
+							#region MaximizeImage GameObject
+							GameObject maximizeImage = new GameObject("Image");
+							Utils.InitUIObject(maximizeImage, mMaximizeGameObject.transform);
+							
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform maximizeImageTransform = maximizeImage.AddComponent<RectTransform>();
+							Utils.AlignRectTransformStretchStretch(maximizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
+							#endregion
+							
+							//===========================================================================
+							// CanvasRenderer Component
+							//===========================================================================
+							#region CanvasRenderer Component
+							maximizeImage.AddComponent<CanvasRenderer>();
+							#endregion
+							
+							//===========================================================================
+							// Image Component
+							//===========================================================================
+							#region Image Component
+							Image maximizeImageImage = maximizeImage.AddComponent<Image>();
+							
+							if (mState != WindowState.Maximized)
+							{
+								maximizeImageImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
+							}
+							else
+							{
+								maximizeImageImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+							}
+
+							maximizeImageImage.type   = Image.Type.Sliced;
+							#endregion
+							
+							//===========================================================================
+							// ButtonGlowScript Component
+							//===========================================================================
+							#region ButtonGlowScript Component
+							ButtonGlowScript maximizeButtonGlowScript = maximizeImage.AddComponent<ButtonGlowScript>();
+							
+							maximizeButtonGlowScript.rectTransform = maximizeTransform;
+							#endregion
+							#endregion
+							
+							//===========================================================================
+							// Button Component
+							//===========================================================================
+							#region Button Component
+							mMaximizeButton = mMaximizeGameObject.AddComponent<Button>();
+							
+							mMaximizeButton.interactable  = mAllowMaximize;
+							mMaximizeButton.targetGraphic = maximizeImageImage;
+							mMaximizeButton.transition    = Selectable.Transition.SpriteSwap;
+							
+							if (mState != WindowState.Maximized)
+							{
+								mMaximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
+							}
+							else
+							{
+								mMaximizeButton.spriteState   = Internal.WindowCommon.normalizeButtonSpriteState;
+							}
+							
+							mMaximizeButton.onClick.AddListener(OnMaximizeClicked);
+							#endregion
+							#endregion
+							
+							contentWidth += buttonWidth - 1; // One button overlaps another one
+							buttonWidth = 29f;
+							
+							//***************************************************************************
+							// Minimize GameObject
+							//***************************************************************************
+							#region Minimize GameObject
+							mMinimizeGameObject = new GameObject("Minimize");
+							Utils.InitUIObject(mMinimizeGameObject, mBorderGameObject.transform);
+							
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform minimizeTransform = mMinimizeGameObject.AddComponent<RectTransform>();
+							Utils.AlignRectTransformTopRight(minimizeTransform, buttonWidth, buttonHeight, contentWidth, SHADOW_WIDTH);
+							#endregion
+							
+							//***************************************************************************
+							// MinimizeImage GameObject
+							//***************************************************************************
+							#region MinimizeImage GameObject
+							GameObject minimizeImage = new GameObject("Image");
+							Utils.InitUIObject(minimizeImage, mMinimizeGameObject.transform);
+							
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform minimizeImageTransform = minimizeImage.AddComponent<RectTransform>();
+							Utils.AlignRectTransformStretchStretch(minimizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
+							#endregion
+							
+							//===========================================================================
+							// CanvasRenderer Component
+							//===========================================================================
+							#region CanvasRenderer Component
+							minimizeImage.AddComponent<CanvasRenderer>();
+							#endregion
+							
+							//===========================================================================
+							// Image Component
+							//===========================================================================
+							#region Image Component
+							Image minimizeImageImage = minimizeImage.AddComponent<Image>();
+							
+							if (mState != WindowState.Minimized)
+							{
+								minimizeImageImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
+							}
+							else
+							{
+								minimizeImageImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+							}
+													
+							minimizeImageImage.type   = Image.Type.Sliced;
+							#endregion
+							
+							//===========================================================================
+							// ButtonGlowScript Component
+							//===========================================================================
+							#region ButtonGlowScript Component
+							ButtonGlowScript minimizeButtonGlowScript = minimizeImage.AddComponent<ButtonGlowScript>();
+							
+							minimizeButtonGlowScript.rectTransform = minimizeTransform;
+							#endregion
+							#endregion
+							
+							//===========================================================================
+							// Button Component
+							//===========================================================================
+							#region Button Component
+							mMinimizeButton = mMinimizeGameObject.AddComponent<Button>();
+							
+							mMinimizeButton.interactable  = mAllowMinimize;
+							mMinimizeButton.targetGraphic = minimizeImageImage;
+							mMinimizeButton.transition    = Selectable.Transition.SpriteSwap;
+							
+							if (mState != WindowState.Minimized)
+							{
+								mMinimizeButton.spriteState = Internal.WindowCommon.minimizeButtonSpriteState;
+							}	
+							else
+							{
+								mMinimizeButton.spriteState = Internal.WindowCommon.normalizeButtonSpriteState;
+							}
+							
+							mMinimizeButton.onClick.AddListener(OnMinimizeClicked);
+							#endregion
+							#endregion
+						}
+					}					
 				}
 				break;
 
 				case WindowFrameType.Drawer:
 				{
+					if (mAllowClose)
+					{						
+						//***************************************************************************
+						// Close GameObject
+						//***************************************************************************
+						#region Close GameObject
+						mCloseGameObject = new GameObject("Close");
+						Utils.InitUIObject(mCloseGameObject, mBorderGameObject.transform);
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform closeTransform = mCloseGameObject.AddComponent<RectTransform>();
+						Utils.AlignRectTransformTopRight(closeTransform, 17f, 17f, SHADOW_WIDTH + 5f, SHADOW_WIDTH + 4f);
+						#endregion
+						
+						//***************************************************************************
+						// CloseImage GameObject
+						//***************************************************************************
+						#region CloseImage GameObject
+						GameObject closeImage = new GameObject("Image");
+						Utils.InitUIObject(closeImage, mCloseGameObject.transform);
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform closeImageTransform = closeImage.AddComponent<RectTransform>();
+						Utils.AlignRectTransformStretchStretch(closeImageTransform, -TOOL_BUTTON_GLOW_WIDTH, -TOOL_BUTTON_GLOW_WIDTH, -TOOL_BUTTON_GLOW_WIDTH, -TOOL_BUTTON_GLOW_WIDTH);
+						#endregion
+						
+						//===========================================================================
+						// CanvasRenderer Component
+						//===========================================================================
+						#region CanvasRenderer Component
+						closeImage.AddComponent<CanvasRenderer>();
+						#endregion
+						
+						//===========================================================================
+						// Image Component
+						//===========================================================================
+						#region Image Component
+						Image closeImageImage = closeImage.AddComponent<Image>();
+						
+						closeImageImage.sprite = Assets.Windows.Common.Textures.toolCloseButton;
+						closeImageImage.type   = Image.Type.Sliced;
+						#endregion
+						
+						//===========================================================================
+						// ButtonGlowScript Component
+						//===========================================================================
+						#region ButtonGlowScript Component
+						ButtonGlowScript closeButtonGlowScript = closeImage.AddComponent<ButtonGlowScript>();
+						
+						closeButtonGlowScript.rectTransform = closeTransform;
+						#endregion
+						#endregion
+						
+						//===========================================================================
+						// Button Component
+						//===========================================================================
+						#region Button Component
+						mCloseButton = mCloseGameObject.AddComponent<Button>();
+						
+						mCloseButton.interactable  = mAllowClose;
+						mCloseButton.targetGraphic = closeImageImage;
+						mCloseButton.transition    = Selectable.Transition.SpriteSwap;
+						mCloseButton.spriteState   = Internal.WindowCommon.toolCloseButtonSpriteState;
+						mCloseButton.onClick.AddListener(Close);
+						#endregion
+						#endregion
+					}
 				}
 				break;
 
@@ -1723,10 +1848,10 @@ namespace Common.UI.Windows
 				{
 					Utils.AlignRectTransformTopLeft(
 													  mWindowTransform
-													, MINIMIZED_WIDTH
-													, MINIMIZED_HEIGHT
-													, MINIMIZED_OFFSET_LEFT
-													, Screen.height - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT
+													, MINIMIZED_WIDTH  + 2 * SHADOW_WIDTH
+													, MINIMIZED_HEIGHT + 2 * SHADOW_WIDTH
+													, MINIMIZED_OFFSET_LEFT + SHADOW_WIDTH
+													, Screen.height - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT - SHADOW_WIDTH
 												   );
 				}
 				break;
@@ -2222,6 +2347,7 @@ namespace Common.UI.Windows
 
 					case MouseState.Dragging:
 					{
+						// TODO: Improve for minimized state
 						Vector3 mousePos = InputControl.mousePosition;
 						
 						float mouseX = mousePos.x;
