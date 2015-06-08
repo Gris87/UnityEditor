@@ -78,6 +78,8 @@ namespace Common.UI.Windows
 			public float previousY;
 			public float previousWidth;
 			public float previousHeight;
+			public float previousRectX;
+			public float previousRectY;
 
 
 
@@ -91,6 +93,8 @@ namespace Common.UI.Windows
 			                    , float y
 			                    , float width
 			                    , float height
+								, float rectX
+								, float rectY
 			                   )
 			{
 				previousMouseX = mouseX;
@@ -99,6 +103,8 @@ namespace Common.UI.Windows
 				previousY      = y;
 				previousWidth  = width;
 				previousHeight = height;
+				previousRectX  = rectX;
+				previousRectY  = rectY;
 			}
 		}
 
@@ -1787,8 +1793,6 @@ namespace Common.UI.Windows
 				}
 				break;
 			}
-
-			// TODO: Implement CreateButtons
 		}
 
 		/// <summary>
@@ -1850,7 +1854,7 @@ namespace Common.UI.Windows
 													  mWindowTransform
 													, MINIMIZED_WIDTH  + 2 * SHADOW_WIDTH
 													, MINIMIZED_HEIGHT + 2 * SHADOW_WIDTH
-													, MINIMIZED_OFFSET_LEFT + SHADOW_WIDTH
+													, MINIMIZED_OFFSET_LEFT - SHADOW_WIDTH
 													, Screen.height - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT - SHADOW_WIDTH
 												   );
 				}
@@ -2039,8 +2043,8 @@ namespace Common.UI.Windows
 								
 								float buttonWidth  = buttonTransform.sizeDelta.x;
 								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth;
-								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight;
+								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth; // TODO: It's incorrect
+								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight; // TODO: It's incorrect
 								
 								if (
 									mouseX >= buttonX
@@ -2064,8 +2068,8 @@ namespace Common.UI.Windows
 								
 								float buttonWidth  = buttonTransform.sizeDelta.x;
 								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth;
-								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight;
+								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth; // TODO: It's incorrect
+								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight; // TODO: It's incorrect
 								
 								if (
 									mouseX >= buttonX
@@ -2089,8 +2093,8 @@ namespace Common.UI.Windows
 
 								float buttonWidth  = buttonTransform.sizeDelta.x;
 								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth;
-								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight;
+								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth; // TODO: It's incorrect
+								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight; // TODO: It's incorrect
 								
 								if (
 									mouseX >= buttonX
@@ -2264,7 +2268,7 @@ namespace Common.UI.Windows
 									}
 									else
 									{
-										if (mouseY <= mY + mBorderTop)
+										if (mouseY <= mBorderTop - MAXIMIZED_OFFSET)
 										{
 											mMouseLocation = MouseLocation.Header;
 										}
@@ -2297,7 +2301,7 @@ namespace Common.UI.Windows
 									{
 										mMouseState = MouseState.Dragging;
 										
-										mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height);
+										mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height, mWindowTransform.offsetMin.x, -mWindowTransform.offsetMax.y);
 									}
 								}
 								break;
@@ -2317,7 +2321,7 @@ namespace Common.UI.Windows
 										{
 											mMouseState = MouseState.Resizing;
 											
-											mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height);
+											mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height, mWindowTransform.offsetMin.x, -mWindowTransform.offsetMax.y);
 										}
 									}									
 								}
@@ -2347,24 +2351,61 @@ namespace Common.UI.Windows
 
 					case MouseState.Dragging:
 					{
-						// TODO: Improve for minimized state
 						Vector3 mousePos = InputControl.mousePosition;
 						
 						float mouseX = mousePos.x;
 						float mouseY = Screen.height - mousePos.y;
-
+						
 						#region Calculate new position
 						int screenWidth  = Screen.width;
 						int screenHeight = Screen.height;
-
+						
 						if (mState == WindowState.Maximized)
 						{
-							// TODO: Go to NoState
+							// TODO: Go to NoState instead of this
+							mMouseState   = MouseState.NoState;							
+							mMouseContext = null;
+							
+							return;
+							// end of to do
 						}
 
-						float newX = mMouseContext.previousX + mouseX - mMouseContext.previousMouseX; 
-						float newY = mMouseContext.previousY + mouseY - mMouseContext.previousMouseY;
-						float windowWidth = width;
+						float newX; 
+						float newY;
+
+						switch (mState)
+						{
+							case WindowState.NoState:
+							{
+								newX = mMouseContext.previousX + mouseX - mMouseContext.previousMouseX; 
+								newY = mMouseContext.previousY + mouseY - mMouseContext.previousMouseY;
+							}
+							break;
+
+							case WindowState.Minimized:
+							{
+								newX = mMouseContext.previousRectX + mouseX - mMouseContext.previousMouseX + SHADOW_WIDTH; 
+								newY = mMouseContext.previousRectY + mouseY - mMouseContext.previousMouseY + SHADOW_WIDTH;
+							}
+							break;
+
+							case WindowState.Maximized:
+							case WindowState.FullScreen:
+							{
+								Debug.LogError("Incorrect window state");
+								return;
+							}
+							break;
+
+							default:
+							{
+								Debug.LogError("Unknown window state");
+								return;
+							}
+							break;
+						}
+
+						float windowWidth = mWindowTransform.sizeDelta.x - 2 * SHADOW_WIDTH;
 
 						if (newX + windowWidth < DRAGGING_GAP)
 						{
@@ -2375,7 +2416,7 @@ namespace Common.UI.Windows
 						{
 							newX = screenWidth - DRAGGING_GAP; // TODO: Show new transform aligned to the right
 						}
-
+						
 						if (newY < -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH)
 						{
 							newY = -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH; // TODO: Show new transform stretch to screen
@@ -2386,18 +2427,70 @@ namespace Common.UI.Windows
 							newY = screenHeight - DRAGGING_GAP;
 						}
 
-						x = newX; 
-						y = newY;
+						switch (mState)
+						{
+							case WindowState.NoState:
+							{								
+								x = newX; 
+								y = newY;
+							}
+							break;
+
+							case WindowState.Minimized:
+							{
+								newX -= SHADOW_WIDTH;
+								newY -= SHADOW_WIDTH;
+								windowWidth += 2 * SHADOW_WIDTH;
+								float windowHeight = mWindowTransform.sizeDelta.y;
+
+								mWindowTransform.offsetMin = new Vector2(
+							                                               newX
+							                                             , -newY - windowHeight
+							                                            );
+
+								mWindowTransform.offsetMax = new Vector2(
+							                                               newX + windowWidth
+							                                             , -newY
+							                                            );
+							}
+							break;
+
+							case WindowState.Maximized:
+							case WindowState.FullScreen:
+							{
+								Debug.LogError("Incorrect window state");
+								return;
+							}
+							break;
+
+							default:
+							{
+								Debug.LogError("Unknown window state");
+								return;
+							}
+							break;
+						}
 						#endregion
 
 						if (InputControl.GetMouseButtonUp(MouseButton.Left))
 						{
+							// TODO: Apply transform if showed
+
 							mMouseState   = MouseState.NoState;							
 							mMouseContext = null;
 							
-							if (mouseX < mX + SHADOW_WIDTH || mouseX > mX + mWidth  - SHADOW_WIDTH
+							// TODO: It shall check that we outside now
+							if (
+								mState == WindowState.NoState
+							    &&
+							    (
+							     mouseX < mX + SHADOW_WIDTH || mouseX > mX + mWidth  - SHADOW_WIDTH
+							     ||
+							     mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH
+							    )
 							    ||
-							    mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH)
+							    mState == WindowState.Minimized
+							   )
 							{
 								mMouseLocation = MouseLocation.Outside;
 							}
