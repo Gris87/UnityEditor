@@ -2040,20 +2040,16 @@ namespace Common.UI.Windows
 							if (mMinimizeGameObject != null)
 							{
 								RectTransform buttonTransform = mMinimizeGameObject.GetComponent<RectTransform>();
-								
-								float buttonWidth  = buttonTransform.sizeDelta.x;
-								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth; // TODO: It's incorrect
-								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight; // TODO: It's incorrect
+								Vector3[] corners = Utils.GetWindowCorners(buttonTransform);
 								
 								if (
-									mouseX >= buttonX
+									mouseX >= corners[0].x
 									&&
-									mouseX <= buttonX + buttonWidth
+									mouseX <= corners[3].x
 									&&
-									mouseY >= buttonY
+									mouseY >= corners[0].y
 									&&
-									mouseY <= buttonY + buttonHeight
+									mouseY <= corners[3].y
 								   )
 								{
 									isInsideButtons = true;
@@ -2065,20 +2061,16 @@ namespace Common.UI.Windows
 							if (mMaximizeGameObject != null)
 							{
 								RectTransform buttonTransform = mMaximizeGameObject.GetComponent<RectTransform>();
-								
-								float buttonWidth  = buttonTransform.sizeDelta.x;
-								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth; // TODO: It's incorrect
-								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight; // TODO: It's incorrect
+								Vector3[] corners = Utils.GetWindowCorners(buttonTransform);
 								
 								if (
-									mouseX >= buttonX
+									mouseX >= corners[0].x
 									&&
-									mouseX <= buttonX + buttonWidth
+									mouseX <= corners[3].x
 									&&
-									mouseY >= buttonY
+									mouseY >= corners[0].y
 									&&
-									mouseY <= buttonY + buttonHeight
+									mouseY <= corners[3].y
 								   )
 								{
 									isInsideButtons = true;
@@ -2090,20 +2082,16 @@ namespace Common.UI.Windows
 							if (mCloseGameObject != null)
 							{
 								RectTransform buttonTransform = mCloseGameObject.GetComponent<RectTransform>();
-
-								float buttonWidth  = buttonTransform.sizeDelta.x;
-								float buttonHeight = buttonTransform.sizeDelta.y;
-								float buttonX      = buttonTransform.offsetMin.x  + mX + mWidth; // TODO: It's incorrect
-								float buttonY      = -buttonTransform.offsetMin.y + mY - buttonHeight; // TODO: It's incorrect
+								Vector3[] corners = Utils.GetWindowCorners(buttonTransform);
 								
 								if (
-									mouseX >= buttonX
+									mouseX >= corners[0].x
 									&&
-									mouseX <= buttonX + buttonWidth
+									mouseX <= corners[3].x
 									&&
-									mouseY >= buttonY
+									mouseY >= corners[0].y
 									&&
-									mouseY <= buttonY + buttonHeight
+									mouseY <= corners[3].y
 								   )
 								{
 									isInsideButtons = true;
@@ -2370,8 +2358,8 @@ namespace Common.UI.Windows
 							// end of to do
 						}
 
-						float newX; 
-						float newY;
+						float newX = 0f; 
+						float newY = 0f;
 
 						switch (mState)
 						{
@@ -2393,14 +2381,12 @@ namespace Common.UI.Windows
 							case WindowState.FullScreen:
 							{
 								Debug.LogError("Incorrect window state");
-								return;
 							}
 							break;
 
 							default:
 							{
 								Debug.LogError("Unknown window state");
-								return;
 							}
 							break;
 						}
@@ -2459,14 +2445,12 @@ namespace Common.UI.Windows
 							case WindowState.FullScreen:
 							{
 								Debug.LogError("Incorrect window state");
-								return;
 							}
 							break;
 
 							default:
 							{
 								Debug.LogError("Unknown window state");
-								return;
 							}
 							break;
 						}
@@ -2479,17 +2463,12 @@ namespace Common.UI.Windows
 							mMouseState   = MouseState.NoState;							
 							mMouseContext = null;
 							
-							// TODO: It shall check that we outside now
+							Vector3[] corners = Utils.GetWindowCorners(mWindowTransform);
+							
 							if (
-								mState == WindowState.NoState
-							    &&
-							    (
-							     mouseX < mX + SHADOW_WIDTH || mouseX > mX + mWidth  - SHADOW_WIDTH
-							     ||
-							     mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH
-							    )
-							    ||
-							    mState == WindowState.Minimized
+								mouseX < corners[0].x + SHADOW_WIDTH || mouseX > corners[3].x - SHADOW_WIDTH
+								||
+								mouseY < corners[0].y + SHADOW_WIDTH || mouseY > corners[3].y - SHADOW_WIDTH
 							   )
 							{
 								mMouseLocation = MouseLocation.Outside;
