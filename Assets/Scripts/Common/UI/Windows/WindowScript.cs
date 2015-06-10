@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityTranslation;
 
 using Common;
 
@@ -149,41 +150,42 @@ namespace Common.UI.Windows
 
 
 
-		private WindowFrameType mFrame;
-		private WindowState     mState;
-		private float           mX;
-		private float           mY;
-		private float           mWidth;
-		private float           mHeight;
-		private Color           mBackgroundColor;
-		private bool            mResizable;
-		private float           mMinimumWidth;
-		private float           mMinimumHeight;
-		private float           mMaximumWidth;
-		private float           mMaximumHeight;
-		private bool            mAllowMinimize;
-		private bool            mAllowMaximize;
-		private bool            mAllowClose;
+		private WindowFrameType                 mFrame;
+		private WindowState                     mState;
+		private float                           mX;
+		private float                           mY;
+		private float                           mWidth;
+		private float                           mHeight;
+		private Color                           mBackgroundColor;
+		private bool                            mResizable;
+		private float                           mMinimumWidth;
+		private float                           mMinimumHeight;
+		private float                           mMaximumWidth;
+		private float                           mMaximumHeight;
+		private bool                            mAllowMinimize;
+		private bool                            mAllowMaximize;
+		private bool                            mAllowClose;
+		private R.sections.WindowTitles.strings mTokenId;
 		// TODO: Label
 
-		private RectTransform   mWindowTransform;
-		private GameObject      mBorderGameObject;
-		private Image           mBorderImage;
-		private GameObject      mMinimizeGameObject;
-		private Button          mMinimizeButton;
-		private GameObject      mMaximizeGameObject;
-		private Button          mMaximizeButton;
-		private GameObject      mCloseGameObject;
-		private Button          mCloseButton;
-		private RectTransform   mContentTransform;
-		private Image           mContentBackgroundImage;
-		private float           mBorderLeft;
-		private float           mBorderTop;
-		private float           mBorderRight;
-		private float           mBorderBottom;
-		private MouseLocation   mMouseLocation;
-		private MouseState      mMouseState;
-		private MouseContext    mMouseContext;
+		private RectTransform                   mWindowTransform;
+		private GameObject                      mBorderGameObject;
+		private Image                           mBorderImage;
+		private GameObject                      mMinimizeGameObject;
+		private Button                          mMinimizeButton;
+		private GameObject                      mMaximizeGameObject;
+		private Button                          mMaximizeButton;
+		private GameObject                      mCloseGameObject;
+		private Button                          mCloseButton;
+		private RectTransform                   mContentTransform;
+		private Image                           mContentBackgroundImage;
+		private float                           mBorderLeft;
+		private float                           mBorderTop;
+		private float                           mBorderRight;
+        private float                           mBorderBottom;
+		private MouseLocation                   mMouseLocation;
+		private MouseState                      mMouseState;
+		private MouseContext                    mMouseContext;
 
 
 
@@ -1106,6 +1108,25 @@ namespace Common.UI.Windows
 				}
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets token ID for translation.
+		/// </summary>
+		/// <value>Token ID for translation.</value>
+		public R.sections.WindowTitles.strings tokenId
+		{
+			get
+			{
+				return mTokenId; 
+			}
+
+			set
+			{
+				mTokenId = value;
+
+				// TODO: Change title
+			}
+        }
 
 
 

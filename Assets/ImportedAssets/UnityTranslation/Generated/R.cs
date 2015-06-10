@@ -74,6 +74,11 @@ namespace UnityTranslation
                 Tooltips
                 ,
                 /// <summary>
+                /// Section ID for "window_titles.xml" file.
+                /// </summary>
+                WindowTitles
+                ,
+                /// <summary>
                 /// Total amount of sections.
                 /// </summary>
                 Count // Should be last
@@ -84,10 +89,11 @@ namespace UnityTranslation
             /// </summary>
             public static readonly string[] xmlFiles = new string[]
             {
-                  "menu_items.xml" // MenuItems
-                , "toasts.xml"     // Toasts
-                , "toolbar.xml"    // Toolbar
-                , "tooltips.xml"   // Tooltips
+                  "menu_items.xml"    // MenuItems
+                , "toasts.xml"        // Toasts
+                , "toolbar.xml"       // Toolbar
+                , "tooltips.xml"      // Tooltips
+                , "window_titles.xml" // WindowTitles
             };
 
             /// <summary>
@@ -2724,6 +2730,52 @@ namespace UnityTranslation
                     Count // Should be last
                 }
             }
+
+            /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/window_titles.xml" file.
+            /// </summary>
+            public static class WindowTitles
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/window_titles.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>Window title : About Unity</para>
+                    /// <para>Value:</para>
+                    ///   <para>About Unity</para>
+                    /// </summary>
+                    about_unity
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/window_titles.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/window_titles.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
         }
 
         /// <summary>
@@ -3153,6 +3205,22 @@ namespace UnityTranslation
                     , { "local" , (int)R.sections.Tooltips.strings.local }
                     , { "global", (int)R.sections.Tooltips.strings.global }
                     , { "layers", (int)R.sections.Tooltips.strings.layers }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // WindowTitles
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "about_unity", (int)R.sections.WindowTitles.strings.about_unity }
                 }
                 ,
                 new Dictionary<string, int> // array
