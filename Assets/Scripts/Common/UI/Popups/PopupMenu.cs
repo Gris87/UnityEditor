@@ -333,6 +333,7 @@ namespace Common.UI.Popups
 					//===========================================================================
 					#region Text Component
 					Text menuItemTextText      = menuItemText.AddComponent<Text>();
+
 					menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
 					menuItemTextText.fontSize  = 12;
 					menuItemTextText.alignment = TextAnchor.MiddleLeft;
@@ -399,6 +400,7 @@ namespace Common.UI.Popups
 						//===========================================================================
 						#region Text Component
 						Text text      = shortcutText.GetComponent<Text>();
+
 						text.text      = shortcut;
 						text.alignment = TextAnchor.MiddleRight;
 						

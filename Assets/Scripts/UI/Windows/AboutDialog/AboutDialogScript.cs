@@ -61,6 +61,9 @@ namespace UI.Windows.AboutDialog
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
+			frame   = WindowFrameType.Drawer;
+			tokenId = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
+
 			width  = 200f;
 			height = 100f;
 		}

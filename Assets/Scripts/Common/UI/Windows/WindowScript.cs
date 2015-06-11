@@ -166,11 +166,12 @@ namespace Common.UI.Windows
 		private bool                            mAllowMaximize;
 		private bool                            mAllowClose;
 		private R.sections.WindowTitles.strings mTokenId;
-		// TODO: Label
 
 		private RectTransform                   mWindowTransform;
 		private GameObject                      mBorderGameObject;
 		private Image                           mBorderImage;
+		private GameObject                      mTitleGameObject;
+		private Text                            mTitleText;
 		private GameObject                      mMinimizeGameObject;
 		private Button                          mMinimizeButton;
 		private GameObject                      mMaximizeGameObject;
@@ -241,8 +242,8 @@ namespace Common.UI.Windows
 
 							if ((oldValue == WindowFrameType.Drawer) || (mFrame == WindowFrameType.Drawer))
 							{
-								DestroyButtons();
-								CreateButtons();
+								DestroyHeader();
+								CreateHeader();
 							}
 						}
 
@@ -308,8 +309,8 @@ namespace Common.UI.Windows
 						}
 						else
 						{
-							DestroyButtons();
-							CreateButtons();
+							DestroyHeader();
+							CreateHeader();
 						}
 
 						UpdateState();
@@ -1050,8 +1051,8 @@ namespace Common.UI.Windows
 
 					if (IsUICreated())
 					{
-						DestroyButtons();
-						CreateButtons();
+						DestroyHeader();
+						CreateHeader();
 					}
 				}
 			}
@@ -1076,8 +1077,8 @@ namespace Common.UI.Windows
 					
 					if (IsUICreated())
 					{
-						DestroyButtons();
-						CreateButtons();
+						DestroyHeader();
+						CreateHeader();
 					}
 				}
 			}
@@ -1102,8 +1103,8 @@ namespace Common.UI.Windows
 					
 					if (IsUICreated())
 					{
-						DestroyButtons();
-						CreateButtons();
+						DestroyHeader();
+						CreateHeader();
 					}
 				}
 			}
@@ -1122,11 +1123,34 @@ namespace Common.UI.Windows
 
 			set
 			{
-				mTokenId = value;
-
-				// TODO: Change title
+				if (mTokenId != value)
+				{
+					mTokenId = value;
+					
+					if (mTitleText != null)
+					{
+						mTitleText.text = windowTitle;
+					}
+				}
 			}
         }
+
+		/// <summary>
+		/// Gets the window title.
+		/// </summary>
+		/// <value>The window title.</value>
+		public string windowTitle
+		{
+			get
+			{
+				if (mTokenId == R.sections.WindowTitles.strings.Count)
+				{
+					return "";
+				}
+
+				return Translator.getString(mTokenId); 
+			}
+		}
 
 
 
@@ -1151,10 +1175,13 @@ namespace Common.UI.Windows
 			mAllowMinimize   = true;
 			mAllowMaximize   = true;
 			mAllowClose      = true;
+			mTokenId         = R.sections.WindowTitles.strings.Count;
 
 			mWindowTransform        = null;
 			mBorderGameObject       = null;
 			mBorderImage            = null;
+			mTitleGameObject        = null;
+			mTitleText              = null;
 			mMinimizeGameObject     = null;
 			mMinimizeButton         = null;
 			mMaximizeGameObject     = null;
@@ -1359,7 +1386,7 @@ namespace Common.UI.Windows
 				#endregion
 				#endregion
 
-				CreateButtons();
+				CreateHeader();
 			}
 			else
 			{
@@ -1428,7 +1455,7 @@ namespace Common.UI.Windows
 		/// </summary>
 		private void DestroyBorder()
 		{
-			DestroyButtons();
+			DestroyHeader();
 
 			UnityEngine.Object.DestroyObject(mBorderGameObject);
 			mBorderGameObject = null;
@@ -1438,15 +1465,17 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
-		/// Creates control buttons.
+		/// Creates header.
 		/// </summary>
-		private void CreateButtons()
+		private void CreateHeader()
 		{
 			switch (mFrame)
 			{
 				case WindowFrameType.Window:
 				case WindowFrameType.SubWindow:
 				{
+					float contentWidth = SHADOW_WIDTH + 4f;
+
 					if (
 						mAllowMinimize
 					    ||
@@ -1456,8 +1485,7 @@ namespace Common.UI.Windows
 					   )
 					{
 						float buttonWidth;
-						float buttonHeight = 20f;
-						float contentWidth = SHADOW_WIDTH + 4f;
+						float buttonHeight = 20f;						
 						
 						buttonWidth = 48f;
 
@@ -1718,16 +1746,48 @@ namespace Common.UI.Windows
 							
 							mMinimizeButton.onClick.AddListener(OnMinimizeClicked);
 							#endregion
-							#endregion
+							#endregion							
 						}
-					}					
+
+						contentWidth += buttonWidth + 4f;
+					}
+					
+					//***************************************************************************
+					// Title GameObject
+					//***************************************************************************
+					#region Title GameObject
+					mTitleGameObject = new GameObject("Title");
+					Utils.InitUIObject(mTitleGameObject, mBorderGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform titleTransform = mTitleGameObject.AddComponent<RectTransform>();
+					Utils.AlignRectTransformTopStretch(titleTransform, mBorderTop - SHADOW_WIDTH - 8f, SHADOW_WIDTH + 4f, SHADOW_WIDTH + 8f, contentWidth);
+					#endregion
+				
+					#region Text Component
+					mTitleText = mTitleGameObject.AddComponent<Text>();							
+					
+					mTitleText.font      = Assets.Common.Fonts.microsoftSansSerif;
+					mTitleText.fontSize  = 12;
+					mTitleText.alignment = TextAnchor.MiddleLeft;
+					mTitleText.color     = new Color(0f, 0f, 0f, 1f);
+					mTitleText.text      = windowTitle; // TODO: Try to autotranslate somehow
+					#endregion
+					#endregion
 				}
 				break;
 
 				case WindowFrameType.Drawer:
 				{
+					float contentWidth = SHADOW_WIDTH + 5f;
+
 					if (mAllowClose)
 					{						
+						float buttonSize = 17f;
+
 						//***************************************************************************
 						// Close GameObject
 						//***************************************************************************
@@ -1740,7 +1800,7 @@ namespace Common.UI.Windows
 						//===========================================================================
 						#region RectTransform Component
 						RectTransform closeTransform = mCloseGameObject.AddComponent<RectTransform>();
-						Utils.AlignRectTransformTopRight(closeTransform, 17f, 17f, SHADOW_WIDTH + 5f, SHADOW_WIDTH + 4f);
+						Utils.AlignRectTransformTopRight(closeTransform, buttonSize, buttonSize, contentWidth, SHADOW_WIDTH + 4f);
 						#endregion
 						
 						//***************************************************************************
@@ -1798,7 +1858,35 @@ namespace Common.UI.Windows
 						mCloseButton.onClick.AddListener(Close);
 						#endregion
 						#endregion
+
+						contentWidth += buttonSize + 4f;
 					}
+					
+					//***************************************************************************
+					// Title GameObject
+					//***************************************************************************
+					#region Title GameObject
+					mTitleGameObject = new GameObject("Title");
+					Utils.InitUIObject(mTitleGameObject, mBorderGameObject.transform);
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform titleTransform = mTitleGameObject.AddComponent<RectTransform>();
+					Utils.AlignRectTransformTopStretch(titleTransform, mBorderTop - SHADOW_WIDTH - 8f, SHADOW_WIDTH + 4f, SHADOW_WIDTH + 8f, contentWidth);
+					#endregion
+				
+					#region Text Component
+					mTitleText = mTitleGameObject.AddComponent<Text>();							
+					
+					mTitleText.font      = Assets.Common.Fonts.microsoftSansSerif;
+					mTitleText.fontSize  = 12;
+					mTitleText.alignment = TextAnchor.MiddleLeft;
+					mTitleText.color     = new Color(0f, 0f, 0f, 1f);
+					mTitleText.text      = windowTitle; // TODO: Try to autotranslate somehow
+					#endregion
+					#endregion
 				}
 				break;
 
@@ -1817,10 +1905,17 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
-		/// Destroies control buttons.
+		/// Destroies header.
 		/// </summary>
-		private void DestroyButtons()
+		private void DestroyHeader()
 		{
+			if (mTitleGameObject != null)
+			{
+				UnityEngine.Object.DestroyObject(mTitleGameObject);
+				mTitleGameObject = null;
+				mTitleText       = null;
+			}
+
 			if (mMinimizeGameObject != null)
 			{
 				UnityEngine.Object.DestroyObject(mMinimizeGameObject);
