@@ -94,6 +94,7 @@ public static class Assets
 				public static Sprite toolCloseButtonDisabled    = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonDisabled");
 				public static Sprite toolCloseButtonHighlighted = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonHighlighted");
 				public static Sprite toolCloseButtonPressed     = LoadResource<Sprite>("Textures/UI/Windows/Common/ToolCloseButtonPressed");
+				public static Sprite replacement                = LoadResource<Sprite>("Textures/UI/Windows/Common/Replacement");
 			}
 		}
 		#endregion
@@ -195,6 +196,24 @@ public static class Assets
 				#endregion
 			}
 			#endregion
+		}
+		#endregion
+
+		#region Assets for AboutDialog
+		/// <summary>
+		/// Assets for AboutDialog.
+		/// </summary>
+		public static class AboutDialog
+		{
+			/// <summary>
+			/// Texture assets for AboutDialog.
+			/// </summary>
+			public static class Textures
+			{
+				public static Sprite unity = LoadResource<Sprite>("Textures/UI/Windows/AboutDialog/Unity");
+				public static Sprite mono  = LoadResource<Sprite>("Textures/UI/Windows/AboutDialog/Mono");
+				public static Sprite physX = LoadResource<Sprite>("Textures/UI/Windows/AboutDialog/PhysX");
+			}
 		}
 		#endregion
 	}

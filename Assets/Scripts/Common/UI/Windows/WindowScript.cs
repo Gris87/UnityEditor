@@ -180,7 +180,9 @@ namespace Common.UI.Windows
 		private Button                          mCloseButton;
 		private RectTransform                   mContentTransform;
 		private Image                           mContentBackgroundImage;
-		private float                           mBorderLeft;
+		private GameObject                      mReplacementGameObject;
+		private RectTransform                   mReplacementTransform;
+		private float                           mBorderLeft; 
 		private float                           mBorderTop;
 		private float                           mBorderRight;
         private float                           mBorderBottom;
@@ -1190,6 +1192,8 @@ namespace Common.UI.Windows
 			mCloseButton            = null;
 			mContentTransform       = null;
 			mContentBackgroundImage = null;
+			mReplacementGameObject  = null;
+			mReplacementTransform   = null;
 			mBorderLeft             = 0f;
 			mBorderTop              = 0f;
 			mBorderRight            = 0f;
@@ -2010,6 +2014,106 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
+		/// Creates the replacement and stretch it to the left side.
+		/// </summary>
+		private void CreateReplacementStretchLeft()
+		{
+			CreateReplacement();
+			Utils.AlignRectTransformStretchLeft(mReplacementTransform, Screen.width / 2 + SHADOW_WIDTH, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
+		}
+
+		/// <summary>
+		/// Creates the replacement and stretch it to the right side.
+		/// </summary>
+		private void CreateReplacementStretchRight()
+		{
+			CreateReplacement();
+			Utils.AlignRectTransformStretchRight(mReplacementTransform, Screen.width / 2 + SHADOW_WIDTH, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
+		}
+
+		/// <summary>
+		/// Creates the replacement and stretch it to full screen.
+		/// </summary>
+		private void CreateReplacementStretchStretch()
+		{
+			CreateReplacement();
+			Utils.AlignRectTransformStretchStretch(mReplacementTransform, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
+		}
+
+		/// <summary>
+		/// Creates the replacement and stretch it vertically on the same x position.
+		/// </summary>
+		private void CreateReplacementStretchVertical()
+		{
+			CreateReplacement();
+			Utils.AlignRectTransformTopLeft(mReplacementTransform, mWidth, Screen.height + SHADOW_WIDTH, mX, -SHADOW_WIDTH / 2);
+		}
+
+		/// <summary>
+		/// Creates the replacement game object.
+		/// </summary>
+		/// <returns>The replacement RectTransform.</returns>
+		private void CreateReplacement()
+		{
+			if (mReplacementGameObject == null)
+			{
+				//***************************************************************************
+				// Replacement GameObject
+				//***************************************************************************
+				#region Replacement GameObject
+				mReplacementGameObject = new GameObject("Replacement");
+				Utils.InitUIObject(mReplacementGameObject, transform.parent);
+				mReplacementGameObject.transform.SetSiblingIndex(transform.GetSiblingIndex());
+				
+				//===========================================================================
+				// RectTransform Component
+				//===========================================================================
+				#region RectTransform Component
+				mReplacementTransform = mReplacementGameObject.AddComponent<RectTransform>();
+				#endregion
+				
+				//===========================================================================
+				// CanvasRenderer Component
+				//===========================================================================
+				#region CanvasRenderer Component
+				mReplacementGameObject.AddComponent<CanvasRenderer>();
+				#endregion
+				
+				//===========================================================================
+				// Image Component
+				//===========================================================================
+				#region Image Component
+				Image replacementImage = mReplacementGameObject.AddComponent<Image>();
+				
+				replacementImage.sprite = Assets.Windows.Common.Textures.replacement;
+				replacementImage.type   = Image.Type.Sliced;
+				#endregion
+				#endregion
+			}
+		}
+
+		/// <summary>
+		/// Destroies the replacement game object.
+		/// </summary>
+		private void DestroyReplacement()
+		{
+			if (mReplacementGameObject != null)
+			{
+				UnityEngine.Object.DestroyObject(mReplacementGameObject);
+				mReplacementGameObject = null;
+				mReplacementTransform  = null;
+			}
+		}
+
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		public void OnDestroy()
+		{
+			DestroyReplacement();
+		}
+
+		/// <summary>
 		/// Handler for click event on mimimize button.
 		/// </summary>
 		private void OnMinimizeClicked()
@@ -2462,16 +2566,28 @@ namespace Common.UI.Windows
 						
 						#region Calculate new position
 						int screenWidth  = Screen.width;
-						int screenHeight = Screen.height;
-						
+						int screenHeight = Screen.height;						
+
 						if (mState == WindowState.Maximized)
 						{
-							// TODO: Go to NoState instead of this
-							mMouseState   = MouseState.NoState;							
-							mMouseContext = null;
-							
-							return;
-							// end of to do
+							if (
+								mouseX == mMouseContext.previousMouseX
+								&&
+								mouseY == mMouseContext.previousMouseY
+							   )
+							{
+								if (InputControl.GetMouseButtonUp(MouseButton.Left))
+								{
+									mMouseState   = MouseState.NoState;							
+									mMouseContext = null;
+								}
+
+								return;
+							}
+
+							state = WindowState.NoState;
+							mMouseContext.previousX = mMouseContext.previousMouseX - (mMouseContext.previousMouseX / screenWidth) * width;
+							mMouseContext.previousY = 0;
 						}
 
 						float newX = 0f; 
@@ -2511,23 +2627,23 @@ namespace Common.UI.Windows
 
 						if (newX + windowWidth < DRAGGING_GAP)
 						{
-							newX = -windowWidth + DRAGGING_GAP; // TODO: Show new transform aligned to the left
+							newX = -windowWidth + DRAGGING_GAP;
 						}
 						else
 						if (newX > screenWidth - DRAGGING_GAP)
 						{
-							newX = screenWidth - DRAGGING_GAP; // TODO: Show new transform aligned to the right
+							newX = screenWidth - DRAGGING_GAP;
 						}
 						
 						if (newY < -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH)
 						{
-							newY = -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH; // TODO: Show new transform stretch to screen
+							newY = -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH;
 						}
 						else
 						if (newY > screenHeight - DRAGGING_GAP)
 						{
 							newY = screenHeight - DRAGGING_GAP;
-						}
+						}						
 
 						switch (mState)
 						{
@@ -2572,9 +2688,99 @@ namespace Common.UI.Windows
 						}
 						#endregion
 
+						#region Show/Hide replacement					
+						bool replacementVisible = false;
+
+						if (mouseX < DRAGGING_GAP)
+						{
+							if (mResizable)
+							{
+								replacementVisible = true;
+
+								if (
+									mReplacementGameObject == null
+									||
+									mReplacementTransform.anchorMin != new Vector2(0f, 0f)
+									||
+									mReplacementTransform.anchorMax != new Vector2(0f, 1f)
+								   )
+								{
+									CreateReplacementStretchLeft();
+								}
+							}
+						}
+						else
+						if (mouseX > screenWidth - DRAGGING_GAP)
+						{	
+							if (mResizable)
+							{
+								replacementVisible = true;
+								
+								if (
+									mReplacementGameObject == null
+									||
+									mReplacementTransform.anchorMin != new Vector2(1f, 0f)
+									||
+									mReplacementTransform.anchorMax != new Vector2(1f, 1f)
+									)
+								{
+									CreateReplacementStretchRight();
+								}
+							}
+						}
+						else
+						if (mouseY < DRAGGING_GAP)
+						{
+							if (mAllowMaximize)
+							{
+								replacementVisible = true;
+								
+								if (
+									mReplacementGameObject == null
+									||
+									mReplacementTransform.anchorMin != new Vector2(0f, 0f)
+									||
+									mReplacementTransform.anchorMax != new Vector2(1f, 1f)
+									)
+								{
+									CreateReplacementStretchStretch();
+								}
+							}
+						}
+						
+						if (!replacementVisible)
+						{
+							DestroyReplacement();
+						}
+						#endregion
+
 						if (InputControl.GetMouseButtonUp(MouseButton.Left))
 						{
-							// TODO: Apply transform if showed
+							if (mReplacementGameObject != null)
+							{
+								if (mouseX < DRAGGING_GAP)
+								{
+									width  = screenWidth / 2;
+									height = screenHeight;
+									x      = 0;
+									y      = 0;									
+								}
+								else
+								if (mouseX > screenWidth - DRAGGING_GAP)
+								{
+									width  = screenWidth / 2;
+									height = screenHeight;
+									x      = screenWidth - width;
+									y      = 0;
+								}
+								else
+								if (mouseY < DRAGGING_GAP)
+								{
+									state = WindowState.Maximized;
+								}
+							}							
+
+							DestroyReplacement();
 
 							mMouseState   = MouseState.NoState;							
 							mMouseContext = null;
@@ -2697,7 +2903,7 @@ namespace Common.UI.Windows
 							
 							if (newY < -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH)
 							{
-								newHeight -= -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH - newY; // TODO: Show new transform stretch to height
+								newHeight -= -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH - newY;
 								newY       = -mBorderTop + DRAGGING_GAP + SHADOW_WIDTH;
 							}
 							else
@@ -2721,14 +2927,87 @@ namespace Common.UI.Windows
 							mMouseLocation == MouseLocation.SouthEast
 						   )
 						{							
-							height = mMouseContext.previousHeight + mouseY - mMouseContext.previousMouseY; // TODO: Show new transform stretch to height
+							height = mMouseContext.previousHeight + mouseY - mMouseContext.previousMouseY;
 						}
 						#endregion
 						#endregion
 
+						#region Show/Hide replacement
+						bool replacementVisible = false;
+												
+						if (mouseY < DRAGGING_GAP)
+						{
+							if (
+								mMouseLocation == MouseLocation.North
+								|| 
+								mMouseLocation == MouseLocation.NorthWest
+								||
+								mMouseLocation == MouseLocation.NorthEast
+							   )
+							{
+								replacementVisible = true;
+								
+								if (mReplacementGameObject == null)
+								{
+									CreateReplacementStretchVertical();
+								}
+								else
+								if (
+									mMouseLocation == MouseLocation.NorthWest
+									||
+									mMouseLocation == MouseLocation.NorthEast
+								   )
+								{
+									mReplacementTransform.offsetMin = new Vector2(mWindowTransform.offsetMin.x, mReplacementTransform.offsetMin.y);
+									mReplacementTransform.offsetMax = new Vector2(mWindowTransform.offsetMax.x, mReplacementTransform.offsetMax.y);
+								}
+							}
+						}
+						else
+						if (mouseY > screenHeight - DRAGGING_GAP)
+						{
+							if (
+								mMouseLocation == MouseLocation.South
+								|| 
+								mMouseLocation == MouseLocation.SouthWest
+								||
+								mMouseLocation == MouseLocation.SouthEast
+							   )
+							{
+								replacementVisible = true;
+								
+								if (mReplacementGameObject == null)
+								{
+									CreateReplacementStretchVertical();
+								}
+								else
+								if (
+									mMouseLocation == MouseLocation.SouthWest
+									||
+									mMouseLocation == MouseLocation.SouthEast
+								   )
+								{
+									mReplacementTransform.offsetMin = new Vector2(mWindowTransform.offsetMin.x, mReplacementTransform.offsetMin.y);
+									mReplacementTransform.offsetMax = new Vector2(mWindowTransform.offsetMax.x, mReplacementTransform.offsetMax.y);
+								}
+							}
+						}
+						
+						if (!replacementVisible)
+						{
+							DestroyReplacement();
+						}
+						#endregion
+
 						if (InputControl.GetMouseButtonUp(MouseButton.Left))
 						{
-							// TODO: Apply transform if showed
+							if (mReplacementGameObject != null)
+							{
+								y      = 0;
+								height = screenHeight;
+							}
+
+							DestroyReplacement();
 
 							mMouseState   = MouseState.NoState;							
 							mMouseContext = null;

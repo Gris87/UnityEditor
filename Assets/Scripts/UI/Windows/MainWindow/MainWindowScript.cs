@@ -55,7 +55,7 @@ namespace UI.Windows.MainWindow
 		/// <summary>
 		/// Handler for destroy event.
 		/// </summary>
-		void OnDestroy()
+		public void OnDestroy()
 		{
 			if (Global.mainWindowScript == this)
 			{

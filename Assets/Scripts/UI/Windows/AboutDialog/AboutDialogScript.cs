@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 using Common;
 using Common.UI.Windows;
@@ -41,8 +42,10 @@ namespace UI.Windows.AboutDialog
 		/// <summary>
 		/// Handler for destroy event.
 		/// </summary>
-		void OnDestroy()
+		public void OnDestroy()
 		{
+			base.OnDestroy();
+
 			if (Global.aboutDialogScript == this)
 			{
 				Global.aboutDialogScript = null;
@@ -61,11 +64,48 @@ namespace UI.Windows.AboutDialog
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
-			frame   = WindowFrameType.Drawer;
-			tokenId = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
+			frame           = WindowFrameType.Drawer;
+			tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
+			backgroundColor = new Color(0.75f, 0.75f, 0.75f);
+			resizable       = false;
+			allowMaximize   = false;
 
-			width  = 200f;
-			height = 100f;
+			width  = 576f;
+			height = 364f;
+
+			
+			//***************************************************************************
+			// UnityLogo GameObject
+			//***************************************************************************
+			#region UnityLogo GameObject
+			GameObject unityLogo = new GameObject("UnityLogo");
+			Utils.InitUIObject(unityLogo, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform unityLogoTransform = unityLogo.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopLeft(unityLogoTransform, 128f, 64f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			unityLogo.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image unityLogoImage = unityLogo.AddComponent<Image>();
+
+			unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity;
+			unityLogoImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
 		}
 	}
 }
