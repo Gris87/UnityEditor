@@ -72,7 +72,6 @@ namespace UI.Windows.AboutDialog
 
 			width  = 576f;
 			height = 364f;
-
 			
 			//***************************************************************************
 			// UnityLogo GameObject
@@ -86,7 +85,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform unityLogoTransform = unityLogo.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(unityLogoTransform, 128f, 64f);
+			Utils.AlignRectTransformTopLeft(unityLogoTransform, 123f, 46f, 6f, 14f);
 			#endregion
 			
 			//===========================================================================
@@ -104,6 +103,113 @@ namespace UI.Windows.AboutDialog
 
 			unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity;
 			unityLogoImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+
+			//***************************************************************************
+			// Version GameObject
+			//***************************************************************************
+			#region Version GameObject
+			GameObject version = new GameObject("Version");
+			Utils.InitUIObject(version, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform versionTransform = version.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopStretch(versionTransform, 12f, 64f, 59f, 4f);
+			#endregion
+			
+			//===========================================================================
+			// Text Component
+			//===========================================================================
+			#region Text Component
+			Text versionText = version.AddComponent<Text>();
+			
+			versionText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			versionText.fontSize  = 11;
+			versionText.alignment = TextAnchor.MiddleLeft;
+			versionText.color     = new Color(0f, 0f, 0f, 1f);
+			versionText.text      = "Version 5.0.2f1 Personal"; // TODO: Try to autotranslate somehow
+			#endregion
+			#endregion
+
+			//***************************************************************************
+			// Credits GameObject
+			//***************************************************************************
+			#region Credits GameObject
+			GameObject credits = new GameObject("Credits");
+			Utils.InitUIObject(credits, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform creditsTransform = credits.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopStretch(creditsTransform, 120f, 87f, 7f, 7f);
+			#endregion
+			#endregion
+
+			//***************************************************************************
+			// MonoLogo GameObject
+			//***************************************************************************
+			#region MonoLogo GameObject
+			GameObject monoLogo = new GameObject("MonoLogo");
+			Utils.InitUIObject(monoLogo, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform monoLogoTransform = monoLogo.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopLeft(monoLogoTransform, 57f, 69f, 9f, 215f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			monoLogo.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image monoLogoImage = monoLogo.AddComponent<Image>();
+			
+			monoLogoImage.sprite = Assets.Windows.AboutDialog.Textures.mono;
+			monoLogoImage.type   = Image.Type.Sliced;
+			#endregion
+			#endregion
+			
+			//***************************************************************************
+			// MonoLogoText GameObject
+			//***************************************************************************
+			#region MonoLogoText GameObject
+			GameObject monoLogoTextObject = new GameObject("MonoLogoText");
+			Utils.InitUIObject(monoLogoTextObject, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform monoLogoTextTransform = monoLogoTextObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopLeft(monoLogoTextTransform, 200f, 20f, 73f, 217f);
+			#endregion
+			
+			//===========================================================================
+			// Text Component
+			//===========================================================================
+			#region Text Component
+			Text monoLogoText = monoLogoTextObject.AddComponent<Text>();
+			
+			monoLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			monoLogoText.fontSize  = 11;
+			monoLogoText.alignment = TextAnchor.UpperLeft;
+			monoLogoText.color     = new Color(0f, 0f, 0f, 1f);
+			monoLogoText.text      = "Scripting powered by The Mono Project"; // TODO: Try to autotranslate somehow
 			#endregion
 			#endregion
 		}

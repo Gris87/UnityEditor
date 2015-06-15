@@ -1264,6 +1264,13 @@ namespace Common.UI.Windows
 			mContentBackgroundImage.color = mBackgroundColor;
 			#endregion
 
+			//===========================================================================
+			// Mask Component
+			//===========================================================================
+			#region Mask Component
+			content.AddComponent<Mask>();
+			#endregion
+
 			CreateContent(content.transform, out contentWidth, out contentHeight);
 			#endregion
 
