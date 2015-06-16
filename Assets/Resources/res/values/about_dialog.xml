@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- AboutDialog: Version {0} -->
+    <string name="version">Version {0}</string>
+        
+    <!-- AboutDialog: Credits -->
+    <string name="credits">Credits</string>
+    
+    <!-- AboutDialog: Scripting powered by The Mono Project -->
+    <string name="scripting_powered_by">Scripting powered by The Mono Project</string>
+    
+    <!-- AboutDialog: (c) 2011 Novell, Inc. -->
+    <string name="novell_copyright">(c) 2011 Novell, Inc.</string>
+    
+    <!-- AboutDialog: Physics powered by PhysX. -->
+    <string name="physics_powered_by">Physics powered by PhysX.</string>
+    
+    <!-- AboutDialog: (c) 2011 NVIDIA Corporation. -->
+    <string name="nvidia_copyright">(c) 2011 NVIDIA Corporation.</string>
+    
+    <!-- AboutDialog: (c) 2015 Unity Technologies ApS. All rights reserved. -->
+    <string name="unity_copyright">(c) 2015 Unity Technologies ApS. All rights reserved.</string>
+    
+    <!-- AboutDialog: License type: {0}\nSerial number: {1} -->
+    <string name="license">License type: {0}\nSerial number: {1}</string>
+
+</resources>

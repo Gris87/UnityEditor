@@ -244,8 +244,7 @@ namespace Common.UI.Windows
 
 							if ((oldValue == WindowFrameType.Drawer) || (mFrame == WindowFrameType.Drawer))
 							{
-								DestroyHeader();
-								CreateHeader();
+								RebuildHeader();
 							}
 						}
 
@@ -311,8 +310,7 @@ namespace Common.UI.Windows
 						}
 						else
 						{
-							DestroyHeader();
-							CreateHeader();
+							RebuildHeader();
 						}
 
 						UpdateState();
@@ -1053,8 +1051,7 @@ namespace Common.UI.Windows
 
 					if (IsUICreated())
 					{
-						DestroyHeader();
-						CreateHeader();
+						RebuildHeader();
 					}
 				}
 			}
@@ -1079,8 +1076,7 @@ namespace Common.UI.Windows
 					
 					if (IsUICreated())
 					{
-						DestroyHeader();
-						CreateHeader();
+						RebuildHeader();
 					}
 				}
 			}
@@ -1105,8 +1101,7 @@ namespace Common.UI.Windows
 					
 					if (IsUICreated())
 					{
-						DestroyHeader();
-						CreateHeader();
+						RebuildHeader();
 					}
 				}
 			}
@@ -1208,7 +1203,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Script starting callback.
 		/// </summary>
-		void Start()
+		public virtual void Start()
 		{
 			CreateUI();
 		}
@@ -1950,6 +1945,19 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
+		/// Rebuilds header.
+		/// </summary>
+		private void RebuildHeader()
+		{
+			DestroyHeader();
+
+			if (IsFramePresent())
+			{
+				CreateHeader();
+			}
+		}
+
+		/// <summary>
 		/// Creates the content.
 		/// </summary>
 		/// <param name="contentTransform">Content transform.</param>
@@ -2115,7 +2123,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Handler for destroy event.
 		/// </summary>
-		public void OnDestroy()
+		public virtual void OnDestroy()
 		{
 			DestroyReplacement();
 		}
@@ -2247,7 +2255,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
-		void Update()
+		public virtual void Update()
 		{
 			if (IsFramePresent())
 			{

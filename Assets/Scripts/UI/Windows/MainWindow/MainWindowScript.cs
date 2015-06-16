@@ -19,16 +19,6 @@ namespace UI.Windows.MainWindow
 		/// <summary>
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.MainWindowScript"/> class.
 		/// </summary>
-		public MainWindowScript()
-			: base()
-		{
-			frame = WindowFrameType.Frameless;
-			state = WindowState.FullScreen;
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.MainWindowScript"/> class.
-		/// </summary>
 		public static MainWindowScript Create()
 		{
 			if (Global.mainWindowScript == null)
@@ -51,21 +41,6 @@ namespace UI.Windows.MainWindow
 			
 			return Global.mainWindowScript;
 		}
-		
-		/// <summary>
-		/// Handler for destroy event.
-		/// </summary>
-		public void OnDestroy()
-		{
-			if (Global.mainWindowScript == this)
-			{
-				Global.mainWindowScript = null;
-			}
-			else
-			{
-				Debug.LogError("Unexpected behaviour in MainWindowScript.OnDestroy");
-			}
-		}
 
 		/// <summary>
 		/// Creates the content.
@@ -75,6 +50,9 @@ namespace UI.Windows.MainWindow
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
+			frame = WindowFrameType.Frameless;
+			state = WindowState.FullScreen;
+
 			width  = 0f;
 			height = 0f;
 
@@ -172,6 +150,23 @@ namespace UI.Windows.MainWindow
 			#endregion
 
 			enabled = false;
+		}
+		
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		public override void OnDestroy()
+		{
+			base.OnDestroy();
+
+			if (Global.mainWindowScript == this)
+			{
+				Global.mainWindowScript = null;
+			}
+			else
+			{
+				Debug.LogError("Unexpected behaviour in MainWindowScript.OnDestroy");
+			}
 		}
 	}
 }

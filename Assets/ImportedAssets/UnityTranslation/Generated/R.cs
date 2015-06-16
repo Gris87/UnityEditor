@@ -54,6 +54,11 @@ namespace UnityTranslation
             public enum SectionID
             {
                 /// <summary>
+                /// Section ID for "about_dialog.xml" file.
+                /// </summary>
+                AboutDialog
+                ,
+                /// <summary>
                 /// Section ID for "menu_items.xml" file.
                 /// </summary>
                 MenuItems
@@ -74,6 +79,11 @@ namespace UnityTranslation
                 Tooltips
                 ,
                 /// <summary>
+                /// Section ID for "version.xml" file.
+                /// </summary>
+                Version
+                ,
+                /// <summary>
                 /// Section ID for "window_titles.xml" file.
                 /// </summary>
                 WindowTitles
@@ -89,12 +99,111 @@ namespace UnityTranslation
             /// </summary>
             public static readonly string[] xmlFiles = new string[]
             {
-                  "menu_items.xml"    // MenuItems
+                  "about_dialog.xml"  // AboutDialog
+                , "menu_items.xml"    // MenuItems
                 , "toasts.xml"        // Toasts
                 , "toolbar.xml"       // Toolbar
                 , "tooltips.xml"      // Tooltips
+                , "version.xml"       // Version
                 , "window_titles.xml" // WindowTitles
             };
+
+            /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/about_dialog.xml" file.
+            /// </summary>
+            public static class AboutDialog
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/about_dialog.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>AboutDialog: Version {0}</para>
+                    /// <para>Value:</para>
+                    ///   <para>Version {0}</para>
+                    /// </summary>
+                    version
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: Credits</para>
+                    /// <para>Value:</para>
+                    ///   <para>Credits</para>
+                    /// </summary>
+                    credits
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: Scripting powered by The Mono Project</para>
+                    /// <para>Value:</para>
+                    ///   <para>Scripting powered by The Mono Project</para>
+                    /// </summary>
+                    scripting_powered_by
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: (c) 2011 Novell, Inc.</para>
+                    /// <para>Value:</para>
+                    ///   <para>(c) 2011 Novell, Inc.</para>
+                    /// </summary>
+                    novell_copyright
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: Physics powered by PhysX.</para>
+                    /// <para>Value:</para>
+                    ///   <para>Physics powered by PhysX.</para>
+                    /// </summary>
+                    physics_powered_by
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: (c) 2011 NVIDIA Corporation.</para>
+                    /// <para>Value:</para>
+                    ///   <para>(c) 2011 NVIDIA Corporation.</para>
+                    /// </summary>
+                    nvidia_copyright
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: (c) 2015 Unity Technologies ApS. All rights reserved.</para>
+                    /// <para>Value:</para>
+                    ///   <para>(c) 2015 Unity Technologies ApS. All rights reserved.</para>
+                    /// </summary>
+                    unity_copyright
+                    ,
+                    /// <summary>
+                    /// <para>AboutDialog: License type: {0}</para>
+                    /// <para>Serial number: {1}</para>
+                    /// <para>Value:</para>
+                    ///   <para>License type: {0}</para>
+                    ///   <para>Serial number: {1}</para>
+                    /// </summary>
+                    license
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/about_dialog.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/about_dialog.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
 
             /// <summary>
             /// Container for all tokens specified in "Assets/Resources/res/values/menu_items.xml" file.
@@ -2732,6 +2841,52 @@ namespace UnityTranslation
             }
 
             /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/version.xml" file.
+            /// </summary>
+            public static class Version
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/version.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>AboutDialog: Personal</para>
+                    /// <para>Value:</para>
+                    ///   <para>Personal</para>
+                    /// </summary>
+                    personal
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/version.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/version.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
+
+            /// <summary>
             /// Container for all tokens specified in "Assets/Resources/res/values/window_titles.xml" file.
             /// </summary>
             public static class WindowTitles
@@ -2791,6 +2946,29 @@ namespace UnityTranslation
             {
                 new Dictionary<string, int> // strings
                 {
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // AboutDialog
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "version"             , (int)R.sections.AboutDialog.strings.version }
+                    , { "credits"             , (int)R.sections.AboutDialog.strings.credits }
+                    , { "scripting_powered_by", (int)R.sections.AboutDialog.strings.scripting_powered_by }
+                    , { "novell_copyright"    , (int)R.sections.AboutDialog.strings.novell_copyright }
+                    , { "physics_powered_by"  , (int)R.sections.AboutDialog.strings.physics_powered_by }
+                    , { "nvidia_copyright"    , (int)R.sections.AboutDialog.strings.nvidia_copyright }
+                    , { "unity_copyright"     , (int)R.sections.AboutDialog.strings.unity_copyright }
+                    , { "license"             , (int)R.sections.AboutDialog.strings.license }
                 }
                 ,
                 new Dictionary<string, int> // array
@@ -3205,6 +3383,22 @@ namespace UnityTranslation
                     , { "local" , (int)R.sections.Tooltips.strings.local }
                     , { "global", (int)R.sections.Tooltips.strings.global }
                     , { "layers", (int)R.sections.Tooltips.strings.layers }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // Version
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "personal", (int)R.sections.Version.strings.personal }
                 }
                 ,
                 new Dictionary<string, int> // array
