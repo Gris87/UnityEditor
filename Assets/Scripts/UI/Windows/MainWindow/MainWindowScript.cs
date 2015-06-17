@@ -168,6 +168,17 @@ namespace UI.Windows.MainWindow
 				Debug.LogError("Unexpected behaviour in MainWindowScript.OnDestroy");
 			}
 		}
+
+		/// <summary>
+		/// Handler for resize event.
+		/// </summary>
+		public override void OnResize()
+		{
+			if (Global.toolbarScript != null)
+			{
+				Global.toolbarScript.OnResize();
+			}
+		}
 	}
 }
 

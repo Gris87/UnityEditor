@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 
-namespace UI.Popups
+namespace Common.UI.Popups
 {
 	/// <summary>
 	/// Script that realize behaviour for auto popup item.

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 
 using Common;
+using Common.UI;
 using UI.Popups;
 using UI.Toasts;
 using UI.Tooltips;
@@ -29,6 +30,31 @@ namespace UI
 		/// </summary>
 		private void CreateUI()
 		{
+			//***************************************************************************
+			// ResizeListener GameObject
+			//***************************************************************************
+			#region ResizeListener GameObject
+			GameObject resizeListener = new GameObject("ResizeListener");
+			Utils.InitUIObject(resizeListener, transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform resizeListenerTransform = resizeListener.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(resizeListenerTransform);
+			#endregion
+
+			//===========================================================================
+			// PopupMenuAreaScript Component
+			//===========================================================================
+			#region PopupMenuAreaScript Component
+			Global.resizeListenerScript = resizeListener.AddComponent<ResizeListenerScript>();
+			#endregion
+			#endregion
+
+
+
 			//***************************************************************************
 			// Windows GameObject
 			//***************************************************************************

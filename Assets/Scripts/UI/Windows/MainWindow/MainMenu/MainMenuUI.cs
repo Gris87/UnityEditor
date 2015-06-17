@@ -6,7 +6,7 @@ using UnityTranslation;
 
 using Common;
 using Common.UI.MenuItems;
-using UI.Popups;
+using Common.UI.Popups;
 
 
 
@@ -1461,7 +1461,7 @@ namespace UI.Windows.MainWindow.MainMenu
 					++contentWidth;
 					
 					float buttonWidth = menuItemTextText.preferredWidth + 12;
-					
+
 					Utils.AlignRectTransformStretchLeft(menuItemButtonTransform, buttonWidth, contentWidth, 1, 1);
 					
 					contentWidth += buttonWidth + 1;
@@ -1472,7 +1472,8 @@ namespace UI.Windows.MainWindow.MainMenu
 				}
 			}
 			#endregion
-			
+
+			// TODO: Try to do it without Align
 			Utils.AlignRectTransformStretchLeft(mScrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
 		}
 	}

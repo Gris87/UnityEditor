@@ -35,6 +35,14 @@ namespace UI.Windows.MainWindow.Toolbar
 		}
 
 		/// <summary>
+		/// Handler for resize event.
+		/// </summary>
+		public void OnResize()
+		{
+			mUi.OnResize();
+		}
+
+		/// <summary>
 		/// Handler for Hand tool selection.
 		/// </summary>
 		public void OnToolHandClicked()

@@ -126,39 +126,25 @@ namespace UnityTranslation
                     version
                     ,
                     /// <summary>
-                    /// <para>AboutDialog: Scripting powered by The Mono Project</para>
+                    /// <para>AboutDialog: Scripting powered by {0}</para>
                     /// <para>Value:</para>
-                    ///   <para>Scripting powered by The Mono Project</para>
+                    ///   <para>Scripting powered by {0}</para>
                     /// </summary>
                     scripting_powered_by
                     ,
                     /// <summary>
-                    /// <para>AboutDialog: (c) 2011 Novell, Inc.</para>
+                    /// <para>AboutDialog: Physics powered by {0}.</para>
                     /// <para>Value:</para>
-                    ///   <para>(c) 2011 Novell, Inc.</para>
-                    /// </summary>
-                    novell_copyright
-                    ,
-                    /// <summary>
-                    /// <para>AboutDialog: Physics powered by PhysX.</para>
-                    /// <para>Value:</para>
-                    ///   <para>Physics powered by PhysX.</para>
+                    ///   <para>Physics powered by {0}.</para>
                     /// </summary>
                     physics_powered_by
                     ,
                     /// <summary>
-                    /// <para>AboutDialog: (c) 2011 NVIDIA Corporation.</para>
+                    /// <para>AboutDialog: All rights reserved.</para>
                     /// <para>Value:</para>
-                    ///   <para>(c) 2011 NVIDIA Corporation.</para>
+                    ///   <para>All rights reserved.</para>
                     /// </summary>
-                    nvidia_copyright
-                    ,
-                    /// <summary>
-                    /// <para>AboutDialog: (c) 2015 Unity Technologies ApS. All rights reserved.</para>
-                    /// <para>Value:</para>
-                    ///   <para>(c) 2015 Unity Technologies ApS. All rights reserved.</para>
-                    /// </summary>
-                    unity_copyright
+                    all_rights_reserved
                     ,
                     /// <summary>
                     /// <para>AboutDialog: License type: {0}</para>
@@ -2956,10 +2942,8 @@ namespace UnityTranslation
                 {
                       { "version"             , (int)R.sections.AboutDialog.strings.version }
                     , { "scripting_powered_by", (int)R.sections.AboutDialog.strings.scripting_powered_by }
-                    , { "novell_copyright"    , (int)R.sections.AboutDialog.strings.novell_copyright }
                     , { "physics_powered_by"  , (int)R.sections.AboutDialog.strings.physics_powered_by }
-                    , { "nvidia_copyright"    , (int)R.sections.AboutDialog.strings.nvidia_copyright }
-                    , { "unity_copyright"     , (int)R.sections.AboutDialog.strings.unity_copyright }
+                    , { "all_rights_reserved" , (int)R.sections.AboutDialog.strings.all_rights_reserved }
                     , { "license"             , (int)R.sections.AboutDialog.strings.license }
                 }
                 ,

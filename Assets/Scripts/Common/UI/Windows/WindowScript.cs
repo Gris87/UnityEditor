@@ -269,6 +269,11 @@ namespace Common.UI.Windows
 							mHeight += SHADOW_WIDTH * 2;
 						}
 					}
+
+					if (IsUICreated())
+					{
+						OnResize();
+					}
 				}
 			}
 		}
@@ -314,6 +319,8 @@ namespace Common.UI.Windows
 						}
 
 						UpdateState();
+
+						OnResize();
 					}
 				}
 			}
@@ -448,15 +455,18 @@ namespace Common.UI.Windows
 
 				if (mWidth != value)
 				{
+					float oldValue = mWidth;
+					mWidth = value;
+
 					if (IsUICreated())
 					{
 						if (mState == WindowState.NoState)
 						{
-							mWindowTransform.offsetMax = new Vector2(mWindowTransform.offsetMax.x - mWidth + value, mWindowTransform.offsetMax.y);
+							mWindowTransform.offsetMax = new Vector2(mWindowTransform.offsetMax.x - oldValue + value, mWindowTransform.offsetMax.y);
+
+							OnResize();
 						}
 					}
-
-					mWidth = value;
 				}
 			}
 		}
@@ -508,15 +518,18 @@ namespace Common.UI.Windows
 				
 				if (mHeight != value)
 				{
+					float oldValue = mHeight;
+					mHeight = value;
+
 					if (IsUICreated())
 					{
 						if (mState == WindowState.NoState)
 						{
-							mWindowTransform.offsetMin = new Vector2(mWindowTransform.offsetMin.x, mWindowTransform.offsetMin.y + mHeight - value);
+							mWindowTransform.offsetMin = new Vector2(mWindowTransform.offsetMin.x, mWindowTransform.offsetMin.y + oldValue - value);
+
+							OnResize();
 						}
 					}
-
-					mHeight = value;
 				}
 			}
 		}
@@ -1205,6 +1218,8 @@ namespace Common.UI.Windows
 		/// </summary>
 		public virtual void Start()
 		{
+			Global.resizeListenerScript.AddListener(OnScreenResize);
+
 			CreateUI();
 		}
 
@@ -2139,6 +2154,8 @@ namespace Common.UI.Windows
 		/// </summary>
 		public virtual void OnDestroy()
 		{
+			Global.resizeListenerScript.RemoveListener(OnScreenResize);
+
 			if (mTitleText != null)
 			{
 				Translator.removeLanguageChangedListener(UpdateTitleText);
@@ -3064,6 +3081,29 @@ namespace Common.UI.Windows
 					break;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Handler for screen resize event.
+		/// </summary>
+		public void OnScreenResize()
+		{
+			if (
+				mState == WindowState.Maximized
+				||
+				mState == WindowState.FullScreen
+			   )
+			{
+				OnResize();
+            }
+		}
+
+		/// <summary>
+		/// Handler for resize event.
+		/// </summary>
+		public virtual void OnResize()
+		{
+			// Nothing
 		}
 
 		/// <summary>

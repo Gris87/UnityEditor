@@ -1449,6 +1449,16 @@ namespace UI.Windows.MainWindow.Toolbar
 		public void OnLanguageChanged()
 		{
 			// TODO: Implement OnLanguageChanged
+
+			OnResize();
+		}
+
+		/// <summary>
+		/// Handler for resize event.
+		/// </summary>
+		public void OnResize()
+		{
+			// TODO: OnResize
 		}
 	}
 }

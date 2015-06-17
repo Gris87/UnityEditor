@@ -312,7 +312,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform monoLogoTextTransform = monoLogoTextObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(monoLogoTextTransform, 200f, 20f, 73f, 217f);
+			Utils.AlignRectTransformTopLeft(monoLogoTextTransform, 200f, 30f, 73f, 217f);
 			#endregion
 			
 			//===========================================================================
@@ -340,7 +340,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform monoLogoTextTransform2 = monoLogoTextObject2.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(monoLogoTextTransform2, 200f, 20f, 73f, 239f);
+			Utils.AlignRectTransformTopLeft(monoLogoTextTransform2, 200f, 30f, 73f, 249f);
 			#endregion
 			
 			//===========================================================================
@@ -401,7 +401,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform physXLogoTextTransform = physXLogoTextObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(physXLogoTextTransform, 165f, 20f, 405f, 217f);
+			Utils.AlignRectTransformTopLeft(physXLogoTextTransform, 165f, 30f, 405f, 217f);
 			#endregion
 			
 			//===========================================================================
@@ -429,7 +429,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform physXLogoTextTransform2 = physXLogoTextObject2.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(physXLogoTextTransform2, 165f, 20f, 405f, 239f);
+			Utils.AlignRectTransformTopLeft(physXLogoTextTransform2, 165f, 30f, 405f, 249f);
 			#endregion
 			
 			//===========================================================================
@@ -457,7 +457,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform copyrightTransform = copyright.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(copyrightTransform, 280f, 20f, 8f, 312f);
+			Utils.AlignRectTransformTopLeft(copyrightTransform, 280f, 30f, 8f, 302f);
 			#endregion
 			
 			//===========================================================================
@@ -566,11 +566,11 @@ namespace UI.Windows.AboutDialog
 		public void OnLanguageChanged()
 		{
 			mVersionText.text    = Translator.getString(R.sections.AboutDialog.strings.version, Utils.version());
-			mMonoLogoText.text   = Translator.getString(R.sections.AboutDialog.strings.scripting_powered_by);
-			mMonoLogoText2.text  = Translator.getString(R.sections.AboutDialog.strings.novell_copyright);
-			mPhysXLogoText.text  = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by);
-			mPhysXLogoText2.text = Translator.getString(R.sections.AboutDialog.strings.nvidia_copyright);
-			mCopyrightText.text  = Translator.getString(R.sections.AboutDialog.strings.unity_copyright);
+			mMonoLogoText.text   = Translator.getString(R.sections.AboutDialog.strings.scripting_powered_by, "The Mono Project");
+			mMonoLogoText2.text  = "(c) 2011 Novell, Inc.";
+			mPhysXLogoText.text  = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by, "PhysX");
+			mPhysXLogoText2.text = "(c) 2011 NVIDIA Corporation.";
+			mCopyrightText.text  = "(c) 2015 Unity Technologies ApS. " + Translator.getString(R.sections.AboutDialog.strings.all_rights_reserved);
 			mLicenseText.text    = Translator.getString(R.sections.AboutDialog.strings.license, License.type, License.serialNumber);
 		}
 	}

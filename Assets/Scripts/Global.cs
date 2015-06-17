@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using Common.UI;
 using UI.Popups;
 using UI.Toasts;
 using UI.Tooltips;
@@ -16,6 +17,11 @@ using UI.Windows.MainWindow.Toolbar;
 /// </summary>
 public static class Global
 {
+	/// <summary>
+	/// ResizeListener script.
+	/// </summary>
+	public static ResizeListenerScript resizeListenerScript = null;
+
 	/// <summary>
 	/// Windows transform.
 	/// </summary>
