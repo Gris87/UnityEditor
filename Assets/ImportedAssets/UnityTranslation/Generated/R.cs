@@ -126,13 +126,6 @@ namespace UnityTranslation
                     version
                     ,
                     /// <summary>
-                    /// <para>AboutDialog: Credits</para>
-                    /// <para>Value:</para>
-                    ///   <para>Credits</para>
-                    /// </summary>
-                    credits
-                    ,
-                    /// <summary>
                     /// <para>AboutDialog: Scripting powered by The Mono Project</para>
                     /// <para>Value:</para>
                     ///   <para>Scripting powered by The Mono Project</para>
@@ -2652,7 +2645,7 @@ namespace UnityTranslation
                     /// <para>Toast: Please contribute</para>
                     /// <para>Value:</para>
                     ///   <para>This feature is not implemented yet.</para>
-                    ///   <para>Please contribute to our project: https://github.com/Gris87/UnityEditor</para>
+                    ///   <para>Please contribute to our project: {0}</para>
                     /// </summary>
                     contribute
                     ,
@@ -2962,7 +2955,6 @@ namespace UnityTranslation
                 new Dictionary<string, int> // strings
                 {
                       { "version"             , (int)R.sections.AboutDialog.strings.version }
-                    , { "credits"             , (int)R.sections.AboutDialog.strings.credits }
                     , { "scripting_powered_by", (int)R.sections.AboutDialog.strings.scripting_powered_by }
                     , { "novell_copyright"    , (int)R.sections.AboutDialog.strings.novell_copyright }
                     , { "physics_powered_by"  , (int)R.sections.AboutDialog.strings.physics_powered_by }

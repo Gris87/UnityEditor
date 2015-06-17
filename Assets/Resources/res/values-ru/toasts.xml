@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Toast: Please contribute -->
+    <string name="contribute">Данная функция еще не поддерживается.\nПожалуйста, помогите нашему проекту: {0}</string>
+
+</resources>

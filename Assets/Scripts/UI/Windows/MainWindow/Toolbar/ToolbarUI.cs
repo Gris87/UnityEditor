@@ -88,6 +88,14 @@ namespace UI.Windows.MainWindow.Toolbar
 		}
 
 		/// <summary>
+		/// Release this instance.
+		/// </summary>
+		public void Release()
+		{
+			Translator.removeLanguageChangedListener(OnLanguageChanged);
+		}
+
+		/// <summary>
 		/// Creates user interface.
 		/// </summary>
 		private void CreateUI()
@@ -170,6 +178,8 @@ namespace UI.Windows.MainWindow.Toolbar
 			scrollArea.AddComponent<Mask>();
 			#endregion
 			#endregion
+
+			Translator.addLanguageChangedListener(OnLanguageChanged);
 		}
 
 		/// <summary>
@@ -1431,6 +1441,14 @@ namespace UI.Windows.MainWindow.Toolbar
 			
 			Utils.AlignRectTransformMiddleCenter(playbackTransform, width, 22f, offsetX);
 			#endregion
+		}
+
+		/// <summary>
+		/// Handler for language changed event.
+		/// </summary>
+		public void OnLanguageChanged()
+		{
+			// TODO: Implement OnLanguageChanged
 		}
 	}
 }

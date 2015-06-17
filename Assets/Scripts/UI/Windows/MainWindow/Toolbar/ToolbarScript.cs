@@ -27,6 +27,14 @@ namespace UI.Windows.MainWindow.Toolbar
 		}
 
 		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
+			mUi.Release();
+		}
+
+		/// <summary>
 		/// Handler for Hand tool selection.
 		/// </summary>
 		public void OnToolHandClicked()
@@ -34,7 +42,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolHandClicked");
 			// TODO: Implement ToolbarScript.OnToolHandClicked
 
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 
 		/// <summary>
@@ -45,7 +53,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolMoveClicked");
 			// TODO: Implement ToolbarScript.OnToolMoveClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 
 		/// <summary>
@@ -56,7 +64,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolRotateClicked");
 			// TODO: Implement ToolbarScript.OnToolRotateClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 
 		/// <summary>
@@ -67,7 +75,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolScaleClicked");
 			// TODO: Implement ToolbarScript.OnToolScaleClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 
 		/// <summary>
@@ -78,7 +86,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolRectTransformClicked");
 			// TODO: Implement ToolbarScript.OnToolRectTransformClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 		
 		/// <summary>
@@ -89,7 +97,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnBasePointClicked");
 			// TODO: Implement ToolbarScript.OnBasePointClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 		
 		/// <summary>
@@ -100,7 +108,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnCoordinateSystemClicked");
 			// TODO: Implement ToolbarScript.OnCoordinateSystemClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 		
 		/// <summary>
@@ -111,7 +119,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnPlayClicked");
 			// TODO: Implement ToolbarScript.OnPlayClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 		
 		/// <summary>
@@ -122,7 +130,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnPauseClicked");
 			// TODO: Implement ToolbarScript.OnPauseClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 		
 		/// <summary>
@@ -133,7 +141,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnStepClicked");
 			// TODO: Implement ToolbarScript.OnStepClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 				
 		/// <summary>
@@ -144,7 +152,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnLayersClicked");
 			// TODO: Implement ToolbarScript.OnLayersClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 				
 		/// <summary>
@@ -155,7 +163,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnLayoutClicked");
 			// TODO: Implement ToolbarScript.OnLayoutClicked
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 		}
 	}
 }

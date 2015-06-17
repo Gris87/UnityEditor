@@ -56,6 +56,14 @@ namespace UI.Toasts
 		{
 			Global.toastAreaScript.AddMessage(Translator.getString(tokenId, formatArgs), duration);
         }
+
+		/// <summary>
+		/// Show text notification with the contribute message.
+		/// </summary>
+		public static void ShowContributeMessage()
+		{
+			Global.toastAreaScript.AddMessage(Translator.getString(R.sections.Toasts.strings.contribute, Stuff.sourceCodeUrl), Toast.LENGTH_LONG);
+		}
     }
     
     /// <summary>

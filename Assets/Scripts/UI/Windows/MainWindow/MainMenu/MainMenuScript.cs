@@ -36,6 +36,14 @@ namespace UI.Windows.MainWindow.MainMenu
 	    }
 
 		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
+			mUi.Release();
+		}
+
+		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
 		void Update()
@@ -133,7 +141,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_NewScene");
 			// TODO: Implement MainMenuScript.OnFile_NewScene
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -144,7 +152,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_OpenScene");
 			// TODO: Implement MainMenuScript.OnFile_OpenScene
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -155,7 +163,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_SaveScene");
 			// TODO: Implement MainMenuScript.OnFile_SaveScene
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -166,7 +174,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_SaveSceneAs");
 			// TODO: Implement MainMenuScript.OnFile_SaveSceneAs
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -177,7 +185,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_NewProject");
 			// TODO: Implement MainMenuScript.OnFile_NewProject
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -188,7 +196,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_OpenProject");
 			// TODO: Implement MainMenuScript.OnFile_OpenProject
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -199,7 +207,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_SaveProject");
 			// TODO: Implement MainMenuScript.OnFile_SaveProject
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -210,7 +218,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_BuildSettings");
 			// TODO: Implement MainMenuScript.OnFile_BuildSettings
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -221,7 +229,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_BuildAndRun");
 			// TODO: Implement MainMenuScript.OnFile_BuildAndRun
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -232,7 +240,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnFile_BuildInCloud");
 			// TODO: Implement MainMenuScript.OnFile_BuildInCloud
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -262,7 +270,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Undo");
 			// TODO: Implement MainMenuScript.OnEdit_Undo
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -273,7 +281,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Redo");
 			// TODO: Implement MainMenuScript.OnEdit_Redo
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -284,7 +292,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Cut");
 			// TODO: Implement MainMenuScript.OnEdit_Cut
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -295,7 +303,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Copy");
 			// TODO: Implement MainMenuScript.OnEdit_Copy
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -306,7 +314,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Paste");
 			// TODO: Implement MainMenuScript.OnEdit_Paste
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -317,7 +325,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Duplicate");
 			// TODO: Implement MainMenuScript.OnEdit_Duplicate
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -328,7 +336,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Delete");
 			// TODO: Implement MainMenuScript.OnEdit_Delete
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -339,7 +347,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_FrameSelected");
 			// TODO: Implement MainMenuScript.OnEdit_FrameSelected
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -350,7 +358,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_LockViewToSelected");
 			// TODO: Implement MainMenuScript.OnEdit_LockViewToSelected
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -361,7 +369,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Find");
 			// TODO: Implement MainMenuScript.OnEdit_Find
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -372,7 +380,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_SelectAll");
 			// TODO: Implement MainMenuScript.OnEdit_SelectAll
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -383,7 +391,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Preferences");
 			// TODO: Implement MainMenuScript.OnEdit_Preferences
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -394,7 +402,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Modules");
 			// TODO: Implement MainMenuScript.OnEdit_Modules
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -405,7 +413,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Play");
 			// TODO: Implement MainMenuScript.OnEdit_Play
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -416,7 +424,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Pause");
 			// TODO: Implement MainMenuScript.OnEdit_Pause
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -427,7 +435,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Step");
 			// TODO: Implement MainMenuScript.OnEdit_Step
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    #region Edit -> Selection
@@ -439,7 +447,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection1");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection1
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -450,7 +458,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection2");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection2
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -461,7 +469,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection3");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection3
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -472,7 +480,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection4");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection4
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -483,7 +491,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection5");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection5
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -494,7 +502,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection6");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection6
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -505,7 +513,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection7");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection7
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -516,7 +524,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection8");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection8
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -527,7 +535,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection9");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection9
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -538,7 +546,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection0");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection0
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -549,7 +557,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection1");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection1
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -560,7 +568,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection2");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection2
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -571,7 +579,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection3");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection3
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -582,7 +590,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection4");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection4
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -593,7 +601,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection5");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection5
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -604,7 +612,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection6");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection6
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -615,7 +623,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection7");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection7
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -626,7 +634,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection8");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection8
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -637,7 +645,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection9");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection9
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -648,7 +656,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection0");
 			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection0
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -661,7 +669,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Input");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Input
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -672,7 +680,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -683,7 +691,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Audio");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Audio
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -694,7 +702,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Time");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Time
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -705,7 +713,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Player");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Player
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -716,7 +724,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Physics");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Physics
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -727,7 +735,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Physics2D");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Physics2D
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -738,7 +746,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Quality");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Quality
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -749,7 +757,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Graphics");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Graphics
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -760,7 +768,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Network");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Network
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -771,7 +779,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Editor");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Editor
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -782,7 +790,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder");
 			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -795,7 +803,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_None");
 			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_None
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -806,7 +814,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_Broadband");
 			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_Broadband
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -817,7 +825,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_DSL");
 			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_DSL
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -828,7 +836,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_ISDN");
 			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_ISDN
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -839,7 +847,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_DialUp");
 			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_DialUp
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -852,7 +860,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation");
 			// TODO: Implement MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -863,7 +871,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel3");
 			// TODO: Implement MainMenuScript.OnEdit_ReOnEdit_GraphicsEmulation_ShaderModel3do
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -874,7 +882,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2");
 			// TODO: Implement MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -886,7 +894,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnEdit_SnapSettings");
 			// TODO: Implement MainMenuScript.OnEdit_SnapSettings
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -908,7 +916,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Folder");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Folder
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -919,7 +927,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_CSharpScript");
 			// TODO: Implement MainMenuScript.OnAssets_Create_CSharpScript
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -930,7 +938,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Javascript");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Javascript
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -941,7 +949,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Shader");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Shader
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -952,7 +960,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_ComputeShader");
 			// TODO: Implement MainMenuScript.OnAssets_Create_ComputeShader
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -963,7 +971,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Prefab");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Prefab
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -974,7 +982,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_AudioMixer");
 			// TODO: Implement MainMenuScript.OnAssets_Create_AudioMixer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -985,7 +993,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Material");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Material
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -996,7 +1004,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_LensFlare");
 			// TODO: Implement MainMenuScript.OnAssets_Create_LensFlare
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    /// <summary>
@@ -1007,7 +1015,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_RenderTexture");
 			// TODO: Implement MainMenuScript.OnAssets_Create_RenderTexture
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    /// <summary>
@@ -1018,7 +1026,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_LightmapParameters");
 			// TODO: Implement MainMenuScript.OnAssets_Create_LightmapParameters
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1029,7 +1037,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_AnimatorController");
 			// TODO: Implement MainMenuScript.OnAssets_Create_AnimatorController
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1040,7 +1048,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Animation");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Animation
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1051,7 +1059,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_AnimatorOverrideContoller");
 			// TODO: Implement MainMenuScript.OnAssets_Create_AnimatorOverrideContoller
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1062,7 +1070,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_AvatarMask");
 			// TODO: Implement MainMenuScript.OnAssets_Create_AvatarMask
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1073,7 +1081,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_PhysicMaterial");
 			// TODO: Implement MainMenuScript.OnAssets_Create_PhysicMaterial
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1084,7 +1092,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Physic2dMaterial");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Physic2dMaterial
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1095,7 +1103,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_GuiSkin");
 			// TODO: Implement MainMenuScript.OnAssets_Create_GuiSkin
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1106,7 +1114,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_CustomFont");
 			// TODO: Implement MainMenuScript.OnAssets_Create_CustomFont
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1117,7 +1125,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_ShaderVariantCollection");
 			// TODO: Implement MainMenuScript.OnAssets_Create_ShaderVariantCollection
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    #region Assets -> Create -> Legacy
@@ -1129,7 +1137,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Create_Legacy_Cubemap");
 			// TODO: Implement MainMenuScript.OnAssets_Create_Legacy_Cubemap
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -1143,7 +1151,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ShowInExplorer");
 			// TODO: Implement MainMenuScript.OnAssets_ShowInExplorer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1154,7 +1162,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Open");
 			// TODO: Implement MainMenuScript.OnAssets_Open
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1165,7 +1173,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Delete");
 			// TODO: Implement MainMenuScript.OnAssets_Delete
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1176,7 +1184,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportNewAsset");
 			// TODO: Implement MainMenuScript.OnAssets_ImportNewAsset
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    #region Assets -> Import Package
@@ -1188,7 +1196,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_CustomPackage");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_CustomPackage
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1199,7 +1207,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_2d");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1210,7 +1218,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Cameras");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Cameras
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1221,7 +1229,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Characters");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Characters
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1232,7 +1240,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1243,7 +1251,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Effects");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Effects
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1254,7 +1262,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Environment");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Environment
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1265,7 +1273,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_ParticleSystems");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_ParticleSystems
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1276,7 +1284,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Prototyping");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Prototyping
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1287,7 +1295,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Utility");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Utility
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1298,7 +1306,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Vehicles");
 			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Vehicles
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -1310,7 +1318,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ExportPackage");
 			// TODO: Implement MainMenuScript.OnAssets_ExportPackage
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1321,7 +1329,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_FindReferencesInScene");
 			// TODO: Implement MainMenuScript.OnAssets_FindReferencesInScene
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1332,7 +1340,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_SelectDependencies");
 			// TODO: Implement MainMenuScript.OnAssets_SelectDependencies
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1343,7 +1351,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Refresh");
 			// TODO: Implement MainMenuScript.OnAssets_Refresh
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1354,7 +1362,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_Reimport");
 			// TODO: Implement MainMenuScript.OnAssets_Reimport
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1365,7 +1373,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_ReimportAll");
 			// TODO: Implement MainMenuScript.OnAssets_ReimportAll
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    /// <summary>
@@ -1376,7 +1384,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_RunApiUpdater");
 			// TODO: Implement MainMenuScript.OnAssets_RunApiUpdater
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1387,7 +1395,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnAssets_SyncMonoDevelopProject");
 			// TODO: Implement MainMenuScript.OnAssets_SyncMonoDevelopProject
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -1408,7 +1416,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_CreateEmpty");
 			// TODO: Implement MainMenuScript.OnGameObject_CreateEmpty
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	        
 	    /// <summary>
@@ -1419,7 +1427,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_CreateEmptyChild");
 			// TODO: Implement MainMenuScript.OnGameObject_CreateEmptyChild
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	            
 	    #region GameObject -> 3D Object
@@ -1431,7 +1439,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Cube");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Cube
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1442,7 +1450,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Sphere");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Sphere
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1453,7 +1461,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Capsule");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Capsule
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1464,7 +1472,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Cylinder");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Cylinder
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1475,7 +1483,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Plane");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Plane
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1486,7 +1494,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Quad");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Quad
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1497,7 +1505,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Ragdoll");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Ragdoll
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1508,7 +1516,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Terrain");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Terrain
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1519,7 +1527,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Tree");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Tree
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    /// <summary>
@@ -1530,7 +1538,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_WindZone");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_WindZone
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    /// <summary>
@@ -1541,7 +1549,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_3dText");
 			// TODO: Implement MainMenuScript.OnGameObject_3dObject_3dText
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -1554,7 +1562,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_2dObject_Sprite");
 			// TODO: Implement MainMenuScript.OnGameObject_2dObject_Sprite
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -1567,7 +1575,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Light_DirectionalLight");
 			// TODO: Implement MainMenuScript.OnGameObject_Light_DirectionalLight
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1578,7 +1586,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Light_PointLight");
 			// TODO: Implement MainMenuScript.OnGameObject_Light_PointLight
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1589,7 +1597,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Light_Spotlight");
 			// TODO: Implement MainMenuScript.OnGameObject_Light_Spotlight
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1600,7 +1608,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Light_AreaLight");
 			// TODO: Implement MainMenuScript.OnGameObject_Light_AreaLight
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1611,7 +1619,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Light_ReflectionProbe");
 			// TODO: Implement MainMenuScript.OnGameObject_Light_ReflectionProbe
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1622,7 +1630,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Light_LightProbeGroup");
 			// TODO: Implement MainMenuScript.OnGameObject_Light_LightProbeGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -1635,7 +1643,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Audio_AudioSource");
 			// TODO: Implement MainMenuScript.OnGameObject_Audio_AudioSource
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1646,7 +1654,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Audio_AudioReverbZone");
 			// TODO: Implement MainMenuScript.OnGameObject_Audio_AudioReverbZone
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -1659,7 +1667,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Panel");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Panel
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1670,7 +1678,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Button");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Button
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1681,7 +1689,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Text");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Text
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1692,7 +1700,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Image");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Image
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1703,7 +1711,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_RawImage");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_RawImage
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1714,7 +1722,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Slider");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Slider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1725,7 +1733,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Scrollbar");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Scrollbar
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1736,7 +1744,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Toggle");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Toggle
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1747,7 +1755,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_InputField");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_InputField
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1758,7 +1766,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Canvas");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_Canvas
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1769,7 +1777,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_EventSystem");
 			// TODO: Implement MainMenuScript.OnGameObject_Ui_EventSystem
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -1781,7 +1789,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_ParticleSystem");
 			// TODO: Implement MainMenuScript.OnGameObject_ParticleSystem
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1792,7 +1800,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_Camera");
 			// TODO: Implement MainMenuScript.OnGameObject_Camera
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1803,7 +1811,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_CenterOnChildren");
 			// TODO: Implement MainMenuScript.OnGameObject_CenterOnChildren
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1814,7 +1822,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_MakeParent");
 			// TODO: Implement MainMenuScript.OnGameObject_MakeParent
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1825,7 +1833,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_ClearParent");
 			// TODO: Implement MainMenuScript.OnGameObject_ClearParent
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1836,7 +1844,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_ApplyChangesToPrefab");
 			// TODO: Implement MainMenuScript.OnGameObject_ApplyChangesToPrefab
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1847,7 +1855,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_BreakPrefabInstance");
 			// TODO: Implement MainMenuScript.OnGameObject_BreakPrefabInstance
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1858,7 +1866,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_SetAsFirstSibling");
 			// TODO: Implement MainMenuScript.OnGameObject_SetAsFirstSibling
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1869,7 +1877,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_SetAsLastSibling");
 			// TODO: Implement MainMenuScript.OnGameObject_SetAsLastSibling
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1880,7 +1888,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_MoveToView");
 			// TODO: Implement MainMenuScript.OnGameObject_MoveToView
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1891,7 +1899,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_AlignWithView");
 			// TODO: Implement MainMenuScript.OnGameObject_AlignWithView
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1902,7 +1910,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_AlignViewToSelected");
 			// TODO: Implement MainMenuScript.OnGameObject_AlignViewToSelected
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1913,7 +1921,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnGameObject_ToggleActiveState");
 			// TODO: Implement MainMenuScript.OnGameObject_ToggleActiveState
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -1934,7 +1942,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Add");
 			// TODO: Implement MainMenuScript.OnComponent_Add
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    #region Component -> Mesh
@@ -1946,7 +1954,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_MeshFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Mesh_MeshFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1957,7 +1965,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_TextMesh");
 			// TODO: Implement MainMenuScript.OnComponent_Mesh_TextMesh
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1968,7 +1976,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_MeshRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Mesh_MeshRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -1979,7 +1987,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_SkinnedMeshRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Mesh_SkinnedMeshRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -1992,7 +2000,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_ParticleSystem");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_ParticleSystem
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2003,7 +2011,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_TrailRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_TrailRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2014,7 +2022,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LineRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LineRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2025,7 +2033,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LensFlare");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LensFlare
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2036,7 +2044,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_Halo");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_Halo
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2047,7 +2055,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_Projector");
 	        // TODO: Implement MainMenuScript.OnComponent_Effects_Projector
 
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    #region Component -> Effects -> Legacy Particles
@@ -2059,7 +2067,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2070,7 +2078,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2081,7 +2089,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleAnimator");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleAnimator
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2092,7 +2100,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2103,7 +2111,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2118,7 +2126,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_Rigidbody");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_Rigidbody
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2129,7 +2137,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_CharacterController");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_CharacterController
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2140,7 +2148,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_BoxCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_BoxCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2151,7 +2159,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_SphereCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_SphereCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2162,7 +2170,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_CapsuleCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_CapsuleCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2173,7 +2181,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_MeshCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_MeshCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2184,7 +2192,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_WheelCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_WheelCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2195,7 +2203,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_TerrainCollider");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_TerrainCollider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2206,7 +2214,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_Cloth");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_Cloth
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2217,7 +2225,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_HingeJoint");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_HingeJoint
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2228,7 +2236,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_FixedJoint");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_FixedJoint
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2239,7 +2247,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_SpringJoint");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_SpringJoint
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2250,7 +2258,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_CharacterJoint");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_CharacterJoint
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2261,7 +2269,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_ConfigurableJoint");
 			// TODO: Implement MainMenuScript.OnComponent_Physics_ConfigurableJoint
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2272,7 +2280,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics_ConstantForce");
 	        // TODO: Implement MainMenuScript.OnComponent_Physics_ConstantForce			
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2285,7 +2293,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_Rigidbody2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_Rigidbody2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2296,7 +2304,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_CircleCollider2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_CircleCollider2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2307,7 +2315,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_BoxCollider2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_BoxCollider2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2318,7 +2326,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_EdgeCollider2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_EdgeCollider2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2329,7 +2337,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_PolygonCollider2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_PolygonCollider2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2340,7 +2348,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_SpringJoint2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_SpringJoint2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2351,7 +2359,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_DistanceJoint2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_DistanceJoint2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2362,7 +2370,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_HingeJoint2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_HingeJoint2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2373,7 +2381,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_SliderJoint2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_SliderJoint2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2384,7 +2392,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_WheelJoint2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_WheelJoint2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2395,7 +2403,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_ConstantForce2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_ConstantForce2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2406,7 +2414,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_AreaEffector2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_AreaEffector2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2417,7 +2425,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_PointEffector2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_PointEffector2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2428,7 +2436,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_PlatformEffector2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_PlatformEffector2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2439,7 +2447,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_SurfaceEffector2d");
 			// TODO: Implement MainMenuScript.OnComponent_Physics2d_SurfaceEffector2d
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2452,7 +2460,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Navigation_NavMeshAgent");
 			// TODO: Implement MainMenuScript.OnComponent_Navigation_NavMeshAgent
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2463,7 +2471,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Navigation_OffMeshLink");
 			// TODO: Implement MainMenuScript.OnComponent_Navigation_OffMeshLink
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2474,7 +2482,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Navigation_NavMeshObstacle");
 			// TODO: Implement MainMenuScript.OnComponent_Navigation_NavMeshObstacle
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2487,7 +2495,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioListener");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioListener
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2498,7 +2506,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioSource");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioSource
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2509,7 +2517,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioReverbZone");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioReverbZone
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2520,7 +2528,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioLowPassFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioLowPassFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2531,7 +2539,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioHighPassFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioHighPassFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2542,7 +2550,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioEchoFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioEchoFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2553,7 +2561,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioDistortionFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioDistortionFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2564,7 +2572,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioReverbFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioReverbFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2575,7 +2583,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioChorusFilter");
 			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioChorusFilter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2588,7 +2596,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_Camera");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_Camera
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2599,7 +2607,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_Skybox");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_Skybox
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2610,7 +2618,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_FlareLayer");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_FlareLayer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2621,7 +2629,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_GuiLayer");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_GuiLayer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2632,7 +2640,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_Light");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_Light
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2643,7 +2651,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_LightProbeGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_LightProbeGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2654,7 +2662,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_ReflectionProbe");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_ReflectionProbe
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2665,7 +2673,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_OcclusionArea");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_OcclusionArea
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2676,7 +2684,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_OcclusionPortal");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_OcclusionPortal
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2687,7 +2695,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_LodGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_LodGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2698,7 +2706,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_SpriteRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_SpriteRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2709,7 +2717,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_CanvasRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_CanvasRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2720,7 +2728,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_GuiTexture");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_GuiTexture
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2731,7 +2739,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_GuiText");
 			// TODO: Implement MainMenuScript.OnComponent_Rendering_GuiText
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2744,7 +2752,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_RectTransform");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_RectTransform
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2755,7 +2763,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_Canvas");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_Canvas
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2766,7 +2774,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_CanvasGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_CanvasGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2777,7 +2785,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_CanvasScaler");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_CanvasScaler
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2788,7 +2796,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_LayoutElement");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_LayoutElement
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2799,7 +2807,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_ContentSizeFitter");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_ContentSizeFitter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2810,7 +2818,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_AspectRatioFitter");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_AspectRatioFitter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2821,7 +2829,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_HorizontalLayoutGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_HorizontalLayoutGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2832,7 +2840,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_VerticalLayoutGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_VerticalLayoutGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2843,7 +2851,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Layout_GridLayoutGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Layout_GridLayoutGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2856,7 +2864,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_Animator");
 			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_Animator
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2867,7 +2875,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_Animation");
 			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_Animation
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2878,7 +2886,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_NetworkView");
 			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_NetworkView
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2889,7 +2897,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_WindZone");
 			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_WindZone
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2900,7 +2908,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_Terrain");
 			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_Terrain
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2911,7 +2919,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_BillboardRenderer");
 			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_BillboardRenderer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -2924,7 +2932,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_EventSystem");
 			// TODO: Implement MainMenuScript.OnComponent_Event_EventSystem
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2935,7 +2943,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_EventTrigger");
 			// TODO: Implement MainMenuScript.OnComponent_Event_EventTrigger
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2946,7 +2954,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_Physics2dRaycaster");
 			// TODO: Implement MainMenuScript.OnComponent_Event_Physics2dRaycaster
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2957,7 +2965,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_PhysicsRaycaster");
 			// TODO: Implement MainMenuScript.OnComponent_Event_PhysicsRaycaster
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2968,7 +2976,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_StandaloneInputModule");
 			// TODO: Implement MainMenuScript.OnComponent_Event_StandaloneInputModule
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2979,7 +2987,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_TouchInputModule");
 			// TODO: Implement MainMenuScript.OnComponent_Event_TouchInputModule
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -2990,7 +2998,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Event_GraphicRaycaster");
 			// TODO: Implement MainMenuScript.OnComponent_Event_GraphicRaycaster
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -3005,7 +3013,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Effects_Shadow");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Effects_Shadow
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3016,7 +3024,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Effects_Outline");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Effects_Outline
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3027,7 +3035,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Effects_PositionAsUv1");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Effects_PositionAsUv1
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -3039,7 +3047,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Image");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Image
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3050,7 +3058,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Text");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Text
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3061,7 +3069,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_RawImage");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_RawImage
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3072,7 +3080,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Mask");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Mask
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3083,7 +3091,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Button");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Button
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3094,7 +3102,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_InputField");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_InputField
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3105,7 +3113,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Scrollbar");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Scrollbar
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3116,7 +3124,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_ScrollRect");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_ScrollRect
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3127,7 +3135,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Slider");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Slider
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3138,7 +3146,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Toggle");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Toggle
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3149,7 +3157,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_ToggleGroup");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_ToggleGroup
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3160,7 +3168,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Selectable");
 			// TODO: Implement MainMenuScript.OnComponent_Ui_Selectable
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -3183,7 +3191,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnWindow_NextWindow");
 			// TODO: Implement MainMenuScript.OnWindow_NextWindow
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3194,7 +3202,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
 			// TODO: Implement MainMenuScript.OnWindow_PreviousWindow
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    
 	    #region Window -> Layouts
@@ -3206,7 +3214,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnWindow_Layouts_2_by_3");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_2_by_3
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3217,7 +3225,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnWindow_Layouts_4_split");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_4_split
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3228,7 +3236,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnWindow_Layouts_Default");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_Default
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3239,7 +3247,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_Tall");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_Tall
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3250,7 +3258,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_Wide");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_Wide
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3261,7 +3269,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_SaveLayout");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_SaveLayout
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3272,7 +3280,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_DeleteLayout");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_DeleteLayout
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3283,7 +3291,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_RevertFactorySettings");
 			// TODO: Implement MainMenuScript.OnWindow_Layouts_RevertFactorySettings
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 
@@ -3295,7 +3303,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Scene");
 			// TODO: Implement MainMenuScript.OnWindow_Scene
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3306,7 +3314,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Game");
 			// TODO: Implement MainMenuScript.OnWindow_Game
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3317,7 +3325,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Inspector");
 			// TODO: Implement MainMenuScript.OnWindow_Inspector
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3328,7 +3336,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Hierarchy");
 			// TODO: Implement MainMenuScript.OnWindow_Hierarchy
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3339,7 +3347,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Project");
 			// TODO: Implement MainMenuScript.OnWindow_Project
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3350,7 +3358,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Animation");
 			// TODO: Implement MainMenuScript.OnWindow_Animation
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3361,7 +3369,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Profiler");
 			// TODO: Implement MainMenuScript.OnWindow_Profiler
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3372,7 +3380,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_AudioMixer");
 			// TODO: Implement MainMenuScript.OnWindow_AudioMixer
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3383,7 +3391,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_AssetStore");
 			// TODO: Implement MainMenuScript.OnWindow_AssetStore
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3394,7 +3402,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_VersionControl");
 			// TODO: Implement MainMenuScript.OnWindow_VersionControl
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3405,7 +3413,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_AnimatorParameter");
 			// TODO: Implement MainMenuScript.OnWindow_AnimatorParameter
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3416,7 +3424,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Animator");
 			// TODO: Implement MainMenuScript.OnWindow_Animator
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3427,7 +3435,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_SpritePacker");
 			// TODO: Implement MainMenuScript.OnWindow_SpritePacker
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3438,7 +3446,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Lighting");
 			// TODO: Implement MainMenuScript.OnWindow_Lighting
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3449,7 +3457,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_OcclusionCulling");
 			// TODO: Implement MainMenuScript.OnWindow_OcclusionCulling
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3460,7 +3468,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_FrameDebugger");
 			// TODO: Implement MainMenuScript.OnWindow_FrameDebugger
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3471,7 +3479,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Navigation");
 			// TODO: Implement MainMenuScript.OnWindow_Navigation
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3482,7 +3490,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        Debug.Log("MainMenuScript.OnWindow_Console");
 			// TODO: Implement MainMenuScript.OnWindow_Console
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 	    
@@ -3508,10 +3516,13 @@ namespace UI.Windows.MainWindow.MainMenu
 	    /// </summary>
 	    public void OnHelp_ManageLicense()
 	    {
+			// TODO: REMOVE IT
+			Translator.language = Language.Russian;
+
 			Debug.Log("MainMenuScript.OnHelp_ManageLicense");
 			// TODO: Implement MainMenuScript.OnHelp_ManageLicense
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3519,10 +3530,13 @@ namespace UI.Windows.MainWindow.MainMenu
 	    /// </summary>
 	    public void OnHelp_UnityManual()
 	    {
+			// TODO: REMOVE IT
+			Translator.language = Language.English;
+
 			Debug.Log("MainMenuScript.OnHelp_UnityManual");
 			// TODO: Implement MainMenuScript.OnHelp_UnityManual
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3533,7 +3547,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_ScriptingReference");
 			// TODO: Implement MainMenuScript.OnHelp_ScriptingReference
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3544,7 +3558,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_UnityConnect");
 			// TODO: Implement MainMenuScript.OnHelp_UnityConnect
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3555,7 +3569,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_UnityForum");
 			// TODO: Implement MainMenuScript.OnHelp_UnityForum
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3566,7 +3580,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_UnityAnswers");
 			// TODO: Implement MainMenuScript.OnHelp_UnityAnswers
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3577,7 +3591,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_UnityFeedback");
 			// TODO: Implement MainMenuScript.OnHelp_UnityFeedback
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3588,7 +3602,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_CheckForUpdates");
 			// TODO: Implement MainMenuScript.OnHelp_CheckForUpdates
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3599,7 +3613,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_DownloadBeta");
 			// TODO: Implement MainMenuScript.OnHelp_DownloadBeta
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3610,7 +3624,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_ReleaseNotes");
 			// TODO: Implement MainMenuScript.OnHelp_ReleaseNotes
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 
 	    /// <summary>
@@ -3621,7 +3635,7 @@ namespace UI.Windows.MainWindow.MainMenu
 			Debug.Log("MainMenuScript.OnHelp_ReportABug");
 			// TODO: Implement MainMenuScript.OnHelp_ReportABug
 			
-			Toast.Show(R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG);
+			Toast.ShowContributeMessage();
 	    }
 	    #endregion
 

@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -16,13 +17,16 @@ namespace UI.Windows.MainWindow.MainMenu
 	/// </summary>
 	public class MainMenuUI
 	{
-		private static float AUTO_POPUP_DELAY = 0f;
+		private static readonly float AUTO_POPUP_DELAY = 0f;
 
 
 
 	    private MainMenuScript mScript;
 
 		private SpriteState mButtonSpriteState;
+
+		private GameObject    mScrollAreaContent;
+		private RectTransform mScrollAreaContentTransform;
 
 	    #region Menu items
 	    private TreeNode<CustomMenuItem> mItems;
@@ -588,6 +592,9 @@ namespace UI.Windows.MainWindow.MainMenu
 			mButtonSpriteState.disabledSprite    = Assets.Windows.MainWindow.MainMenu.Textures.button;
 			mButtonSpriteState.highlightedSprite = Assets.Windows.MainWindow.MainMenu.Textures.buttonHighlighted;
 			mButtonSpriteState.pressedSprite     = Assets.Windows.MainWindow.MainMenu.Textures.buttonPressed;
+
+			mScrollAreaContent          = null;
+			mScrollAreaContentTransform = null;
 	    }
 
 		/// <summary>
@@ -597,6 +604,14 @@ namespace UI.Windows.MainWindow.MainMenu
 		{
 			CreateMenuItems();
 			CreateUI();
+		}
+		
+		/// <summary>
+		/// Release this instance.
+		/// </summary>
+		public void Release()
+		{
+			Translator.removeLanguageChangedListener(OnLanguageChanged);
 		}
 
 		/// <summary>
@@ -1229,14 +1244,14 @@ namespace UI.Windows.MainWindow.MainMenu
 			// Content GameObject
 	        //***************************************************************************
 	        #region Content GameObject
-	        GameObject scrollAreaContent = new GameObject("Content");
-	        Utils.InitUIObject(scrollAreaContent, scrollArea.transform);
+			mScrollAreaContent = new GameObject("Content");
+	        Utils.InitUIObject(mScrollAreaContent, scrollArea.transform);
 	        
 	        //===========================================================================
 	        // RectTransform Component
 	        //===========================================================================
 	        #region RectTransform Component
-	        RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
+			mScrollAreaContentTransform = mScrollAreaContent.AddComponent<RectTransform>();
 	        #endregion
 	        
 	        float contentWidth = 0f;
@@ -1257,7 +1272,7 @@ namespace UI.Windows.MainWindow.MainMenu
 					//***************************************************************************
 					#region Button GameObject
 					GameObject menuItemButton = new GameObject(item.Name);
-					Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
+					Utils.InitUIObject(menuItemButton, mScrollAreaContent.transform);
 															
 					//===========================================================================
 					// RectTransform Component
@@ -1328,13 +1343,13 @@ namespace UI.Windows.MainWindow.MainMenu
 					// Text Component
 					//===========================================================================
 					#region Text Component
-					Text menuItemTextText      = menuItemText.AddComponent<Text>();
+					Text menuItemTextText = menuItemText.AddComponent<Text>();
 
 					menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
 					menuItemTextText.fontSize  = 12;
 					menuItemTextText.alignment = TextAnchor.MiddleCenter;
 					menuItemTextText.color     = new Color(0f, 0f, 0f, 1f);
-					menuItemTextText.text      = item.Text; // TODO: Try to autotranslate somehow
+					menuItemTextText.text      = item.Text;
 					#endregion
 					#endregion
 
@@ -1353,7 +1368,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        }
 			#endregion
 
-			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
+			Utils.AlignRectTransformStretchLeft(mScrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
 	        #endregion
 	        
 			//===========================================================================
@@ -1362,7 +1377,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	        #region ScrollRect Component
 	        ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
 	        
-	        scrollAreaScrollRect.content  = scrollAreaContentTransform;
+	        scrollAreaScrollRect.content  = mScrollAreaContentTransform;
 	        scrollAreaScrollRect.vertical = false;
 	        #endregion
 
@@ -1390,6 +1405,75 @@ namespace UI.Windows.MainWindow.MainMenu
 			scrollArea.AddComponent<Mask>();
 			#endregion
 	        #endregion
+
+			Translator.addLanguageChangedListener(OnLanguageChanged);
 	    }
+
+		/// <summary>
+		/// Handler for language changed event.
+		/// </summary>
+		public void OnLanguageChanged()
+		{
+			float contentWidth = 0f;
+			
+			//===========================================================================
+			// Update content
+			//===========================================================================
+			#region Update content
+			ReadOnlyCollection<TreeNode<CustomMenuItem>> menuItems = mItems.Children;
+
+			for (int i = 0; i < menuItems.Count; ++i)
+			{
+				if (menuItems[i].Data is MenuItem)
+				{
+					MenuItem item = menuItems[i].Data as MenuItem;
+					
+					//***************************************************************************
+					// Button GameObject
+					//***************************************************************************
+					#region Button GameObject
+					GameObject menuItemButton = mScrollAreaContent.transform.GetChild(i).gameObject;
+					
+					//===========================================================================
+					// RectTransform Component
+					//===========================================================================
+					#region RectTransform Component
+					RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
+					#endregion
+					#endregion
+					
+					//***************************************************************************
+					// Text GameObject
+					//***************************************************************************
+					#region Text GameObject
+					GameObject menuItemText = menuItemButton.transform.GetChild(0).gameObject;
+					
+					//===========================================================================
+					// Text Component
+					//===========================================================================
+					#region Text Component
+					Text menuItemTextText = menuItemText.GetComponent<Text>();
+
+					menuItemTextText.text = item.Text;
+					#endregion
+					#endregion
+					
+					++contentWidth;
+					
+					float buttonWidth = menuItemTextText.preferredWidth + 12;
+					
+					Utils.AlignRectTransformStretchLeft(menuItemButtonTransform, buttonWidth, contentWidth, 1, 1);
+					
+					contentWidth += buttonWidth + 1;
+				}
+				else
+				{
+					Debug.LogError("Unknown menu item type");
+				}
+			}
+			#endregion
+			
+			Utils.AlignRectTransformStretchLeft(mScrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
+		}
 	}
 }

@@ -1126,7 +1126,7 @@ namespace Common.UI.Windows
 					
 					if (mTitleText != null)
 					{
-						mTitleText.text = windowTitle;
+						UpdateTitleText();
 					}
 				}
 			}
@@ -1780,7 +1780,9 @@ namespace Common.UI.Windows
 					mTitleText.fontSize  = 12;
 					mTitleText.alignment = TextAnchor.MiddleLeft;
 					mTitleText.color     = new Color(0f, 0f, 0f, 1f);
-					mTitleText.text      = windowTitle; // TODO: Try to autotranslate somehow
+					
+					Translator.addLanguageChangedListener(UpdateTitleText);
+					UpdateTitleText();
 					#endregion
 					#endregion
 				}
@@ -1890,7 +1892,9 @@ namespace Common.UI.Windows
 					mTitleText.fontSize  = 12;
 					mTitleText.alignment = TextAnchor.MiddleLeft;
 					mTitleText.color     = new Color(0f, 0f, 0f, 1f);
-					mTitleText.text      = windowTitle; // TODO: Try to autotranslate somehow
+					
+					Translator.addLanguageChangedListener(UpdateTitleText);
+					UpdateTitleText();
 					#endregion
 					#endregion
 				}
@@ -1911,6 +1915,14 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
+		/// Updates the title text.
+		/// </summary>
+		public void UpdateTitleText()
+		{
+			mTitleText.text = windowTitle;
+		}
+
+		/// <summary>
 		/// Destroies header.
 		/// </summary>
 		private void DestroyHeader()
@@ -1920,6 +1932,8 @@ namespace Common.UI.Windows
 				UnityEngine.Object.DestroyObject(mTitleGameObject);
 				mTitleGameObject = null;
 				mTitleText       = null;
+
+				Translator.removeLanguageChangedListener(UpdateTitleText);
 			}
 
 			if (mMinimizeGameObject != null)
@@ -2125,6 +2139,11 @@ namespace Common.UI.Windows
 		/// </summary>
 		public virtual void OnDestroy()
 		{
+			if (mTitleText != null)
+			{
+				Translator.removeLanguageChangedListener(UpdateTitleText);
+			}
+
 			DestroyReplacement();
 		}
 

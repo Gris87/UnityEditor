@@ -22,7 +22,13 @@ namespace UI.Windows.AboutDialog
 
 
 
-
+		private Text       mVersionText;
+		private Text       mMonoLogoText;
+		private Text       mMonoLogoText2;
+		private Text       mPhysXLogoText;
+		private Text       mPhysXLogoText2;
+		private Text       mCopyrightText;
+		private Text       mLicenseText;
 		private ScrollRect mCreditsScrollRect;
 		private bool       mIsCreditsDragging;
 
@@ -33,6 +39,13 @@ namespace UI.Windows.AboutDialog
 		/// </summary>
 		private AboutDialogScript()
 		{
+			mVersionText       = null;
+			mMonoLogoText      = null;
+			mMonoLogoText2     = null;
+			mPhysXLogoText     = null;
+			mPhysXLogoText2    = null;
+			mCopyrightText     = null;
+			mLicenseText       = null;
 			mCreditsScrollRect = null;
 			mIsCreditsDragging = false;
 		}
@@ -132,13 +145,12 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text versionText = version.AddComponent<Text>();
+			mVersionText = version.AddComponent<Text>();
 			
-			versionText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			versionText.fontSize  = 11;
-			versionText.alignment = TextAnchor.MiddleLeft;
-			versionText.color     = new Color(0f, 0f, 0f, 1f);
-			versionText.text      = Translator.getString(R.sections.AboutDialog.strings.version, Utils.version()); // TODO: Try to autotranslate somehow
+			mVersionText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mVersionText.fontSize  = 11;
+			mVersionText.alignment = TextAnchor.MiddleLeft;
+			mVersionText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 
@@ -169,7 +181,7 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform contentsTransform = contents.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopStretch(contentsTransform, 0f);
+			Utils.AlignRectTransformTopStretch(contentsTransform, 1600f, 0f, 0f, 0f, 0.5f, 1f);
 			#endregion
 
 			//***************************************************************************
@@ -200,8 +212,6 @@ namespace UI.Windows.AboutDialog
 			creditsText.text      = CREDITS + "\n" + SPECIAL_THANKS;
 			#endregion
 			#endregion
-
-			Utils.AlignRectTransformTopStretch(contentsTransform, 1600f, 0f, 0f, 0f, 0.5f, 1f);
 			#endregion
 
 			//===========================================================================
@@ -309,13 +319,12 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text monoLogoText = monoLogoTextObject.AddComponent<Text>();
+			mMonoLogoText = monoLogoTextObject.AddComponent<Text>();
 			
-			monoLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			monoLogoText.fontSize  = 11;
-			monoLogoText.alignment = TextAnchor.UpperLeft;
-			monoLogoText.color     = new Color(0f, 0f, 0f, 1f);
-			monoLogoText.text      = Translator.getString(R.sections.AboutDialog.strings.scripting_powered_by); // TODO: Try to autotranslate somehow
+			mMonoLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mMonoLogoText.fontSize  = 11;
+			mMonoLogoText.alignment = TextAnchor.UpperLeft;
+			mMonoLogoText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 
@@ -338,13 +347,12 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text monoLogoText2 = monoLogoTextObject2.AddComponent<Text>();
+			mMonoLogoText2 = monoLogoTextObject2.AddComponent<Text>();
 			
-			monoLogoText2.font      = Assets.Common.Fonts.microsoftSansSerif;
-			monoLogoText2.fontSize  = 11;
-			monoLogoText2.alignment = TextAnchor.UpperLeft;
-			monoLogoText2.color     = new Color(0f, 0f, 0f, 1f);
-			monoLogoText2.text      = Translator.getString(R.sections.AboutDialog.strings.novell_copyright); // TODO: Try to autotranslate somehow
+			mMonoLogoText2.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mMonoLogoText2.fontSize  = 11;
+			mMonoLogoText2.alignment = TextAnchor.UpperLeft;
+			mMonoLogoText2.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 
@@ -400,13 +408,12 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text physXLogoText = physXLogoTextObject.AddComponent<Text>();
+			mPhysXLogoText = physXLogoTextObject.AddComponent<Text>();
 			
-			physXLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			physXLogoText.fontSize  = 11;
-			physXLogoText.alignment = TextAnchor.UpperLeft;
-			physXLogoText.color     = new Color(0f, 0f, 0f, 1f);
-			physXLogoText.text      = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by); // TODO: Try to autotranslate somehow
+			mPhysXLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mPhysXLogoText.fontSize  = 11;
+			mPhysXLogoText.alignment = TextAnchor.UpperLeft;
+			mPhysXLogoText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 			
@@ -429,13 +436,12 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text physXLogoText2 = physXLogoTextObject2.AddComponent<Text>();
+			mPhysXLogoText2 = physXLogoTextObject2.AddComponent<Text>();
 			
-			physXLogoText2.font      = Assets.Common.Fonts.microsoftSansSerif;
-			physXLogoText2.fontSize  = 11;
-			physXLogoText2.alignment = TextAnchor.UpperLeft;
-			physXLogoText2.color     = new Color(0f, 0f, 0f, 1f);
-			physXLogoText2.text      = Translator.getString(R.sections.AboutDialog.strings.nvidia_copyright); // TODO: Try to autotranslate somehow
+			mPhysXLogoText2.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mPhysXLogoText2.fontSize  = 11;
+			mPhysXLogoText2.alignment = TextAnchor.UpperLeft;
+			mPhysXLogoText2.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 
@@ -458,13 +464,12 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text copyrightText = copyright.AddComponent<Text>();
+			mCopyrightText = copyright.AddComponent<Text>();
 			
-			copyrightText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			copyrightText.fontSize  = 11;
-			copyrightText.alignment = TextAnchor.LowerLeft;
-			copyrightText.color     = new Color(0f, 0f, 0f, 1f);
-			copyrightText.text      = Translator.getString(R.sections.AboutDialog.strings.unity_copyright); // TODO: Try to autotranslate somehow
+			mCopyrightText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mCopyrightText.fontSize  = 11;
+			mCopyrightText.alignment = TextAnchor.LowerLeft;
+			mCopyrightText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 
@@ -487,15 +492,17 @@ namespace UI.Windows.AboutDialog
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text licenseText = license.AddComponent<Text>();
+			mLicenseText = license.AddComponent<Text>();
 			
-			licenseText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			licenseText.fontSize  = 11;
-			licenseText.alignment = TextAnchor.LowerLeft;
-			licenseText.color     = new Color(0f, 0f, 0f, 1f);
-			licenseText.text      = Translator.getString(R.sections.AboutDialog.strings.license, License.type, License.serialNumber); // TODO: Try to autotranslate somehow
+			mLicenseText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mLicenseText.fontSize  = 11;
+			mLicenseText.alignment = TextAnchor.LowerLeft;
+			mLicenseText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
+
+			Translator.addLanguageChangedListener(OnLanguageChanged);
+			OnLanguageChanged();
 		}
 		
 		/// <summary>
@@ -504,6 +511,8 @@ namespace UI.Windows.AboutDialog
 		public override void OnDestroy()
 		{
 			base.OnDestroy();
+
+			Translator.removeLanguageChangedListener(OnLanguageChanged);
 			
 			if (Global.aboutDialogScript == this)
 			{
@@ -530,9 +539,9 @@ namespace UI.Windows.AboutDialog
 				{
 					mCreditsScrollRect.verticalNormalizedPosition = 1f;
 				}
-			}
 
-			// TODO: Internal Mode
+				// TODO: Internal Mode
+			}
 		}
 
 		/// <summary>
@@ -549,6 +558,20 @@ namespace UI.Windows.AboutDialog
 		public void OnCreditsEndDrag(BaseEventData eventData)
 		{
 			mIsCreditsDragging = false;
+		}
+
+		/// <summary>
+		/// Handler for language changed event.
+		/// </summary>
+		public void OnLanguageChanged()
+		{
+			mVersionText.text    = Translator.getString(R.sections.AboutDialog.strings.version, Utils.version());
+			mMonoLogoText.text   = Translator.getString(R.sections.AboutDialog.strings.scripting_powered_by);
+			mMonoLogoText2.text  = Translator.getString(R.sections.AboutDialog.strings.novell_copyright);
+			mPhysXLogoText.text  = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by);
+			mPhysXLogoText2.text = Translator.getString(R.sections.AboutDialog.strings.nvidia_copyright);
+			mCopyrightText.text  = Translator.getString(R.sections.AboutDialog.strings.unity_copyright);
+			mLicenseText.text    = Translator.getString(R.sections.AboutDialog.strings.license, License.type, License.serialNumber);
 		}
 	}
 }

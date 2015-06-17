@@ -4,6 +4,7 @@ using UnityTranslation;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 
 
@@ -78,6 +79,39 @@ namespace UnityTranslationInternal
                 defaultLanguage  = null;
                 selectedLanguage = null;
             }
+
+			/// <summary>
+			/// Optimize this instance by removing the same translations from selected language.
+			/// </summary>
+			public void optimize()
+			{
+				if (selectedLanguage != null)
+				{
+					for (int i = 0; i < selectedLanguage.stringValues.Length; ++i)
+					{
+						if (selectedLanguage.stringValues[i] == defaultLanguage.stringValues[i])
+						{
+							selectedLanguage.stringValues[i] = null;
+						}
+					}
+
+					for (int i = 0; i < selectedLanguage.stringArrayValues.Length; ++i)
+					{
+						if (Enumerable.SequenceEqual(selectedLanguage.stringArrayValues[i], defaultLanguage.stringArrayValues[i]))
+						{
+							selectedLanguage.stringArrayValues[i] = null;
+						}
+					}
+
+					for (int i = 0; i < selectedLanguage.pluralsValues.Length; ++i)
+					{
+						if (Enumerable.SequenceEqual(selectedLanguage.pluralsValues[i], defaultLanguage.pluralsValues[i]))
+						{
+							selectedLanguage.pluralsValues[i] = null;
+						}
+					}
+				}
+			}
         }
 
 
@@ -136,6 +170,7 @@ namespace UnityTranslationInternal
                             int pluralsCount                   = tokenIds[2].Count;
 
                             tokens[0].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
+							tokens[0].optimize();
 
                             foreach (R.sections.SectionID section in mLoadedSections.Keys)
                             {
@@ -146,6 +181,7 @@ namespace UnityTranslationInternal
                                 pluralsCount     = tokenIds[2].Count;
 
                                 tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
+								tokens[(int)section + 1].optimize();
                             }
                         }
 
@@ -237,7 +273,9 @@ namespace UnityTranslationInternal
                 if (mLanguage != Language.Default)
                 {
                     string locale = AvailableLanguages.list[mLanguage];
+
                     tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
+					tokens[(int)section + 1].optimize();
                 }
 
                 mLoadedSections[section] = tokens[(int)section + 1];
