@@ -884,6 +884,15 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
+		/// Gets the content transform.
+		/// </summary>
+		/// <value>The content transform.</value>
+		public RectTransform contentTransform
+		{
+			get { return mContentTransform; }
+		}
+
+		/// <summary>
 		/// Gets or sets a value indicating whether this window is resizable.
 		/// </summary>
 		/// <value><c>true</c> if window is resizable; otherwise, <c>false</c>.</value>

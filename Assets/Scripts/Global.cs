@@ -2,7 +2,6 @@ using UnityEngine;
 
 using Common.UI;
 using UI.Popups;
-using UI.Toasts;
 using UI.Tooltips;
 using UI.Windows.AboutDialog;
 using UI.Windows.MainWindow;
@@ -41,11 +40,6 @@ public static class Global
 	/// TooltipArea script.
 	/// </summary>
 	public static TooltipAreaScript tooltipAreaScript = null;
-
-	/// <summary>
-	/// ToastArea script.
-	/// </summary>
-	public static ToastAreaScript toastAreaScript = null;
 
 	/// <summary>
 	/// Main window script.

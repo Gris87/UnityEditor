@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityTranslation;
 
-using UI.Toasts;
+using Common.UI.Toasts;
 
 
 
@@ -50,7 +50,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolHandClicked");
 			// TODO: Implement ToolbarScript.OnToolHandClicked
 
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 
 		/// <summary>
@@ -61,7 +61,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolMoveClicked");
 			// TODO: Implement ToolbarScript.OnToolMoveClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 
 		/// <summary>
@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolRotateClicked");
 			// TODO: Implement ToolbarScript.OnToolRotateClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolScaleClicked");
 			// TODO: Implement ToolbarScript.OnToolScaleClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnToolRectTransformClicked");
 			// TODO: Implement ToolbarScript.OnToolRectTransformClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 		
 		/// <summary>
@@ -105,7 +105,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnBasePointClicked");
 			// TODO: Implement ToolbarScript.OnBasePointClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 		
 		/// <summary>
@@ -116,7 +116,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnCoordinateSystemClicked");
 			// TODO: Implement ToolbarScript.OnCoordinateSystemClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 		
 		/// <summary>
@@ -127,7 +127,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnPlayClicked");
 			// TODO: Implement ToolbarScript.OnPlayClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 		
 		/// <summary>
@@ -138,7 +138,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnPauseClicked");
 			// TODO: Implement ToolbarScript.OnPauseClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 		
 		/// <summary>
@@ -149,7 +149,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnStepClicked");
 			// TODO: Implement ToolbarScript.OnStepClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 				
 		/// <summary>
@@ -160,7 +160,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnLayersClicked");
 			// TODO: Implement ToolbarScript.OnLayersClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 				
 		/// <summary>
@@ -171,7 +171,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			Debug.Log("ToolbarScript.OnLayoutClicked");
 			// TODO: Implement ToolbarScript.OnLayoutClicked
 			
-			Toast.ShowContributeMessage();
+			Toast.ShowContributeMessage(Global.mainWindowScript.contentTransform);
 		}
 	}
 }

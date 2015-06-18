@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using Common;
 using Common.UI;
 using UI.Popups;
-using UI.Toasts;
 using UI.Tooltips;
 using UI.Windows.MainWindow;
 
@@ -122,31 +121,6 @@ namespace UI
 			//===========================================================================
 			#region TooltipAreaScript Component
 			Global.tooltipAreaScript = tooltipArea.AddComponent<TooltipAreaScript>();
-			#endregion
-			#endregion
-
-
-
-			//***************************************************************************
-			// ToastArea GameObject
-			//***************************************************************************
-			#region ToastArea GameObject
-			GameObject toastArea = new GameObject("ToastArea");
-			Utils.InitUIObject(toastArea, transform);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			RectTransform toastAreaTransform = toastArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(toastAreaTransform);
-			#endregion
-			
-			//===========================================================================
-			// ToastAreaScript Component
-			//===========================================================================
-			#region ToastAreaScript Component
-			Global.toastAreaScript = toastArea.AddComponent<ToastAreaScript>();
 			#endregion
 			#endregion
 		

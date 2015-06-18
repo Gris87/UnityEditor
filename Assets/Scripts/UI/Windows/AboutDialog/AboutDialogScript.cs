@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityTranslation;
 
 using Common;
+using Common.UI.Toasts;
 using Common.UI.Windows;
 
 
@@ -557,8 +558,8 @@ namespace UI.Windows.AboutDialog
 
 						Settings.internalMode = !Settings.internalMode;
 
-						// TODO: Show toast
-						Debug.Log("Internal mode: " + Settings.internalMode);
+						Debug.Log("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
+						Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
 					}
 				}
 			}

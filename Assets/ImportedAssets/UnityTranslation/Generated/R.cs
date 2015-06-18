@@ -2699,6 +2699,13 @@ namespace UnityTranslation
                     contribute
                     ,
                     /// <summary>
+                    /// <para>Toast: Internal Mode: {0}</para>
+                    /// <para>Value:</para>
+                    ///   <para>Internal Mode: {0}</para>
+                    /// </summary>
+                    internal_mode
+                    ,
+                    /// <summary>
                     /// Total amount of strings.
                     /// </summary>
                     Count // Should be last
@@ -3389,7 +3396,8 @@ namespace UnityTranslation
             {
                 new Dictionary<string, int> // strings
                 {
-                      { "contribute", (int)R.sections.Toasts.strings.contribute }
+                      { "contribute"   , (int)R.sections.Toasts.strings.contribute }
+                    , { "internal_mode", (int)R.sections.Toasts.strings.internal_mode }
                 }
                 ,
                 new Dictionary<string, int> // array

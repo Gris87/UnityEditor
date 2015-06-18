@@ -10,7 +10,7 @@ namespace Common.UI
 	/// </summary>
 	public class ResizeListenerScript : MonoBehaviour
 	{
-		private static readonly float CHECK_INTERVAL = 300f;
+		private static readonly float CHECK_INTERVAL = 200f / 1000f;
 
 
 
@@ -29,7 +29,7 @@ namespace Common.UI
 		{
 			mScreenWidth  = Screen.width;
 			mScreenHeight = Screen.height;
-			mDelay        = CHECK_INTERVAL / 1000f;
+			mDelay        = CHECK_INTERVAL;
 
 			mListeners = new UnityEvent();
 		}
@@ -43,7 +43,7 @@ namespace Common.UI
 
 			if (mDelay < 0f)
 			{
-				mDelay = CHECK_INTERVAL / 1000f;
+				mDelay = CHECK_INTERVAL;
 
 				float screenWidth  = Screen.width;
 				float screenHeight = Screen.height;
