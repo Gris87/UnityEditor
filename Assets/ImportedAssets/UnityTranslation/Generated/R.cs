@@ -2372,6 +2372,69 @@ namespace UnityTranslation
                     window__layouts__revert_factory_settings
                     ,
                     /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot</para>
+                    /// <para>Value:</para>
+                    ///   <para>Screenshot</para>
+                    /// </summary>
+                    window__screenshot
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Set Window Size</para>
+                    /// <para>Value:</para>
+                    ///   <para>Set Window Size</para>
+                    /// </summary>
+                    window__screenshot__set_window_size
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Set Window Size Small</para>
+                    /// <para>Value:</para>
+                    ///   <para>Set Window Size Small</para>
+                    /// </summary>
+                    window__screenshot__set_window_size_small
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Snap View</para>
+                    /// <para>Value:</para>
+                    ///   <para>Snap View</para>
+                    /// </summary>
+                    window__screenshot__snap_view
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Snap View Toolbar</para>
+                    /// <para>Value:</para>
+                    ///   <para>Snap View Toolbar</para>
+                    /// </summary>
+                    window__screenshot__snap_view_toolbar
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Snap View Extended Right</para>
+                    /// <para>Value:</para>
+                    ///   <para>Snap View Extended Right</para>
+                    /// </summary>
+                    window__screenshot__snap_view_extended_right
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Snap Component</para>
+                    /// <para>Value:</para>
+                    ///   <para>Snap Component</para>
+                    /// </summary>
+                    window__screenshot__snap_component
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Snap Game View Content</para>
+                    /// <para>Value:</para>
+                    ///   <para>Snap Game View Content</para>
+                    /// </summary>
+                    window__screenshot__snap_game_view_content
+                    ,
+                    /// <summary>
+                    /// <para>Menu item : Window -&gt; Screenshot -&gt; Toggle DeveloperBuild</para>
+                    /// <para>Value:</para>
+                    ///   <para>Toggle DeveloperBuild</para>
+                    /// </summary>
+                    window__screenshot__toggle_developerbuild
+                    ,
+                    /// <summary>
                     /// <para>Menu item : Window -&gt; Scene</para>
                     /// <para>Value:</para>
                     ///   <para>Scene</para>
@@ -3271,6 +3334,15 @@ namespace UnityTranslation
                     , { "window__layouts__save_layout"                                    , (int)R.sections.MenuItems.strings.window__layouts__save_layout                  }
                     , { "window__layouts__delete_layout"                                  , (int)R.sections.MenuItems.strings.window__layouts__delete_layout                }
                     , { "window__layouts__revert_factory_settings"                        , (int)R.sections.MenuItems.strings.window__layouts__revert_factory_settings      }
+                    , { "window__screenshot"                                              , (int)R.sections.MenuItems.strings.window__screenshot                            }
+                    , { "window__screenshot__set_window_size"                             , (int)R.sections.MenuItems.strings.window__screenshot__set_window_size           }
+                    , { "window__screenshot__set_window_size_small"                       , (int)R.sections.MenuItems.strings.window__screenshot__set_window_size_small     }
+                    , { "window__screenshot__snap_view"                                   , (int)R.sections.MenuItems.strings.window__screenshot__snap_view                 }
+                    , { "window__screenshot__snap_view_toolbar"                           , (int)R.sections.MenuItems.strings.window__screenshot__snap_view_toolbar         }
+                    , { "window__screenshot__snap_view_extended_right"                    , (int)R.sections.MenuItems.strings.window__screenshot__snap_view_extended_right  }
+                    , { "window__screenshot__snap_component"                              , (int)R.sections.MenuItems.strings.window__screenshot__snap_component            }
+                    , { "window__screenshot__snap_game_view_content"                      , (int)R.sections.MenuItems.strings.window__screenshot__snap_game_view_content    }
+                    , { "window__screenshot__toggle_developerbuild"                       , (int)R.sections.MenuItems.strings.window__screenshot__toggle_developerbuild     }
                     , { "window__scene"                                                   , (int)R.sections.MenuItems.strings.window__scene                                 }
                     , { "window__game"                                                    , (int)R.sections.MenuItems.strings.window__game                                  }
                     , { "window__inspector"                                               , (int)R.sections.MenuItems.strings.window__inspector                             }

@@ -10,6 +10,44 @@ namespace Common
     /// </summary>
     public class TreeNode<T>
     {
+		/// <summary>
+		/// Gets or sets the data value.
+		/// </summary>
+		/// <value>The data value.</value>
+		public T data
+		{
+			get { return mData;  }
+			set { mData = value; }
+		}
+		
+		/// <summary>
+		/// Gets the parent <see cref="Common.TreeNode`1"/> instance.
+		/// </summary>
+		/// <value>The parent <see cref="Common.TreeNode`1"/> instance.</value>
+		public TreeNode<T> parent
+		{
+			get { return mParent; }
+		}
+		
+		/// <summary>
+		/// Gets the children list.
+		/// </summary>
+		/// <value>The children list.</value>
+		public ReadOnlyCollection<TreeNode<T>> children
+		{
+			get
+			{
+				if (mChildren == null)
+				{
+					return null;
+				}
+				
+				return mChildren.AsReadOnly();
+			}
+		}
+
+
+
         private T                 mData;
         private TreeNode<T>       mParent;
         private List<TreeNode<T>> mChildren;
@@ -98,42 +136,6 @@ namespace Common
 		public bool HasChildren()
 		{
 			return (mChildren != null && mChildren.Count > 0);
-		}
-
-        /// <summary>
-        /// Gets or sets the data value.
-        /// </summary>
-        /// <value>The data value.</value>
-        public T Data
-        {
-            get { return mData;  }
-            set { mData = value; }
-        }
-
-        /// <summary>
-        /// Gets the parent <see cref="Common.TreeNode`1"/> instance.
-        /// </summary>
-        /// <value>The parent <see cref="Common.TreeNode`1"/> instance.</value>
-        public TreeNode<T> Parent
-        {
-            get { return mParent; }
-        }
-
-        /// <summary>
-        /// Gets the children list.
-        /// </summary>
-        /// <value>The children list.</value>
-        public ReadOnlyCollection<TreeNode<T>> Children
-        {
-            get
-            {
-                if (mChildren == null)
-                {
-                    return null;
-                }
-
-                return mChildren.AsReadOnly();
-            }
-        }
+		}        
     }
 }

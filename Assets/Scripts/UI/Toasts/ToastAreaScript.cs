@@ -7,6 +7,7 @@ using Common;
 
 
 
+// TODO: Rewrite
 namespace UI.Toasts
 {
 	/// <summary>
@@ -51,10 +52,10 @@ namespace UI.Toasts
 		/// </summary>
 		/// <param name="tokenId">Token ID for translation.</param>
 		/// <param name="duration">Duration.</param>
-		/// <param name="formatArgs">Format arguments.</param>
-		public static void Show(R.sections.Toasts.strings tokenId, float duration, params object[] formatArgs)
+		/// <param name="tokenArguments">Token arguments.</param>
+		public static void Show(R.sections.Toasts.strings tokenId, float duration, params object[] tokenArguments)
 		{
-			Global.toastAreaScript.AddMessage(Translator.getString(tokenId, formatArgs), duration);
+			Global.toastAreaScript.AddMessage(Translator.getString(tokenId, tokenArguments), duration);
         }
 
 		/// <summary>
@@ -71,14 +72,99 @@ namespace UI.Toasts
 	/// </summary>
 	public class ToastAreaScript : MonoBehaviour
 	{
+		/// <summary>
+		/// Class that represent message.
+		/// </summary>
+		private class Message
+		{
+			/// <summary>
+			/// Gets the text.
+			/// </summary>
+			/// <value>The text.</value>
+			public string text
+			{
+				get { return mText; }
+			}
+
+			/// <summary>
+			/// Gets the token ID for translation.
+			/// </summary>
+			/// <value>The token identifier.</value>
+			public R.sections.Toasts.strings tokenId
+			{
+				get { return mTokenId; }
+			}
+
+			/// <summary>
+			/// Gets the token arguments.
+			/// </summary>
+			/// <value>The token arguments.</value>
+			public object[] tokenArguments
+			{
+				get { return mTokenArguments; }
+			}
+
+			/// <summary>
+			/// Gets the duration.
+			/// </summary>
+			/// <value>The duration.</value>
+			public float duration
+			{
+				get { return mDuration; }
+			}
+
+
+
+			private string                    mText;
+			private R.sections.Toasts.strings mTokenId;
+			private object[]                  mTokenArguments;
+			private float                     mDuration;
+
+
+
+			/// <summary>
+			/// Initializes a new instance of the <see cref="UI.Toasts.ToastAreaScript+Message"/> class.
+			/// </summary>
+			/// <param name="text">Text.</param>
+			/// <param name="duration">Duration.</param>
+			public Message(string text, float duration)
+			{
+				mText           = text;
+				mTokenId        = R.sections.Toasts.strings.Count;
+				mTokenArguments = null;
+				mDuration       = duration;
+			}
+
+			/// <summary>
+			/// Initializes a new instance of the <see cref="UI.Toasts.ToastAreaScript+Message"/> class.
+			/// </summary>
+			/// <param name="text">Text.</param>
+			/// <param name="tokenId">Token identifier.</param>
+			/// <param name="tokenArguments">Token arguments.</param>
+			/// <param name="duration">Duration.</param>
+			public Message(
+						 	 R.sections.Toasts.strings tokenId
+						   , object[]                  tokenArguments
+						   , float                     duration
+						  )
+			{
+				mText           = null;
+				mTokenId        = tokenId;
+				mTokenArguments = tokenArguments;
+				mDuration       = duration;
+			}
+		}
+
+
+
 		private static float TIMER_NOT_ACTIVE = -10000f;
 		private static float FADE_TIME        = 300f / 1000f;
 
 
 
-		private List<Pair<string, float>> mMessages;
-		CanvasGroup                       mToastCanvasGroup;
-		private float                     mRemainingTime;
+		private List<Message> mMessages;
+		CanvasGroup           mToastCanvasGroup;
+		private float         mRemainingTime;
 
 
 
@@ -87,7 +173,7 @@ namespace UI.Toasts
 		/// </summary>
 		void Start()
 		{
-			mMessages         = new List<Pair<string, float>>();
+			mMessages         = new List<Message>();
 			mToastCanvasGroup = null;
 			mRemainingTime    = TIMER_NOT_ACTIVE;
 		}
@@ -132,8 +218,28 @@ namespace UI.Toasts
 		/// <param name="duration">Duration.</param>
 		public void AddMessage(string message, float duration)
 		{
-			mMessages.Add(new Pair<string, float>(message, duration));
+			mMessages.Add(new Message(message, duration));
 
+			if (mMessages.Count == 1 && mToastCanvasGroup == null)
+			{
+				ShowNextMessage();
+			}
+		}
+
+		/// <summary>
+		/// Adds text notification with specified duration to the list.
+		/// </summary>
+		/// <param name="tokenId">Token ID for translation.</param>
+		/// <param name="tokenArguments">Token arguments.</param>
+		/// <param name="duration">Duration.</param>
+		public void AddMessage(
+							 	 R.sections.Toasts.strings tokenId
+							   , object[]                  tokenArguments
+							   , float                     duration
+							  )
+		{
+			mMessages.Add(new Message(tokenId, tokenArguments, duration));
+			
 			if (mMessages.Count == 1 && mToastCanvasGroup == null)
 			{
 				ShowNextMessage();
@@ -145,7 +251,7 @@ namespace UI.Toasts
 		/// </summary>
 		public void ShowNextMessage()
 		{
-			Pair<string, float> message = mMessages[0];
+			Message message = mMessages[0];
 			mMessages.RemoveAt(0);
 
 			//***************************************************************************
@@ -218,7 +324,7 @@ namespace UI.Toasts
 			toastText.font     = Assets.Common.Fonts.microsoftSansSerif;
             toastText.fontSize = 12;
             toastText.color    = new Color(1f, 1f, 1f, 1f);
-            toastText.text     = message.first;
+            toastText.text     = message.text;
             #endregion
             #endregion
 
@@ -236,7 +342,7 @@ namespace UI.Toasts
 			Utils.AlignRectTransformBottomCenter(toastTransform, toastWidth, toastHeight, 0f, 30f);
 			#endregion
 
-			StartTimer(message.second);
+			StartTimer(message.duration);
 		}
 
 		/// <summary>

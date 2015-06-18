@@ -68,6 +68,7 @@ namespace Common.UI.Windows
 	/// </summary>
 	public class WindowScript : MonoBehaviour, ICanvasRaycastFilter, IPointerEnterHandler, IPointerExitHandler
 	{
+		// TODO: Selectable
 		/// <summary>
 		/// Class for data that used while lef mouse button pressed.
 		/// </summary>
@@ -270,7 +271,7 @@ namespace Common.UI.Windows
 						}
 					}
 
-					if (IsUICreated())
+					if (IsUICreated() && mState != WindowState.Minimized)
 					{
 						OnResize();
 					}
@@ -320,7 +321,10 @@ namespace Common.UI.Windows
 
 						UpdateState();
 
-						OnResize();
+						if (mState != WindowState.Minimized)
+						{
+							OnResize();
+						}
 					}
 				}
 			}

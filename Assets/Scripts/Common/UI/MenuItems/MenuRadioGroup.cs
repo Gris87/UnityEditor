@@ -10,6 +10,35 @@ namespace Common.UI.MenuItems
 	/// </summary>
 	public class MenuRadioGroup
 	{
+		/// <summary>
+		/// Gets or sets the selected item.
+		/// </summary>
+		/// <value>The selected item.</value>
+		public MenuItem selectedItem
+		{
+			get 
+			{
+				return mSelectedItem;
+			}
+			
+			set
+			{
+				if (mSelectedItem != value)
+				{
+					if (value.radioGroup == this)
+					{
+						mSelectedItem = value;
+					}
+					else
+					{
+						Debug.LogError("Trying to select item \"" + value.name + "\" that is not registered in this radio group");
+					}
+				}
+			}
+		}
+
+
+
 		private List<MenuItem> mItems;
 		private MenuItem       mSelectedItem;
 		
@@ -30,11 +59,11 @@ namespace Common.UI.MenuItems
 		/// <param name="item">Menu item.</param>
 		public void Register(MenuItem item)
 		{
-			if (item.RadioGroup == null)
+			if (item.radioGroup == null)
 			{
 				mItems.Add(item);
 				
-				item.RadioGroup = this;
+				item.radioGroup = this;
 				
 				if (mItems.Count == 1)
 				{
@@ -43,7 +72,7 @@ namespace Common.UI.MenuItems
 			}
 			else
 			{
-				Debug.LogError("Item \"" + item.Name + "\" already registered");
+				Debug.LogError("Item \"" + item.name + "\" already registered in radio group");
 			}
 		}
 		
@@ -53,11 +82,11 @@ namespace Common.UI.MenuItems
 		/// <param name="item">Menu item.</param>
 		public void Deregister(MenuItem item)
 		{
-			if (item.RadioGroup == this)
+			if (item.radioGroup == this)
 			{
 				if (mItems.Remove(item))
 				{
-					item.RadioGroup = null;
+					item.radioGroup = null;
 					
 					if (mSelectedItem == item)
 					{
@@ -73,39 +102,12 @@ namespace Common.UI.MenuItems
 				}
 				else
 				{
-					Debug.LogError("Failed to deregister item \"" + item.Name + "\"");
+					Debug.LogError("Failed to deregister item \"" + item.name + "\" from radio froup");
 				}
 			}
 			else
 			{
-				Debug.LogError("Item \"" + item.Name + "\" is not registered in this radio group");
-			}
-		}
-		
-		/// <summary>
-		/// Gets or sets the selected item.
-		/// </summary>
-		/// <value>The selected item.</value>
-		public MenuItem SelectedItem
-		{
-			get 
-			{
-				return mSelectedItem;
-			}
-			
-			set
-			{
-				if (mSelectedItem != value)
-				{
-					if (value.RadioGroup == this)
-					{
-						mSelectedItem = value;
-					}
-					else
-					{
-						Debug.LogError("Trying to select item \"" + value.Name + "\" that is not registered in this radio group");
-					}
-				}
+				Debug.LogError("Item \"" + item.name + "\" is not registered in this radio group");
 			}
 		}
 	}

@@ -48,6 +48,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		/// </summary>
 		void Update()
         {
+			// TODO: If mainwindow selected
 			if (InputControl.anyKeyDown)
 			{
 				foreach (MenuItem menuItem in mShortcuts)
@@ -77,7 +78,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		{
 			if (!mShortcuts.Remove(shortcut))
 			{
-				Debug.LogError("Failed to deregister shortcut for \"" + shortcut.Name + "\"");
+				Debug.LogError("Failed to deregister shortcut for \"" + shortcut.name + "\"");
 			}
 		}
         
@@ -87,10 +88,10 @@ namespace UI.Windows.MainWindow.MainMenu
 	    /// <param name="node"><see cref="Common.TreeNode`1"/> instance.</param>
 	    public void OnShowMenuSubItems(TreeNode<CustomMenuItem> node)
 	    {
-			if (node.Data is MenuItem)
+			if (node.data is MenuItem)
 			{
-				MenuItem item = node.Data as MenuItem;
-				Debug.Log("MainMenuScript.OnShowMenuSubItems(" + item.Name + ")");
+				MenuItem item = node.data as MenuItem;
+				Debug.Log("MainMenuScript.OnShowMenuSubItems(" + item.name + ")");
 				
 				if (mPopupMenu != null)
 				{
@@ -100,7 +101,7 @@ namespace UI.Windows.MainWindow.MainMenu
 				mPopupMenu = new PopupMenu(node);
 				mPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
 
-				int index = node.Parent.Children.IndexOf(node);
+				int index = node.parent.children.IndexOf(node);
 
 				RectTransform menuItemTransform = transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
 				Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
@@ -3295,6 +3296,96 @@ namespace UI.Windows.MainWindow.MainMenu
 	    }
 	    #endregion
 
+		#region Window -> Screenshot
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Set Window Size.
+		/// </summary>
+		public void OnWindow_Screenshot_SetWindowSize()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSize");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SetWindowSize
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Set Window Size Small.
+		/// </summary>
+		public void OnWindow_Screenshot_SetWindowSizeSmall()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Snap View.
+		/// </summary>
+		public void OnWindow_Screenshot_SnapView()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapView");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapView
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Snap View Toolbar.
+		/// </summary>
+		public void OnWindow_Screenshot_SnapViewToolbar()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapViewToolbar");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapViewToolbar
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Snap View Extended Right.
+		/// </summary>
+		public void OnWindow_Screenshot_SnapViewExtendedRight()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapViewExtendedRight");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapViewExtendedRight
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Snap Component.
+		/// </summary>
+		public void OnWindow_Screenshot_SnapComponent()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapComponent");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapComponent
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Snap Game View Content.
+		/// </summary>
+		public void OnWindow_Screenshot_SnapGameViewContent()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapGameViewContent");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapGameViewContent
+			
+			Toast.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for Window -> Screenshot -> Toggle DeveloperBuild.
+		/// </summary>
+		public void OnWindow_Screenshot_ToggleDeveloperBuild()
+		{
+			Debug.Log("MainMenuScript.OnWindow_Screenshot_ToggleDeveloperBuild");
+			// TODO: Implement MainMenuScript.OnWindow_Screenshot_ToggleDeveloperBuild
+			
+			Toast.ShowContributeMessage();
+		}
+		#endregion
+
 	    /// <summary>
 	    /// Handler for Window -> Scene.
 	    /// </summary>
@@ -3516,9 +3607,6 @@ namespace UI.Windows.MainWindow.MainMenu
 	    /// </summary>
 	    public void OnHelp_ManageLicense()
 	    {
-			// TODO: REMOVE IT
-			Translator.language = Language.Russian;
-
 			Debug.Log("MainMenuScript.OnHelp_ManageLicense");
 			// TODO: Implement MainMenuScript.OnHelp_ManageLicense
 			
@@ -3530,9 +3618,6 @@ namespace UI.Windows.MainWindow.MainMenu
 	    /// </summary>
 	    public void OnHelp_UnityManual()
 	    {
-			// TODO: REMOVE IT
-			Translator.language = Language.English;
-
 			Debug.Log("MainMenuScript.OnHelp_UnityManual");
 			// TODO: Implement MainMenuScript.OnHelp_UnityManual
 			

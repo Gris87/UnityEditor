@@ -18,12 +18,14 @@ namespace Common.UI.MenuItems
 		/// <see cref="Common.TreeNode`1"/> instance.
 		/// </summary>
 		/// <param name="owner"><see cref="Common.TreeNode`1"/> instance.</param>
-		public static void Create(TreeNode<CustomMenuItem> owner)
+		public static TreeNode<CustomMenuItem> Create(TreeNode<CustomMenuItem> owner)
 		{
 			MenuSeparatorItem        item = new MenuSeparatorItem();
 			TreeNode<CustomMenuItem> node = owner.AddChild(item);
 			
 			item.mNode = node;
+
+			return node;
 		}
 	}
 }

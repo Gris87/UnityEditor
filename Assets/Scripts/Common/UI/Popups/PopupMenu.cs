@@ -188,182 +188,185 @@ namespace Common.UI.Popups
 			//===========================================================================
 			#region Fill content
 			// Create menu item buttons
-			ReadOnlyCollection<TreeNode<CustomMenuItem>> menuItems = mItems.Children;
+			ReadOnlyCollection<TreeNode<CustomMenuItem>> menuItems = mItems.children;
 			
 			foreach (TreeNode<CustomMenuItem> menuItem in menuItems)
 			{
-				if (menuItem.Data is MenuSeparatorItem)
+				if (menuItem.data.visible)
 				{
-					//***************************************************************************
-					// Separator GameObject
-					//***************************************************************************
-					#region Separator GameObject
-					GameObject menuSeparator = new GameObject("Separator");
-					Utils.InitUIObject(menuSeparator, scrollAreaContent.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					float separatorHeight = 8;
-					
-					RectTransform menuItemSeparatorTransform = menuSeparator.AddComponent<RectTransform>();
-					
-					Utils.AlignRectTransformTopStretch(menuItemSeparatorTransform, separatorHeight, contentHeight, 28f); // TODO: Incorrect position
-					
-					contentHeight += separatorHeight;
-					#endregion
-					
-					//===========================================================================
-					// Image Component
-					//===========================================================================
-					#region Image Component
-					Image image = menuSeparator.AddComponent<Image>();
-					
-					image.sprite = Assets.Popups.Textures.separator;
-					#endregion
-					#endregion
-				}
-				else
-				if (menuItem.Data is MenuItem)
-				{
-					MenuItem item = menuItem.Data as MenuItem;
-					
-					bool hasChildren = menuItem.HasChildren();
-					bool enabled     = item.Enabled && (hasChildren || item.OnClick != null);
-					
-					//***************************************************************************
-					// Button GameObject
-					//***************************************************************************
-					#region Button GameObject
-					GameObject menuItemButton = new GameObject(item.Name);
-					Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform menuItemButtonTransform = menuItemButton.AddComponent<RectTransform>();
-					#endregion
-					
-					//===========================================================================
-					// CanvasRenderer Component
-					//===========================================================================
-					#region CanvasRenderer Component
-					menuItemButton.AddComponent<CanvasRenderer>();
-					#endregion
-					
-					//===========================================================================
-					// Image Component
-					//===========================================================================
-					#region Image Component
-					Image menuItemButtonImage = menuItemButton.AddComponent<Image>();
-					
-					menuItemButtonImage.sprite = Assets.Popups.Textures.button;
-					menuItemButtonImage.type   = Image.Type.Sliced;
-					#endregion
-					
-					//===========================================================================
-					// Button Component
-					//===========================================================================
-					#region Button Component
-					Button menuItemButtonButton = menuItemButton.AddComponent<Button>();
-					
-					menuItemButtonButton.targetGraphic = menuItemButtonImage;
-					menuItemButtonButton.transition    = Selectable.Transition.SpriteSwap;
-					
-					if (enabled)
+					if (menuItem.data is MenuSeparatorItem)
 					{
-						menuItemButtonButton.spriteState = Internal.PopupMenuCommon.buttonSpriteState;
-						menuItemButtonButton.navigation  = Internal.PopupMenuCommon.defaultNavigation;
+						//***************************************************************************
+						// Separator GameObject
+						//***************************************************************************
+						#region Separator GameObject
+						GameObject menuSeparator = new GameObject("Separator");
+						Utils.InitUIObject(menuSeparator, scrollAreaContent.transform);
 						
-						if (hasChildren)
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						float separatorHeight = 8;
+						
+						RectTransform menuItemSeparatorTransform = menuSeparator.AddComponent<RectTransform>();
+						
+						Utils.AlignRectTransformTopStretch(menuItemSeparatorTransform, separatorHeight, contentHeight, 28f); // TODO: Incorrect position
+						
+						contentHeight += separatorHeight;
+						#endregion
+						
+						//===========================================================================
+						// Image Component
+						//===========================================================================
+						#region Image Component
+						Image image = menuSeparator.AddComponent<Image>();
+						
+						image.sprite = Assets.Popups.Textures.separator;
+						#endregion
+						#endregion
+					}
+					else
+					if (menuItem.data is MenuItem)
+					{
+						MenuItem item = menuItem.data as MenuItem;
+						
+						bool hasChildren = menuItem.HasChildren();
+						bool enabled     = item.enabled && (hasChildren || item.onClick != null);
+						
+						//***************************************************************************
+						// Button GameObject
+						//***************************************************************************
+						#region Button GameObject
+						GameObject menuItemButton = new GameObject(item.name);
+						Utils.InitUIObject(menuItemButton, scrollAreaContent.transform);
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform menuItemButtonTransform = menuItemButton.AddComponent<RectTransform>();
+						#endregion
+						
+						//===========================================================================
+						// CanvasRenderer Component
+						//===========================================================================
+						#region CanvasRenderer Component
+						menuItemButton.AddComponent<CanvasRenderer>();
+						#endregion
+						
+						//===========================================================================
+						// Image Component
+						//===========================================================================
+						#region Image Component
+						Image menuItemButtonImage = menuItemButton.AddComponent<Image>();
+						
+						menuItemButtonImage.sprite = Assets.Popups.Textures.button;
+						menuItemButtonImage.type   = Image.Type.Sliced;
+						#endregion
+						
+						//===========================================================================
+						// Button Component
+						//===========================================================================
+						#region Button Component
+						Button menuItemButtonButton = menuItemButton.AddComponent<Button>();
+						
+						menuItemButtonButton.targetGraphic = menuItemButtonImage;
+						menuItemButtonButton.transition    = Selectable.Transition.SpriteSwap;
+						
+						if (enabled)
 						{
-							TreeNode<CustomMenuItem> currentMenuItem = menuItem;
+							menuItemButtonButton.spriteState = Internal.PopupMenuCommon.buttonSpriteState;
+							menuItemButtonButton.navigation  = Internal.PopupMenuCommon.defaultNavigation;
 							
-							menuItemButtonButton.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
-							
-							//===========================================================================
-							// AutoPopupItemScript Component
-							//===========================================================================
-							#region AutoPopupItemScript Component
-							AutoPopupItemScript menuItemButtonAutoPopup = menuItemButton.AddComponent<AutoPopupItemScript>();
-							
-							menuItemButtonAutoPopup.delay = AUTO_POPUP_DELAY;
-							#endregion
+							if (hasChildren)
+							{
+								TreeNode<CustomMenuItem> currentMenuItem = menuItem;
+								
+								menuItemButtonButton.onClick.AddListener(() => OnShowMenuSubItems(currentMenuItem));
+								
+								//===========================================================================
+								// AutoPopupItemScript Component
+								//===========================================================================
+								#region AutoPopupItemScript Component
+								AutoPopupItemScript menuItemButtonAutoPopup = menuItemButton.AddComponent<AutoPopupItemScript>();
+								
+								menuItemButtonAutoPopup.delay = AUTO_POPUP_DELAY;
+								#endregion
+							}
+							else
+							{
+								menuItemButtonButton.onClick.AddListener(item.onClick);
+								
+								if (item.radioGroup != null)
+								{
+									menuItemButtonButton.onClick.AddListener(() => OnSelectItem(item));
+								}
+								
+								menuItemButtonButton.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll);                                
+							}
 						}
 						else
 						{
-							menuItemButtonButton.onClick.AddListener(item.OnClick);
-							
-							if (item.RadioGroup != null)
-							{
-								menuItemButtonButton.onClick.AddListener(() => OnSelectItem(item));
-							}
-							
-							menuItemButtonButton.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll);                                
+							menuItemButtonButton.spriteState = Internal.PopupMenuCommon.buttonDisabledSpriteState;
+							menuItemButtonButton.navigation  = Internal.PopupMenuCommon.noneNavigation;
 						}
-					}
-					else
-					{
-						menuItemButtonButton.spriteState = Internal.PopupMenuCommon.buttonDisabledSpriteState;
-						menuItemButtonButton.navigation  = Internal.PopupMenuCommon.noneNavigation;
-					}
-					#endregion
-					#endregion
-					
-					//***************************************************************************
-					// Text GameObject
-					//***************************************************************************
-					#region Text GameObject
-					GameObject menuItemText = new GameObject("Text");
-					Utils.InitUIObject(menuItemText, menuItemButton.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform menuItemTextTransform = menuItemText.AddComponent<RectTransform>();
-					Utils.AlignRectTransformStretchStretch(menuItemTextTransform, Assets.Popups.Textures.background.border.x + 4f);
-					#endregion
-					
-					//===========================================================================
-					// Text Component
-					//===========================================================================
-					#region Text Component
-					Text menuItemTextText      = menuItemText.AddComponent<Text>();
+						#endregion
+						#endregion
+						
+						//***************************************************************************
+						// Text GameObject
+						//***************************************************************************
+						#region Text GameObject
+						GameObject menuItemText = new GameObject("Text");
+						Utils.InitUIObject(menuItemText, menuItemButton.transform);
+						
+						//===========================================================================
+						// RectTransform Component
+						//===========================================================================
+						#region RectTransform Component
+						RectTransform menuItemTextTransform = menuItemText.AddComponent<RectTransform>();
+						Utils.AlignRectTransformStretchStretch(menuItemTextTransform, Assets.Popups.Textures.background.border.x + 4f);
+						#endregion
+						
+						//===========================================================================
+						// Text Component
+						//===========================================================================
+						#region Text Component
+						Text menuItemTextText      = menuItemText.AddComponent<Text>();
 
-					menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
-					menuItemTextText.fontSize  = 12;
-					menuItemTextText.alignment = TextAnchor.MiddleLeft;
-					menuItemTextText.text      = item.Text;
-					
-					if (enabled)
-					{
-						menuItemTextText.color = new Color(0f, 0f, 0f, 1f);
+						menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
+						menuItemTextText.fontSize  = 12;
+						menuItemTextText.alignment = TextAnchor.MiddleLeft;
+						menuItemTextText.text      = item.text;
+						
+						if (enabled)
+						{
+							menuItemTextText.color = new Color(0f, 0f, 0f, 1f);
+						}
+						else
+						{
+							menuItemTextText.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+						}
+						#endregion
+						#endregion
+						
+						float buttonWidth  = menuItemTextText.preferredWidth + Assets.Popups.Textures.background.border.x + 16f;
+						float buttonHeight = 22f; // TODO: Report request for prefferedHeight for specified width
+						
+						Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
+						
+						if (buttonWidth > contentWidth)
+						{
+							contentWidth = buttonWidth;
+						}
+						
+						contentHeight += buttonHeight;
 					}
 					else
 					{
-						menuItemTextText.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+						Debug.LogError("Unknown menu item type");
 					}
-					#endregion
-					#endregion
-					
-					float buttonWidth  = menuItemTextText.preferredWidth + Assets.Popups.Textures.background.border.x + 16f;
-					float buttonHeight = 22f; // TODO: Report request for prefferedHeight for specified width
-					
-					Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
-					
-					if (buttonWidth > contentWidth)
-					{
-						contentWidth = buttonWidth;
-					}
-					
-					contentHeight += buttonHeight;
-				}
-				else
-				{
-					Debug.LogError("Unknown menu item type");
 				}
 			}
 			
@@ -372,88 +375,101 @@ namespace Common.UI.Popups
 			//***************************************************************************
 			#region Shortcuts
 			float shortcutWidth = 0f;
+			int index = 0;
 			
 			for (int i = 0; i < menuItems.Count; ++i)
 			{
-				if (menuItems[i].Data is MenuItem)
+				if (menuItems[i].data.visible)
 				{
-					MenuItem item   = menuItems[i].Data as MenuItem;
-					string shortcut = item.Shortcut;
-					
-					if (shortcut != null)
+					if (menuItems[i].data is MenuItem)
 					{
-						Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
+						MenuItem item   = menuItems[i].data as MenuItem;
+						string shortcut = item.shortcut;
 						
-						//***************************************************************************
-						// Text GameObject
-						//***************************************************************************
-						#region Text GameObject
-						GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
-						GameObject shortcutText = UnityEngine.Object.Instantiate(menuItemText) as GameObject;								
-						
-						Utils.InitUIObject(shortcutText, menuItemButtonTransform);
-						shortcutText.name = "Shortcut";
-						
-						//===========================================================================
-						// Text Component
-						//===========================================================================
-						#region Text Component
-						Text text      = shortcutText.GetComponent<Text>();
-
-						text.text      = shortcut;
-						text.alignment = TextAnchor.MiddleRight;
-						
-						float shortcutTextWidth = text.preferredWidth;
-						
-						if (shortcutTextWidth > shortcutWidth)
+						if (shortcut != null)
 						{
-							shortcutWidth = shortcutTextWidth;
+							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(index);
+							
+							//***************************************************************************
+							// Text GameObject
+							//***************************************************************************
+							#region Text GameObject
+							GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
+							GameObject shortcutText = UnityEngine.Object.Instantiate(menuItemText) as GameObject;								
+							
+							Utils.InitUIObject(shortcutText, menuItemButtonTransform);
+							shortcutText.name = "Shortcut";
+							
+							//===========================================================================
+							// Text Component
+							//===========================================================================
+							#region Text Component
+							Text text      = shortcutText.GetComponent<Text>();
+							
+							text.text      = shortcut;
+							text.alignment = TextAnchor.MiddleRight;
+							
+							float shortcutTextWidth = text.preferredWidth;
+							
+							if (shortcutTextWidth > shortcutWidth)
+							{
+								shortcutWidth = shortcutTextWidth;
+							}
+							#endregion
+							#endregion
 						}
-						#endregion
-						#endregion
 					}
+
+					++index;
 				}
 			}
 			
 			if (shortcutWidth > 0f)
 			{
+				index = 0;
+
 				for (int i = 0; i < menuItems.Count; ++i)
 				{
-					if (menuItems[i].Data is MenuItem)
+					if (menuItems[i].data.visible)
 					{
-						MenuItem item   = menuItems[i].Data as MenuItem;
-						string shortcut = item.Shortcut;
-						
-						if (shortcut != null)
+						if (menuItems[i].data is MenuItem)
 						{
-							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
+							MenuItem item   = menuItems[i].data as MenuItem;
+							string shortcut = item.shortcut;
 							
-							//***************************************************************************
-							// Text GameObject
-							//***************************************************************************
-							#region Text GameObject								
-							GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
-							GameObject shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
-							
-							//===========================================================================
-							// RectTransform Component
-							//===========================================================================
-							#region RectTransform Component
-							RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
-							
-							menuItemTextTransform.offsetMax = new Vector2(-shortcutWidth, 0f);
-							#endregion
-							
-							//===========================================================================
-							// RectTransform Component
-							//===========================================================================
-							#region RectTransform Component
-							RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
-							
-							Utils.AlignRectTransformStretchRight(shortcutTextTransform, shortcutWidth, 4);
-							#endregion
-							#endregion
+							if (shortcut != null)
+							{
+								Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(index);
+								
+								//***************************************************************************
+								// Text GameObject
+								//***************************************************************************
+								#region Text GameObject								
+								GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
+								GameObject shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
+								
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
+								
+								menuItemTextTransform.offsetMax = new Vector2(-shortcutWidth, 0f);
+								#endregion
+								
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+								
+								Utils.AlignRectTransformStretchRight(shortcutTextTransform, shortcutWidth, 4);
+								#endregion
+								#endregion
+							}
 						}
+
+						++index;
 					}
 				}
 				
@@ -469,96 +485,106 @@ namespace Common.UI.Popups
 			
 			for (int i = 0; i < menuItems.Count; ++i)
 			{
-				if (menuItems[i].Data is MenuItem)
+				if (menuItems[i].data.visible)
 				{
-					if (menuItems[i].HasChildren())
+					if (menuItems[i].data is MenuItem)
 					{
-						arrowWidth = 16f;
-						
-						break;
+						if (menuItems[i].HasChildren())
+						{
+							arrowWidth = 16f;
+							
+							break;
+						}
 					}
 				}
 			}
 			
 			if (arrowWidth > 0f)
 			{
+				index = 0;
+
 				for (int i = 0; i < menuItems.Count; ++i)
 				{
-					if (menuItems[i].Data is MenuItem)
+					if (menuItems[i].data.visible)
 					{
-						Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
-						
-						//***************************************************************************
-						// Text GameObject
-						//***************************************************************************
-						#region Text GameObject							
-						GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
-						GameObject shortcutText = null;
-						
-						if (menuItemButtonTransform.childCount > 1)
+						if (menuItems[i].data is MenuItem)
 						{
-							shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
-						}								
-						
-						//===========================================================================
-						// RectTransform Component
-						//===========================================================================
-						#region RectTransform Component
-						RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
-						
-						menuItemTextTransform.offsetMax = new Vector2(menuItemTextTransform.offsetMax.x - arrowWidth, 0f);
-						#endregion
-						
-						if (shortcutText != null)
-						{
-							//===========================================================================
-							// RectTransform Component
-							//===========================================================================
-							#region RectTransform Component
-							RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(index);
 							
-							shortcutTextTransform.offsetMin = new Vector2(shortcutTextTransform.offsetMin.x - arrowWidth, 0f);
-							shortcutTextTransform.offsetMax = new Vector2(shortcutTextTransform.offsetMax.x - arrowWidth, 0f);
-							#endregion
-						}
-						#endregion
-						
-						if (menuItems[i].HasChildren())
-						{
 							//***************************************************************************
-							// Image GameObject
+							// Text GameObject
 							//***************************************************************************
-							#region Image GameObject
-							GameObject arrow = new GameObject("Arrow");
-							Utils.InitUIObject(arrow, menuItemButtonTransform);
+							#region Text GameObject							
+							GameObject menuItemText = menuItemButtonTransform.GetChild(0).gameObject; // Button/Text
+							GameObject shortcutText = null;
+							
+							if (menuItemButtonTransform.childCount > 1)
+							{
+								shortcutText = menuItemButtonTransform.GetChild(1).gameObject; // Button/Text
+							}								
 							
 							//===========================================================================
 							// RectTransform Component
 							//===========================================================================
 							#region RectTransform Component
-							RectTransform arrowTransform = arrow.AddComponent<RectTransform>();
+							RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
 							
-							Utils.AlignRectTransformStretchRight(arrowTransform, arrowWidth, 4, 3, 3);
+							menuItemTextTransform.offsetMax = new Vector2(menuItemTextTransform.offsetMax.x - arrowWidth, 0f);
 							#endregion
 							
-							//===========================================================================
-							// CanvasRenderer Component
-							//===========================================================================
-							#region CanvasRenderer Component
-							arrow.AddComponent<CanvasRenderer>();
+							if (shortcutText != null)
+							{
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+								
+								shortcutTextTransform.offsetMin = new Vector2(shortcutTextTransform.offsetMin.x - arrowWidth, 0f);
+								shortcutTextTransform.offsetMax = new Vector2(shortcutTextTransform.offsetMax.x - arrowWidth, 0f);
+								#endregion
+							}
 							#endregion
 							
-							//===========================================================================
-							// Image Component
-							//===========================================================================
-							#region Image Component
-							Image arrowImage = arrow.AddComponent<Image>();
-							
-							arrowImage.sprite = Assets.Popups.Textures.arrow;
-							arrowImage.type   = Image.Type.Sliced;
-							#endregion
-							#endregion
+							if (menuItems[i].HasChildren())
+							{
+								//***************************************************************************
+								// Image GameObject
+								//***************************************************************************
+								#region Image GameObject
+								GameObject arrow = new GameObject("Arrow");
+								Utils.InitUIObject(arrow, menuItemButtonTransform);
+								
+								//===========================================================================
+								// RectTransform Component
+								//===========================================================================
+								#region RectTransform Component
+								RectTransform arrowTransform = arrow.AddComponent<RectTransform>();
+								
+								Utils.AlignRectTransformStretchRight(arrowTransform, arrowWidth, 4, 3, 3);
+								#endregion
+								
+								//===========================================================================
+								// CanvasRenderer Component
+								//===========================================================================
+								#region CanvasRenderer Component
+								arrow.AddComponent<CanvasRenderer>();
+								#endregion
+								
+								//===========================================================================
+								// Image Component
+								//===========================================================================
+								#region Image Component
+								Image arrowImage = arrow.AddComponent<Image>();
+								
+								arrowImage.sprite = Assets.Popups.Textures.arrow;
+								arrowImage.type   = Image.Type.Sliced;
+								#endregion
+								#endregion
+							}
 						}
+
+						++index;
 					}
 				}
 				
@@ -571,51 +597,57 @@ namespace Common.UI.Popups
 			//***************************************************************************
 			#region Checkbox
 			float checkboxWidth = 22f;
+			index = 0;
 			
 			for (int i = 0; i < menuItems.Count; ++i)
 			{
-				if (menuItems[i].Data is MenuItem)
+				if (menuItems[i].data.visible)
 				{
-					MenuItem item = menuItems[i].Data as MenuItem;
-					
-					if (item.RadioGroup != null && item.RadioGroup.SelectedItem == item)
+					if (menuItems[i].data is MenuItem)
 					{
-						Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(i);
+						MenuItem item = menuItems[i].data as MenuItem;
 						
-						//***************************************************************************
-						// Image GameObject
-						//***************************************************************************
-						#region Image GameObject
-						GameObject checkbox = new GameObject("Checkbox");
-						Utils.InitUIObject(checkbox, menuItemButtonTransform);
-						
-						//===========================================================================
-						// RectTransform Component
-						//===========================================================================
-						#region RectTransform Component
-						RectTransform checkboxTransform = checkbox.AddComponent<RectTransform>();
-						
-						Utils.AlignRectTransformStretchLeft(checkboxTransform, checkboxWidth);
-						#endregion
-						
-						//===========================================================================
-						// CanvasRenderer Component
-						//===========================================================================
-						#region CanvasRenderer Component
-						checkbox.AddComponent<CanvasRenderer>();
-						#endregion
-						
-						//===========================================================================
-						// Image Component
-						//===========================================================================
-						#region Image Component
-						Image checkboxImage = checkbox.AddComponent<Image>();
-						
-						checkboxImage.sprite = Assets.Popups.Textures.checkbox;
-						checkboxImage.type   = Image.Type.Sliced;
-						#endregion
-						#endregion
+						if (item.radioGroup != null && item.radioGroup.selectedItem == item)
+						{
+							Transform menuItemButtonTransform = scrollAreaContentTransform.GetChild(index);
+							
+							//***************************************************************************
+							// Image GameObject
+							//***************************************************************************
+							#region Image GameObject
+							GameObject checkbox = new GameObject("Checkbox");
+							Utils.InitUIObject(checkbox, menuItemButtonTransform);
+							
+							//===========================================================================
+							// RectTransform Component
+							//===========================================================================
+							#region RectTransform Component
+							RectTransform checkboxTransform = checkbox.AddComponent<RectTransform>();
+							
+							Utils.AlignRectTransformStretchLeft(checkboxTransform, checkboxWidth);
+							#endregion
+							
+							//===========================================================================
+							// CanvasRenderer Component
+							//===========================================================================
+							#region CanvasRenderer Component
+							checkbox.AddComponent<CanvasRenderer>();
+							#endregion
+							
+							//===========================================================================
+							// Image Component
+							//===========================================================================
+							#region Image Component
+							Image checkboxImage = checkbox.AddComponent<Image>();
+							
+							checkboxImage.sprite = Assets.Popups.Textures.checkbox;
+							checkboxImage.type   = Image.Type.Sliced;
+							#endregion
+							#endregion
+						}
 					}
+
+					++index;
 				}
 			}
 			#endregion
@@ -672,9 +704,9 @@ namespace Common.UI.Popups
 		/// <param name="item">Item.</param>
 		public void OnSelectItem(MenuItem item)
 		{
-			if (item.RadioGroup != null)
+			if (item.radioGroup != null)
 			{
-				item.RadioGroup.SelectedItem = item;
+				item.radioGroup.selectedItem = item;
 			}
 			else
 			{
@@ -688,10 +720,10 @@ namespace Common.UI.Popups
 		/// <param name="node"><see cref="Common.TreeNode`1"/> instance.</param>
 		public void OnShowMenuSubItems(TreeNode<CustomMenuItem> node)
 		{
-			if (node.Data is MenuItem)
+			if (node.data is MenuItem)
 			{
-				MenuItem item = node.Data as MenuItem;
-				Debug.Log("PopupMenu.OnShowMenuSubItems(" + item.Name + ")");
+				MenuItem item = node.data as MenuItem;
+				Debug.Log("PopupMenu.OnShowMenuSubItems(" + item.name + ")");
 				
 				if (mChildPopupMenu != null)
 				{
@@ -701,7 +733,7 @@ namespace Common.UI.Popups
 				mChildPopupMenu = new PopupMenu(node);
 				mChildPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
 				
-				int index = node.Parent.Children.IndexOf(node);
+				int index = node.parent.children.IndexOf(node);
 				
 				RectTransform menuItemTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
 				Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);

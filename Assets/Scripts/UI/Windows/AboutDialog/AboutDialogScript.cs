@@ -16,21 +16,24 @@ namespace UI.Windows.AboutDialog
 	/// </summary>
 	public class AboutDialogScript : WindowScript
 	{
+		private static readonly string SECRET_CODE    = "internal";
 		private static readonly float  SCROLL_SPEED   = 0.02f;
 		private static readonly string CREDITS        = string.Join(", ", AboutDialogNames.names);        
 		private static readonly string SPECIAL_THANKS = "Thanks to Forest 'Yoggy' Johnson, Graham McAllister, David Janik-Jones, Raimund Schumacher, Alan J. Dickins and Emil 'Humus' Persson";
 
 
 
+		private bool       mIsCreditsDragging;
+		private byte       mCurrentSecretChar;
+
 		private Text       mVersionText;
+		private ScrollRect mCreditsScrollRect;
 		private Text       mMonoLogoText;
 		private Text       mMonoLogoText2;
 		private Text       mPhysXLogoText;
 		private Text       mPhysXLogoText2;
 		private Text       mCopyrightText;
 		private Text       mLicenseText;
-		private ScrollRect mCreditsScrollRect;
-		private bool       mIsCreditsDragging;
 
 
 
@@ -39,15 +42,17 @@ namespace UI.Windows.AboutDialog
 		/// </summary>
 		private AboutDialogScript()
 		{
+			mIsCreditsDragging = false;
+			mCurrentSecretChar = 0;
+
 			mVersionText       = null;
+			mCreditsScrollRect = null;
 			mMonoLogoText      = null;
 			mMonoLogoText2     = null;
 			mPhysXLogoText     = null;
 			mPhysXLogoText2    = null;
 			mCopyrightText     = null;
 			mLicenseText       = null;
-			mCreditsScrollRect = null;
-			mIsCreditsDragging = false;
 		}
 
 		/// <summary>
@@ -540,7 +545,22 @@ namespace UI.Windows.AboutDialog
 					mCreditsScrollRect.verticalNormalizedPosition = 1f;
 				}
 
-				// TODO: Internal Mode
+				// TODO: Check it home
+				// TODO: If selected
+				if (InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
+				{
+					++mCurrentSecretChar;
+
+					if (mCurrentSecretChar >= SECRET_CODE.Length)
+					{
+						mCurrentSecretChar = 0;
+
+						Settings.internalMode = !Settings.internalMode;
+
+						// TODO: Show toast
+						Debug.Log("Internal mode: " + Settings.internalMode);
+					}
+				}
 			}
 		}
 

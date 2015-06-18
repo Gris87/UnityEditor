@@ -1197,6 +1197,41 @@
 
     <!-- Menu item : Window -> Layouts -> Revert Factory Settings... -->
     <string name="window__layouts__revert_factory_settings">Revert Factory Settings...</string>
+    
+    
+    
+    <!--
+    ====================================================
+                     Window -> Screenshot
+    ====================================================
+    -->
+
+    <!-- Menu item : Window -> Screenshot -->
+    <string name="window__screenshot">Screenshot</string>
+
+    <!-- Menu item : Window -> Screenshot -> Set Window Size -->
+    <string name="window__screenshot__set_window_size">Set Window Size</string>
+
+    <!-- Menu item : Window -> Screenshot -> Set Window Size Small -->
+    <string name="window__screenshot__set_window_size_small">Set Window Size Small</string>
+
+    <!-- Menu item : Window -> Screenshot -> Snap View -->
+    <string name="window__screenshot__snap_view">Snap View</string>
+
+    <!-- Menu item : Window -> Screenshot -> Snap View Toolbar -->
+    <string name="window__screenshot__snap_view_toolbar">Snap View Toolbar</string>
+
+    <!-- Menu item : Window -> Screenshot -> Snap View Extended Right -->
+    <string name="window__screenshot__snap_view_extended_right">Snap View Extended Right</string>
+
+    <!-- Menu item : Window -> Screenshot -> Snap Component -->
+    <string name="window__screenshot__snap_component">Snap Component</string>
+    
+    <!-- Menu item : Window -> Screenshot -> Snap Game View Content -->
+    <string name="window__screenshot__snap_game_view_content">Snap Game View Content</string>
+    
+    <!-- Menu item : Window -> Screenshot -> Toggle DeveloperBuild -->
+    <string name="window__screenshot__toggle_developerbuild">Toggle DeveloperBuild</string>
 
 
 

@@ -11,6 +11,161 @@ namespace Common.UI.MenuItems
 	/// </summary>
 	public class MenuItem : CustomMenuItem
 	{
+		/// <summary>
+		/// Gets or sets the token ID for translation.
+		/// </summary>
+		/// <value>The token identifier.</value>
+		public R.sections.MenuItems.strings tokenId
+		{
+			get { return mTokenId;  }
+			set { mTokenId = value; }
+		}
+		
+		/// <summary>
+		/// Gets or sets the token arguments.
+		/// </summary>
+		/// <value>The token arguments.</value>
+		public object[] tokenArguments
+		{
+			get { return mTokenArguments;  }
+			set { mTokenArguments = value; }
+		}
+		
+		/// <summary>
+		/// Gets the menu item name.
+		/// </summary>
+		/// <value>The menu item name.</value>
+		public string name
+		{
+			get
+			{
+				if (mText != null)
+				{
+					return mText;
+				}
+				
+				if (mTokenId != R.sections.MenuItems.strings.Count)
+				{
+					return mTokenId.ToString();
+				}
+				
+				Debug.LogError("MenuItem.Name returns empty string");
+				return "";
+			}
+		}
+		
+		/// <summary>
+		/// Gets or sets the menu item text.
+		/// </summary>
+		/// <value>The menu item text.</value>
+		public string text
+		{
+			get
+			{
+				if (mText != null)
+				{
+					return mText;
+				}
+				
+				if (mTokenId != R.sections.MenuItems.strings.Count)
+				{
+					if (mTokenArguments == null || mTokenArguments.Length == 0)
+					{
+						return Translator.getString(mTokenId);
+					}
+					else
+					{
+						return Translator.getString(mTokenId, mTokenArguments);
+					}
+				}
+				
+				Debug.LogError("MenuItem.Text returns empty string");
+				return "";
+			}
+			
+			set
+			{
+				if (value == null || value == "")
+				{
+					mText = null;
+				}
+				else
+				{
+					mText = value;
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="Common.UI.MenuItems.MenuItem"/> is enabled.
+		/// </summary>
+		/// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+		public bool enabled
+		{
+			get
+			{
+				return mEnabled; 
+			}
+			
+			set
+			{
+				if (mEnabled != value)
+				{
+					mEnabled = value; 
+					
+					if (mShortcutHandler != null)
+					{
+						if (mEnabled)
+						{
+							mShortcutHandler.RegisterShortcut(this);
+						}
+						else
+						{
+							mShortcutHandler.DeregisterShortcut(this);
+						}
+					}
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Gets the click event handler.
+		/// </summary>
+		/// <value>The click event handler.</value>
+		public UnityAction onClick
+		{
+			get { return mOnClick; }
+		}
+		
+		/// <summary>
+		/// Gets the shortcut.
+		/// </summary>
+		/// <value>The shortcut.</value>
+		public string shortcut
+		{
+			get
+			{
+				if (mShortcut != null)
+				{
+					return mShortcut.ToString();
+				}
+				
+				return null; 
+			}
+		}
+		
+		/// <summary>
+		/// Gets or sets menu radio group.
+		/// </summary>
+		/// <value>Menu radio group.</value>
+		public MenuRadioGroup radioGroup
+		{
+			get { return mRadioGroup;  }
+			set { mRadioGroup = value; }
+		}
+
+
+
 		private R.sections.MenuItems.strings mTokenId;
 		private object[]                     mTokenArguments;
 		private string                       mText;
@@ -156,165 +311,12 @@ namespace Common.UI.MenuItems
 		{
 			if (mShortcut.getInputDown(true) != 0)
 			{
-				OnClick.Invoke();
+				mOnClick.Invoke();
 				
 				return true;
 			}
 			
 			return false;
-		}
-		
-		/// <summary>
-		/// Gets or sets the token ID.
-		/// </summary>
-		/// <value>The token identifier.</value>
-		public R.sections.MenuItems.strings TokenId
-		{
-			get { return mTokenId;  }
-			set { mTokenId = value; }
-		}
-		
-		/// <summary>
-		/// Gets or sets the token arguments.
-		/// </summary>
-		/// <value>The token arguments.</value>
-		public object[] TokenArguments
-		{
-			get { return mTokenArguments;  }
-			set { mTokenArguments = value; }
-		}
-		
-		/// <summary>
-		/// Gets the menu item name.
-		/// </summary>
-		/// <value>The menu item name.</value>
-		public string Name
-		{
-			get
-			{
-				if (mText != null)
-				{
-					return mText;
-				}
-				
-				if (mTokenId != R.sections.MenuItems.strings.Count)
-				{
-					return mTokenId.ToString();
-				}
-				
-				Debug.LogError("MenuItem.Name returns empty string");
-				return "";
-			}
-		}
-		
-		/// <summary>
-		/// Gets or sets the menu item text.
-		/// </summary>
-		/// <value>The menu item text.</value>
-		public string Text
-		{
-			get
-			{
-				if (mText != null)
-				{
-					return mText;
-				}
-				
-				if (mTokenId != R.sections.MenuItems.strings.Count)
-				{
-					if (mTokenArguments == null || mTokenArguments.Length == 0)
-					{
-						return Translator.getString(mTokenId);
-					}
-					else
-					{
-						return Translator.getString(mTokenId, mTokenArguments);
-					}
-				}
-				
-				Debug.LogError("MenuItem.Text returns empty string");
-				return "";
-			}
-			
-			set
-			{
-				if (value == null || value == "")
-				{
-					mText = null;
-				}
-				else
-				{
-					mText = value;
-				}
-			}
-		}
-		
-		/// <summary>
-		/// Gets or sets a value indicating whether this <see cref="Common.UI.MenuItems.MenuItem"/> is enabled.
-		/// </summary>
-		/// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-		public bool Enabled
-		{
-			get
-			{
-				return mEnabled; 
-			}
-			
-			set
-			{
-				if (mEnabled != value)
-				{
-					mEnabled = value; 
-					
-					if (mShortcutHandler != null)
-					{
-						if (mEnabled)
-						{
-							mShortcutHandler.RegisterShortcut(this);
-						}
-						else
-						{
-							mShortcutHandler.DeregisterShortcut(this);
-						}
-					}
-				}
-			}
-		}
-		
-		/// <summary>
-		/// Gets the click event handler.
-		/// </summary>
-		/// <value>The click event handler.</value>
-		public UnityAction OnClick
-		{
-			get { return mOnClick; }
-		}
-		
-		/// <summary>
-		/// Gets the shortcut.
-		/// </summary>
-		/// <value>The shortcut.</value>
-		public string Shortcut
-		{
-			get
-			{
-				if (mShortcut != null)
-				{
-					return mShortcut.ToString();
-				}
-				
-				return null; 
-			}
-		}
-		
-		/// <summary>
-		/// Gets or sets menu radio group.
-		/// </summary>
-		/// <value>Menu radio group.</value>
-		public MenuRadioGroup RadioGroup
-		{
-			get { return mRadioGroup;  }
-			set { mRadioGroup = value; }
 		}
 	}
 }

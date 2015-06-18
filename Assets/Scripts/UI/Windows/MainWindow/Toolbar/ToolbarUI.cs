@@ -24,8 +24,19 @@ namespace UI.Windows.MainWindow.Toolbar
 		private SpriteState mRightButtonActiveSpriteState;
 		private SpriteState mPopupSpriteState;
 
+		private RectTransform mScrollAreaContentTransform;
+		private RectTransform mToolsTransform;
 		private RectTransform mBasePointTransform;
+		private RectTransform mPointTransform;
+		private Text          mPointText;
+		private RectTransform mCoordinateSystemTransform;
+		private Text          mCoordinateSystemText;
+		private RectTransform mPlaybackTransform;
 		private RectTransform mPopupsTransform;
+		private RectTransform mLayersTransform;
+		private Text          mLayersText;
+		private RectTransform mLayoutTransform;
+		private Text          mLayoutText;
 
 
 
@@ -45,8 +56,19 @@ namespace UI.Windows.MainWindow.Toolbar
 			mRightButtonActiveSpriteState  = new SpriteState();
 			mPopupSpriteState              = new SpriteState();
 
-			mBasePointTransform = null;
-			mPopupsTransform    = null;
+			mScrollAreaContentTransform = null;
+			mToolsTransform             = null;
+			mBasePointTransform         = null;
+			mPointTransform             = null;
+			mPointText                  = null;
+			mCoordinateSystemTransform  = null;
+			mCoordinateSystemText       = null;
+			mPlaybackTransform          = null;
+			mPopupsTransform            = null;
+			mLayersTransform            = null;
+			mLayersText                 = null;
+			mLayoutTransform            = null;
+			mLayoutText                 = null;
 
 
 
@@ -126,7 +148,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform scrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
+			mScrollAreaContentTransform = scrollAreaContent.AddComponent<RectTransform>();
 			#endregion
 			
 			float contentWidth = 10f; // Offset from the left
@@ -141,7 +163,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			CreatePlaybackGameObject( scrollAreaContent.transform, ref contentWidth);
 			#endregion
 			
-			Utils.AlignRectTransformStretchLeft(scrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
+			Utils.AlignRectTransformStretchLeft(mScrollAreaContentTransform, contentWidth, 0f, 0f, 0f, 0f, 0.5f);
 			#endregion
 
 			//===========================================================================
@@ -150,7 +172,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			#region ScrollRect Component
 			ScrollRect scrollAreaScrollRect = scrollArea.AddComponent<ScrollRect>();
 			
-			scrollAreaScrollRect.content  = scrollAreaContentTransform;
+			scrollAreaScrollRect.content  = mScrollAreaContentTransform;
 			scrollAreaScrollRect.vertical = false;
 			#endregion
 			
@@ -200,7 +222,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform toolsTransform = tools.AddComponent<RectTransform>();
+			mToolsTransform = tools.AddComponent<RectTransform>();
 			#endregion
 			
 			float width = 0f;
@@ -612,7 +634,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			#endregion
 			#endregion
 			
-			Utils.AlignRectTransformStretchLeft(toolsTransform, width, contentWidth, 5f, 5f);
+			Utils.AlignRectTransformStretchLeft(mToolsTransform, width, contentWidth, 5f, 5f);
 			
 			contentWidth += width + 20f;
 			#endregion
@@ -639,8 +661,6 @@ namespace UI.Windows.MainWindow.Toolbar
 			mBasePointTransform = basePoint.AddComponent<RectTransform>();
 			#endregion
 
-			float width = 0f;
-			
 			//===========================================================================
 			// Fill content
 			//===========================================================================
@@ -656,7 +676,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform pointTransform = point.AddComponent<RectTransform>();
+			mPointTransform = point.AddComponent<RectTransform>();
 			#endregion
 
 			//===========================================================================
@@ -725,6 +745,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
 			Image pointImageImage = pointImageObject.AddComponent<Image>();
             
+			// TODO: Display button image according to state
 			pointImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.center;
 			pointImageImage.type   = Image.Type.Sliced;
             #endregion
@@ -749,12 +770,12 @@ namespace UI.Windows.MainWindow.Toolbar
 			// Text Component
 			//===========================================================================
 			#region Text Component
-            Text pointText = pointTextObject.AddComponent<Text>();
+            mPointText = pointTextObject.AddComponent<Text>();
             
-			pointText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			pointText.fontSize  = 11;
-			pointText.alignment = TextAnchor.MiddleLeft;
-			pointText.color     = new Color(0f, 0f, 0f, 1f);
+			mPointText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mPointText.fontSize  = 11;
+			mPointText.alignment = TextAnchor.MiddleLeft;
+			mPointText.color     = new Color(0f, 0f, 0f, 1f);
             #endregion
             #endregion
             #endregion
@@ -770,7 +791,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform coordinateSystemTransform = coordinateSystem.AddComponent<RectTransform>();
+			mCoordinateSystemTransform = coordinateSystem.AddComponent<RectTransform>();
 			#endregion
 
 			//===========================================================================
@@ -839,6 +860,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			#region Image Component
             Image coordinateSystemImageImage = coordinateSystemImageObject.AddComponent<Image>();
             
+			// TODO: Display button image according to state
             coordinateSystemImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.local;
             coordinateSystemImageImage.type   = Image.Type.Sliced;
             #endregion
@@ -863,66 +885,76 @@ namespace UI.Windows.MainWindow.Toolbar
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text coordinateSystemText = coordinateSystemTextObject.AddComponent<Text>();
+			mCoordinateSystemText = coordinateSystemTextObject.AddComponent<Text>();
             
-			coordinateSystemText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			coordinateSystemText.fontSize  = 11;
-			coordinateSystemText.alignment = TextAnchor.MiddleLeft;
-			coordinateSystemText.color     = new Color(0f, 0f, 0f, 1f);
+			mCoordinateSystemText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mCoordinateSystemText.fontSize  = 11;
+			mCoordinateSystemText.alignment = TextAnchor.MiddleLeft;
+			mCoordinateSystemText.color     = new Color(0f, 0f, 0f, 1f);
             #endregion
             #endregion
-            #endregion
-            
-            #region Calculate geometry
+            #endregion            
+			#endregion
+
+			UpdateBasePointGameObject(ref contentWidth);
+			#endregion
+		}
+
+		/// <summary>
+		/// Updates BasePoint GameObject.
+		/// </summary>
+		/// <param name="contentWidth">Content width.</param>
+		private void UpdateBasePointGameObject(ref float contentWidth)
+		{
+			float width = 0f;
 			float buttonWidth;
 			float maxButtonWidth = 0f;
-
-			pointText.text            = Translator.getString(R.sections.Toolbar.strings.pivot);  // TODO: Try to autotranslate somehow
-			coordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.global);
-
-			buttonWidth = pointText.preferredWidth + 32f;
-
-			if (buttonWidth > maxButtonWidth)
-			{
-				maxButtonWidth = buttonWidth;
-			}
-
-			buttonWidth = coordinateSystemText.preferredWidth + 32f;
 			
-			if (buttonWidth > maxButtonWidth)
-			{
-				maxButtonWidth = buttonWidth;
-            }
-
-			pointText.text            = Translator.getString(R.sections.Toolbar.strings.center);  // TODO: Try to autotranslate somehow
-			coordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.local);
-
-			buttonWidth = pointText.preferredWidth + 32f;
+			mPointText.text            = Translator.getString(R.sections.Toolbar.strings.pivot);
+			mCoordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.global);
+			
+			buttonWidth = mPointText.preferredWidth + 32f;
 			
 			if (buttonWidth > maxButtonWidth)
 			{
 				maxButtonWidth = buttonWidth;
 			}
 			
-			buttonWidth = coordinateSystemText.preferredWidth + 32f;
+			buttonWidth = mCoordinateSystemText.preferredWidth + 32f;
 			
 			if (buttonWidth > maxButtonWidth)
-            {
+			{
 				maxButtonWidth = buttonWidth;
-            }
-            
-            Utils.AlignRectTransformStretchLeft(pointTransform,            maxButtonWidth + 1, width); // One button overlaps another one
+			}
+			
+			mPointText.text            = Translator.getString(R.sections.Toolbar.strings.center);
+			mCoordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.local);
+			
+			buttonWidth = mPointText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+			}
+			
+			buttonWidth = mCoordinateSystemText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+			}
+			
+			// TODO: Display button text according to state
+			
+			Utils.AlignRectTransformStretchLeft(mPointTransform,            maxButtonWidth + 1, width); // One button overlaps another one
 			width += maxButtonWidth;
-
-			Utils.AlignRectTransformStretchLeft(coordinateSystemTransform, maxButtonWidth,     width);
+			
+			Utils.AlignRectTransformStretchLeft(mCoordinateSystemTransform, maxButtonWidth,     width);
 			width += maxButtonWidth;
-			#endregion
-			#endregion
-
+			
 			Utils.AlignRectTransformStretchLeft(mBasePointTransform, width, contentWidth, 8f, 6f);
 			
 			contentWidth += width;
-			#endregion
 		}
 
 		/// <summary>
@@ -946,8 +978,6 @@ namespace UI.Windows.MainWindow.Toolbar
 			mPopupsTransform = popups.AddComponent<RectTransform>();
 			#endregion
 			
-			float width = 0f;
-			
 			//===========================================================================
 			// Fill content
 			//===========================================================================
@@ -963,7 +993,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform layersTransform = layers.AddComponent<RectTransform>();
+			mLayersTransform = layers.AddComponent<RectTransform>();
 			#endregion
 			
 			//===========================================================================
@@ -1029,12 +1059,12 @@ namespace UI.Windows.MainWindow.Toolbar
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text layersText = layersTextObject.AddComponent<Text>();
+			mLayersText = layersTextObject.AddComponent<Text>();
 			
-			layersText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			layersText.fontSize  = 11;
-			layersText.alignment = TextAnchor.MiddleLeft;
-			layersText.color     = new Color(0f, 0f, 0f, 1f);
+			mLayersText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mLayersText.fontSize  = 11;
+			mLayersText.alignment = TextAnchor.MiddleLeft;
+			mLayersText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
 			#endregion
@@ -1050,7 +1080,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform layoutTransform = layout.AddComponent<RectTransform>();
+			mLayoutTransform = layout.AddComponent<RectTransform>();
 			#endregion
 			
 			//===========================================================================
@@ -1107,49 +1137,57 @@ namespace UI.Windows.MainWindow.Toolbar
 			// Text Component
 			//===========================================================================
 			#region Text Component
-			Text layoutText = layoutTextObject.AddComponent<Text>();
+			mLayoutText = layoutTextObject.AddComponent<Text>();
 			
-			layoutText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			layoutText.fontSize  = 11;
-			layoutText.alignment = TextAnchor.MiddleLeft;
-			layoutText.color     = new Color(0f, 0f, 0f, 1f);
+			mLayoutText.font      = Assets.Common.Fonts.microsoftSansSerif;
+			mLayoutText.fontSize  = 11;
+			mLayoutText.alignment = TextAnchor.MiddleLeft;
+			mLayoutText.color     = new Color(0f, 0f, 0f, 1f);
 			#endregion
 			#endregion
-			#endregion
-			
-			#region Calculate geometry
-			float buttonWidth;
-			float maxButtonWidth = 0f;
-			
-			layersText.text = Translator.getString(R.sections.Toolbar.strings.layers); // TODO: Try to autotranslate somehow
-			layoutText.text = Translator.getString(R.sections.Toolbar.strings.layout);
-			
-			buttonWidth = layersText.preferredWidth + 32f;
-			
-			if (buttonWidth > maxButtonWidth)
-			{
-				maxButtonWidth = buttonWidth;
-			}
-			
-			buttonWidth = layoutText.preferredWidth + 32f;
-			
-			if (buttonWidth > maxButtonWidth)
-			{
-				maxButtonWidth = buttonWidth;
-			}
-			
-			Utils.AlignRectTransformStretchLeft(layersTransform, maxButtonWidth, width); // One button overlaps another one
-			width += maxButtonWidth + 10f;
-			
-			Utils.AlignRectTransformStretchLeft(layoutTransform, maxButtonWidth, width);
-			width += maxButtonWidth;
 			#endregion
 			#endregion
 
+			UpdatePopupsGameObject(ref contentWidth);
+			#endregion
+		}
+
+		/// <summary>
+		/// Updates Popups GameObject.
+		/// </summary>
+		/// <param name="contentWidth">Content width.</param>
+		private void UpdatePopupsGameObject(ref float contentWidth)
+		{
+			float width = 0f;
+			float buttonWidth;
+			float maxButtonWidth = 0f;
+			
+			mLayersText.text = Translator.getString(R.sections.Toolbar.strings.layers);
+			mLayoutText.text = Translator.getString(R.sections.Toolbar.strings.layout);
+			
+			buttonWidth = mLayersText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+			}
+			
+			buttonWidth = mLayoutText.preferredWidth + 32f;
+			
+			if (buttonWidth > maxButtonWidth)
+			{
+				maxButtonWidth = buttonWidth;
+			}
+			
+			Utils.AlignRectTransformStretchLeft(mLayersTransform, maxButtonWidth, width);
+			width += maxButtonWidth + 10f;
+			
+			Utils.AlignRectTransformStretchLeft(mLayoutTransform, maxButtonWidth, width);
+			width += maxButtonWidth;
+			
 			Utils.AlignRectTransformStretchRight(mPopupsTransform, width, 10f, 7f, 7f);
 			
 			contentWidth += width + 10f;
-			#endregion
 		}
 
 		/// <summary>
@@ -1171,7 +1209,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			// RectTransform Component
 			//===========================================================================
 			#region RectTransform Component
-			RectTransform playbackTransform = playback.AddComponent<RectTransform>();
+			mPlaybackTransform = playback.AddComponent<RectTransform>();
 			#endregion
 			
 			float width = 0f;
@@ -1439,7 +1477,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
 			float offsetX = (rightEdge + leftEdge) / 2 - contentWidth / 2;
 			
-			Utils.AlignRectTransformMiddleCenter(playbackTransform, width, 22f, offsetX);
+			Utils.AlignRectTransformMiddleCenter(mPlaybackTransform, width, 22f, offsetX);
 			#endregion
 		}
 
@@ -1448,7 +1486,10 @@ namespace UI.Windows.MainWindow.Toolbar
 		/// </summary>
 		public void OnLanguageChanged()
 		{
-			// TODO: Implement OnLanguageChanged
+			float contentWidth = mToolsTransform.sizeDelta.x + 30f;
+
+			UpdateBasePointGameObject(ref contentWidth);
+			UpdatePopupsGameObject(ref contentWidth);
 
 			OnResize();
 		}
@@ -1458,7 +1499,28 @@ namespace UI.Windows.MainWindow.Toolbar
 		/// </summary>
 		public void OnResize()
 		{
-			// TODO: OnResize
+			float contentWidth = mToolsTransform.sizeDelta.x + mBasePointTransform.sizeDelta.x + mPopupsTransform.sizeDelta.x + 40f;
+			float width = mPlaybackTransform.sizeDelta.x;
+
+			int screenWidth = Screen.width;
+			
+			if (contentWidth + width + 40f > screenWidth)
+			{
+				contentWidth += width + 40f;
+			}
+			else
+			{
+				contentWidth = screenWidth;
+			}
+
+			float leftEdge  = mBasePointTransform.anchoredPosition.x + mBasePointTransform.sizeDelta.x / 2;
+			float rightEdge = contentWidth - mPopupsTransform.sizeDelta.x;
+			
+			float offsetX = (rightEdge + leftEdge) / 2 - contentWidth / 2;
+			
+			Utils.AlignRectTransformMiddleCenter(mPlaybackTransform, width, 22f, offsetX);
+
+			mScrollAreaContentTransform.offsetMax = new Vector2(mScrollAreaContentTransform.offsetMin.x + contentWidth, mScrollAreaContentTransform.offsetMax.y);
 		}
 	}
 }
