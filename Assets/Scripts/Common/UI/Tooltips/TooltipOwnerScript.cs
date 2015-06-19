@@ -4,7 +4,7 @@ using UnityTranslation;
 
 
 
-namespace UI.Tooltips
+namespace Common.UI.Tooltips
 {
 	/// <summary>
 	/// Script that realize behaviour for tooltip owner.

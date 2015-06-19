@@ -48,8 +48,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		/// </summary>
 		void Update()
         {
-			// TODO: If mainwindow selected
-			if (InputControl.anyKeyDown)
+			if (Global.mainWindowScript.selected && InputControl.anyKeyDown)
 			{
 				foreach (MenuItem menuItem in mShortcuts)
 				{

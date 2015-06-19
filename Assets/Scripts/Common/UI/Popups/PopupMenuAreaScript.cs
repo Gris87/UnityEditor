@@ -2,11 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-using Common.UI.Popups;
 
 
-
-namespace UI.Popups
+namespace Common.UI.Popups
 {
 	/// <summary>
 	/// Script that realize behaviour for PopupMenus controller.

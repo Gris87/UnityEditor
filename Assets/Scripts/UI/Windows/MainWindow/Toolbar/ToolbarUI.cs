@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityTranslation;
 
 using Common;
-using UI.Tooltips;
+using Common.UI.Tooltips;
 
 
 

@@ -2,9 +2,9 @@
 using UnityEngine.UI;
 
 using Common;
-using Common.UI;
-using UI.Popups;
-using UI.Tooltips;
+using Common.UI.Listeners;
+using Common.UI.Popups;
+using Common.UI.Tooltips;
 using UI.Windows.MainWindow;
 
 
@@ -29,12 +29,67 @@ namespace UI
 		/// </summary>
 		private void CreateUI()
 		{
+			CreateCommon();
+			CreateWindows();
+			CreateOverlap();
+
+			MainWindowScript.Create().Show();
+		}
+
+		/// <summary>
+		/// Creates common things.
+		/// </summary>
+		private void CreateCommon()
+		{
 			//***************************************************************************
+			// Common GameObject
+			//***************************************************************************
+			#region Common GameObject
+			GameObject common = new GameObject("Common");
+			Utils.InitUIObject(common, transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform commonTransform = common.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(commonTransform);
+			#endregion
+            #endregion
+
+			CreateCommonListeners(common.transform);
+		}
+
+		/// <summary>
+		/// Creates common listeners.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreateCommonListeners(Transform parent)
+		{
+			//***************************************************************************
+			// Listeners GameObject
+			//***************************************************************************
+			#region Listeners GameObject
+			GameObject listeners = new GameObject("Listeners");
+			Utils.InitUIObject(listeners, parent);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform listenersTransform = listeners.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(listenersTransform);
+            #endregion
+            #endregion
+
+
+            
+            //***************************************************************************
 			// ResizeListener GameObject
 			//***************************************************************************
 			#region ResizeListener GameObject
 			GameObject resizeListener = new GameObject("ResizeListener");
-			Utils.InitUIObject(resizeListener, transform);
+			Utils.InitUIObject(resizeListener, listeners.transform);
 			
 			//===========================================================================
 			// RectTransform Component
@@ -43,7 +98,7 @@ namespace UI
 			RectTransform resizeListenerTransform = resizeListener.AddComponent<RectTransform>();
 			Utils.AlignRectTransformStretchStretch(resizeListenerTransform);
 			#endregion
-
+			
 			//===========================================================================
 			// PopupMenuAreaScript Component
 			//===========================================================================
@@ -51,9 +106,13 @@ namespace UI
 			Global.resizeListenerScript = resizeListener.AddComponent<ResizeListenerScript>();
 			#endregion
 			#endregion
+		}
 
-
-
+		/// <summary>
+		/// Creates windows container.
+		/// </summary>
+		private void CreateWindows()
+		{
 			//***************************************************************************
 			// Windows GameObject
 			//***************************************************************************
@@ -71,15 +130,37 @@ namespace UI
 			Global.windowsTransform = windowsTransform;
 			#endregion
 			#endregion
+		}
 
-
-			
+		/// <summary>
+		/// Creates overlap container.
+		/// </summary>
+		private void CreateOverlap()
+		{
 			//***************************************************************************
+			// Overlap GameObject
+			//***************************************************************************
+			#region Overlap GameObject
+			GameObject overlap = new GameObject("Overlap");
+			Utils.InitUIObject(overlap, transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform overlapTransform = overlap.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(overlapTransform);
+            #endregion
+            #endregion
+            
+
+            
+            //***************************************************************************
 			// PopupMenuArea GameObject
 			//***************************************************************************
 			#region PopupMenuArea GameObject
 			GameObject popupMenuArea = new GameObject("PopupMenuArea");
-			Utils.InitUIObject(popupMenuArea, transform);
+			Utils.InitUIObject(popupMenuArea, overlap.transform);
 			
 			//===========================================================================
 			// RectTransform Component
@@ -87,7 +168,7 @@ namespace UI
 			#region RectTransform Component
 			RectTransform popupMenuAreaTransform = popupMenuArea.AddComponent<RectTransform>();
 			Utils.AlignRectTransformStretchStretch(popupMenuAreaTransform);
-
+			
 			Global.popupMenuAreaTransform = popupMenuAreaTransform;
 			#endregion
 			
@@ -98,15 +179,15 @@ namespace UI
 			Global.popupMenuAreaScript = popupMenuArea.AddComponent<PopupMenuAreaScript>();
 			#endregion
 			#endregion
-
-
-
+			
+			
+			
 			//***************************************************************************
 			// TooltipArea GameObject
 			//***************************************************************************
 			#region TooltipArea GameObject
 			GameObject tooltipArea = new GameObject("TooltipArea");
-			Utils.InitUIObject(tooltipArea, transform);
+			Utils.InitUIObject(tooltipArea, overlap.transform);
 			
 			//===========================================================================
 			// RectTransform Component
@@ -123,10 +204,6 @@ namespace UI
 			Global.tooltipAreaScript = tooltipArea.AddComponent<TooltipAreaScript>();
 			#endregion
 			#endregion
-		
-
-
-			MainWindowScript.Create().Show();
 		}
 	}
 }

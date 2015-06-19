@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 
 
-namespace Common.UI
+namespace Common.UI.Listeners
 {
 	/// <summary>
 	/// Script that listen for screen resize events.

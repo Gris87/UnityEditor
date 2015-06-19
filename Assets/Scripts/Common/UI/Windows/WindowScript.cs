@@ -68,9 +68,8 @@ namespace Common.UI.Windows
 	/// </summary>
 	public class WindowScript : MonoBehaviour, ICanvasRaycastFilter, IPointerEnterHandler, IPointerExitHandler
 	{
-		// TODO: Selectable
 		/// <summary>
-		/// Class for data that used while lef mouse button pressed.
+		/// Class for data that used while left mouse button pressed.
 		/// </summary>
 		private class MouseContext
 		{
@@ -151,6 +150,11 @@ namespace Common.UI.Windows
 
 
 
+		private static List<WindowScript> windows        = new List<WindowScript>();
+		private static WindowScript       selectedWindow = null;
+
+
+
 		private WindowFrameType                 mFrame;
 		private WindowState                     mState;
 		private float                           mX;
@@ -174,11 +178,11 @@ namespace Common.UI.Windows
 		private GameObject                      mTitleGameObject;
 		private Text                            mTitleText;
 		private GameObject                      mMinimizeGameObject;
-		private Button                          mMinimizeButton;
+		private Image                           mMinimizeImage;
 		private GameObject                      mMaximizeGameObject;
-		private Button                          mMaximizeButton;
+		private Image                           mMaximizeImage;
 		private GameObject                      mCloseGameObject;
-		private Button                          mCloseButton;
+		private Image                           mCloseImage;
 		private RectTransform                   mContentTransform;
 		private Image                           mContentBackgroundImage;
 		private GameObject                      mReplacementGameObject;
@@ -1175,6 +1179,15 @@ namespace Common.UI.Windows
 			}
 		}
 
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="Common.UI.Windows.WindowScript"/> is selected.
+		/// </summary>
+		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
+		public bool selected
+		{
+			get { return selectedWindow == this; }
+		}
+
 
 
 		/// <summary>
@@ -1183,6 +1196,8 @@ namespace Common.UI.Windows
 		public WindowScript()
 			: base()
         {
+			windows.Add(this);
+
 			mFrame           = WindowFrameType.Window;
 			mState           = WindowState.NoState;
 			mX               = -SHADOW_WIDTH;
@@ -1206,11 +1221,11 @@ namespace Common.UI.Windows
 			mTitleGameObject        = null;
 			mTitleText              = null;
 			mMinimizeGameObject     = null;
-			mMinimizeButton         = null;
+			mMinimizeImage          = null;
 			mMaximizeGameObject     = null;
-			mMaximizeButton         = null;
+			mMaximizeImage          = null;
 			mCloseGameObject        = null;
-			mCloseButton            = null;
+			mCloseImage             = null;
 			mContentTransform       = null;
 			mContentBackgroundImage = null;
 			mReplacementGameObject  = null;
@@ -1229,7 +1244,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Script starting callback.
 		/// </summary>
-		public virtual void Start()
+		protected virtual void Start()
 		{
 			Global.resizeListenerScript.AddListener(OnScreenResize);
 
@@ -1437,19 +1452,40 @@ namespace Common.UI.Windows
 			{
 				case WindowFrameType.Window:
 				{
-					mBorderImage.sprite = Assets.Windows.Common.Textures.window;
+					if (selected)
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.window;
+					}
+					else
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.windowDeselected;
+					}
 				}
 				break;
 
 				case WindowFrameType.SubWindow:
 				{
-					mBorderImage.sprite = Assets.Windows.Common.Textures.subWindow;
+					if (selected)
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.subWindow;
+					}
+					else
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.subWindowDeselected;
+					}
 				}
 				break;
 
 				case WindowFrameType.Drawer:
 				{
-					mBorderImage.sprite = Assets.Windows.Common.Textures.drawer;
+					if (selected)
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.drawer;
+					}
+					else
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.drawerDeselected;
+					}
 				}
 				break;
 
@@ -1542,14 +1578,14 @@ namespace Common.UI.Windows
 						// CloseImage GameObject
 						//***************************************************************************
 						#region CloseImage GameObject
-						GameObject closeImage = new GameObject("Image");
-						Utils.InitUIObject(closeImage, mCloseGameObject.transform);
+						GameObject closeImageObject = new GameObject("Image");
+						Utils.InitUIObject(closeImageObject, mCloseGameObject.transform);
 						
 						//===========================================================================
 						// RectTransform Component
 						//===========================================================================
 						#region RectTransform Component
-						RectTransform closeImageTransform = closeImage.AddComponent<RectTransform>();
+						RectTransform closeImageTransform = closeImageObject.AddComponent<RectTransform>();
 						Utils.AlignRectTransformStretchStretch(closeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
 						#endregion
 						
@@ -1557,24 +1593,32 @@ namespace Common.UI.Windows
 						// CanvasRenderer Component
 						//===========================================================================
 						#region CanvasRenderer Component
-						closeImage.AddComponent<CanvasRenderer>();
+						closeImageObject.AddComponent<CanvasRenderer>();
 						#endregion
 						
 						//===========================================================================
 						// Image Component
 						//===========================================================================
 						#region Image Component
-						Image closeImageImage = closeImage.AddComponent<Image>();
+						mCloseImage = closeImageObject.AddComponent<Image>();
 						
-						closeImageImage.sprite = Assets.Windows.Common.Textures.closeButton;
-						closeImageImage.type   = Image.Type.Sliced;
+						if (selected)
+						{
+							mCloseImage.sprite = Assets.Windows.Common.Textures.closeButton;
+						}
+						else
+						{
+							mCloseImage.sprite = Assets.Windows.Common.Textures.closeButtonDeselected;
+						}
+						
+						mCloseImage.type   = Image.Type.Sliced;
 						#endregion
 						
 						//===========================================================================
 						// ButtonGlowScript Component
 						//===========================================================================
 						#region ButtonGlowScript Component
-						ButtonGlowScript closeButtonGlowScript = closeImage.AddComponent<ButtonGlowScript>();
+						ButtonGlowScript closeButtonGlowScript = closeImageObject.AddComponent<ButtonGlowScript>();
 						
 						closeButtonGlowScript.rectTransform = closeTransform;
 						#endregion
@@ -1584,13 +1628,13 @@ namespace Common.UI.Windows
 						// Button Component
 						//===========================================================================
 						#region Button Component
-						mCloseButton = mCloseGameObject.AddComponent<Button>();
+						Button closeButton = mCloseGameObject.AddComponent<Button>();
 						
-						mCloseButton.interactable  = mAllowClose;
-						mCloseButton.targetGraphic = closeImageImage;
-						mCloseButton.transition    = Selectable.Transition.SpriteSwap;
-						mCloseButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
-						mCloseButton.onClick.AddListener(Close);
+						closeButton.interactable  = mAllowClose;
+						closeButton.targetGraphic = mCloseImage;
+						closeButton.transition    = Selectable.Transition.SpriteSwap;
+						closeButton.spriteState   = Internal.WindowCommon.closeButtonSpriteState;
+						closeButton.onClick.AddListener(Close);
 						#endregion
 						#endregion
 
@@ -1622,14 +1666,14 @@ namespace Common.UI.Windows
 							// MaximizeImage GameObject
 							//***************************************************************************
 							#region MaximizeImage GameObject
-							GameObject maximizeImage = new GameObject("Image");
-							Utils.InitUIObject(maximizeImage, mMaximizeGameObject.transform);
+							GameObject maximizeImageObject = new GameObject("Image");
+							Utils.InitUIObject(maximizeImageObject, mMaximizeGameObject.transform);
 							
 							//===========================================================================
 							// RectTransform Component
 							//===========================================================================
 							#region RectTransform Component
-							RectTransform maximizeImageTransform = maximizeImage.AddComponent<RectTransform>();
+							RectTransform maximizeImageTransform = maximizeImageObject.AddComponent<RectTransform>();
 							Utils.AlignRectTransformStretchStretch(maximizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
 							#endregion
 							
@@ -1637,32 +1681,46 @@ namespace Common.UI.Windows
 							// CanvasRenderer Component
 							//===========================================================================
 							#region CanvasRenderer Component
-							maximizeImage.AddComponent<CanvasRenderer>();
+							maximizeImageObject.AddComponent<CanvasRenderer>();
 							#endregion
 							
 							//===========================================================================
 							// Image Component
 							//===========================================================================
 							#region Image Component
-							Image maximizeImageImage = maximizeImage.AddComponent<Image>();
+							mMaximizeImage = maximizeImageObject.AddComponent<Image>();
 							
 							if (mState != WindowState.Maximized)
 							{
-								maximizeImageImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
+								if (selected)
+								{
+									mMaximizeImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
+								}
+								else
+								{
+									mMaximizeImage.sprite = Assets.Windows.Common.Textures.maximizeButtonDeselected;
+								}
 							}
 							else
 							{
-								maximizeImageImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+								if (selected)
+								{
+									mMaximizeImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+								}
+								else
+								{
+									mMaximizeImage.sprite = Assets.Windows.Common.Textures.normalizeButtonDeselected;
+								}
 							}
 
-							maximizeImageImage.type   = Image.Type.Sliced;
+							mMaximizeImage.type   = Image.Type.Sliced;
 							#endregion
 							
 							//===========================================================================
 							// ButtonGlowScript Component
 							//===========================================================================
 							#region ButtonGlowScript Component
-							ButtonGlowScript maximizeButtonGlowScript = maximizeImage.AddComponent<ButtonGlowScript>();
+							ButtonGlowScript maximizeButtonGlowScript = maximizeImageObject.AddComponent<ButtonGlowScript>();
 							
 							maximizeButtonGlowScript.rectTransform = maximizeTransform;
 							#endregion
@@ -1672,22 +1730,22 @@ namespace Common.UI.Windows
 							// Button Component
 							//===========================================================================
 							#region Button Component
-							mMaximizeButton = mMaximizeGameObject.AddComponent<Button>();
+							Button maximizeButton = mMaximizeGameObject.AddComponent<Button>();
 							
-							mMaximizeButton.interactable  = mAllowMaximize;
-							mMaximizeButton.targetGraphic = maximizeImageImage;
-							mMaximizeButton.transition    = Selectable.Transition.SpriteSwap;
+							maximizeButton.interactable  = mAllowMaximize;
+							maximizeButton.targetGraphic = mMaximizeImage;
+							maximizeButton.transition    = Selectable.Transition.SpriteSwap;
 							
 							if (mState != WindowState.Maximized)
 							{
-								mMaximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
+								maximizeButton.spriteState   = Internal.WindowCommon.maximizeButtonSpriteState;
 							}
 							else
 							{
-								mMaximizeButton.spriteState   = Internal.WindowCommon.normalizeButtonSpriteState;
+								maximizeButton.spriteState   = Internal.WindowCommon.normalizeButtonSpriteState;
 							}
 							
-							mMaximizeButton.onClick.AddListener(OnMaximizeClicked);
+							maximizeButton.onClick.AddListener(OnMaximizeClicked);
 							#endregion
 							#endregion
 							
@@ -1713,14 +1771,14 @@ namespace Common.UI.Windows
 							// MinimizeImage GameObject
 							//***************************************************************************
 							#region MinimizeImage GameObject
-							GameObject minimizeImage = new GameObject("Image");
-							Utils.InitUIObject(minimizeImage, mMinimizeGameObject.transform);
+							GameObject minimizeImageObject = new GameObject("Image");
+							Utils.InitUIObject(minimizeImageObject, mMinimizeGameObject.transform);
 							
 							//===========================================================================
 							// RectTransform Component
 							//===========================================================================
 							#region RectTransform Component
-							RectTransform minimizeImageTransform = minimizeImage.AddComponent<RectTransform>();
+							RectTransform minimizeImageTransform = minimizeImageObject.AddComponent<RectTransform>();
 							Utils.AlignRectTransformStretchStretch(minimizeImageTransform, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH, -BUTTON_GLOW_WIDTH);
 							#endregion
 							
@@ -1728,32 +1786,46 @@ namespace Common.UI.Windows
 							// CanvasRenderer Component
 							//===========================================================================
 							#region CanvasRenderer Component
-							minimizeImage.AddComponent<CanvasRenderer>();
+							minimizeImageObject.AddComponent<CanvasRenderer>();
 							#endregion
 							
 							//===========================================================================
 							// Image Component
 							//===========================================================================
 							#region Image Component
-							Image minimizeImageImage = minimizeImage.AddComponent<Image>();
+							mMinimizeImage = minimizeImageObject.AddComponent<Image>();
 							
 							if (mState != WindowState.Minimized)
 							{
-								minimizeImageImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
+								if (selected)
+								{
+									mMinimizeImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
+								}
+								else
+								{
+									mMinimizeImage.sprite = Assets.Windows.Common.Textures.minimizeButtonDeselected;
+								}
 							}
 							else
 							{
-								minimizeImageImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+								if (selected)
+								{
+									mMinimizeImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+								}
+								else
+								{
+									mMinimizeImage.sprite = Assets.Windows.Common.Textures.normalizeButtonDeselected;
+								}
 							}
 													
-							minimizeImageImage.type   = Image.Type.Sliced;
+							mMinimizeImage.type   = Image.Type.Sliced;
 							#endregion
 							
 							//===========================================================================
 							// ButtonGlowScript Component
 							//===========================================================================
 							#region ButtonGlowScript Component
-							ButtonGlowScript minimizeButtonGlowScript = minimizeImage.AddComponent<ButtonGlowScript>();
+							ButtonGlowScript minimizeButtonGlowScript = minimizeImageObject.AddComponent<ButtonGlowScript>();
 							
 							minimizeButtonGlowScript.rectTransform = minimizeTransform;
 							#endregion
@@ -1763,22 +1835,22 @@ namespace Common.UI.Windows
 							// Button Component
 							//===========================================================================
 							#region Button Component
-							mMinimizeButton = mMinimizeGameObject.AddComponent<Button>();
+							Button minimizeButton = mMinimizeGameObject.AddComponent<Button>();
 							
-							mMinimizeButton.interactable  = mAllowMinimize;
-							mMinimizeButton.targetGraphic = minimizeImageImage;
-							mMinimizeButton.transition    = Selectable.Transition.SpriteSwap;
+							minimizeButton.interactable  = mAllowMinimize;
+							minimizeButton.targetGraphic = mMinimizeImage;
+							minimizeButton.transition    = Selectable.Transition.SpriteSwap;
 							
 							if (mState != WindowState.Minimized)
 							{
-								mMinimizeButton.spriteState = Internal.WindowCommon.minimizeButtonSpriteState;
+								minimizeButton.spriteState = Internal.WindowCommon.minimizeButtonSpriteState;
 							}	
 							else
 							{
-								mMinimizeButton.spriteState = Internal.WindowCommon.normalizeButtonSpriteState;
+								minimizeButton.spriteState = Internal.WindowCommon.normalizeButtonSpriteState;
 							}
 							
-							mMinimizeButton.onClick.AddListener(OnMinimizeClicked);
+							minimizeButton.onClick.AddListener(OnMinimizeClicked);
 							#endregion
 							#endregion							
 						}
@@ -1843,14 +1915,14 @@ namespace Common.UI.Windows
 						// CloseImage GameObject
 						//***************************************************************************
 						#region CloseImage GameObject
-						GameObject closeImage = new GameObject("Image");
-						Utils.InitUIObject(closeImage, mCloseGameObject.transform);
+						GameObject closeImageObject = new GameObject("Image");
+						Utils.InitUIObject(closeImageObject, mCloseGameObject.transform);
 						
 						//===========================================================================
 						// RectTransform Component
 						//===========================================================================
 						#region RectTransform Component
-						RectTransform closeImageTransform = closeImage.AddComponent<RectTransform>();
+						RectTransform closeImageTransform = closeImageObject.AddComponent<RectTransform>();
 						Utils.AlignRectTransformStretchStretch(closeImageTransform, -TOOL_BUTTON_GLOW_WIDTH, -TOOL_BUTTON_GLOW_WIDTH, -TOOL_BUTTON_GLOW_WIDTH, -TOOL_BUTTON_GLOW_WIDTH);
 						#endregion
 						
@@ -1858,24 +1930,32 @@ namespace Common.UI.Windows
 						// CanvasRenderer Component
 						//===========================================================================
 						#region CanvasRenderer Component
-						closeImage.AddComponent<CanvasRenderer>();
+						closeImageObject.AddComponent<CanvasRenderer>();
 						#endregion
 						
 						//===========================================================================
 						// Image Component
 						//===========================================================================
 						#region Image Component
-						Image closeImageImage = closeImage.AddComponent<Image>();
-						
-						closeImageImage.sprite = Assets.Windows.Common.Textures.toolCloseButton;
-						closeImageImage.type   = Image.Type.Sliced;
+						mCloseImage = closeImageObject.AddComponent<Image>();
+
+						if (selected)
+						{
+							mCloseImage.sprite = Assets.Windows.Common.Textures.toolCloseButton;
+						}
+						else
+						{
+							mCloseImage.sprite = Assets.Windows.Common.Textures.toolCloseButtonDeselected;
+						}
+
+						mCloseImage.type   = Image.Type.Sliced;
 						#endregion
 						
 						//===========================================================================
 						// ButtonGlowScript Component
 						//===========================================================================
 						#region ButtonGlowScript Component
-						ButtonGlowScript closeButtonGlowScript = closeImage.AddComponent<ButtonGlowScript>();
+						ButtonGlowScript closeButtonGlowScript = closeImageObject.AddComponent<ButtonGlowScript>();
 						
 						closeButtonGlowScript.rectTransform = closeTransform;
 						#endregion
@@ -1885,13 +1965,13 @@ namespace Common.UI.Windows
 						// Button Component
 						//===========================================================================
 						#region Button Component
-						mCloseButton = mCloseGameObject.AddComponent<Button>();
+						Button closeButton = mCloseGameObject.AddComponent<Button>();
 						
-						mCloseButton.interactable  = mAllowClose;
-						mCloseButton.targetGraphic = closeImageImage;
-						mCloseButton.transition    = Selectable.Transition.SpriteSwap;
-						mCloseButton.spriteState   = Internal.WindowCommon.toolCloseButtonSpriteState;
-						mCloseButton.onClick.AddListener(Close);
+						closeButton.interactable  = mAllowClose;
+						closeButton.targetGraphic = mCloseImage;
+						closeButton.transition    = Selectable.Transition.SpriteSwap;
+						closeButton.spriteState   = Internal.WindowCommon.toolCloseButtonSpriteState;
+						closeButton.onClick.AddListener(Close);
 						#endregion
 						#endregion
 
@@ -1968,21 +2048,21 @@ namespace Common.UI.Windows
 			{
 				UnityEngine.Object.DestroyObject(mMinimizeGameObject);
 				mMinimizeGameObject = null;
-				mMinimizeButton     = null;
+				mMinimizeImage      = null;
 			}
 
 			if (mMaximizeGameObject != null)
 			{
 				UnityEngine.Object.DestroyObject(mMaximizeGameObject);
 				mMaximizeGameObject = null;
-				mMaximizeButton     = null;
+				mMaximizeImage      = null;
 			}
 
 			if (mCloseGameObject != null)
 			{
 				UnityEngine.Object.DestroyObject(mCloseGameObject);
 				mCloseGameObject = null;
-				mCloseButton     = null;
+				mCloseImage      = null;
 			}
 		}
 
@@ -2165,7 +2245,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Handler for destroy event.
 		/// </summary>
-		public virtual void OnDestroy()
+		protected virtual void OnDestroy()
 		{
 			Global.resizeListenerScript.RemoveListener(OnScreenResize);
 
@@ -2174,7 +2254,23 @@ namespace Common.UI.Windows
 				Translator.removeLanguageChangedListener(UpdateTitleText);
 			}
 
+
+
 			DestroyReplacement();
+
+
+
+			windows.Remove(this);
+
+			if (selectedWindow == this)
+			{
+				selectedWindow = null;
+
+				if (windows.Count > 0)
+				{
+					windows[0].SetSelected(true);
+				}
+			}
 		}
 
 		/// <summary>
@@ -2304,8 +2400,10 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
-		public virtual void Update()
+		protected virtual void Update()
 		{
+			bool leftMouseButtonPressed = InputControl.GetMouseButtonDown(MouseButton.Left);
+
 			if (IsFramePresent())
 			{
 				switch (mMouseState)
@@ -2569,8 +2667,8 @@ namespace Common.UI.Windows
 							{
 								case MouseLocation.Header:
 								{
-									if (InputControl.GetMouseButtonDown(MouseButton.Left))
-									{
+									if (leftMouseButtonPressed)
+                            		{
 										mMouseState = MouseState.Dragging;
 										
 										mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height, mWindowTransform.offsetMin.x, -mWindowTransform.offsetMax.y);
@@ -2589,7 +2687,7 @@ namespace Common.UI.Windows
 								{
 									if (mResizable && mState == WindowState.NoState)
 									{
-										if (InputControl.GetMouseButtonDown(MouseButton.Left))
+										if (leftMouseButtonPressed)
 										{
 											mMouseState = MouseState.Resizing;
 											
@@ -3094,10 +3192,44 @@ namespace Common.UI.Windows
 					break;
 				}
 			}
-		}
 
-		/// <summary>
-		/// Handler for screen resize event.
+			if (leftMouseButtonPressed)
+			{
+				PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
+				pointerEvent.position = InputControl.mousePosition;
+				
+				List<RaycastResult> hits = new List<RaycastResult>();
+				EventSystem.current.RaycastAll(pointerEvent, hits);
+
+				bool isSelected = false;
+
+				if (hits.Count > 0)
+				{
+					Transform curTransform = hits[0].gameObject.transform;
+					
+					while (curTransform != null)
+					{
+						if (curTransform == transform)
+						{
+							isSelected = true;
+                            break;
+                        }
+
+						if (curTransform.GetComponent<WindowScript>() != null)
+						{
+							break;
+                        }
+                        
+                        curTransform = curTransform.parent;
+                    }
+                }
+                
+                SetSelected(isSelected);
+            }
+        }
+        
+        /// <summary>
+        /// Handler for screen resize event.
 		/// </summary>
 		public void OnScreenResize()
 		{
@@ -3114,17 +3246,151 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Handler for resize event.
 		/// </summary>
-		public virtual void OnResize()
+		protected virtual void OnResize()
 		{
 			// Nothing
 		}
 
 		/// <summary>
-		/// Show window.
+		/// Sets window selected state.
+		/// </summary>
+		/// <param name="value">If set to <c>true</c> window is selected.</param>
+		private void SetSelected(bool value)
+		{
+			if (value != (selectedWindow == this))
+			{
+				if (value)
+				{
+					if (selectedWindow != null)
+					{
+						selectedWindow.SetSelected(false);
+                    }
+
+					selectedWindow = this;
+				}
+				else
+				{
+					selectedWindow = null;
+				}
+
+				if (IsUICreated())
+				{
+					if (IsFramePresent())
+					{
+						UpdateBorderImage();
+					}
+
+					switch (mFrame)
+					{
+						case WindowFrameType.Window:
+						case WindowFrameType.SubWindow:
+						{
+							if (mMinimizeImage != null)
+							{
+								if (mState != WindowState.Minimized)
+								{
+									if (value)
+									{
+										mMinimizeImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
+									}
+									else
+									{
+										mMinimizeImage.sprite = Assets.Windows.Common.Textures.minimizeButtonDeselected;
+									}
+								}
+								else
+								{
+									if (value)
+									{
+										mMinimizeImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+									}
+									else
+									{
+										mMinimizeImage.sprite = Assets.Windows.Common.Textures.normalizeButtonDeselected;
+									}
+								}
+							}
+
+							if (mMaximizeImage != null)
+							{
+								if (mState != WindowState.Maximized)
+								{
+									if (value)
+									{
+										mMaximizeImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
+									}
+									else
+									{
+										mMaximizeImage.sprite = Assets.Windows.Common.Textures.maximizeButtonDeselected;
+									}
+								}
+								else
+								{
+									if (value)
+									{
+										mMaximizeImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
+									}
+									else
+									{
+										mMaximizeImage.sprite = Assets.Windows.Common.Textures.normalizeButtonDeselected;
+									}
+								}
+							}
+
+							if (mCloseImage != null)
+							{
+								if (value)
+								{
+									mCloseImage.sprite = Assets.Windows.Common.Textures.closeButton;
+								}
+								else
+								{
+									mCloseImage.sprite = Assets.Windows.Common.Textures.closeButtonDeselected;
+								}
+							}
+						}
+						break;
+
+						case WindowFrameType.Drawer:
+						{
+							if (mCloseImage != null)
+							{
+								if (value)
+								{
+									mCloseImage.sprite = Assets.Windows.Common.Textures.toolCloseButton;
+								}
+								else
+								{
+									mCloseImage.sprite = Assets.Windows.Common.Textures.toolCloseButtonDeselected;
+								}
+							}
+						}
+						break;
+
+						case WindowFrameType.Frameless:
+						{
+							// Nothing
+						}
+						break;
+
+						default:
+						{
+							Debug.LogError("Unknown window frame");
+						}
+						break;
+					}
+				}
+            }
+		}
+        
+        /// <summary>
+        /// Show window.
 		/// </summary>
 		public void Show()
 		{
 			gameObject.SetActive(true);
+
+			SetSelected(true);
 		}
 
 		/// <summary>

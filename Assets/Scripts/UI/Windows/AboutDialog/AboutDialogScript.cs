@@ -514,7 +514,7 @@ namespace UI.Windows.AboutDialog
 		/// <summary>
 		/// Handler for destroy event.
 		/// </summary>
-		public override void OnDestroy()
+		protected override void OnDestroy()
 		{
 			base.OnDestroy();
 
@@ -533,7 +533,7 @@ namespace UI.Windows.AboutDialog
 		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
-		public override void Update()
+		protected override void Update()
 		{
 			base.Update();
 
@@ -547,8 +547,7 @@ namespace UI.Windows.AboutDialog
 				}
 
 				// TODO: Check it home
-				// TODO: If selected
-				if (InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
+				if (selected && InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
 				{
 					++mCurrentSecretChar;
 

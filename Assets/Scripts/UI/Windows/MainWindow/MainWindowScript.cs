@@ -50,8 +50,10 @@ namespace UI.Windows.MainWindow
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
-			frame = WindowFrameType.Frameless;
-			state = WindowState.FullScreen;
+			frame           = WindowFrameType.Frameless;
+			state           = WindowState.FullScreen;
+			backgroundColor = new Color(0.6f, 0.6f, 0.6f);
+			allowClose      = false;
 
 			width  = 0f;
 			height = 0f;
@@ -155,7 +157,7 @@ namespace UI.Windows.MainWindow
 		/// <summary>
 		/// Handler for destroy event.
 		/// </summary>
-		public override void OnDestroy()
+		protected override void OnDestroy()
 		{
 			base.OnDestroy();
 
@@ -172,7 +174,7 @@ namespace UI.Windows.MainWindow
 		/// <summary>
 		/// Handler for resize event.
 		/// </summary>
-		public override void OnResize()
+		protected override void OnResize()
 		{
 			if (Global.toolbarScript != null)
 			{
