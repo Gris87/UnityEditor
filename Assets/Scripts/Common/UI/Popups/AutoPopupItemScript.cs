@@ -45,7 +45,7 @@ namespace Common.UI.Popups
 		/// </summary>
 		void OnDestroy()
 		{
-			Global.popupMenuAreaScript.OnAutoPopupItemDestroy(this);
+			Global.popupMenuAreaScript.OnAutoPopupItemDestroy(this); // TODO: Remove Global from Common part
 		}
 		
 		/// <summary>

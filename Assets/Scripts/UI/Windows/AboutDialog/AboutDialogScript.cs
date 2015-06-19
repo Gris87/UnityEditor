@@ -585,7 +585,7 @@ namespace UI.Windows.AboutDialog
 		/// </summary>
 		public void OnLanguageChanged()
 		{
-			mVersionText.text    = Translator.getString(R.sections.AboutDialog.strings.version, Utils.version());
+			mVersionText.text    = Translator.getString(R.sections.AboutDialog.strings.version, AppUtils.version());
 			mMonoLogoText.text   = Translator.getString(R.sections.AboutDialog.strings.scripting_powered_by, "The Mono Project");
 			mMonoLogoText2.text  = "(c) 2011 Novell, Inc.";
 			mPhysXLogoText.text  = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by, "PhysX");
