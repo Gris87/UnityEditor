@@ -1246,7 +1246,7 @@ namespace Common.UI.Windows
 		/// </summary>
 		protected virtual void Start()
 		{
-			Global.resizeListenerScript.AddListener(OnScreenResize);
+			Global.resizeListenerScript.AddListener(OnScreenResize); // TODO: Remove Global from Common part
 
 			CreateUI();
 		}
@@ -2247,7 +2247,7 @@ namespace Common.UI.Windows
 		/// </summary>
 		protected virtual void OnDestroy()
 		{
-			Global.resizeListenerScript.RemoveListener(OnScreenResize);
+			Global.resizeListenerScript.RemoveListener(OnScreenResize); // TODO: Remove Global from Common part
 
 			if (mTitleText != null)
 			{

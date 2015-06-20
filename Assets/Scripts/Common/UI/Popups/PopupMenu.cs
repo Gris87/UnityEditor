@@ -98,7 +98,7 @@ namespace Common.UI.Popups
 				mGameObject = null;
 			}
 			
-			Global.popupMenuAreaScript.DeregisterPopupMenu(this);
+			Global.popupMenuAreaScript.DeregisterPopupMenu(this); // TODO: Remove Global from Common part
 			
 			mOnDestroy.Invoke();
 		}
@@ -112,14 +112,14 @@ namespace Common.UI.Popups
 		/// <param name="bottom">Bottom edge for button of parent popup if present.</param>
 		public void Show(float x, float y, float left = -1, float bottom = -1)
 		{
-			Global.popupMenuAreaScript.RegisterPopupMenu(this);
+			Global.popupMenuAreaScript.RegisterPopupMenu(this); // TODO: Remove Global from Common part
 			
 			//***************************************************************************
 			// PopupMenu GameObject
 			//***************************************************************************
 			#region PopupMenu GameObject
 			mGameObject = new GameObject("PopupMenu");
-			Utils.InitUIObject(mGameObject, Global.popupMenuAreaTransform);
+			Utils.InitUIObject(mGameObject, Global.popupMenuAreaScript.transform); // TODO: Remove Global from Common part
 			
 			//===========================================================================
 			// RectTransform Component
@@ -303,7 +303,7 @@ namespace Common.UI.Popups
 									menuItemButtonButton.onClick.AddListener(() => OnSelectItem(item));
 								}
 								
-								menuItemButtonButton.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll);                                
+								menuItemButtonButton.onClick.AddListener(Global.popupMenuAreaScript.DestroyAll); // TODO: Remove Global from Common part
 							}
 						}
 						else

@@ -1,7 +1,7 @@
 /// <summary>
-/// Class with some stuff.
+/// Class with constants.
 /// </summary>
-public static class Stuff
+public static class Constants
 {
 	/// <summary>
 	/// Source code URL.

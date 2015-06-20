@@ -68,15 +68,6 @@ namespace Common.UI.Toasts
 		{
 			AddToast(parent, null, tokenId, tokenArguments, duration);
 		}
-		
-		/// <summary>
-		/// Show text notification with the contribute message.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		public static void ShowContributeMessage(Transform parent)
-		{
-			Show(parent, R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG, Stuff.sourceCodeUrl);
-		}
 
 		/// <summary>
 		/// Adds toast to the list.

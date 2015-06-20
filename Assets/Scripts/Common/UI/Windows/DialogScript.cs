@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Common.UI.Toasts;
+
 
 
 namespace Common.UI.Windows
@@ -24,9 +26,13 @@ namespace Common.UI.Windows
 
 			mComponentStates = new Dictionary<Behaviour, bool>();
 
-			for (int i = 0; i < Global.windowsTransform.childCount; ++i)
+
+
+			Transform parent = transform.parent;
+
+			for (int i = 0; i < parent.childCount; ++i)
 			{
-				Transform child = Global.windowsTransform.GetChild(i);
+				Transform child = parent.GetChild(i);
 
 				if (child != transform)
 				{
@@ -40,6 +46,8 @@ namespace Common.UI.Windows
 							!(component is Mask)
 							&&
 							!(component is Text)
+							&&
+							!(component is ToastScript)
 						   )
 						{
 							mComponentStates.Add(component, component.enabled);

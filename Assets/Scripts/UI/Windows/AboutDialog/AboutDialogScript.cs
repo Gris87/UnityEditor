@@ -15,7 +15,7 @@ namespace UI.Windows.AboutDialog
 	/// <summary>
 	/// Script that realize about dialog behaviour.
 	/// </summary>
-	public class AboutDialogScript : WindowScript
+	public class AboutDialogScript : DialogScript
 	{
 		private static readonly string SECRET_CODE    = "internal";
 		private static readonly float  SCROLL_SPEED   = 0.02f;

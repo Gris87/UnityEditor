@@ -168,8 +168,6 @@ namespace UI
 			#region RectTransform Component
 			RectTransform popupMenuAreaTransform = popupMenuArea.AddComponent<RectTransform>();
 			Utils.AlignRectTransformStretchStretch(popupMenuAreaTransform);
-			
-			Global.popupMenuAreaTransform = popupMenuAreaTransform;
 			#endregion
 			
 			//===========================================================================

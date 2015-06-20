@@ -53,7 +53,7 @@ namespace Common.UI.Popups
 		/// </summary>
 		void OnDisable()
 		{
-			Global.popupMenuAreaScript.OnAutoPopupItemDisable(this);
+			Global.popupMenuAreaScript.OnAutoPopupItemDisable(this); // TODO: Remove Global from Common part
 		}
 		
 		/// <summary>
@@ -62,7 +62,7 @@ namespace Common.UI.Popups
 		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerEnter(PointerEventData eventData)
 		{
-			Global.popupMenuAreaScript.OnAutoPopupItemEnter(this);
+			Global.popupMenuAreaScript.OnAutoPopupItemEnter(this); // TODO: Remove Global from Common part
 		}
 		
 		/// <summary>
@@ -71,7 +71,7 @@ namespace Common.UI.Popups
 		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerExit(PointerEventData eventData)
 		{
-			Global.popupMenuAreaScript.OnAutoPopupItemExit(this);
+			Global.popupMenuAreaScript.OnAutoPopupItemExit(this); // TODO: Remove Global from Common part
 		}
 
 		/// <summary>

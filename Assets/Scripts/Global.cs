@@ -27,11 +27,6 @@ public static class Global
 	public static Transform windowsTransform = null;
 
 	/// <summary>
-	/// PopupMenuArea transform.
-	/// </summary>
-	public static Transform popupMenuAreaTransform = null;
-
-	/// <summary>
 	/// PopupMenuArea script.
 	/// </summary>
 	public static PopupMenuAreaScript popupMenuAreaScript = null;
