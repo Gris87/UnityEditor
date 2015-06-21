@@ -32,7 +32,7 @@ namespace Common.UI.Tooltips
 		/// </summary>
 		void OnDestroy()
 		{
-			Global.tooltipAreaScript.OnTooltipOwnerDestroy(this); // TODO: Remove Global from Common part
+			TooltipAreaScript.OnTooltipOwnerDestroy(this); 
 		}
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace Common.UI.Tooltips
 		/// </summary>
 		void OnDisable()
 		{
-			Global.tooltipAreaScript.OnTooltipOwnerDisable(this); // TODO: Remove Global from Common part
+			TooltipAreaScript.OnTooltipOwnerDisable(this); 
 		}
 
 		/// <summary>
@@ -49,7 +49,7 @@ namespace Common.UI.Tooltips
 		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerEnter(PointerEventData eventData)
 		{
-			Global.tooltipAreaScript.OnTooltipOwnerEnter(this); // TODO: Remove Global from Common part
+			TooltipAreaScript.OnTooltipOwnerEnter(this); 
 		}
 
 		/// <summary>
@@ -58,7 +58,7 @@ namespace Common.UI.Tooltips
 		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerExit(PointerEventData eventData)
         {
-			Global.tooltipAreaScript.OnTooltipOwnerExit(this); // TODO: Remove Global from Common part
+			TooltipAreaScript.OnTooltipOwnerExit(this); 
         }
     }
 }

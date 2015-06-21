@@ -12,6 +12,8 @@ namespace Common.UI.Listeners
 	{
 		private static readonly float CHECK_INTERVAL = 200f / 1000f;
 
+
+
 		private static ResizeListenerScript instance = null;
 
 

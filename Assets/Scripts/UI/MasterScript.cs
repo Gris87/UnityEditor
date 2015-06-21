@@ -199,7 +199,7 @@ namespace UI
 			// TooltipAreaScript Component
 			//===========================================================================
 			#region TooltipAreaScript Component
-			Global.tooltipAreaScript = tooltipArea.AddComponent<TooltipAreaScript>();
+			tooltipArea.AddComponent<TooltipAreaScript>();
 			#endregion
 			#endregion
 		}

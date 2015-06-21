@@ -20,6 +20,10 @@ namespace Common.UI.Tooltips
 
 
 
+		private static TooltipAreaScript instance = null;
+
+
+
 		private TooltipOwnerScript mCurrentOwner;
 		private TooltipOwnerScript mNextOwner;
 		private float              mRemainingTime;
@@ -32,10 +36,30 @@ namespace Common.UI.Tooltips
 		/// </summary>
 		void Start()
 		{
+			if (instance == null)
+			{
+				instance = this;
+			}
+			else
+			{
+				Debug.LogError("Two instances of TooltipAreaScript not supported");
+			}
+
 			mCurrentOwner  = null;
 			mNextOwner     = null;
 			mRemainingTime = TIMER_NOT_ACTIVE;
 			mOnTimeout     = null;
+		}
+
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
+			if (instance == this)
+			{
+				instance = null;
+			}
 		}
 		
 		/// <summary>
@@ -67,17 +91,24 @@ namespace Common.UI.Tooltips
 		/// Handler on owner destroy event.
 		/// </summary>
 		/// <param name="owner">Tooltip owner.</param>
-		public void OnTooltipOwnerDestroy(TooltipOwnerScript owner)
+		public static void OnTooltipOwnerDestroy(TooltipOwnerScript owner)
 		{
-			if (mCurrentOwner == owner)
+			if (instance != null)
 			{
-				DestroyTooltip();
+				if (instance.mCurrentOwner == owner)
+				{
+					instance.DestroyTooltip();
+				}
+				else
+				if (instance.mNextOwner == owner)
+				{
+					instance.mNextOwner = null;
+					instance.StopTimer();
+				}
 			}
 			else
-			if (mNextOwner == owner)
 			{
-				mNextOwner = null;
-				StopTimer();
+				Debug.LogError("There is no TooltipAreaScript instance");
 			}
 		}
 
@@ -85,17 +116,24 @@ namespace Common.UI.Tooltips
 		/// Handler on owner disable event.
 		/// </summary>
 		/// <param name="owner">Tooltip owner.</param>
-		public void OnTooltipOwnerDisable(TooltipOwnerScript owner)
+		public static void OnTooltipOwnerDisable(TooltipOwnerScript owner)
 		{
-			if (mCurrentOwner == owner)
+			if (instance != null)
 			{
-				DestroyTooltip();
+				if (instance.mCurrentOwner == owner)
+				{
+					instance.DestroyTooltip();
+				}
+				else
+				if (instance.mNextOwner == owner)
+				{
+					instance.mNextOwner = null;
+					instance.StopTimer();
+				}
 			}
 			else
-			if (mNextOwner == owner)
 			{
-				mNextOwner = null;
-				StopTimer();
+				Debug.LogError("There is no TooltipAreaScript instance");
 			}
 		}
 
@@ -103,34 +141,41 @@ namespace Common.UI.Tooltips
 		/// Handler on owner pointer enter event.
 		/// </summary>
 		/// <param name="owner">Tooltip owner.</param>
-		public void OnTooltipOwnerEnter(TooltipOwnerScript owner)
+		public static void OnTooltipOwnerEnter(TooltipOwnerScript owner)
 		{
-			if (mCurrentOwner != null)
+			if (instance != null)
 			{
-				if (mCurrentOwner == owner)
+				if (instance.mCurrentOwner != null)
 				{
-					mNextOwner = null;
-					StopTimer();
-				}
-				else
-				{
-					mNextOwner = owner;
-					
-					if (IsTimerActive())
+					if (instance.mCurrentOwner == owner)
 					{
-						CreateTooltip();
-						StopTimer();
+						instance.mNextOwner = null;
+						instance.StopTimer();
 					}
 					else
 					{
-						StartTimer(SHOW_DELAY, CreateTooltip);
+						instance.mNextOwner = owner;
+						
+						if (instance.IsTimerActive())
+						{
+							instance.CreateTooltip();
+							instance.StopTimer();
+						}
+						else
+						{
+							instance.StartTimer(SHOW_DELAY, instance.CreateTooltip);
+						}
 					}
+				}
+				else
+				{
+					instance.mNextOwner = owner;
+					instance.StartTimer(SHOW_DELAY, instance.CreateTooltip);
 				}
 			}
 			else
 			{
-				mNextOwner = owner;
-				StartTimer(SHOW_DELAY, CreateTooltip);
+				Debug.LogError("There is no TooltipAreaScript instance");
 			}
 		}
 
@@ -138,20 +183,27 @@ namespace Common.UI.Tooltips
 		/// Handler on owner pointer exit event.
 		/// </summary>
 		/// <param name="owner">Tooltip owner.</param>
-		public void OnTooltipOwnerExit(TooltipOwnerScript owner)
+		public static void OnTooltipOwnerExit(TooltipOwnerScript owner)
 		{
-			mNextOwner = null;
-
-			if (mCurrentOwner != null)
+			if (instance != null)
 			{
-				if (mCurrentOwner == owner)
+				instance.mNextOwner = null;
+				
+				if (instance.mCurrentOwner != null)
 				{
-					StartTimer(HIDE_DELAY, DestroyTooltip);
+					if (instance.mCurrentOwner == owner)
+					{
+						instance.StartTimer(HIDE_DELAY, instance.DestroyTooltip);
+					}
+				}
+				else
+				{
+					instance.StopTimer();
 				}
 			}
 			else
 			{
-				StopTimer();
+				Debug.LogError("There is no TooltipAreaScript instance");
 			}
 		}
 
