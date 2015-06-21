@@ -100,9 +100,9 @@ namespace UI
 			#endregion
 			
 			//===========================================================================
-			// PopupMenuAreaScript Component
+			// ResizeListenerScript Component
 			//===========================================================================
-			#region PopupMenuAreaScript Component
+			#region ResizeListenerScript Component
 			resizeListener.AddComponent<ResizeListenerScript>();
 			#endregion
 			#endregion
@@ -174,7 +174,7 @@ namespace UI
 			// PopupMenuAreaScript Component
 			//===========================================================================
 			#region PopupMenuAreaScript Component
-			Global.popupMenuAreaScript = popupMenuArea.AddComponent<PopupMenuAreaScript>();
+			popupMenuArea.AddComponent<PopupMenuAreaScript>();
 			#endregion
 			#endregion
 			

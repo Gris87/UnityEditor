@@ -47,7 +47,7 @@ namespace Common.UI.Windows
 							&&
 							!(component is Text)
 							&&
-							!(component is ToastScript)
+							!(component is ToastScript) // TODO: Remove it, shall destroy on disabling
 						   )
 						{
 							mComponentStates.Add(component, component.enabled);

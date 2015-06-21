@@ -15,6 +15,21 @@ namespace Common.UI.Popups
 
 
 
+		/// <summary>
+		/// Gets the instance geometry.
+		/// </summary>
+		/// <value>Instance geometry.</value>
+		public static Transform geometry
+		{
+			get { return instance.transform; }
+		}
+
+
+
+		private static PopupMenuAreaScript instance = null;
+
+
+
 		private List<PopupMenu>     mPopupMenus;
 		private AutoPopupItemScript mAutoPopupItem;
 		private float               mRemainingTime;
@@ -26,9 +41,29 @@ namespace Common.UI.Popups
 		/// </summary>
 		void Start()
 		{
+			if (instance == null)
+			{
+				instance = this;
+			}
+			else
+			{
+				Debug.LogError("Two instances of PopupMenuAreaScript not supported");
+			}
+
 			mPopupMenus    = new List<PopupMenu>();
 			mAutoPopupItem = null;
 			mRemainingTime = TIMER_NOT_ACTIVE;
+		}
+
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
+			if (instance == this)
+			{
+				instance = null;
+			}
 		}
 		
 		/// <summary>
@@ -88,45 +123,73 @@ namespace Common.UI.Popups
 			}
 		}
 
-		public void OnAutoPopupItemDestroy(AutoPopupItemScript item)
+		public static void OnAutoPopupItemDestroy(AutoPopupItemScript item)
 		{
-			if (mPopupMenus.Count > 0)
+			if (instance != null)
 			{
-				if (mAutoPopupItem == item)
+				if (instance.mPopupMenus.Count > 0)
 				{
-					mAutoPopupItem = null;
-					StopTimer();
+					if (instance.mAutoPopupItem == item)
+					{
+						instance.mAutoPopupItem = null;
+						instance.StopTimer();
+					}
 				}
 			}
+			else
+			{
+				Debug.LogError("There is no PopupMenuAreaScript instance");
+			}
 		}
 
-		public void OnAutoPopupItemDisable(AutoPopupItemScript item)
+		public static void OnAutoPopupItemDisable(AutoPopupItemScript item)
 		{
-			if (mPopupMenus.Count > 0)
+			if (instance != null)
 			{
-				if (mAutoPopupItem == item)
+				if (instance.mPopupMenus.Count > 0)
 				{
-					mAutoPopupItem = null;
-					StopTimer();
+					if (instance.mAutoPopupItem == item)
+					{
+						instance.mAutoPopupItem = null;
+						instance.StopTimer();
+					}
 				}
 			}
-		}
-
-		public void OnAutoPopupItemEnter(AutoPopupItemScript item)
-		{
-			if (mPopupMenus.Count > 0)
+			else
 			{
-				mAutoPopupItem = item;
-				StartTimer(mAutoPopupItem.delay);
+				Debug.LogError("There is no PopupMenuAreaScript instance");
 			}
 		}
 
-		public void OnAutoPopupItemExit(AutoPopupItemScript item)
+		public static void OnAutoPopupItemEnter(AutoPopupItemScript item)
 		{
-			if (mPopupMenus.Count > 0)
+			if (instance != null)
 			{
-				mAutoPopupItem = null;
-				StopTimer();
+				if (instance.mPopupMenus.Count > 0)
+				{
+					instance.mAutoPopupItem = item;
+					instance.StartTimer(instance.mAutoPopupItem.delay);
+				}
+			}
+			else
+			{
+				Debug.LogError("There is no PopupMenuAreaScript instance");
+			}
+		}
+
+		public static void OnAutoPopupItemExit(AutoPopupItemScript item)
+		{
+			if (instance != null)
+			{
+				if (instance.mPopupMenus.Count > 0)
+				{
+					instance.mAutoPopupItem = null;
+					instance.StopTimer();
+				}
+			}
+			else
+			{
+				Debug.LogError("There is no PopupMenuAreaScript instance");
 			}
 		}
 		
@@ -134,34 +197,55 @@ namespace Common.UI.Popups
 		/// Registers specified popup menu.
 		/// </summary>
 		/// <param name="menu">Popup menu.</param>
-		public void RegisterPopupMenu(PopupMenu menu)
+		public static void RegisterPopupMenu(PopupMenu menu)
 		{
-			mPopupMenus.Add(menu);
+			if (instance != null)
+			{
+				instance.mPopupMenus.Add(menu);
+			}
+			else
+			{
+				Debug.LogError("There is no PopupMenuAreaScript instance");
+			}
 		}
 		
 		/// <summary>
 		/// Deregisters specified popup menu.
 		/// </summary>
 		/// <param name="menu">Popup menu.</param>
-		public void DeregisterPopupMenu(PopupMenu menu)
+		public static void DeregisterPopupMenu(PopupMenu menu)
 		{
-			mPopupMenus.Remove(menu);
-
-			if (mPopupMenus.Count == 0)
+			if (instance != null)
 			{
-				mAutoPopupItem = null;
-				StopTimer();
+				instance.mPopupMenus.Remove(menu);
+				
+				if (instance.mPopupMenus.Count == 0)
+				{
+					instance.mAutoPopupItem = null;
+					instance.StopTimer();
+				}
+			}
+			else
+			{
+				Debug.LogError("There is no PopupMenuAreaScript instance");
 			}
 		}
 		
 		/// <summary>
 		/// This method will destroy all popup menus.
 		/// </summary>
-		public void DestroyAll()
+		public static void DestroyAll()
 		{
-			if (mPopupMenus.Count > 0)
+			if (instance != null)
 			{
-				mPopupMenus[0].Destroy();
+				if (instance.mPopupMenus.Count > 0)
+				{
+					instance.mPopupMenus[0].Destroy();
+				}
+			}
+			else
+			{
+				Debug.LogError("There is no PopupMenuAreaScript instance");
 			}
 		}
 
