@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityTranslation;
 
 using Common;
+using Common.UI.Listeners;
 
 
 
@@ -1246,7 +1247,7 @@ namespace Common.UI.Windows
 		/// </summary>
 		protected virtual void Start()
 		{
-			Global.resizeListenerScript.AddListener(OnScreenResize); // TODO: Remove Global from Common part
+			ResizeListenerScript.AddListener(OnScreenResize);
 
 			CreateUI();
 		}
@@ -2247,7 +2248,7 @@ namespace Common.UI.Windows
 		/// </summary>
 		protected virtual void OnDestroy()
 		{
-			Global.resizeListenerScript.RemoveListener(OnScreenResize); // TODO: Remove Global from Common part
+			ResizeListenerScript.RemoveListener(OnScreenResize);
 
 			if (mTitleText != null)
 			{

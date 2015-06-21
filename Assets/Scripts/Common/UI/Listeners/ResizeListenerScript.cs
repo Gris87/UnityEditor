@@ -12,6 +12,8 @@ namespace Common.UI.Listeners
 	{
 		private static readonly float CHECK_INTERVAL = 200f / 1000f;
 
+		private static ResizeListenerScript instance = null;
+
 
 
 		private float mScreenWidth;
@@ -27,11 +29,31 @@ namespace Common.UI.Listeners
 		/// </summary>
 		void Start()
 		{
+			if (instance == null)
+			{
+				instance = this;
+			}
+			else
+			{
+				Debug.LogError("Two instances of ResizeListenerScript not supported");
+			}
+
 			mScreenWidth  = Screen.width;
 			mScreenHeight = Screen.height;
 			mDelay        = CHECK_INTERVAL;
 
 			mListeners = new UnityEvent();
+		}
+
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
+			if (instance == this)
+			{
+				instance = null;
+			}
 		}
 
 		/// <summary>
@@ -66,18 +88,28 @@ namespace Common.UI.Listeners
 		/// Adds the listener.
 		/// </summary>
 		/// <param name="listener">Listener.</param>
-		public void AddListener(UnityAction listener)
+		public static void AddListener(UnityAction listener)
 		{
-			mListeners.AddListener(listener);
+			if (instance != null)
+			{
+				instance.mListeners.AddListener(listener);
+			}
+			else
+			{
+				Debug.LogError("There is no ResizeListenerScript instance");
+			}
 		}
 
 		/// <summary>
 		/// Removes the listener.
 		/// </summary>
 		/// <param name="listener">Listener.</param>
-		public void RemoveListener(UnityAction listener)
+		public static void RemoveListener(UnityAction listener)
 		{
-			mListeners.RemoveListener(listener);
+			if (instance != null)
+			{
+				instance.mListeners.RemoveListener(listener);
+			}
         }
 	}
 }

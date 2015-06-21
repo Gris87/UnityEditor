@@ -103,7 +103,7 @@ namespace UI
 			// PopupMenuAreaScript Component
 			//===========================================================================
 			#region PopupMenuAreaScript Component
-			Global.resizeListenerScript = resizeListener.AddComponent<ResizeListenerScript>();
+			resizeListener.AddComponent<ResizeListenerScript>();
 			#endregion
 			#endregion
 		}
