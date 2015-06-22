@@ -2,8 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using Common;
+using Common.UI.DockWidgets;
 using Common.UI.Windows;
-using UI.Windows.MainWindow.DockWidgets;
+using UI.Windows.MainWindow.DockWidgets.Animation;
+using UI.Windows.MainWindow.DockWidgets.Game;
+using UI.Windows.MainWindow.DockWidgets.Hierarchy;
+using UI.Windows.MainWindow.DockWidgets.Inspector;
+using UI.Windows.MainWindow.DockWidgets.Profiler;
+using UI.Windows.MainWindow.DockWidgets.Project;
+using UI.Windows.MainWindow.DockWidgets.Scene;
 using UI.Windows.MainWindow.MainMenu;
 using UI.Windows.MainWindow.Toolbar;
 
@@ -16,6 +23,15 @@ namespace UI.Windows.MainWindow
 	/// </summary>
 	public class MainWindowScript : WindowScript
 	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.MainWindowScript"/> class.
+		/// </summary>
+		private MainWindowScript()
+			: base()
+		{
+			// Nothing
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.MainWindowScript"/> class.
 		/// </summary>
@@ -52,7 +68,7 @@ namespace UI.Windows.MainWindow
 		{
 			frame           = WindowFrameType.Frameless;
 			state           = WindowState.FullScreen;
-			backgroundColor = new Color(0.6f, 0.6f, 0.6f);
+			backgroundColor = new Color(0.5f, 0.5f, 0.5f);
 			allowClose      = false;
 
 			width  = 0f;
@@ -123,24 +139,10 @@ namespace UI.Windows.MainWindow
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
-			#endregion
-			
-			//===========================================================================
-			// CanvasRenderer Component
-			//===========================================================================
-			#region CanvasRenderer Component
-			dockingArea.AddComponent<CanvasRenderer>();
-			#endregion
-			
-			//===========================================================================
-			// Image Component
-			//===========================================================================
-			#region Image Component
-			Image dockingAreaImage = dockingArea.AddComponent<Image>();
-			
-			dockingAreaImage.sprite = Assets.Windows.MainWindow.DockWidgets.DockingArea.Textures.background;
-			dockingAreaImage.type   = Image.Type.Sliced;
+			// TODO: Uncomment it
+			// Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
+			// TODO: Remove it
+			Utils.AlignRectTransformStretchLeft(dockingAreaTransform, 100f, 0f, mainMenuHeight + toolbarHeight, 0f);
 			#endregion
 			
 			//===========================================================================
@@ -151,7 +153,36 @@ namespace UI.Windows.MainWindow
 			#endregion
 			#endregion
 
+			// TODO: Remove it BEGIN
+			#region REMOVE IT
+			//***************************************************************************
+			// DockingArea GameObject
+			//***************************************************************************
+			#region DockingArea GameObject
+			dockingArea = new GameObject("DockingArea");
+			Utils.InitUIObject(dockingArea, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchRight(dockingAreaTransform, 100f, 0f, mainMenuHeight + toolbarHeight, 0f);
+			#endregion
+			
+			//===========================================================================
+			// DockingAreaScript Component
+			//===========================================================================
+			#region DockingAreaScript Component
+			dockingArea.AddComponent<DockingAreaScript>();
+			#endregion
+			#endregion
+			#endregion
+			// TODO: Remove it END
+
 			enabled = false;
+
+			LoadDockWidgets();
 		}
 		
 		/// <summary>
@@ -180,6 +211,23 @@ namespace UI.Windows.MainWindow
 			{
 				Global.toolbarScript.OnResize();
 			}
+
+			if (Global.dockingAreaScript != null)
+			{
+				Global.dockingAreaScript.OnResize();
+            }
+		}
+
+		/// <summary>
+		/// Loads dock widgets layout.
+		/// </summary>
+		private void LoadDockWidgets()
+		{
+			// TODO: Remove it
+			SceneDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript);
+			GameDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Horizontal);
+			InspectorDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Vertical, 0);
+			HierarchyDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Horizontal, 0);
 		}
 	}
 }

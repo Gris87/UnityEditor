@@ -17,6 +17,7 @@ namespace UI.Windows.AboutDialog
 	/// </summary>
 	public class AboutDialogScript : DialogScript
 	{
+		private static readonly string WINDOW_KEY     = "AboutDialog";
 		private static readonly string SECRET_CODE    = "internal";
 		private static readonly float  SCROLL_SPEED   = 0.02f;
 		private static readonly string CREDITS        = string.Join(", ", AboutDialogNames.names);        
@@ -42,6 +43,7 @@ namespace UI.Windows.AboutDialog
 		/// Initializes a new instance of the <see cref="UI.Windows.AboutDialog.AboutDialogScript"/> class.
 		/// </summary>
 		private AboutDialogScript()
+			: base()
 		{
 			mIsCreditsDragging = false;
 			mCurrentSecretChar = 0;
@@ -509,6 +511,8 @@ namespace UI.Windows.AboutDialog
 
 			Translator.addLanguageChangedListener(OnLanguageChanged);
 			OnLanguageChanged();
+
+			Load(WINDOW_KEY);
 		}
 		
 		/// <summary>
@@ -517,6 +521,8 @@ namespace UI.Windows.AboutDialog
 		protected override void OnDestroy()
 		{
 			base.OnDestroy();
+
+			Save(WINDOW_KEY);
 
 			Translator.removeLanguageChangedListener(OnLanguageChanged);
 			

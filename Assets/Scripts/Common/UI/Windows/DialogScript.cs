@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Common.UI.Toasts;
-
 
 
 namespace Common.UI.Windows
@@ -13,7 +11,7 @@ namespace Common.UI.Windows
 	/// </summary>
 	public class DialogScript : WindowScript
 	{
-		private Dictionary<Behaviour, bool> mComponentStates;
+		private Dictionary<MonoBehaviour, bool> mComponentStates;
 
 
 
@@ -24,7 +22,7 @@ namespace Common.UI.Windows
 		{
 			base.Start();
 
-			mComponentStates = new Dictionary<Behaviour, bool>();
+			mComponentStates = new Dictionary<MonoBehaviour, bool>();
 
 
 
@@ -36,9 +34,9 @@ namespace Common.UI.Windows
 
 				if (child != transform)
 				{
-					Behaviour[] components = child.GetComponentsInChildren<Behaviour>(true);
-					
-					foreach (Behaviour component in components)
+					MonoBehaviour[] components = child.GetComponentsInChildren<MonoBehaviour>(true);
+
+					foreach (MonoBehaviour component in components)
 					{
 						if (
 							!(component is Image)
@@ -46,8 +44,6 @@ namespace Common.UI.Windows
 							!(component is Mask)
 							&&
 							!(component is Text)
-							&&
-							!(component is ToastScript) // TODO: Remove it, shall destroy on disabling
 						   )
 						{
 							mComponentStates.Add(component, component.enabled);
@@ -65,9 +61,12 @@ namespace Common.UI.Windows
 		{
 			base.OnDestroy();
 
-			foreach(KeyValuePair<Behaviour, bool> componentState in mComponentStates)
+			foreach(KeyValuePair<MonoBehaviour, bool> componentState in mComponentStates)
 			{
-				componentState.Key.enabled = componentState.Value;
+				if (componentState.Key != null)
+				{
+					componentState.Key.enabled = componentState.Value;
+				}
 			}
 		}
 	}

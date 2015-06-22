@@ -3383,6 +3383,41 @@ namespace Common.UI.Windows
 				}
             }
 		}
+
+		/// <summary>
+		/// Save window state.
+		/// </summary>
+		public virtual void Save(string key)
+		{
+			PlayerPrefs.SetFloat( "Windows." + key + ".X",         x);
+			PlayerPrefs.SetFloat( "Windows." + key + ".Y",         y);
+			PlayerPrefs.SetFloat( "Windows." + key + ".Width",     width);
+			PlayerPrefs.SetFloat( "Windows." + key + ".Height",    height);
+			PlayerPrefs.SetString("Windows." + key + ".Maximized", (mState == WindowState.Maximized) ? "True" : "False");
+			
+			PlayerPrefs.Save();
+		}
+
+		/// <summary>
+		/// Load window state.
+		/// </summary>
+		public virtual void Load(string key)
+		{
+			float tempWidth = PlayerPrefs.GetFloat("Windows." + key + ".Width", 0f);
+
+			if (tempWidth > 0f)
+			{
+				x      = PlayerPrefs.GetFloat("Windows." + key + ".X",      x);
+				y      = PlayerPrefs.GetFloat("Windows." + key + ".Y",      y);
+				width  = tempWidth;
+				height = PlayerPrefs.GetFloat("Windows." + key + ".Height", height);
+
+				if (PlayerPrefs.GetString("Windows." + key + ".Maximized", (mState == WindowState.Maximized) ? "True" : "False").ToLower() == "true")
+				{
+					state = WindowState.Maximized;
+				}
+			}
+		}
         
         /// <summary>
         /// Show window.

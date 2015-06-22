@@ -18,10 +18,11 @@ namespace Common
         /// </summary>
         /// <param name="uiObject">User interface object.</param>
         /// <param name="parent">Parent transform.</param>
-        public static void InitUIObject(GameObject uiObject, Transform parent)
+		/// <param name="worldPositionStays">If true, the parent-relative position, scale and rotation is modified such that the object keeps the same world space position, rotation and scale as before.</param>
+		public static void InitUIObject(GameObject uiObject, Transform parent, bool worldPositionStays = false)
         {
-            uiObject.transform.SetParent(parent);
-            uiObject.layer = UI_LAYER;
+            uiObject.transform.SetParent(parent, worldPositionStays);
+			uiObject.layer = UI_LAYER;
         }
 
         /// <summary>

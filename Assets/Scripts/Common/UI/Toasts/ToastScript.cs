@@ -55,6 +55,14 @@ namespace Common.UI.Toasts
 		}
 
 		/// <summary>
+		/// Handler for disable event.
+		/// </summary>
+		void OnDisable()
+		{
+			UnityEngine.Object.DestroyObject(gameObject);
+		}
+
+		/// <summary>
 		/// Update is called once per frame.
 		/// </summary>
 		void Update()
