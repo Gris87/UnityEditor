@@ -1,6 +1,5 @@
 Auto Disable/Enable scripts when needed
 CustomPopup
 Toolbar
-Window system
 Docking area
 Undo/Redo
