@@ -180,6 +180,30 @@ public static class Assets
 				}
 			}
 			#endregion
+		
+			#region Assets for DockWidgets
+			/// <summary>
+			/// Assets for DockWidgets.
+			/// </summary>
+			public static class DockWidgets
+			{
+				#region Assets for scene dock widget
+				/// <summary>
+				/// Assets for scene dock widget.
+				/// </summary>
+				public static class Scene
+				{
+					/// <summary>
+					/// Texture assets for scene dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Scene/Icon");
+					}
+				}
+				#endregion
+			}
+			#endregion
 		}
 		#endregion
 
@@ -270,7 +294,9 @@ public static class Assets
 		public static class Textures
 		{
 			public static Sprite tab            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Tab");
+			public static Sprite tabActive      = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActive");
 			public static Sprite tabSelected    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabSelected");
+			public static Sprite icon           = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Icon");
 			public static Sprite pageBackground = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/PageBackground");
 		}
 	}

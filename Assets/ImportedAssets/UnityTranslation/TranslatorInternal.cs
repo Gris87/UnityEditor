@@ -298,7 +298,11 @@ namespace UnityTranslationInternal
             if (tokens[(int)section + 1] != null)
             {
                 tokens[(int)section + 1] = null;
-                mLoadedSections.Remove(section);
+                
+				if (!mLoadedSections.Remove(section))
+				{
+					Debug.LogError("Failed to remove section \"" + section.ToString() + "\"");
+				}
             }
             else
             {

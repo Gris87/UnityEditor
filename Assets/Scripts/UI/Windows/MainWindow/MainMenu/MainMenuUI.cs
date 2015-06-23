@@ -1489,7 +1489,7 @@ namespace UI.Windows.MainWindow.MainMenu
 						// RectTransform Component
 						//===========================================================================
 						#region RectTransform Component
-						RectTransform menuItemButtonTransform = menuItemButton.GetComponent<RectTransform>();
+						RectTransform menuItemButtonTransform = menuItemButton.transform as RectTransform;
 						#endregion
 						#endregion
 						

@@ -11,7 +11,7 @@ namespace Common.UI.DockWidgets
 	/// </summary>
 	public class DockingAreaScript : MonoBehaviour
 	{
-		private static readonly float GAP = 4f;
+		private static readonly float GAP = 3f;
 
 
 
@@ -115,12 +115,9 @@ namespace Common.UI.DockWidgets
 
 
 
-		private RectTransform           mRectTransform;
-
 		private DockingAreaOrientation  mOrientation;
 		private DockingAreaScript       mParent;
 		private List<DockingAreaScript> mChildren;
-		private List<RectTransform>     mChildrenTransforms;
 		private List<float>             mSizes;
 		private DockingGroupScript      mDockingGroupScript;
 
@@ -131,12 +128,9 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		public DockingAreaScript()
 		{
-			mRectTransform = GetComponent<RectTransform>();
-
 			mOrientation        = DockingAreaOrientation.None;
 			mParent             = null;
 			mChildren           = new List<DockingAreaScript>();
-			mChildrenTransforms = new List<RectTransform>();
 			mSizes              = new List<float>();
 			mDockingGroupScript = null;
 		}
@@ -157,7 +151,7 @@ namespace Common.UI.DockWidgets
 				case DockingAreaOrientation.Horizontal:
 				{
 					Vector3[] corners = new Vector3[4];
-					mRectTransform.GetLocalCorners(corners);
+				    (transform as RectTransform).GetLocalCorners(corners);
 					float totalWidth = corners[2].x - corners[0].x - (mChildren.Count - 1) * GAP;
 
 					float contentWidth = 0f;
@@ -165,7 +159,7 @@ namespace Common.UI.DockWidgets
 					for (int i = 0; i < mChildren.Count; ++i)
 					{
 						DockingAreaScript dockingArea      = mChildren[i];
-						RectTransform dockingAreaTransform = mChildrenTransforms[i];
+						RectTransform dockingAreaTransform = dockingArea.transform as RectTransform;
 	                    
 						float dockingAreaWidth = totalWidth * mSizes[i];
                     
@@ -180,7 +174,7 @@ namespace Common.UI.DockWidgets
 				case DockingAreaOrientation.Vertical:
 				{
 					Vector3[] corners = new Vector3[4];
-					mRectTransform.GetLocalCorners(corners);
+					(transform as RectTransform).GetLocalCorners(corners);
 					float totalHeight = corners[2].y - corners[0].y - (mChildren.Count - 1) * GAP;
 					
 					float contentHeight = 0f;
@@ -188,8 +182,8 @@ namespace Common.UI.DockWidgets
 					for (int i = 0; i < mChildren.Count; ++i)
 					{
 						DockingAreaScript dockingArea      = mChildren[i];
-						RectTransform dockingAreaTransform = mChildrenTransforms[i];
-						
+						RectTransform dockingAreaTransform = dockingArea.transform as RectTransform;
+                    
 						float dockingAreaHeight = totalHeight * mSizes[i];
 						
 						Utils.AlignRectTransformTopStretch(dockingAreaTransform, dockingAreaHeight, contentHeight);
@@ -242,7 +236,6 @@ namespace Common.UI.DockWidgets
 			DockingGroupScript dockingGroupScript = dockingGroup.AddComponent<DockingGroupScript>();
 
 			dockingGroupScript.InsertDockWidget(dockWidget);
-			dockWidget.transform.SetParent(dockingGroup.transform, false);
             #endregion
             #endregion
 			            
@@ -252,6 +245,7 @@ namespace Common.UI.DockWidgets
 
 				Utils.InitUIObject(dockingGroup, transform);
 				mDockingGroupScript = dockingGroupScript;
+				mDockingGroupScript.parent = this;
 			}
 			else
 			if (mChildren.Count == 0 && mDockingGroupScript != null)
@@ -272,7 +266,7 @@ namespace Common.UI.DockWidgets
 				// RectTransform Component
 				//===========================================================================
 				#region RectTransform Component
-				RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
+				dockingArea.AddComponent<RectTransform>();
 				#endregion
 				
 				//===========================================================================
@@ -282,18 +276,19 @@ namespace Common.UI.DockWidgets
 				DockingAreaScript dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 				dockingAreaScript.mParent = this;
 				mChildren.Add(dockingAreaScript);
-				mChildrenTransforms.Add(dockingAreaTransform);
 				dockingAreaScript.mSizes.Add(1f);
 
 				if (index == 0)
 				{
-					dockingAreaScript.mDockingGroupScript = dockingGroupScript;
 					Utils.InitUIObject(dockingGroup, dockingArea.transform);
+					dockingAreaScript.mDockingGroupScript = dockingGroupScript;
+					dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;
 				}
 				else
 				{
-					dockingAreaScript.mDockingGroupScript = mDockingGroupScript;
 					Utils.InitUIObject(mDockingGroupScript.gameObject, dockingArea.transform);
+					dockingAreaScript.mDockingGroupScript = mDockingGroupScript;
+					dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;
 				}
                 #endregion
                 #endregion
@@ -309,7 +304,7 @@ namespace Common.UI.DockWidgets
 				// RectTransform Component
 				//===========================================================================
 				#region RectTransform Component
-				dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
+				dockingArea.AddComponent<RectTransform>();
 				#endregion
 				
 				//===========================================================================
@@ -319,18 +314,19 @@ namespace Common.UI.DockWidgets
 				dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 				dockingAreaScript.mParent = this;
 				mChildren.Add(dockingAreaScript);
-				mChildrenTransforms.Add(dockingAreaTransform);
 				dockingAreaScript.mSizes.Add(1f);
                 
                 if (index == 0)
                 {
-					dockingAreaScript.mDockingGroupScript = mDockingGroupScript;
 					Utils.InitUIObject(mDockingGroupScript.gameObject, dockingArea.transform);
+					dockingAreaScript.mDockingGroupScript = mDockingGroupScript;
+					dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;
                 }
                 else
                 {
-					dockingAreaScript.mDockingGroupScript = dockingGroupScript;
 					Utils.InitUIObject(dockingGroup, dockingArea.transform);
+					dockingAreaScript.mDockingGroupScript = dockingGroupScript;
+					dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;
                 }
                 #endregion
                 #endregion
@@ -365,7 +361,7 @@ namespace Common.UI.DockWidgets
 						// RectTransform Component
 						//===========================================================================
 						#region RectTransform Component
-						RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
+						dockingArea.AddComponent<RectTransform>();
 						#endregion
 						
 						//===========================================================================
@@ -375,19 +371,18 @@ namespace Common.UI.DockWidgets
 						DockingAreaScript dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 						dockingAreaScript.mParent = this;
 						mChildren.Insert(index, dockingAreaScript);
-						mChildrenTransforms.Insert(index, dockingAreaTransform);
                         dockingAreaScript.mSizes.Add(1f);
                         
-						dockingAreaScript.mDockingGroupScript = dockingGroupScript;
 						Utils.InitUIObject(dockingGroup, dockingArea.transform);
+						dockingAreaScript.mDockingGroupScript = dockingGroupScript;
+						dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;
 						#endregion
                         #endregion
                     }
                     else
                     {
-						List<DockingAreaScript> newChildren           = new List<DockingAreaScript>();
-						List<RectTransform>     newChildrenTransforms = new List<RectTransform>();
-						List<float>             newSizes              = new List<float>();
+						List<DockingAreaScript> newChildren = new List<DockingAreaScript>();
+						List<float>             newSizes    = new List<float>();
 
 						newSizes.Add(0.5f);
 						newSizes.Add(0.5f);
@@ -403,7 +398,7 @@ namespace Common.UI.DockWidgets
 						// RectTransform Component
 						//===========================================================================
 						#region RectTransform Component
-						RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
+						dockingArea.AddComponent<RectTransform>();
 						#endregion
 						
 						//===========================================================================
@@ -413,13 +408,13 @@ namespace Common.UI.DockWidgets
 						DockingAreaScript dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 						dockingAreaScript.mParent = this;
 						newChildren.Add(dockingAreaScript);
-						newChildrenTransforms.Add(dockingAreaTransform);
                         
                         if (index == 0)
                         {
+							Utils.InitUIObject(dockingGroup, dockingArea.transform);
                             dockingAreaScript.mDockingGroupScript = dockingGroupScript;
-                            Utils.InitUIObject(dockingGroup, dockingArea.transform);
-
+							dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;
+                            
 							dockingAreaScript.mSizes.Add(1f);
                         }
                         else
@@ -430,10 +425,9 @@ namespace Common.UI.DockWidgets
 								child.transform.SetParent(dockingArea.transform, false);
 							}
 
-							dockingAreaScript.mOrientation        = mOrientation;
-							dockingAreaScript.mChildren           = mChildren;
-							dockingAreaScript.mChildrenTransforms = mChildrenTransforms;
-							dockingAreaScript.mSizes              = mSizes;
+							dockingAreaScript.mOrientation = mOrientation;
+							dockingAreaScript.mChildren    = mChildren;
+							dockingAreaScript.mSizes       = mSizes;
 						}
 						#endregion
 						#endregion
@@ -449,7 +443,7 @@ namespace Common.UI.DockWidgets
 						// RectTransform Component
 						//===========================================================================
 						#region RectTransform Component
-						dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
+						dockingArea.AddComponent<RectTransform>();
 						#endregion
 						
 						//===========================================================================
@@ -459,7 +453,6 @@ namespace Common.UI.DockWidgets
 						dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 						dockingAreaScript.mParent = this;
 						newChildren.Add(dockingAreaScript);
-						newChildrenTransforms.Add(dockingAreaTransform);
 						
 						if (index == 0)
 						{
@@ -469,15 +462,15 @@ namespace Common.UI.DockWidgets
 								child.transform.SetParent(dockingArea.transform, false);
 							}
 
-							dockingAreaScript.mOrientation        = mOrientation;
-							dockingAreaScript.mChildren           = mChildren;
-							dockingAreaScript.mChildrenTransforms = mChildrenTransforms;
-							dockingAreaScript.mSizes              = mSizes;
+							dockingAreaScript.mOrientation = mOrientation;
+							dockingAreaScript.mChildren    = mChildren;
+							dockingAreaScript.mSizes       = mSizes;
                         }
                         else
                         {
+							Utils.InitUIObject(dockingGroup, dockingArea.transform);
                             dockingAreaScript.mDockingGroupScript = dockingGroupScript;
-                            Utils.InitUIObject(dockingGroup, dockingArea.transform);
+							dockingAreaScript.mDockingGroupScript.parent = dockingAreaScript;                            
 							
                             dockingAreaScript.mSizes.Add(1f);
                         }
@@ -486,9 +479,8 @@ namespace Common.UI.DockWidgets
 
 						mOrientation = orientation;
                         
-                        mChildren           = newChildren;
-                        mChildrenTransforms = newChildrenTransforms;
-                        mSizes              = newSizes;
+                        mChildren = newChildren;
+                        mSizes    = newSizes;
                     }
 				}
 				else

@@ -452,7 +452,7 @@ namespace Common.UI.Popups
 								// RectTransform Component
 								//===========================================================================
 								#region RectTransform Component
-								RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
+								RectTransform menuItemTextTransform = menuItemText.transform as RectTransform;
 								
 								menuItemTextTransform.offsetMax = new Vector2(-shortcutWidth, 0f);
 								#endregion
@@ -461,7 +461,7 @@ namespace Common.UI.Popups
 								// RectTransform Component
 								//===========================================================================
 								#region RectTransform Component
-								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+								RectTransform shortcutTextTransform = shortcutText.transform as RectTransform;
 								
 								Utils.AlignRectTransformStretchRight(shortcutTextTransform, shortcutWidth, 4);
 								#endregion
@@ -527,7 +527,7 @@ namespace Common.UI.Popups
 							// RectTransform Component
 							//===========================================================================
 							#region RectTransform Component
-							RectTransform menuItemTextTransform = menuItemText.GetComponent<RectTransform>();
+							RectTransform menuItemTextTransform = menuItemText.transform as RectTransform;
 							
 							menuItemTextTransform.offsetMax = new Vector2(menuItemTextTransform.offsetMax.x - arrowWidth, 0f);
 							#endregion
@@ -538,7 +538,7 @@ namespace Common.UI.Popups
 								// RectTransform Component
 								//===========================================================================
 								#region RectTransform Component
-								RectTransform shortcutTextTransform = shortcutText.GetComponent<RectTransform>();
+								RectTransform shortcutTextTransform = shortcutText.transform as RectTransform;
 								
 								shortcutTextTransform.offsetMin = new Vector2(shortcutTextTransform.offsetMin.x - arrowWidth, 0f);
 								shortcutTextTransform.offsetMax = new Vector2(shortcutTextTransform.offsetMax.x - arrowWidth, 0f);
@@ -735,7 +735,7 @@ namespace Common.UI.Popups
 				
 				int index = node.parent.children.IndexOf(node);
 				
-				RectTransform menuItemTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
+				RectTransform menuItemTransform = mGameObject.transform.GetChild(0).GetChild(0).GetChild(index).transform as RectTransform; // ScrollArea/Content/NODE
 				Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 				
 				mChildPopupMenu.Show(

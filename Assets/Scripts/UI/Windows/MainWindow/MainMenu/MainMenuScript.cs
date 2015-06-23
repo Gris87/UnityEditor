@@ -101,7 +101,7 @@ namespace UI.Windows.MainWindow.MainMenu
 
 				int index = node.parent.children.IndexOf(node);
 
-				RectTransform menuItemTransform = transform.GetChild(0).GetChild(0).GetChild(index).GetComponent<RectTransform>(); // ScrollArea/Content/NODE
+				RectTransform menuItemTransform = transform.GetChild(0).GetChild(0).GetChild(index).transform as RectTransform; // ScrollArea/Content/NODE
 				Vector3[] menuItemCorners = Utils.GetWindowCorners(menuItemTransform);
 				
 				mPopupMenu.Show(menuItemCorners[2].x, menuItemCorners[2].y);

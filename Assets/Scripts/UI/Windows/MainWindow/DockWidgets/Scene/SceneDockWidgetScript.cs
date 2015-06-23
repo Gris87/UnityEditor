@@ -52,6 +52,9 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
+			image   = Assets.Windows.MainWindow.DockWidgets.Scene.Textures.icon;
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.scene;
+
 			// TODO: Implement
 			backgroundColor = new Color(0.3f, 0f, 0f);
 		}
@@ -72,4 +75,3 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
 		}
 	}
 }
-

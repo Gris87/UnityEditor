@@ -32,11 +32,11 @@ namespace Common
         /// <param name="transform">RectTransform instance.</param>
         public static Vector3[] GetWindowCorners(RectTransform transform)
         {
-            RectTransform canvasTransform = transform;
+			RectTransform canvasTransform = transform;
 
             do
             {
-                RectTransform tempTransform = canvasTransform.parent.GetComponent<RectTransform>();
+				RectTransform tempTransform = canvasTransform.parent.transform as RectTransform;
 
                 if (tempTransform == null)
                 {

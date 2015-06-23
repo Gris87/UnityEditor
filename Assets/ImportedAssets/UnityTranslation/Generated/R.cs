@@ -59,6 +59,11 @@ namespace UnityTranslation
                 AboutDialog
                 ,
                 /// <summary>
+                /// Section ID for "dock_widgets.xml" file.
+                /// </summary>
+                DockWidgets
+                ,
+                /// <summary>
                 /// Section ID for "menu_items.xml" file.
                 /// </summary>
                 MenuItems
@@ -100,6 +105,7 @@ namespace UnityTranslation
             public static readonly string[] xmlFiles = new string[]
             {
                   "about_dialog.xml"  // AboutDialog
+                , "dock_widgets.xml"  // DockWidgets
                 , "menu_items.xml"    // MenuItems
                 , "toasts.xml"        // Toasts
                 , "toolbar.xml"       // Toolbar
@@ -174,6 +180,171 @@ namespace UnityTranslation
 
                 /// <summary>
                 /// Enumeration of all plurals tags in "Assets/Resources/res/values/about_dialog.xml"
+                /// </summary>
+                public enum plurals
+                {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
+                    Count // Should be last
+                }
+            }
+
+            /// <summary>
+            /// Container for all tokens specified in "Assets/Resources/res/values/dock_widgets.xml" file.
+            /// </summary>
+            public static class DockWidgets
+            {
+                /// <summary>
+                /// Enumeration of all string tags in "Assets/Resources/res/values/dock_widgets.xml"
+                /// </summary>
+                public enum strings
+                {
+                    /// <summary>
+                    /// <para>DockWidgets: Scene</para>
+                    /// <para>Value:</para>
+                    ///   <para>Scene</para>
+                    /// </summary>
+                    scene
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Game</para>
+                    /// <para>Value:</para>
+                    ///   <para>Game</para>
+                    /// </summary>
+                    game
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Inspector</para>
+                    /// <para>Value:</para>
+                    ///   <para>Inspector</para>
+                    /// </summary>
+                    inspector
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Hierarchy</para>
+                    /// <para>Value:</para>
+                    ///   <para>Hierarchy</para>
+                    /// </summary>
+                    hierarchy
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Project</para>
+                    /// <para>Value:</para>
+                    ///   <para>Project</para>
+                    /// </summary>
+                    project
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Animation</para>
+                    /// <para>Value:</para>
+                    ///   <para>Animation</para>
+                    /// </summary>
+                    animation
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Profiler</para>
+                    /// <para>Value:</para>
+                    ///   <para>Profiler</para>
+                    /// </summary>
+                    profiler
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Audio Mixer</para>
+                    /// <para>Value:</para>
+                    ///   <para>Audio Mixer</para>
+                    /// </summary>
+                    audio_mixer
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Asset Store</para>
+                    /// <para>Value:</para>
+                    ///   <para>Asset Store</para>
+                    /// </summary>
+                    asset_store
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Version Control</para>
+                    /// <para>Value:</para>
+                    ///   <para>Version Control</para>
+                    /// </summary>
+                    version_control
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Animator Parameter</para>
+                    /// <para>Value:</para>
+                    ///   <para>Animator Parameter</para>
+                    /// </summary>
+                    animator_parameter
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Animator</para>
+                    /// <para>Value:</para>
+                    ///   <para>Animator</para>
+                    /// </summary>
+                    animator
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Sprite Packer</para>
+                    /// <para>Value:</para>
+                    ///   <para>Sprite Packer</para>
+                    /// </summary>
+                    sprite_packer
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Lighting</para>
+                    /// <para>Value:</para>
+                    ///   <para>Lighting</para>
+                    /// </summary>
+                    lighting
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Occlusion Culling</para>
+                    /// <para>Value:</para>
+                    ///   <para>Occlusion Culling</para>
+                    /// </summary>
+                    occlusion_culling
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Frame Debugger</para>
+                    /// <para>Value:</para>
+                    ///   <para>Frame Debugger</para>
+                    /// </summary>
+                    frame_debugger
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Navigation</para>
+                    /// <para>Value:</para>
+                    ///   <para>Navigation</para>
+                    /// </summary>
+                    navigation
+                    ,
+                    /// <summary>
+                    /// <para>DockWidgets: Console</para>
+                    /// <para>Value:</para>
+                    ///   <para>Console</para>
+                    /// </summary>
+                    console
+                    ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all string-array tags in "Assets/Resources/res/values/dock_widgets.xml"
+                /// </summary>
+                public enum array
+                {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
+                    Count // Should be last
+                }
+
+                /// <summary>
+                /// Enumeration of all plurals tags in "Assets/Resources/res/values/dock_widgets.xml"
                 /// </summary>
                 public enum plurals
                 {
@@ -3015,6 +3186,39 @@ namespace UnityTranslation
                     , { "physics_powered_by"  , (int)R.sections.AboutDialog.strings.physics_powered_by }
                     , { "all_rights_reserved" , (int)R.sections.AboutDialog.strings.all_rights_reserved }
                     , { "license"             , (int)R.sections.AboutDialog.strings.license }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // DockWidgets
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "scene"             , (int)R.sections.DockWidgets.strings.scene }
+                    , { "game"              , (int)R.sections.DockWidgets.strings.game }
+                    , { "inspector"         , (int)R.sections.DockWidgets.strings.inspector }
+                    , { "hierarchy"         , (int)R.sections.DockWidgets.strings.hierarchy }
+                    , { "project"           , (int)R.sections.DockWidgets.strings.project }
+                    , { "animation"         , (int)R.sections.DockWidgets.strings.animation }
+                    , { "profiler"          , (int)R.sections.DockWidgets.strings.profiler }
+                    , { "audio_mixer"       , (int)R.sections.DockWidgets.strings.audio_mixer }
+                    , { "asset_store"       , (int)R.sections.DockWidgets.strings.asset_store }
+                    , { "version_control"   , (int)R.sections.DockWidgets.strings.version_control }
+                    , { "animator_parameter", (int)R.sections.DockWidgets.strings.animator_parameter }
+                    , { "animator"          , (int)R.sections.DockWidgets.strings.animator }
+                    , { "sprite_packer"     , (int)R.sections.DockWidgets.strings.sprite_packer }
+                    , { "lighting"          , (int)R.sections.DockWidgets.strings.lighting }
+                    , { "occlusion_culling" , (int)R.sections.DockWidgets.strings.occlusion_culling }
+                    , { "frame_debugger"    , (int)R.sections.DockWidgets.strings.frame_debugger }
+                    , { "navigation"        , (int)R.sections.DockWidgets.strings.navigation }
+                    , { "console"           , (int)R.sections.DockWidgets.strings.console }
                 }
                 ,
                 new Dictionary<string, int> // array

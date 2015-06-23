@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityTranslation;
 
 
 
@@ -10,6 +11,16 @@ namespace Common.UI.DockWidgets
 	/// </summary>
 	public class DockWidgetScript : MonoBehaviour
 	{
+		/// <summary>
+		/// Gets or sets parent docking group.
+		/// </summary>
+		/// <value>Parent docking group.</value>
+		public DockingGroupScript parent
+		{
+			get { return mParent;  }
+			set { mParent = value; }
+		}
+
 		/// <summary>
 		/// Gets or sets the background color.
 		/// </summary>
@@ -35,9 +46,79 @@ namespace Common.UI.DockWidgets
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets the image.
+		/// </summary>
+		/// <value>The image.</value>
+		public Sprite image
+		{
+			get
+			{
+				return mImage; 
+			}
+			
+			set
+			{
+				if (mImage != value)
+				{
+					mImage = value;
+					
+					if (mParent != null)
+					{
+						mParent.UpdateTabImage(this);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets token ID for translation.
+		/// </summary>
+		/// <value>Token ID for translation.</value>
+		public R.sections.DockWidgets.strings tokenId
+		{
+			get
+			{
+				return mTokenId; 
+			}
+			
+			set
+			{
+				if (mTokenId != value)
+				{
+					mTokenId = value;
+					
+					if (mParent != null)
+					{
+						mParent.UpdateTab(this);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets the title.
+		/// </summary>
+		/// <value>The title.</value>
+		public string title
+		{
+			get
+			{
+				if (mTokenId == R.sections.DockWidgets.strings.Count)
+				{
+					return "";
+				}
+				
+				return Translator.getString(mTokenId); 
+			}
+		}
 
 
-		private Color mBackgroundColor;
+
+		private DockingGroupScript             mParent;
+		private Color                          mBackgroundColor;
+		private Sprite                         mImage;
+		private R.sections.DockWidgets.strings mTokenId;
 
 		private RectTransform mContentTransform;
 		private Image         mContentBackgroundImage;
@@ -47,7 +128,10 @@ namespace Common.UI.DockWidgets
 		public DockWidgetScript()
 			: base()
 		{
+			mParent          = null;
 			mBackgroundColor = new Color(1f, 1f, 1f, 1f);
+			mImage           = Assets.DockWidgets.Textures.icon;
+			mTokenId         = R.sections.DockWidgets.strings.Count;
 
 			mContentTransform       = null;
 			mContentBackgroundImage = null;
@@ -136,6 +220,14 @@ namespace Common.UI.DockWidgets
 		public void InsertToDockingGroup(DockingGroupScript dockingGroup, int index = 0)
 		{
 			dockingGroup.InsertDockWidget(this, index);
+		}
+
+		/// <summary>
+		/// Selects this dock widget.
+		/// </summary>
+		public void Select()
+		{
+			mParent.OnSelectTab(this);
 		}
 
 		/// <summary>

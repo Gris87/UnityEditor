@@ -2261,7 +2261,10 @@ namespace Common.UI.Windows
 
 
 
-			windows.Remove(this);
+			if (!windows.Remove(this))
+			{
+				Debug.LogError("Failed to remove window");
+			}
 
 			if (selectedWindow == this)
 			{
@@ -2422,7 +2425,7 @@ namespace Common.UI.Windows
 							
 							if (mMinimizeGameObject != null)
 							{
-								RectTransform buttonTransform = mMinimizeGameObject.GetComponent<RectTransform>();
+								RectTransform buttonTransform = mMinimizeGameObject.transform as RectTransform;
 								Vector3[] corners = Utils.GetWindowCorners(buttonTransform);
 								
 								if (
@@ -2443,7 +2446,7 @@ namespace Common.UI.Windows
 							
 							if (mMaximizeGameObject != null)
 							{
-								RectTransform buttonTransform = mMaximizeGameObject.GetComponent<RectTransform>();
+								RectTransform buttonTransform = mMaximizeGameObject.transform as RectTransform;
 								Vector3[] corners = Utils.GetWindowCorners(buttonTransform);
 								
 								if (
@@ -2464,7 +2467,7 @@ namespace Common.UI.Windows
 							
 							if (mCloseGameObject != null)
 							{
-								RectTransform buttonTransform = mCloseGameObject.GetComponent<RectTransform>();
+								RectTransform buttonTransform = mCloseGameObject.transform as RectTransform;
 								Vector3[] corners = Utils.GetWindowCorners(buttonTransform);
 								
 								if (

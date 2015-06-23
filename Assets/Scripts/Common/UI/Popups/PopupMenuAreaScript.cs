@@ -217,12 +217,17 @@ namespace Common.UI.Popups
 		{
 			if (instance != null)
 			{
-				instance.mPopupMenus.Remove(menu);
-				
-				if (instance.mPopupMenus.Count == 0)
+				if (instance.mPopupMenus.Remove(menu))
 				{
-					instance.mAutoPopupItem = null;
-					instance.StopTimer();
+					if (instance.mPopupMenus.Count == 0)
+					{
+						instance.mAutoPopupItem = null;
+						instance.StopTimer();
+					}
+				}
+				else
+				{
+					Debug.LogError("Failed to deregister popup menu");
 				}
 			}
 			else

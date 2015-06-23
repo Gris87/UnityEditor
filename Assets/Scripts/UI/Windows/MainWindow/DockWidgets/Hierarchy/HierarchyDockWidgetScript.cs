@@ -52,6 +52,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.hierarchy;
+
 			// TODO: Implement
 			backgroundColor = new Color(0.3f, 0.3f, 0f);
 		}

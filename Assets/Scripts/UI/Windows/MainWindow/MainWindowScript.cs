@@ -225,7 +225,7 @@ namespace UI.Windows.MainWindow
 		{
 			// TODO: Remove it
 			SceneDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript);
-			GameDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Horizontal);
+			GameDockWidgetScript.Create().InsertToDockingGroup(Global.dockingAreaScript.dockingGroupScript, 1);
 			InspectorDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Vertical, 0);
 			HierarchyDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Horizontal, 0);
 		}

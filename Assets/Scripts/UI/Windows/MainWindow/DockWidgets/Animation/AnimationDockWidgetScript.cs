@@ -52,6 +52,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Animation
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.animation;
+
 			// TODO: Implement
 			backgroundColor = new Color(1f, 0f, 0f);
 		}
