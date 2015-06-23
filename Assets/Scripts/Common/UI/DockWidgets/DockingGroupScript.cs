@@ -221,7 +221,7 @@ namespace Common.UI.DockWidgets
             {
                 Text tabText = mTabsTransform.GetChild(i).GetChild(1).GetComponent<Text>(); // Tab/Text
 
-				float tabWidth = tabText.preferredWidth + 30f;
+				float tabWidth = tabText.preferredWidth + 40f;
 
 				tabWidths.Add(tabWidth);
 				totalWidth += tabWidth;
@@ -471,7 +471,7 @@ namespace Common.UI.DockWidgets
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform imageTransform = imageGameObject.AddComponent<RectTransform>();
-			Utils.AlignRectTransformTopLeft(imageTransform, 11f, 11f, 10f, 3f);
+			Utils.AlignRectTransformTopLeft(imageTransform, 12f, 12f, 9f, 3f);
 			#endregion
 			
 			//===========================================================================

@@ -16,8 +16,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Scene.SceneDockWidgetScript"/> class.
 		/// </summary>
 		private SceneDockWidgetScript()
+			: base()
 		{
-			// Nothing
+			image   = Assets.Windows.MainWindow.DockWidgets.Scene.Textures.icon;
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.scene;
 		}
 
 		/// <summary>
@@ -52,9 +54,6 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
-			image   = Assets.Windows.MainWindow.DockWidgets.Scene.Textures.icon;
-			tokenId = UnityTranslation.R.sections.DockWidgets.strings.scene;
-
 			// TODO: Implement
 			backgroundColor = new Color(0.3f, 0f, 0f);
 		}

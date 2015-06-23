@@ -17,7 +17,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
 		/// </summary>
 		private ProfilerDockWidgetScript()
 		{
-			// Nothing
+			image   = Assets.Windows.MainWindow.DockWidgets.Profiler.Textures.icon;
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.profiler;
 		}
 		
 		/// <summary>
@@ -52,8 +53,6 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
-			tokenId = UnityTranslation.R.sections.DockWidgets.strings.profiler;
-
 			// TODO: Implement
 			backgroundColor = new Color(1f, 0f, 0f);
 		}

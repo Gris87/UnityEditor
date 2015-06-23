@@ -71,8 +71,10 @@ namespace Common.UI.DockWidgets
 		/// <summary>
 		/// Script starting callback.
 		/// </summary>
-		void Start()
+		protected override void Start()
 		{
+			base.Start();
+
 			UpdateImage();
 		}
 
@@ -104,7 +106,7 @@ namespace Common.UI.DockWidgets
 		/// Handler for begin drag event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
-		protected void OnBeginDrag(PointerEventData eventData)
+		public void OnBeginDrag(PointerEventData eventData)
 		{
 			Canvas canvas = FindInParents<Canvas>();
 			
@@ -164,25 +166,32 @@ namespace Common.UI.DockWidgets
 		/// Handler for drag event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
-		protected void OnDrag(PointerEventData eventData)
+		public void OnDrag(PointerEventData eventData)
 		{
-			Debug.LogError("Drag");
+			if (draggingImage != null)
+			{
+				// TODO: Implement
+			}
 		}
 
 		/// <summary>
 		/// Handler for end drag event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
-		protected void OnEndDrag(PointerEventData eventData)
+		public void OnEndDrag(PointerEventData eventData)
 		{
-			Debug.LogError("EndDrag");
+			if (draggingImage != null)
+			{
+				UnityEngine.Object.DestroyObject(draggingImage);
+				draggingImage = null;
+			}
 		}
 
 		/// <summary>
 		/// Handler for drop event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
-		protected void OnDrop(PointerEventData eventData)
+		public void OnDrop(PointerEventData eventData)
 		{
 			Debug.LogError("Drop");
 		}

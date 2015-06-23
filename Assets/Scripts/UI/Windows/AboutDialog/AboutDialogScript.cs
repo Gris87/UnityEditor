@@ -56,6 +56,12 @@ namespace UI.Windows.AboutDialog
 			mPhysXLogoText2    = null;
 			mCopyrightText     = null;
 			mLicenseText       = null;
+
+			frame           = WindowFrameType.Drawer;
+			tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
+			backgroundColor = new Color(0.6f, 0.6f, 0.6f);
+			resizable       = false;
+			allowMaximize   = false;
 		}
 
 		/// <summary>
@@ -92,12 +98,6 @@ namespace UI.Windows.AboutDialog
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
-			frame           = WindowFrameType.Drawer;
-			tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
-			backgroundColor = new Color(0.6f, 0.6f, 0.6f);
-			resizable       = false;
-			allowMaximize   = false;
-
 			width  = 570f;
 			height = 340f;
 			

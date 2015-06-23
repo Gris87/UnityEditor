@@ -29,7 +29,10 @@ namespace UI.Windows.MainWindow
 		private MainWindowScript()
 			: base()
 		{
-			// Nothing
+			frame           = WindowFrameType.Frameless;
+			state           = WindowState.FullScreen;
+			backgroundColor = new Color(0.5f, 0.5f, 0.5f);
+			allowClose      = false;
 		}
 
 		/// <summary>
@@ -66,11 +69,6 @@ namespace UI.Windows.MainWindow
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
-			frame           = WindowFrameType.Frameless;
-			state           = WindowState.FullScreen;
-			backgroundColor = new Color(0.5f, 0.5f, 0.5f);
-			allowClose      = false;
-
 			width  = 0f;
 			height = 0f;
 

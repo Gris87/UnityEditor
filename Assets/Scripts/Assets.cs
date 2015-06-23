@@ -202,6 +202,198 @@ public static class Assets
 					}
 				}
 				#endregion
+
+				#region Assets for game dock widget
+				/// <summary>
+				/// Assets for game dock widget.
+				/// </summary>
+				public static class Game
+				{
+					/// <summary>
+					/// Texture assets for game dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Game/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for inspector dock widget
+				/// <summary>
+				/// Assets for inspector dock widget.
+				/// </summary>
+				public static class Inspector
+				{
+					/// <summary>
+					/// Texture assets for inspector dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Inspector/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for hierarchy dock widget
+				/// <summary>
+				/// Assets for hierarchy dock widget.
+				/// </summary>
+				public static class Hierarchy
+				{
+					/// <summary>
+					/// Texture assets for hierarchy dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Hierarchy/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for project dock widget
+				/// <summary>
+				/// Assets for project dock widget.
+				/// </summary>
+				public static class Project
+				{
+					/// <summary>
+					/// Texture assets for project dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Project/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for animation dock widget
+				/// <summary>
+				/// Assets for animation dock widget.
+				/// </summary>
+				public static class Animation
+				{
+					/// <summary>
+					/// Texture assets for animation dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Animation/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for profiler dock widget
+				/// <summary>
+				/// Assets for profiler dock widget.
+				/// </summary>
+				public static class Profiler
+				{
+					/// <summary>
+					/// Texture assets for profiler dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Profiler/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for audio mixer dock widget
+				/// <summary>
+				/// Assets for audio mixer dock widget.
+				/// </summary>
+				public static class AudioMixer
+				{
+					/// <summary>
+					/// Texture assets for audio mixer dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/AudioMixer/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for animator dock widget
+				/// <summary>
+				/// Assets for animator dock widget.
+				/// </summary>
+				public static class Animator
+				{
+					/// <summary>
+					/// Texture assets for animator dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Animator/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for lighting dock widget
+				/// <summary>
+				/// Assets for lighting dock widget.
+				/// </summary>
+				public static class Lighting
+				{
+					/// <summary>
+					/// Texture assets for lighting dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Lighting/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for occlusion culling dock widget
+				/// <summary>
+				/// Assets for occlusion culling dock widget.
+				/// </summary>
+				public static class OcclusionCulling
+				{
+					/// <summary>
+					/// Texture assets for occlusion culling dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/OcclusionCulling/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for navigation dock widget
+				/// <summary>
+				/// Assets for navigation dock widget.
+				/// </summary>
+				public static class Navigation
+				{
+					/// <summary>
+					/// Texture assets for navigation dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Navigation/Icon");
+					}
+				}
+				#endregion
+				
+				#region Assets for console dock widget
+				/// <summary>
+				/// Assets for console dock widget.
+				/// </summary>
+				public static class Console
+				{
+					/// <summary>
+					/// Texture assets for console dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Console/Icon");
+					}
+				}
+				#endregion
 			}
 			#endregion
 		}

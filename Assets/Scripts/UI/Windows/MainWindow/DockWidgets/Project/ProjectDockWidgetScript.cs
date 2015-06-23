@@ -17,7 +17,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
 		/// </summary>
 		private ProjectDockWidgetScript()
 		{
-			// Nothing
+			image   = Assets.Windows.MainWindow.DockWidgets.Project.Textures.icon;
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
 		}
 		
 		/// <summary>
@@ -52,8 +53,6 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
-			tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
-
 			// TODO: Implement
 			backgroundColor = new Color(1f, 0f, 0f);
 		}

@@ -17,7 +17,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
 		/// </summary>
 		private InspectorDockWidgetScript()
 		{
-			// Nothing
+			image   = Assets.Windows.MainWindow.DockWidgets.Inspector.Textures.icon;
+			tokenId = UnityTranslation.R.sections.DockWidgets.strings.inspector;
 		}
 		
 		/// <summary>
@@ -52,8 +53,6 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
-			tokenId = UnityTranslation.R.sections.DockWidgets.strings.inspector;
-
 			// TODO: Implement
 			backgroundColor = new Color(0f, 0f, 0.3f);
 		}
