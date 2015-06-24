@@ -16,6 +16,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Inspector.InspectorDockWidgetScript"/> class.
 		/// </summary>
 		private InspectorDockWidgetScript()
+			: base()
 		{
 			image   = Assets.Windows.MainWindow.DockWidgets.Inspector.Textures.icon;
 			tokenId = UnityTranslation.R.sections.DockWidgets.strings.inspector;
@@ -61,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{						
 			if (Global.inspectorDockWidgetScript == this)
 			{
 				Global.inspectorDockWidgetScript = null;

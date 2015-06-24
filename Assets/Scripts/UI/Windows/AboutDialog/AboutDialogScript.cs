@@ -15,7 +15,7 @@ namespace UI.Windows.AboutDialog
 	/// <summary>
 	/// Script that realize about dialog behaviour.
 	/// </summary>
-	public class AboutDialogScript : DialogScript
+	public class AboutDialogScript : WindowScript
 	{
 		private static readonly string WINDOW_KEY     = "AboutDialog";
 		private static readonly string SECRET_CODE    = "internal";

@@ -4,13 +4,24 @@ using UnityEngine.UI;
 using Common;
 using Common.UI.DockWidgets;
 using Common.UI.Windows;
-using UI.Windows.MainWindow.DockWidgets.Animation;
+using UI.Windows.MainWindow.DockWidgets.Animation; // TODO: Remove it
+using UI.Windows.MainWindow.DockWidgets.Animator;
+using UI.Windows.MainWindow.DockWidgets.AnimatorParameter;
+using UI.Windows.MainWindow.DockWidgets.AssetStore;
+using UI.Windows.MainWindow.DockWidgets.AudioMixer;
+using UI.Windows.MainWindow.DockWidgets.Console;
+using UI.Windows.MainWindow.DockWidgets.FrameDebugger;
 using UI.Windows.MainWindow.DockWidgets.Game;
 using UI.Windows.MainWindow.DockWidgets.Hierarchy;
 using UI.Windows.MainWindow.DockWidgets.Inspector;
+using UI.Windows.MainWindow.DockWidgets.Lighting;
+using UI.Windows.MainWindow.DockWidgets.Navigation;
+using UI.Windows.MainWindow.DockWidgets.OcclusionCulling;
 using UI.Windows.MainWindow.DockWidgets.Profiler;
 using UI.Windows.MainWindow.DockWidgets.Project;
 using UI.Windows.MainWindow.DockWidgets.Scene;
+using UI.Windows.MainWindow.DockWidgets.SpritePacker;
+using UI.Windows.MainWindow.DockWidgets.VersionControl;
 using UI.Windows.MainWindow.MainMenu;
 using UI.Windows.MainWindow.Toolbar;
 
@@ -178,8 +189,6 @@ namespace UI.Windows.MainWindow
 			#endregion
 			// TODO: Remove it END
 
-			enabled = false;
-
 			LoadDockWidgets();
 		}
 		
@@ -226,6 +235,7 @@ namespace UI.Windows.MainWindow
 			GameDockWidgetScript.Create().InsertToDockingGroup(Global.dockingAreaScript.dockingGroupScript, 1);
 			InspectorDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Vertical, 0);
 			HierarchyDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Horizontal, 0);
+			ProjectDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Horizontal, 2);
 		}
 	}
 }

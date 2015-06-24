@@ -127,12 +127,26 @@ namespace Common.UI.DockWidgets
 		/// Initializes a new instance of the <see cref="Common.UI.DockWidgets.DockingAreaScript"/> class.
 		/// </summary>
 		public DockingAreaScript()
+			: base()
 		{
 			mOrientation        = DockingAreaOrientation.None;
 			mParent             = null;
 			mChildren           = new List<DockingAreaScript>();
 			mSizes              = new List<float>();
 			mDockingGroupScript = null;
+		}
+
+		/// <summary>
+		/// Destroy this instance.
+		/// </summary>
+		public void Destroy()
+		{
+			UnityEngine.Object.DestroyObject(gameObject);
+
+			if (mParent != null)
+			{
+				mParent.RemoveDockingArea(this);
+			}
 		}
 
 		/// <summary>
@@ -152,7 +166,8 @@ namespace Common.UI.DockWidgets
 				{
 					Vector3[] corners = new Vector3[4];
 				    (transform as RectTransform).GetLocalCorners(corners);
-					float totalWidth = corners[2].x - corners[0].x - (mChildren.Count - 1) * GAP;
+					float totalWidth  = corners[2].x - corners[0].x - (mChildren.Count - 1) * GAP;
+					float totalHeight = corners[2].y - corners[0].y;
 
 					float contentWidth = 0f;
 
@@ -162,11 +177,18 @@ namespace Common.UI.DockWidgets
 						RectTransform dockingAreaTransform = dockingArea.transform as RectTransform;
 	                    
 						float dockingAreaWidth = totalWidth * mSizes[i];
-                    
-						Utils.AlignRectTransformStretchLeft(dockingAreaTransform, dockingAreaWidth, contentWidth);
-						contentWidth += dockingAreaWidth + GAP;                        
 
-	                    dockingArea.OnResize();
+						if (
+						    dockingAreaTransform.sizeDelta.x != dockingAreaWidth
+							||
+							dockingAreaTransform.sizeDelta.y != totalHeight
+						   )
+						{
+							Utils.AlignRectTransformTopLeft(dockingAreaTransform, dockingAreaWidth, totalHeight, contentWidth, 0f);
+							dockingArea.OnResize();
+						}
+						
+						contentWidth += dockingAreaWidth + GAP;
 					}
             	}
                 break;
@@ -175,6 +197,7 @@ namespace Common.UI.DockWidgets
 				{
 					Vector3[] corners = new Vector3[4];
 					(transform as RectTransform).GetLocalCorners(corners);
+					float totalWidth  = corners[2].x - corners[0].x;
 					float totalHeight = corners[2].y - corners[0].y - (mChildren.Count - 1) * GAP;
 					
 					float contentHeight = 0f;
@@ -185,11 +208,18 @@ namespace Common.UI.DockWidgets
 						RectTransform dockingAreaTransform = dockingArea.transform as RectTransform;
                     
 						float dockingAreaHeight = totalHeight * mSizes[i];
+
+						if (
+							dockingAreaTransform.sizeDelta.x != totalWidth
+							||
+							dockingAreaTransform.sizeDelta.y != dockingAreaHeight
+						   )
+						{
+							Utils.AlignRectTransformTopLeft(dockingAreaTransform, totalWidth, dockingAreaHeight, 0f, contentHeight);
+							dockingArea.OnResize();
+						}
 						
-						Utils.AlignRectTransformTopStretch(dockingAreaTransform, dockingAreaHeight, contentHeight);
-	                    contentHeight += dockingAreaHeight + GAP;                        
-	                    
-	                    dockingArea.OnResize();
+	                    contentHeight += dockingAreaHeight + GAP;
 	                }
             	}
                 break;
@@ -491,5 +521,81 @@ namespace Common.UI.DockWidgets
 
 			OnResize();
         }
+
+		/// <summary>
+		/// Removes the docking group.
+		/// </summary>
+		/// <param name="dockingGroup">Docking group.</param>
+		public void RemoveDockingGroup(DockingGroupScript dockingGroup)
+		{
+			if (mDockingGroupScript == dockingGroup)
+			{
+				if (mParent != null)
+				{
+					Destroy();
+				}
+				else
+				{
+					mDockingGroupScript = null;
+				}
+			}
+			else
+			{
+				Debug.LogError("Failed to remove docking group");
+			}
+		}
+
+		/// <summary>
+		/// Removes the docking area.
+		/// </summary>
+		/// <param name="dockingArea">Docking area.</param>
+		public void RemoveDockingArea(DockingAreaScript dockingArea)
+		{
+			if (dockingArea.parent == this)
+			{
+				int index = mChildren.IndexOf(dockingArea);
+				
+				if (index >= 0)
+				{
+					mChildren.RemoveAt(index);
+
+					if (mChildren.Count == 1)
+					{
+						dockingArea = mChildren[0];
+
+						mOrientation        = dockingArea.mOrientation;
+						mChildren           = dockingArea.mChildren;
+						mSizes              = dockingArea.mSizes;
+						mDockingGroupScript = dockingArea.mDockingGroupScript;
+
+						if (mDockingGroupScript != null)
+						{
+							mDockingGroupScript.parent = this;
+							mDockingGroupScript.transform.SetParent(transform, false);
+						}
+						else
+						{
+							foreach (DockingAreaScript child in mChildren)
+							{
+								child.mParent = this;
+								child.transform.SetParent(transform, false);
+							}
+						}
+
+						UnityEngine.Object.DestroyObject(dockingArea.gameObject);
+					}
+
+					OnResize();
+				}
+				else
+				{
+					Debug.LogError("Failed to remove docking area");
+				}
+			}			
+			else
+			{
+				Debug.LogError("Docking area belongs not to this docking area");
+			}
+		}
     }
 }

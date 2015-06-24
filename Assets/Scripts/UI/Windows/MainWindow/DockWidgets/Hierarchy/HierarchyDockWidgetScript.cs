@@ -16,6 +16,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Hierarchy.HierarchyDockWidgetScript"/> class.
 		/// </summary>
 		private HierarchyDockWidgetScript()
+			: base()
 		{
 			image   = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Textures.icon;
 			tokenId = UnityTranslation.R.sections.DockWidgets.strings.hierarchy;
@@ -61,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{						
 			if (Global.hierarchyDockWidgetScript == this)
 			{
 				Global.hierarchyDockWidgetScript = null;

@@ -53,6 +53,8 @@ namespace Common.UI.Popups
 			mPopupMenus    = new List<PopupMenu>();
 			mAutoPopupItem = null;
 			mRemainingTime = TIMER_NOT_ACTIVE;
+
+			enabled = false;
 		}
 
 		/// <summary>
@@ -71,54 +73,51 @@ namespace Common.UI.Popups
 		/// </summary>
 		void Update()
 		{
-			if (mPopupMenus.Count > 0)
+			if (InputControl.GetMouseButtonDown(MouseButton.Left))
 			{
-				if (InputControl.GetMouseButtonDown(MouseButton.Left))
+				PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
+				pointerEvent.position = InputControl.mousePosition;
+				
+				List<RaycastResult> hits = new List<RaycastResult>();
+				EventSystem.current.RaycastAll(pointerEvent, hits);
+				
+				bool hitPopupMenu = false;
+				
+				if (hits.Count > 0)
 				{
-					PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
-					pointerEvent.position = InputControl.mousePosition;
+					Transform curTransform = hits[0].gameObject.transform;
 					
-					List<RaycastResult> hits = new List<RaycastResult>();
-					EventSystem.current.RaycastAll(pointerEvent, hits);
-					
-					bool hitPopupMenu = false;
-					
-					if (hits.Count > 0)
+					while (curTransform != null)
 					{
-						Transform curTransform = hits[0].gameObject.transform;
-						
-						while (curTransform != null)
+						if (curTransform == transform)
 						{
-							if (curTransform == transform)
-							{
-								hitPopupMenu = true;
-								break;
-							}
-							
-							curTransform = curTransform.parent;
+							hitPopupMenu = true;
+							break;
 						}
-					}
-					
-					if (!hitPopupMenu)
-					{
-						mPopupMenus[0].Destroy();
+						
+						curTransform = curTransform.parent;
 					}
 				}
-				else
-				if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
+				
+				if (!hitPopupMenu)
 				{
-					mPopupMenus[mPopupMenus.Count - 1].Destroy();
+					mPopupMenus[0].Destroy();
 				}
-
-				if (IsTimerActive())
+			}
+			else
+			if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
+			{
+				mPopupMenus[mPopupMenus.Count - 1].Destroy();
+			}
+			
+			if (IsTimerActive())
+			{
+				mRemainingTime -= Time.deltaTime;
+				
+				if (mRemainingTime <= 0)
 				{
-					mRemainingTime -= Time.deltaTime;
-					
-					if (mRemainingTime <= 0)
-					{
-						mAutoPopupItem.Click();
-						StopTimer();
-					}
+					mAutoPopupItem.Click();
+					StopTimer();
 				}
 			}
 		}
@@ -202,6 +201,7 @@ namespace Common.UI.Popups
 			if (instance != null)
 			{
 				instance.mPopupMenus.Add(menu);
+				instance.enabled = true;
 			}
 			else
 			{
@@ -221,6 +221,7 @@ namespace Common.UI.Popups
 				{
 					if (instance.mPopupMenus.Count == 0)
 					{
+						instance.enabled = false;
 						instance.mAutoPopupItem = null;
 						instance.StopTimer();
 					}

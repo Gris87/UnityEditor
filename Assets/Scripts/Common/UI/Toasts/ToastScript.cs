@@ -11,8 +11,7 @@ namespace Common.UI.Toasts
 	/// </summary>
 	public class ToastScript : MonoBehaviour
 	{
-		private static readonly float TIMER_NOT_ACTIVE = -10000f;
-		private static readonly float FADE_TIME        = 300f / 1000f;
+		private static readonly float FADE_TIME = 300f / 1000f;
 
 
 
@@ -34,11 +33,14 @@ namespace Common.UI.Toasts
 		/// Initializes a new instance of the <see cref="Common.UI.Toasts.ToastScript"/> class.
 		/// </summary>
 		public ToastScript()
+			: base()
 		{
-			mRemainingTime = TIMER_NOT_ACTIVE;
+			mRemainingTime = 0f;
 
 			mToastCanvasGroup = null;
 			mToastText        = null;
+
+			enabled = false;
         }
 
 		/// <summary>
@@ -67,22 +69,19 @@ namespace Common.UI.Toasts
 		/// </summary>
 		void Update()
 		{
-			if (IsTimerActive())
+			mRemainingTime -= Time.deltaTime;
+			
+			if (mRemainingTime <= 0)
 			{
-				mRemainingTime -= Time.deltaTime;
-				
-				if (mRemainingTime <= 0)
+				DestroyToast();
+			}
+			else
+			{
+				if (mRemainingTime < FADE_TIME)
 				{
-					DestroyToast();
-                }
-                else
-                {
-                    if (mRemainingTime < FADE_TIME)
-                    {
-                        mToastCanvasGroup.alpha = mRemainingTime / FADE_TIME;
-                    }
-                }
-            }
+					mToastCanvasGroup.alpha = mRemainingTime / FADE_TIME;
+				}
+			}
         }
         
 		/// <summary>
@@ -160,7 +159,8 @@ namespace Common.UI.Toasts
 			#endregion
 			#endregion
             
-            StartTimer(duration);
+			mRemainingTime = duration / 1000f;
+			enabled = true;
         }
 
 		/// <summary>
@@ -184,37 +184,6 @@ namespace Common.UI.Toasts
         private void DestroyToast()
         {
             UnityEngine.Object.DestroyObject(gameObject);
-        }
-
-        /// <summary>
-		/// Starts timer with specified delay.
-		/// </summary>
-		/// <param name="ms">Delay in ms.</param>
-		private void StartTimer(float ms)
-		{
-			if (ms < 0f)
-			{
-				Debug.LogError("Incorrect delay value: " + ms);
-			}
-			
-			mRemainingTime = ms / 1000f;
-		}
-		
-		/// <summary>
-		/// Stops timer.
-		/// </summary>
-		private void StopTimer()
-		{
-			mRemainingTime = TIMER_NOT_ACTIVE;
-		}
-		
-		/// <summary>
-		/// Determines whether timer is active.
-		/// </summary>
-        /// <returns><c>true</c> if timer is active; otherwise, <c>false</c>.</returns>
-        private bool IsTimerActive()
-        {
-            return mRemainingTime != TIMER_NOT_ACTIVE;
         }
 	}
 }

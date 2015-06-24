@@ -193,6 +193,19 @@ namespace Common.UI.DockWidgets
 		}
 
 		/// <summary>
+		/// Destroy this instance.
+		/// </summary>
+		public void Destroy()
+		{
+			UnityEngine.Object.DestroyObject(gameObject);
+			
+			if (mParent != null)
+			{
+				mParent.RemoveDockWidget(this);
+			}
+		}
+
+		/// <summary>
 		/// Handler for resize event.
 		/// </summary>
 		public virtual void OnResize()

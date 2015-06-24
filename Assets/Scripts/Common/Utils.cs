@@ -25,6 +25,73 @@ namespace Common
 			uiObject.layer = UI_LAYER;
         }
 
+		/// <summary>
+		/// Search component in parents.
+		/// </summary>
+		/// <returns>Component with specified type if found in parents.</returns>
+		/// <param name="gameObject">Game object.</param>
+		/// <typeparam name="T">Type of component.</typeparam>
+		public static T FindInParents<T>(GameObject gameObject) where T : Component
+		{
+			T component = gameObject.GetComponent<T>();
+			
+			if (component != null)
+			{
+				return component;
+			}
+			
+			Transform curTransform = gameObject.transform.parent;
+			
+			while (curTransform != null && component == null)
+			{
+				component = curTransform.gameObject.GetComponent<T>();
+				
+				curTransform = curTransform.parent;
+			}
+			
+			return component;
+		}
+
+		/// <summary>
+		/// Takes screenshot and return it as Texture2D.
+		/// </summary>
+		/// <returns>Screenshot as Texture2D.</returns>
+		/// <param name="x">The x coordinate.</param>
+		/// <param name="y">The y coordinate.</param>
+		/// <param name="width">Width.</param>
+		/// <param name="height">Height.</param>
+		public static Texture2D TakeScreenshot(int x = 0, int y = 0, int width = 0, int height = 0)
+		{
+			int screenWidth  = Screen.width;
+			int screenHeight = Screen.height;
+
+			if (
+				width == 0
+				||
+				x + width > screenWidth
+			   )
+			{
+				width = screenWidth - x;
+			}
+			
+			if (
+				height == 0
+			    ||
+			    y + height > screenHeight
+			   )
+			{
+				height = screenHeight - y;
+			}
+
+			// TODO: Try RenderTexture
+
+			Texture2D texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+			texture.ReadPixels(new Rect(x, screenHeight - y - height, width, height), 0, 0);
+			texture.Apply();
+
+			return texture;
+		}
+
         /// <summary>
         /// Gets the local coordinates for corners of specified transform.
         /// </summary>
@@ -88,12 +155,12 @@ namespace Common
 												  	  RectTransform transform
 													, float width
 													, float height
-													, float x            = 0
-													, float y            = 0
-													, float left         = -1
-													, float bottom       = -1
-													, float shadowRight  = 0
-													, float shadowBottom = 0
+													, float x            = 0f
+													, float y            = 0f
+													, float left         = -1f
+													, float bottom       = -1f
+													, float shadowRight  = 0f
+													, float shadowBottom = 0f
 												   )
 		{
 			int screenWidth  = Screen.width;
@@ -111,11 +178,11 @@ namespace Common
 			
 			if (x + width > screenWidth)
 			{
-				if (left != -1)
+				if (left != -1f)
 				{
 					x = left - width + shadowRight;
 					
-					if (x < 0)
+					if (x < 0f)
 					{
 						x = screenWidth - width;
 					}
@@ -128,11 +195,11 @@ namespace Common
 			
 			if (y + height > screenHeight)
 			{
-				if (bottom != -1)
+				if (bottom != -1f)
 				{
 					y = bottom - height + shadowBottom;
 					
-					if (y < 0)
+					if (y < 0f)
 					{
 						y = screenHeight - height;
 					}
@@ -158,8 +225,8 @@ namespace Common
 													   RectTransform transform
 													 , float width
 													 , float height
-													 , float x = 0
-													 , float y = 0
+													 , float x = 0f
+													 , float y = 0f
 		                                            )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -182,8 +249,8 @@ namespace Common
 		                                                 RectTransform transform
 		                                               , float width
 		                                               , float height
-		                                               , float offsetX    = 0
-		                                               , float offsetTop  = 0
+		                                               , float offsetX    = 0f
+		                                               , float offsetTop  = 0f
 		                                              )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -206,8 +273,8 @@ namespace Common
 													    RectTransform transform
 													  , float width
 													  , float height
-													  , float offsetRight = 0
-													  , float offsetTop   = 0
+													  , float offsetRight = 0f
+													  , float offsetTop   = 0f
 													 )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -231,9 +298,9 @@ namespace Common
 		public static void AlignRectTransformTopStretch(
 													      RectTransform transform
 													    , float height
-														, float offsetTop   = 0
-													    , float offsetLeft  = 0
-													    , float offsetRight = 0
+														, float offsetTop   = 0f
+													    , float offsetLeft  = 0f
+													    , float offsetRight = 0f
 														, float pivotX      = 0.5f
 														, float pivotY      = 0.5f
 													   )
@@ -259,8 +326,8 @@ namespace Common
 														  RectTransform transform
 														, float width
 														, float height
-														, float offsetLeft = 0
-														, float offsetY    = 0
+														, float offsetLeft = 0f
+														, float offsetY    = 0f
 													   )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -283,8 +350,8 @@ namespace Common
 															RectTransform transform
 														  , float width
 														  , float height
-														  , float offsetX = 0
-														  , float offsetY = 0
+														  , float offsetX = 0f
+														  , float offsetY = 0f
 														 )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -307,8 +374,8 @@ namespace Common
 														   RectTransform transform
 														 , float width
 														 , float height
-														 , float offsetRight = 0
-														 , float offsetY     = 0
+														 , float offsetRight = 0f
+														 , float offsetY     = 0f
 														)
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -332,9 +399,9 @@ namespace Common
 		public static void AlignRectTransformMiddleStretch(
 															 RectTransform transform
 														   , float height
-														   , float offsetY     = 0
-														   , float offsetLeft  = 0
-														   , float offsetRight = 0
+														   , float offsetY     = 0f
+														   , float offsetLeft  = 0f
+														   , float offsetRight = 0f
 														   , float pivotX      = 0.5f
 														   , float pivotY      = 0.5f
 														  )
@@ -360,8 +427,8 @@ namespace Common
 														  RectTransform transform
 														, float width
 														, float height
-														, float offsetLeft   = 0
-														, float offsetBottom = 0
+														, float offsetLeft   = 0f
+														, float offsetBottom = 0f
 													   )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -384,8 +451,8 @@ namespace Common
 															RectTransform transform
 														  , float width
 														  , float height
-														  , float offsetX      = 0
-														  , float offsetBottom = 0
+														  , float offsetX      = 0f
+														  , float offsetBottom = 0f
 														 )
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -408,8 +475,8 @@ namespace Common
 														   RectTransform transform
 														 , float width
 														 , float height
-														 , float offsetRight  = 0
-														 , float offsetBottom = 0
+														 , float offsetRight  = 0f
+														 , float offsetBottom = 0f
 														)
 		{
 			transform.localScale         = new Vector3(1f, 1f, 1f);
@@ -433,9 +500,9 @@ namespace Common
 		public static void AlignRectTransformBottomStretch(
 															 RectTransform transform
 														   , float height
-														   , float offsetBottom = 0
-														   , float offsetLeft   = 0
-														   , float offsetRight  = 0
+														   , float offsetBottom = 0f
+														   , float offsetLeft   = 0f
+														   , float offsetRight  = 0f
 														   , float pivotX       = 0.5f
 														   , float pivotY       = 0.5f
 														  )
@@ -462,9 +529,9 @@ namespace Common
 		public static void AlignRectTransformStretchLeft(
 														   RectTransform transform
 														 , float width
-														 , float offsetLeft   = 0
-														 , float offsetTop    = 0
-														 , float offsetBottom = 0
+														 , float offsetLeft   = 0f
+														 , float offsetTop    = 0f
+														 , float offsetBottom = 0f
 			         									 , float pivotX       = 0.5f
 														 , float pivotY       = 0.5f
 														)
@@ -491,9 +558,9 @@ namespace Common
 		public static void AlignRectTransformStretchCenter(
 															 RectTransform transform
 														   , float width
-														   , float offsetX      = 0
-														   , float offsetTop    = 0
-														   , float offsetBottom = 0
+														   , float offsetX      = 0f
+														   , float offsetTop    = 0f
+														   , float offsetBottom = 0f
 														   , float pivotX       = 0.5f
 														   , float pivotY       = 0.5f
 														  )
@@ -520,9 +587,9 @@ namespace Common
 		public static void AlignRectTransformStretchRight(
 															RectTransform transform
 														  , float width
-														  , float offsetRight  = 0
-														  , float offsetTop    = 0
-														  , float offsetBottom = 0
+														  , float offsetRight  = 0f
+														  , float offsetTop    = 0f
+														  , float offsetBottom = 0f
 														  , float pivotX       = 0.5f
 														  , float pivotY       = 0.5f
 														 )
@@ -548,10 +615,10 @@ namespace Common
 		/// <param name="pivotY">The y coordinate of pivot.</param>
 		public static void AlignRectTransformStretchStretch(
 															  RectTransform transform
-															, float offsetLeft   = 0
-															, float offsetTop    = 0
-															, float offsetRight  = 0
-															, float offsetBottom = 0
+															, float offsetLeft   = 0f
+															, float offsetTop    = 0f
+															, float offsetRight  = 0f
+															, float offsetBottom = 0f
 															, float pivotX       = 0.5f
 															, float pivotY       = 0.5f
 														   )

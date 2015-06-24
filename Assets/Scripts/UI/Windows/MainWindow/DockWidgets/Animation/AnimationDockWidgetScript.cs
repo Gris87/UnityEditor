@@ -16,6 +16,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Animation
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Animation.AnimationDockWidgetScript"/> class.
 		/// </summary>
 		private AnimationDockWidgetScript()
+			: base()
 		{
 			image   = Assets.Windows.MainWindow.DockWidgets.Animation.Textures.icon;
 			tokenId = UnityTranslation.R.sections.DockWidgets.strings.animation;
@@ -61,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Animation
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{		
 			if (Global.animationDockWidgetScript == this)
 			{
 				Global.animationDockWidgetScript = null;

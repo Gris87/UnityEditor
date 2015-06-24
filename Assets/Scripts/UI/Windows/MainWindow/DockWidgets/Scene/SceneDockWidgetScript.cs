@@ -62,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{
 			if (Global.sceneDockWidgetScript == this)
 			{
 				Global.sceneDockWidgetScript = null;

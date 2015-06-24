@@ -315,6 +315,54 @@ public static class Assets
 				}
 				#endregion
 
+				#region Assets for asset store dock widget
+				/// <summary>
+				/// Assets for asset store dock widget.
+				/// </summary>
+				public static class AssetStore
+				{
+					/// <summary>
+					/// Texture assets for asset store dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/AssetStore/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for version control dock widget
+				/// <summary>
+				/// Assets for version control dock widget.
+				/// </summary>
+				public static class VersionControl
+				{
+					/// <summary>
+					/// Texture assets for version control dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/VersionControl/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for animator parameter dock widget
+				/// <summary>
+				/// Assets for animator parameter dock widget.
+				/// </summary>
+				public static class AnimatorParameter
+				{
+					/// <summary>
+					/// Texture assets for animator parameter dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/AnimatorParameter/Icon");
+					}
+				}
+				#endregion
+
 				#region Assets for animator dock widget
 				/// <summary>
 				/// Assets for animator dock widget.
@@ -327,6 +375,22 @@ public static class Assets
 					public static class Textures
 					{
 						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Animator/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for sprite packer dock widget
+				/// <summary>
+				/// Assets for sprite packer dock widget.
+				/// </summary>
+				public static class SpritePacker
+				{
+					/// <summary>
+					/// Texture assets for sprite packer dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/SpritePacker/Icon");
 					}
 				}
 				#endregion
@@ -359,6 +423,22 @@ public static class Assets
 					public static class Textures
 					{
 						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/OcclusionCulling/Icon");
+					}
+				}
+				#endregion
+
+				#region Assets for frame debugger dock widget
+				/// <summary>
+				/// Assets for frame debugger dock widget.
+				/// </summary>
+				public static class FrameDebugger
+				{
+					/// <summary>
+					/// Texture assets for frame debugger dock widget.
+					/// </summary>
+					public static class Textures
+					{
+						public static Sprite icon = LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/FrameDebugger/Icon");
 					}
 				}
 				#endregion

@@ -16,6 +16,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Profiler.ProfilerDockWidgetScript"/> class.
 		/// </summary>
 		private ProfilerDockWidgetScript()
+			: base()
 		{
 			image   = Assets.Windows.MainWindow.DockWidgets.Profiler.Textures.icon;
 			tokenId = UnityTranslation.R.sections.DockWidgets.strings.profiler;
@@ -61,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{						
 			if (Global.profilerDockWidgetScript == this)
 			{
 				Global.profilerDockWidgetScript = null;

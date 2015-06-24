@@ -90,6 +90,7 @@ namespace Common.UI.DockWidgets
 		/// Initializes a new instance of the <see cref="Common.UI.DockWidgets.DockingGroupScript"/> class.
 		/// </summary>
 		public DockingGroupScript()
+			: base()
 		{
 			mParent        = null;
 			mChildren      = new List<DockWidgetScript>();
@@ -107,14 +108,6 @@ namespace Common.UI.DockWidgets
 			Translator.addLanguageChangedListener(UpdateTabs);
 
 			CreateUI();
-		}
-
-		/// <summary>
-		/// Handler for destroy event.
-		/// </summary>
-		void OnDestroy()
-		{
-			Translator.removeLanguageChangedListener(UpdateTabs);
 		}
 
 		/// <summary>
@@ -194,6 +187,27 @@ namespace Common.UI.DockWidgets
 			#endregion
 
 			mTabsTransform.SetAsLastSibling();
+		}
+
+		/// <summary>
+		/// Destroy this instance.
+		/// </summary>
+		public void Destroy()
+		{
+			UnityEngine.Object.DestroyObject(gameObject);
+
+			if (mParent != null)
+			{
+				mParent.RemoveDockingGroup(this);
+			}
+		}
+
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
+			Translator.removeLanguageChangedListener(UpdateTabs);
 		}
 
 		/// <summary>
@@ -414,6 +428,11 @@ namespace Common.UI.DockWidgets
 			}
 			else
 			{
+				if (index <= mSelectedIndex)
+				{
+					++mSelectedIndex;
+				}
+
 				dockWidget.gameObject.SetActive(false);
 			}
 
@@ -423,6 +442,7 @@ namespace Common.UI.DockWidgets
 			#region Tab GameObject
 			GameObject tab = new GameObject("Tab");
 			Utils.InitUIObject(tab, mTabsTransform);
+			tab.transform.SetSiblingIndex(index);
 			
 			//===========================================================================
 			// RectTransform Component
@@ -537,10 +557,41 @@ namespace Common.UI.DockWidgets
 				
 				if (index >= 0)
                 {
-					mChildren.RemoveAt(index);
-					UnityEngine.Object.DestroyObject(mTabsTransform.GetChild(index).gameObject);
+					Transform tab = mTabsTransform.GetChild(index);
 
-					UpdateTabsGeometry();
+					mContentTransform.GetChild(index).SetAsLastSibling();
+					tab.SetAsLastSibling();
+					UnityEngine.Object.DestroyObject(tab.gameObject);
+					mChildren.RemoveAt(index);
+
+					if (mChildren.Count > 0)
+					{
+						if (index == mSelectedIndex)
+						{
+							int temp = mSelectedIndex;
+							mSelectedIndex = -1;
+
+							if (temp < mChildren.Count)
+							{
+								selectedIndex = temp;
+							}
+							else
+							{
+								selectedIndex = mChildren.Count - 1;
+							}
+						}
+						else
+						if (index < mSelectedIndex)
+						{
+							--mSelectedIndex;
+						}
+						
+						UpdateTabsGeometry();
+					}
+					else
+					{
+						Destroy();
+					}
 				}
 				else
 				{

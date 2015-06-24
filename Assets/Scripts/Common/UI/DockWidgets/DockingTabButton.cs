@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace Common.UI.DockWidgets
 	/// <summary>
 	/// Button component for docking group tab.
 	/// </summary>
-	public class DockingTabButton : Button, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+	public class DockingTabButton : Button, IBeginDragHandler, IDragHandler, IEndDragHandler
 	{
 		/// <summary>
 		/// Gets or sets the dock widget.
@@ -108,57 +109,15 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			Canvas canvas = FindInParents<Canvas>();
-			
-			if (canvas != null)
+			buttonClicked();
+
+			if (draggingImage == null)
 			{
-				buttonClicked();
-				
-				if (draggingImage == null)
-				{
-					// TODO: Implement
-					
-					//===========================================================================
-					// Image GameObject
-					//===========================================================================
-					#region Image GameObject
-					draggingImage = new GameObject("DraggingImage");
-					Utils.InitUIObject(draggingImage, canvas.transform);
-					
-					//===========================================================================
-					// RectTransform Component
-					//===========================================================================
-					#region RectTransform Component
-					RectTransform imageTransform = draggingImage.AddComponent<RectTransform>();
-					Utils.AlignRectTransformTopLeft(imageTransform, 100f, 100f);
-					#endregion
-					
-					//===========================================================================
-					// CanvasRenderer Component
-					//===========================================================================
-					#region CanvasRenderer Component
-					draggingImage.AddComponent<CanvasRenderer>();
-					#endregion
-					
-					//===========================================================================
-                    // Image Component
-                    //===========================================================================
-                    #region Image Component
-                    Image image = draggingImage.AddComponent<Image>();
-                    
-                    image.sprite = dockWidget.image;
-                    image.type   = Image.Type.Sliced;
-                    #endregion
-                    #endregion
-                }
-                else
-                {
-                    Debug.LogError("Dragging image already exists");
-				}
+				StartCoroutine(CreateDraggingImage());
 			}
 			else
 			{
-				Debug.LogError("Canvas not found");
+				Debug.LogError("Dragging image already exists");
 			}
 		}
 
@@ -187,13 +146,60 @@ namespace Common.UI.DockWidgets
 			}
 		}
 
-		/// <summary>
-		/// Handler for drop event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public void OnDrop(PointerEventData eventData)
+		public IEnumerator CreateDraggingImage()
 		{
-			Debug.LogError("Drop");
+			yield return new WaitForEndOfFrame();
+
+			Canvas canvas = Utils.FindInParents<Canvas>(gameObject);
+			
+			if (canvas != null)
+			{				
+				Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
+				
+				int screenX      = (int)corners[0].x;
+				int screenY      = (int)corners[0].y;
+				int screenWidth  = (int)(corners[3].x - corners[0].x);
+				int screenHeight = (int)(corners[3].y - corners[0].y);
+								
+				// TODO: Implement
+				
+				//===========================================================================
+				// Image GameObject
+				//===========================================================================
+				#region Image GameObject
+				draggingImage = new GameObject("DraggingImage");
+				Utils.InitUIObject(draggingImage, canvas.transform);
+				
+				//===========================================================================
+				// RectTransform Component
+				//===========================================================================
+				#region RectTransform Component
+				RectTransform imageTransform = draggingImage.AddComponent<RectTransform>();
+				Utils.AlignRectTransformTopLeft(imageTransform, screenWidth, screenHeight);
+				#endregion
+				
+				//===========================================================================
+				// CanvasRenderer Component
+				//===========================================================================
+				#region CanvasRenderer Component
+				draggingImage.AddComponent<CanvasRenderer>();
+				#endregion
+				
+				//===========================================================================
+				// Image Component
+				//===========================================================================
+				#region Image Component
+				Image image = draggingImage.AddComponent<Image>();
+				
+				image.sprite = Sprite.Create(Utils.TakeScreenshot(screenX, screenY, screenWidth, screenHeight), new Rect(0, 0, screenWidth, screenHeight), new Vector2(0.5f, 0.5f));
+				image.type   = Image.Type.Sliced;
+				#endregion
+				#endregion
+			}
+			else
+			{
+				Debug.LogError("Canvas not found");
+			}
 		}
 
 		/// <summary>
@@ -224,32 +230,6 @@ namespace Common.UI.DockWidgets
 			{
 				image.sprite = Assets.DockWidgets.Textures.tab;
 			}
-		}
-
-		/// <summary>
-		/// Search component in parents.
-		/// </summary>
-		/// <returns>Component with specified type if found in parents.</returns>
-		/// <typeparam name="T">Type of component.</typeparam>
-		private T FindInParents<T>() where T : Component
-		{
-			T component = gameObject.GetComponent<T>();
-			
-			if (component != null)
-			{
-				return component;
-			}
-			
-			Transform curTransform = gameObject.transform.parent;
-			
-			while (curTransform != null && component == null)
-			{
-				component = curTransform.gameObject.GetComponent<T>();
-
-				curTransform = curTransform.parent;
-			}
-			
-			return component;
 		}
 	}
 }

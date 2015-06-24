@@ -16,6 +16,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
 		/// </summary>
 		private ProjectDockWidgetScript()
+			: base()
 		{
 			image   = Assets.Windows.MainWindow.DockWidgets.Project.Textures.icon;
 			tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
@@ -61,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{						
 			if (Global.projectDockWidgetScript == this)
 			{
 				Global.projectDockWidgetScript = null;

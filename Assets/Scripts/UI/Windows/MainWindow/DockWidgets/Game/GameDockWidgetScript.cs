@@ -16,6 +16,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
 		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Game.GameDockWidgetScript"/> class.
 		/// </summary>
 		private GameDockWidgetScript()
+			: base()
 		{
 			image   = Assets.Windows.MainWindow.DockWidgets.Game.Textures.icon;
 			tokenId = UnityTranslation.R.sections.DockWidgets.strings.game;
@@ -61,7 +62,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
 		/// Handler for destroy event.
 		/// </summary>
 		void OnDestroy()
-		{			
+		{						
 			if (Global.gameDockWidgetScript == this)
 			{
 				Global.gameDockWidgetScript = null;

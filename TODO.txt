@@ -1,4 +1,3 @@
-Auto Disable/Enable scripts when needed
 CustomPopup
 Toolbar
 Docking area
