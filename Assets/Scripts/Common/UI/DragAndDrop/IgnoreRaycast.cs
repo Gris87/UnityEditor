@@ -2,7 +2,7 @@
 
 
 
-namespace Common.UI.DockWidgets
+namespace Common.UI.DragAndDrop
 {
 	/// <summary>
 	/// Ignore raycast component.

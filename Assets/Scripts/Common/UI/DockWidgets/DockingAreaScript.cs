@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 
@@ -12,6 +13,21 @@ namespace Common.UI.DockWidgets
 	public class DockingAreaScript : MonoBehaviour
 	{
 		private static readonly float GAP = 3f;
+
+
+
+		/// <summary>
+		/// Gets the instances.
+		/// </summary>
+		/// <value>The instances.</value>
+		public static ReadOnlyCollection<DockingAreaScript> instances
+		{
+			get { return mInstances.AsReadOnly(); }
+		}
+
+
+
+		private static List<DockingAreaScript> mInstances = new List<DockingAreaScript>();
 
 
 
@@ -120,6 +136,7 @@ namespace Common.UI.DockWidgets
 		private List<DockingAreaScript> mChildren;
 		private List<float>             mSizes;
 		private DockingGroupScript      mDockingGroupScript;
+		private Vector3[]               mCachedDragCorners;
 
 
 
@@ -129,11 +146,14 @@ namespace Common.UI.DockWidgets
 		public DockingAreaScript()
 			: base()
 		{
+			mInstances.Add(this);
+
 			mOrientation        = DockingAreaOrientation.None;
 			mParent             = null;
 			mChildren           = new List<DockingAreaScript>();
 			mSizes              = new List<float>();
 			mDockingGroupScript = null;
+			mCachedDragCorners  = null;
 		}
 
 		/// <summary>
@@ -146,6 +166,11 @@ namespace Common.UI.DockWidgets
 			if (mParent != null)
 			{
 				mParent.RemoveDockingArea(this);
+			}
+
+			if (!mInstances.Remove(this))
+			{
+				Debug.LogError("Failed to remove docking area");
 			}
 		}
 
@@ -238,6 +263,147 @@ namespace Common.UI.DockWidgets
 		}
 
 		/// <summary>
+		/// Caches drag info.
+		/// </summary>
+		public void CacheDragInfo()
+		{
+			mCachedDragCorners = Utils.GetWindowCorners(transform as RectTransform);
+		}
+
+		/// <summary>
+		/// Handler for dock widget drag event.
+		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
+		public void ProcessDockWidgetDrag(PointerEventData eventData)
+		{
+			if (mCachedDragCorners != null)
+			{
+				float screenHeight = Screen.height;
+								
+				float left   = mCachedDragCorners[0].x;
+				float top    = mCachedDragCorners[0].y;
+				float right  = mCachedDragCorners[3].x;
+				float bottom = mCachedDragCorners[3].y;
+
+				float width             = right - left;
+				float height            = bottom - top;
+				float horizontalSection = width / 3f;
+				float verticalSection   = height / 3f;
+				
+				float mouseX = eventData.position.x;
+				float mouseY = screenHeight - eventData.position.y;
+
+				if (
+					mouseX >= left && mouseX <= right
+					&&
+					mouseY >= top && mouseY <= bottom
+				   )
+				{
+					if (
+						mChildren.Count == 0
+						&& 
+						(
+						 mDockingGroupScript == null
+						 ||
+						 mDockingGroupScript.children.Count == 1
+						 &&
+						 mDockingGroupScript.children[0] == DummyDockWidgetScript.instance
+						)
+					   )
+					{
+						if (DragHandler.minimum > -1f)
+						{
+							if (mDockingGroupScript == null)
+							{
+								DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(this);
+							}
+
+							DragHandler.handledByArea = this;
+							DragHandler.mouseLocation = DragHandler.MouseLocation.Inside;
+							DragHandler.minimum = -1f;
+						}
+					}
+					else
+					{
+						// TODO: Implement ProcessDockWidgetDrag
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Drops the dock widget.
+		/// </summary>
+		public void DropDockWidget()
+		{
+			switch (DragHandler.mouseLocation)
+			{
+				case DragHandler.MouseLocation.Inside:
+				{
+					if (mChildren.Count == 0 && mDockingGroupScript == null)
+					{
+						DragHandler.dockWidget.InsertToDockingArea(this);
+					}
+					else
+					{
+						Debug.LogError("Unexpected behaviour in drop dock widget");
+					}
+				}
+				break;
+
+				case DragHandler.MouseLocation.LeftSection:
+				{
+					// TODO: Implement
+				}
+				break;
+
+				case DragHandler.MouseLocation.TopSection:
+				{
+					// TODO: Implement
+				}
+				break;
+
+				case DragHandler.MouseLocation.RightSection:
+				{
+					// TODO: Implement
+				}
+				break;
+
+				case DragHandler.MouseLocation.BottomSection:
+				{
+					// TODO: Implement
+				}
+				break;
+
+				case DragHandler.MouseLocation.Tabs:
+				{
+					// TODO: Implement
+				}
+				break;
+
+				case DragHandler.MouseLocation.Outside:
+				{
+					Debug.LogError("Unexpected mouse location"); // TODO: Print info
+				}
+				break;
+
+				default:
+				{
+					Debug.LogError("Unknown mouse location"); // TODO: Print info
+				}
+				break;
+			}
+		}
+
+		/// <summary>
+		/// Clears drag info.
+		/// </summary>
+		public void ClearDragInfo()
+		{
+			mCachedDragCorners = null;
+		}
+
+		/// <summary>
 		/// Inserts the specified dock widget.
 		/// </summary>
 		/// <param name="dockWidget">Dock widget.</param>
@@ -245,6 +411,8 @@ namespace Common.UI.DockWidgets
 		/// <param name="index">Index.</param>
 		public void InsertDockWidget(DockWidgetScript dockWidget, DockingAreaOrientation orientation = DockingAreaOrientation.Horizontal, int index = 0)
 		{
+			// TODO: Change index of dock widget
+
 			//***************************************************************************
 			// DockingGroup GameObject
 			//***************************************************************************

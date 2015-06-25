@@ -19,16 +19,17 @@ public static class AppUtils
 		
 		switch (Version.buildType)
 		{
-		case Version.BuildType.Personal:
-		{	
-			res += Translator.getString(R.sections.Version.strings.personal);
-		}
+			case Version.BuildType.Personal:
+			{	
+				res += Translator.getString(R.sections.Version.strings.personal);
+			}
 			break;
-		default:
-		{	
-			Debug.LogWarning("Unknown localization for build type \"" + Version.buildType.ToString() + "\". Using default value.");
-			res += Version.buildType.ToString();
-		}
+
+			default:
+			{	
+				Debug.LogWarning("Unknown localization for build type \"" + Version.buildType.ToString() + "\". Using default value.");
+				res += Version.buildType.ToString();
+			}
 			break;
 		}
 		

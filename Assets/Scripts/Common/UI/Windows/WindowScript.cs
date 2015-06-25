@@ -151,7 +151,7 @@ namespace Common.UI.Windows
 
 
 
-		private static List<WindowScript> windows        = new List<WindowScript>();
+		private static List<WindowScript> instances      = new List<WindowScript>();
 		private static WindowScript       selectedWindow = null;
 
 
@@ -1197,7 +1197,7 @@ namespace Common.UI.Windows
 		public WindowScript()
 			: base()
         {
-			windows.Add(this);
+			instances.Add(this);
 
 			mFrame           = WindowFrameType.Window;
 			mState           = WindowState.NoState;
@@ -2261,7 +2261,7 @@ namespace Common.UI.Windows
 
 
 
-			if (!windows.Remove(this))
+			if (!instances.Remove(this))
 			{
 				Debug.LogError("Failed to remove window");
 			}
@@ -2270,9 +2270,9 @@ namespace Common.UI.Windows
 			{
 				selectedWindow = null;
 
-				if (windows.Count > 0)
+				if (instances.Count > 0)
 				{
-					windows[0].SetSelected(true);
+					instances[0].SetSelected(true);
 				}
 			}
 		}

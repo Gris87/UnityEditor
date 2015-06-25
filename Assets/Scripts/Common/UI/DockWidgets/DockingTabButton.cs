@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+using Common.UI.DragAndDrop;
+
 
 
 namespace Common.UI.DockWidgets
@@ -43,10 +45,6 @@ namespace Common.UI.DockWidgets
 				}
 			}
 		}
-
-
-
-		private static GameObject draggingImage = null;
 
 
 
@@ -111,14 +109,17 @@ namespace Common.UI.DockWidgets
 		{
 			buttonClicked();
 
-			if (draggingImage == null)
+			DragHandler.dockWidget    = mDockWidget;
+			DragHandler.handledByArea = null;
+			DragHandler.mouseLocation = DragHandler.MouseLocation.Outside;
+			DragHandler.minimum       = float.MaxValue;
+
+			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
 			{
-				StartCoroutine(CreateDraggingImage());
-			}
-			else
-			{
-				Debug.LogError("Dragging image already exists");
-			}
+				dockingArea.CacheDragInfo();
+            }
+
+			StartCoroutine(CreateDraggingImage(eventData));
 		}
 
 		/// <summary>
@@ -127,9 +128,25 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnDrag(PointerEventData eventData)
 		{
-			if (draggingImage != null)
+			DragHandler.handledByArea = null;
+			DragHandler.mouseLocation = DragHandler.MouseLocation.Outside;
+			DragHandler.minimum       = float.MaxValue;
+
+			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
 			{
-				// TODO: Implement
+				dockingArea.ProcessDockWidgetDrag(eventData);
+			}
+
+			if (DragHandler.handledByArea != null)
+			{
+				DragData.HideImage();
+			}
+			else
+			{
+				DummyDockWidgetScript.DestroyInstance();
+
+				DragData.ShowImage();
+				DragData.Drag(eventData);
 			}
 		}
 
@@ -139,67 +156,63 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			if (draggingImage != null)
-			{
-				UnityEngine.Object.DestroyObject(draggingImage);
-				draggingImage = null;
-			}
-		}
+			DummyDockWidgetScript.DestroyInstance();
 
-		public IEnumerator CreateDraggingImage()
-		{
-			yield return new WaitForEndOfFrame();
-
-			Canvas canvas = Utils.FindInParents<Canvas>(gameObject);
-			
-			if (canvas != null)
-			{				
-				Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
-				
-				int screenX      = (int)corners[0].x;
-				int screenY      = (int)corners[0].y;
-				int screenWidth  = (int)(corners[3].x - corners[0].x);
-				int screenHeight = (int)(corners[3].y - corners[0].y);
-								
-				// TODO: Implement
-				
-				//===========================================================================
-				// Image GameObject
-				//===========================================================================
-				#region Image GameObject
-				draggingImage = new GameObject("DraggingImage");
-				Utils.InitUIObject(draggingImage, canvas.transform);
-				
-				//===========================================================================
-				// RectTransform Component
-				//===========================================================================
-				#region RectTransform Component
-				RectTransform imageTransform = draggingImage.AddComponent<RectTransform>();
-				Utils.AlignRectTransformTopLeft(imageTransform, screenWidth, screenHeight);
-				#endregion
-				
-				//===========================================================================
-				// CanvasRenderer Component
-				//===========================================================================
-				#region CanvasRenderer Component
-				draggingImage.AddComponent<CanvasRenderer>();
-				#endregion
-				
-				//===========================================================================
-				// Image Component
-				//===========================================================================
-				#region Image Component
-				Image image = draggingImage.AddComponent<Image>();
-				
-				image.sprite = Sprite.Create(Utils.TakeScreenshot(screenX, screenY, screenWidth, screenHeight), new Rect(0, 0, screenWidth, screenHeight), new Vector2(0.5f, 0.5f));
-				image.type   = Image.Type.Sliced;
-				#endregion
-				#endregion
+			if (DragHandler.handledByArea != null)
+            {
+				DragHandler.handledByArea.DropDockWidget();
 			}
 			else
 			{
-				Debug.LogError("Canvas not found");
+				// TODO: Put dock widget in window
 			}
+
+			DragHandler.dockWidget    = null;
+			DragHandler.handledByArea = null;
+			DragHandler.mouseLocation = DragHandler.MouseLocation.Outside;
+			DragHandler.minimum       = float.MaxValue;
+
+			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
+			{
+				dockingArea.ClearDragInfo();
+            }
+            
+            DragData.EndDrag(eventData);
+		}
+
+		/// <summary>
+		/// Creates the dragging image.
+		/// </summary>
+		/// <returns>The dragging image.</returns>
+		/// <param name="eventData">Pointer data.</param>
+		public IEnumerator CreateDraggingImage(PointerEventData eventData)
+		{
+			yield return new WaitForEndOfFrame();
+
+			Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
+			
+			int widgetX      = (int)corners[0].x;
+			int widgetY      = (int)corners[0].y;
+			int widgetWidth  = (int)(corners[3].x - corners[0].x);
+			int widgetHeight = (int)(corners[3].y - corners[0].y);
+
+			float dragPosX = eventData.pressPosition.x - widgetX;
+			float dragPosY = Screen.height - eventData.pressPosition.y - widgetY;
+			
+			DragData.BeginDrag(
+								 eventData
+							   , DraggingType.DockWidget
+							   , gameObject
+							   , Sprite.Create(
+							                     Utils.TakeScreenshot(widgetX, widgetY, widgetWidth, widgetHeight)
+							                   , new Rect(0, 0, widgetWidth, widgetHeight)
+						                       , new Vector2(0.5f, 0.5f)
+				                              )
+							   , widgetWidth
+							   , widgetHeight
+							   , dragPosX
+							   , dragPosY
+			                  );
 		}
 
 		/// <summary>
