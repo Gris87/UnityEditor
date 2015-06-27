@@ -4,10 +4,14 @@
 //#define USE_PLAYER_PREFS
 #endif
 
-using UnityEngine;
+
+
 using System;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
+
+
 
 /// <summary>
 /// <see cref="IniFile"/> allows to create and parse simple INI files
@@ -23,6 +27,8 @@ public class IniFile
         public string value;
         public string comment;
 
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="IniFile+KeyPair"/> class.
         /// </summary>
@@ -37,8 +43,12 @@ public class IniFile
         }
     }
 
+
+
     private Dictionary<string, KeyPair> mKeysMap;
     private List<KeyPair>               mKeysList;
+
+
 
     /// <summary>
     /// Create a new instance of <see cref="IniFile"/>.

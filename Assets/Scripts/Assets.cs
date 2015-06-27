@@ -603,5 +603,6 @@ public static class Assets
 	/// <param name="color">Color.</param>
 	private static void LoadColorFromIniFile(IniFile iniFile, Color color)
 	{
+
 	}
 }
