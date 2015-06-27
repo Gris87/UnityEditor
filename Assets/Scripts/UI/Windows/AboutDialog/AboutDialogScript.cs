@@ -261,17 +261,17 @@ namespace UI.Windows.AboutDialog
 			#region EventTrigger Component
 			EventTrigger creditsEventTrigger = credits.AddComponent<EventTrigger>();
 
-			creditsEventTrigger.delegates = new List<EventTrigger.Entry>();
+			creditsEventTrigger.triggers = new List<EventTrigger.Entry>();
 
 			EventTrigger.Entry beginDragEvent = new EventTrigger.Entry();
 			beginDragEvent.eventID = EventTriggerType.BeginDrag;
 			beginDragEvent.callback.AddListener(OnCreditsBeginDrag);
-			creditsEventTrigger.delegates.Add(beginDragEvent);
+			creditsEventTrigger.triggers.Add(beginDragEvent);
 
 			EventTrigger.Entry endDragEvent = new EventTrigger.Entry();
 			endDragEvent.eventID = EventTriggerType.EndDrag;
 			endDragEvent.callback.AddListener(OnCreditsEndDrag);
-			creditsEventTrigger.delegates.Add(endDragEvent);
+			creditsEventTrigger.triggers.Add(endDragEvent);
 			#endregion
 			#endregion
 
