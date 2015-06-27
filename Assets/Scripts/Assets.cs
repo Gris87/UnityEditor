@@ -7,24 +7,6 @@ using UnityEngine;
 /// </summary>
 public static class Assets
 {
-	/// <summary>
-	/// Loads an asset stored at path in a Resources folder.
-	/// </summary>
-	/// <returns>The asset at path if it can be found otherwise returns null.</returns>
-	/// <param name="path">Pathname of the target folder.</param>
-	/// <typeparam name="T">Type of resource.</typeparam>
-	public static T LoadResource<T>(string path) where T : UnityEngine.Object
-	{
-		T res = Resources.Load<T>(path);
-		
-		if (res == null)
-		{
-			Debug.LogError("Resource \"" + path + "\" is not found");
-		}
-		
-		return res;
-	}
-
 	#region Common assets
 	/// <summary>
 	/// Common assets.
@@ -573,4 +555,53 @@ public static class Assets
 		}
 	}
 	#endregion
+
+	/// <summary>
+	/// Loads an asset stored at path in a Resources folder.
+	/// </summary>
+	/// <returns>The asset at path if it can be found otherwise returns null.</returns>
+	/// <param name="path">Pathname of the target asset.</param>
+	/// <typeparam name="T">Type of resource.</typeparam>
+	private static T LoadResource<T>(string path) where T : UnityEngine.Object
+	{
+		T res = Resources.Load<T>(path);
+		
+		if (res == null)
+		{
+			Debug.LogError("Resource \"" + path + "\" is not found");
+		}
+		
+		return res;
+	}
+
+	/// <summary>
+	/// Loads color asset stored at path in a Resources folder.
+	/// </summary>
+	/// <returns>The color.</returns>
+	/// <param name="path">Pathname of the target asset.</param>
+	private static Color LoadColor(string path)
+	{
+		TextAsset asset = LoadResource<TextAsset>(path);
+
+		if (asset == null)
+		{
+			return null;
+		}
+
+		Color res = new Color();
+
+		IniFile iniFile = new IniFile(asset);
+		LoadColorFromIniFile(iniFile, res);
+
+		return res;
+	}
+
+	/// <summary>
+	/// Loads the color from ini file.
+	/// </summary>
+	/// <param name="iniFile">Ini file.</param>
+	/// <param name="color">Color.</param>
+	private static void LoadColorFromIniFile(IniFile iniFile, Color color)
+	{
+	}
 }
