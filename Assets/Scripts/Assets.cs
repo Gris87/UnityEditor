@@ -45,14 +45,22 @@ public static class Assets
 	/// </summary>
 	public static class Windows
 	{
-		#region Common assets for windows
+		#region Common assets for Windows
 		/// <summary>
-		/// Common assets for windows.
+		/// Common assets for Windows.
 		/// </summary>
 		public static class Common
 		{
 			/// <summary>
-			/// Common texture assets for windows.
+			/// Common color assets for Windows.
+			/// </summary>
+			public static class Colors
+			{
+				public static Color background = LoadColor("Colors/Common/UI/Windows/Background");
+			}
+
+			/// <summary>
+			/// Common texture assets for Windows.
 			/// </summary>
 			public static class Textures
 			{
@@ -187,6 +195,14 @@ public static class Assets
 				public static class Scene
 				{
 					/// <summary>
+					/// Color assets for scene dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Scene/Background");
+                    }
+
+					/// <summary>
 					/// Texture assets for scene dock widget.
 					/// </summary>
 					public static class Textures
@@ -203,6 +219,14 @@ public static class Assets
 				public static class Game
 				{
 					/// <summary>
+					/// Color assets for game dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Game/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for game dock widget.
 					/// </summary>
 					public static class Textures
@@ -219,6 +243,14 @@ public static class Assets
 				public static class Inspector
 				{
 					/// <summary>
+					/// Color assets for inspector dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Inspector/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for inspector dock widget.
 					/// </summary>
 					public static class Textures
@@ -235,6 +267,14 @@ public static class Assets
 				public static class Hierarchy
 				{
 					/// <summary>
+					/// Color assets for hierarchy dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Hierarchy/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for hierarchy dock widget.
 					/// </summary>
 					public static class Textures
@@ -251,6 +291,14 @@ public static class Assets
 				public static class Project
 				{
 					/// <summary>
+					/// Color assets for project dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Project/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for project dock widget.
 					/// </summary>
 					public static class Textures
@@ -267,6 +315,14 @@ public static class Assets
 				public static class Animation
 				{
 					/// <summary>
+					/// Color assets for animation dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Animation/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for animation dock widget.
 					/// </summary>
 					public static class Textures
@@ -283,6 +339,14 @@ public static class Assets
 				public static class Profiler
 				{
 					/// <summary>
+					/// Color assets for profiler dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Profiler/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for profiler dock widget.
 					/// </summary>
 					public static class Textures
@@ -299,6 +363,14 @@ public static class Assets
 				public static class AudioMixer
 				{
 					/// <summary>
+					/// Color assets for audio mixer dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/AudioMixer/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for audio mixer dock widget.
 					/// </summary>
 					public static class Textures
@@ -315,6 +387,14 @@ public static class Assets
 				public static class AssetStore
 				{
 					/// <summary>
+					/// Color assets for asset store dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/AssetStore/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for asset store dock widget.
 					/// </summary>
 					public static class Textures
@@ -331,6 +411,14 @@ public static class Assets
 				public static class VersionControl
 				{
 					/// <summary>
+					/// Color assets for version control dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/VersionControl/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for version control dock widget.
 					/// </summary>
 					public static class Textures
@@ -347,6 +435,14 @@ public static class Assets
 				public static class AnimatorParameter
 				{
 					/// <summary>
+					/// Color assets for animator parameter dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/AnimatorParameter/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for animator parameter dock widget.
 					/// </summary>
 					public static class Textures
@@ -363,6 +459,14 @@ public static class Assets
 				public static class Animator
 				{
 					/// <summary>
+					/// Color assets for animator dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Animator/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for animator dock widget.
 					/// </summary>
 					public static class Textures
@@ -379,6 +483,14 @@ public static class Assets
 				public static class SpritePacker
 				{
 					/// <summary>
+					/// Color assets for sprite packer dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/SpritePacker/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for sprite packer dock widget.
 					/// </summary>
 					public static class Textures
@@ -395,6 +507,14 @@ public static class Assets
 				public static class Lighting
 				{
 					/// <summary>
+					/// Color assets for lighting dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Lighting/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for lighting dock widget.
 					/// </summary>
 					public static class Textures
@@ -411,6 +531,14 @@ public static class Assets
 				public static class OcclusionCulling
 				{
 					/// <summary>
+					/// Color assets for occlusion culling dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/OcclusionCulling/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for occlusion culling dock widget.
 					/// </summary>
 					public static class Textures
@@ -427,6 +555,14 @@ public static class Assets
 				public static class FrameDebugger
 				{
 					/// <summary>
+					/// Color assets for frame debugger dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/FrameDebugger/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for frame debugger dock widget.
 					/// </summary>
 					public static class Textures
@@ -443,6 +579,14 @@ public static class Assets
 				public static class Navigation
 				{
 					/// <summary>
+					/// Color assets for navigation dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Navigation/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for navigation dock widget.
 					/// </summary>
 					public static class Textures
@@ -459,6 +603,14 @@ public static class Assets
 				public static class Console
 				{
 					/// <summary>
+					/// Color assets for console dock widget.
+					/// </summary>
+					public static class Colors
+					{
+						public static Color background = LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Console/Background");
+                    }
+
+                    /// <summary>
 					/// Texture assets for console dock widget.
 					/// </summary>
 					public static class Textures
@@ -478,6 +630,14 @@ public static class Assets
 		/// </summary>
 		public static class AboutDialog
 		{
+			/// <summary>
+			/// Color assets for AboutDialog.
+			/// </summary>
+			public static class Colors
+			{
+				public static Color background = LoadColor("Colors/UI/Windows/AboutDialog/Background");
+            }
+
 			/// <summary>
 			/// Texture assets for AboutDialog.
 			/// </summary>
@@ -553,6 +713,14 @@ public static class Assets
 	/// </summary>
 	public static class DockWidgets
 	{
+		/// <summary>
+		/// Color assets for DockWidgets.
+		/// </summary>
+		public static class Colors
+		{
+			public static Color background = LoadColor("Colors/Common/UI/DockWidgets/Background");
+		}
+
 		/// <summary>
 		/// Texture assets for DockWidgets.
 		/// </summary>

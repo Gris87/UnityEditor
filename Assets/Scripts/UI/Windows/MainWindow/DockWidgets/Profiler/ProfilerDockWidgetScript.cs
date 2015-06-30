@@ -54,8 +54,9 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
+			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Profiler.Colors.background;
+			
 			// TODO: Implement
-			backgroundColor = new Color(1f, 0f, 0f);
 		}
 		
 		/// <summary>

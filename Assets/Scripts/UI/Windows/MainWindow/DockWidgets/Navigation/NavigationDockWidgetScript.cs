@@ -54,8 +54,9 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
+			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Navigation.Colors.background;
+			
 			// TODO: Implement
-			backgroundColor = new Color(0f, 0.3f, 0f);
 		}
 		
 		/// <summary>

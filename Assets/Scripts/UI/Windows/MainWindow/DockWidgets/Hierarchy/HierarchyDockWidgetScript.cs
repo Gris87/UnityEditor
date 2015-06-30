@@ -54,8 +54,9 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
 		/// <param name="contentTransform">Content transform.</param>
 		protected override void CreateContent(Transform contentTransform)
 		{
+			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Colors.background;
+			
 			// TODO: Implement
-			backgroundColor = new Color(0.3f, 0.3f, 0f);
 		}
 		
 		/// <summary>

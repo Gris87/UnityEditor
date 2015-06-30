@@ -59,7 +59,7 @@ namespace UI.Windows.AboutDialog
 
 			frame           = WindowFrameType.Drawer;
 			tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
-			backgroundColor = new Color(0.6f, 0.6f, 0.6f);
+			backgroundColor = Assets.Windows.AboutDialog.Colors.background;
 			resizable       = false;
 			allowMaximize   = false;
 		}

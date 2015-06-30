@@ -1205,7 +1205,7 @@ namespace Common.UI.Windows
 			mY               = -SHADOW_WIDTH;
 			mWidth           = 0f;
 			mHeight          = 0f;
-			mBackgroundColor = new Color(1f, 1f, 1f, 1f);
+			mBackgroundColor = Assets.Windows.Common.Colors.background;
 			mResizable       = true;
 			mMinimumWidth    = 0f;
 			mMinimumHeight   = 0f;
