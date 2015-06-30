@@ -42,7 +42,7 @@ namespace UI.Windows.MainWindow
 		{
 			frame           = WindowFrameType.Frameless;
 			state           = WindowState.FullScreen;
-			backgroundColor = new Color(0.5f, 0.5f, 0.5f);
+			backgroundColor = Assets.Windows.MainWindow.Colors.background;
 			allowClose      = false;
 		}
 

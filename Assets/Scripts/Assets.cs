@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using Common.UI.ResourceTypes;
+
 
 
 /// <summary>
@@ -7,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public static class Assets
 {
+	#region Assets structures
 	#region Common assets
 	/// <summary>
 	/// Common assets.
@@ -95,6 +98,14 @@ public static class Assets
 		/// </summary>
 		public static class MainWindow
 		{
+			/// <summary>
+			/// Color assets for MainWindow.
+			/// </summary>
+			public static class Colors
+			{
+				public static Color background = LoadColor("Colors/UI/Windows/MainWindow/Background");
+			}
+
 			#region Assets for MainMenu
 			/// <summary>
 			/// Assets for MainMenu.
@@ -555,9 +566,10 @@ public static class Assets
 		}
 	}
 	#endregion
+	#endregion
 
 	/// <summary>
-	/// Loads an asset stored at path in a Resources folder.
+	/// Loads an asset stored at path in a resources.
 	/// </summary>
 	/// <returns>The asset at path if it can be found otherwise returns null.</returns>
 	/// <param name="path">Pathname of the target asset.</param>
@@ -575,23 +587,52 @@ public static class Assets
 	}
 
 	/// <summary>
-	/// Loads color asset stored at path in a Resources folder.
+	/// Loads color asset stored at path in a resources.
 	/// </summary>
 	/// <returns>The color.</returns>
 	/// <param name="path">Pathname of the target asset.</param>
 	private static Color LoadColor(string path)
 	{
+		Color res = new Color(0f, 0f, 0f);
+
 		TextAsset asset = LoadResource<TextAsset>(path);
 
+		if (asset != null)
+		{
+			IniFile iniFile = new IniFile(asset);
+			LoadColorFromIniFile(iniFile, ref res);
+		}
+
+		return res;
+	}
+
+	/// <summary>
+	/// Loads font style asset stored at path in a resources.
+	/// </summary>
+	/// <returns>The font style.</returns>
+	/// <param name="path">Pathname of the target asset.</param>
+	private static FontStyleResource LoadFontStyle(string path)
+	{
+		TextAsset asset = LoadResource<TextAsset>(path);
+		
 		if (asset == null)
 		{
 			return null;
 		}
 
-		Color res = new Color();
-
+		FontStyleResource res = new FontStyleResource();
+		
 		IniFile iniFile = new IniFile(asset);
-		LoadColorFromIniFile(iniFile, res);
+
+		iniFile.BeginGroup("Font");
+
+		// TODO: Implement
+
+		Color color = new Color(0f, 0f, 0f);
+		LoadColorFromIniFile(iniFile, ref color);
+		res.color = color;
+
+		iniFile.EndGroup();
 
 		return res;
 	}
@@ -600,9 +641,16 @@ public static class Assets
 	/// Loads the color from ini file.
 	/// </summary>
 	/// <param name="iniFile">Ini file.</param>
-	/// <param name="color">Color.</param>
-	private static void LoadColorFromIniFile(IniFile iniFile, Color color)
+	/// <param name="color">Result color.</param>
+	private static void LoadColorFromIniFile(IniFile iniFile, ref Color color)
 	{
+		iniFile.BeginGroup("Color");
 
+		color.r = iniFile.Get("Red",   0f);
+		color.g = iniFile.Get("Green", 0f);
+		color.b = iniFile.Get("Blue",  0f);
+		color.a = iniFile.Get("Alpha", 1f);
+
+		iniFile.EndGroup();
 	}
 }
