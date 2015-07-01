@@ -349,15 +349,15 @@ namespace Common.UI.DockWidgets
 					{
 						if (DragHandler.minimum > -1f)
 						{
-							if (mDockingGroupScript == null)
-							{
-								DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(this);
-							}
-
+							DragHandler.minimum                = -1f;
 							DragHandler.dockingArea            = this;
 							DragHandler.dockingAreaOrientation = DockingAreaOrientation.None;
 							DragHandler.insertIndex            = 0;
-							DragHandler.minimum                = -1f;
+
+							if (mDockingGroupScript == null)
+							{
+								DummyDockWidgetScript.CreateAndInsert();
+							}
 						}
 					}
 					else
@@ -434,11 +434,7 @@ namespace Common.UI.DockWidgets
 										mChildren[0].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 									   )
 									{
-										DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(
-										             															   DragHandler.dockingArea
-										                                                                         , DragHandler.dockingAreaOrientation
-										                                                                         , DragHandler.insertIndex
-																												);
+										DummyDockWidgetScript.CreateAndInsert();
 									}
 								}
 							}
@@ -469,11 +465,7 @@ namespace Common.UI.DockWidgets
 									{
 										DragHandler.insertIndex = mChildren.Count;
 
-										DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(
-																												   DragHandler.dockingArea
-																												 , DragHandler.dockingAreaOrientation
-																												 , DragHandler.insertIndex
-																												);
+										DummyDockWidgetScript.CreateAndInsert();
 									}
 									else
 									{

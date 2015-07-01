@@ -168,12 +168,19 @@ namespace Common.UI.DockWidgets
 
 			if (DragHandler.dockingArea != null)
             {
-				DragHandler.dockWidget.InsertToDockingArea(DragHandler.dockingArea, DragHandler.dockingAreaOrientation, DragHandler.insertIndex);
+				DragHandler.dockWidget.InsertToDockingArea(
+															 DragHandler.dockingArea
+														   , DragHandler.dockingAreaOrientation
+														   , DragHandler.insertIndex
+														  );
 			}
 			else
 			if (DragHandler.dockingGroup != null)
 			{
-				DragHandler.dockWidget.InsertToDockingGroup(DragHandler.dockingGroup, DragHandler.insertIndex);
+				DragHandler.dockWidget.InsertToDockingGroup(
+															  DragHandler.dockingGroup
+															, DragHandler.insertIndex
+														   );
 			}
 			else
 			{
