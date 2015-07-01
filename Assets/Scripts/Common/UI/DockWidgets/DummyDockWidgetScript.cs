@@ -106,16 +106,9 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		void OnDestroy()
 		{
-			if (mInstance != null)
+			if (mInstance == this)
 			{
-				if (mInstance == this)
-				{
-					mInstance = null;
-				}
-				else
-				{
-					Debug.LogError("Unexpected behaviour in DummyDockWidgetScript.OnDestroy");
-				}
+				mInstance = null;
 			}
 		}
 	}

@@ -820,6 +820,7 @@ namespace Common.UI.DockWidgets
 				else
 				{
 					mDockingGroupScript = null;
+					mSizes.Clear();
 				}
 			}
 			else
@@ -840,7 +841,32 @@ namespace Common.UI.DockWidgets
 				
 				if (index >= 0)
 				{
+					float size = mSizes[index];
+
 					mChildren.RemoveAt(index);
+					mSizes.RemoveAt(index);
+
+					if (size < 1f)
+					{
+						float sizeMultiplier = 1 / (1f - size);
+
+						for (int i = 0; i < mSizes.Count; ++i)
+						{
+							mSizes[i] *= sizeMultiplier;
+						}
+					}
+					else
+					{
+						if (mSizes.Count > 0)
+						{
+							float newSize = 1f / mSizes.Count;
+							
+							for (int i = 0; i < mSizes.Count; ++i)
+							{
+								mSizes[i] = newSize;
+							}
+						}
+					}
 
 					if (mChildren.Count == 1)
 					{
@@ -865,7 +891,7 @@ namespace Common.UI.DockWidgets
 							}
 						}
 
-						UnityEngine.Object.DestroyObject(dockingArea.gameObject);
+						dockingArea.Destroy();
 					}
 
 					OnResize();
