@@ -141,11 +141,8 @@ namespace Common.UI.Toasts
 			//===========================================================================
 			#region Text Component
 			mToastText = toastTextObject.AddComponent<Text>();
-			
-			mToastText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mToastText.fontSize  = 24;
-			mToastText.alignment = TextAnchor.MiddleCenter;
-			mToastText.color     = new Color(1f, 1f, 1f, 1f);
+
+			Assets.Toasts.TextStyles.toastText.Apply(mToastText);
 
 			if (tokenId != R.sections.Toasts.strings.Count)
 			{

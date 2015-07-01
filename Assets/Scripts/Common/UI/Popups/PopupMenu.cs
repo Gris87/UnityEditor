@@ -333,21 +333,18 @@ namespace Common.UI.Popups
 						// Text Component
 						//===========================================================================
 						#region Text Component
-						Text menuItemTextText      = menuItemText.AddComponent<Text>();
+						Text menuItemTextText = menuItemText.AddComponent<Text>();
 
-						menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
-						menuItemTextText.fontSize  = 12;
-						menuItemTextText.alignment = TextAnchor.MiddleLeft;
-						menuItemTextText.text      = item.text;
-						
 						if (enabled)
 						{
-							menuItemTextText.color = new Color(0f, 0f, 0f, 1f);
+							Assets.Popups.TextStyles.button.Apply(menuItemTextText);
 						}
 						else
 						{
-							menuItemTextText.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+							Assets.Popups.TextStyles.buttonDisabled.Apply(menuItemTextText);
 						}
+
+						menuItemTextText.text = item.text;
 						#endregion
 						#endregion
 						

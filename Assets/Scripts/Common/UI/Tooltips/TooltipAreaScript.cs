@@ -290,11 +290,10 @@ namespace Common.UI.Tooltips
 			//===========================================================================
 			#region Text Component
 			Text tooltipText = tooltipTextObject.AddComponent<Text>();
-			
-			tooltipText.font     = Assets.Common.Fonts.microsoftSansSerif;
-			tooltipText.fontSize = 11;
-			tooltipText.color    = new Color(0f, 0f, 0f, 1f);
-			tooltipText.text     = Translator.getString(mCurrentOwner.tokenId);
+
+			Assets.Tooltips.TextStyles.tooltipText.Apply(tooltipText);
+
+			tooltipText.text = Translator.getString(mCurrentOwner.tokenId);
 			#endregion
 			#endregion
 

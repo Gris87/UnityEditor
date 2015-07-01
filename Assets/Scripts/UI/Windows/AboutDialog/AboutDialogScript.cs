@@ -154,11 +154,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mVersionText = version.AddComponent<Text>();
-			
-			mVersionText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mVersionText.fontSize  = 11;
-			mVersionText.alignment = TextAnchor.MiddleLeft;
-			mVersionText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.version.Apply(mVersionText);
 			#endregion
 			#endregion
 
@@ -212,12 +209,10 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			Text creditsText = creditsTextObject.AddComponent<Text>();
-			
-			creditsText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			creditsText.fontSize  = 11;
-			creditsText.alignment = TextAnchor.UpperLeft;
-			creditsText.color     = new Color(0f, 0f, 0f, 1f);
-			creditsText.text      = CREDITS + "\n" + SPECIAL_THANKS;
+
+			Assets.Windows.AboutDialog.TextStyles.credits.Apply(creditsText);
+
+			creditsText.text = CREDITS + "\n" + SPECIAL_THANKS;
 			#endregion
 			#endregion
 			#endregion
@@ -328,11 +323,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mMonoLogoText = monoLogoTextObject.AddComponent<Text>();
-			
-			mMonoLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mMonoLogoText.fontSize  = 11;
-			mMonoLogoText.alignment = TextAnchor.UpperLeft;
-			mMonoLogoText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.monoLogo.Apply(mMonoLogoText);
 			#endregion
 			#endregion
 
@@ -356,11 +348,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mMonoLogoText2 = monoLogoTextObject2.AddComponent<Text>();
-			
-			mMonoLogoText2.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mMonoLogoText2.fontSize  = 11;
-			mMonoLogoText2.alignment = TextAnchor.UpperLeft;
-			mMonoLogoText2.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.monoLogo2.Apply(mMonoLogoText2);
 			#endregion
 			#endregion
 
@@ -417,11 +406,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mPhysXLogoText = physXLogoTextObject.AddComponent<Text>();
-			
-			mPhysXLogoText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mPhysXLogoText.fontSize  = 11;
-			mPhysXLogoText.alignment = TextAnchor.UpperLeft;
-			mPhysXLogoText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.physXLogo.Apply(mPhysXLogoText);
 			#endregion
 			#endregion
 			
@@ -445,11 +431,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mPhysXLogoText2 = physXLogoTextObject2.AddComponent<Text>();
-			
-			mPhysXLogoText2.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mPhysXLogoText2.fontSize  = 11;
-			mPhysXLogoText2.alignment = TextAnchor.UpperLeft;
-			mPhysXLogoText2.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.physXLogo2.Apply(mPhysXLogoText2);
 			#endregion
 			#endregion
 
@@ -473,11 +456,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mCopyrightText = copyright.AddComponent<Text>();
-			
-			mCopyrightText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mCopyrightText.fontSize  = 11;
-			mCopyrightText.alignment = TextAnchor.LowerLeft;
-			mCopyrightText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.copyright.Apply(mCopyrightText);
 			#endregion
 			#endregion
 
@@ -501,11 +481,8 @@ namespace UI.Windows.AboutDialog
 			//===========================================================================
 			#region Text Component
 			mLicenseText = license.AddComponent<Text>();
-			
-			mLicenseText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mLicenseText.fontSize  = 11;
-			mLicenseText.alignment = TextAnchor.LowerLeft;
-			mLicenseText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.AboutDialog.TextStyles.license.Apply(mLicenseText);
 			#endregion
 			#endregion
 

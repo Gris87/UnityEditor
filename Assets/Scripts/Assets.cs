@@ -176,6 +176,14 @@ public static class Assets
 			}
 
 			/// <summary>
+			/// Common text style assets for Windows.
+			/// </summary>
+			public static class TextStyles
+			{
+				public static TextStyle title = LoadTextStyle("TextStyles/Common/UI/Windows/Title");
+			}
+
+			/// <summary>
 			/// Common texture assets for Windows.
 			/// </summary>
 			public static class Textures
@@ -237,6 +245,14 @@ public static class Assets
 			public static class MainMenu
 			{
 				/// <summary>
+				/// Text style assets for MainMenu.
+				/// </summary>
+				public static class TextStyles
+				{
+					public static TextStyle button = LoadTextStyle("TextStyles/UI/Windows/MainWindow/MainMenu/Button");
+				}
+
+				/// <summary>
 				/// Texture assets for MainMenu.
 				/// </summary>
 				public static class Textures
@@ -255,6 +271,17 @@ public static class Assets
 			/// </summary>
 			public static class Toolbar
 			{
+				/// <summary>
+				/// Text style assets for Toolbar.
+				/// </summary>
+				public static class TextStyles
+				{
+					public static TextStyle point            = LoadTextStyle("TextStyles/UI/Windows/MainWindow/Toolbar/Point");
+					public static TextStyle coordinateSystem = LoadTextStyle("TextStyles/UI/Windows/MainWindow/Toolbar/CoordinateSystem");
+					public static TextStyle layers           = LoadTextStyle("TextStyles/UI/Windows/MainWindow/Toolbar/Layers");
+					public static TextStyle layout           = LoadTextStyle("TextStyles/UI/Windows/MainWindow/Toolbar/Layout");
+				}
+
 				/// <summary>
 				/// Texture assets for Toolbar.
 				/// </summary>
@@ -755,6 +782,21 @@ public static class Assets
             }
 
 			/// <summary>
+			/// Text style assets for AboutDialog.
+			/// </summary>
+			public static class TextStyles
+			{
+				public static TextStyle version    = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/Version");
+				public static TextStyle credits    = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/Credits");
+				public static TextStyle monoLogo   = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/MonoLogo");
+				public static TextStyle monoLogo2  = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/MonoLogo2");
+				public static TextStyle physXLogo  = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/PhysXLogo");
+				public static TextStyle physXLogo2 = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/PhysXLogo2");
+				public static TextStyle copyright  = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/Copyright");
+				public static TextStyle license    = LoadTextStyle("TextStyles/UI/Windows/AboutDialog/License");
+			}
+
+			/// <summary>
 			/// Texture assets for AboutDialog.
 			/// </summary>
 			public static class Textures
@@ -773,7 +815,16 @@ public static class Assets
 	/// Assets for Popups.
 	/// </summary>
 	public static class Popups
-	{		
+	{
+		/// <summary>
+		/// Text style assets for Popups.
+		/// </summary>
+		public static class TextStyles
+		{
+			public static TextStyle button         = LoadTextStyle("TextStyles/Common/UI/Popups/Button");
+			public static TextStyle buttonDisabled = LoadTextStyle("TextStyles/Common/UI/Popups/ButtonDisabled");
+        }
+
 		/// <summary>
 		/// Texture assets for Popups.
 		/// </summary>
@@ -798,6 +849,14 @@ public static class Assets
 	public static class Tooltips
 	{
 		/// <summary>
+		/// Text style assets for Tooltips.
+		/// </summary>
+		public static class TextStyles
+		{
+			public static TextStyle tooltipText = LoadTextStyle("TextStyles/Common/UI/Tooltips/TooltipText");
+		}
+
+		/// <summary>
 		/// Texture assets for Tooltips.
 		/// </summary>
 		public static class Textures
@@ -812,8 +871,16 @@ public static class Assets
 	/// Assets for Toasts.
 	/// </summary>
 	public static class Toasts
-	{		
+	{
 		/// <summary>
+		/// Text style assets for Toasts.
+		/// </summary>
+		public static class TextStyles
+		{
+			public static TextStyle toastText = LoadTextStyle("TextStyles/Common/UI/Toasts/ToastText");
+        }
+        
+        /// <summary>
 		/// Texture assets for Toasts.
 		/// </summary>
 		public static class Textures
@@ -937,7 +1004,7 @@ public static class Assets
 		{
 			res.fontStyle = (FontStyle) Enum.Parse(typeof(FontStyle), fontStyle);
 		}
-		catch (Exception e)
+		catch (Exception)
 		{
 			Debug.LogError("Invalid font style value \"" + fontStyle + "\" for text style: " + path);
         }
@@ -949,7 +1016,7 @@ public static class Assets
 		{
 			res.alignment = (TextAnchor) Enum.Parse(typeof(TextAnchor), alignment);
 		}
-		catch (Exception e)
+		catch (Exception)
 		{
 			Debug.LogError("Invalid alignment value \"" + alignment + "\" for text style: " + path);
 		}

@@ -1877,10 +1877,7 @@ namespace Common.UI.Windows
 					#region Text Component
 					mTitleText = mTitleGameObject.AddComponent<Text>();							
 					
-					mTitleText.font      = Assets.Common.Fonts.microsoftSansSerif;
-					mTitleText.fontSize  = 12;
-					mTitleText.alignment = TextAnchor.MiddleLeft;
-					mTitleText.color     = new Color(0f, 0f, 0f, 1f);
+					Assets.Windows.Common.TextStyles.title.Apply(mTitleText);
 					
 					Translator.addLanguageChangedListener(UpdateTitleText);
 					UpdateTitleText();
@@ -1997,10 +1994,7 @@ namespace Common.UI.Windows
 					#region Text Component
 					mTitleText = mTitleGameObject.AddComponent<Text>();							
 					
-					mTitleText.font      = Assets.Common.Fonts.microsoftSansSerif;
-					mTitleText.fontSize  = 12;
-					mTitleText.alignment = TextAnchor.MiddleLeft;
-					mTitleText.color     = new Color(0f, 0f, 0f, 1f);
+					Assets.Windows.Common.TextStyles.title.Apply(mTitleText);
 					
 					Translator.addLanguageChangedListener(UpdateTitleText);
 					UpdateTitleText();

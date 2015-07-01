@@ -1382,11 +1382,9 @@ namespace UI.Windows.MainWindow.MainMenu
 						//===========================================================================
 						#region Text Component
 						Text menuItemTextText = menuItemText.AddComponent<Text>();
-						
-						menuItemTextText.font      = Assets.Common.Fonts.microsoftSansSerif;
-						menuItemTextText.fontSize  = 12;
-						menuItemTextText.alignment = TextAnchor.MiddleCenter;
-						menuItemTextText.color     = new Color(0f, 0f, 0f, 1f);
+
+						Assets.Windows.MainWindow.MainMenu.TextStyles.button.Apply(menuItemTextText);
+
 						menuItemTextText.text      = item.text;
 						#endregion
 						#endregion

@@ -772,10 +772,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			#region Text Component
             mPointText = pointTextObject.AddComponent<Text>();
             
-			mPointText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mPointText.fontSize  = 11;
-			mPointText.alignment = TextAnchor.MiddleLeft;
-			mPointText.color     = new Color(0f, 0f, 0f, 1f);
+			Assets.Windows.MainWindow.Toolbar.TextStyles.point.Apply(mPointText);
             #endregion
             #endregion
             #endregion
@@ -887,10 +884,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			#region Text Component
 			mCoordinateSystemText = coordinateSystemTextObject.AddComponent<Text>();
             
-			mCoordinateSystemText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mCoordinateSystemText.fontSize  = 11;
-			mCoordinateSystemText.alignment = TextAnchor.MiddleLeft;
-			mCoordinateSystemText.color     = new Color(0f, 0f, 0f, 1f);
+			Assets.Windows.MainWindow.Toolbar.TextStyles.coordinateSystem.Apply(mCoordinateSystemText);
             #endregion
             #endregion
             #endregion            
@@ -1060,11 +1054,8 @@ namespace UI.Windows.MainWindow.Toolbar
 			//===========================================================================
 			#region Text Component
 			mLayersText = layersTextObject.AddComponent<Text>();
-			
-			mLayersText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mLayersText.fontSize  = 11;
-			mLayersText.alignment = TextAnchor.MiddleLeft;
-			mLayersText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.MainWindow.Toolbar.TextStyles.layers.Apply(mLayersText);
 			#endregion
 			#endregion
 			#endregion
@@ -1138,11 +1129,8 @@ namespace UI.Windows.MainWindow.Toolbar
 			//===========================================================================
 			#region Text Component
 			mLayoutText = layoutTextObject.AddComponent<Text>();
-			
-			mLayoutText.font      = Assets.Common.Fonts.microsoftSansSerif;
-			mLayoutText.fontSize  = 11;
-			mLayoutText.alignment = TextAnchor.MiddleLeft;
-			mLayoutText.color     = new Color(0f, 0f, 0f, 1f);
+
+			Assets.Windows.MainWindow.Toolbar.TextStyles.layout.Apply(mLayoutText);
 			#endregion
 			#endregion
 			#endregion
