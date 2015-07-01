@@ -898,7 +898,8 @@ public static class Assets
 		/// </summary>
 		public static class Colors
 		{
-			public static Color background = LoadColor("Colors/Common/UI/DockWidgets/Background");
+			public static Color background      = LoadColor("Colors/Common/UI/DockWidgets/Background");
+			public static Color dummyBackground = LoadColor("Colors/Common/UI/DockWidgets/DummyBackground");
 		}
 
 		/// <summary>

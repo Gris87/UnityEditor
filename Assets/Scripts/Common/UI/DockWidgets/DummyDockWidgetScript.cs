@@ -55,7 +55,7 @@ namespace Common.UI.DockWidgets
 
 			mInstance.image           = baseScript.image;
 			mInstance.tokenId         = baseScript.tokenId;
-			mInstance.backgroundColor = baseScript.backgroundColor;
+			mInstance.backgroundColor = Assets.DockWidgets.Colors.dummyBackground;
 			#endregion
 			#endregion
 			
@@ -97,6 +97,7 @@ namespace Common.UI.DockWidgets
 			if (mInstance != null)
 			{
 				mInstance.Destroy();
+				mInstance = null;
 			}
 		}
 
@@ -105,13 +106,16 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		void OnDestroy()
 		{
-			if (mInstance == this)
+			if (mInstance != null)
 			{
-				mInstance = null;
-			}
-			else
-			{
-				Debug.LogError("Unexpected behaviour in DummyDockWidgetScript.OnDestroy");
+				if (mInstance == this)
+				{
+					mInstance = null;
+				}
+				else
+				{
+					Debug.LogError("Unexpected behaviour in DummyDockWidgetScript.OnDestroy");
+				}
 			}
 		}
 	}

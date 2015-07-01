@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -52,6 +53,8 @@ namespace Common.UI.DockWidgets
 		private bool             mActive;
 		private bool             mSelected;
 
+		List<DockingAreaScript> mDockingAreas;
+
 
 
 		/// <summary>
@@ -63,6 +66,8 @@ namespace Common.UI.DockWidgets
 			mDockWidget = null;
 			mActive     = false;
 			mSelected   = false;
+
+			mDockingAreas = null;
 
 			onClick.AddListener(buttonClicked);
 		}
@@ -116,7 +121,9 @@ namespace Common.UI.DockWidgets
 			DragHandler.insertIndex            = -1;
 			DragHandler.minimum                = float.MaxValue;
 
-			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
+			mDockingAreas = new List<DockingAreaScript>(DockingAreaScript.instances);
+			
+			foreach (DockingAreaScript dockingArea in mDockingAreas)
 			{
 				dockingArea.CacheDragInfo();
             }
@@ -136,7 +143,7 @@ namespace Common.UI.DockWidgets
 			DragHandler.insertIndex            = -1;
 			DragHandler.minimum                = float.MaxValue;
 
-			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
+			foreach (DockingAreaScript dockingArea in mDockingAreas)
 			{
 				dockingArea.ProcessDockWidgetDrag(eventData);
 			}
@@ -164,6 +171,7 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnEndDrag(PointerEventData eventData)
 		{
+			mDockingAreas = null;
 			DummyDockWidgetScript.DestroyInstance();
 
 			if (DragHandler.dockingArea != null)
