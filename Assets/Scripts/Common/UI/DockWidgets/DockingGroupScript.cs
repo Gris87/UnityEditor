@@ -533,11 +533,8 @@ namespace Common.UI.DockWidgets
 			#region Text Component
 			Text text = textObject.AddComponent<Text>();
 
-			text.font      = Assets.Common.Fonts.microsoftSansSerif;
-			text.fontSize  = 12;
-			text.alignment = TextAnchor.MiddleLeft;
-			text.color     = new Color(0f, 0f, 0f, 1f);
-			text.text      = dockWidget.title;
+			Assets.DockWidgets.TextStyles.title.Apply(text);
+			text.text = dockWidget.title;
 			#endregion
 			#endregion
 			#endregion

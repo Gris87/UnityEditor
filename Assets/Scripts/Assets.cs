@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using Common.UI.ResourceTypes;
@@ -21,7 +23,121 @@ public static class Assets
 		/// </summary>
         public static class Fonts
         {
+			public static Font defaultFont;
+
+
+
+			private static Dictionary<string, Font> fonts;
+			private static string[]                 osFonts;
+
+            // TODO: Remove it
 			public static Font microsoftSansSerif = LoadResource<Font>("Fonts/micross");
+
+
+
+			/// <summary>
+			/// Initializes the <see cref="Assets+Common+Fonts"/> class.
+			/// </summary>
+			static Fonts()
+			{
+				defaultFont = LoadResource<Font>("Fonts/micross");
+
+				fonts   = new Dictionary<string, Font>();
+				osFonts = Font.GetOSInstalledFontNames();
+
+				ResetValues();
+			}
+
+			/// <summary>
+			/// Resets values.
+			/// </summary>
+			public static void ResetValues()
+			{
+				fonts.Clear();
+
+				Font[] fontList = Resources.LoadAll<Font>("Fonts/");
+
+				foreach (Font font in fontList)
+				{
+					string[] fontNames = font.fontNames;
+
+					foreach (string fontName in fontNames)
+					{
+						if (!fonts.ContainsKey(fontName))
+						{
+							fonts.Add(fontName, font);
+						}
+						else
+						{
+							Debug.LogError("Already has a font with name: " + fontName);
+						}
+					}
+				}
+
+				string[] defaultFontNames = defaultFont.fontNames;
+				
+				foreach (string fontName in defaultFontNames)
+				{
+					if (!fonts.ContainsKey(fontName))
+					{
+						fonts.Add(fontName, defaultFont);
+					}
+				}
+			}
+
+			/// <summary>
+			/// Gets the font with specified name.
+			/// </summary>
+			/// <returns>Font.</returns>
+			/// <param name="fontName">Font name.</param>
+			/// <param name="fontSize">Font size.</param>
+			public static Font GetFont(string fontName, int fontSize = 12)
+			{
+				Font res;
+
+				if (fonts.TryGetValue(fontName, out res))
+				{
+					return res;
+				}
+
+				string nameLower = fontName.ToLower();
+				string bestFont  = "";
+
+				foreach (string osFont in osFonts)
+				{
+					if (osFont == fontName)
+					{
+						bestFont = osFont;
+						break;
+					}
+
+					string osNameLower = osFont.ToLower();
+
+					if (osNameLower == nameLower)
+					{
+						bestFont = osFont;
+						break;
+					}
+
+					if (osNameLower.Contains(nameLower))
+					{
+						if (bestFont == "" || osFont.Length < bestFont.Length)
+						{
+							bestFont = osFont;
+						}
+					}
+				}
+
+				if (bestFont != "")
+				{
+					res = Font.CreateDynamicFontFromOSFont(bestFont, fontSize);
+					fonts.Add(fontName, res);
+					
+					return res;
+				}
+
+				return defaultFont;
+			}
         }
 	}
 	#endregion
@@ -722,6 +838,14 @@ public static class Assets
 		}
 
 		/// <summary>
+		/// Text style assets for DockWidgets.
+		/// </summary>
+		public static class TextStyles
+		{
+			public static TextStyle title = LoadTextStyle("TextStyles/Common/UI/DockWidgets/Title");
+		}
+
+		/// <summary>
 		/// Texture assets for DockWidgets.
 		/// </summary>
 		public static class Textures
@@ -775,11 +899,11 @@ public static class Assets
 	}
 
 	/// <summary>
-	/// Loads font style asset stored at path in a resources.
+	/// Loads text style asset stored at path in a resources.
 	/// </summary>
-	/// <returns>The font style.</returns>
+	/// <returns>The text style.</returns>
 	/// <param name="path">Pathname of the target asset.</param>
-	private static FontStyleResource LoadFontStyle(string path)
+	private static TextStyle LoadTextStyle(string path)
 	{
 		TextAsset asset = LoadResource<TextAsset>(path);
 		
@@ -788,19 +912,51 @@ public static class Assets
 			return null;
 		}
 
-		FontStyleResource res = new FontStyleResource();
+		TextStyle res = new TextStyle();
+		Color color   = new Color(0f, 0f, 0f);
+
+
 		
 		IniFile iniFile = new IniFile(asset);
-
 		iniFile.BeginGroup("Font");
 
-		// TODO: Implement
-
-		Color color = new Color(0f, 0f, 0f);
+		string font        = iniFile.Get("Font",        "Microsoft Sans Serif");
+		string fontStyle   = iniFile.Get("FontStyle",   "Normal");
+		int    fontSize    = iniFile.Get("FontSize",    12);
+		float  lineSpacing = iniFile.Get("LineSpacing", 1);
+		string alignment   = iniFile.Get("Alignment",   "UpperLeft");
 		LoadColorFromIniFile(iniFile, ref color);
-		res.color = color;
 
 		iniFile.EndGroup();
+
+
+
+		res.font = Common.Fonts.GetFont(font, fontSize);
+
+		try 
+		{
+			res.fontStyle = (FontStyle) Enum.Parse(typeof(FontStyle), fontStyle);
+		}
+		catch (Exception e)
+		{
+			Debug.LogError("Invalid font style value \"" + fontStyle + "\" for text style: " + path);
+        }
+
+		res.fontSize    = fontSize;
+		res.lineSpacing = lineSpacing;
+
+		try 
+		{
+			res.alignment = (TextAnchor) Enum.Parse(typeof(TextAnchor), alignment);
+		}
+		catch (Exception e)
+		{
+			Debug.LogError("Invalid alignment value \"" + alignment + "\" for text style: " + path);
+		}
+
+		res.color = color;
+
+
 
 		return res;
 	}
