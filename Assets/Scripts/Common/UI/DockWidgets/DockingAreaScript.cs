@@ -271,6 +271,42 @@ namespace Common.UI.DockWidgets
 		}
 
 		/// <summary>
+		/// Mouse location.
+		/// </summary>
+		private enum MouseLocation
+		{
+			/// <summary>
+			/// Outside of this docking area.
+			/// </summary>
+			Outside
+			,
+			/// <summary>
+			/// Inside of this docking area.
+			/// </summary>
+			Inside
+			,
+			/// <summary>
+			/// The left section.
+			/// </summary>
+			LeftSection
+			,
+			/// <summary>
+			/// The right section.
+			/// </summary>
+			RightSection
+			,
+			/// <summary>
+			/// The bottom section.
+			/// </summary>
+			BottomSection
+			,
+			/// <summary>
+			/// In tabs area of docking group.
+			/// </summary>
+			Tabs
+		}
+
+		/// <summary>
 		/// Handler for dock widget drag event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
@@ -285,9 +321,9 @@ namespace Common.UI.DockWidgets
 				float right  = mCachedDragCorners[3].x;
 				float bottom = mCachedDragCorners[3].y;
 
-				float width             = right - left;
+				float width             = right  - left;
 				float height            = bottom - top;
-				float horizontalSection = width / 3f;
+				float horizontalSection = width  / 3f;
 				float verticalSection   = height / 3f;
 				
 				float mouseX = eventData.position.x;
@@ -296,7 +332,7 @@ namespace Common.UI.DockWidgets
 				if (
 					mouseX >= left && mouseX <= right
 					&&
-					mouseY >= top && mouseY <= bottom
+					mouseY >= top  && mouseY <= bottom
 				   )
 				{
 					if (
@@ -318,80 +354,167 @@ namespace Common.UI.DockWidgets
 								DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(this);
 							}
 
-							DragHandler.handledByArea = this;
-							DragHandler.mouseLocation = DragHandler.MouseLocation.Inside;
-							DragHandler.minimum = -1f;
+							DragHandler.dockingArea            = this;
+							DragHandler.dockingAreaOrientation = DockingAreaOrientation.None;
+							DragHandler.insertIndex            = 0;
+							DragHandler.minimum                = -1f;
 						}
 					}
 					else
 					{
+						MouseLocation mouseLocation = MouseLocation.Inside;
+
+						if (mouseX <= left + horizontalSection)
+						{
+							float value = left + horizontalSection - mouseX;
+
+							if (value < DragHandler.minimum)
+							{
+								DragHandler.minimum = value;
+								mouseLocation = MouseLocation.LeftSection;
+							}
+						}
+						else
+						if (mouseX >= right - horizontalSection)
+						{
+							float value = mouseX - (right - horizontalSection);
+							
+							if (value < DragHandler.minimum)
+							{
+								DragHandler.minimum = value;
+								mouseLocation = MouseLocation.RightSection;
+							}
+						}
+
+						if (mouseY <= top + 16f)
+						{
+							float value = top + 16f - mouseY;
+							
+							if (value < DragHandler.minimum)
+							{
+								DragHandler.minimum = value;
+								mouseLocation = MouseLocation.Tabs;
+							}
+						}
+						else
+						if (mouseY >= bottom - verticalSection)
+						{
+							float value = mouseY - (bottom - verticalSection);
+							
+							if (value < DragHandler.minimum)
+							{
+								DragHandler.minimum = value;
+								mouseLocation = MouseLocation.BottomSection;
+							}
+						}
+
+						switch (mouseLocation)
+						{
+							case MouseLocation.LeftSection:
+							{
+								DragHandler.dockingAreaOrientation = DockingAreaOrientation.Horizontal;
+
+								if (mParent != null)
+								{
+								}
+								else
+								{
+									DragHandler.dockingArea = this;
+									DragHandler.insertIndex = 0;
+
+									if (
+									    mDockingGroupScript != null
+									    ||
+									    mChildren.Count < 2
+									    ||
+									    mChildren[0].mDockingGroupScript == null
+									    ||
+									    mChildren[0].mDockingGroupScript.children.Count != 1
+										||
+										mChildren[0].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
+									   )
+									{
+										DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(
+										             															   DragHandler.dockingArea
+										                                                                         , DragHandler.dockingAreaOrientation
+										                                                                         , DragHandler.insertIndex
+																												);
+									}
+								}
+							}
+							break;
+
+							case MouseLocation.RightSection:
+							{
+								DragHandler.dockingAreaOrientation = DockingAreaOrientation.Horizontal;
+								
+								if (mParent != null)
+								{
+								}
+								else
+								{
+									DragHandler.dockingArea = this;
+									
+									if (
+										mDockingGroupScript != null
+										||
+										mChildren.Count < 2
+										||
+										mChildren[mChildren.Count - 1].mDockingGroupScript == null
+										||
+										mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
+										||
+										mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
+									   )
+									{
+										DragHandler.insertIndex = mChildren.Count;
+
+										DummyDockWidgetScript.Create(DragHandler.dockWidget).InsertToDockingArea(
+																												   DragHandler.dockingArea
+																												 , DragHandler.dockingAreaOrientation
+																												 , DragHandler.insertIndex
+																												);
+									}
+									else
+									{
+										DragHandler.insertIndex = mChildren.Count - 1;
+									}
+								}
+							}
+							break;
+
+							case MouseLocation.BottomSection:
+							{
+							}
+							break;
+
+							case MouseLocation.Tabs:
+							{
+							}
+							break;
+
+							case MouseLocation.Inside:
+							{
+								// Nothing
+							}
+							break;
+
+							case MouseLocation.Outside:
+							{
+								Debug.LogError("Unexpected mouse location: " + mouseLocation);
+							}
+							break;
+
+							default:
+							{
+								Debug.LogError("Unknown mouse location: " + mouseLocation);
+							}
+							break;
+						}
+
 						// TODO: Implement ProcessDockWidgetDrag
 					}
 				}
-			}
-		}
-
-		/// <summary>
-		/// Drops the dock widget.
-		/// </summary>
-		public void DropDockWidget()
-		{
-			switch (DragHandler.mouseLocation)
-			{
-				case DragHandler.MouseLocation.Inside:
-				{
-					if (mChildren.Count == 0 && mDockingGroupScript == null)
-					{
-						DragHandler.dockWidget.InsertToDockingArea(this);
-					}
-					else
-					{
-						Debug.LogError("Unexpected behaviour in drop dock widget");
-					}
-				}
-				break;
-
-				case DragHandler.MouseLocation.LeftSection:
-				{
-					// TODO: Implement
-				}
-				break;
-
-				case DragHandler.MouseLocation.TopSection:
-				{
-					// TODO: Implement
-				}
-				break;
-
-				case DragHandler.MouseLocation.RightSection:
-				{
-					// TODO: Implement
-				}
-				break;
-
-				case DragHandler.MouseLocation.BottomSection:
-				{
-					// TODO: Implement
-				}
-				break;
-
-				case DragHandler.MouseLocation.Tabs:
-				{
-					// TODO: Implement
-				}
-				break;
-
-				case DragHandler.MouseLocation.Outside:
-				{
-					Debug.LogError("Unexpected mouse location"); // TODO: Print info
-				}
-				break;
-
-				default:
-				{
-					Debug.LogError("Unknown mouse location"); // TODO: Print info
-				}
-				break;
 			}
 		}
 

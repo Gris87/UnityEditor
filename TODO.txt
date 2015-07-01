@@ -1,4 +1,3 @@
-Assets Color/FontStyle
 CustomPopup
 Toolbar
 Docking area

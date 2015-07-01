@@ -30,9 +30,6 @@ public static class Assets
 			private static Dictionary<string, Font> fonts;
 			private static string[]                 osFonts;
 
-            // TODO: Remove it
-			public static Font microsoftSansSerif = LoadResource<Font>("Fonts/micross");
-
 
 
 			/// <summary>
@@ -40,7 +37,7 @@ public static class Assets
 			/// </summary>
 			static Fonts()
 			{
-				defaultFont = LoadResource<Font>("Fonts/micross");
+				defaultFont = LoadResource<Font>("Fonts/Default");
 
 				fonts   = new Dictionary<string, Font>();
 				osFonts = Font.GetOSInstalledFontNames();

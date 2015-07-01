@@ -10,49 +10,6 @@ namespace Common.UI.DockWidgets
 	/// </summary>
 	public static class DragHandler
 	{
-		/// <summary>
-		/// Mouse location.
-		/// </summary>
-		public enum MouseLocation
-		{
-			/// <summary>
-			/// Outside of this docking area.
-			/// </summary>
-			Outside
-			,
-			/// <summary>
-			/// Inside of this docking area.
-			/// </summary>
-			Inside
-			,
-			/// <summary>
-			/// The left section.
-			/// </summary>
-			LeftSection
-			,
-			/// <summary>
-			/// The top section.
-			/// </summary>
-			TopSection
-			,
-			/// <summary>
-			/// The right section.
-			/// </summary>
-			RightSection
-			,
-			/// <summary>
-			/// The bottom section.
-			/// </summary>
-			BottomSection
-			,
-			/// <summary>
-			/// In tabs area of docking group.
-			/// </summary>
-			Tabs
-		}
-
-
-        
         /// <summary>
 		/// Gets or sets the dock widget.
 		/// </summary>
@@ -64,23 +21,43 @@ namespace Common.UI.DockWidgets
         }
         
 		/// <summary>
-		/// Gets or sets the handled area.
+		/// Gets or sets the docking area.
 		/// </summary>
-		/// <value>The handled area.</value>
-		public static DockingAreaScript handledByArea
+		/// <value>The docking area.</value>
+		public static DockingAreaScript dockingArea
 		{
-			get { return mHandledByArea;  }
-			set { mHandledByArea = value; }
+			get { return mDockingArea;  }
+			set { mDockingArea = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the mouse location.
+		/// Gets or sets the docking area orientation.
 		/// </summary>
-		/// <value>The mouse location.</value>
-		public static MouseLocation mouseLocation
+		/// <value>The docking area orientation.</value>
+		public static DockingAreaOrientation dockingAreaOrientation
 		{
-			get { return mMouseLocation;  }
-			set { mMouseLocation = value; }
+			get { return mDockingAreaOrientation;  }
+			set { mDockingAreaOrientation = value; }
+		}
+
+		/// <summary>
+		/// Gets or sets the docking group.
+		/// </summary>
+		/// <value>The docking group.</value>
+		public static DockingGroupScript dockingGroup
+		{
+			get { return mDockingGroup;  }
+			set { mDockingGroup = value; }
+		}
+
+		/// <summary>
+		/// Gets or sets the index for insertion.
+		/// </summary>
+		/// <value>The index for insertion.</value>
+		public static int insertIndex
+		{
+			get { return mInsertIndex;  }
+			set { mInsertIndex = value; }
 		}
 
 		/// <summary>
@@ -95,10 +72,12 @@ namespace Common.UI.DockWidgets
 
 
 
-		private static DockWidgetScript    mDockWidget;
-		private static DockingAreaScript   mHandledByArea;
-		private static MouseLocation       mMouseLocation;
-		private static float               mMinimum;
+		private static DockWidgetScript       mDockWidget;
+		private static DockingAreaScript      mDockingArea;
+		private static DockingAreaOrientation mDockingAreaOrientation;
+		private static DockingGroupScript     mDockingGroup;
+		private static int                    mInsertIndex;
+		private static float                  mMinimum;
 
 
 
@@ -107,10 +86,12 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		static DragHandler()
 		{
-			mDockWidget    = null;
-			mHandledByArea = null;
-			mMouseLocation = MouseLocation.Outside;
-			mMinimum       = float.MaxValue;
+			mDockWidget             = null;
+			mDockingArea            = null;
+			mDockingAreaOrientation = DockingAreaOrientation.None;
+			mDockingGroup           = null;
+			mInsertIndex            = -1;
+			mMinimum                = float.MaxValue;
 		}
 	}
 }
