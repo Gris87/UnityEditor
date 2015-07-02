@@ -364,6 +364,7 @@ namespace Common.UI.DockWidgets
 					{
 						MouseLocation mouseLocation = MouseLocation.Inside;
 
+						#region Get mouse location
 						if (mouseX <= left + horizontalSection)
 						{
 							float value = left + horizontalSection - mouseX;
@@ -407,7 +408,9 @@ namespace Common.UI.DockWidgets
 								mouseLocation = MouseLocation.BottomSection;
 							}
 						}
+						#endregion
 
+						#region Get place for insertion
 						switch (mouseLocation)
 						{
 							case MouseLocation.LeftSection:
@@ -422,15 +425,25 @@ namespace Common.UI.DockWidgets
 									DragHandler.dockingArea = this;
 									DragHandler.insertIndex = 0;
 
+									if (mDockingGroupScript != null)
+									{
+										if (
+											mDockingGroupScript.children.Count != 1
+											||
+											mDockingGroupScript.children[0] != DragHandler.dockWidget
+										   )
+										{
+											DummyDockWidgetScript.CreateAndInsert();
+										}
+									}
+									else
 									if (
-									    mDockingGroupScript != null
-									    ||
-									    mChildren.Count < 2
-									    ||
 									    mChildren[0].mDockingGroupScript == null
 									    ||
 									    mChildren[0].mDockingGroupScript.children.Count != 1
 										||
+										mChildren[0].mDockingGroupScript.children[0] != DragHandler.dockWidget
+										&&
 										mChildren[0].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 									   )
 									{
@@ -450,26 +463,66 @@ namespace Common.UI.DockWidgets
 								else
 								{
 									DragHandler.dockingArea = this;
-									
-									if (
-										mDockingGroupScript != null
-										||
-										mChildren.Count < 2
-										||
-										mChildren[mChildren.Count - 1].mDockingGroupScript == null
-										||
-										mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
-										||
-										mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
-									   )
-									{
-										DragHandler.insertIndex = mChildren.Count;
 
-										DummyDockWidgetScript.CreateAndInsert();
+									if (mDockingGroupScript != null)
+									{
+										if (
+											mDockingGroupScript.children.Count != 1
+											||
+											mDockingGroupScript.children[0] != DragHandler.dockWidget
+										   )
+										{
+											DragHandler.insertIndex = 1;
+											
+											DummyDockWidgetScript.CreateAndInsert();
+										}
+										else
+										{
+											DragHandler.insertIndex = 0;
+										}
 									}
 									else
 									{
-										DragHandler.insertIndex = mChildren.Count - 1;
+										if (
+											mChildren[mChildren.Count - 1].mDockingGroupScript == null
+											||
+											mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
+											||
+											mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragHandler.dockWidget
+											&&
+											mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
+										   )
+										{
+											DragHandler.insertIndex = mChildren.Count;
+											
+											DummyDockWidgetScript.CreateAndInsert();
+										}
+										else
+										{
+											DragHandler.insertIndex = mChildren.Count - 1;
+										}
+
+										int index = -1;
+										
+										for (int i = 0; i < mChildren.Count; ++i)
+										{
+											if (
+												mChildren[i].mDockingGroupScript != null
+												&&
+												mChildren[i].mDockingGroupScript.children.Count == 1
+												&&
+												mChildren[i].mDockingGroupScript.children[0] == DragHandler.dockWidget
+											   )
+											{
+												index = i;
+												break;
+											}
+										}
+										
+										if (index >= 0 && index < DragHandler.insertIndex)
+										{
+											--DragHandler.insertIndex;
+										}
 									}
 								}
 							}
@@ -503,6 +556,7 @@ namespace Common.UI.DockWidgets
 							}
 							break;
 						}
+						#endregion
 
 						// TODO: Implement ProcessDockWidgetDrag
 					}
@@ -872,19 +926,19 @@ namespace Common.UI.DockWidgets
 					{
 						dockingArea = mChildren[0];
 
-						mOrientation        = dockingArea.mOrientation;
-						mChildren           = dockingArea.mChildren;
-						mSizes              = dockingArea.mSizes;
-						mDockingGroupScript = dockingArea.mDockingGroupScript;
+						DockingAreaOrientation  orientation        = dockingArea.mOrientation;
+						List<DockingAreaScript> children           = dockingArea.mChildren;
+						List<float>             sizes              = dockingArea.mSizes;
+						DockingGroupScript      dockingGroupScript = dockingArea.mDockingGroupScript;
 
-						if (mDockingGroupScript != null)
+						if (dockingGroupScript != null)
 						{
-							mDockingGroupScript.parent = this;
-							mDockingGroupScript.transform.SetParent(transform, false);
+							dockingGroupScript.parent = this;
+							dockingGroupScript.transform.SetParent(transform, false);
 						}
 						else
 						{
-							foreach (DockingAreaScript child in mChildren)
+							foreach (DockingAreaScript child in children)
 							{
 								child.mParent = this;
 								child.transform.SetParent(transform, false);
@@ -892,6 +946,11 @@ namespace Common.UI.DockWidgets
 						}
 
 						dockingArea.Destroy();
+
+						mOrientation        = orientation;
+						mChildren           = children;
+						mSizes              = sizes;
+						mDockingGroupScript = dockingGroupScript;
 					}
 
 					OnResize();
