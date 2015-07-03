@@ -114,13 +114,10 @@ namespace Common.UI.DockWidgets
 		{
 			buttonClicked();
 
-			DragHandler.dockWidget             = mDockWidget;
-			DragHandler.dockingArea            = null;
-			DragHandler.dockingAreaOrientation = DockingAreaOrientation.None;
-			DragHandler.dockingGroup           = null;
-			DragHandler.insertIndex            = -1;
-			DragHandler.minimum                = float.MaxValue;
-			DragHandler.mouseLocation          = DragHandler.MouseLocation.Outside;
+			DragInfoHolder.dockWidget    = mDockWidget;
+			DragInfoHolder.minimum       = float.MaxValue;
+			DragInfoHolder.dockingArea   = null;
+			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
 			mDockingAreas = new List<DockingAreaScript>(DockingAreaScript.instances);
 			
@@ -138,29 +135,22 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnDrag(PointerEventData eventData)
 		{
-			DragHandler.dockingArea            = null;
-			DragHandler.dockingAreaOrientation = DockingAreaOrientation.None;
-			DragHandler.dockingGroup           = null;
-			DragHandler.insertIndex            = -1;
-			DragHandler.minimum                = float.MaxValue;
-			DragHandler.mouseLocation          = DragHandler.MouseLocation.Outside;
+			DragInfoHolder.minimum       = float.MaxValue;
+			DragInfoHolder.dockingArea   = null;
+			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
 			foreach (DockingAreaScript dockingArea in mDockingAreas)
 			{
 				dockingArea.PreprocessDockWidgetDrag(eventData);
 			}
 
-			if (DragHandler.dockingArea != null)
+			if (DragInfoHolder.dockingArea != null)
 			{
-				DragHandler.dockingArea.ProcessDockWidgetDrag();
+				DragInfoHolder.dockingArea.ProcessDockWidgetDrag();
 			}
 
-			if (
-				DragHandler.dockingArea  != null
-				||
-				DragHandler.dockingGroup != null
-			   )
-			{
+			if (DragInfoHolder.dockingArea != null)
+            {
 				DragData.HideImage();
 			}
 			else
@@ -179,40 +169,33 @@ namespace Common.UI.DockWidgets
 		public void OnEndDrag(PointerEventData eventData)
 		{
 			mDockingAreas = null;
-			DummyDockWidgetScript.DestroyInstance();
 
-			if (DragHandler.dockingArea != null)
+			if (DummyDockWidgetScript.instance != null)
+			{
+				int index = DummyDockWidgetScript.instance.parent.children.IndexOf(DummyDockWidgetScript.instance);
+
+				if (index >= 0)
+				{
+					DummyDockWidgetScript.instance.parent.InsertDockWidget(DragInfoHolder.dockWidget);
+				}
+				else
+				{
+					Debug.LogError("Unexpected behaviour in DockingTabButton.OnEndDrag");
+				}
+
+				DummyDockWidgetScript.DestroyInstance();
+			}
+			else
+			if (DragInfoHolder.dockingArea == null)
             {
-				Debug.Log("Insert " + DragHandler.dockWidget.tokenId + " dock widget with " + DragHandler.dockingAreaOrientation + " orientation with index " + DragHandler.insertIndex);
-
-				DragHandler.dockWidget.InsertToDockingArea(
-															 DragHandler.dockingArea
-														   , DragHandler.dockingAreaOrientation
-														   , DragHandler.insertIndex
-														  );
-			}
-			else
-			if (DragHandler.dockingGroup != null)
-			{
-				Debug.Log("Insert " + DragHandler.dockWidget.tokenId + " dock widget in docking group with index " + DragHandler.insertIndex);
-
-				DragHandler.dockWidget.InsertToDockingGroup(
-															  DragHandler.dockingGroup
-															, DragHandler.insertIndex
-														   );
-			}
-			else
-			{
+				Debug.Log("Put in window");
 				// TODO: Put dock widget in window
 			}
 
-			DragHandler.dockWidget             = null;
-			DragHandler.dockingArea            = null;
-			DragHandler.dockingAreaOrientation = DockingAreaOrientation.None;
-			DragHandler.dockingGroup           = null;
-			DragHandler.insertIndex            = -1;
-			DragHandler.minimum                = float.MaxValue;
-			DragHandler.mouseLocation          = DragHandler.MouseLocation.Outside;
+			DragInfoHolder.dockWidget    = null;
+			DragInfoHolder.minimum       = float.MaxValue;
+			DragInfoHolder.dockingArea   = null;
+			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
 			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
 			{

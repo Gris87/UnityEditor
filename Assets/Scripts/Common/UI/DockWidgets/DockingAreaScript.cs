@@ -310,11 +310,11 @@ namespace Common.UI.DockWidgets
 						)
 					   )
 					{
-						if (DragHandler.minimum > -1f)
+						if (DragInfoHolder.minimum > -1f)
 						{
-							DragHandler.minimum       = -1f;
-							DragHandler.mouseLocation = DragHandler.MouseLocation.Inside;
-							DragHandler.dockingArea   = this;
+							DragInfoHolder.minimum       = -1f;
+							DragInfoHolder.dockingArea   = this;
+							DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Inside;
 						}
 					}
 					else
@@ -323,11 +323,11 @@ namespace Common.UI.DockWidgets
 						{
 							float value = mouseY - top;
 							
-							if (value < DragHandler.minimum)
+							if (value < DragInfoHolder.minimum)
 							{
-								DragHandler.minimum       = value;
-								DragHandler.mouseLocation = DragHandler.MouseLocation.Tabs;
-								DragHandler.dockingArea   = this;
+								DragInfoHolder.minimum       = value;
+								DragInfoHolder.dockingArea   = this;
+								DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Tabs;
 							}
 						}
 						else
@@ -335,25 +335,25 @@ namespace Common.UI.DockWidgets
 						{
 							float value = bottom - mouseY;
 							
-							if (value < DragHandler.minimum)
+							if (value < DragInfoHolder.minimum)
 							{
-								DragHandler.minimum       = value;
-								DragHandler.mouseLocation = DragHandler.MouseLocation.BottomSection;
-								DragHandler.dockingArea   = this;
+								DragInfoHolder.minimum       = value;
+								DragInfoHolder.dockingArea   = this;
+								DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.BottomSection;
 							}
 						}
 						
-						if (DragHandler.mouseLocation != DragHandler.MouseLocation.Tabs)
+						if (DragInfoHolder.mouseLocation != DragInfoHolder.MouseLocation.Tabs)
 						{
 							if (mouseX <= left + horizontalSection)
 							{
 								float value = mouseX - left;
 								
-								if (value < DragHandler.minimum)
+								if (value < DragInfoHolder.minimum)
 								{
-									DragHandler.minimum       = value;
-									DragHandler.mouseLocation = DragHandler.MouseLocation.LeftSection;
-									DragHandler.dockingArea   = this;
+									DragInfoHolder.minimum       = value;
+									DragInfoHolder.dockingArea   = this;
+									DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.LeftSection;
 								}
 							}
 							else
@@ -361,11 +361,11 @@ namespace Common.UI.DockWidgets
 							{
 								float value = right - mouseX;
 								
-								if (value < DragHandler.minimum)
+								if (value < DragInfoHolder.minimum)
 								{
-									DragHandler.minimum       = value;
-									DragHandler.mouseLocation = DragHandler.MouseLocation.RightSection;
-									DragHandler.dockingArea   = this;
+									DragInfoHolder.minimum       = value;
+									DragInfoHolder.dockingArea   = this;
+									DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.RightSection;
 								}
 							}
 						}
@@ -384,27 +384,24 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		public void ProcessDockWidgetDrag()
 		{
-			DragHandler.dockingArea = null;
+			DragInfoHolder.dockingArea = null;
 
-			switch (DragHandler.mouseLocation)
+			switch (DragInfoHolder.mouseLocation)
             {
-				case DragHandler.MouseLocation.Inside:
+				case DragInfoHolder.MouseLocation.Inside:
 				{
-					DragHandler.dockingArea            = this;
-					DragHandler.dockingAreaOrientation = DockingAreaOrientation.None;
-					DragHandler.insertIndex            = 0;
+					DragInfoHolder.dockingArea = this;
 					
 					if (mDockingGroupScript == null)
 					{
-	                    DummyDockWidgetScript.CreateAndInsert();
+	                    DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+							InsertToDockingArea(this, DockingAreaOrientation.None, 0);
 	                }
             	}
                 break;
 
-				case DragHandler.MouseLocation.LeftSection:
-				{
-					DragHandler.dockingAreaOrientation = DockingAreaOrientation.Horizontal;
-					
+				case DragInfoHolder.MouseLocation.LeftSection:
+				{					
 					if (
 						DummyDockWidgetScript.instance != null
 						&&
@@ -425,18 +422,18 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
-						DragHandler.dockingArea = this;
-						DragHandler.insertIndex = 0;
+						DragInfoHolder.dockingArea = this;
 						
 						if (mDockingGroupScript != null)
 						{
 							if (
 								mDockingGroupScript.children.Count != 1
 								||
-								mDockingGroupScript.children[0] != DragHandler.dockWidget
+								mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 							   )
 							{
-								DummyDockWidgetScript.CreateAndInsert();
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
 							}
 						}
 						else
@@ -447,21 +444,20 @@ namespace Common.UI.DockWidgets
 							||
 							mChildren[0].mDockingGroupScript.children.Count != 1
 							||
-						    mChildren[0].mDockingGroupScript.children[0] != DragHandler.dockWidget
+						    mChildren[0].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 							&&
 							mChildren[0].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 						   )
 						{
-							DummyDockWidgetScript.CreateAndInsert();
-						}
+							DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+								InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
+                    	}
 					}
 				}
 				break;
 				
-				case DragHandler.MouseLocation.RightSection:
-				{
-					DragHandler.dockingAreaOrientation = DockingAreaOrientation.Horizontal;
-					
+				case DragInfoHolder.MouseLocation.RightSection:
+				{					
 					if (
 						DummyDockWidgetScript.instance != null
 						&&
@@ -482,24 +478,19 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
-						DragHandler.dockingArea = this;
+						DragInfoHolder.dockingArea = this;
 						
 						if (mDockingGroupScript != null)
 						{
 							if (
 								mDockingGroupScript.children.Count != 1
 								||
-								mDockingGroupScript.children[0] != DragHandler.dockWidget
+								mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 							   )
 							{
-								DragHandler.insertIndex = 1;
-								
-								DummyDockWidgetScript.CreateAndInsert();
-							}
-							else
-							{
-								DragHandler.insertIndex = 0;
-							}
+                            	DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+                                	InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 1);
+                        	}
 						}
 						else
 						{
@@ -510,53 +501,21 @@ namespace Common.UI.DockWidgets
 								||
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
 								||
-								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragHandler.dockWidget
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 								&&
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 							   )
 							{
-								DragHandler.insertIndex = mChildren.Count;
-								
-								DummyDockWidgetScript.CreateAndInsert();
-							}
-							else
-							{
-								DragHandler.insertIndex = mChildren.Count - 1;
-							}
-							
-							if (mOrientation == DockingAreaOrientation.Horizontal)
-							{
-								int index = -1;
-								
-								for (int i = 0; i < mChildren.Count; ++i)
-								{
-									if (
-										mChildren[i].mDockingGroupScript != null
-										&&
-										mChildren[i].mDockingGroupScript.children.Count == 1
-										&&
-										mChildren[i].mDockingGroupScript.children[0] == DragHandler.dockWidget
-									   )
-									{
-										index = i;
-										break;
-									}
-								}
-								
-								if (index >= 0 && index < DragHandler.insertIndex)
-								{
-									--DragHandler.insertIndex;
-								}
-							}										
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, mChildren.Count);
+                        	}
 						}
 					}
 				}
 				break;
 				
-				case DragHandler.MouseLocation.BottomSection:
-				{
-					DragHandler.dockingAreaOrientation = DockingAreaOrientation.Vertical;
-					
+				case DragInfoHolder.MouseLocation.BottomSection:
+				{					
 					if (
 						DummyDockWidgetScript.instance != null
 						&&
@@ -577,24 +536,19 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
-						DragHandler.dockingArea = this;
+						DragInfoHolder.dockingArea = this;
 						
 						if (mDockingGroupScript != null)
 						{
 							if (
 								mDockingGroupScript.children.Count != 1
 								||
-								mDockingGroupScript.children[0] != DragHandler.dockWidget
+								mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 							   )
 							{
-								DragHandler.insertIndex = 1;
-								
-								DummyDockWidgetScript.CreateAndInsert();
-							}
-							else
-							{
-								DragHandler.insertIndex = 0;
-							}
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Vertical, 1);
+                        	}
 						}
 						else
 						{
@@ -605,64 +559,34 @@ namespace Common.UI.DockWidgets
 	                            ||
 	                            mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
 	                            ||
-	                            mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragHandler.dockWidget
+	                            mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 	                            &&
 	                            mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 	                           )
 	                        {
-	                            DragHandler.insertIndex = mChildren.Count;
-	                            
-	                            DummyDockWidgetScript.CreateAndInsert();
-	                        }
-	                        else
-	                        {
-	                            DragHandler.insertIndex = mChildren.Count - 1;
-	                        }
-	                        
-	                        if (mOrientation == DockingAreaOrientation.Vertical)
-	                        {
-	                            int index = -1;
-	                            
-	                            for (int i = 0; i < mChildren.Count; ++i)
-	                            {
-	                                if (
-	                                    mChildren[i].mDockingGroupScript != null
-	                                    &&
-	                                    mChildren[i].mDockingGroupScript.children.Count == 1
-	                                    &&
-	                                    mChildren[i].mDockingGroupScript.children[0] == DragHandler.dockWidget
-	                                   )
-	                                {
-	                                    index = i;
-	                                    break;
-	                                }
-	                            }
-	                            
-	                            if (index >= 0 && index < DragHandler.insertIndex)
-	                            {
-	                                --DragHandler.insertIndex;
-	                            }
-	                        }
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Vertical, mChildren.Count);
+                        	}
 	                    }
 	                }
 	            }
                 break;
                 
-				case DragHandler.MouseLocation.Tabs:
+				case DragInfoHolder.MouseLocation.Tabs:
 	            {
 				 	// TODO: Implement
 	            }
                 break;
                 
-				case DragHandler.MouseLocation.Outside:
+				case DragInfoHolder.MouseLocation.Outside:
 	            {
-					Debug.LogError("Unexpected mouse location: " + DragHandler.mouseLocation);
+					Debug.LogError("Unexpected mouse location: " + DragInfoHolder.mouseLocation);
 	            }
                 break;
                 
 	            default:
 	            {
-	                Debug.LogError("Unknown mouse location: " + DragHandler.mouseLocation);
+	                Debug.LogError("Unknown mouse location: " + DragInfoHolder.mouseLocation);
 	            }
                 break;
             }

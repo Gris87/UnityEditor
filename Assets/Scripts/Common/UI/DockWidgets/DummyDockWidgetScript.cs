@@ -63,33 +63,6 @@ namespace Common.UI.DockWidgets
 		}
 
 		/// <summary>
-		/// Creates dummy dock widget and insert where it needed.
-		/// </summary>
-		public static void CreateAndInsert()
-		{
-			if (DragHandler.dockingArea != null)
-			{
-				Create(DragHandler.dockWidget).InsertToDockingArea(
-																     DragHandler.dockingArea
-																   , DragHandler.dockingAreaOrientation
-																   , DragHandler.insertIndex
-																  );
-			}
-			else
-			if (DragHandler.dockingGroup != null)
-			{
-				Create(DragHandler.dockWidget).InsertToDockingGroup(
-																	  DragHandler.dockingGroup
-																	, DragHandler.insertIndex
-																   );
-			}
-			else
-			{
-				Debug.LogError("Impossible to insert dummy dock widget");
-			}
-		}
-
-		/// <summary>
 		/// Destroies the instance.
 		/// </summary>
 		public static void DestroyInstance()
