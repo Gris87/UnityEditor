@@ -554,6 +554,8 @@ namespace Common.UI.DockWidgets
 				
 				if (index >= 0)
                 {
+					dockWidget.parent = null;
+
 					Transform tab = mTabsTransform.GetChild(index);
 
 					mContentTransform.GetChild(index).SetAsLastSibling();
