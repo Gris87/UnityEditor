@@ -405,12 +405,6 @@ namespace Common.UI.DockWidgets
 					if (
 						DummyDockWidgetScript.instance != null
 						&&
-						DummyDockWidgetScript.instance.parent != null
-						&&
-						DummyDockWidgetScript.instance.parent.children.Count == 1
-						&&
-						DummyDockWidgetScript.instance.parent.parent != null
-						&&
 						DummyDockWidgetScript.instance.parent.parent.mOrientation == DockingAreaOrientation.Vertical
 					   )
 					{
@@ -419,6 +413,30 @@ namespace Common.UI.DockWidgets
 					
 					if (mParent != null)
 					{
+						DragInfoHolder.dockingArea = mParent;
+
+						int index = mParent.mChildren.IndexOf(this);
+
+						if (index >= 0)
+						{
+							if (
+								mParent.mOrientation == DockingAreaOrientation.Vertical
+								||
+								mParent.mChildren[index].mDockingGroupScript.children.Count != 1
+								||
+								mParent.mChildren[index].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+								&&
+								mParent.mChildren[index].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
+							   )
+	                        {
+	                            DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(mParent, DockingAreaOrientation.Horizontal, index);
+							}
+						}
+                    	else
+                    	{
+							Debug.LogError("Unexpected behaviour in DockingAreaScript.ProcessDockWidgetDrag");
+                    	}
 					}
 					else
 					{
@@ -440,8 +458,6 @@ namespace Common.UI.DockWidgets
 						if (
 							mOrientation == DockingAreaOrientation.Vertical
 							||
-							mChildren[0].mDockingGroupScript == null
-							||
 							mChildren[0].mDockingGroupScript.children.Count != 1
 							||
 						    mChildren[0].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
@@ -461,12 +477,6 @@ namespace Common.UI.DockWidgets
 					if (
 						DummyDockWidgetScript.instance != null
 						&&
-						DummyDockWidgetScript.instance.parent != null
-						&&
-						DummyDockWidgetScript.instance.parent.children.Count == 1
-						&&
-						DummyDockWidgetScript.instance.parent.parent != null
-						&&
 						DummyDockWidgetScript.instance.parent.parent.mOrientation == DockingAreaOrientation.Vertical
 					   )
 					{
@@ -475,12 +485,38 @@ namespace Common.UI.DockWidgets
 					
 					if (mParent != null)
 					{
-					}
-					else
-					{
-						DragInfoHolder.dockingArea = this;
+						DragInfoHolder.dockingArea = mParent;
 						
-						if (mDockingGroupScript != null)
+						int index = mParent.mChildren.IndexOf(this);
+						
+						if (index >= 0)
+						{
+							if (
+								mParent.mOrientation == DockingAreaOrientation.Vertical
+								||
+								index >= mParent.mChildren.Count - 1
+								||
+								mParent.mChildren[index + 1].mDockingGroupScript.children.Count != 1
+								||
+								mParent.mChildren[index + 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+								&&
+								mParent.mChildren[index + 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
+							   )
+							{
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+	                                InsertToDockingArea(mParent, DockingAreaOrientation.Horizontal, index + 1);
+	                        }
+	                    }
+	                    else
+	                    {
+	                        Debug.LogError("Unexpected behaviour in DockingAreaScript.ProcessDockWidgetDrag");
+	                    }
+                	}
+                	else
+                	{
+                    	DragInfoHolder.dockingArea = this;
+                    
+                    	if (mDockingGroupScript != null)
 						{
 							if (
 								mDockingGroupScript.children.Count != 1
@@ -496,8 +532,6 @@ namespace Common.UI.DockWidgets
 						{
 							if (
 								mOrientation == DockingAreaOrientation.Vertical
-								||
-								mChildren[mChildren.Count - 1].mDockingGroupScript == null
 								||
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
 								||
@@ -518,12 +552,6 @@ namespace Common.UI.DockWidgets
 				{					
 					if (
 						DummyDockWidgetScript.instance != null
-						&&
-						DummyDockWidgetScript.instance.parent != null
-						&&
-						DummyDockWidgetScript.instance.parent.children.Count == 1
-						&&
-						DummyDockWidgetScript.instance.parent.parent != null
 						&&
 						DummyDockWidgetScript.instance.parent.parent.mOrientation == DockingAreaOrientation.Horizontal
 					   )
@@ -554,8 +582,6 @@ namespace Common.UI.DockWidgets
 						{
 							if (
 								mOrientation == DockingAreaOrientation.Horizontal
-	                            ||
-	                            mChildren[mChildren.Count - 1].mDockingGroupScript == null
 	                            ||
 	                            mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
 	                            ||
