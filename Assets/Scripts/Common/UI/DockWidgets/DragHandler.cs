@@ -10,6 +10,44 @@ namespace Common.UI.DockWidgets
 	/// </summary>
 	public static class DragHandler
 	{
+		/// <summary>
+		/// Mouse location.
+		/// </summary>
+		public enum MouseLocation
+		{
+			/// <summary>
+			/// Outside of this docking area.
+			/// </summary>
+			Outside
+			,
+			/// <summary>
+			/// Inside of this docking area.
+			/// </summary>
+			Inside
+			,
+			/// <summary>
+			/// The left section.
+			/// </summary>
+			LeftSection
+			,
+			/// <summary>
+			/// The right section.
+			/// </summary>
+			RightSection
+			,
+			/// <summary>
+			/// The bottom section.
+			/// </summary>
+			BottomSection
+			,
+			/// <summary>
+			/// In tabs area of docking group.
+			/// </summary>
+			Tabs
+		}
+
+
+
         /// <summary>
 		/// Gets or sets the dock widget.
 		/// </summary>
@@ -70,6 +108,16 @@ namespace Common.UI.DockWidgets
 			set { mMinimum = value; }
 		}
 
+		/// <summary>
+		/// Gets or sets the mouse location.
+		/// </summary>
+		/// <value>The mouse location.</value>
+		public static MouseLocation mouseLocation
+		{
+			get { return mMouseLocation;  }
+			set { mMouseLocation = value; }
+		}
+
 
 
 		private static DockWidgetScript       mDockWidget;
@@ -78,6 +126,7 @@ namespace Common.UI.DockWidgets
 		private static DockingGroupScript     mDockingGroup;
 		private static int                    mInsertIndex;
 		private static float                  mMinimum;
+		private static MouseLocation          mMouseLocation;
 
 
 
@@ -92,7 +141,7 @@ namespace Common.UI.DockWidgets
 			mDockingGroup           = null;
 			mInsertIndex            = -1;
 			mMinimum                = float.MaxValue;
+			mMouseLocation          = MouseLocation.Outside;
 		}
 	}
 }
-

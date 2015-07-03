@@ -120,6 +120,7 @@ namespace Common.UI.DockWidgets
 			DragHandler.dockingGroup           = null;
 			DragHandler.insertIndex            = -1;
 			DragHandler.minimum                = float.MaxValue;
+			DragHandler.mouseLocation          = DragHandler.MouseLocation.Outside;
 
 			mDockingAreas = new List<DockingAreaScript>(DockingAreaScript.instances);
 			
@@ -142,10 +143,16 @@ namespace Common.UI.DockWidgets
 			DragHandler.dockingGroup           = null;
 			DragHandler.insertIndex            = -1;
 			DragHandler.minimum                = float.MaxValue;
+			DragHandler.mouseLocation          = DragHandler.MouseLocation.Outside;
 
 			foreach (DockingAreaScript dockingArea in mDockingAreas)
 			{
-				dockingArea.ProcessDockWidgetDrag(eventData);
+				dockingArea.PreprocessDockWidgetDrag(eventData);
+			}
+
+			if (DragHandler.dockingArea != null)
+			{
+				DragHandler.dockingArea.ProcessDockWidgetDrag();
 			}
 
 			if (
@@ -176,6 +183,8 @@ namespace Common.UI.DockWidgets
 
 			if (DragHandler.dockingArea != null)
             {
+				Debug.Log("Insert " + DragHandler.dockWidget.tokenId + " dock widget with " + DragHandler.dockingAreaOrientation + " orientation with index " + DragHandler.insertIndex);
+
 				DragHandler.dockWidget.InsertToDockingArea(
 															 DragHandler.dockingArea
 														   , DragHandler.dockingAreaOrientation
@@ -185,6 +194,8 @@ namespace Common.UI.DockWidgets
 			else
 			if (DragHandler.dockingGroup != null)
 			{
+				Debug.Log("Insert " + DragHandler.dockWidget.tokenId + " dock widget in docking group with index " + DragHandler.insertIndex);
+
 				DragHandler.dockWidget.InsertToDockingGroup(
 															  DragHandler.dockingGroup
 															, DragHandler.insertIndex
@@ -201,6 +212,7 @@ namespace Common.UI.DockWidgets
 			DragHandler.dockingGroup           = null;
 			DragHandler.insertIndex            = -1;
 			DragHandler.minimum                = float.MaxValue;
+			DragHandler.mouseLocation          = DragHandler.MouseLocation.Outside;
 
 			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
 			{
