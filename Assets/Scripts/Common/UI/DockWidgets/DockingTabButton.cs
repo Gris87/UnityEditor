@@ -188,7 +188,6 @@ namespace Common.UI.DockWidgets
 			else
 			if (DragInfoHolder.dockingArea == null)
             {
-				Debug.Log("Put in window");
 				// TODO: Put dock widget in window
 			}
 
