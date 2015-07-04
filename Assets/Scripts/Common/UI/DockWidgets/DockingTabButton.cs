@@ -139,9 +139,9 @@ namespace Common.UI.DockWidgets
 			DragInfoHolder.dockingArea   = null;
 			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
-			foreach (DockingAreaScript dockingArea in mDockingAreas)
+			for (int i = mDockingAreas.Count - 1; i >= 0; --i)
 			{
-				dockingArea.PreprocessDockWidgetDrag(eventData);
+				mDockingAreas[i].PreprocessDockWidgetDrag(eventData);
 			}
 
 			if (DragInfoHolder.dockingArea != null)
