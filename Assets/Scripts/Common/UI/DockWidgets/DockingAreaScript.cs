@@ -106,6 +106,8 @@ namespace Common.UI.DockWidgets
 				if (
 					value.Count == 1
 					&&
+					mDockingGroupScript != null
+					&&
 					mChildren.Count == 0
 					&&
 					value[0] == 1f
@@ -990,6 +992,23 @@ namespace Common.UI.DockWidgets
 				}
 			}
 
+			// TODO: Remove
+			if (
+				mSizes.Count == mChildren.Count
+				||
+				mSizes.Count == 1
+				&&
+				mDockingGroupScript != null
+				&&
+				mChildren.Count == 0
+				)
+			{
+			}
+			else
+			{
+				Debug.LogError("GAY: " + mSizes.Count + " " + mChildren.Count);
+			}
+
 			OnResize();
         }
 
@@ -1097,6 +1116,23 @@ namespace Common.UI.DockWidgets
 			else
 			{
 				Debug.LogError("Docking area belongs not to this docking area");
+			}
+
+			// TODO: Remove
+			if (
+				mSizes.Count == mChildren.Count
+				||
+				mSizes.Count == 1
+				&&
+				mDockingGroupScript != null
+				&&
+				mChildren.Count == 0
+			   )
+			{
+			}
+			else
+			{
+				Debug.LogError("GAY: " + mSizes.Count + " " + mChildren.Count);
 			}
 		}
     }
