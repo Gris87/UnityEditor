@@ -529,6 +529,19 @@ namespace Common.UI.DockWidgets
                         {
 							mSelectedIndex = index;
 						}
+						else
+						if (mSelectedIndex >= 0)
+						{
+							if (foundIndex < mSelectedIndex)
+							{
+								--mSelectedIndex;
+							}
+
+							if (index <= mSelectedIndex)
+							{
+								++mSelectedIndex;
+							}
+						}
 
 						mChildren.RemoveAt(foundIndex);
 						mChildren.Insert(index, dockWidget);
