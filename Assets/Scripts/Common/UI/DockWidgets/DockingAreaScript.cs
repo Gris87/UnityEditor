@@ -325,6 +325,7 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
+						// TODO: Calculate minimum always
 						if (mouseY <= top + gap + 16f)
 						{
 							if (mDockingGroupScript != null)
@@ -634,7 +635,7 @@ namespace Common.UI.DockWidgets
 									mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 								   )
 								{
-									int index = mChildren.Count;
+									int index = mChildren.Count - 1;
 									
 									int index2 = -1;
 									
@@ -663,7 +664,7 @@ namespace Common.UI.DockWidgets
 										}
 										
 										DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-											InsertToDockingArea(this, DockingAreaOrientation.Horizontal, index);
+											InsertToDockingArea(this, DockingAreaOrientation.Horizontal, index + 1);
 									}
 								}
 								else
@@ -785,7 +786,7 @@ namespace Common.UI.DockWidgets
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 							   )
 							{
-								int index = mChildren.Count;
+								int index = mChildren.Count - 1;
 
 								int index2 = -1;
 								
@@ -814,7 +815,7 @@ namespace Common.UI.DockWidgets
 									}
 									
 									DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-										InsertToDockingArea(this, DockingAreaOrientation.Horizontal, index);
+										InsertToDockingArea(this, DockingAreaOrientation.Horizontal, index + 1);
 								}
 							}
 							else
@@ -871,7 +872,7 @@ namespace Common.UI.DockWidgets
 									mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 								   )
 								{
-									int index = mChildren.Count;
+									int index = mChildren.Count - 1;
 									
 									int index2 = -1;
 									
@@ -900,7 +901,7 @@ namespace Common.UI.DockWidgets
 										}
 										
 										DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-											InsertToDockingArea(this, DockingAreaOrientation.Vertical, index);
+											InsertToDockingArea(this, DockingAreaOrientation.Vertical, index + 1);
 									}
 								}
 								else
@@ -1022,7 +1023,7 @@ namespace Common.UI.DockWidgets
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 							   )
 							{
-								int index = mChildren.Count;
+								int index = mChildren.Count - 1;
 								
 								int index2 = -1;
 								
@@ -1051,7 +1052,7 @@ namespace Common.UI.DockWidgets
 									}
 									
 									DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-										InsertToDockingArea(this, DockingAreaOrientation.Vertical, index);
+										InsertToDockingArea(this, DockingAreaOrientation.Vertical, index + 1);
 								}
 							}
 							else

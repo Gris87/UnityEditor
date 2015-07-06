@@ -145,6 +145,7 @@ namespace Common.UI.DockWidgets
 				mDockingAreas[i].PreprocessDockWidgetDrag(eventData);
 			}
 
+			// TODO: Raycast first
 			if (DragInfoHolder.dockingArea != null)
 			{
 				DragInfoHolder.dockingArea.ProcessDockWidgetDrag(eventData);
