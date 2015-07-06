@@ -151,7 +151,7 @@ namespace UI.Windows.MainWindow
 			// TODO: Uncomment it
 			// Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
 			// TODO: Remove it
-			Utils.AlignRectTransformStretchLeft(dockingAreaTransform, 400f, 0f, mainMenuHeight + toolbarHeight, 0f);
+			Utils.AlignRectTransformStretchLeft(dockingAreaTransform, 100f, 0f, mainMenuHeight + toolbarHeight, 0f);
 			#endregion
 			
 			//===========================================================================
@@ -176,7 +176,7 @@ namespace UI.Windows.MainWindow
 			//===========================================================================
 			#region RectTransform Component
 			dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchRight(dockingAreaTransform, 400f, 0f, mainMenuHeight + toolbarHeight, 0f);
+			Utils.AlignRectTransformStretchRight(dockingAreaTransform, 100f, 0f, mainMenuHeight + toolbarHeight, 0f);
 			#endregion
 			
 			//===========================================================================

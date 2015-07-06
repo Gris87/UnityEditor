@@ -281,14 +281,15 @@ namespace Common.UI.DockWidgets
 			if (mCachedDragCorners != null)
 			{
 				float screenHeight = Screen.height;
+
+				float gap    = GAP / 2f + 1f;
+				float left   = mCachedDragCorners[0].x - gap;
+				float top    = mCachedDragCorners[0].y - gap;
+				float right  = mCachedDragCorners[3].x + gap;
+				float bottom = mCachedDragCorners[3].y + gap;
 				
-				float left   = mCachedDragCorners[0].x - 2f;
-				float top    = mCachedDragCorners[0].y - 2f;
-				float right  = mCachedDragCorners[3].x + 2f;
-				float bottom = mCachedDragCorners[3].y + 2f;
-				
-				float horizontalSection = (right  - left) / 3f;
-				float verticalSection   = (bottom - top)  / 3f;
+				float horizontalSection = (right  - left) / 2f; // TODO: 3f
+				float verticalSection   = (bottom - top)  / 2f; // TODO: 3f
 				
 				float mouseX = eventData.position.x;
 				float mouseY = screenHeight - eventData.position.y;
@@ -321,7 +322,7 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
-						if (mouseY <= top + 18f)
+						if (mouseY <= top + gap + 16f)
 						{
 							float value = mouseY - top;
 							
@@ -460,40 +461,59 @@ namespace Common.UI.DockWidgets
 													
 								if (index >= 0)
 								{
-									int index2 = -1;
-
 									if (
-										DummyDockWidgetScript.instance != null
-										&&
-										DummyDockWidgetScript.instance.parent.children.Count == 1
-										&&
-										DummyDockWidgetScript.instance.parent.parent != null
-								    	&&
-										DummyDockWidgetScript.instance.parent.parent.parent == mParent
-								       )
-									{
-										index2 = mParent.mChildren.IndexOf(DummyDockWidgetScript.instance.parent.parent);
-									}
-
-									if (
-										index2 < 0
+									    index == 0
+									    ||
+										mParent.mChildren[index - 1].mDockingGroupScript == null
 										||
-										index2 != index - 1
+										mParent.mChildren[index - 1].mDockingGroupScript.children.Count != 1
+										||
+										mParent.mChildren[index - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 									   )
 									{
-										if (index2 >= 0 && index > index2)
+										int index2 = -1;
+										
+										if (
+											DummyDockWidgetScript.instance != null
+											&&
+											DummyDockWidgetScript.instance.parent.children.Count == 1
+											&&
+											DummyDockWidgetScript.instance.parent.parent != null
+											&&
+											DummyDockWidgetScript.instance.parent.parent.parent == mParent
+											)
 										{
-											--index;
+											index2 = mParent.mChildren.IndexOf(DummyDockWidgetScript.instance.parent.parent);
 										}
-
-										DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-											InsertToDockingArea(mParent, DockingAreaOrientation.Horizontal, index);
+																		
+										if (
+											index2 < 0
+											||
+											index2 != index - 1
+											)
+										{
+											if (index2 >= 0 && index > index2)
+											{
+												--index;
+											}
+											
+											DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+												InsertToDockingArea(mParent, DockingAreaOrientation.Horizontal, index);
+										}
+									}
+									else
+									{
+										DummyDockWidgetScript.DestroyInstance();
 									}
 								}
 								else
 								{
 									Debug.LogError("Unexpected behaviour in DockingAreaScript.ProcessDockWidgetDrag");
 								}
+							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
 							}
 						}						
 					}
@@ -583,46 +603,65 @@ namespace Common.UI.DockWidgets
 								mDockingGroupScript.children.Count != 1
 								||
 								mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-								)
+							   )
 							{
 								int index = mParent.mChildren.IndexOf(this);
 								
 								if (index >= 0)
 								{
-									int index2 = -1;
-									
 									if (
-										DummyDockWidgetScript.instance != null
-										&&
-										DummyDockWidgetScript.instance.parent.children.Count == 1
-										&&
-										DummyDockWidgetScript.instance.parent.parent != null
-										&&
-										DummyDockWidgetScript.instance.parent.parent.parent == mParent
-									   )
-									{
-										index2 = mParent.mChildren.IndexOf(DummyDockWidgetScript.instance.parent.parent);
-									}
-									
-									if (
-										index2 < 0
+										index == mParent.mChildren.Count - 1
 										||
-										index2 != index + 1
+										mParent.mChildren[index + 1].mDockingGroupScript == null
+										||
+										mParent.mChildren[index + 1].mDockingGroupScript.children.Count != 1
+										||
+										mParent.mChildren[index + 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
 									   )
 									{
-										if (index2 >= 0 && index > index2)
+										int index2 = -1;
+										
+										if (
+											DummyDockWidgetScript.instance != null
+											&&
+											DummyDockWidgetScript.instance.parent.children.Count == 1
+											&&
+											DummyDockWidgetScript.instance.parent.parent != null
+											&&
+											DummyDockWidgetScript.instance.parent.parent.parent == mParent
+										   )
 										{
-											--index;
+											index2 = mParent.mChildren.IndexOf(DummyDockWidgetScript.instance.parent.parent);
 										}
 										
-										DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-											InsertToDockingArea(mParent, DockingAreaOrientation.Horizontal, index);
+										if (
+											index2 < 0
+											||
+											index2 != index + 1
+										   )
+										{
+											if (index2 >= 0 && index > index2)
+											{
+												--index;
+											}
+											
+											DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+												InsertToDockingArea(mParent, DockingAreaOrientation.Horizontal, index + 1);
+										}
+									}
+									else
+									{
+										DummyDockWidgetScript.DestroyInstance();
 									}
 								}
 								else
 								{
 									Debug.LogError("Unexpected behaviour in DockingAreaScript.ProcessDockWidgetDrag");
 								}
+							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
 							}
 						}
                 	}
