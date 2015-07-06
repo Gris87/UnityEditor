@@ -146,7 +146,7 @@ namespace Common.UI.DockWidgets
 
 			if (DragInfoHolder.dockingArea != null)
 			{
-				DragInfoHolder.dockingArea.ProcessDockWidgetDrag();
+				DragInfoHolder.dockingArea.ProcessDockWidgetDrag(eventData);
 			}
 
 			if (DragInfoHolder.dockingArea != null)
@@ -176,7 +176,8 @@ namespace Common.UI.DockWidgets
 
 				if (index >= 0)
 				{
-					DummyDockWidgetScript.instance.parent.InsertDockWidget(DragInfoHolder.dockWidget);
+					DummyDockWidgetScript.instance.parent.InsertDockWidget(DragInfoHolder.dockWidget, index);
+					DummyDockWidgetScript.instance.parent.selectedIndex = index;
 				}
 				else
 				{

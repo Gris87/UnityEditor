@@ -288,8 +288,8 @@ namespace Common.UI.DockWidgets
 				float right  = mCachedDragCorners[3].x + gap;
 				float bottom = mCachedDragCorners[3].y + gap;
 				
-				float horizontalSection = (right  - left) / 2f; // TODO: 3f
-				float verticalSection   = (bottom - top)  / 2f; // TODO: 3f
+				float horizontalSection = (right  - left) / 3f;
+				float verticalSection   = (bottom - top)  / 3f;
 				
 				float mouseX = eventData.position.x;
 				float mouseY = screenHeight - eventData.position.y;
@@ -324,13 +324,16 @@ namespace Common.UI.DockWidgets
 					{
 						if (mouseY <= top + gap + 16f)
 						{
-							float value = mouseY - top;
-							
-							if (value < DragInfoHolder.minimum)
+							if (mDockingGroupScript != null)
 							{
-								DragInfoHolder.minimum       = value;
-								DragInfoHolder.dockingArea   = this;
-								DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Tabs;
+								float value = mouseY - top;
+								
+								if (value < DragInfoHolder.minimum)
+								{
+									DragInfoHolder.minimum       = value;
+									DragInfoHolder.dockingArea   = this;
+									DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Tabs;
+								}
 							}
 						}
 						else
@@ -385,7 +388,8 @@ namespace Common.UI.DockWidgets
 		/// <summary>
 		/// Handler for dock widget drag event.
 		/// </summary>
-		public void ProcessDockWidgetDrag()
+		/// <param name="eventData">Pointer data.</param>
+		public void ProcessDockWidgetDrag(PointerEventData eventData)
 		{
 			DragInfoHolder.dockingArea = null;
 
@@ -1058,7 +1062,7 @@ namespace Common.UI.DockWidgets
                 
 				case DragInfoHolder.MouseLocation.Tabs:
 	            {
-				 	// TODO: Implement
+					mDockingGroupScript.ProcessDockWidgetDrag(eventData, mCachedDragCorners);
 	            }
                 break;
                 
@@ -1074,8 +1078,6 @@ namespace Common.UI.DockWidgets
 	            }
                 break;
             }
-            
-            // TODO: Implement ProcessDockWidgetDrag            
         }
         
         /// <summary>

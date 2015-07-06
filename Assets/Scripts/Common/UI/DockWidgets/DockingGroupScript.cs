@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityTranslation;
 
@@ -228,6 +229,7 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		private void UpdateTabsGeometry()
 		{
+			bool hasDummyWidget = false;
 			List<float> tabWidths = new List<float>();
 			float totalWidth = 0f;
 
@@ -238,7 +240,15 @@ namespace Common.UI.DockWidgets
 				float tabWidth = tabText.preferredWidth + 40f;
 
 				tabWidths.Add(tabWidth);
-				totalWidth += tabWidth;
+
+				if (mChildren[i] == DummyDockWidgetScript.instance)
+				{
+					hasDummyWidget = true;
+				}
+				else
+				{
+					totalWidth += tabWidth;
+				}
             }
 
 			Vector3[] corners = new Vector3[4];
@@ -259,7 +269,16 @@ namespace Common.UI.DockWidgets
 			}
 			else
 			{
-				float tabWidth = width / mChildren.Count;
+				float tabWidth;
+
+				if (hasDummyWidget)
+				{
+					tabWidth = width / (mChildren.Count - 1);
+				}
+				else
+				{
+					tabWidth = width / mChildren.Count;
+				}
 
 				for (int i = 0; i < mChildren.Count; ++i)
 				{
@@ -366,6 +385,124 @@ namespace Common.UI.DockWidgets
                 Debug.LogError("Dock widget belongs not to this docking group");
             }
         }
+
+		/// <summary>
+		/// Handler for dock widget drag event.
+		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
+		/// <param name="dragCorners">Cached drag corners.</param>
+		public void ProcessDockWidgetDrag(PointerEventData eventData, Vector3[] dragCorners)
+		{
+			float x = eventData.position.x - dragCorners[0].x;
+
+			DragInfoHolder.dockingArea = mParent;
+
+			#region Insert dummy dock widget if absent
+			if (
+				DummyDockWidgetScript.instance == null
+				||
+				DummyDockWidgetScript.instance.parent != this
+			   )
+			{
+				DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+					InsertToDockingGroup(this, 0);
+			}
+			#endregion
+
+			int dummyIndex = -1;
+
+			#region Find dummy dock widget position
+			float contentWidth = 0f;
+
+			int index = 0;
+			
+			for (int i = 0; i < mChildren.Count; ++i)
+			{
+				if (mChildren[i] == DummyDockWidgetScript.instance)
+				{
+					dummyIndex = i;
+				}
+				else
+				{
+					RectTransform tabTransform = mTabsTransform.GetChild(i) as RectTransform;
+
+					float tabWidth = tabTransform.sizeDelta.x;
+					
+					if (
+						x >= contentWidth
+						&&
+						x <= contentWidth + tabWidth
+					   )
+					{
+						if (x <= contentWidth + tabWidth / 2)
+						{
+							index = i;
+						}
+						else
+						{
+							index = i + 1;
+						}
+					}
+
+					contentWidth += tabWidth;
+				}
+			}
+			
+			if (x >= contentWidth)
+			{
+				index = mChildren.Count;
+			}
+
+			if (dummyIndex < index)
+			{
+				--index;
+			}
+
+			dummyIndex = index;
+			#endregion
+
+			InsertDockWidget(DummyDockWidgetScript.instance, dummyIndex);
+
+			int dockWidgetIndex = -1;
+
+			#region Place tabs where it should be
+			contentWidth = 0f;
+
+			for (int i = 0; i < mChildren.Count; ++i)
+			{
+				if (mChildren[i] == DragInfoHolder.dockWidget)
+				{
+					dockWidgetIndex = i;
+				}
+				else
+				{
+					RectTransform tabTransform = mTabsTransform.GetChild(i) as RectTransform;
+					
+					float tabWidth = tabTransform.sizeDelta.x;
+
+					if (i == dummyIndex)
+					{
+						Utils.AlignRectTransformStretchLeft(tabTransform, tabWidth, x - tabWidth * 0.3f, 0f, -1f);
+					}
+					else
+					{
+						Utils.AlignRectTransformStretchLeft(tabTransform, tabWidth, contentWidth, 0f, -1f);
+					}
+					
+					contentWidth += tabWidth;
+				}
+			}
+			#endregion
+
+			if (dockWidgetIndex >= 0)
+			{
+				RectTransform tabTransform      = mTabsTransform.GetChild(dockWidgetIndex) as RectTransform;
+				RectTransform dummyTabTransform = mTabsTransform.GetChild(dummyIndex)      as RectTransform;
+
+				tabTransform.offsetMin = dummyTabTransform.offsetMin;
+				tabTransform.offsetMax = dummyTabTransform.offsetMax;
+			}
+		}
         
         /// <summary>
         /// Insert the specified dock widget.
@@ -475,7 +612,7 @@ namespace Common.UI.DockWidgets
 
 			tabButton.dockWidget    = dockWidget;
 			tabButton.targetGraphic = tabImage;
-			tabButton.active        = (mSelectedIndex == index);
+			tabButton.active        = (mSelectedIndex == index) || (dockWidget == DummyDockWidgetScript.instance);
 			tabButton.transition    = Selectable.Transition.None;
             #endregion
             

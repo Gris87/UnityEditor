@@ -148,10 +148,7 @@ namespace UI.Windows.MainWindow
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-			// TODO: Uncomment it
-			// Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
-			// TODO: Remove it
-			Utils.AlignRectTransformStretchLeft(dockingAreaTransform, 100f, 0f, mainMenuHeight + toolbarHeight, 0f);
+			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
 			#endregion
 			
 			//===========================================================================
@@ -161,33 +158,6 @@ namespace UI.Windows.MainWindow
 			Global.dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 			#endregion
 			#endregion
-
-			// TODO: Remove it BEGIN
-			#region REMOVE IT
-			//***************************************************************************
-			// DockingArea GameObject
-			//***************************************************************************
-			#region DockingArea GameObject
-			dockingArea = new GameObject("DockingArea");
-			Utils.InitUIObject(dockingArea, contentTransform);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchRight(dockingAreaTransform, 100f, 0f, mainMenuHeight + toolbarHeight, 0f);
-			#endregion
-			
-			//===========================================================================
-			// DockingAreaScript Component
-			//===========================================================================
-			#region DockingAreaScript Component
-			dockingArea.AddComponent<DockingAreaScript>();
-			#endregion
-			#endregion
-			#endregion
-			// TODO: Remove it END
 
 			LoadDockWidgets();
 		}
