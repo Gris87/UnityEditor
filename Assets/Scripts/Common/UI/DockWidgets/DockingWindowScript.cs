@@ -39,8 +39,9 @@ namespace Common.UI.DockWidgets
 
 			mDockingAreaScript = null;
 
-			frame      = WindowFrameType.Drawer;
-			allowClose = false;
+			// TODO: Another frame
+			frame           = WindowFrameType.Drawer;
+			backgroundColor = Assets.DockWidgets.Colors.dockingWindow;
 		}
 
 		/// <summary>
@@ -79,6 +80,16 @@ namespace Common.UI.DockWidgets
 			mDockWidget.InsertToDockingArea(mDockingAreaScript);
             #endregion
             #endregion
+		}
+
+		/// <summary>
+		/// Close this window.
+		/// </summary>
+		public override void Close ()
+		{
+			mDockingAreaScript.Destroy();
+
+			base.Close();
 		}
 
 		/// <summary>

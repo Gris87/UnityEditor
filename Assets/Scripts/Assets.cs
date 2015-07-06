@@ -900,6 +900,7 @@ public static class Assets
 		{
 			public static Color background      = LoadColor("Colors/Common/UI/DockWidgets/Background");
 			public static Color dummyBackground = LoadColor("Colors/Common/UI/DockWidgets/DummyBackground");
+			public static Color dockingWindow   = LoadColor("Colors/Common/UI/DockWidgets/DockingWindow");
 		}
 
 		/// <summary>

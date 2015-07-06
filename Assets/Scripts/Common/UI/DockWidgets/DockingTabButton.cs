@@ -243,11 +243,13 @@ namespace Common.UI.DockWidgets
 			yield return new WaitForEndOfFrame();
 
 			Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
-			
+
 			int widgetX      = (int)corners[0].x;
 			int widgetY      = (int)corners[0].y;
 			int widgetWidth  = (int)(corners[3].x - corners[0].x);
 			int widgetHeight = (int)(corners[3].y - corners[0].y);
+
+			// TODO: Limit for screen sizes
 
 			float dragPosX = eventData.pressPosition.x - widgetX;
 			float dragPosY = Screen.height - eventData.pressPosition.y - widgetY;

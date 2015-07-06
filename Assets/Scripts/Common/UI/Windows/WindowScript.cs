@@ -2304,7 +2304,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Close this window.
 		/// </summary>
-		public void Close()
+		public virtual void Close()
 		{
 			UnityEngine.Object.DestroyObject(gameObject);
 		}
