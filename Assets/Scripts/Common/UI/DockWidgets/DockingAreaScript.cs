@@ -398,7 +398,7 @@ namespace Common.UI.DockWidgets
 					if (mDockingGroupScript == null)
 					{
 	                    DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-							InsertToDockingArea(this, DockingAreaOrientation.None, 0);
+							InsertToDockingArea(this);
 	                }
             	}
                 break;
@@ -431,6 +431,10 @@ namespace Common.UI.DockWidgets
 									DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
 										InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
 								}
+								else
+								{
+									DummyDockWidgetScript.DestroyInstance();
+								}
 							}
 							else
 							if (
@@ -438,13 +442,24 @@ namespace Common.UI.DockWidgets
 								||
 								mChildren[0].mDockingGroupScript.children.Count != 1
 								||
-								mChildren[0].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-								&&
 								mChildren[0].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 							   )
 							{
-								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
+								if (
+									mOrientation == DockingAreaOrientation.Vertical
+									||
+									mChildren[0].mDockingGroupScript.children.Count != 1
+									||
+									mChildren[0].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+								   )
+								{
+									DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+										InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
+								}
+								else
+								{
+									DummyDockWidgetScript.DestroyInstance();
+								}
 							}
 						}
 						else
@@ -481,7 +496,7 @@ namespace Common.UI.DockWidgets
 											DummyDockWidgetScript.instance.parent.parent != null
 											&&
 											DummyDockWidgetScript.instance.parent.parent.parent == mParent
-											)
+										   )
 										{
 											index2 = mParent.mChildren.IndexOf(DummyDockWidgetScript.instance.parent.parent);
 										}
@@ -490,7 +505,7 @@ namespace Common.UI.DockWidgets
 											index2 < 0
 											||
 											index2 != index - 1
-											)
+										   )
 										{
 											if (index2 >= 0 && index > index2)
 											{
@@ -532,6 +547,10 @@ namespace Common.UI.DockWidgets
 								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
 									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
 							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
+							}
 						}
 						else
 						if (
@@ -539,14 +558,25 @@ namespace Common.UI.DockWidgets
 							||
 							mChildren[0].mDockingGroupScript.children.Count != 1
 							||
-						    mChildren[0].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-							&&
 							mChildren[0].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 						   )
 						{
-							DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-								InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
-                    	}
+							if (
+								mOrientation == DockingAreaOrientation.Vertical
+								||
+								mChildren[0].mDockingGroupScript.children.Count != 1
+								||
+								mChildren[0].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+							   )
+							{
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 0);
+							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
+							}
+						}
 					}
 				}
 				break;
@@ -579,6 +609,10 @@ namespace Common.UI.DockWidgets
 									DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
 										InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 1);
 								}
+								else
+								{
+									DummyDockWidgetScript.DestroyInstance();
+								}
 							}
 							else
 							if (
@@ -586,13 +620,24 @@ namespace Common.UI.DockWidgets
 								||
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
 								||
-								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-								&&
 								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 						       )
 							{
-								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, mChildren.Count);
+								if (
+									mOrientation == DockingAreaOrientation.Vertical
+									||
+									mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
+									||
+									mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+								   )
+								{
+									DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+										InsertToDockingArea(this, DockingAreaOrientation.Horizontal, mChildren.Count);
+								}
+								else
+								{
+									DummyDockWidgetScript.DestroyInstance();
+								}
 							}
 						}
 						else
@@ -667,33 +712,48 @@ namespace Common.UI.DockWidgets
                 	}
                 	else
                 	{
-                    	DragInfoHolder.dockingArea = this;
-                    
-                    	if (mDockingGroupScript != null)
+						DragInfoHolder.dockingArea = this;
+						
+						if (mDockingGroupScript != null)
 						{
 							if (
 								mDockingGroupScript.children.Count != 1
 								||
 								mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-							   )
+								)
 							{
-                            	DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-                                	InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 1);
-                        	}
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, 1);
+							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
+							}
 						}
 						else
-						if (
-							mOrientation == DockingAreaOrientation.Vertical
-							||
-							mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
-							||
-							mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-							&&
-							mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
-						   )
+							if (
+								mOrientation == DockingAreaOrientation.Vertical
+								||
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
+								||
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
+								)
 						{
-							DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-								InsertToDockingArea(this, DockingAreaOrientation.Horizontal, mChildren.Count);
+							if (
+								mOrientation == DockingAreaOrientation.Vertical
+								||
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
+								||
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+								)
+							{
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Horizontal, mChildren.Count);
+							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
+							}
 						}
 					}
 				}
@@ -728,6 +788,10 @@ namespace Common.UI.DockWidgets
 								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
 									InsertToDockingArea(this, DockingAreaOrientation.Vertical, 1);
                         	}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
+							}
 						}
 						else
 						if (
@@ -735,13 +799,24 @@ namespace Common.UI.DockWidgets
 							||
 							mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
 							||
-							mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
-							&&
 							mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DummyDockWidgetScript.instance
 						   )
 						{
-							DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
-								InsertToDockingArea(this, DockingAreaOrientation.Vertical, mChildren.Count);
+							if (
+								mOrientation == DockingAreaOrientation.Horizontal
+								||
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children.Count != 1
+								||
+								mChildren[mChildren.Count - 1].mDockingGroupScript.children[0] != DragInfoHolder.dockWidget
+							   )
+							{
+								DummyDockWidgetScript.Create(DragInfoHolder.dockWidget).
+									InsertToDockingArea(this, DockingAreaOrientation.Vertical, mChildren.Count);
+							}
+							else
+							{
+								DummyDockWidgetScript.DestroyInstance();
+							}
 						}
 	                }
 	            }
