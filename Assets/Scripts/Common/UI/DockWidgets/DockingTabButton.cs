@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 using Common.UI.DragAndDrop;
+using Common.UI.Windows;
 
 
 
@@ -189,7 +190,34 @@ namespace Common.UI.DockWidgets
 			else
 			if (DragInfoHolder.dockingArea == null)
             {
-				// TODO: Put dock widget in window
+				WindowScript parentWindow = Utils.FindInParents<WindowScript>(gameObject);
+
+				if (parentWindow != null)
+				{
+					// TODO: Put dock widget in window
+
+					//***************************************************************************
+					// DockingWindow GameObject
+					//***************************************************************************
+					#region DockingWindow GameObject
+					GameObject dockingWindow = new GameObject("DockingWindow");
+					Utils.InitUIObject(dockingWindow, parentWindow.transform.parent);
+					
+					//===========================================================================
+					// DockingWindowScript Component
+					//===========================================================================
+					#region DockingWindowScript Component
+					DockingWindowScript dockingWindowScript = dockingWindow.AddComponent<DockingWindowScript>();
+
+					dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
+					dockingWindowScript.Show();
+					#endregion
+					#endregion
+				}
+				else
+				{
+					Debug.LogError("Unexpected behaviour in DockingTabButton.OnEndDrag");
+				}
 			}
 
 			DragInfoHolder.dockWidget    = null;
