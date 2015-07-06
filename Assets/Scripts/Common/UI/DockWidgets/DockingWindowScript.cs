@@ -75,6 +75,7 @@ namespace Common.UI.DockWidgets
             #region DockingAreaScript Component
 			mDockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
 
+			mDockingAreaScript.AddChildlessListener(Close);
 			mDockWidget.InsertToDockingArea(mDockingAreaScript);
             #endregion
             #endregion

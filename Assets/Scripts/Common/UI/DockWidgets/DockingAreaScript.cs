@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
@@ -139,6 +140,7 @@ namespace Common.UI.DockWidgets
 		private List<float>             mSizes;
 		private DockingGroupScript      mDockingGroupScript;
 		private Vector3[]               mCachedDragCorners;
+		private UnityEvent              mChildlessListeners;
 
 
 
@@ -156,6 +158,7 @@ namespace Common.UI.DockWidgets
 			mSizes              = new List<float>();
 			mDockingGroupScript = null;
 			mCachedDragCorners  = null;
+			mChildlessListeners = new UnityEvent();
 		}
 
 		/// <summary>
@@ -1389,8 +1392,10 @@ namespace Common.UI.DockWidgets
 				{
 					mDockingGroupScript = null;
 					mSizes.Clear();
-				}
-			}
+
+					mChildlessListeners.Invoke();
+                }
+            }
 			else
 			{
 				Debug.LogError("Failed to remove docking group");
@@ -1479,5 +1484,23 @@ namespace Common.UI.DockWidgets
 				Debug.LogError("Docking area belongs not to this docking area");
 			}
 		}
+
+		/// <summary>
+		/// Adds the childless listener.
+		/// </summary>
+		/// <param name="listener">Listener.</param>
+		public void AddChildlessListener(UnityAction listener)
+		{
+			mChildlessListeners.AddListener(listener);
+		}
+
+		/// <summary>
+		/// Removes the childless listener.
+		/// </summary>
+		/// <param name="listener">Listener.</param>
+		public void RemoveChildlessListener(UnityAction listener)
+        {
+			mChildlessListeners.RemoveListener(listener);
+        }
     }
 }
