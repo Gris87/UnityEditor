@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.AudioMixer.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

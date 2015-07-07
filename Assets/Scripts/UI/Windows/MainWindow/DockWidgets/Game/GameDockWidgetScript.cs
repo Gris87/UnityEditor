@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Game.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

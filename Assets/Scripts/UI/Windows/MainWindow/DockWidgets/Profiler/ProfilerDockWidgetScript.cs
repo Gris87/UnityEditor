@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Profiler.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

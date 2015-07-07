@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Navigation.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

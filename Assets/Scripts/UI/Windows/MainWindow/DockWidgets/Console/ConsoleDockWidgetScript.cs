@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Console.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

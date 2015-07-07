@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.VersionControl.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.SpritePacker.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

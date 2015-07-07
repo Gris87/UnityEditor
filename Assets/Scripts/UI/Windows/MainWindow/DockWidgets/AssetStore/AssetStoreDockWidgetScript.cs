@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.AssetStore.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

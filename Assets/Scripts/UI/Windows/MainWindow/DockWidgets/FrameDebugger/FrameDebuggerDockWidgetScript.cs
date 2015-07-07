@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

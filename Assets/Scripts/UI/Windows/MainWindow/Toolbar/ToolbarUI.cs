@@ -745,7 +745,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
 			Image pointImageImage = pointImageObject.AddComponent<Image>();
             
-			// TODO: Display button image according to state
+			// TODO: [Minor] Display button image according to state
 			pointImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.center;
 			pointImageImage.type   = Image.Type.Sliced;
             #endregion
@@ -857,7 +857,7 @@ namespace UI.Windows.MainWindow.Toolbar
 			#region Image Component
             Image coordinateSystemImageImage = coordinateSystemImageObject.AddComponent<Image>();
             
-			// TODO: Display button image according to state
+			// TODO: [Minor] Display button image according to state
             coordinateSystemImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.local;
             coordinateSystemImageImage.type   = Image.Type.Sliced;
             #endregion
@@ -938,7 +938,7 @@ namespace UI.Windows.MainWindow.Toolbar
 				maxButtonWidth = buttonWidth;
 			}
 			
-			// TODO: Display button text according to state
+			// TODO: [Minor] Display button text according to state
 			
 			Utils.AlignRectTransformStretchLeft(mPointTransform,            maxButtonWidth + 1, width); // One button overlaps another one
 			width += maxButtonWidth;

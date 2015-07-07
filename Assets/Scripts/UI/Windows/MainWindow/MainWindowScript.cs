@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Common;
 using Common.UI.DockWidgets;
 using Common.UI.Windows;
-using UI.Windows.MainWindow.DockWidgets.Animation; // TODO: Remove it
+using UI.Windows.MainWindow.DockWidgets.Animation; // TODO: [Minor] Remove it
 using UI.Windows.MainWindow.DockWidgets.Animator;
 using UI.Windows.MainWindow.DockWidgets.AnimatorParameter;
 using UI.Windows.MainWindow.DockWidgets.AssetStore;
@@ -200,7 +200,7 @@ namespace UI.Windows.MainWindow
 		/// </summary>
 		private void LoadDockWidgets()
 		{
-			// TODO: Remove it
+			// TODO: [Minor] Remove it
 			SceneDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript);
 			GameDockWidgetScript.Create().InsertToDockingGroup(Global.dockingAreaScript.dockingGroupScript, 1);
 			InspectorDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript, DockingAreaOrientation.Vertical, 0);

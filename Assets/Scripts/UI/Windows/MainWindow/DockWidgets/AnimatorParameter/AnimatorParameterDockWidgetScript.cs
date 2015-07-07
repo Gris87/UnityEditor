@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

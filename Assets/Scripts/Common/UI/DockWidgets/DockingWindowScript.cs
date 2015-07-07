@@ -39,7 +39,7 @@ namespace Common.UI.DockWidgets
 
 			mDockingAreaScript = null;
 
-			// TODO: Another frame
+			// TODO: [Major] Another frame
 			frame           = WindowFrameType.Drawer;
 			backgroundColor = Assets.DockWidgets.Colors.dockingWindow;
 		}

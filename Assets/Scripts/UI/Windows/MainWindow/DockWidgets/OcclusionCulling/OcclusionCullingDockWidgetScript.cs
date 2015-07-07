@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

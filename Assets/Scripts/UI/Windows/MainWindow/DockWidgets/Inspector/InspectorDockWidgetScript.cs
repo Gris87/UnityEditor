@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Inspector.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

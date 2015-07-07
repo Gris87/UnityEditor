@@ -224,7 +224,7 @@ namespace Common.UI.DockWidgets
 
 					dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
 
-					// TODO: Add margins
+					// TODO: [Major] Add margins
 					dockingWindowScript.x      = DragData.x;
 					dockingWindowScript.y      = DragData.y;
 					dockingWindowScript.width  = DragData.width;

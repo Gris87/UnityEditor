@@ -56,7 +56,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
 		{
 			backgroundColor = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Colors.background;
 			
-			// TODO: Implement
+			// TODO: [Minor] Implement CreateContent
 		}
 		
 		/// <summary>

@@ -211,7 +211,7 @@ namespace Common.UI.Popups
 						
 						RectTransform menuItemSeparatorTransform = menuSeparator.AddComponent<RectTransform>();
 						
-						Utils.AlignRectTransformTopStretch(menuItemSeparatorTransform, separatorHeight, contentHeight, 28f); // TODO: Incorrect position
+						Utils.AlignRectTransformTopStretch(menuItemSeparatorTransform, separatorHeight, contentHeight, 28f); // TODO: [Minor] Incorrect position
 						
 						contentHeight += separatorHeight;
 						#endregion
@@ -349,7 +349,7 @@ namespace Common.UI.Popups
 						#endregion
 						
 						float buttonWidth  = menuItemTextText.preferredWidth + Assets.Popups.Textures.background.border.x + 16f;
-						float buttonHeight = 22f; // TODO: Report request for prefferedHeight for specified width
+						float buttonHeight = 22f; // TODO: [Minor] Report request for prefferedHeight for specified width
 						
 						Utils.AlignRectTransformTopStretch(menuItemButtonTransform, buttonHeight, contentHeight);
 						

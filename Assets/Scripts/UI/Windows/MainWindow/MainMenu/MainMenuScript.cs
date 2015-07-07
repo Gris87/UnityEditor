@@ -138,7 +138,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_NewScene()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_NewScene");
-			// TODO: Implement MainMenuScript.OnFile_NewScene
+			// TODO: [Minor] Implement MainMenuScript.OnFile_NewScene
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -149,7 +149,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_OpenScene()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_OpenScene");
-			// TODO: Implement MainMenuScript.OnFile_OpenScene
+			// TODO: [Minor] Implement MainMenuScript.OnFile_OpenScene
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -160,7 +160,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_SaveScene()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_SaveScene");
-			// TODO: Implement MainMenuScript.OnFile_SaveScene
+			// TODO: [Minor] Implement MainMenuScript.OnFile_SaveScene
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -171,7 +171,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_SaveSceneAs()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_SaveSceneAs");
-			// TODO: Implement MainMenuScript.OnFile_SaveSceneAs
+			// TODO: [Minor] Implement MainMenuScript.OnFile_SaveSceneAs
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -182,7 +182,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_NewProject()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_NewProject");
-			// TODO: Implement MainMenuScript.OnFile_NewProject
+			// TODO: [Minor] Implement MainMenuScript.OnFile_NewProject
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -193,7 +193,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_OpenProject()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_OpenProject");
-			// TODO: Implement MainMenuScript.OnFile_OpenProject
+			// TODO: [Minor] Implement MainMenuScript.OnFile_OpenProject
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -204,7 +204,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_SaveProject()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_SaveProject");
-			// TODO: Implement MainMenuScript.OnFile_SaveProject
+			// TODO: [Minor] Implement MainMenuScript.OnFile_SaveProject
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -215,7 +215,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_BuildSettings()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_BuildSettings");
-			// TODO: Implement MainMenuScript.OnFile_BuildSettings
+			// TODO: [Minor] Implement MainMenuScript.OnFile_BuildSettings
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -226,7 +226,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_BuildAndRun()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_BuildAndRun");
-			// TODO: Implement MainMenuScript.OnFile_BuildAndRun
+			// TODO: [Minor] Implement MainMenuScript.OnFile_BuildAndRun
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -237,7 +237,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnFile_BuildInCloud()
 	    {
 	        Debug.Log("MainMenuScript.OnFile_BuildInCloud");
-			// TODO: Implement MainMenuScript.OnFile_BuildInCloud
+			// TODO: [Minor] Implement MainMenuScript.OnFile_BuildInCloud
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -267,7 +267,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Undo()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Undo");
-			// TODO: Implement MainMenuScript.OnEdit_Undo
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Undo
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -278,7 +278,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Redo()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Redo");
-			// TODO: Implement MainMenuScript.OnEdit_Redo
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Redo
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -289,7 +289,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Cut()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Cut");
-			// TODO: Implement MainMenuScript.OnEdit_Cut
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Cut
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -300,7 +300,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Copy()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Copy");
-			// TODO: Implement MainMenuScript.OnEdit_Copy
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Copy
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -311,7 +311,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Paste()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Paste");
-			// TODO: Implement MainMenuScript.OnEdit_Paste
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Paste
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -322,7 +322,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Duplicate()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Duplicate");
-			// TODO: Implement MainMenuScript.OnEdit_Duplicate
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Duplicate
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -333,7 +333,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Delete()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Delete");
-			// TODO: Implement MainMenuScript.OnEdit_Delete
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Delete
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -344,7 +344,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_FrameSelected()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_FrameSelected");
-			// TODO: Implement MainMenuScript.OnEdit_FrameSelected
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_FrameSelected
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -355,7 +355,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_LockViewToSelected()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_LockViewToSelected");
-			// TODO: Implement MainMenuScript.OnEdit_LockViewToSelected
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_LockViewToSelected
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -366,7 +366,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Find()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Find");
-			// TODO: Implement MainMenuScript.OnEdit_Find
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Find
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -377,7 +377,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_SelectAll()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_SelectAll");
-			// TODO: Implement MainMenuScript.OnEdit_SelectAll
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_SelectAll
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -388,7 +388,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Preferences()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Preferences");
-			// TODO: Implement MainMenuScript.OnEdit_Preferences
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Preferences
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -399,7 +399,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Modules()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Modules");
-			// TODO: Implement MainMenuScript.OnEdit_Modules
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Modules
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -410,7 +410,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Play()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Play");
-			// TODO: Implement MainMenuScript.OnEdit_Play
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Play
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -421,7 +421,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Pause()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Pause");
-			// TODO: Implement MainMenuScript.OnEdit_Pause
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Pause
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -432,7 +432,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Step()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Step");
-			// TODO: Implement MainMenuScript.OnEdit_Step
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Step
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -444,7 +444,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection1()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection1");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection1
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection1
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -455,7 +455,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection2()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection2");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection2
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection2
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -466,7 +466,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection3()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection3");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection3
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection3
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -477,7 +477,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection4()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection4");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection4
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection4
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -488,7 +488,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection5()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection5");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection5
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection5
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -499,7 +499,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection6()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection6");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection6
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection6
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -510,7 +510,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection7()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection7");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection7
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection7
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -521,7 +521,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection8()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection8");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection8
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection8
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -532,7 +532,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection9()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection9");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection9
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection9
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -543,7 +543,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_LoadSelection0()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_LoadSelection0");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_LoadSelection0
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_LoadSelection0
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -554,7 +554,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection1()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection1");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection1
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection1
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -565,7 +565,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection2()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection2");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection2
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection2
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -576,7 +576,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection3()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection3");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection3
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection3
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -587,7 +587,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection4()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection4");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection4
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection4
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -598,7 +598,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection5()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection5");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection5
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection5
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -609,7 +609,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection6()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection6");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection6
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection6
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -620,7 +620,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection7()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection7");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection7
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection7
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -631,7 +631,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection8()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection8");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection8
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection8
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -642,7 +642,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection9()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection9");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection9
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection9
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -653,7 +653,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_Selection_SaveSelection0()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_Selection_SaveSelection0");
-			// TODO: Implement MainMenuScript.OnEdit_Selection_SaveSelection0
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_Selection_SaveSelection0
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -666,7 +666,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Input()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Input");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Input
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Input
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -677,7 +677,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_TagsAndLayers()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_TagsAndLayers
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -688,7 +688,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Audio()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Audio");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Audio
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Audio
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -699,7 +699,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Time()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Time");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Time
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Time
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -710,7 +710,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Player()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Player");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Player
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Player
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -721,7 +721,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Physics()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Physics");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Physics
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Physics
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -732,7 +732,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Physics2D()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Physics2D");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Physics2D
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Physics2D
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -743,7 +743,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Quality()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Quality");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Quality
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Quality
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -754,7 +754,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Graphics()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Graphics");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Graphics
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Graphics
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -765,7 +765,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Network()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Network");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Network
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Network
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -776,7 +776,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_Editor()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_Editor");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_Editor
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_Editor
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -787,7 +787,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_ProjectSettings_ScriptExecutionOrder()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder");
-			// TODO: Implement MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ProjectSettings_ScriptExecutionOrder
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -800,7 +800,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_NetworkEmulation_None()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_None");
-			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_None
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_NetworkEmulation_None
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -811,7 +811,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_NetworkEmulation_Broadband()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_Broadband");
-			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_Broadband
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_NetworkEmulation_Broadband
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -822,7 +822,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_NetworkEmulation_DSL()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_DSL");
-			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_DSL
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_NetworkEmulation_DSL
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -833,7 +833,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_NetworkEmulation_ISDN()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_ISDN");
-			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_ISDN
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_NetworkEmulation_ISDN
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -844,7 +844,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_NetworkEmulation_DialUp()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_NetworkEmulation_DialUp");
-			// TODO: Implement MainMenuScript.OnEdit_NetworkEmulation_DialUp
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_NetworkEmulation_DialUp
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -857,7 +857,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_GraphicsEmulation_NoEmulation()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation");
-			// TODO: Implement MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_GraphicsEmulation_NoEmulation
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -868,7 +868,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_GraphicsEmulation_ShaderModel3()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel3");
-			// TODO: Implement MainMenuScript.OnEdit_ReOnEdit_GraphicsEmulation_ShaderModel3do
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_ReOnEdit_GraphicsEmulation_ShaderModel3do
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -879,7 +879,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_GraphicsEmulation_ShaderModel2()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2");
-			// TODO: Implement MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_GraphicsEmulation_ShaderModel2
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -891,7 +891,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnEdit_SnapSettings()
 	    {
 	        Debug.Log("MainMenuScript.OnEdit_SnapSettings");
-			// TODO: Implement MainMenuScript.OnEdit_SnapSettings
+			// TODO: [Minor] Implement MainMenuScript.OnEdit_SnapSettings
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -913,7 +913,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Folder()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Folder");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Folder
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Folder
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -924,7 +924,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_CSharpScript()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_CSharpScript");
-			// TODO: Implement MainMenuScript.OnAssets_Create_CSharpScript
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_CSharpScript
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -935,7 +935,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Javascript()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Javascript");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Javascript
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Javascript
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -946,7 +946,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Shader()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Shader");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Shader
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Shader
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -957,7 +957,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_ComputeShader()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_ComputeShader");
-			// TODO: Implement MainMenuScript.OnAssets_Create_ComputeShader
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_ComputeShader
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -968,7 +968,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Prefab()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Prefab");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Prefab
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Prefab
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -979,7 +979,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_AudioMixer()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_AudioMixer");
-			// TODO: Implement MainMenuScript.OnAssets_Create_AudioMixer
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_AudioMixer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -990,7 +990,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Material()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Material");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Material
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Material
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1001,7 +1001,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_LensFlare()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_LensFlare");
-			// TODO: Implement MainMenuScript.OnAssets_Create_LensFlare
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_LensFlare
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1012,7 +1012,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_RenderTexture()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_RenderTexture");
-			// TODO: Implement MainMenuScript.OnAssets_Create_RenderTexture
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_RenderTexture
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1023,7 +1023,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_LightmapParameters()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_LightmapParameters");
-			// TODO: Implement MainMenuScript.OnAssets_Create_LightmapParameters
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_LightmapParameters
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1034,7 +1034,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_AnimatorController()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_AnimatorController");
-			// TODO: Implement MainMenuScript.OnAssets_Create_AnimatorController
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_AnimatorController
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1045,7 +1045,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Animation()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Animation");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Animation
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Animation
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1056,7 +1056,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_AnimatorOverrideContoller()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_AnimatorOverrideContoller");
-			// TODO: Implement MainMenuScript.OnAssets_Create_AnimatorOverrideContoller
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_AnimatorOverrideContoller
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1067,7 +1067,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_AvatarMask()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_AvatarMask");
-			// TODO: Implement MainMenuScript.OnAssets_Create_AvatarMask
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_AvatarMask
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1078,7 +1078,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_PhysicMaterial()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_PhysicMaterial");
-			// TODO: Implement MainMenuScript.OnAssets_Create_PhysicMaterial
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_PhysicMaterial
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1089,7 +1089,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Physic2dMaterial()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Physic2dMaterial");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Physic2dMaterial
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Physic2dMaterial
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1100,7 +1100,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_GuiSkin()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_GuiSkin");
-			// TODO: Implement MainMenuScript.OnAssets_Create_GuiSkin
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_GuiSkin
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1111,7 +1111,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_CustomFont()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_CustomFont");
-			// TODO: Implement MainMenuScript.OnAssets_Create_CustomFont
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_CustomFont
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1122,7 +1122,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_ShaderVariantCollection()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_ShaderVariantCollection");
-			// TODO: Implement MainMenuScript.OnAssets_Create_ShaderVariantCollection
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_ShaderVariantCollection
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1134,7 +1134,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Create_Legacy_Cubemap()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Create_Legacy_Cubemap");
-			// TODO: Implement MainMenuScript.OnAssets_Create_Legacy_Cubemap
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Create_Legacy_Cubemap
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1148,7 +1148,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ShowInExplorer()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ShowInExplorer");
-			// TODO: Implement MainMenuScript.OnAssets_ShowInExplorer
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ShowInExplorer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1159,7 +1159,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Open()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Open");
-			// TODO: Implement MainMenuScript.OnAssets_Open
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Open
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1170,7 +1170,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Delete()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Delete");
-			// TODO: Implement MainMenuScript.OnAssets_Delete
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Delete
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1181,7 +1181,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportNewAsset()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportNewAsset");
-			// TODO: Implement MainMenuScript.OnAssets_ImportNewAsset
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportNewAsset
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1193,7 +1193,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_CustomPackage()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_CustomPackage");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_CustomPackage
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_CustomPackage
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1204,7 +1204,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_2d()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_2d");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_2d
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1215,7 +1215,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Cameras()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Cameras");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Cameras
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Cameras
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1226,7 +1226,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Characters()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Characters");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Characters
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Characters
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1237,7 +1237,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_CrossPlatformInput()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_CrossPlatformInput
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1248,7 +1248,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Effects()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Effects");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Effects
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Effects
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1259,7 +1259,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Environment()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Environment");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Environment
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Environment
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1270,7 +1270,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_ParticleSystems()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_ParticleSystems");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_ParticleSystems
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_ParticleSystems
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1281,7 +1281,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Prototyping()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Prototyping");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Prototyping
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Prototyping
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1292,7 +1292,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Utility()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Utility");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Utility
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Utility
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1303,7 +1303,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ImportPackage_Vehicles()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ImportPackage_Vehicles");
-			// TODO: Implement MainMenuScript.OnAssets_ImportPackage_Vehicles
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ImportPackage_Vehicles
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1315,7 +1315,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ExportPackage()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ExportPackage");
-			// TODO: Implement MainMenuScript.OnAssets_ExportPackage
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ExportPackage
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1326,7 +1326,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_FindReferencesInScene()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_FindReferencesInScene");
-			// TODO: Implement MainMenuScript.OnAssets_FindReferencesInScene
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_FindReferencesInScene
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1337,7 +1337,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_SelectDependencies()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_SelectDependencies");
-			// TODO: Implement MainMenuScript.OnAssets_SelectDependencies
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_SelectDependencies
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1348,7 +1348,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Refresh()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Refresh");
-			// TODO: Implement MainMenuScript.OnAssets_Refresh
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Refresh
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1359,7 +1359,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_Reimport()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_Reimport");
-			// TODO: Implement MainMenuScript.OnAssets_Reimport
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_Reimport
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1370,7 +1370,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_ReimportAll()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_ReimportAll");
-			// TODO: Implement MainMenuScript.OnAssets_ReimportAll
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_ReimportAll
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1381,7 +1381,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_RunApiUpdater()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_RunApiUpdater");
-			// TODO: Implement MainMenuScript.OnAssets_RunApiUpdater
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_RunApiUpdater
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1392,7 +1392,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnAssets_SyncMonoDevelopProject()
 	    {
 	        Debug.Log("MainMenuScript.OnAssets_SyncMonoDevelopProject");
-			// TODO: Implement MainMenuScript.OnAssets_SyncMonoDevelopProject
+			// TODO: [Minor] Implement MainMenuScript.OnAssets_SyncMonoDevelopProject
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1413,7 +1413,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_CreateEmpty()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_CreateEmpty");
-			// TODO: Implement MainMenuScript.OnGameObject_CreateEmpty
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_CreateEmpty
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1424,7 +1424,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_CreateEmptyChild()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_CreateEmptyChild");
-			// TODO: Implement MainMenuScript.OnGameObject_CreateEmptyChild
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_CreateEmptyChild
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1436,7 +1436,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Cube()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Cube");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Cube
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Cube
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1447,7 +1447,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Sphere()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Sphere");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Sphere
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Sphere
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1458,7 +1458,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Capsule()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Capsule");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Capsule
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Capsule
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1469,7 +1469,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Cylinder()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Cylinder");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Cylinder
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Cylinder
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1480,7 +1480,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Plane()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Plane");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Plane
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Plane
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1491,7 +1491,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Quad()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Quad");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Quad
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Quad
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1502,7 +1502,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Ragdoll()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Ragdoll");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Ragdoll
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Ragdoll
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1513,7 +1513,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Terrain()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Terrain");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Terrain
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Terrain
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1524,7 +1524,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_Tree()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_Tree");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_Tree
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_Tree
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1535,7 +1535,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_WindZone()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_WindZone");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_WindZone
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_WindZone
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1546,7 +1546,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_3dObject_3dText()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_3dObject_3dText");
-			// TODO: Implement MainMenuScript.OnGameObject_3dObject_3dText
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_3dObject_3dText
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1559,7 +1559,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_2dObject_Sprite()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_2dObject_Sprite");
-			// TODO: Implement MainMenuScript.OnGameObject_2dObject_Sprite
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_2dObject_Sprite
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1572,7 +1572,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Light_DirectionalLight()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Light_DirectionalLight");
-			// TODO: Implement MainMenuScript.OnGameObject_Light_DirectionalLight
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Light_DirectionalLight
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1583,7 +1583,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Light_PointLight()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Light_PointLight");
-			// TODO: Implement MainMenuScript.OnGameObject_Light_PointLight
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Light_PointLight
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1594,7 +1594,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Light_Spotlight()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Light_Spotlight");
-			// TODO: Implement MainMenuScript.OnGameObject_Light_Spotlight
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Light_Spotlight
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1605,7 +1605,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Light_AreaLight()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Light_AreaLight");
-			// TODO: Implement MainMenuScript.OnGameObject_Light_AreaLight
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Light_AreaLight
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1616,7 +1616,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Light_ReflectionProbe()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Light_ReflectionProbe");
-			// TODO: Implement MainMenuScript.OnGameObject_Light_ReflectionProbe
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Light_ReflectionProbe
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1627,7 +1627,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Light_LightProbeGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Light_LightProbeGroup");
-			// TODO: Implement MainMenuScript.OnGameObject_Light_LightProbeGroup
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Light_LightProbeGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1640,7 +1640,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Audio_AudioSource()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Audio_AudioSource");
-			// TODO: Implement MainMenuScript.OnGameObject_Audio_AudioSource
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Audio_AudioSource
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1651,7 +1651,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Audio_AudioReverbZone()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Audio_AudioReverbZone");
-			// TODO: Implement MainMenuScript.OnGameObject_Audio_AudioReverbZone
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Audio_AudioReverbZone
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1664,7 +1664,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Panel()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Panel");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Panel
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Panel
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1675,7 +1675,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Button()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Button");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Button
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Button
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1686,7 +1686,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Text()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Text");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Text
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Text
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1697,7 +1697,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Image()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Image");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Image
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Image
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1708,7 +1708,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_RawImage()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_RawImage");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_RawImage
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_RawImage
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1719,7 +1719,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Slider()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Slider");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Slider
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Slider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1730,7 +1730,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Scrollbar()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Scrollbar");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Scrollbar
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Scrollbar
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1741,7 +1741,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Toggle()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Toggle");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Toggle
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Toggle
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1752,7 +1752,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_InputField()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_InputField");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_InputField
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_InputField
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1763,7 +1763,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_Canvas()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_Canvas");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_Canvas
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_Canvas
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1774,7 +1774,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Ui_EventSystem()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Ui_EventSystem");
-			// TODO: Implement MainMenuScript.OnGameObject_Ui_EventSystem
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Ui_EventSystem
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1786,7 +1786,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_ParticleSystem()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_ParticleSystem");
-			// TODO: Implement MainMenuScript.OnGameObject_ParticleSystem
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_ParticleSystem
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1797,7 +1797,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_Camera()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_Camera");
-			// TODO: Implement MainMenuScript.OnGameObject_Camera
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_Camera
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1808,7 +1808,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_CenterOnChildren()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_CenterOnChildren");
-			// TODO: Implement MainMenuScript.OnGameObject_CenterOnChildren
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_CenterOnChildren
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1819,7 +1819,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_MakeParent()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_MakeParent");
-			// TODO: Implement MainMenuScript.OnGameObject_MakeParent
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_MakeParent
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1830,7 +1830,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_ClearParent()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_ClearParent");
-			// TODO: Implement MainMenuScript.OnGameObject_ClearParent
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_ClearParent
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1841,7 +1841,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_ApplyChangesToPrefab()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_ApplyChangesToPrefab");
-			// TODO: Implement MainMenuScript.OnGameObject_ApplyChangesToPrefab
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_ApplyChangesToPrefab
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1852,7 +1852,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_BreakPrefabInstance()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_BreakPrefabInstance");
-			// TODO: Implement MainMenuScript.OnGameObject_BreakPrefabInstance
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_BreakPrefabInstance
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1863,7 +1863,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_SetAsFirstSibling()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_SetAsFirstSibling");
-			// TODO: Implement MainMenuScript.OnGameObject_SetAsFirstSibling
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_SetAsFirstSibling
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1874,7 +1874,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_SetAsLastSibling()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_SetAsLastSibling");
-			// TODO: Implement MainMenuScript.OnGameObject_SetAsLastSibling
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_SetAsLastSibling
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1885,7 +1885,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_MoveToView()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_MoveToView");
-			// TODO: Implement MainMenuScript.OnGameObject_MoveToView
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_MoveToView
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1896,7 +1896,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_AlignWithView()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_AlignWithView");
-			// TODO: Implement MainMenuScript.OnGameObject_AlignWithView
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_AlignWithView
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1907,7 +1907,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_AlignViewToSelected()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_AlignViewToSelected");
-			// TODO: Implement MainMenuScript.OnGameObject_AlignViewToSelected
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_AlignViewToSelected
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1918,7 +1918,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnGameObject_ToggleActiveState()
 	    {
 	        Debug.Log("MainMenuScript.OnGameObject_ToggleActiveState");
-			// TODO: Implement MainMenuScript.OnGameObject_ToggleActiveState
+			// TODO: [Minor] Implement MainMenuScript.OnGameObject_ToggleActiveState
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1939,7 +1939,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Add()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Add");
-			// TODO: Implement MainMenuScript.OnComponent_Add
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Add
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1951,7 +1951,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Mesh_MeshFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_MeshFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Mesh_MeshFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Mesh_MeshFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1962,7 +1962,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Mesh_TextMesh()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_TextMesh");
-			// TODO: Implement MainMenuScript.OnComponent_Mesh_TextMesh
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Mesh_TextMesh
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1973,7 +1973,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Mesh_MeshRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_MeshRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Mesh_MeshRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Mesh_MeshRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1984,7 +1984,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Mesh_SkinnedMeshRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Mesh_SkinnedMeshRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Mesh_SkinnedMeshRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Mesh_SkinnedMeshRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -1997,7 +1997,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_ParticleSystem()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_ParticleSystem");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_ParticleSystem
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_ParticleSystem
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2008,7 +2008,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_TrailRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_TrailRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_TrailRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_TrailRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2019,7 +2019,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LineRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LineRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LineRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LineRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2030,7 +2030,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LensFlare()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LensFlare");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LensFlare
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LensFlare
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2041,7 +2041,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_Halo()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_Halo");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_Halo
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_Halo
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2052,7 +2052,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_Projector()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_Projector");
-	        // TODO: Implement MainMenuScript.OnComponent_Effects_Projector
+	        // TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_Projector
 
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2064,7 +2064,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LegacyParticles_EllipsoidParticleEmitter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2075,7 +2075,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LegacyParticles_MeshParticleEmitter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LegacyParticles_MeshParticleEmitter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2086,7 +2086,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LegacyParticles_ParticleAnimator()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleAnimator");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleAnimator
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleAnimator
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2097,7 +2097,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LegacyParticles_WorldParticleCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LegacyParticles_WorldParticleCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2108,7 +2108,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Effects_LegacyParticles_ParticleRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Effects_LegacyParticles_ParticleRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2123,7 +2123,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_Rigidbody()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_Rigidbody");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_Rigidbody
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_Rigidbody
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2134,7 +2134,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_CharacterController()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_CharacterController");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_CharacterController
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_CharacterController
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2145,7 +2145,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_BoxCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_BoxCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_BoxCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_BoxCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2156,7 +2156,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_SphereCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_SphereCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_SphereCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_SphereCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2167,7 +2167,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_CapsuleCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_CapsuleCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_CapsuleCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_CapsuleCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2178,7 +2178,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_MeshCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_MeshCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_MeshCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_MeshCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2189,7 +2189,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_WheelCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_WheelCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_WheelCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_WheelCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2200,7 +2200,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_TerrainCollider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_TerrainCollider");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_TerrainCollider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_TerrainCollider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2211,7 +2211,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_Cloth()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_Cloth");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_Cloth
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_Cloth
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2222,7 +2222,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_HingeJoint()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_HingeJoint");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_HingeJoint
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_HingeJoint
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2233,7 +2233,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_FixedJoint()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_FixedJoint");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_FixedJoint
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_FixedJoint
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2244,7 +2244,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_SpringJoint()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_SpringJoint");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_SpringJoint
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_SpringJoint
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2255,7 +2255,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_CharacterJoint()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_CharacterJoint");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_CharacterJoint
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_CharacterJoint
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2266,7 +2266,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_ConfigurableJoint()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_ConfigurableJoint");
-			// TODO: Implement MainMenuScript.OnComponent_Physics_ConfigurableJoint
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_ConfigurableJoint
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2277,7 +2277,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics_ConstantForce()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics_ConstantForce");
-	        // TODO: Implement MainMenuScript.OnComponent_Physics_ConstantForce			
+	        // TODO: [Minor] Implement MainMenuScript.OnComponent_Physics_ConstantForce			
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2290,7 +2290,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_Rigidbody2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_Rigidbody2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_Rigidbody2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_Rigidbody2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2301,7 +2301,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_CircleCollider2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_CircleCollider2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_CircleCollider2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_CircleCollider2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2312,7 +2312,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_BoxCollider2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_BoxCollider2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_BoxCollider2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_BoxCollider2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2323,7 +2323,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_EdgeCollider2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_EdgeCollider2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_EdgeCollider2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_EdgeCollider2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2334,7 +2334,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_PolygonCollider2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_PolygonCollider2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_PolygonCollider2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_PolygonCollider2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2345,7 +2345,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_SpringJoint2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_SpringJoint2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_SpringJoint2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_SpringJoint2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2356,7 +2356,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_DistanceJoint2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_DistanceJoint2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_DistanceJoint2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_DistanceJoint2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2367,7 +2367,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_HingeJoint2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_HingeJoint2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_HingeJoint2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_HingeJoint2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2378,7 +2378,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_SliderJoint2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_SliderJoint2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_SliderJoint2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_SliderJoint2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2389,7 +2389,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_WheelJoint2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_WheelJoint2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_WheelJoint2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_WheelJoint2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2400,7 +2400,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_ConstantForce2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_ConstantForce2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_ConstantForce2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_ConstantForce2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2411,7 +2411,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_AreaEffector2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_AreaEffector2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_AreaEffector2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_AreaEffector2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2422,7 +2422,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_PointEffector2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_PointEffector2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_PointEffector2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_PointEffector2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2433,7 +2433,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_PlatformEffector2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_PlatformEffector2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_PlatformEffector2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_PlatformEffector2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2444,7 +2444,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Physics2d_SurfaceEffector2d()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Physics2d_SurfaceEffector2d");
-			// TODO: Implement MainMenuScript.OnComponent_Physics2d_SurfaceEffector2d
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Physics2d_SurfaceEffector2d
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2457,7 +2457,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Navigation_NavMeshAgent()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Navigation_NavMeshAgent");
-			// TODO: Implement MainMenuScript.OnComponent_Navigation_NavMeshAgent
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Navigation_NavMeshAgent
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2468,7 +2468,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Navigation_OffMeshLink()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Navigation_OffMeshLink");
-			// TODO: Implement MainMenuScript.OnComponent_Navigation_OffMeshLink
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Navigation_OffMeshLink
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2479,7 +2479,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Navigation_NavMeshObstacle()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Navigation_NavMeshObstacle");
-			// TODO: Implement MainMenuScript.OnComponent_Navigation_NavMeshObstacle
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Navigation_NavMeshObstacle
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2492,7 +2492,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioListener()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioListener");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioListener
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioListener
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2503,7 +2503,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioSource()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioSource");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioSource
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioSource
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2514,7 +2514,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioReverbZone()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioReverbZone");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioReverbZone
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioReverbZone
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2525,7 +2525,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioLowPassFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioLowPassFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioLowPassFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioLowPassFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2536,7 +2536,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioHighPassFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioHighPassFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioHighPassFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioHighPassFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2547,7 +2547,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioEchoFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioEchoFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioEchoFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioEchoFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2558,7 +2558,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioDistortionFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioDistortionFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioDistortionFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioDistortionFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2569,7 +2569,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioReverbFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioReverbFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioReverbFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioReverbFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2580,7 +2580,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Audio_AudioChorusFilter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Audio_AudioChorusFilter");
-			// TODO: Implement MainMenuScript.OnComponent_Audio_AudioChorusFilter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Audio_AudioChorusFilter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2593,7 +2593,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_Camera()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_Camera");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_Camera
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_Camera
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2604,7 +2604,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_Skybox()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_Skybox");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_Skybox
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_Skybox
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2615,7 +2615,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_FlareLayer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_FlareLayer");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_FlareLayer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_FlareLayer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2626,7 +2626,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_GuiLayer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_GuiLayer");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_GuiLayer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_GuiLayer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2637,7 +2637,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_Light()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_Light");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_Light
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_Light
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2648,7 +2648,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_LightProbeGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_LightProbeGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_LightProbeGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_LightProbeGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2659,7 +2659,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_ReflectionProbe()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_ReflectionProbe");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_ReflectionProbe
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_ReflectionProbe
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2670,7 +2670,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_OcclusionArea()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_OcclusionArea");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_OcclusionArea
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_OcclusionArea
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2681,7 +2681,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_OcclusionPortal()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_OcclusionPortal");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_OcclusionPortal
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_OcclusionPortal
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2692,7 +2692,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_LodGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_LodGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_LodGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_LodGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2703,7 +2703,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_SpriteRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_SpriteRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_SpriteRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_SpriteRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2714,7 +2714,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_CanvasRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_CanvasRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_CanvasRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_CanvasRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2725,7 +2725,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_GuiTexture()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_GuiTexture");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_GuiTexture
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_GuiTexture
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2736,7 +2736,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Rendering_GuiText()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Rendering_GuiText");
-			// TODO: Implement MainMenuScript.OnComponent_Rendering_GuiText
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Rendering_GuiText
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2749,7 +2749,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_RectTransform()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_RectTransform");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_RectTransform
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_RectTransform
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2760,7 +2760,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_Canvas()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_Canvas");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_Canvas
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_Canvas
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2771,7 +2771,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_CanvasGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_CanvasGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_CanvasGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_CanvasGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2782,7 +2782,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_CanvasScaler()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_CanvasScaler");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_CanvasScaler
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_CanvasScaler
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2793,7 +2793,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_LayoutElement()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_LayoutElement");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_LayoutElement
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_LayoutElement
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2804,7 +2804,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_ContentSizeFitter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_ContentSizeFitter");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_ContentSizeFitter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_ContentSizeFitter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2815,7 +2815,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_AspectRatioFitter()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_AspectRatioFitter");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_AspectRatioFitter
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_AspectRatioFitter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2826,7 +2826,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_HorizontalLayoutGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_HorizontalLayoutGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_HorizontalLayoutGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_HorizontalLayoutGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2837,7 +2837,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_VerticalLayoutGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_VerticalLayoutGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_VerticalLayoutGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_VerticalLayoutGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2848,7 +2848,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Layout_GridLayoutGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Layout_GridLayoutGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Layout_GridLayoutGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Layout_GridLayoutGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2861,7 +2861,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Miscellaneous_Animator()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_Animator");
-			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_Animator
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Miscellaneous_Animator
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2872,7 +2872,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Miscellaneous_Animation()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_Animation");
-			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_Animation
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Miscellaneous_Animation
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2883,7 +2883,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Miscellaneous_NetworkView()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_NetworkView");
-			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_NetworkView
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Miscellaneous_NetworkView
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2894,7 +2894,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Miscellaneous_WindZone()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_WindZone");
-			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_WindZone
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Miscellaneous_WindZone
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2905,7 +2905,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Miscellaneous_Terrain()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_Terrain");
-			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_Terrain
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Miscellaneous_Terrain
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2916,7 +2916,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Miscellaneous_BillboardRenderer()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Miscellaneous_BillboardRenderer");
-			// TODO: Implement MainMenuScript.OnComponent_Miscellaneous_BillboardRenderer
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Miscellaneous_BillboardRenderer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2929,7 +2929,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_EventSystem()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_EventSystem");
-			// TODO: Implement MainMenuScript.OnComponent_Event_EventSystem
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_EventSystem
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2940,7 +2940,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_EventTrigger()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_EventTrigger");
-			// TODO: Implement MainMenuScript.OnComponent_Event_EventTrigger
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_EventTrigger
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2951,7 +2951,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_Physics2dRaycaster()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_Physics2dRaycaster");
-			// TODO: Implement MainMenuScript.OnComponent_Event_Physics2dRaycaster
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_Physics2dRaycaster
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2962,7 +2962,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_PhysicsRaycaster()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_PhysicsRaycaster");
-			// TODO: Implement MainMenuScript.OnComponent_Event_PhysicsRaycaster
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_PhysicsRaycaster
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2973,7 +2973,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_StandaloneInputModule()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_StandaloneInputModule");
-			// TODO: Implement MainMenuScript.OnComponent_Event_StandaloneInputModule
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_StandaloneInputModule
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2984,7 +2984,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_TouchInputModule()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_TouchInputModule");
-			// TODO: Implement MainMenuScript.OnComponent_Event_TouchInputModule
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_TouchInputModule
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -2995,7 +2995,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Event_GraphicRaycaster()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Event_GraphicRaycaster");
-			// TODO: Implement MainMenuScript.OnComponent_Event_GraphicRaycaster
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Event_GraphicRaycaster
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3010,7 +3010,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Effects_Shadow()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Effects_Shadow");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Effects_Shadow
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Effects_Shadow
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3021,7 +3021,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Effects_Outline()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Effects_Outline");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Effects_Outline
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Effects_Outline
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3032,7 +3032,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Effects_PositionAsUv1()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Effects_PositionAsUv1");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Effects_PositionAsUv1
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Effects_PositionAsUv1
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3044,7 +3044,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Image()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Image");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Image
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Image
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3055,7 +3055,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Text()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Text");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Text
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Text
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3066,7 +3066,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_RawImage()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_RawImage");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_RawImage
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_RawImage
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3077,7 +3077,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Mask()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Mask");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Mask
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Mask
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3088,7 +3088,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Button()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Button");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Button
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Button
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3099,7 +3099,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_InputField()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_InputField");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_InputField
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_InputField
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3110,7 +3110,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Scrollbar()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Scrollbar");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Scrollbar
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Scrollbar
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3121,7 +3121,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_ScrollRect()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_ScrollRect");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_ScrollRect
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_ScrollRect
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3132,7 +3132,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Slider()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Slider");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Slider
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Slider
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3143,7 +3143,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Toggle()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Toggle");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Toggle
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Toggle
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3154,7 +3154,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_ToggleGroup()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_ToggleGroup");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_ToggleGroup
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_ToggleGroup
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3165,7 +3165,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnComponent_Ui_Selectable()
 	    {
 	        Debug.Log("MainMenuScript.OnComponent_Ui_Selectable");
-			// TODO: Implement MainMenuScript.OnComponent_Ui_Selectable
+			// TODO: [Minor] Implement MainMenuScript.OnComponent_Ui_Selectable
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3188,7 +3188,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_NextWindow()
 	    {
 			Debug.Log("MainMenuScript.OnWindow_NextWindow");
-			// TODO: Implement MainMenuScript.OnWindow_NextWindow
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_NextWindow
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3199,7 +3199,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_PreviousWindow()
 	    {
 			Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
-			// TODO: Implement MainMenuScript.OnWindow_PreviousWindow
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_PreviousWindow
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3211,7 +3211,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_2_by_3()
 	    {
 			Debug.Log("MainMenuScript.OnWindow_Layouts_2_by_3");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_2_by_3
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_2_by_3
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3222,7 +3222,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_4_split()
 	    {
 			Debug.Log("MainMenuScript.OnWindow_Layouts_4_split");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_4_split
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_4_split
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3233,7 +3233,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_Default()
 	    {
 			Debug.Log("MainMenuScript.OnWindow_Layouts_Default");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_Default
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_Default
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3244,7 +3244,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_Tall()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_Tall");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_Tall
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_Tall
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3255,7 +3255,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_Wide()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_Wide");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_Wide
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_Wide
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3266,7 +3266,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_SaveLayout()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_SaveLayout");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_SaveLayout
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_SaveLayout
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3277,7 +3277,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_DeleteLayout()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_DeleteLayout");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_DeleteLayout
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_DeleteLayout
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3288,7 +3288,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Layouts_RevertFactorySettings()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Layouts_RevertFactorySettings");
-			// TODO: Implement MainMenuScript.OnWindow_Layouts_RevertFactorySettings
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_RevertFactorySettings
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3301,7 +3301,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SetWindowSize()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSize");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SetWindowSize
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SetWindowSize
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3312,7 +3312,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SetWindowSizeSmall()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3323,7 +3323,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SnapView()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapView");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapView
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapView
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3334,7 +3334,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SnapViewToolbar()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapViewToolbar");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapViewToolbar
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapViewToolbar
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3345,7 +3345,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SnapViewExtendedRight()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapViewExtendedRight");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapViewExtendedRight
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapViewExtendedRight
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3356,7 +3356,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SnapComponent()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapComponent");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapComponent
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapComponent
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3367,7 +3367,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_SnapGameViewContent()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapGameViewContent");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_SnapGameViewContent
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapGameViewContent
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3378,7 +3378,7 @@ namespace UI.Windows.MainWindow.MainMenu
 		public void OnWindow_Screenshot_ToggleDeveloperBuild()
 		{
 			Debug.Log("MainMenuScript.OnWindow_Screenshot_ToggleDeveloperBuild");
-			// TODO: Implement MainMenuScript.OnWindow_Screenshot_ToggleDeveloperBuild
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_ToggleDeveloperBuild
 			
 			AppUtils.ShowContributeMessage();
 		}
@@ -3390,7 +3390,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Scene()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Scene");
-			// TODO: Implement MainMenuScript.OnWindow_Scene
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Scene
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3401,7 +3401,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Game()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Game");
-			// TODO: Implement MainMenuScript.OnWindow_Game
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Game
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3412,7 +3412,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Inspector()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Inspector");
-			// TODO: Implement MainMenuScript.OnWindow_Inspector
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Inspector
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3423,7 +3423,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Hierarchy()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Hierarchy");
-			// TODO: Implement MainMenuScript.OnWindow_Hierarchy
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Hierarchy
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3434,7 +3434,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Project()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Project");
-			// TODO: Implement MainMenuScript.OnWindow_Project
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Project
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3445,7 +3445,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Animation()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Animation");
-			// TODO: Implement MainMenuScript.OnWindow_Animation
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Animation
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3456,7 +3456,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Profiler()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Profiler");
-			// TODO: Implement MainMenuScript.OnWindow_Profiler
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Profiler
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3467,7 +3467,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_AudioMixer()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_AudioMixer");
-			// TODO: Implement MainMenuScript.OnWindow_AudioMixer
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_AudioMixer
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3478,7 +3478,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_AssetStore()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_AssetStore");
-			// TODO: Implement MainMenuScript.OnWindow_AssetStore
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_AssetStore
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3489,7 +3489,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_VersionControl()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_VersionControl");
-			// TODO: Implement MainMenuScript.OnWindow_VersionControl
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_VersionControl
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3500,7 +3500,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_AnimatorParameter()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_AnimatorParameter");
-			// TODO: Implement MainMenuScript.OnWindow_AnimatorParameter
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_AnimatorParameter
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3511,7 +3511,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Animator()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Animator");
-			// TODO: Implement MainMenuScript.OnWindow_Animator
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Animator
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3522,7 +3522,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_SpritePacker()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_SpritePacker");
-			// TODO: Implement MainMenuScript.OnWindow_SpritePacker
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_SpritePacker
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3533,7 +3533,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Lighting()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Lighting");
-			// TODO: Implement MainMenuScript.OnWindow_Lighting
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Lighting
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3544,7 +3544,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_OcclusionCulling()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_OcclusionCulling");
-			// TODO: Implement MainMenuScript.OnWindow_OcclusionCulling
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_OcclusionCulling
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3555,7 +3555,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_FrameDebugger()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_FrameDebugger");
-			// TODO: Implement MainMenuScript.OnWindow_FrameDebugger
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_FrameDebugger
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3566,7 +3566,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Navigation()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Navigation");
-			// TODO: Implement MainMenuScript.OnWindow_Navigation
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Navigation
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3577,7 +3577,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnWindow_Console()
 	    {
 	        Debug.Log("MainMenuScript.OnWindow_Console");
-			// TODO: Implement MainMenuScript.OnWindow_Console
+			// TODO: [Minor] Implement MainMenuScript.OnWindow_Console
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3606,7 +3606,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_ManageLicense()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_ManageLicense");
-			// TODO: Implement MainMenuScript.OnHelp_ManageLicense
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_ManageLicense
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3617,7 +3617,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_UnityManual()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_UnityManual");
-			// TODO: Implement MainMenuScript.OnHelp_UnityManual
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_UnityManual
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3628,7 +3628,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_ScriptingReference()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_ScriptingReference");
-			// TODO: Implement MainMenuScript.OnHelp_ScriptingReference
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_ScriptingReference
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3639,7 +3639,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_UnityConnect()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_UnityConnect");
-			// TODO: Implement MainMenuScript.OnHelp_UnityConnect
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_UnityConnect
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3650,7 +3650,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_UnityForum()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_UnityForum");
-			// TODO: Implement MainMenuScript.OnHelp_UnityForum
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_UnityForum
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3661,7 +3661,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_UnityAnswers()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_UnityAnswers");
-			// TODO: Implement MainMenuScript.OnHelp_UnityAnswers
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_UnityAnswers
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3672,7 +3672,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_UnityFeedback()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_UnityFeedback");
-			// TODO: Implement MainMenuScript.OnHelp_UnityFeedback
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_UnityFeedback
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3683,7 +3683,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_CheckForUpdates()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_CheckForUpdates");
-			// TODO: Implement MainMenuScript.OnHelp_CheckForUpdates
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_CheckForUpdates
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3694,7 +3694,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_DownloadBeta()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_DownloadBeta");
-			// TODO: Implement MainMenuScript.OnHelp_DownloadBeta
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_DownloadBeta
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3705,7 +3705,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_ReleaseNotes()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_ReleaseNotes");
-			// TODO: Implement MainMenuScript.OnHelp_ReleaseNotes
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_ReleaseNotes
 			
 			AppUtils.ShowContributeMessage();
 	    }
@@ -3716,7 +3716,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	    public void OnHelp_ReportABug()
 	    {
 			Debug.Log("MainMenuScript.OnHelp_ReportABug");
-			// TODO: Implement MainMenuScript.OnHelp_ReportABug
+			// TODO: [Minor] Implement MainMenuScript.OnHelp_ReportABug
 			
 			AppUtils.ShowContributeMessage();
 	    }

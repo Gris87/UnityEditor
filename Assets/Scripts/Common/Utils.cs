@@ -156,11 +156,32 @@ namespace Common
 				height = screenHeight - y;
 			}
 
-			// TODO: Try to use RenderTexture
-
 			Texture2D texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+
+#if UNITY_PRO_LICENSE
+			// TODO: [Minor] Try to use RenderTexture on Unity Pro
+			RenderTexture rt = new RenderTexture(screenWidth, screenHeight, 24);
+			
+			//foreach(Camera cam in Camera.allCameras)
+			//{
+			//	cam.targetTexture = rt;
+			//	cam.Render();
+			//	cam.targetTexture = null;
+			//}
+			
+			Camera.main.targetTexture = rt;
+			Camera.main.Render();
+			Camera.main.targetTexture = null;
+			
+			RenderTexture.active = rt;
+			texture.ReadPixels(new Rect(x, screenHeight - 1 - y - height, width, height), 0, 0);
+			RenderTexture.active = null;
+			
+			UnityEngine.Object.Destroy(rt);
+#else
 			texture.ReadPixels(new Rect(x, screenHeight - 1 - y - height, width, height), 0, 0);
 			texture.Apply();
+#endif
 
 			return texture;
 		}
