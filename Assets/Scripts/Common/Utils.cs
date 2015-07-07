@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -9,7 +10,79 @@ namespace Common
     /// </summary>
     public static class Utils
     {
-        private static int UI_LAYER = LayerMask.NameToLayer("UI");
+        private static int mUiLayer;
+
+		private static CanvasScaler mCanvasScaler;
+
+
+
+		/// <summary>
+		/// Gets the canvas scale.
+		/// </summary>
+		/// <value>The canvas scale.</value>
+		public static float canvasScale
+		{
+			get
+			{
+				if (mCanvasScaler == null)
+				{
+					CanvasScaler[] scalers = GameObject.FindObjectsOfType<CanvasScaler>();
+
+					if (scalers.Length > 0)
+					{
+						if (scalers.Length > 1)
+						{
+							Debug.LogWarning("Several CanvasScalers found");
+						}
+
+						mCanvasScaler = scalers[0];
+					}
+					else
+					{
+						Debug.LogError("Failed to find CanvasScaler");
+						return 1f;
+					}
+				}
+
+				return mCanvasScaler.scaleFactor;
+			}
+		}
+
+		/// <summary>
+		/// Gets the scaled width of the screen.
+		/// </summary>
+		/// <value>The scaled width of the screen.</value>
+		public static float scaledScreenWidth
+		{
+			get
+			{
+				return Screen.width / canvasScale;
+			}
+		}
+
+		/// <summary>
+		/// Gets the scaled height of the screen.
+		/// </summary>
+		/// <value>The scaled height of the screen.</value>
+		public static float scaledScreenHeight
+		{
+			get
+			{
+				return Screen.height / canvasScale;
+			}
+		}
+
+
+
+		/// <summary>
+		/// Initializes the <see cref="Common.Utils"/> class.
+		/// </summary>
+		static Utils()
+		{
+			mUiLayer = LayerMask.NameToLayer("UI");
+			
+			mCanvasScaler = null;
+		}
 
 
 
@@ -22,7 +95,7 @@ namespace Common
 		public static void InitUIObject(GameObject uiObject, Transform parent, bool worldPositionStays = false)
         {
             uiObject.transform.SetParent(parent, worldPositionStays);
-			uiObject.layer = UI_LAYER;
+			uiObject.layer = mUiLayer;
         }
 
 		/// <summary>
