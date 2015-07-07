@@ -2306,7 +2306,48 @@ namespace Common.UI.Windows
 		/// </summary>
 		public virtual void Close()
 		{
+			RemoveCursorIfNeeded();
+
 			UnityEngine.Object.DestroyObject(gameObject);
+		}
+
+		/// <summary>
+		/// Removes the cursor if needed.
+		/// </summary>
+		private void RemoveCursorIfNeeded()
+		{
+			if (
+				mResizable
+				&&
+				(
+				 mMouseLocation == MouseLocation.North
+				 ||
+				 mMouseLocation == MouseLocation.South
+				 ||
+				 mMouseLocation == MouseLocation.West
+				 ||
+				 mMouseLocation == MouseLocation.East
+				 ||
+				 mMouseLocation == MouseLocation.NorthWest
+				 ||
+				 mMouseLocation == MouseLocation.NorthEast
+				 ||
+				 mMouseLocation == MouseLocation.SouthWest
+				 ||
+				 mMouseLocation == MouseLocation.SouthEast
+				)
+			   )
+			{
+				RemoveCursor();
+			}
+		}
+
+		/// <summary>
+		/// Removes the cursor.
+		/// </summary>
+		private void RemoveCursor()
+		{
+			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 		}
 
 		/// <summary>
@@ -2366,30 +2407,7 @@ namespace Common.UI.Windows
 		{
 			if (mMouseState == MouseState.NoState)
 			{
-				if (
-					mResizable
-					&&
-					(
-					 mMouseLocation == MouseLocation.North
-					 ||
-					 mMouseLocation == MouseLocation.South
-					 ||
-					 mMouseLocation == MouseLocation.West
-					 ||
-					 mMouseLocation == MouseLocation.East
-					 ||
-					 mMouseLocation == MouseLocation.NorthWest
-					 ||
-					 mMouseLocation == MouseLocation.NorthEast
-					 ||
-					 mMouseLocation == MouseLocation.SouthWest
-					 ||
-					 mMouseLocation == MouseLocation.SouthEast
-					)
-				   )
-				{
-					Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-				}
+				RemoveCursorIfNeeded();
 
 				mMouseLocation = MouseLocation.Outside;
 			}
@@ -2595,7 +2613,7 @@ namespace Common.UI.Windows
 											case MouseLocation.Header:
 											case MouseLocation.Inside:
 											{
-												Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+												RemoveCursor();
 											}
 											break;
 											
@@ -3176,7 +3194,7 @@ namespace Common.UI.Windows
 							    ||
 							    mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH)
 							{
-								Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+								RemoveCursor();
 								mMouseLocation = MouseLocation.Outside;
 							}
 						}

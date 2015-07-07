@@ -2,5 +2,6 @@ CustomPopup
 Toolbar
 Incorrect catching for drawer frame
 Docking area looks ugly
+Docking area resizing
 Support for Android
 Undo/Redo

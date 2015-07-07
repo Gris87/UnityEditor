@@ -21,6 +21,8 @@ namespace UI
 		/// </summary>
 		void Start()
 		{
+			SetupCanvas();
+
 			CreateUI();
 		}
 		
@@ -34,6 +36,25 @@ namespace UI
 			CreateOverlap();
 
 			MainWindowScript.Create().Show();
+		}
+
+		/// <summary>
+		/// Setups the canvas.
+		/// </summary>
+		private void SetupCanvas()
+		{
+			float dpi = Screen.dpi;
+
+			if (dpi != 0f)
+			{
+				CanvasScaler canvasScaler = GetComponent<CanvasScaler>();
+
+				canvasScaler.scaleFactor = Screen.dpi / 96f;
+			}
+			else
+			{
+				Debug.LogWarning("Failed to determine DPI");
+			}
 		}
 
 		/// <summary>
