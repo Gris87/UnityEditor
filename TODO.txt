@@ -1,7 +1,10 @@
-CustomPopup
-Toolbar
+Try to use RenderTexture
+Another frame for docking window
+Add margins for docking window
 Incorrect catching for drawer frame
 Docking area looks ugly
 Docking area resizing
 Support for Android
+CustomPopup
+Toolbar
 Undo/Redo

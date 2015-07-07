@@ -49,7 +49,7 @@ namespace UI
 			{
 				CanvasScaler canvasScaler = GetComponent<CanvasScaler>();
 
-				canvasScaler.scaleFactor = Screen.dpi / 96f;
+				canvasScaler.scaleFactor = dpi / 96f;
 			}
 			else
 			{
