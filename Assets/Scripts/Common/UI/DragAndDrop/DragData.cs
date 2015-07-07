@@ -30,6 +30,44 @@ namespace Common.UI.DragAndDrop
         }
 
 		/// <summary>
+		/// Gets the x coordinate.
+		/// </summary>
+		/// <value>The x coordinate.</value>
+		public static float x
+		{
+			get
+			{
+				if (mDraggingImage != null)
+				{
+					RectTransform imageTransform = mDraggingImage.transform as RectTransform;
+
+					return imageTransform.offsetMin.x;
+				}
+
+				return 0f;
+			}
+		}
+
+		/// <summary>
+		/// Gets the y coordinate.
+		/// </summary>
+		/// <value>The y coordinate.</value>
+		public static float y
+		{
+			get
+			{
+				if (mDraggingImage != null)
+				{
+					RectTransform imageTransform = mDraggingImage.transform as RectTransform;
+					
+					return -imageTransform.offsetMax.y;
+				}
+				
+				return 0f;
+			}
+		}
+
+		/// <summary>
 		/// Gets the width.
 		/// </summary>
 		/// <value>Width.</value>
@@ -123,7 +161,7 @@ namespace Common.UI.DragAndDrop
 					//===========================================================================
 					#region RectTransform Component
 					RectTransform imageTransform = mDraggingImage.AddComponent<RectTransform>();
-					Utils.AlignRectTransformTopLeft(imageTransform, width, height);
+					Utils.AlignRectTransformTopLeft(imageTransform, mWidth, mHeight);
 					#endregion
 					
 					//===========================================================================
@@ -205,14 +243,11 @@ namespace Common.UI.DragAndDrop
 
 			RectTransform imageTransform = mDraggingImage.transform as RectTransform;
 
-			float width  = imageTransform.sizeDelta.x;
-			float height = imageTransform.sizeDelta.y;
-
 			float mouseX = eventData.position.x;
 			float mouseY = -screenHeight + eventData.position.y;
 
-			imageTransform.offsetMin = new Vector2(mouseX - mDragPosX,         mouseY + mDragPosY - height);
-			imageTransform.offsetMax = new Vector2(mouseX - mDragPosX + width, mouseY + mDragPosY);
+			imageTransform.offsetMin = new Vector2(mouseX - mDragPosX,          mouseY + mDragPosY - mHeight);
+			imageTransform.offsetMax = new Vector2(mouseX - mDragPosX + mWidth, mouseY + mDragPosY);
 		}
 
 		/// <summary>

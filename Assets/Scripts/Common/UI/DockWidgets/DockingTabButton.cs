@@ -195,8 +195,6 @@ namespace Common.UI.DockWidgets
 
 				if (parentWindow != null)
 				{
-					// TODO: Put dock widget in window
-
 					//***************************************************************************
 					// DockingWindow GameObject
 					//***************************************************************************
@@ -211,6 +209,13 @@ namespace Common.UI.DockWidgets
 					DockingWindowScript dockingWindowScript = dockingWindow.AddComponent<DockingWindowScript>();
 
 					dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
+
+					// TODO: Add margins
+					dockingWindowScript.x      = DragData.x;
+					dockingWindowScript.y      = DragData.y;
+					dockingWindowScript.width  = DragData.width;
+					dockingWindowScript.height = DragData.height;
+
 					dockingWindowScript.Show();
 					#endregion
 					#endregion
@@ -245,12 +250,38 @@ namespace Common.UI.DockWidgets
 
 			Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
 
-			int widgetX      = (int)corners[0].x;
-			int widgetY      = (int)corners[0].y;
-			int widgetWidth  = (int)(corners[3].x - corners[0].x);
-			int widgetHeight = (int)(corners[3].y - corners[0].y);
+			int screenWidth  = Screen.width;
+			int screenHeight = Screen.height;
 
-			// TODO: Limit for screen sizes
+			float left   = corners[0].x;
+			float top    = corners[0].y;
+			float right  = corners[3].x;
+			float bottom = corners[3].y;
+
+			if (left < 0f)
+			{
+				left = 0f;
+			}
+
+			if (top < 0f)
+			{
+				top = 0f;
+			}
+
+			if (right > screenWidth - 1)
+			{
+				right = screenWidth - 1;
+			}
+			
+			if (bottom > screenHeight - 1)
+			{
+				bottom = screenHeight - 1;
+			}
+
+			int widgetX      = Mathf.CeilToInt(left);
+			int widgetY      = Mathf.CeilToInt(top);
+			int widgetWidth  = Mathf.FloorToInt(right  - left);
+			int widgetHeight = Mathf.FloorToInt(bottom - top);
 
 			float dragPosX = eventData.pressPosition.x - widgetX;
 			float dragPosY = Screen.height - eventData.pressPosition.y - widgetY;

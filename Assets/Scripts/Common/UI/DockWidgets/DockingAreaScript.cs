@@ -325,55 +325,60 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
-						// TODO: Calculate minimum always
-						if (mouseY <= top + gap + 16f)
+						float value;
+
+						if (mDockingGroupScript != null)
 						{
-							if (mDockingGroupScript != null)
+							value = mouseY - top;
+
+							if (value < DragInfoHolder.minimum)
 							{
-								float value = mouseY - top;
-								
-								if (value < DragInfoHolder.minimum)
+								DragInfoHolder.minimum = value;
+
+								if (value <= gap + 16f)
 								{
-									DragInfoHolder.minimum       = value;
 									DragInfoHolder.dockingArea   = this;
 									DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Tabs;
 								}
 							}
 						}
-						else
-						if (mouseY >= bottom - verticalSection)
+
+						value = bottom - mouseY;
+
+						if (value < DragInfoHolder.minimum)
 						{
-							float value = bottom - mouseY;
+							DragInfoHolder.minimum = value;
 							
-							if (value < DragInfoHolder.minimum)
+							if (value <= verticalSection)
 							{
-								DragInfoHolder.minimum       = value;
 								DragInfoHolder.dockingArea   = this;
 								DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.BottomSection;
 							}
 						}
-						
+
 						if (DragInfoHolder.mouseLocation != DragInfoHolder.MouseLocation.Tabs)
 						{
-							if (mouseX <= left + horizontalSection)
+							value = mouseX - left;
+							
+							if (value < DragInfoHolder.minimum)
 							{
-								float value = mouseX - left;
+								DragInfoHolder.minimum = value;
 								
-								if (value < DragInfoHolder.minimum)
+								if (value <= horizontalSection)
 								{
-									DragInfoHolder.minimum       = value;
 									DragInfoHolder.dockingArea   = this;
 									DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.LeftSection;
 								}
 							}
-							else
-							if (mouseX >= right - horizontalSection)
+
+							value = right - mouseX;
+							
+							if (value < DragInfoHolder.minimum)
 							{
-								float value = right - mouseX;
+								DragInfoHolder.minimum = value;
 								
-								if (value < DragInfoHolder.minimum)
+								if (value <= horizontalSection)
 								{
-									DragInfoHolder.minimum       = value;
 									DragInfoHolder.dockingArea   = this;
 									DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.RightSection;
 								}

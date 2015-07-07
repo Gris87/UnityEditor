@@ -83,7 +83,7 @@ namespace Common
 				height = screenHeight - y;
 			}
 
-			// TODO: Try RenderTexture
+			// TODO: Try to use RenderTexture
 
 			Texture2D texture = new Texture2D(width, height, TextureFormat.RGB24, false);
 			texture.ReadPixels(new Rect(x, screenHeight - 1 - y - height, width, height), 0, 0);
