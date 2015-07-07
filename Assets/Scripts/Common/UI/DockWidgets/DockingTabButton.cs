@@ -140,12 +140,26 @@ namespace Common.UI.DockWidgets
 			DragInfoHolder.dockingArea   = null;
 			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
-			for (int i = mDockingAreas.Count - 1; i >= 0; --i)
+			RaycastResult     raycastResult  = eventData.pointerCurrentRaycast;
+			DockingAreaScript hitDockingArea = null;
+
+			if (raycastResult.gameObject != null)
 			{
-				mDockingAreas[i].PreprocessDockWidgetDrag(eventData);
+				hitDockingArea = Utils.FindInParents<DockingAreaScript>(raycastResult.gameObject);
 			}
 
-			// TODO: Raycast first
+			if (hitDockingArea != null && hitDockingArea.HasDragInfo())
+			{
+				hitDockingArea.PreprocessDockWidgetDrag(eventData);
+			}
+			else
+			{
+				for (int i = mDockingAreas.Count - 1; i >= 0; --i)
+				{
+					mDockingAreas[i].PreprocessDockWidgetDrag(eventData);
+				}
+			}
+
 			if (DragInfoHolder.dockingArea != null)
 			{
 				DragInfoHolder.dockingArea.ProcessDockWidgetDrag(eventData);

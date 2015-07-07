@@ -1,4 +1,6 @@
 CustomPopup
 Toolbar
-Docking area
+Incorrect catching for drawer frame
+Docking area looks ugly
+Support for Android
 Undo/Redo

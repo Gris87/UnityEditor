@@ -52,8 +52,8 @@ namespace Common.UI.DockWidgets
 		/// <param name="height">Height of content.</param>
 		protected override void CreateContent(Transform contentTransform, out float width, out float height)
 		{
-			width  = 100f;
-			height = 100f;
+			width  = 200f;
+			height = 200f;
 
 			//***************************************************************************
 			// DockingArea GameObject

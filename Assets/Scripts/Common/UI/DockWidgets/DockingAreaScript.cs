@@ -276,6 +276,15 @@ namespace Common.UI.DockWidgets
 		}
 
 		/// <summary>
+		/// Determines whether this instance has drag info.
+		/// </summary>
+		/// <returns><c>true</c> if this instance has drag info; otherwise, <c>false</c>.</returns>
+		public bool HasDragInfo()
+		{
+			return mCachedDragCorners != null;
+		}
+
+		/// <summary>
 		/// Preprocessor for dock widget drag event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
