@@ -191,6 +191,8 @@ public static class Assets
 				public static Sprite subWindowDeselected        = LoadResource<Sprite>("Textures/Common/UI/Windows/SubWindowDeselected");
 				public static Sprite drawer                     = LoadResource<Sprite>("Textures/Common/UI/Windows/Drawer");
 				public static Sprite drawerDeselected           = LoadResource<Sprite>("Textures/Common/UI/Windows/DrawerDeselected");
+				public static Sprite singleFrame                = LoadResource<Sprite>("Textures/Common/UI/Windows/SingleFrame");
+				public static Sprite singleFrameDeselected      = LoadResource<Sprite>("Textures/Common/UI/Windows/SingleFrameDeselected");
 				public static Sprite minimizeButton             = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButton");
 				public static Sprite minimizeButtonDeselected   = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButtonDeselected");
 				public static Sprite minimizeButtonDisabled     = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButtonDisabled");
