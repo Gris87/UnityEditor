@@ -104,8 +104,22 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnPointerDown(PointerEventData eventData)
 		{
-			// TODO: [Major] Do not let to drag via content
-			StartDragging();
+			float mouseX = eventData.position.x;
+			float mouseY = Screen.height - eventData.position.y;
+
+			float headerX      = contentX;
+			float headerY      = contentY;
+			float headerWidth  = contentWidth;
+			float headerHeight = 21f; // 16f + 5f
+
+			if (
+				(mouseX >= headerX) && (mouseX <= headerX + headerWidth)
+				&&
+				(mouseY >= headerY) && (mouseY <= headerY + headerHeight)
+			   )
+			{
+				StartDragging();
+			}
 		}
 
 		/// <summary>

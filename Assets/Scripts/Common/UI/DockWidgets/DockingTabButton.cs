@@ -230,9 +230,9 @@ namespace Common.UI.DockWidgets
 					dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
 
 					dockingWindowScript.x      = DragData.x      - 8f;
-					dockingWindowScript.y      = DragData.y      - 8f  - 5f;
-					dockingWindowScript.width  = DragData.width  + 16f;
-					dockingWindowScript.height = DragData.height + 16f + 5f;
+					dockingWindowScript.y      = DragData.y      - 13f; // - 8f      - 5f
+					dockingWindowScript.width  = DragData.width  + 16f; // + 8f + 8f
+					dockingWindowScript.height = DragData.height + 21f; // + 8f + 8f + 5f
 
 					dockingWindowScript.Show();
 					#endregion

@@ -1,4 +1,3 @@
-Dragging for docking window
 Docking area looks ugly
 Docking area resizing
 Support for Android
