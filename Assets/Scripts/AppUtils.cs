@@ -20,7 +20,7 @@ public static class AppUtils
 		switch (Version.buildType)
 		{
 			case Version.BuildType.Personal:
-			{	
+			{
 				res += Translator.getString(R.sections.Version.strings.personal);
 			}
 			break;

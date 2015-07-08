@@ -118,7 +118,19 @@ namespace Common.UI.DockWidgets
 				}
 				else
 				{
-					Debug.LogError("Invalid size list argument");
+					string listStr;
+
+					for (int i = 0; i < value.Count; ++i)
+					{
+						if (i > 0)
+						{
+							listStr += " ";
+						}
+
+						listStr += value[i];
+					}
+
+					Debug.LogError("Invalid size list argument: [" + listStr + "]");
 				}
 			}
 		}
@@ -262,7 +274,7 @@ namespace Common.UI.DockWidgets
                 
             	default:
             	{
-					Debug.LogError("Unknown orientation");
+					Debug.LogError("Unknown orientation: " + mOrientation);
 				}
                 break;
             }
@@ -1390,7 +1402,7 @@ namespace Common.UI.DockWidgets
 				}
 				else
 				{
-					Debug.LogError("Invalid orientation value");
+					Debug.LogError("Invalid orientation value: " + orientation);
 				}
 			}
 

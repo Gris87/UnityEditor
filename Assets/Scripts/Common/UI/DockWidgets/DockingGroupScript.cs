@@ -70,7 +70,7 @@ namespace Common.UI.DockWidgets
 					}
 					else
 					{
-						Debug.LogError("Invalid selected index value");
+						Debug.LogError("Invalid selected index value: " + value);
 					}
 				}
 			}

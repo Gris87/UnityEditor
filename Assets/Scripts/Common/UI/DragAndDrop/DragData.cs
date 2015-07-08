@@ -133,7 +133,7 @@ namespace Common.UI.DragAndDrop
 		{
 			if (draggingType == DraggingType.None)
 			{
-				Debug.LogError("Invalid type value");
+				Debug.LogError("Invalid dragging type value: " + draggingType);
 				return;
 			}
 

@@ -1529,7 +1529,7 @@ namespace Common.UI.Windows
 
 				default:
 				{
-					Debug.LogError("Unknown window frame");
+					Debug.LogError("Unknown window frame: " + mFrame);
 				}
 				break;
 			}
@@ -2673,13 +2673,13 @@ namespace Common.UI.Windows
 											
 											case MouseLocation.Outside:
 											{
-												Debug.LogError("Incorrect mouse location");
+												Debug.LogError("Incorrect mouse location: " + mMouseLocation);
 											}
 											break;
 											
 											default:
 											{
-												Debug.LogError("Unknown mouse location");
+												Debug.LogError("Unknown mouse location: " + mMouseLocation);
 											}
 											break;
 										}
@@ -2722,13 +2722,13 @@ namespace Common.UI.Windows
 
 								case WindowState.FullScreen:
 								{
-									Debug.LogError("Incorrect window state");
+									Debug.LogError("Incorrect window state: " + mState);
 								}
 								break;
 
 								default:
 								{
-									Debug.LogError("Unknown window state");
+									Debug.LogError("Unknown window state: " + mState);
 								}
 								break;
 							}
@@ -2775,13 +2775,13 @@ namespace Common.UI.Windows
 
 								case MouseLocation.Outside:
 								{
-									Debug.LogError("Incorrect mouse location");
+									Debug.LogError("Incorrect mouse location: " + mMouseLocation);
 								}
 								break;
 
 								default:
 								{
-									Debug.LogError("Unknown mouse location");
+									Debug.LogError("Unknown mouse location: " + mMouseLocation);
 								}
 								break;
 							}
@@ -2844,13 +2844,13 @@ namespace Common.UI.Windows
 							case WindowState.Maximized:
 							case WindowState.FullScreen:
 							{
-								Debug.LogError("Incorrect window state");
+								Debug.LogError("Incorrect window state: " + mState);
 							}
 							break;
 
 							default:
 							{
-								Debug.LogError("Unknown window state");
+								Debug.LogError("Unknown window state: " + mState);
 							}
 							break;
 						}
@@ -2908,13 +2908,13 @@ namespace Common.UI.Windows
 							case WindowState.Maximized:
 							case WindowState.FullScreen:
 							{
-								Debug.LogError("Incorrect window state");
+								Debug.LogError("Incorrect window state: " + mState);
 							}
 							break;
 
 							default:
 							{
-								Debug.LogError("Unknown window state");
+								Debug.LogError("Unknown window state: " + mState);
 							}
 							break;
 						}

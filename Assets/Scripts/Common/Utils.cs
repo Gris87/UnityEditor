@@ -32,7 +32,7 @@ namespace Common
 					{
 						if (scalers.Length > 1)
 						{
-							Debug.LogWarning("Several CanvasScalers found");
+							Debug.LogWarning("Several CanvasScalers found: " + scalers.Length);
 						}
 
 						mCanvasScaler = scalers[0];
