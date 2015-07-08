@@ -110,6 +110,9 @@ namespace Common.UI.Windows
 			}
 		}
 
+		/// <summary>
+		/// Mouse location.
+		/// </summary>
 		private enum MouseLocation
 		{
 			  Outside
@@ -125,6 +128,9 @@ namespace Common.UI.Windows
 			, Inside
 		}
 
+		/// <summary>
+		/// Mouse state.
+		/// </summary>
 		private enum MouseState
 		{
 			  NoState
@@ -148,53 +154,6 @@ namespace Common.UI.Windows
 		private static float MINIMIZED_OFFSET_BOTTOM = 8f;
 		private static float MINIMIZED_WIDTH         = 120f;
 		private static float MINIMIZED_HEIGHT        = 20f;
-
-
-
-		private static List<WindowScript> instances      = new List<WindowScript>();
-		private static WindowScript       selectedWindow = null;
-
-
-
-		private WindowFrameType                 mFrame;
-		private WindowState                     mState;
-		private float                           mX;
-		private float                           mY;
-		private float                           mWidth;
-		private float                           mHeight;
-		private Color                           mBackgroundColor;
-		private bool                            mResizable;
-		private float                           mMinimumWidth;
-		private float                           mMinimumHeight;
-		private float                           mMaximumWidth;
-		private float                           mMaximumHeight;
-		private bool                            mAllowMinimize;
-		private bool                            mAllowMaximize;
-		private bool                            mAllowClose;
-		private R.sections.WindowTitles.strings mTokenId;
-
-		private RectTransform                   mWindowTransform;
-		private GameObject                      mBorderGameObject;
-		private Image                           mBorderImage;
-		private GameObject                      mTitleGameObject;
-		private Text                            mTitleText;
-		private GameObject                      mMinimizeGameObject;
-		private Image                           mMinimizeImage;
-		private GameObject                      mMaximizeGameObject;
-		private Image                           mMaximizeImage;
-		private GameObject                      mCloseGameObject;
-		private Image                           mCloseImage;
-		private RectTransform                   mContentTransform;
-		private Image                           mContentBackgroundImage;
-		private GameObject                      mReplacementGameObject;
-		private RectTransform                   mReplacementTransform;
-		private float                           mBorderLeft; 
-		private float                           mBorderTop;
-		private float                           mBorderRight;
-        private float                           mBorderBottom;
-		private MouseLocation                   mMouseLocation;
-		private MouseState                      mMouseState;
-		private MouseContext                    mMouseContext;
 
 
 
@@ -245,12 +204,19 @@ namespace Common.UI.Windows
 						}
 						else
 						{
-							UpdateBorderImage();
-							UpdateBorders();
-
-							if ((oldValue == WindowFrameType.Drawer) || (mFrame == WindowFrameType.Drawer))
+							if (wasFramePresent)
 							{
-								RebuildHeader();
+								UpdateBorderImage();
+								UpdateBorders();
+
+								if (
+									(oldValue == WindowFrameType.Drawer)      || (mFrame == WindowFrameType.Drawer)
+									||
+									(oldValue == WindowFrameType.SingleFrame) || (mFrame == WindowFrameType.SingleFrame)
+								   )
+								{
+									RebuildHeader();
+								}
 							}
 						}
 
@@ -321,7 +287,10 @@ namespace Common.UI.Windows
 						}
 						else
 						{
-							RebuildHeader();
+							if (wasFramePresent)
+							{
+								RebuildHeader();
+							}
 						}
 
 						UpdateState();
@@ -832,7 +801,7 @@ namespace Common.UI.Windows
 				{
 					if (mFrame != WindowFrameType.Frameless)
 					{
-						return Screen.width - mBorderLeft - mBorderRight + MAXIMIZED_OFFSET * 2;
+						return Screen.width - mBorderLeft - mBorderRight + SHADOW_WIDTH * 2 + MAXIMIZED_OFFSET * 2;
 					}
 					else
 					{
@@ -871,7 +840,7 @@ namespace Common.UI.Windows
 				{
 					if (mFrame != WindowFrameType.Frameless)
 					{
-						return Screen.height - mBorderTop - mBorderBottom + MAXIMIZED_OFFSET * 2;
+						return Screen.height - mBorderTop - mBorderBottom + SHADOW_WIDTH * 2 + MAXIMIZED_OFFSET * 2;
 					}
 					else
 					{
@@ -1191,6 +1160,53 @@ namespace Common.UI.Windows
 
 
 
+		private static List<WindowScript> instances      = new List<WindowScript>();
+		private static WindowScript       selectedWindow = null;
+				
+
+		
+		private WindowFrameType                 mFrame;
+		private WindowState                     mState;
+		private float                           mX;
+		private float                           mY;
+		private float                           mWidth;
+		private float                           mHeight;
+		private Color                           mBackgroundColor;
+		private bool                            mResizable;
+		private float                           mMinimumWidth;
+		private float                           mMinimumHeight;
+		private float                           mMaximumWidth;
+		private float                           mMaximumHeight;
+		private bool                            mAllowMinimize;
+		private bool                            mAllowMaximize;
+		private bool                            mAllowClose;
+		private R.sections.WindowTitles.strings mTokenId;
+		
+		private RectTransform                   mWindowTransform;
+		private GameObject                      mBorderGameObject;
+		private Image                           mBorderImage;
+		private GameObject                      mTitleGameObject;
+		private Text                            mTitleText;
+		private GameObject                      mMinimizeGameObject;
+		private Image                           mMinimizeImage;
+		private GameObject                      mMaximizeGameObject;
+		private Image                           mMaximizeImage;
+		private GameObject                      mCloseGameObject;
+		private Image                           mCloseImage;
+		private RectTransform                   mContentTransform;
+		private Image                           mContentBackgroundImage;
+		private GameObject                      mReplacementGameObject;
+		private RectTransform                   mReplacementTransform;
+		private float                           mBorderLeft; 
+		private float                           mBorderTop;
+		private float                           mBorderRight;
+		private float                           mBorderBottom;
+		private MouseLocation                   mMouseLocation;
+		private MouseState                      mMouseState;
+		private MouseContext                    mMouseContext;
+
+
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Common.UI.Windows.WindowScript"/> class.
 		/// </summary>
@@ -1436,7 +1452,10 @@ namespace Common.UI.Windows
 				#endregion
 				#endregion
 
-				CreateHeader();
+				if (mFrame != WindowFrameType.SingleFrame)
+				{
+					CreateHeader();
+				}
 			}
 			else
 			{
@@ -1486,6 +1505,19 @@ namespace Common.UI.Windows
 					else
 					{
 						mBorderImage.sprite = Assets.Windows.Common.Textures.drawerDeselected;
+					}
+				}
+				break;
+
+				case WindowFrameType.SingleFrame:
+				{
+					if (selected)
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.singleFrame;
+					}
+					else
+					{
+						mBorderImage.sprite = Assets.Windows.Common.Textures.singleFrameDeselected;
 					}
 				}
 				break;
@@ -2003,15 +2035,16 @@ namespace Common.UI.Windows
 				}
 				break;
 
+				case WindowFrameType.SingleFrame:
 				case WindowFrameType.Frameless:
 				{
-					Debug.LogError("Incorrect window frame");
+					Debug.LogError("Incorrect window frame: " + mFrame);
 				}
 				break;
 
 				default:
 				{
-					Debug.LogError("Unknown window frame");
+					Debug.LogError("Unknown window frame: " + mFrame);
 				}
 				break;
 			}
@@ -2070,7 +2103,10 @@ namespace Common.UI.Windows
 
 			if (IsFramePresent())
 			{
-				CreateHeader();
+				if (mFrame != WindowFrameType.SingleFrame)
+				{
+					CreateHeader();
+				}
 			}
 		}
 
@@ -2139,7 +2175,7 @@ namespace Common.UI.Windows
 
 				default:
 				{
-					Debug.LogError("Unknown window state");
+					Debug.LogError("Unknown window state: " + mState);
 				}
 				break;
 			}
@@ -2251,7 +2287,8 @@ namespace Common.UI.Windows
 
 
 
-			DestroyReplacement();
+			DestroyReplacement();			
+			RemoveCursorIfNeeded();
 
 
 
@@ -2304,10 +2341,8 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Close this window.
 		/// </summary>
-		public virtual void Close()
+		public void Close()
 		{
-			RemoveCursorIfNeeded();
-
 			UnityEngine.Object.DestroyObject(gameObject);
 		}
 
@@ -3203,7 +3238,7 @@ namespace Common.UI.Windows
 
 					default:
 					{
-						Debug.LogError("Unknown mouse state");
+						Debug.LogError("Unknown mouse state: " + mMouseState);
 					}
 					break;
 				}
@@ -3383,6 +3418,7 @@ namespace Common.UI.Windows
 						}
 						break;
 
+						case WindowFrameType.SingleFrame:
 						case WindowFrameType.Frameless:
 						{
 							// Nothing
@@ -3391,7 +3427,7 @@ namespace Common.UI.Windows
 
 						default:
 						{
-							Debug.LogError("Unknown window frame");
+							Debug.LogError("Unknown window frame: " + mFrame);
 						}
 						break;
 					}

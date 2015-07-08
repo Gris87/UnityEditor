@@ -184,6 +184,11 @@ namespace Common.UI.DockWidgets
 		/// <param name="eventData">Pointer data.</param>
 		public void OnEndDrag(PointerEventData eventData)
 		{
+			foreach (DockingAreaScript dockingArea in mDockingAreas)
+			{
+				dockingArea.ClearDragInfo();
+			}
+
 			mDockingAreas = null;
 
 			if (DummyDockWidgetScript.instance != null)
@@ -244,12 +249,7 @@ namespace Common.UI.DockWidgets
 			DragInfoHolder.minimum       = float.MaxValue;
 			DragInfoHolder.dockingArea   = null;
 			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
-
-			foreach (DockingAreaScript dockingArea in DockingAreaScript.instances)
-			{
-				dockingArea.ClearDragInfo();
-            }
-            
+			            
             DragData.EndDrag(eventData);
 		}
 

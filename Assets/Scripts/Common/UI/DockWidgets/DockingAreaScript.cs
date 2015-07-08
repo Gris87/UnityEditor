@@ -172,7 +172,13 @@ namespace Common.UI.DockWidgets
 			{
 				mParent.RemoveDockingArea(this);
 			}
+		}
 
+		/// <summary>
+		/// Handler for destroy event.
+		/// </summary>
+		void OnDestroy()
+		{
 			if (!mInstances.Remove(this))
 			{
 				Debug.LogError("Failed to remove docking area");

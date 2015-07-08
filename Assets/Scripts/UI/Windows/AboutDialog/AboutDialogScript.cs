@@ -529,7 +529,7 @@ namespace UI.Windows.AboutDialog
 					mCreditsScrollRect.verticalNormalizedPosition = 1f;
 				}
 
-				// TODO: [Minor] Check it home
+				// TODO: [Trivial] Check it home
 				if (selected && InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
 				{
 					++mCurrentSecretChar;

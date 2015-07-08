@@ -1,4 +1,4 @@
-Try to use RenderTexture
+Add more info in logs
 Another frame for docking window
 Add margins for docking window
 Incorrect catching for drawer frame

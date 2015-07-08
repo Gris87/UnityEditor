@@ -21,6 +21,11 @@ namespace Common.UI.Windows
 		/// Indicates that the window is a Macintosh drawer.
 		/// </summary>
 		Drawer
+		,
+		/// <summary>
+		/// Window frame with single border.
+		/// </summary>
+		SingleFrame
 	}
 }
 
