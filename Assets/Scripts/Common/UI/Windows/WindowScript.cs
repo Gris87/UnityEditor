@@ -1406,6 +1406,11 @@ namespace Common.UI.Windows
 			}
 
 			UpdateState();
+
+			if (mState != WindowState.Minimized)
+			{
+				OnResize();
+			}
 		}
 
 		/// <summary>
@@ -2545,70 +2550,84 @@ namespace Common.UI.Windows
 									}
 									else
 									{
-										if (mouseY <= mY + SHADOW_WIDTH + RESIZING_GAP)
+										if (mResizable)
 										{
-											if (mouseX <= mX + mBorderLeft)
+											if (mouseY <= mY + SHADOW_WIDTH + RESIZING_GAP)
 											{
-												mMouseLocation = MouseLocation.NorthWest;
+												if (mouseX <= mX + mBorderLeft)
+												{
+													mMouseLocation = MouseLocation.NorthWest;
+												}
+												else
+												if (mouseX < mX + mWidth - mBorderRight)
+												{
+													mMouseLocation = MouseLocation.North;
+												}
+												else
+												{
+													mMouseLocation = MouseLocation.NorthEast;
+												}
 											}
 											else
-											if (mouseX < mX + mWidth - mBorderRight)
+											if (mouseY <= mY + mBorderTop)
 											{
-												mMouseLocation = MouseLocation.North;
+												if (mouseX <= mX + mBorderLeft)
+												{
+													mMouseLocation = MouseLocation.West;
+												}
+												else
+												if (mouseX < mX + mWidth - mBorderRight)
+												{
+													mMouseLocation = MouseLocation.Header;
+												}
+												else
+												{
+													mMouseLocation = MouseLocation.East;
+												}
+											}
+											else
+											if (mouseY < mY + mHeight - mBorderBottom)
+											{
+												if (mouseX <= mX + mBorderLeft)
+												{
+													mMouseLocation = MouseLocation.West;
+												}
+												else
+												if (mouseX < mX + mWidth - mBorderRight)
+												{
+													mMouseLocation = MouseLocation.Inside;
+												}
+												else
+												{
+													mMouseLocation = MouseLocation.East;
+												}
 											}
 											else
 											{
-												mMouseLocation = MouseLocation.NorthEast;
+												if (mouseX <= mX + mBorderLeft)
+												{
+													mMouseLocation = MouseLocation.SouthWest;
+												}
+												else
+												if (mouseX < mX + mWidth - mBorderRight)
+												{
+													mMouseLocation = MouseLocation.South;
+												}
+												else
+												{
+													mMouseLocation = MouseLocation.SouthEast;
+												}
 											}
 										}
 										else
-										if (mouseY <= mY + mBorderTop)
 										{
-											if (mouseX <= mX + mBorderLeft)
-											{
-												mMouseLocation = MouseLocation.West;
-											}
-											else
-											if (mouseX < mX + mWidth - mBorderRight)
+											if (mouseY <= mY + mBorderTop)
 											{
 												mMouseLocation = MouseLocation.Header;
 											}
 											else
 											{
-												mMouseLocation = MouseLocation.East;
-											}
-										}
-										else
-										if (mouseY < mY + mHeight - mBorderBottom)
-										{
-											if (mouseX <= mX + mBorderLeft)
-											{
-												mMouseLocation = MouseLocation.West;
-											}
-											else
-											if (mouseX < mX + mWidth - mBorderRight)
-											{
 												mMouseLocation = MouseLocation.Inside;
-											}
-											else
-											{
-												mMouseLocation = MouseLocation.East;
-											}
-										}
-										else
-										{
-											if (mouseX <= mX + mBorderLeft)
-											{
-												mMouseLocation = MouseLocation.SouthWest;
-											}
-											else
-											if (mouseX < mX + mWidth - mBorderRight)
-											{
-												mMouseLocation = MouseLocation.South;
-											}
-											else
-											{
-												mMouseLocation = MouseLocation.SouthEast;
 											}
 										}
 									}

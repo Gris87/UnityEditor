@@ -229,11 +229,10 @@ namespace Common.UI.DockWidgets
 
 					dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
 
-					// TODO: [Major] Add margins
-					dockingWindowScript.x      = DragData.x;
-					dockingWindowScript.y      = DragData.y;
-					dockingWindowScript.width  = DragData.width;
-					dockingWindowScript.height = DragData.height;
+					dockingWindowScript.x      = DragData.x      - 8f;
+					dockingWindowScript.y      = DragData.y      - 8f  - 5f;
+					dockingWindowScript.width  = DragData.width  + 16f;
+					dockingWindowScript.height = DragData.height + 16f + 5f;
 
 					dockingWindowScript.Show();
 					#endregion

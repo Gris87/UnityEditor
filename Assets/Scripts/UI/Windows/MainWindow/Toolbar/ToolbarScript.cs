@@ -15,6 +15,15 @@ namespace UI.Windows.MainWindow.Toolbar
 
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="UI.Windows.MainWindow.Toolbar.ToolbarScript"/> class.
+		/// </summary>
+		public ToolbarScript()
+			: base()
+		{
+			mUi = null;
+		}
+
+		/// <summary>
 		/// Script starting callback.
 		/// </summary>
 		void Start()
@@ -37,7 +46,10 @@ namespace UI.Windows.MainWindow.Toolbar
 		/// </summary>
 		public void OnResize()
 		{
-			mUi.OnResize();
+			if (mUi != null)
+			{
+				mUi.OnResize();
+			}
 		}
 
 		/// <summary>

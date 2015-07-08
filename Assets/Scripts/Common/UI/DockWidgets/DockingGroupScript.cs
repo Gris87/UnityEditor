@@ -253,7 +253,12 @@ namespace Common.UI.DockWidgets
 
 			Vector3[] corners = new Vector3[4];
 			(transform as RectTransform).GetLocalCorners(corners);
-			float width = corners[2].x - corners[0].x;
+			float width = corners[2].x - corners[0].x - 37f;
+
+			if (width < 10f)
+			{
+				width = 10f;
+			}
                         
             float contentWidth = 0f;
 

@@ -55,6 +55,22 @@ namespace Common.UI.DockWidgets
 			height = 200f;
 
 			//***************************************************************************
+			// Header GameObject
+			//***************************************************************************
+			#region Header GameObject
+			GameObject header = new GameObject("Header");
+			Utils.InitUIObject(header, contentTransform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform headerTransform = header.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopStretch(headerTransform, 5f);
+			#endregion
+			#endregion
+
+			//***************************************************************************
 			// DockingArea GameObject
 			//***************************************************************************
 			#region DockingArea GameObject
@@ -66,7 +82,7 @@ namespace Common.UI.DockWidgets
 			//===========================================================================
 			#region RectTransform Component
 			RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(dockingAreaTransform);
+			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, 5f, 0f, 0f);
 			#endregion
 			
 			//===========================================================================

@@ -1,7 +1,5 @@
 Add more info in logs
-Another frame for docking window
-Add margins for docking window
-Incorrect catching for drawer frame
+Dragging for docking window
 Docking area looks ugly
 Docking area resizing
 Support for Android
