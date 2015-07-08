@@ -66,7 +66,7 @@ public static class Assets
 						}
 						else
 						{
-							Debug.LogError("Already has a font with name: " + fontName);
+							Debug.LogWarning("Already has a font with name: " + fontName);
 						}
 					}
 				}

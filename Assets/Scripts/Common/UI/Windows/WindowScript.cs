@@ -1155,13 +1155,13 @@ namespace Common.UI.Windows
 		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
 		public bool selected
 		{
-			get { return selectedWindow == this; }
+			get { return mSelectedWindow == this; }
 		}
 
 
 
-		private static List<WindowScript> instances      = new List<WindowScript>();
-		private static WindowScript       selectedWindow = null;
+		private static List<WindowScript> mInstances      = new List<WindowScript>();
+		private static WindowScript       mSelectedWindow = null;
 				
 
 		
@@ -1213,7 +1213,7 @@ namespace Common.UI.Windows
 		public WindowScript()
 			: base()
         {
-			instances.Add(this);
+			mInstances.Add(this);
 
 			mFrame           = WindowFrameType.Window;
 			mState           = WindowState.NoState;
@@ -2297,18 +2297,18 @@ namespace Common.UI.Windows
 
 
 
-			if (!instances.Remove(this))
+			if (!mInstances.Remove(this))
 			{
 				Debug.LogError("Failed to remove window");
 			}
 
-			if (selectedWindow == this)
+			if (mSelectedWindow == this)
 			{
-				selectedWindow = null;
+				mSelectedWindow = null;
 
-				if (instances.Count > 0)
+				if (mInstances.Count > 0)
 				{
-					instances[0].SetSelected(true);
+					mInstances[0].SetSelected(true);
 				}
 			}
 		}
@@ -2451,6 +2451,21 @@ namespace Common.UI.Windows
 
 				mMouseLocation = MouseLocation.Outside;
 			}
+		}
+
+		/// <summary>
+		/// Starts dragging mode.
+		/// </summary>
+		protected void StartDragging()
+		{
+			Vector3 mousePos = InputControl.mousePosition;
+
+			float mouseX = mousePos.x;
+			float mouseY = Screen.height - mousePos.y;
+
+			mMouseState = MouseState.Dragging;
+			
+			mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height, mWindowTransform.offsetMin.x, -mWindowTransform.offsetMax.y);
 		}
 
 		/// <summary>
@@ -2739,9 +2754,7 @@ namespace Common.UI.Windows
 								{
 									if (leftMouseButtonPressed)
                             		{
-										mMouseState = MouseState.Dragging;
-										
-										mMouseContext = new MouseContext(mouseX, mouseY, x, y, width, height, mWindowTransform.offsetMin.x, -mWindowTransform.offsetMax.y);
+										StartDragging();
 									}
 								}
 								break;
@@ -3327,20 +3340,32 @@ namespace Common.UI.Windows
 		/// <param name="value">If set to <c>true</c> window is selected.</param>
 		private void SetSelected(bool value)
 		{
-			if (value != (selectedWindow == this))
+			if (value != (mSelectedWindow == this))
 			{
 				if (value)
 				{
-					if (selectedWindow != null)
+					if (mSelectedWindow != null)
 					{
-						selectedWindow.SetSelected(false);
+						mSelectedWindow.SetSelected(false);
                     }
 
-					selectedWindow = this;
+					mSelectedWindow = this;
+
+					if (mInstances.Count > 0)
+					{
+						if (mInstances[0] != this)
+						{
+							transform.SetAsLastSibling();
+						}
+					}
+					else
+					{
+						Debug.LogError("Unexpected behaviour in WindowScript.SetSelected");
+					}
 				}
 				else
 				{
-					selectedWindow = null;
+					mSelectedWindow = null;
 				}
 
 				if (IsUICreated())

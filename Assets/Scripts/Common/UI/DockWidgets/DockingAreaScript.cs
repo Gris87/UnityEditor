@@ -118,7 +118,7 @@ namespace Common.UI.DockWidgets
 				}
 				else
 				{
-					string listStr;
+					string listStr = "";
 
 					for (int i = 0; i < value.Count; ++i)
 					{

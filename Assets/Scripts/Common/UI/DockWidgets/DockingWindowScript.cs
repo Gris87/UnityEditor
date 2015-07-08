@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 using Common.UI.Windows;
 
@@ -9,7 +10,7 @@ namespace Common.UI.DockWidgets
 	/// <summary>
 	/// Script that realize docking window behaviour.
 	/// </summary>
-	public class DockingWindowScript : WindowScript
+	public class DockingWindowScript : WindowScript, IPointerDownHandler
 	{
 		/// <summary>
 		/// Gets or sets the dock widget.
@@ -95,6 +96,16 @@ namespace Common.UI.DockWidgets
 			mDockWidget.InsertToDockingArea(mDockingAreaScript);
             #endregion
             #endregion
+		}
+
+		/// <summary>
+		/// Handler for pointer down event.
+		/// </summary>
+		/// <param name="eventData">Pointer data.</param>
+		public void OnPointerDown(PointerEventData eventData)
+		{
+			// TODO: [Major] Do not let to drag via content
+			StartDragging();
 		}
 
 		/// <summary>
