@@ -1,3 +1,4 @@
+Press wheel to close tab
 Docking area looks ugly
 Docking area resizing
 Support for Android
