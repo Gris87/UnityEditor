@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityTranslation;
 
+using Common.UI.Popups;
+
 
 
 namespace Common.UI.DockWidgets
@@ -633,6 +635,16 @@ namespace Common.UI.DockWidgets
 			tabButton.active        = (mSelectedIndex == index) || (dockWidget == DummyDockWidgetScript.instance);
 			tabButton.transition    = Selectable.Transition.None;
             #endregion
+
+			//===========================================================================
+			// ContextMenuScript Component
+			//===========================================================================
+			#region ContextMenuScript Component
+			ContextMenuScript tabContextMenu = tab.AddComponent<ContextMenuScript>();
+			
+			tabContextMenu.sourceObject      = dockWidget;
+			tabContextMenu.onShowContextMenu = OnShowContextMenu;
+			#endregion
             
             //===========================================================================
 			// Image GameObject
@@ -755,6 +767,24 @@ namespace Common.UI.DockWidgets
 			else
 			{
 				Debug.LogError("Dock widget belongs not to this docking group");
+			}
+		}
+
+		/// <summary>
+		/// Handler for show context menu event.
+		/// </summary>
+		/// <param name="sourceObject">Source object.</param>
+		private void OnShowContextMenu(object sourceObject)
+		{
+			DockWidgetScript dockWidget = sourceObject as DockWidgetScript;
+
+			if (dockWidget != null)
+			{
+				// TODO: [Major] Show context menu
+			}
+			else
+			{
+				Debug.LogError("Unexpected behaviour in DockingGroupScript.OnShowContextMenu");
 			}
 		}
 	}
