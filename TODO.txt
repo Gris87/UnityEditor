@@ -4,6 +4,8 @@ Statics starts with s
 Docking area looks ugly
 Docking area resizing
 Support for Android
+Layout manager
+Download system that downloads everything that needed and updates it
 CustomPopup
 Toolbar
 Undo/Redo

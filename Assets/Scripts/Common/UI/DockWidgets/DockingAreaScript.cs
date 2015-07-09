@@ -1297,9 +1297,95 @@ namespace Common.UI.DockWidgets
 					{
 						if (mResizingArea == this)
 						{
-							if (InputControl.GetMouseButtonUp(MouseButton.Left))
+							if (
+								mParent != null
+								&&
+								mParent.mChildren.Count > 1
+							   )
 							{
-								mMouseState = MouseState.NoState;
+								int index = mParent.mChildren.IndexOf(this);
+
+								if (index >= 0)
+								{
+									Vector3[] corners = Utils.GetWindowCorners(transform as RectTransform);
+									
+									float left   = corners[0].x;
+									float top    = corners[0].y;
+									float right  = corners[3].x;
+									float bottom = corners[3].y;
+
+									float mouseX = Mouse.x;
+									float mouseY = Mouse.y;
+									
+									float oldSize = mParent.mSizes[index];
+									float newSize = oldSize;
+
+									switch (mMouseLocation)
+									{
+										case MouseLocation.North:
+										{
+											newSize = ((bottom - mouseY) / (bottom - top)) * oldSize;
+										}
+										break;
+
+										case MouseLocation.South:
+										{
+											newSize = ((mouseY - top)    / (bottom - top)) * oldSize;
+										}
+										break;
+
+										case MouseLocation.West:
+										{
+											newSize = ((right - mouseX)  / (right - left)) * oldSize;
+										}
+										break;
+											
+										case MouseLocation.East:
+										{
+											newSize = ((mouseX - left)   / (right - left)) * oldSize;
+										}
+										break;
+
+										case MouseLocation.Inside:
+										case MouseLocation.Outside:
+										{
+											Debug.LogError("Incorrect mouse state: " + mMouseState);
+										}
+										break;
+
+										default:
+										{
+											Debug.LogError("Unknown mouse state: " + mMouseState);
+										}
+										break;
+									}
+
+									if (newSize < 0.001f)
+									{
+										newSize = 0.001f;
+									}
+									else
+									if (newSize > 1f)
+									{
+										newSize = 1f;
+									}
+
+									mParent.mSizes[index] = newSize;
+									mParent.OnResize();
+									
+									if (InputControl.GetMouseButtonUp(MouseButton.Left))
+									{
+										mMouseState = MouseState.NoState;
+									}
+								}
+								else
+								{
+									Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
+								}
+							}
+							else
+							{
+								Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
 							}
 						}
 					}
