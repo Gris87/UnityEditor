@@ -1,4 +1,6 @@
 All sprites states to resources
+Read only statics
+Statics starts with s
 Docking area looks ugly
 Docking area resizing
 Support for Android

@@ -12,7 +12,31 @@ namespace Common.UI.DockWidgets
 	/// Script that realize docking area behaviour.
 	/// </summary>
 	public class DockingAreaScript : MonoBehaviour
-	{
+	{		
+		/// <summary>
+		/// Mouse location.
+		/// </summary>
+		private enum MouseLocation
+		{
+			  Outside
+			, North
+			, South
+			, West
+			, East
+			, Inside
+		}
+		
+		/// <summary>
+		/// Mouse state.
+		/// </summary>
+		private enum MouseState
+		{
+			  NoState
+			, Resizing
+		}
+
+
+
 		private static readonly float GAP = 3f;
 
 
@@ -29,6 +53,12 @@ namespace Common.UI.DockWidgets
 
 
 		private static List<DockingAreaScript> mInstances = new List<DockingAreaScript>();
+
+		private static int                     mLastUpdate            = -1;
+		private static DockingAreaScript       mResizingArea          = null;
+		private static MouseLocation           mPreviousMouseLocation = MouseLocation.Outside;
+		private static MouseLocation           mMouseLocation         = MouseLocation.Outside;
+		private static MouseState              mMouseState            = MouseState.NoState;
 
 
 
@@ -191,10 +221,47 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		void OnDestroy()
 		{
+			if (mResizingArea == this)
+			{
+				RemoveCursorIfNeeded();
+
+				mResizingArea          = null;
+				mPreviousMouseLocation = MouseLocation.Outside;
+				mMouseLocation         = MouseLocation.Outside;
+				mMouseState            = MouseState.NoState;
+			}
+
 			if (!mInstances.Remove(this))
 			{
 				Debug.LogError("Failed to remove docking area");
 			}
+		}
+
+		/// <summary>
+		/// Removes the cursor if needed.
+		/// </summary>
+		private void RemoveCursorIfNeeded()
+		{
+			if (
+				mMouseLocation == MouseLocation.North
+				||
+				mMouseLocation == MouseLocation.South
+				||
+				mMouseLocation == MouseLocation.West
+				||
+				mMouseLocation == MouseLocation.East
+			   )
+			{
+				RemoveCursor();
+			}
+		}
+		
+		/// <summary>
+		/// Removes the cursor.
+		/// </summary>
+		private void RemoveCursor()
+		{
+			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 		}
 
 		/// <summary>
@@ -1124,6 +1191,194 @@ namespace Common.UI.DockWidgets
             mCachedDragCorners = null;
         }
         
+		/// <summary>
+		/// Update is called once per frame.
+		/// </summary>
+		void Update()
+		{
+			if (
+				mParent != null
+				&&
+				mCachedDragCorners == null
+			   )
+			{
+				switch (mMouseState)
+				{
+					case MouseState.NoState:
+					{
+						if (mLastUpdate != Time.frameCount)
+						{
+							mLastUpdate = Time.frameCount;
+							
+							mResizingArea  = null;
+							mMouseLocation = MouseLocation.Outside;
+						}
+
+						if (mResizingArea == null)
+						{
+							Vector3[] corners = Utils.GetWindowCorners(transform as RectTransform);
+							
+							float left   = corners[0].x - GAP;
+							float top    = corners[0].y - GAP;
+							float right  = corners[3].x + GAP;
+							float bottom = corners[3].y + GAP;
+							
+							float mouseX = Mouse.x;
+							float mouseY = Mouse.y;
+							
+							if (mouseY >= top    && mouseY <= top    + GAP)
+							{
+								if (
+								    mParent.mOrientation == DockingAreaOrientation.Vertical
+								    &&
+								    mParent.mChildren.Count > 1
+								    &&
+								    mParent.mChildren[0] != this
+								   )
+								{
+									mResizingArea  = this;
+									mMouseLocation = MouseLocation.North;
+								}
+							}
+							if (mouseY <= bottom && mouseY >= bottom - GAP)
+							{
+								if (
+									mParent.mOrientation == DockingAreaOrientation.Vertical
+									&&
+									mParent.mChildren.Count > 1
+									&&
+									mParent.mChildren[mParent.mChildren.Count - 1] != this
+								   )
+								{
+									mResizingArea  = this;
+									mMouseLocation = MouseLocation.South;
+								}
+							}
+							else
+							{
+								if (mouseX >= left  && mouseX <= left  + GAP)
+								{
+									if (
+										mParent.mOrientation == DockingAreaOrientation.Horizontal
+										&&
+										mParent.mChildren.Count > 1
+										&&
+										mParent.mChildren[0] != this
+									   )
+									{
+										mResizingArea  = this;
+										mMouseLocation = MouseLocation.West;
+									}
+								}
+								if (mouseX <= right && mouseX >= right - GAP)
+								{
+									if (
+										mParent.mOrientation == DockingAreaOrientation.Horizontal
+										&&
+										mParent.mChildren.Count > 1
+										&&
+										mParent.mChildren[mParent.mChildren.Count - 1] != this
+									   )
+									{
+										mResizingArea  = this;
+										mMouseLocation = MouseLocation.East;
+									}
+								}
+								else
+								{
+									mMouseLocation = MouseLocation.Inside;
+								}
+							}
+						}
+					}
+					break;
+
+					case MouseState.Resizing:
+					{
+						if (mResizingArea == this)
+						{
+							if (InputControl.GetMouseButtonUp(MouseButton.Left))
+							{
+								mMouseState = MouseState.NoState;
+							}
+						}
+					}
+					break;
+
+					default:
+					{
+						Debug.LogError("Unknown mouse state: " + mMouseState);
+					}
+					break;
+				}
+			}
+		}
+
+		/// <summary>
+		/// LateUpdate is called once per frame after all Updates.
+		/// </summary>
+		void LateUpdate()
+		{
+			if (mPreviousMouseLocation != mMouseLocation)
+			{
+				MouseLocation oldLocation = mPreviousMouseLocation;
+				mPreviousMouseLocation    = mMouseLocation;
+
+				if (
+					(oldLocation != MouseLocation.North   || mMouseLocation != MouseLocation.South)
+					&&
+					(oldLocation != MouseLocation.South   || mMouseLocation != MouseLocation.North)
+					&& 
+					(oldLocation != MouseLocation.East    || mMouseLocation != MouseLocation.West)
+					&&
+					(oldLocation != MouseLocation.West    || mMouseLocation != MouseLocation.East)
+					&&
+					(oldLocation != MouseLocation.Inside  || mMouseLocation != MouseLocation.Outside)
+					&&
+					(oldLocation != MouseLocation.Outside || mMouseLocation != MouseLocation.Inside)
+				   )
+				{	
+					switch (mMouseLocation)
+					{
+						case MouseLocation.North:
+						case MouseLocation.South:
+						{
+							Cursor.SetCursor(Assets.Cursors.northSouth, new Vector2(16f, 16f), CursorMode.Auto);
+						}
+						break;
+						
+						case MouseLocation.West:
+						case MouseLocation.East:
+						{
+							Cursor.SetCursor(Assets.Cursors.eastWest, new Vector2(16f, 16f), CursorMode.Auto);
+						}
+						break;
+										
+						case MouseLocation.Inside:
+						case MouseLocation.Outside:
+						{
+							RemoveCursor();
+						}
+						break;
+						
+						default:
+						{
+							Debug.LogError("Unknown mouse location: " + mMouseLocation);
+						}
+						break;
+					}
+				}
+			}
+
+			if (mResizingArea == this)
+			{
+				if (InputControl.GetMouseButtonDown(MouseButton.Left))
+				{
+					mMouseState = MouseState.Resizing;
+				}
+			}
+		}
+
         /// <summary>
         /// Inserts the specified dock widget.
         /// </summary>
