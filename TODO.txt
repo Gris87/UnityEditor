@@ -1,3 +1,4 @@
+All sprites states to resources
 Docking area looks ugly
 Docking area resizing
 Support for Android

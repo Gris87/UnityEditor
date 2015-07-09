@@ -2316,7 +2316,7 @@ namespace Common.UI.Windows
 		/// <summary>
 		/// Handler for click event on mimimize button.
 		/// </summary>
-		private void OnMinimizeClicked()
+		protected void OnMinimizeClicked()
 		{
 			if (mState != WindowState.Minimized) 
 			{
@@ -2329,9 +2329,9 @@ namespace Common.UI.Windows
 		}
 
 		/// <summary>
-		/// Handler for click event on mimimize button.
+		/// Handler for click event on maximize button.
 		/// </summary>
-		private void OnMaximizeClicked()
+		protected void OnMaximizeClicked()
 		{
 			if (mState != WindowState.Maximized) 
 			{

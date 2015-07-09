@@ -11,6 +11,47 @@ using Common.UI.Popups;
 
 namespace Common.UI.DockWidgets
 {
+	#region Internal namespace
+	namespace Internal
+	{
+		/// <summary>
+		/// Docking group common things.
+		/// </summary>
+		static class DockingGroupCommon
+		{
+			public static SpriteState unlockedButtonSpriteState;
+			public static SpriteState lockedButtonSpriteState;
+			public static SpriteState contextMenuButtonSpriteState;
+			
+			
+			
+			/// <summary>
+			/// Initializes the <see cref="Common.UI.DockWidgets.Internal.DockingGroupCommon"/> class.
+			/// </summary>
+			static DockingGroupCommon()
+			{
+				unlockedButtonSpriteState    = new SpriteState();
+				lockedButtonSpriteState      = new SpriteState();
+				contextMenuButtonSpriteState = new SpriteState();
+				
+				unlockedButtonSpriteState.disabledSprite       = Assets.DockWidgets.Textures.unlockedButtonDisabled;
+				unlockedButtonSpriteState.highlightedSprite    = Assets.DockWidgets.Textures.unlockedButton;
+				unlockedButtonSpriteState.pressedSprite        = Assets.DockWidgets.Textures.unlockedButton;
+
+				lockedButtonSpriteState.disabledSprite         = Assets.DockWidgets.Textures.lockedButton;
+				lockedButtonSpriteState.highlightedSprite      = Assets.DockWidgets.Textures.lockedButton;
+				lockedButtonSpriteState.pressedSprite          = Assets.DockWidgets.Textures.lockedButton;
+				
+				contextMenuButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.contextMenuButton;
+				contextMenuButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.contextMenuButton;
+				contextMenuButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.contextMenuButton;
+			}
+		}
+	}
+	#endregion
+
+
+
 	/// <summary>
 	/// Script that realize docking group behaviour.
 	/// </summary>
@@ -132,6 +173,96 @@ namespace Common.UI.DockWidgets
 			mTabsTransform = tabs.AddComponent<RectTransform>();
 			Utils.AlignRectTransformTopStretch(mTabsTransform, 16f);
             #endregion
+
+			//***************************************************************************
+			// ContextMenu GameObject
+			//***************************************************************************
+			#region ContextMenu GameObject
+			GameObject contextMenuGameObject = new GameObject("ContextMenu");
+			Utils.InitUIObject(contextMenuGameObject, tabs.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform contextMenuTransform = contextMenuGameObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopRight(contextMenuTransform, 14f, 5f, 5f, 10f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			contextMenuGameObject.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image contextMenuImage = contextMenuGameObject.AddComponent<Image>();
+			
+			contextMenuImage.sprite = Assets.DockWidgets.Textures.contextMenuButton;
+			contextMenuImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button contextMenuButton = contextMenuGameObject.AddComponent<Button>();
+			
+			contextMenuButton.targetGraphic = contextMenuImage;
+			contextMenuButton.transition    = Selectable.Transition.SpriteSwap;
+			contextMenuButton.spriteState   = Internal.DockingGroupCommon.contextMenuButtonSpriteState;
+			contextMenuButton.onClick.AddListener(OnContextMenuButtonClicked);
+			#endregion
+			#endregion
+
+			//***************************************************************************
+			// Lock GameObject
+			//***************************************************************************
+			#region Lock GameObject
+			GameObject lockGameObject = new GameObject("Lock");
+			Utils.InitUIObject(lockGameObject, tabs.transform);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform lockTransform = lockGameObject.AddComponent<RectTransform>();
+			Utils.AlignRectTransformTopRight(lockTransform, 7f, 9f, 25f, 6f);
+			#endregion
+			
+			//===========================================================================
+			// CanvasRenderer Component
+			//===========================================================================
+			#region CanvasRenderer Component
+			lockGameObject.AddComponent<CanvasRenderer>();
+			#endregion
+			
+			//===========================================================================
+			// Image Component
+			//===========================================================================
+			#region Image Component
+			Image lockImage = lockGameObject.AddComponent<Image>();
+			
+			lockImage.sprite = Assets.DockWidgets.Textures.unlockedButton;
+			lockImage.type   = Image.Type.Sliced;
+			#endregion
+			
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button lockButton = lockGameObject.AddComponent<Button>();
+			
+			lockButton.targetGraphic = lockImage;
+			lockButton.transition    = Selectable.Transition.SpriteSwap;
+			lockButton.spriteState   = Internal.DockingGroupCommon.unlockedButtonSpriteState;
+			lockButton.onClick.AddListener(OnLockButtonClicked);
+			#endregion
+			#endregion
             #endregion
             
             //===========================================================================
@@ -781,11 +912,30 @@ namespace Common.UI.DockWidgets
 			if (dockWidget != null)
 			{
 				// TODO: [Major] Show context menu
+				AppUtils.ShowContributeMessage();
 			}
 			else
 			{
 				Debug.LogError("Unexpected behaviour in DockingGroupScript.OnShowContextMenu");
 			}
+		}
+
+		/// <summary>
+		/// Handler for lock button click event.
+		/// </summary>
+		private void OnLockButtonClicked()
+		{
+			// TODO: [Major] Implement DockingGroupScript.OnLockButtonClicked
+			AppUtils.ShowContributeMessage();
+		}
+
+		/// <summary>
+		/// Handler for context menu button click event.
+		/// </summary>
+		private void OnContextMenuButtonClicked()
+		{
+			// TODO: [Major] Implement DockingGroupScript.OnContextMenuButtonClicked
+			AppUtils.ShowContributeMessage();
 		}
 	}
 }
