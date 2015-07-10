@@ -29,12 +29,12 @@ namespace Common.UI.DockWidgets
 				maximizeButtonSpriteState = new SpriteState();
 				closeButtonSpriteState    = new SpriteState();
 				
-				maximizeButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.maximizeButton;
-				maximizeButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.maximizeButton;
+				maximizeButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.maximizeButtonDisabled;
+				maximizeButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.maximizeButtonHighlighted;
 				maximizeButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.maximizeButtonPressed;
 				
-				closeButtonSpriteState.disabledSprite       = Assets.DockWidgets.Textures.closeButton;
-				closeButtonSpriteState.highlightedSprite    = Assets.DockWidgets.Textures.closeButton;
+				closeButtonSpriteState.disabledSprite       = Assets.DockWidgets.Textures.closeButtonDisabled;
+				closeButtonSpriteState.highlightedSprite    = Assets.DockWidgets.Textures.closeButtonHighlighted;
 				closeButtonSpriteState.pressedSprite        = Assets.DockWidgets.Textures.closeButtonPressed;
 			}
 		}

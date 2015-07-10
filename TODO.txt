@@ -1,4 +1,5 @@
 All sprites states to resources
+Sprite states for docking group tag
 Read only statics
 Statics starts with s
 Docking area looks ugly

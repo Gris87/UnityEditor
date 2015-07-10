@@ -266,7 +266,7 @@ namespace Common.UI.Windows
 				if (mState != value)
 				{
 					bool wasFramePresent = IsFramePresent();
-					
+
 					mState = value;
 
 					if (IsUICreated())
@@ -2723,7 +2723,7 @@ namespace Common.UI.Windows
 									}
 									else
 									{
-										if (mouseY <= mBorderTop - MAXIMIZED_OFFSET)
+										if (mouseY <= mBorderTop - SHADOW_WIDTH - MAXIMIZED_OFFSET)
 										{
 											mMouseLocation = MouseLocation.Header;
 										}

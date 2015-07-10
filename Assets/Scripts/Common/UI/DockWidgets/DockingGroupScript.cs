@@ -35,16 +35,16 @@ namespace Common.UI.DockWidgets
 				contextMenuButtonSpriteState = new SpriteState();
 				
 				unlockedButtonSpriteState.disabledSprite       = Assets.DockWidgets.Textures.unlockedButtonDisabled;
-				unlockedButtonSpriteState.highlightedSprite    = Assets.DockWidgets.Textures.unlockedButton;
-				unlockedButtonSpriteState.pressedSprite        = Assets.DockWidgets.Textures.unlockedButton;
+				unlockedButtonSpriteState.highlightedSprite    = Assets.DockWidgets.Textures.unlockedButtonHighlighted;
+				unlockedButtonSpriteState.pressedSprite        = Assets.DockWidgets.Textures.unlockedButtonPressed;
 
-				lockedButtonSpriteState.disabledSprite         = Assets.DockWidgets.Textures.lockedButton;
-				lockedButtonSpriteState.highlightedSprite      = Assets.DockWidgets.Textures.lockedButton;
-				lockedButtonSpriteState.pressedSprite          = Assets.DockWidgets.Textures.lockedButton;
+				lockedButtonSpriteState.disabledSprite         = Assets.DockWidgets.Textures.lockedButtonDisabled;
+				lockedButtonSpriteState.highlightedSprite      = Assets.DockWidgets.Textures.lockedButtonHighlighted;
+				lockedButtonSpriteState.pressedSprite          = Assets.DockWidgets.Textures.lockedButtonPressed;
 				
-				contextMenuButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.contextMenuButton;
-				contextMenuButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.contextMenuButton;
-				contextMenuButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.contextMenuButton;
+				contextMenuButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.contextMenuButtonDisabled;
+				contextMenuButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.contextMenuButtonHighlighted;
+				contextMenuButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.contextMenuButtonPressed;
 			}
 		}
 	}

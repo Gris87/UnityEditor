@@ -918,19 +918,31 @@ public static class Assets
 		/// </summary>
 		public static class Textures
 		{
-			public static Sprite tab                    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Tab");
-			public static Sprite tabActive              = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActive");
-			public static Sprite tabSelected            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabSelected");
-			public static Sprite icon                   = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Icon");
-			public static Sprite pageBackground         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/PageBackground");
-			public static Sprite maximizeButton         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButton");
-			public static Sprite maximizeButtonPressed  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonPressed");
-			public static Sprite closeButton            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButton");
-			public static Sprite closeButtonPressed     = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonPressed");
-			public static Sprite unlockedButton         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButton");
-			public static Sprite unlockedButtonDisabled = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonDisabled");
-			public static Sprite lockedButton           = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButton");
-			public static Sprite contextMenuButton      = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButton");
+			public static Sprite tab                          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Tab");
+			public static Sprite tabActive                    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActive");
+			public static Sprite tabSelected                  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabSelected");
+			public static Sprite icon                         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Icon");
+			public static Sprite pageBackground               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/PageBackground");
+			public static Sprite maximizeButton               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButton");
+			public static Sprite maximizeButtonDisabled       = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonDisabled");
+			public static Sprite maximizeButtonHighlighted    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonHighlighted");
+			public static Sprite maximizeButtonPressed        = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonPressed");
+			public static Sprite closeButton                  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButton");
+			public static Sprite closeButtonDisabled          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonDisabled");
+			public static Sprite closeButtonHighlighted       = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonHighlighted");
+			public static Sprite closeButtonPressed           = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonPressed");
+			public static Sprite unlockedButton               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButton");
+			public static Sprite unlockedButtonDisabled       = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonDisabled");
+			public static Sprite unlockedButtonHighlighted    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonHighlighted");
+			public static Sprite unlockedButtonPressed        = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonPressed");
+			public static Sprite lockedButton                 = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButton");
+			public static Sprite lockedButtonDisabled         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButtonDisabled");
+			public static Sprite lockedButtonHighlighted      = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButtonHighlighted");
+			public static Sprite lockedButtonPressed          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButtonPressed");
+			public static Sprite contextMenuButton            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButton");
+			public static Sprite contextMenuButtonDisabled    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButtonDisabled");
+			public static Sprite contextMenuButtonHighlighted = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButtonHighlighted");
+			public static Sprite contextMenuButtonPressed     = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButtonPressed");
 		}
 	}
 	#endregion
