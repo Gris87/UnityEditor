@@ -37,7 +37,8 @@ namespace Common.UI.DockWidgets
 
 
 
-		private static readonly float GAP = 3f;
+		private static readonly float GAP          = 3f;
+		private static readonly float MINIMUM_SIZE = 0.1f;
 
 
 
@@ -125,7 +126,15 @@ namespace Common.UI.DockWidgets
 
 						foreach (float size in value)
                         {
-							newSizes.Add(size / total);
+							float newSize = size / total;
+
+							if (newSize < MINIMUM_SIZE)
+							{
+								Debug.LogError("New size " + newSize + " is less than minimum value: " + MINIMUM_SIZE);
+								return;
+							}
+
+							newSizes.Add(newSize);
 						}
 
 						mSizes = newSizes;
@@ -1349,25 +1358,107 @@ namespace Common.UI.DockWidgets
 										case MouseLocation.Inside:
 										case MouseLocation.Outside:
 										{
-											Debug.LogError("Incorrect mouse state: " + mMouseState);
+											Debug.LogError("Incorrect mouse location: " + mMouseLocation);
 										}
 										break;
 
 										default:
 										{
-											Debug.LogError("Unknown mouse state: " + mMouseState);
+											Debug.LogError("Unknown mouse location: " + mMouseLocation);
 										}
 										break;
 									}
 
-									if (newSize < 0.001f)
+									if (newSize < MINIMUM_SIZE)
 									{
-										newSize = 0.001f;
+										newSize = MINIMUM_SIZE;
 									}
 									else
 									if (newSize > 1f)
 									{
 										newSize = 1f;
+									}
+
+									float delta = newSize - oldSize;
+
+									switch (mMouseLocation)
+									{
+										case MouseLocation.North:
+										case MouseLocation.West:
+										{
+											for (int i = index - 1; i >= 0; --i)
+											{
+												float nextSize = mParent.mSizes[i] - delta;
+
+												if (nextSize < MINIMUM_SIZE)
+												{
+													nextSize = MINIMUM_SIZE;
+												}
+												else
+												if (nextSize > 1f)
+												{
+													nextSize = 1f;
+												}
+
+												float localDelta  = mParent.mSizes[i] - nextSize;
+												mParent.mSizes[i] = nextSize;
+
+												delta -= localDelta;
+
+												if (delta == 0f)
+												{
+													break;
+												}
+											}
+
+											newSize -= delta;
+										}
+										break;
+										
+										case MouseLocation.South:
+										case MouseLocation.East:
+										{
+											for (int i = index + 1; i < mParent.mChildren.Count; ++i)
+											{
+												float nextSize = mParent.mSizes[i] - delta;
+												
+												if (nextSize < MINIMUM_SIZE)
+												{
+													nextSize = MINIMUM_SIZE;
+												}
+												else
+												if (nextSize > 1f)
+												{
+													nextSize = 1f;
+												}
+												
+												float localDelta  = mParent.mSizes[i] - nextSize;
+												mParent.mSizes[i] = nextSize;
+												
+												delta -= localDelta;
+												
+												if (delta == 0f)
+												{
+													break;
+												}
+											}
+											
+											newSize -= delta;
+										}
+										break;										
+										
+										case MouseLocation.Inside:
+										case MouseLocation.Outside:
+										{
+											Debug.LogError("Incorrect mouse location: " + mMouseLocation);
+										}
+										break;
+										
+										default:
+										{
+											Debug.LogError("Unknown mouse location: " + mMouseLocation);
+										}
+										break;
 									}
 
 									mParent.mSizes[index] = newSize;

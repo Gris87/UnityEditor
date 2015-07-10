@@ -14,7 +14,7 @@ namespace Common.UI.DockWidgets
 	/// <summary>
 	/// Button component for docking group tab.
 	/// </summary>
-	public class DockingTabButton : Button, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+	public class DockingTabButton : Button, IBeginDragHandler, IDragHandler, IEndDragHandler
 	{
 		/// <summary>
 		/// Gets or sets the dock widget.
@@ -111,8 +111,10 @@ namespace Common.UI.DockWidgets
 		/// Handler for pointer down event.
 		/// </summary>
 		/// <param name="eventData">Pointer data.</param>
-		public void OnPointerDown(PointerEventData eventData)
+		public override void OnPointerDown(PointerEventData eventData)
 		{
+			base.OnPointerDown(eventData);
+
 			if (eventData.button == PointerEventData.InputButton.Middle)
 			{
 				mDockWidget.Destroy();
