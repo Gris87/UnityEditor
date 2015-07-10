@@ -1331,153 +1331,261 @@ namespace Common.UI.DockWidgets
 
 								if (index >= 0)
 								{
-									Vector3[] corners = Utils.GetWindowCorners(transform as RectTransform);
-									
-									float left   = corners[0].x;
-									float top    = corners[0].y;
-									float right  = corners[3].x;
-									float bottom = corners[3].y;
+									MouseLocation usedLocation = mMouseLocation;
 
 									float mouseX = Mouse.x;
 									float mouseY = Mouse.y;
-									
-									float oldSize = mParent.mSizes[index];
-									float newSize = oldSize;
 
-									switch (mMouseLocation)
+									float oldWidth  = 0f;
+									float oldHeight = 0f;
+									float newWidth  = 0f;									
+								    float newHeight = 0f;
+
+									float oldSize = 0f;
+									float newSize = 0f;
+
+									for (int attempt = 1; attempt <= 2; ++attempt)
 									{
-										case MouseLocation.North:
-										{
-											newSize = ((bottom - mouseY) / (bottom - top)) * oldSize;
-										}
-										break;
+										Vector3[] corners = Utils.GetWindowCorners(mParent.mChildren[index].transform as RectTransform);
+										
+										float left   = corners[0].x;
+										float top    = corners[0].y;
+										float right  = corners[3].x;
+										float bottom = corners[3].y;
 
-										case MouseLocation.South:
-										{
-											newSize = ((mouseY - top)    / (bottom - top)) * oldSize;
-										}
-										break;
+										oldWidth  = right  - left;
+										oldHeight = bottom - top;
+										newWidth  = oldWidth;
+										newHeight = oldHeight;
+										
+										oldSize = mParent.mSizes[index];
+										newSize = oldSize;
 
-										case MouseLocation.West:
+										switch (usedLocation)
 										{
-											newSize = ((right - mouseX)  / (right - left)) * oldSize;
-										}
-										break;
-											
-										case MouseLocation.East:
-										{
-											newSize = ((mouseX - left)   / (right - left)) * oldSize;
-										}
-										break;
-
-										case MouseLocation.Inside:
-										case MouseLocation.Outside:
-										{
-											Debug.LogError("Incorrect mouse location: " + mMouseLocation);
-										}
-										break;
-
-										default:
-										{
-											Debug.LogError("Unknown mouse location: " + mMouseLocation);
-										}
-										break;
-									}
-
-									if (newSize < MINIMUM_SIZE)
-									{
-										newSize = MINIMUM_SIZE;
-									}
-									else
-									if (newSize > 1f)
-									{
-										newSize = 1f;
-									}
-
-									float delta = newSize - oldSize;
-
-									switch (mMouseLocation)
-									{
-										case MouseLocation.North:
-										case MouseLocation.West:
-										{
-											for (int i = index - 1; i >= 0; --i)
+											case MouseLocation.North:
 											{
-												float nextSize = mParent.mSizes[i] - delta;
+												newHeight = bottom - mouseY;
 
-												if (nextSize < MINIMUM_SIZE)
+												newSize = newHeight / oldHeight * oldSize;
+											}
+											break;
+											
+											case MouseLocation.South:
+											{
+												newHeight = mouseY - top;
+
+												newSize = newHeight / oldHeight * oldSize;
+											}
+											break;
+											
+											case MouseLocation.West:
+											{
+												newWidth = right - mouseX;
+
+												newSize = newWidth / oldWidth * oldSize;
+											}
+											break;
+											
+											case MouseLocation.East:
+											{
+												newWidth = mouseX - left;
+
+												newSize = newWidth / oldWidth * oldSize;
+											}
+											break;
+											
+											case MouseLocation.Inside:
+											case MouseLocation.Outside:
+											{
+												Debug.LogError("Incorrect mouse location: " + usedLocation);
+											}
+											break;
+											
+											default:
+											{
+												Debug.LogError("Unknown mouse location: " + usedLocation);
+											}
+											break;
+										}
+
+										if (
+											newWidth  >= oldWidth
+											&&
+											newHeight >= oldHeight
+										   )
+										{
+											break;
+										}
+
+										if (attempt == 2)
+										{
+											Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
+											return;
+										}
+
+										switch (usedLocation)
+										{
+											case MouseLocation.North:
+											{
+												usedLocation = MouseLocation.South;
+
+												if (index > 0)
 												{
-													nextSize = MINIMUM_SIZE;
+													--index;
 												}
 												else
-												if (nextSize > 1f)
 												{
-													nextSize = 1f;
-												}
-
-												float localDelta  = mParent.mSizes[i] - nextSize;
-												mParent.mSizes[i] = nextSize;
-
-												delta -= localDelta;
-
-												if (delta == 0f)
-												{
-													break;
+													Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
+													return;
 												}
 											}
-
-											newSize -= delta;
-										}
-										break;
-										
-										case MouseLocation.South:
-										case MouseLocation.East:
-										{
-											for (int i = index + 1; i < mParent.mChildren.Count; ++i)
+											break;
+											
+											case MouseLocation.South:
 											{
-												float nextSize = mParent.mSizes[i] - delta;
-												
-												if (nextSize < MINIMUM_SIZE)
+												usedLocation = MouseLocation.North;
+
+												if (index < mParent.mChildren.Count - 1)
 												{
-													nextSize = MINIMUM_SIZE;
+													++index;
 												}
 												else
-												if (nextSize > 1f)
 												{
-													nextSize = 1f;
-												}
-												
-												float localDelta  = mParent.mSizes[i] - nextSize;
-												mParent.mSizes[i] = nextSize;
-												
-												delta -= localDelta;
-												
-												if (delta == 0f)
-												{
-													break;
+													Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
+													return;
 												}
 											}
+											break;
 											
-											newSize -= delta;
+											case MouseLocation.West:
+											{
+												usedLocation = MouseLocation.East;
+
+												if (index > 0)
+												{
+													--index;
+												}
+												else
+												{
+													Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
+													return;
+												}
+											}
+											break;
+											
+											case MouseLocation.East:
+											{
+												usedLocation = MouseLocation.West;
+
+												if (index < mParent.mChildren.Count - 1)
+												{
+													++index;
+												}
+												else
+												{
+													Debug.LogError("Unexpected behaviour in DockingAreaScript.Update");
+													return;
+												}
+											}
+											break;
+											
+											case MouseLocation.Inside:
+											case MouseLocation.Outside:
+											{
+												Debug.LogError("Incorrect mouse location: " + usedLocation);
+											}
+											break;
+											
+											default:
+											{
+												Debug.LogError("Unknown mouse location: " + usedLocation);
+											}
+											break;
 										}
-										break;										
-										
-										case MouseLocation.Inside:
-										case MouseLocation.Outside:
-										{
-											Debug.LogError("Incorrect mouse location: " + mMouseLocation);
-										}
-										break;
-										
-										default:
-										{
-											Debug.LogError("Unknown mouse location: " + mMouseLocation);
-										}
-										break;
 									}
 
-									mParent.mSizes[index] = newSize;
-									mParent.OnResize();
+									if (
+										newWidth  > oldWidth
+										||
+										newHeight > oldHeight
+									   )
+									{
+										float delta = newSize - oldSize;
+
+										switch (usedLocation)
+										{
+											case MouseLocation.North:
+											case MouseLocation.West:
+											{
+												for (int i = index - 1; i >= 0; --i)
+												{
+													float nextSize = mParent.mSizes[i] - delta;
+
+													if (nextSize < MINIMUM_SIZE)
+													{
+														nextSize = MINIMUM_SIZE;
+													}
+
+													float localDelta  = mParent.mSizes[i] - nextSize;
+													mParent.mSizes[i] = nextSize;
+
+													delta -= localDelta;
+
+													if (delta == 0f)
+													{
+														break;
+													}
+												}
+
+												newSize -= delta;
+											}
+											break;
+											
+											case MouseLocation.South:
+											case MouseLocation.East:
+											{
+												for (int i = index + 1; i < mParent.mChildren.Count; ++i)
+												{
+													float nextSize = mParent.mSizes[i] - delta;
+													
+													if (nextSize < MINIMUM_SIZE)
+													{
+														nextSize = MINIMUM_SIZE;
+													}
+													
+													float localDelta  = mParent.mSizes[i] - nextSize;
+													mParent.mSizes[i] = nextSize;
+													
+													delta -= localDelta;
+													
+													if (delta == 0f)
+													{
+														break;
+													}
+												}
+												
+												newSize -= delta;
+											}
+											break;										
+											
+											case MouseLocation.Inside:
+											case MouseLocation.Outside:
+											{
+												Debug.LogError("Incorrect mouse location: " + usedLocation);
+											}
+											break;
+											
+											default:
+											{
+												Debug.LogError("Unknown mouse location: " + usedLocation);
+											}
+											break;
+										}
+
+										mParent.mSizes[index] = newSize;
+										mParent.OnResize();
+									}
 									
 									if (InputControl.GetMouseButtonUp(MouseButton.Left))
 									{
