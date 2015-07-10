@@ -603,7 +603,7 @@ namespace UI.Windows.MainWindow.MainMenu
 
 			mButtonSpriteState = new SpriteState();
 
-			mButtonSpriteState.disabledSprite    = Assets.Windows.MainWindow.MainMenu.Textures.button;
+			mButtonSpriteState.disabledSprite    = Assets.Windows.MainWindow.MainMenu.Textures.buttonDisabled;
 			mButtonSpriteState.highlightedSprite = Assets.Windows.MainWindow.MainMenu.Textures.buttonHighlighted;
 			mButtonSpriteState.pressedSprite     = Assets.Windows.MainWindow.MainMenu.Textures.buttonPressed;
 

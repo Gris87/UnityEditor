@@ -34,7 +34,7 @@ namespace Common.UI.Popups
 				
 				buttonSpriteState.disabledSprite            = Assets.Popups.Textures.button;
 				buttonSpriteState.highlightedSprite         = Assets.Popups.Textures.buttonHighlighted;
-				buttonSpriteState.pressedSprite             = Assets.Popups.Textures.buttonHighlighted;
+				buttonSpriteState.pressedSprite             = Assets.Popups.Textures.buttonPressed;
 				
 				buttonDisabledSpriteState.disabledSprite    = Assets.Popups.Textures.button;
 				buttonDisabledSpriteState.highlightedSprite = Assets.Popups.Textures.buttonDisabled;

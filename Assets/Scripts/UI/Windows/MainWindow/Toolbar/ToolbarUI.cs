@@ -72,33 +72,33 @@ namespace UI.Windows.MainWindow.Toolbar
 
 
 
-			mLeftButtonSpriteState.disabledSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton;
-			mLeftButtonSpriteState.highlightedSprite         = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton;
+			mLeftButtonSpriteState.disabledSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonDisabled;
+			mLeftButtonSpriteState.highlightedSprite         = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonHighlighted;
 			mLeftButtonSpriteState.pressedSprite             = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonPressed;
 
-			mLeftButtonActiveSpriteState.disabledSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActive;
-			mLeftButtonActiveSpriteState.highlightedSprite   = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActive;
+			mLeftButtonActiveSpriteState.disabledSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveDisabled;
+			mLeftButtonActiveSpriteState.highlightedSprite   = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveHighlighted;
 			mLeftButtonActiveSpriteState.pressedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActivePressed;
 
-			mMiddleButtonSpriteState.disabledSprite          = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton;
-			mMiddleButtonSpriteState.highlightedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton;
+			mMiddleButtonSpriteState.disabledSprite          = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonDisabled;
+			mMiddleButtonSpriteState.highlightedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonHighlighted;
 			mMiddleButtonSpriteState.pressedSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonPressed;
 			
-			mMiddleButtonActiveSpriteState.disabledSprite    = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActive;
-			mMiddleButtonActiveSpriteState.highlightedSprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActive;
+			mMiddleButtonActiveSpriteState.disabledSprite    = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveDisabled;
+			mMiddleButtonActiveSpriteState.highlightedSprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveHighlighted;
 			mMiddleButtonActiveSpriteState.pressedSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActivePressed;
 			  
-			mRightButtonSpriteState.disabledSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton;
-			mRightButtonSpriteState.highlightedSprite        = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton;
+			mRightButtonSpriteState.disabledSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonDisabled;
+			mRightButtonSpriteState.highlightedSprite        = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonHighlighted;
 			mRightButtonSpriteState.pressedSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonPressed;
 			
-			mRightButtonActiveSpriteState.disabledSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActive;
-			mRightButtonActiveSpriteState.highlightedSprite  = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActive;
+			mRightButtonActiveSpriteState.disabledSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveDisabled;
+			mRightButtonActiveSpriteState.highlightedSprite  = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveHighlighted;
 			mRightButtonActiveSpriteState.pressedSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActivePressed;
 
-			mPopupSpriteState.disabledSprite                 = Assets.Windows.MainWindow.Toolbar.Textures.popupButton;
-			mPopupSpriteState.highlightedSprite              = Assets.Windows.MainWindow.Toolbar.Textures.popupButton;
-			mPopupSpriteState.pressedSprite                  = Assets.Windows.MainWindow.Toolbar.Textures.popupButton;
+			mPopupSpriteState.disabledSprite                 = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonDisabled;
+			mPopupSpriteState.highlightedSprite              = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonHighlighted;
+			mPopupSpriteState.pressedSprite                  = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonPressed;
 		}
 
 		/// <summary>
