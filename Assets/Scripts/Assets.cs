@@ -936,8 +936,13 @@ public static class Assets
 		public static class Textures
 		{
 			public static Sprite tab                          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Tab");
+			public static Sprite tabDisabled                  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabDisabled");
+			public static Sprite tabHighlighted               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabHighlighted");
+			public static Sprite tabPressed                   = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabPressed");
 			public static Sprite tabActive                    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActive");
-			public static Sprite tabSelected                  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabSelected");
+			public static Sprite tabActiveDisabled            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActiveDisabled");
+			public static Sprite tabActiveHighlighted         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActiveHighlighted");
+			public static Sprite tabActivePressed             = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActivePressed");
 			public static Sprite icon                         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Icon");
 			public static Sprite pageBackground               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/PageBackground");
 			public static Sprite maximizeButton               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButton");

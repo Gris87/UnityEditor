@@ -1,5 +1,4 @@
-All sprites states to resources
-Sprite states for docking group tag
+Limit tab width on dragging
 Read only statics
 Statics starts with s
 Docking area looks ugly

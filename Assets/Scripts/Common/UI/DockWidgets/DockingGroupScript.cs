@@ -761,11 +761,10 @@ namespace Common.UI.DockWidgets
 			#region DockingTabButton Component
 			DockingTabButton tabButton = tab.AddComponent<DockingTabButton>();
 
-			tabButton.dockWidget    = dockWidget;
 			tabButton.targetGraphic = tabImage;
+			tabButton.dockWidget    = dockWidget;
 			tabButton.active        = (mSelectedIndex == index) || (dockWidget == DummyDockWidgetScript.instance);
-			tabButton.transition    = Selectable.Transition.None;
-            #endregion
+			#endregion
 
 			//===========================================================================
 			// ContextMenuScript Component

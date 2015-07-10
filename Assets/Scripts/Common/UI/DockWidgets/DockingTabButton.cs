@@ -11,6 +11,41 @@ using Common.UI.Windows;
 
 namespace Common.UI.DockWidgets
 {
+	#region Internal namespace
+	namespace Internal
+	{
+		/// <summary>
+		/// Docking tab common things.
+		/// </summary>
+		static class DockingTabCommon
+		{
+			public static SpriteState buttonSpriteState;
+			public static SpriteState activeButtonSpriteState;
+			
+			
+			
+			/// <summary>
+			/// Initializes the <see cref="Common.UI.DockWidgets.Internal.DockingTabCommon"/> class.
+			/// </summary>
+			static DockingTabCommon()
+			{
+				buttonSpriteState       = new SpriteState();
+				activeButtonSpriteState = new SpriteState();
+
+				buttonSpriteState.disabledSprite          = Assets.DockWidgets.Textures.tabDisabled;
+				buttonSpriteState.highlightedSprite       = Assets.DockWidgets.Textures.tabHighlighted;
+				buttonSpriteState.pressedSprite           = Assets.DockWidgets.Textures.tabPressed;
+
+				activeButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.tabActiveDisabled;
+				activeButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.tabActiveHighlighted;
+				activeButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.tabActivePressed;
+			}
+		}
+	}
+	#endregion
+
+
+
 	/// <summary>
 	/// Button component for docking group tab.
 	/// </summary>
@@ -52,7 +87,6 @@ namespace Common.UI.DockWidgets
 
 		private DockWidgetScript mDockWidget;
 		private bool             mActive;
-		private bool             mSelected;
 
 		List<DockingAreaScript> mDockingAreas;
 
@@ -64,9 +98,10 @@ namespace Common.UI.DockWidgets
 		public DockingTabButton()
 			: base()
 		{
+			transition = Selectable.Transition.SpriteSwap;
+
 			mDockWidget = null;
 			mActive     = false;
-			mSelected   = false;
 
 			mDockingAreas = null;
 
@@ -80,30 +115,6 @@ namespace Common.UI.DockWidgets
 		{
 			base.Start();
 
-			UpdateImage();
-		}
-
-		/// <summary>
-		/// Handler for select event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public override void OnSelect(BaseEventData eventData)
-		{
-			base.OnSelect(eventData);
-
-			mSelected = true;
-			UpdateImage();
-		}
-
-		/// <summary>
-		/// Handler for deselect event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public override void OnDeselect(BaseEventData eventData)
-		{
-			base.OnDeselect(eventData);
-
-			mSelected = false;
 			UpdateImage();
 		}
 
@@ -345,18 +356,13 @@ namespace Common.UI.DockWidgets
 		{
 			if (mActive)
 			{
-				if (mSelected)
-				{
-					image.sprite = Assets.DockWidgets.Textures.tabSelected;
-				}
-				else
-				{
-					image.sprite = Assets.DockWidgets.Textures.tabActive;
-				}
+				image.sprite = Assets.DockWidgets.Textures.tabActive;
+				spriteState = Internal.DockingTabCommon.activeButtonSpriteState;
 			}
 			else
 			{
 				image.sprite = Assets.DockWidgets.Textures.tab;
+				spriteState = Internal.DockingTabCommon.buttonSpriteState;
 			}
 		}
 	}
