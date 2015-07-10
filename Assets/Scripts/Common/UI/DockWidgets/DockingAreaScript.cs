@@ -302,13 +302,16 @@ namespace Common.UI.DockWidgets
 	                    
 						float dockingAreaWidth = totalWidth * mSizes[i];
 
-						if (
-						    dockingAreaTransform.sizeDelta.x != dockingAreaWidth
-							||
-							dockingAreaTransform.sizeDelta.y != totalHeight
-						   )
-						{
-							Utils.AlignRectTransformTopLeft(dockingAreaTransform, dockingAreaWidth, totalHeight, contentWidth, 0f);
+						bool sizeChanged = (
+											dockingAreaTransform.sizeDelta.x != dockingAreaWidth
+											||
+											dockingAreaTransform.sizeDelta.y != totalHeight
+										   );
+
+						Utils.AlignRectTransformTopLeft(dockingAreaTransform, dockingAreaWidth, totalHeight, contentWidth, 0f);
+
+						if (sizeChanged)
+						{							
 							dockingArea.OnResize();
 						}
 						
@@ -333,13 +336,16 @@ namespace Common.UI.DockWidgets
                     
 						float dockingAreaHeight = totalHeight * mSizes[i];
 
-						if (
-							dockingAreaTransform.sizeDelta.x != totalWidth
-							||
-							dockingAreaTransform.sizeDelta.y != dockingAreaHeight
-						   )
+						bool sizeChanged = (
+											dockingAreaTransform.sizeDelta.x != totalWidth
+											||
+											dockingAreaTransform.sizeDelta.y != dockingAreaHeight
+										   );
+
+						Utils.AlignRectTransformTopLeft(dockingAreaTransform, totalWidth, dockingAreaHeight, 0f, contentHeight);
+
+						if (sizeChanged)
 						{
-							Utils.AlignRectTransformTopLeft(dockingAreaTransform, totalWidth, dockingAreaHeight, 0f, contentHeight);
 							dockingArea.OnResize();
 						}
 						
@@ -1234,41 +1240,17 @@ namespace Common.UI.DockWidgets
 							
 							float mouseX = Mouse.x;
 							float mouseY = Mouse.y;
-							
-							if (mouseY >= top    && mouseY <= top    + GAP)
+
+							if (
+							    mouseX >= left && mouseX <= right
+								&&
+								mouseY >= top  && mouseY <= bottom
+						       )
 							{
-								if (
-								    mParent.mOrientation == DockingAreaOrientation.Vertical
-								    &&
-								    mParent.mChildren.Count > 1
-								    &&
-								    mParent.mChildren[0] != this
-								   )
-								{
-									mResizingArea  = this;
-									mMouseLocation = MouseLocation.North;
-								}
-							}
-							if (mouseY <= bottom && mouseY >= bottom - GAP)
-							{
-								if (
-									mParent.mOrientation == DockingAreaOrientation.Vertical
-									&&
-									mParent.mChildren.Count > 1
-									&&
-									mParent.mChildren[mParent.mChildren.Count - 1] != this
-								   )
-								{
-									mResizingArea  = this;
-									mMouseLocation = MouseLocation.South;
-								}
-							}
-							else
-							{
-								if (mouseX >= left  && mouseX <= left  + GAP)
+								if (mouseY <= top + GAP)
 								{
 									if (
-										mParent.mOrientation == DockingAreaOrientation.Horizontal
+										mParent.mOrientation == DockingAreaOrientation.Vertical
 										&&
 										mParent.mChildren.Count > 1
 										&&
@@ -1276,13 +1258,14 @@ namespace Common.UI.DockWidgets
 									   )
 									{
 										mResizingArea  = this;
-										mMouseLocation = MouseLocation.West;
+										mMouseLocation = MouseLocation.North;
 									}
 								}
-								if (mouseX <= right && mouseX >= right - GAP)
+								else
+								if (mouseY >= bottom - GAP)
 								{
 									if (
-										mParent.mOrientation == DockingAreaOrientation.Horizontal
+										mParent.mOrientation == DockingAreaOrientation.Vertical
 										&&
 										mParent.mChildren.Count > 1
 										&&
@@ -1290,12 +1273,44 @@ namespace Common.UI.DockWidgets
 									   )
 									{
 										mResizingArea  = this;
-										mMouseLocation = MouseLocation.East;
+										mMouseLocation = MouseLocation.South;
 									}
 								}
 								else
 								{
-									mMouseLocation = MouseLocation.Inside;
+									if (mouseX <= left + GAP)
+									{
+										if (
+											mParent.mOrientation == DockingAreaOrientation.Horizontal
+											&&
+											mParent.mChildren.Count > 1
+											&&
+											mParent.mChildren[0] != this
+										   )
+										{
+											mResizingArea  = this;
+											mMouseLocation = MouseLocation.West;
+										}
+									}
+									else
+									if (mouseX >= right - GAP)
+									{
+										if (
+											mParent.mOrientation == DockingAreaOrientation.Horizontal
+											&&
+											mParent.mChildren.Count > 1
+											&&
+											mParent.mChildren[mParent.mChildren.Count - 1] != this
+										   )
+										{
+											mResizingArea  = this;
+											mMouseLocation = MouseLocation.East;
+										}
+									}
+									else
+									{
+										mMouseLocation = MouseLocation.Inside;
+									}
 								}
 							}
 						}
