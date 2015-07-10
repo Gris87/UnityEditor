@@ -1,4 +1,3 @@
-Limit tab width on dragging
 Read only statics
 Statics starts with s
 Docking area looks ugly

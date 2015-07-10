@@ -374,7 +374,7 @@ namespace Common.UI.DockWidgets
 
 				tabWidths.Add(tabWidth);
 
-				if (mChildren[i] == DummyDockWidgetScript.instance)
+				if (mChildren[i] == DummyDockWidgetScript.instance && mChildren.Count > 1)
 				{
 					hasDummyWidget = true;
 				}
