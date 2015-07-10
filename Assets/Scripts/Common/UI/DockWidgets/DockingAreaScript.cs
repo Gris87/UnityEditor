@@ -1410,9 +1410,9 @@ namespace Common.UI.DockWidgets
 										}
 
 										if (
-											newWidth  >= oldWidth
+											newWidth  >= oldWidth  - 0.1f
 											&&
-											newHeight >= oldHeight
+											newHeight >= oldHeight - 0.1f
 										   )
 										{
 											break;
@@ -1506,9 +1506,9 @@ namespace Common.UI.DockWidgets
 									}
 
 									if (
-										newWidth  > oldWidth
+										newWidth  > oldWidth  - 0.1f
 										||
-										newHeight > oldHeight
+										newHeight > oldHeight - 0.1f
 									   )
 									{
 										float delta = newSize - oldSize;
