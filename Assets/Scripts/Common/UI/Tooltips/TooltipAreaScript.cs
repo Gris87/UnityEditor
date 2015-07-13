@@ -293,7 +293,7 @@ namespace Common.UI.Tooltips
 
             Assets.Tooltips.TextStyles.tooltipText.Apply(tooltipText);
 
-            tooltipText.text = Translator.getString(mCurrentOwner.tokenId);
+            tooltipText.text = Translator.GetString(mCurrentOwner.tokenId);
             #endregion
             #endregion
 

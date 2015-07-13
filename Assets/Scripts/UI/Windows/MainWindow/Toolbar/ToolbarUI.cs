@@ -114,7 +114,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void Release()
         {
-            Translator.removeLanguageChangedListener(OnLanguageChanged);
+            Translator.RemoveLanguageChangedListener(OnLanguageChanged);
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #endregion
             #endregion
 
-            Translator.addLanguageChangedListener(OnLanguageChanged);
+            Translator.AddLanguageChangedListener(OnLanguageChanged);
         }
 
         /// <summary>
@@ -904,8 +904,8 @@ namespace UI.Windows.MainWindow.Toolbar
             float buttonWidth;
             float maxButtonWidth = 0f;
 
-            mPointText.text            = Translator.getString(R.sections.Toolbar.strings.pivot);
-            mCoordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.global);
+            mPointText.text            = Translator.GetString(R.sections.Toolbar.strings.pivot);
+            mCoordinateSystemText.text = Translator.GetString(R.sections.Toolbar.strings.global);
 
             buttonWidth = mPointText.preferredWidth + 32f;
 
@@ -921,8 +921,8 @@ namespace UI.Windows.MainWindow.Toolbar
                 maxButtonWidth = buttonWidth;
             }
 
-            mPointText.text            = Translator.getString(R.sections.Toolbar.strings.center);
-            mCoordinateSystemText.text = Translator.getString(R.sections.Toolbar.strings.local);
+            mPointText.text            = Translator.GetString(R.sections.Toolbar.strings.center);
+            mCoordinateSystemText.text = Translator.GetString(R.sections.Toolbar.strings.local);
 
             buttonWidth = mPointText.preferredWidth + 32f;
 
@@ -1150,8 +1150,8 @@ namespace UI.Windows.MainWindow.Toolbar
             float buttonWidth;
             float maxButtonWidth = 0f;
 
-            mLayersText.text = Translator.getString(R.sections.Toolbar.strings.layers);
-            mLayoutText.text = Translator.getString(R.sections.Toolbar.strings.layout);
+            mLayersText.text = Translator.GetString(R.sections.Toolbar.strings.layers);
+            mLayoutText.text = Translator.GetString(R.sections.Toolbar.strings.layout);
 
             buttonWidth = mLayersText.preferredWidth + 32f;
 

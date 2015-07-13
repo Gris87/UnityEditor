@@ -3717,7 +3717,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Language code.</returns>
         /// <param name="language">Language enum value</param>
-        public static string languageToCode(Language language)
+        public static string LanguageToCode(Language language)
         {
             return codes[(int)language];
         }
@@ -3727,7 +3727,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Language enum value.</returns>
         /// <param name="code">Language code</param>
-        public static Language codeToLanguage(string code)
+        public static Language CodeToLanguage(string code)
         {
             for (int i = 0; i < (int)Language.Count; ++i)
             {
@@ -4372,7 +4372,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Language name.</returns>
         /// <param name="language">Language enum value</param>
-        public static string languageToName(Language language)
+        public static string LanguageToName(Language language)
         {
             return names[(int)language];
         }
@@ -4382,7 +4382,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Language enum value.</returns>
         /// <param name="name">Language name</param>
-        public static Language nameToLanguage(string name)
+        public static Language NameToLanguage(string name)
         {
             for (int i = 0; i < (int)Language.Count; ++i)
             {
@@ -5076,7 +5076,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>SystemLanguage enum value.</returns>
         /// <param name="language">Language enum value</param>
-        public static SystemLanguage languageToSystemLanguage(Language language)
+        public static SystemLanguage LanguageToSystemLanguage(Language language)
         {
             return systemLanguages[(int)language];
         }
@@ -5086,7 +5086,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Language enum value.</returns>
         /// <param name="language">SystemLanguage enum value</param>
-        public static Language systemLanguageToLanguage(SystemLanguage language)
+        public static Language SystemLanguageToLanguage(SystemLanguage language)
         {
             return languages[(int)language];
         }

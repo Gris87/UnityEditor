@@ -50,7 +50,7 @@ namespace Common.UI.Toasts
         {
             if (tokenId != R.sections.Toasts.strings.Count)
             {
-                Translator.removeLanguageChangedListener(UpdateText);
+                Translator.RemoveLanguageChangedListener(UpdateText);
             }
 
             Toast.ToastDestroyed(this);
@@ -146,7 +146,7 @@ namespace Common.UI.Toasts
 
             if (tokenId != R.sections.Toasts.strings.Count)
             {
-                Translator.addLanguageChangedListener(UpdateText);
+                Translator.AddLanguageChangedListener(UpdateText);
                 UpdateText();
             }
             else
@@ -167,11 +167,11 @@ namespace Common.UI.Toasts
         {
             if (tokenArguments == null || tokenArguments.Length == 0)
             {
-                mToastText.text = Translator.getString(tokenId);
+                mToastText.text = Translator.GetString(tokenId);
             }
             else
             {
-                mToastText.text = Translator.getString(tokenId, tokenArguments);
+                mToastText.text = Translator.GetString(tokenId, tokenArguments);
             }
         }
 

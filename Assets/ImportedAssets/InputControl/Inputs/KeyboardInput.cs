@@ -690,7 +690,7 @@ namespace Internal
         /// </summary>
         /// <returns>The string representation.</returns>
         /// <param name="keyCode">Key code.</param>
-        public static string toString(KeyCode keyCode)
+        public static string ToString(KeyCode keyCode)
         {
             string res;
 
@@ -709,7 +709,7 @@ namespace Internal
         /// </summary>
         /// <returns>Key code.</param>
         /// <param name="value">The string representation.</returns>
-        public static KeyCode fromString(string value)
+        public static KeyCode FromString(string value)
         {
             KeyCode res;
 
@@ -792,11 +792,11 @@ public class KeyboardInput : CustomInput
             return null;
         }
 
-        KeyModifier modifiers = modifiersFromString(ref value);
+        KeyModifier modifiers = ModifiersFromString(ref value);
 
         try
         {
-            return new KeyboardInput(Internal.KeyCodeConversions.fromString(value), modifiers);
+            return new KeyboardInput(Internal.KeyCodeConversions.FromString(value), modifiers);
         }
         catch (Exception)
         {
@@ -812,7 +812,7 @@ public class KeyboardInput : CustomInput
     {
         if (mCachedToString == null)
         {
-            mCachedToString = modifiersToString() + Internal.KeyCodeConversions.toString(mKey);
+            mCachedToString = ModifiersToString() + Internal.KeyCodeConversions.ToString(mKey);
         }
 
         return mCachedToString;
@@ -825,14 +825,14 @@ public class KeyboardInput : CustomInput
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
     /// <param name="axis">Specific actions for axis (Empty by default).</param>
     /// <param name="device">Preferred input device.</param>
-    public override float getInput(bool exactKeyModifiers = false, string axis = "", InputDevice device = InputDevice.Any)
+    public override float GetInput(bool exactKeyModifiers = false, string axis = "", InputDevice device = InputDevice.Any)
     {
         if (
             device != InputDevice.Any
             &&
             device != InputDevice.KeyboardAndMouse
             ||
-            !checkModifiersForKeys(exactKeyModifiers)
+            !CheckModifiersForKeys(exactKeyModifiers)
            )
         {
             return 0;
@@ -863,14 +863,14 @@ public class KeyboardInput : CustomInput
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
     /// <param name="axis">Specific actions for axis (Empty by default).</param>
     /// <param name="device">Preferred input device.</param>
-    public override float getInputDown(bool exactKeyModifiers = false, string axis = "", InputDevice device = InputDevice.Any)
+    public override float GetInputDown(bool exactKeyModifiers = false, string axis = "", InputDevice device = InputDevice.Any)
     {
         if (
             device != InputDevice.Any
             &&
             device != InputDevice.KeyboardAndMouse
             ||
-            !checkModifiersForKeys(exactKeyModifiers)
+            !CheckModifiersForKeys(exactKeyModifiers)
            )
         {
             return 0;
@@ -901,14 +901,14 @@ public class KeyboardInput : CustomInput
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
     /// <param name="axis">Specific actions for axis (Empty by default).</param>
     /// <param name="device">Preferred input device.</param>
-    public override float getInputUp(bool exactKeyModifiers = false, string axis = "", InputDevice device = InputDevice.Any)
+    public override float GetInputUp(bool exactKeyModifiers = false, string axis = "", InputDevice device = InputDevice.Any)
     {
         if (
             device != InputDevice.Any
             &&
             device != InputDevice.KeyboardAndMouse
             ||
-            !checkModifiersForKeys(exactKeyModifiers)
+            !CheckModifiersForKeys(exactKeyModifiers)
            )
         {
             return 0;
@@ -937,7 +937,7 @@ public class KeyboardInput : CustomInput
     /// </summary>
     /// <returns>Specified key modifiers are active during current frame.</returns>
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
-    private bool checkModifiersForKeys(bool exactKeyModifiers = false)
+    private bool CheckModifiersForKeys(bool exactKeyModifiers = false)
     {
         if (!exactKeyModifiers && mModifiers == KeyModifier.NoModifier)
         {

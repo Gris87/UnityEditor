@@ -149,7 +149,7 @@ namespace Common.UI.DockWidgets
         /// </summary>
         void Awake()
         {
-            Translator.addLanguageChangedListener(UpdateTabs);
+            Translator.AddLanguageChangedListener(UpdateTabs);
 
             CreateUI();
         }
@@ -341,7 +341,7 @@ namespace Common.UI.DockWidgets
         /// </summary>
         void OnDestroy()
         {
-            Translator.removeLanguageChangedListener(UpdateTabs);
+            Translator.RemoveLanguageChangedListener(UpdateTabs);
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ public static class AppUtils
     /// <summary>
     /// Returns version info.
     /// </summary>
-    public static string version()
+    public static string GetVersionString()
     {
         string res = Version.BUILD + " ";
 
@@ -21,13 +21,13 @@ public static class AppUtils
         {
             case Version.BuildType.Personal:
             {
-                res += Translator.getString(R.sections.Version.strings.personal);
+                res += Translator.GetString(R.sections.Version.strings.personal);
             }
             break;
 
             case Version.BuildType.Professional:
             {
-                res += Translator.getString(R.sections.Version.strings.professional);
+                res += Translator.GetString(R.sections.Version.strings.professional);
             }
             break;
 

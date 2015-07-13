@@ -1145,7 +1145,7 @@ namespace Common.UI.Windows
                     return "";
                 }
 
-                return Translator.getString(mTokenId);
+                return Translator.GetString(mTokenId);
             }
         }
 
@@ -1916,7 +1916,7 @@ namespace Common.UI.Windows
 
                     Assets.Windows.Common.TextStyles.title.Apply(mTitleText);
 
-                    Translator.addLanguageChangedListener(UpdateTitleText);
+                    Translator.AddLanguageChangedListener(UpdateTitleText);
                     UpdateTitleText();
                     #endregion
                     #endregion
@@ -2033,7 +2033,7 @@ namespace Common.UI.Windows
 
                     Assets.Windows.Common.TextStyles.title.Apply(mTitleText);
 
-                    Translator.addLanguageChangedListener(UpdateTitleText);
+                    Translator.AddLanguageChangedListener(UpdateTitleText);
                     UpdateTitleText();
                     #endregion
                     #endregion
@@ -2074,7 +2074,7 @@ namespace Common.UI.Windows
                 mTitleGameObject = null;
                 mTitleText       = null;
 
-                Translator.removeLanguageChangedListener(UpdateTitleText);
+                Translator.RemoveLanguageChangedListener(UpdateTitleText);
             }
 
             if (mMinimizeGameObject != null)
@@ -2287,7 +2287,7 @@ namespace Common.UI.Windows
 
             if (mTitleText != null)
             {
-                Translator.removeLanguageChangedListener(UpdateTitleText);
+                Translator.RemoveLanguageChangedListener(UpdateTitleText);
             }
 
 

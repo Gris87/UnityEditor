@@ -1,5 +1,3 @@
-Read only statics
-Statics starts with s
 Support for Android
 Docking area looks ugly
 Layout manager

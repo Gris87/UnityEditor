@@ -16,7 +16,7 @@ namespace UnityTranslationInternal
         /// <param name="tokenName">Token name.</param>
         /// <param name="tagName">Tag name.</param>
         /// <param name="tokenNames">List of token names.</param>
-        public static bool checkTokenName(string tokenName, string tagName, List<string> tokenNames)
+        public static bool CheckTokenName(string tokenName, string tagName, List<string> tokenNames)
         {
             if (tokenName == null)
             {
@@ -74,7 +74,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>Processed token value.</returns>
         /// <param name="value">Original token value.</param>
-        public static string processTokenValue(string value)
+        public static string ProcessTokenValue(string value)
         {
             string res = value.Trim();
 

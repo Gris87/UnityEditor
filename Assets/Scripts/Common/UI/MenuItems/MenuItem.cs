@@ -71,11 +71,11 @@ namespace Common.UI.MenuItems
                 {
                     if (mTokenArguments == null || mTokenArguments.Length == 0)
                     {
-                        return Translator.getString(mTokenId);
+                        return Translator.GetString(mTokenId);
                     }
                     else
                     {
-                        return Translator.getString(mTokenId, mTokenArguments);
+                        return Translator.GetString(mTokenId, mTokenArguments);
                     }
                 }
 
@@ -309,7 +309,7 @@ namespace Common.UI.MenuItems
         /// <returns><c>true</c>, if shortcut was handled, <c>false</c> otherwise.</returns>
         public bool HandleShortcut()
         {
-            if (mShortcut.getInputDown(true) != 0)
+            if (mShortcut.GetInputDown(true) != 0)
             {
                 mOnClick.Invoke();
 

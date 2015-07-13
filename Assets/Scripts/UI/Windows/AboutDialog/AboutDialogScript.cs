@@ -489,7 +489,7 @@ namespace UI.Windows.AboutDialog
             #endregion
             #endregion
 
-            Translator.addLanguageChangedListener(OnLanguageChanged);
+            Translator.AddLanguageChangedListener(OnLanguageChanged);
             OnLanguageChanged();
 
             Load(WINDOW_KEY);
@@ -504,7 +504,7 @@ namespace UI.Windows.AboutDialog
 
             Save(WINDOW_KEY);
 
-            Translator.removeLanguageChangedListener(OnLanguageChanged);
+            Translator.RemoveLanguageChangedListener(OnLanguageChanged);
 
             if (Global.aboutDialogScript == this)
             {
@@ -571,13 +571,13 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         public void OnLanguageChanged()
         {
-            mVersionText.text    = Translator.getString(R.sections.AboutDialog.strings.version, AppUtils.version());
-            mMonoLogoText.text   = Translator.getString(R.sections.AboutDialog.strings.scripting_powered_by, "The Mono Project");
+            mVersionText.text    = Translator.GetString(R.sections.AboutDialog.strings.version, AppUtils.GetVersionString());
+            mMonoLogoText.text   = Translator.GetString(R.sections.AboutDialog.strings.scripting_powered_by, "The Mono Project");
             mMonoLogoText2.text  = "(c) 2011 Novell, Inc.";
-            mPhysXLogoText.text  = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by, "PhysX");
+            mPhysXLogoText.text  = Translator.GetString(R.sections.AboutDialog.strings.physics_powered_by, "PhysX");
             mPhysXLogoText2.text = "(c) 2011 NVIDIA Corporation.";
-            mCopyrightText.text  = "(c) 2015 Unity Technologies ApS. " + Translator.getString(R.sections.AboutDialog.strings.all_rights_reserved);
-            mLicenseText.text    = Translator.getString(R.sections.AboutDialog.strings.license, License.TYPE, License.serialNumber);
+            mCopyrightText.text  = "(c) 2015 Unity Technologies ApS. " + Translator.GetString(R.sections.AboutDialog.strings.all_rights_reserved);
+            mLicenseText.text    = Translator.GetString(R.sections.AboutDialog.strings.license, License.TYPE, License.serialNumber);
         }
     }
 }

@@ -80,25 +80,25 @@ namespace UnityTranslationInternal
         /// <summary>
         /// Generates source code required for UnityTranslation
         /// </summary>
-        public static void generate()
+        public static void Generate()
         {
 #if !FORCE_CODE_GENERATION
-            checkPreviouslyGeneratedFiles();
+            CheckPreviouslyGeneratedFiles();
 #endif
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-            generateLanguage();
-            generatePluralsRules();
+            GenerateLanguage();
+            GeneratePluralsRules();
 #endif
 
-            generateStringsXml();
-            generateAvailableLanguages();
+            GenerateStringsXml();
+            GenerateAvailableLanguages();
 
 #if !FORCE_CODE_GENERATION
             bool generateFilesDependedOnR_cs = true;
 #endif
 
-            List<string> sectionIds = generateR();
+            List<string> sectionIds = GenerateR();
 
             if (sectionIds == null)
             {
@@ -115,11 +115,11 @@ namespace UnityTranslationInternal
             }
 
 #if FORCE_CODE_GENERATION
-            generateTranslator(         sectionIds);
-            generateTextAutoTranslation(sectionIds);
+            GenerateTranslator(         sectionIds);
+            GenerateTextAutoTranslation(sectionIds);
 #else
-            generateTranslator(         sectionIds, sChangedCodeGenerator_cs || generateFilesDependedOnR_cs);
-            generateTextAutoTranslation(sectionIds, sChangedCodeGenerator_cs || generateFilesDependedOnR_cs);
+            GenerateTranslator(         sectionIds, sChangedCodeGenerator_cs || generateFilesDependedOnR_cs);
+            GenerateTextAutoTranslation(sectionIds, sChangedCodeGenerator_cs || generateFilesDependedOnR_cs);
 #endif
         }
 
@@ -128,7 +128,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>Path to generated file.</returns>
         /// <param name="filename">Name of file.</param>
-        private static string pathToGeneratedFile(string filename)
+        private static string PathToGeneratedFile(string filename)
         {
             string res = null;
 
@@ -168,25 +168,25 @@ namespace UnityTranslationInternal
         /// <summary>
         /// Checks the previously generated files.
         /// </summary>
-        private static void checkPreviouslyGeneratedFiles()
+        private static void CheckPreviouslyGeneratedFiles()
         {
-            if (isApplicationRebuilded())
+            if (IsApplicationRebuilded())
             {
-                string generatedFolder = pathToGeneratedFile("CodeGenerator.cs");
+                string generatedFolder = PathToGeneratedFile("CodeGenerator.cs");
 
                 generatedFolder = generatedFolder.Remove(generatedFolder.LastIndexOf('/'));
-                sChangedCodeGenerator_cs = checkPreviouslyGeneratedFile(generatedFolder, "CodeGenerator.cs");
+                sChangedCodeGenerator_cs = CheckPreviouslyGeneratedFile(generatedFolder, "CodeGenerator.cs");
 
                 generatedFolder += "/Generated";
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-                sChangedGeneratedLanguage           = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Language.cs");
-                sChangedGeneratedPluralsRules       = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
+                sChangedGeneratedLanguage           = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "Language.cs");
+                sChangedGeneratedPluralsRules       = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
 #endif
 
-                sСhangedGeneratedAvailableLanguages = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
-                sChangedGeneratedR                  = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "R.cs");
-                sChangedGeneratedTranslator         = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
+                sСhangedGeneratedAvailableLanguages = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
+                sChangedGeneratedR                  = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "R.cs");
+                sChangedGeneratedTranslator         = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
             }
         }
 #endif
@@ -195,7 +195,7 @@ namespace UnityTranslationInternal
         /// Verifies that application rebuilded.
         /// </summary>
         /// <returns><c>true</c>, if application rebuilded, <c>false</c> otherwise.</returns>
-        private static bool isApplicationRebuilded()
+        private static bool IsApplicationRebuilded()
         {
             bool res = false;
 
@@ -234,7 +234,7 @@ namespace UnityTranslationInternal
         /// <returns><c>true</c>, if file generated in previous build, <c>false</c> otherwise.</returns>
         /// <param name="generatedFolder">Path to Generated folder.</param>
         /// <param name="filename">Name of file.</param>
-        private static bool checkPreviouslyGeneratedFile(string generatedFolder, string filename)
+        private static bool CheckPreviouslyGeneratedFile(string generatedFolder, string filename)
         {
             bool res = false;
 
@@ -275,7 +275,7 @@ namespace UnityTranslationInternal
         /// <summary>
         /// Generates Language.cs file
         /// </summary>
-        private static void generateLanguage()
+        private static void GenerateLanguage()
         {
             string cldrLanguagesFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/main/en/languages.json";
             string tempLanguagesFile = Application.temporaryCachePath + "/UnityTranslation/languages.json";
@@ -607,7 +607,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Language code.</returns>\n" +
                        "        /// <param name=\"language\">Language enum value</param>\n" +
-                       "        public static string languageToCode(Language language)\n" +
+                       "        public static string LanguageToCode(Language language)\n" +
                        "        {\n" +
                        "            return codes[(int)language];\n" +
                        "        }\n" +
@@ -617,7 +617,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Language enum value.</returns>\n" +
                        "        /// <param name=\"code\">Language code</param>\n" +
-                       "        public static Language codeToLanguage(string code)\n" +
+                       "        public static Language CodeToLanguage(string code)\n" +
                        "        {\n" +
                        "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
                        "            {\n" +
@@ -655,7 +655,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Language name.</returns>\n" +
                        "        /// <param name=\"language\">Language enum value</param>\n" +
-                       "        public static string languageToName(Language language)\n" +
+                       "        public static string LanguageToName(Language language)\n" +
                        "        {\n" +
                        "            return names[(int)language];\n" +
                        "        }\n" +
@@ -665,7 +665,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Language enum value.</returns>\n" +
                        "        /// <param name=\"name\">Language name</param>\n" +
-                       "        public static Language nameToLanguage(string name)\n" +
+                       "        public static Language NameToLanguage(string name)\n" +
                        "        {\n" +
                        "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
                        "            {\n" +
@@ -723,7 +723,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>SystemLanguage enum value.</returns>\n" +
                        "        /// <param name=\"language\">Language enum value</param>\n" +
-                       "        public static SystemLanguage languageToSystemLanguage(Language language)\n" +
+                       "        public static SystemLanguage LanguageToSystemLanguage(Language language)\n" +
                        "        {\n" +
                        "            return systemLanguages[(int)language];\n" +
                        "        }\n" +
@@ -733,7 +733,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Language enum value.</returns>\n" +
                        "        /// <param name=\"language\">SystemLanguage enum value</param>\n" +
-                       "        public static Language systemLanguageToLanguage(SystemLanguage language)\n" +
+                       "        public static Language SystemLanguageToLanguage(SystemLanguage language)\n" +
                        "        {\n" +
                        "            return languages[(int)language];\n" +
                        "        }\n" +
@@ -760,7 +760,7 @@ namespace UnityTranslationInternal
         /// <summary>
         /// Generates PluralsRules.cs file
         /// </summary>
-        private static void generatePluralsRules()
+        private static void GeneratePluralsRules()
         {
             string cldrPluralsFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/supplemental/plurals.json";
             string tempPluralsFile = Application.temporaryCachePath + "/UnityTranslation/plurals.json";
@@ -1031,7 +1031,7 @@ namespace UnityTranslationInternal
                              "        /// </summary>\n" +
                              "        public static readonly PluralsFunction[] pluralsFunctions = new PluralsFunction[]\n" +
                              "        {\n" +
-                             "              pluralsDefaultFunction  // Default\n";
+                             "              PluralsDefaultFunction  // Default\n";
 
                 for (int i = 1; i < (int)Language.Count; ++i)
                 {
@@ -1052,16 +1052,16 @@ namespace UnityTranslationInternal
                     {
                         if (index == 0)
                         {
-                            res += "            , pluralsDefaultFunction  // " + language + "\n";
+                            res += "            , PluralsDefaultFunction  // " + language + "\n";
                         }
                         else
                         {
-                            res += string.Format("            , {0,-23} // {1}\n", "pluralsFunction" + index, language);
+                            res += string.Format("            , {0,-23} // {1}\n", "PluralsFunction" + index, language);
                         }
                     }
                     else
                     {
-                        res += "            , pluralsFallbackFunction // " + language + "\n";
+                        res += "            , PluralsFallbackFunction // " + language + "\n";
                     }
                 }
 
@@ -1072,14 +1072,14 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>PluralsQuantity.Other.</returns>\n" +
                        "        /// <param name=\"quantity\">Quantity.</param>\n" +
-                       "        private static PluralsQuantity pluralsFallbackFunction(double quantity)\n" +
+                       "        private static PluralsQuantity PluralsFallbackFunction(double quantity)\n" +
                        "        {\n" +
                        "            return PluralsQuantity.Other;\n" +
                        "        }\n";
 
                 for (int i = 0; i < languages.Count; ++i)
                 {
-                    string functionName = (i == 0)? "pluralsDefaultFunction" : ("pluralsFunction" + i);
+                    string functionName = (i == 0)? "PluralsDefaultFunction" : ("PluralsFunction" + i);
 
                     res += "\n" +
                            "        /// <summary>\n";
@@ -1115,7 +1115,7 @@ namespace UnityTranslationInternal
 
                         if (plurals[i].TryGetValue((PluralsQuantity)j, out pluralsCondition))
                         {
-                            conditions.Add("            if (" + transformPluralsCondition(pluralsCondition, ref additionalLines) + ") // " + pluralsCondition + "\n" +
+                            conditions.Add("            if (" + TransformPluralsCondition(pluralsCondition, ref additionalLines) + ") // " + pluralsCondition + "\n" +
                                            "            {\n" +
                                            "                return PluralsQuantity." + (PluralsQuantity)j + ";\n" +
                                            "            }");
@@ -1176,7 +1176,7 @@ namespace UnityTranslationInternal
         /// <returns>Plurals condition in C# syntax.</returns>
         /// <param name="condition">Plurals condition.</param>
         /// <param name="additionalLines">Additional lines if needed.</param>
-        private static string transformPluralsCondition(string condition, ref List<string> additionalLines)
+        private static string TransformPluralsCondition(string condition, ref List<string> additionalLines)
         {
             int index = condition.IndexOf('@');
 
@@ -1545,7 +1545,7 @@ namespace UnityTranslationInternal
         /// <summary>
         /// Generates Assets/Resources/res/values/strings.xml file if absent
         /// </summary>
-        private static void generateStringsXml()
+        private static void GenerateStringsXml()
         {
             string valuesFolder   = Application.dataPath + "/Resources/res/values";
             string stringsXmlFile = valuesFolder + "/strings.xml";
@@ -1573,7 +1573,7 @@ namespace UnityTranslationInternal
         /// <summary>
         /// Generates AvailableLanguages.cs file
         /// </summary>
-        private static void generateAvailableLanguages()
+        private static void GenerateAvailableLanguages()
         {
             List<string> valuesFolders       = new List<string>();
             string       valuesFoldersString = "";
@@ -1605,7 +1605,7 @@ namespace UnityTranslationInternal
 
             string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
 
-            string targetFile = pathToGeneratedFile("AvailableLanguages.cs");
+            string targetFile = PathToGeneratedFile("AvailableLanguages.cs");
 
             #region Check that AvailableLanguages.cs is up to date
 #if !FORCE_CODE_GENERATION
@@ -1742,7 +1742,7 @@ namespace UnityTranslationInternal
         /// Generates R.cs file for all specified tokens
         /// </summary>
         /// <returns>List of sections ID if regenerated or null.</returns>
-        private static List<string> generateR()
+        private static List<string> GenerateR()
         {
             string tempValuesPath = Application.temporaryCachePath + "/UnityTranslation/values";
 
@@ -1757,7 +1757,7 @@ namespace UnityTranslationInternal
             FileInfo[] xmlFiles     = valuesDir.GetFiles("*.xml");
             FileInfo[] tempXmlFiles = tempValuesDir.GetFiles("*.xml");
 
-            string targetFile = pathToGeneratedFile("R.cs");
+            string targetFile = PathToGeneratedFile("R.cs");
 
             #region Check that R.cs is up to date
 #if !FORCE_CODE_GENERATION
@@ -1940,7 +1940,7 @@ namespace UnityTranslationInternal
             #region Parse xml files
             for (int i = 0; i < xmlFiles.Length; ++i)
             {
-                SectionTokens sectionTokens = parseXmlTokens(xmlFiles[i].FullName);
+                SectionTokens sectionTokens = ParseXmlTokens(xmlFiles[i].FullName);
 
                 if (sectionTokens == null)
                 {
@@ -1964,7 +1964,7 @@ namespace UnityTranslationInternal
                          "    public static class R\n" +
                          "    {\n";
 
-            res += generateCodeForSectionTokens(sections[0], "strings.xml", "        ");
+            res += GenerateCodeForSectionTokens(sections[0], "strings.xml", "        ");
 
             res += "\n" +
                    "        /// <summary>\n" +
@@ -2021,7 +2021,7 @@ namespace UnityTranslationInternal
                        "            /// </summary>\n" +
                        "            public static class " + sectionIds[i] + "\n" +
                        "            {\n" +
-                       generateCodeForSectionTokens(sections[i + 1], xmlFiles[i + 1].Name, "                ") +
+                       GenerateCodeForSectionTokens(sections[i + 1], xmlFiles[i + 1].Name, "                ") +
                        "            }\n";
             }
 
@@ -2168,7 +2168,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>SectionTokens instance.</returns>
         /// <param name="path">Path to xml file.</param>
-        private static SectionTokens parseXmlTokens(string path)
+        private static SectionTokens ParseXmlTokens(string path)
         {
             SectionTokens res = new SectionTokens();
 
@@ -2202,14 +2202,14 @@ namespace UnityTranslationInternal
                                 {
                                     string tokenName = reader.GetAttribute("name");
 
-                                    if (!Utils.checkTokenName(tokenName, reader.Name, res.stringNames))
+                                    if (!Utils.CheckTokenName(tokenName, reader.Name, res.stringNames))
                                     {
                                         return null;
                                     }
 
                                     res.stringNames.Add(tokenName);
                                     res.stringComments.Add(lastComment);
-                                    res.stringValues.Add(Utils.processTokenValue(reader.ReadString()));
+                                    res.stringValues.Add(Utils.ProcessTokenValue(reader.ReadString()));
 
                                     lastComment = null;
                                 }
@@ -2218,7 +2218,7 @@ namespace UnityTranslationInternal
                                 {
                                     string tokenName = reader.GetAttribute("name");
 
-                                    if (!Utils.checkTokenName(tokenName, reader.Name, res.stringArrayNames))
+                                    if (!Utils.CheckTokenName(tokenName, reader.Name, res.stringArrayNames))
                                     {
                                         return null;
                                     }
@@ -2240,7 +2240,7 @@ namespace UnityTranslationInternal
                                             if (reader.Name == "item")
                                             {
                                                 valuesComments.Add(lastValueComment);
-                                                values.Add(Utils.processTokenValue(reader.ReadString()));
+                                                values.Add(Utils.ProcessTokenValue(reader.ReadString()));
 
                                                 lastValueComment = null;
                                             }
@@ -2273,7 +2273,7 @@ namespace UnityTranslationInternal
                                 {
                                     string tokenName = reader.GetAttribute("name");
 
-                                    if (!Utils.checkTokenName(tokenName, reader.Name, res.pluralsNames))
+                                    if (!Utils.CheckTokenName(tokenName, reader.Name, res.pluralsNames))
                                     {
                                         return null;
                                     }
@@ -2351,7 +2351,7 @@ namespace UnityTranslationInternal
                                                 if (!values.ContainsKey(quantity))
                                                 {
                                                     valuesComments[quantity] = lastValueComment;
-                                                    values[quantity]         = Utils.processTokenValue(reader.ReadString());
+                                                    values[quantity]         = Utils.ProcessTokenValue(reader.ReadString());
                                                 }
                                                 else
                                                 {
@@ -2431,7 +2431,7 @@ namespace UnityTranslationInternal
         /// <param name="section">SectionTokens instance.</param>
         /// <param name="filename">Name of file.</param>
         /// <param name="indent">Indentation string.</param>
-        private static string generateCodeForSectionTokens(SectionTokens section, string filename, string indent)
+        private static string GenerateCodeForSectionTokens(SectionTokens section, string filename, string indent)
         {
             string res = indent + "/// <summary>\n" +
                          indent + "/// Enumeration of all string tags in \"Assets/Resources/res/values/" + filename + "\"\n" +
@@ -2608,17 +2608,17 @@ namespace UnityTranslationInternal
         /// Generates Translator.cs file
         /// </summary>
         /// <param name="sectionIds">Sections identifiers.</param>
-        private static void generateTranslator(List<string> sectionIds)
+        private static void GenerateTranslator(List<string> sectionIds)
 #else
         /// <summary>
         /// Generates Translator.cs file
         /// </summary>
         /// <param name="sectionIds">Sections identifiers.</param>
         /// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
-        private static void generateTranslator(List<string> sectionIds, bool forceGeneration)
+        private static void GenerateTranslator(List<string> sectionIds, bool forceGeneration)
 #endif
         {
-            string targetFile = pathToGeneratedFile("Translator.cs");
+            string targetFile = PathToGeneratedFile("Translator.cs");
 
             #region Check that Translator.cs is up to date
 #if !FORCE_CODE_GENERATION
@@ -2686,18 +2686,18 @@ namespace UnityTranslationInternal
                          "        /// Adds specified language changed listener and invoke it.\n" +
                          "        /// </summary>\n" +
                          "        /// <param name=\"listener\">Language changed listener.</param>\n" +
-                         "        public static void addLanguageChangedListener(UnityAction listener)\n" +
+                         "        public static void AddLanguageChangedListener(UnityAction listener)\n" +
                          "        {\n" +
-                         "            UnityTranslationInternal.Translator.addLanguageChangedListener(listener);\n" +
+                         "            UnityTranslationInternal.Translator.AddLanguageChangedListener(listener);\n" +
                          "        }\n" +
                          "\n" +
                          "        /// <summary>\n" +
                          "        /// Removes specified language changed listener.\n" +
                          "        /// </summary>\n" +
                          "        /// <param name=\"listener\">Language changed listener.</param>\n" +
-                         "        public static void removeLanguageChangedListener(UnityAction listener)\n" +
+                         "        public static void RemoveLanguageChangedListener(UnityAction listener)\n" +
                          "        {\n" +
-                         "            UnityTranslationInternal.Translator.removeLanguageChangedListener(listener);\n" +
+                         "            UnityTranslationInternal.Translator.RemoveLanguageChangedListener(listener);\n" +
                          "        }\n" +
                          "\n" +
                          "        /// <summary>\n" +
@@ -2758,7 +2758,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Localized string.</returns>\n" +
                        "        /// <param name=\"id\">String resource ID.</param>\n" +
-                       "        public static string getString(" + prefix + "strings id)\n" +
+                       "        public static string GetString(" + prefix + "strings id)\n" +
                        "        {\n" +
                        loadSectionCall +
                        "            if (\n" +
@@ -2781,9 +2781,9 @@ namespace UnityTranslationInternal
                        "        /// <returns>Localized string.</returns>\n" +
                        "        /// <param name=\"id\">String resource ID.</param>\n" +
                        "        /// <param name=\"formatArgs\">Format arguments.</param>\n" +
-                       "        public static string getString(" + prefix + "strings id, params object[] formatArgs)\n" +
+                       "        public static string GetString(" + prefix + "strings id, params object[] formatArgs)\n" +
                        "        {\n" +
-                       "            return string.Format(getString(id), formatArgs);\n" +
+                       "            return string.Format(GetString(id), formatArgs);\n" +
                        "        }\n" +
                        "\n" +
                        "        /// <summary>\n" +
@@ -2791,7 +2791,7 @@ namespace UnityTranslationInternal
                        "        /// </summary>\n" +
                        "        /// <returns>Localized string array.</returns>\n" +
                        "        /// <param name=\"id\">String array resource ID.</param>\n" +
-                       "        public static string[] getStringArray(" + prefix + "array id)\n" +
+                       "        public static string[] GetStringArray(" + prefix + "array id)\n" +
                        "        {\n" +
                        loadSectionCall +
                        "            if (\n" +
@@ -2814,7 +2814,7 @@ namespace UnityTranslationInternal
                        "        /// <returns>Localized string.</returns>\n" +
                        "        /// <param name=\"id\">Plurals resource ID.</param>\n" +
                        "        /// <param name=\"quantity\">Quantity.</param>\n" +
-                       "        public static string getQuantityString(" + prefix + "plurals id, double quantity)\n" +
+                       "        public static string GetQuantityString(" + prefix + "plurals id, double quantity)\n" +
                        "        {\n" +
                        loadSectionCall +
                        "            string[]                                 pluralsValues;\n" +
@@ -2861,9 +2861,9 @@ namespace UnityTranslationInternal
                        "        /// <param name=\"id\">Plurals resource ID.</param>\n" +
                        "        /// <param name=\"quantity\">Quantity.</param>\n" +
                        "        /// <param name=\"formatArgs\">Format arguments.</param>\n" +
-                       "        public static string getQuantityString(" + prefix + "plurals id, double quantity, params object[] formatArgs)\n" +
+                       "        public static string GetQuantityString(" + prefix + "plurals id, double quantity, params object[] formatArgs)\n" +
                        "        {\n" +
-                       "            return string.Format(getQuantityString(id, quantity), formatArgs);\n" +
+                       "            return string.Format(GetQuantityString(id, quantity), formatArgs);\n" +
                        "        }\n";
             }
 
@@ -2881,14 +2881,14 @@ namespace UnityTranslationInternal
         /// Generates TextAutoTranslation.cs file
         /// </summary>
         /// <param name="sectionIds">Sections identifiers.</param>
-        private static void generateTextAutoTranslation(List<string> sectionIds)
+        private static void GenerateTextAutoTranslation(List<string> sectionIds)
 #else
         /// <summary>
         /// Generates TextAutoTranslation.cs file
         /// </summary>
         /// <param name="sectionIds">Sections identifiers.</param>
         /// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
-        private static void generateTextAutoTranslation(List<string> sectionIds, bool forceGeneration)
+        private static void GenerateTextAutoTranslation(List<string> sectionIds, bool forceGeneration)
 #endif
         {
             string tempUiPath = Application.temporaryCachePath + "/UnityTranslation/UI";
@@ -2898,7 +2898,7 @@ namespace UnityTranslationInternal
                 Directory.CreateDirectory(tempUiPath);
             }
 
-            string targetFile = pathToGeneratedFile("TextAutoTranslation.cs");
+            string targetFile = PathToGeneratedFile("TextAutoTranslation.cs");
 
             DirectoryInfo targetDir = new DirectoryInfo(targetFile.Remove(targetFile.LastIndexOf('/')));
             DirectoryInfo tempUiDir = new DirectoryInfo(tempUiPath);
@@ -3003,9 +3003,9 @@ namespace UnityTranslationInternal
                              "        void Start()\n" +
                              "        {\n" +
                              "            mText = GetComponent<Text>();\n" +
-                             "            mText.text = Translator.getString(id);\n" +
+                             "            mText.text = Translator.GetString(id);\n" +
                              "\n" +
-                             "            Translator.addLanguageChangedListener(OnLanguageChanged);\n" +
+                             "            Translator.AddLanguageChangedListener(OnLanguageChanged);\n" +
                              "        }\n" +
                              "\n" +
                              "        /// <summary>\n" +
@@ -3013,7 +3013,7 @@ namespace UnityTranslationInternal
                              "        /// </summary>\n" +
                              "        void OnDestroy()\n" +
                              "        {\n" +
-                             "            Translator.removeLanguageChangedListener(OnLanguageChanged);\n" +
+                             "            Translator.RemoveLanguageChangedListener(OnLanguageChanged);\n" +
                              "        }\n" +
                              "\n" +
                              "        /// <summary>\n" +
@@ -3021,7 +3021,7 @@ namespace UnityTranslationInternal
                              "        /// </summary>\n" +
                              "        public void OnLanguageChanged()\n" +
                              "        {\n" +
-                             "            mText.text = Translator.getString(id);\n" +
+                             "            mText.text = Translator.GetString(id);\n" +
                              "        }\n" +
                              "    }\n" +
                              "}\n";

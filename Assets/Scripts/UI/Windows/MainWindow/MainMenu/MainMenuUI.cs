@@ -626,7 +626,7 @@ namespace UI.Windows.MainWindow.MainMenu
         public void Release()
         {
             Settings.RemoveInternalModeListener(OnInternalModeChanged);
-            Translator.removeLanguageChangedListener(OnLanguageChanged);
+            Translator.RemoveLanguageChangedListener(OnLanguageChanged);
         }
 
         /// <summary>
@@ -1443,7 +1443,7 @@ namespace UI.Windows.MainWindow.MainMenu
             #endregion
             #endregion
 
-            Translator.addLanguageChangedListener(OnLanguageChanged);
+            Translator.AddLanguageChangedListener(OnLanguageChanged);
         }
 
         /// <summary>

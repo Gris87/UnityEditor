@@ -109,7 +109,7 @@ namespace Common.UI.DockWidgets
                     return "";
                 }
 
-                return Translator.getString(mTokenId);
+                return Translator.GetString(mTokenId);
             }
         }
 

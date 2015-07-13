@@ -105,7 +105,7 @@ namespace Common.UI.DockWidgets
 
             mDockingAreas = null;
 
-            onClick.AddListener(buttonClicked);
+            onClick.AddListener(ButtonClicked);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Common.UI.DockWidgets
         /// <param name="eventData">Pointer data.</param>
         public void OnBeginDrag(PointerEventData eventData)
         {
-            buttonClicked();
+            ButtonClicked();
 
             DragInfoHolder.dockWidget    = mDockWidget;
             DragInfoHolder.minimum       = float.MaxValue;
@@ -344,7 +344,7 @@ namespace Common.UI.DockWidgets
         /// <summary>
         /// Button click handler.
         /// </summary>
-        private void buttonClicked()
+        private void ButtonClicked()
         {
             mDockWidget.Select();
         }

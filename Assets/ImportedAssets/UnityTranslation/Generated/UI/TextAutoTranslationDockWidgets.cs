@@ -27,9 +27,9 @@ namespace UnityTranslation
         void Start()
         {
             mText = GetComponent<Text>();
-            mText.text = Translator.getString(id);
+            mText.text = Translator.GetString(id);
 
-            Translator.addLanguageChangedListener(OnLanguageChanged);
+            Translator.AddLanguageChangedListener(OnLanguageChanged);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace UnityTranslation
         /// </summary>
         void OnDestroy()
         {
-            Translator.removeLanguageChangedListener(OnLanguageChanged);
+            Translator.RemoveLanguageChangedListener(OnLanguageChanged);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace UnityTranslation
         /// </summary>
         public void OnLanguageChanged()
         {
-            mText.text = Translator.getString(id);
+            mText.text = Translator.GetString(id);
         }
     }
 }

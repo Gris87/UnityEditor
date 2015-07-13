@@ -22,620 +22,620 @@ namespace UnityTranslationInternal
         /// </summary>
         public static readonly PluralsFunction[] pluralsFunctions = new PluralsFunction[]
         {
-              pluralsDefaultFunction  // Default
-            , pluralsFallbackFunction // Afar
-            , pluralsFallbackFunction // Abkhazian
-            , pluralsFallbackFunction // Achinese
-            , pluralsFallbackFunction // Acoli
-            , pluralsFallbackFunction // Adangme
-            , pluralsFallbackFunction // Adyghe
-            , pluralsFallbackFunction // Avestan
-            , pluralsFallbackFunction // TunisianArabic
-            , pluralsFunction1        // Afrikaans
-            , pluralsFallbackFunction // Afrihili
-            , pluralsFallbackFunction // Aghem
-            , pluralsFallbackFunction // Ainu
-            , pluralsFunction2        // Akan
-            , pluralsFallbackFunction // Akkadian
-            , pluralsFallbackFunction // Alabama
-            , pluralsFallbackFunction // Aleut
-            , pluralsFallbackFunction // GhegAlbanian
-            , pluralsFallbackFunction // SouthernAltai
-            , pluralsFunction3        // Amharic
-            , pluralsFallbackFunction // Aragonese
-            , pluralsFallbackFunction // OldEnglish
-            , pluralsFallbackFunction // Angika
-            , pluralsFunction4        // Arabic
-            , pluralsFunction4        // ModernStandardArabic
-            , pluralsFallbackFunction // Aramaic
-            , pluralsFallbackFunction // Mapuche
-            , pluralsFallbackFunction // Araona
-            , pluralsFallbackFunction // Arapaho
-            , pluralsFallbackFunction // AlgerianArabic
-            , pluralsFallbackFunction // Arawak
-            , pluralsFallbackFunction // MoroccanArabic
-            , pluralsFallbackFunction // EgyptianArabic
-            , pluralsFallbackFunction // Assamese
-            , pluralsFunction1        // Asu
-            , pluralsFallbackFunction // AmericanSignLanguage
-            , pluralsDefaultFunction  // Asturian
-            , pluralsFallbackFunction // Avaric
-            , pluralsFallbackFunction // Kotava
-            , pluralsFallbackFunction // Awadhi
-            , pluralsFallbackFunction // Aymara
-            , pluralsFunction1        // Azerbaijani
-            , pluralsFunction1        // Azeri
-            , pluralsFallbackFunction // SouthAzerbaijani
-            , pluralsFallbackFunction // Bashkir
-            , pluralsFallbackFunction // Baluchi
-            , pluralsFallbackFunction // Balinese
-            , pluralsFallbackFunction // Bavarian
-            , pluralsFallbackFunction // Basaa
-            , pluralsFallbackFunction // Bamun
-            , pluralsFallbackFunction // BatakToba
-            , pluralsFallbackFunction // Ghomala
-            , pluralsFunction5        // Belarusian
-            , pluralsFallbackFunction // Beja
-            , pluralsFunction1        // Bemba
-            , pluralsFallbackFunction // Betawi
-            , pluralsFunction1        // Bena
-            , pluralsFallbackFunction // Bafut
-            , pluralsFallbackFunction // Badaga
-            , pluralsFunction1        // Bulgarian
-            , pluralsFallbackFunction // Bhojpuri
-            , pluralsFallbackFunction // Bislama
-            , pluralsFallbackFunction // Bikol
-            , pluralsFallbackFunction // Bini
-            , pluralsFallbackFunction // Banjar
-            , pluralsFallbackFunction // Kom
-            , pluralsFallbackFunction // Siksika
-            , pluralsFunction6        // Bambara
-            , pluralsFunction3        // Bengali
-            , pluralsFunction6        // Tibetan
-            , pluralsFallbackFunction // Bishnupriya
-            , pluralsFallbackFunction // Bakhtiari
-            , pluralsFunction7        // Breton
-            , pluralsFallbackFunction // Braj
-            , pluralsFallbackFunction // Brahui
-            , pluralsFunction1        // Bodo
-            , pluralsFunction8        // Bosnian
-            , pluralsFallbackFunction // Akoose
-            , pluralsFallbackFunction // Buriat
-            , pluralsFallbackFunction // Buginese
-            , pluralsFallbackFunction // Bulu
-            , pluralsFallbackFunction // Blin
-            , pluralsFallbackFunction // Medumba
-            , pluralsDefaultFunction  // Catalan
-            , pluralsFallbackFunction // Caddo
-            , pluralsFallbackFunction // Carib
-            , pluralsFallbackFunction // Cayuga
-            , pluralsFallbackFunction // Atsam
-            , pluralsFallbackFunction // Chechen
-            , pluralsFallbackFunction // Cebuano
-            , pluralsFunction1        // Chiga
-            , pluralsFallbackFunction // Chamorro
-            , pluralsFallbackFunction // Chibcha
-            , pluralsFallbackFunction // Chagatai
-            , pluralsFallbackFunction // Chuukese
-            , pluralsFallbackFunction // Mari
-            , pluralsFallbackFunction // ChinookJargon
-            , pluralsFallbackFunction // Choctaw
-            , pluralsFallbackFunction // Chipewyan
-            , pluralsFunction1        // Cherokee
-            , pluralsFallbackFunction // Cheyenne
-            , pluralsFunction1        // SoraniKurdish
-            , pluralsFallbackFunction // Corsican
-            , pluralsFallbackFunction // Coptic
-            , pluralsFallbackFunction // Capiznon
-            , pluralsFallbackFunction // Cree
-            , pluralsFallbackFunction // CrimeanTurkish
-            , pluralsFunction9        // Czech
-            , pluralsFallbackFunction // Kashubian
-            , pluralsFallbackFunction // ChurchSlavic
-            , pluralsFallbackFunction // Chuvash
-            , pluralsFunction10       // Welsh
-            , pluralsFunction11       // Danish
-            , pluralsFallbackFunction // Dakota
-            , pluralsFallbackFunction // Dargwa
-            , pluralsFallbackFunction // Taita
-            , pluralsDefaultFunction  // German
-            , pluralsDefaultFunction  // AustrianGerman
-            , pluralsDefaultFunction  // SwissHighGerman
-            , pluralsFallbackFunction // Delaware
-            , pluralsFallbackFunction // Slave
-            , pluralsFallbackFunction // Dogrib
-            , pluralsFallbackFunction // Dinka
-            , pluralsFallbackFunction // Zarma
-            , pluralsFallbackFunction // Dogri
-            , pluralsFunction12       // LowerSorbian
-            , pluralsFallbackFunction // CentralDusun
-            , pluralsFallbackFunction // Duala
-            , pluralsFallbackFunction // MiddleDutch
-            , pluralsFunction1        // Divehi
-            , pluralsFallbackFunction // JolaFonyi
-            , pluralsFallbackFunction // Dyula
-            , pluralsFunction6        // Dzongkha
-            , pluralsFallbackFunction // Dazaga
-            , pluralsFallbackFunction // Embu
-            , pluralsFunction1        // Ewe
-            , pluralsFallbackFunction // Efik
-            , pluralsFallbackFunction // Emilian
-            , pluralsFallbackFunction // AncientEgyptian
-            , pluralsFallbackFunction // Ekajuk
-            , pluralsFunction1        // Greek
-            , pluralsFallbackFunction // Elamite
-            , pluralsDefaultFunction  // English
-            , pluralsDefaultFunction  // AustralianEnglish
-            , pluralsDefaultFunction  // CanadianEnglish
-            , pluralsDefaultFunction  // BritishEnglish
-            , pluralsDefaultFunction  // UKEnglish
-            , pluralsDefaultFunction  // AmericanEnglish
-            , pluralsDefaultFunction  // USEnglish
-            , pluralsFallbackFunction // MiddleEnglish
-            , pluralsFunction1        // Esperanto
-            , pluralsFunction1        // Spanish
-            , pluralsFunction1        // LatinAmericanSpanish
-            , pluralsFunction1        // EuropeanSpanish
-            , pluralsFunction1        // MexicanSpanish
-            , pluralsFallbackFunction // CentralYupik
-            , pluralsDefaultFunction  // Estonian
-            , pluralsFunction1        // Basque
-            , pluralsFallbackFunction // Ewondo
-            , pluralsFallbackFunction // Extremaduran
-            , pluralsFunction3        // Persian
-            , pluralsFallbackFunction // Fang
-            , pluralsFallbackFunction // Fanti
-            , pluralsFunction13       // Fulah
-            , pluralsDefaultFunction  // Finnish
-            , pluralsFunction14       // Filipino
-            , pluralsFallbackFunction // TornedalenFinnish
-            , pluralsFallbackFunction // Fijian
-            , pluralsFunction1        // Faroese
-            , pluralsFallbackFunction // Fon
-            , pluralsFunction13       // French
-            , pluralsFunction13       // CanadianFrench
-            , pluralsFunction13       // SwissFrench
-            , pluralsFallbackFunction // CajunFrench
-            , pluralsFallbackFunction // MiddleFrench
-            , pluralsFallbackFunction // OldFrench
-            , pluralsFallbackFunction // Arpitan
-            , pluralsFallbackFunction // NorthernFrisian
-            , pluralsFallbackFunction // EasternFrisian
-            , pluralsFunction1        // Friulian
-            , pluralsDefaultFunction  // WesternFrisian
-            , pluralsFunction15       // Irish
-            , pluralsFallbackFunction // Ga
-            , pluralsFallbackFunction // Gagauz
-            , pluralsFallbackFunction // GanChinese
-            , pluralsFallbackFunction // Gayo
-            , pluralsFallbackFunction // Gbaya
-            , pluralsFallbackFunction // ZoroastrianDari
-            , pluralsFunction16       // ScottishGaelic
-            , pluralsFallbackFunction // Geez
-            , pluralsFallbackFunction // Gilbertese
-            , pluralsDefaultFunction  // Galician
-            , pluralsFallbackFunction // Gilaki
-            , pluralsFallbackFunction // MiddleHighGerman
-            , pluralsFallbackFunction // Guarani
-            , pluralsFallbackFunction // OldHighGerman
-            , pluralsFallbackFunction // GoanKonkani
-            , pluralsFallbackFunction // Gondi
-            , pluralsFallbackFunction // Gorontalo
-            , pluralsFallbackFunction // Gothic
-            , pluralsFallbackFunction // Grebo
-            , pluralsFallbackFunction // AncientGreek
-            , pluralsFunction1        // SwissGerman
-            , pluralsFunction3        // Gujarati
-            , pluralsFallbackFunction // Wayuu
-            , pluralsFallbackFunction // Frafra
-            , pluralsFallbackFunction // Gusii
-            , pluralsFunction17       // Manx
-            , pluralsFallbackFunction // Gwichin
-            , pluralsFunction1        // Hausa
-            , pluralsFallbackFunction // Haida
-            , pluralsFallbackFunction // HakkaChinese
-            , pluralsFunction1        // Hawaiian
-            , pluralsFunction18       // Hebrew
-            , pluralsFunction3        // Hindi
-            , pluralsFallbackFunction // FijiHindi
-            , pluralsFallbackFunction // Hiligaynon
-            , pluralsFallbackFunction // Hittite
-            , pluralsFallbackFunction // Hmong
-            , pluralsFallbackFunction // HiriMotu
-            , pluralsFunction8        // Croatian
-            , pluralsFunction12       // UpperSorbian
-            , pluralsFallbackFunction // XiangChinese
-            , pluralsFallbackFunction // Haitian
-            , pluralsFunction1        // Hungarian
-            , pluralsFallbackFunction // Hupa
-            , pluralsFunction13       // Armenian
-            , pluralsFallbackFunction // Herero
-            , pluralsFallbackFunction // Interlingua
-            , pluralsFallbackFunction // Iban
-            , pluralsFallbackFunction // Ibibio
-            , pluralsFunction6        // Indonesian
-            , pluralsFallbackFunction // Interlingue
-            , pluralsFunction6        // Igbo
-            , pluralsFunction6        // SichuanYi
-            , pluralsFallbackFunction // Inupiaq
-            , pluralsFallbackFunction // Iloko
-            , pluralsFallbackFunction // Ingush
-            , pluralsFallbackFunction // Ido
-            , pluralsFunction19       // Icelandic
-            , pluralsDefaultFunction  // Italian
-            , pluralsFunction20       // Inuktitut
-            , pluralsFallbackFunction // Ingrian
-            , pluralsFunction6        // Japanese
-            , pluralsFallbackFunction // JamaicanCreoleEnglish
-            , pluralsFunction6        // Lojban
-            , pluralsFunction1        // Ngomba
-            , pluralsFunction1        // Machame
-            , pluralsFallbackFunction // JudeoPersian
-            , pluralsFallbackFunction // JudeoArabic
-            , pluralsFallbackFunction // Jutish
-            , pluralsFunction6        // Javanese
-            , pluralsFunction1        // Georgian
-            , pluralsFallbackFunction // KaraKalpak
-            , pluralsFunction13       // Kabyle
-            , pluralsFallbackFunction // Kachin
-            , pluralsFunction1        // Jju
-            , pluralsFallbackFunction // Kamba
-            , pluralsFallbackFunction // Kawi
-            , pluralsFallbackFunction // Kabardian
-            , pluralsFallbackFunction // Kanembu
-            , pluralsFunction1        // Tyap
-            , pluralsFunction6        // Makonde
-            , pluralsFunction6        // Kabuverdianu
-            , pluralsFallbackFunction // Kenyang
-            , pluralsFallbackFunction // Koro
-            , pluralsFallbackFunction // Kongo
-            , pluralsFallbackFunction // Kaingang
-            , pluralsFallbackFunction // Khasi
-            , pluralsFallbackFunction // Khotanese
-            , pluralsFallbackFunction // KoyraChiini
-            , pluralsFallbackFunction // Khowar
-            , pluralsFallbackFunction // Kikuyu
-            , pluralsFallbackFunction // Kirmanjki
-            , pluralsFallbackFunction // Kuanyama
-            , pluralsFunction1        // Kazakh
-            , pluralsFunction1        // Kako
-            , pluralsFunction1        // Kalaallisut
-            , pluralsFallbackFunction // Kalenjin
-            , pluralsFunction6        // Khmer
-            , pluralsFallbackFunction // Kimbundu
-            , pluralsFunction3        // Kannada
-            , pluralsFunction6        // Korean
-            , pluralsFallbackFunction // KomiPermyak
-            , pluralsFallbackFunction // Konkani
-            , pluralsFallbackFunction // Kosraean
-            , pluralsFallbackFunction // Kpelle
-            , pluralsFallbackFunction // Kanuri
-            , pluralsFallbackFunction // KarachayBalkar
-            , pluralsFallbackFunction // Krio
-            , pluralsFallbackFunction // KinarayA
-            , pluralsFallbackFunction // Karelian
-            , pluralsFallbackFunction // Kurukh
-            , pluralsFunction1        // Kashmiri
-            , pluralsFunction1        // Shambala
-            , pluralsFallbackFunction // Bafia
-            , pluralsFunction21       // Colognian
-            , pluralsFunction1        // Kurdish
-            , pluralsFallbackFunction // Kumyk
-            , pluralsFallbackFunction // Kutenai
-            , pluralsFallbackFunction // Komi
-            , pluralsFunction20       // Cornish
-            , pluralsFunction1        // Kyrgyz
-            , pluralsFunction1        // Kirghiz
-            , pluralsFallbackFunction // Latin
-            , pluralsFallbackFunction // Ladino
-            , pluralsFunction22       // Langi
-            , pluralsFallbackFunction // Lahnda
-            , pluralsFallbackFunction // Lamba
-            , pluralsFunction1        // Luxembourgish
-            , pluralsFallbackFunction // Lezghian
-            , pluralsFallbackFunction // LinguaFrancaNova
-            , pluralsFunction1        // Ganda
-            , pluralsFallbackFunction // Limburgish
-            , pluralsFallbackFunction // Ligurian
-            , pluralsFallbackFunction // Livonian
-            , pluralsFunction6        // Lakota
-            , pluralsFallbackFunction // Lombard
-            , pluralsFunction2        // Lingala
-            , pluralsFunction6        // Lao
-            , pluralsFallbackFunction // Mongo
-            , pluralsFallbackFunction // Lozi
-            , pluralsFunction23       // Lithuanian
-            , pluralsFallbackFunction // Latgalian
-            , pluralsFallbackFunction // LubaKatanga
-            , pluralsFallbackFunction // LubaLulua
-            , pluralsFallbackFunction // Luiseno
-            , pluralsFallbackFunction // Lunda
-            , pluralsFallbackFunction // Luo
-            , pluralsFallbackFunction // Mizo
-            , pluralsFallbackFunction // Luyia
-            , pluralsFunction24       // Latvian
-            , pluralsFallbackFunction // LiteraryChinese
-            , pluralsFallbackFunction // Laz
-            , pluralsFallbackFunction // Madurese
-            , pluralsFallbackFunction // Mafa
-            , pluralsFallbackFunction // Magahi
-            , pluralsFallbackFunction // Maithili
-            , pluralsFallbackFunction // Makasar
-            , pluralsFallbackFunction // Mandingo
-            , pluralsFunction1        // Masai
-            , pluralsFallbackFunction // Maba
-            , pluralsFallbackFunction // Moksha
-            , pluralsFallbackFunction // Mandar
-            , pluralsFallbackFunction // Mende
-            , pluralsFallbackFunction // Meru
-            , pluralsFallbackFunction // Morisyen
-            , pluralsFunction2        // Malagasy
-            , pluralsFallbackFunction // MiddleIrish
-            , pluralsFallbackFunction // MakhuwaMeetto
-            , pluralsFunction1        // Meta
-            , pluralsFallbackFunction // Marshallese
-            , pluralsFallbackFunction // Maori
-            , pluralsFallbackFunction // Micmac
-            , pluralsFallbackFunction // Minangkabau
-            , pluralsFunction25       // Macedonian
-            , pluralsFunction1        // Malayalam
-            , pluralsFunction1        // Mongolian
-            , pluralsFallbackFunction // Manchu
-            , pluralsFallbackFunction // Manipuri
-            , pluralsFallbackFunction // Mohawk
-            , pluralsFallbackFunction // Mossi
-            , pluralsFunction3        // Marathi
-            , pluralsFallbackFunction // WesternMari
-            , pluralsFunction6        // Malay
-            , pluralsFunction26       // Maltese
-            , pluralsFallbackFunction // Mundang
-            , pluralsFallbackFunction // MultipleLanguages
-            , pluralsFallbackFunction // Creek
-            , pluralsFallbackFunction // Mirandese
-            , pluralsFallbackFunction // Marwari
-            , pluralsFallbackFunction // Mentawai
-            , pluralsFunction6        // Burmese
-            , pluralsFallbackFunction // Myene
-            , pluralsFallbackFunction // Erzya
-            , pluralsFallbackFunction // Mazanderani
-            , pluralsFallbackFunction // Nauru
-            , pluralsFallbackFunction // MinNanChinese
-            , pluralsFallbackFunction // Neapolitan
-            , pluralsFunction20       // Nama
-            , pluralsFunction1        // NorwegianBokmal
-            , pluralsFunction1        // NorthNdebele
-            , pluralsFallbackFunction // LowGerman
-            , pluralsFunction1        // Nepali
-            , pluralsFallbackFunction // Newari
-            , pluralsFallbackFunction // Ndonga
-            , pluralsFallbackFunction // Nias
-            , pluralsFallbackFunction // Niuean
-            , pluralsFallbackFunction // AoNaga
-            , pluralsDefaultFunction  // Dutch
-            , pluralsDefaultFunction  // Flemish
-            , pluralsFallbackFunction // Kwasio
-            , pluralsFunction1        // NorwegianNynorsk
-            , pluralsFunction1        // Ngiemboon
-            , pluralsFunction1        // Norwegian
-            , pluralsFallbackFunction // Nogai
-            , pluralsFallbackFunction // OldNorse
-            , pluralsFallbackFunction // Novial
-            , pluralsFunction6        // Nko
-            , pluralsFunction1        // SouthNdebele
-            , pluralsFunction2        // NorthernSotho
-            , pluralsFallbackFunction // Nuer
-            , pluralsFallbackFunction // Navajo
-            , pluralsFallbackFunction // ClassicalNewari
-            , pluralsFunction1        // Nyanja
-            , pluralsFallbackFunction // Nyamwezi
-            , pluralsFunction1        // Nyankole
-            , pluralsFallbackFunction // Nyoro
-            , pluralsFallbackFunction // Nzima
-            , pluralsFallbackFunction // Occitan
-            , pluralsFallbackFunction // Ojibwa
-            , pluralsFunction1        // Oromo
-            , pluralsFunction1        // Oriya
-            , pluralsFunction1        // Ossetic
-            , pluralsFallbackFunction // Osage
-            , pluralsFallbackFunction // OttomanTurkish
-            , pluralsFunction2        // Punjabi
-            , pluralsFallbackFunction // Pangasinan
-            , pluralsFallbackFunction // Pahlavi
-            , pluralsFallbackFunction // Pampanga
-            , pluralsFunction1        // Papiamento
-            , pluralsFallbackFunction // Palauan
-            , pluralsFallbackFunction // Picard
-            , pluralsFallbackFunction // PennsylvaniaGerman
-            , pluralsFallbackFunction // Plautdietsch
-            , pluralsFallbackFunction // OldPersian
-            , pluralsFallbackFunction // PalatineGerman
-            , pluralsFallbackFunction // Phoenician
-            , pluralsFallbackFunction // Pali
-            , pluralsFunction27       // Polish
-            , pluralsFallbackFunction // Piedmontese
-            , pluralsFallbackFunction // Pontic
-            , pluralsFallbackFunction // Pohnpeian
-            , pluralsFunction24       // Prussian
-            , pluralsFallbackFunction // OldProvencal
-            , pluralsFunction1        // Pashto
-            , pluralsFunction1        // Pushto
-            , pluralsFunction28       // Portuguese
-            , pluralsFunction28       // BrazilianPortuguese
-            , pluralsFunction28       // EuropeanPortuguese
-            , pluralsFallbackFunction // Quechua
-            , pluralsFallbackFunction // Kiche
-            , pluralsFallbackFunction // ChimborazoHighlandQuichua
-            , pluralsFallbackFunction // Rajasthani
-            , pluralsFallbackFunction // Rapanui
-            , pluralsFallbackFunction // Rarotongan
-            , pluralsFallbackFunction // Romagnol
-            , pluralsFallbackFunction // Riffian
-            , pluralsFunction1        // Romansh
-            , pluralsFallbackFunction // Rundi
-            , pluralsFunction30       // Romanian
-            , pluralsFunction30       // Moldavian
-            , pluralsFunction1        // Rombo
-            , pluralsFallbackFunction // Romany
-            , pluralsFallbackFunction // Rotuman
-            , pluralsFunction31       // Russian
-            , pluralsFallbackFunction // Rusyn
-            , pluralsFallbackFunction // Roviana
-            , pluralsFallbackFunction // Aromanian
-            , pluralsFallbackFunction // Kinyarwanda
-            , pluralsFunction1        // Rwa
-            , pluralsFallbackFunction // Sanskrit
-            , pluralsFallbackFunction // Sandawe
-            , pluralsFunction6        // Sakha
-            , pluralsFallbackFunction // SamaritanAramaic
-            , pluralsFunction1        // Samburu
-            , pluralsFallbackFunction // Sasak
-            , pluralsFallbackFunction // Santali
-            , pluralsFallbackFunction // Saurashtra
-            , pluralsFallbackFunction // Ngambay
-            , pluralsFallbackFunction // Sangu
-            , pluralsFallbackFunction // Sardinian
-            , pluralsFallbackFunction // Sicilian
-            , pluralsFallbackFunction // Scots
-            , pluralsFallbackFunction // Sindhi
-            , pluralsFallbackFunction // SassareseSardinian
-            , pluralsFunction20       // NorthernSami
-            , pluralsFallbackFunction // Seneca
-            , pluralsFunction1        // Sena
-            , pluralsFallbackFunction // Seri
-            , pluralsFallbackFunction // Selkup
-            , pluralsFunction6        // KoyraboroSenni
-            , pluralsFunction6        // Sango
-            , pluralsFallbackFunction // OldIrish
-            , pluralsFallbackFunction // Samogitian
-            , pluralsFunction8        // SerboCroatian
-            , pluralsFunction32       // Tachelhit
-            , pluralsFallbackFunction // Shan
-            , pluralsFallbackFunction // ChadianArabic
-            , pluralsFunction33       // Sinhala
-            , pluralsFallbackFunction // Sidamo
-            , pluralsFunction9        // Slovak
-            , pluralsFunction34       // Slovenian
-            , pluralsFallbackFunction // LowerSilesian
-            , pluralsFallbackFunction // Selayar
-            , pluralsFallbackFunction // Samoan
-            , pluralsFunction20       // SouthernSami
-            , pluralsFunction20       // LuleSami
-            , pluralsFunction20       // InariSami
-            , pluralsFunction20       // SkoltSami
-            , pluralsFunction1        // Shona
-            , pluralsFallbackFunction // Soninke
-            , pluralsFunction1        // Somali
-            , pluralsFallbackFunction // Sogdien
-            , pluralsFunction1        // Albanian
-            , pluralsFunction8        // Serbian
-            , pluralsFallbackFunction // SrananTongo
-            , pluralsFallbackFunction // Serer
-            , pluralsFunction1        // Swati
-            , pluralsFunction1        // Saho
-            , pluralsFunction1        // SouthernSotho
-            , pluralsFallbackFunction // SaterlandFrisian
-            , pluralsFallbackFunction // Sundanese
-            , pluralsFallbackFunction // Sukuma
-            , pluralsFallbackFunction // Susu
-            , pluralsFallbackFunction // Sumerian
-            , pluralsDefaultFunction  // Swedish
-            , pluralsDefaultFunction  // Swahili
-            , pluralsFallbackFunction // Comorian
-            , pluralsFallbackFunction // CongoSwahili
-            , pluralsFallbackFunction // ClassicalSyriac
-            , pluralsFunction1        // Syriac
-            , pluralsFallbackFunction // Silesian
-            , pluralsFunction1        // Tamil
-            , pluralsFallbackFunction // Tulu
-            , pluralsFunction1        // Telugu
-            , pluralsFallbackFunction // Timne
-            , pluralsFunction1        // Teso
-            , pluralsFallbackFunction // Tereno
-            , pluralsFallbackFunction // Tetum
-            , pluralsFallbackFunction // Tajik
-            , pluralsFunction6        // Thai
-            , pluralsFunction2        // Tigrinya
-            , pluralsFunction1        // Tigre
-            , pluralsFallbackFunction // Tiv
-            , pluralsFunction1        // Turkmen
-            , pluralsFallbackFunction // Tokelau
-            , pluralsFallbackFunction // Tsakhur
-            , pluralsFunction14       // Tagalog
-            , pluralsFallbackFunction // Klingon
-            , pluralsFallbackFunction // Tlingit
-            , pluralsFallbackFunction // Talysh
-            , pluralsFallbackFunction // Tamashek
-            , pluralsFunction1        // Tswana
-            , pluralsFunction6        // Tongan
-            , pluralsFallbackFunction // NyasaTonga
-            , pluralsFallbackFunction // TokPisin
-            , pluralsFunction1        // Turkish
-            , pluralsFallbackFunction // Turoyo
-            , pluralsFallbackFunction // Taroko
-            , pluralsFunction1        // Tsonga
-            , pluralsFallbackFunction // Tsakonian
-            , pluralsFallbackFunction // Tsimshian
-            , pluralsFallbackFunction // Tatar
-            , pluralsFallbackFunction // MuslimTat
-            , pluralsFallbackFunction // Tumbuka
-            , pluralsFallbackFunction // Tuvalu
-            , pluralsFallbackFunction // Twi
-            , pluralsFallbackFunction // Tasawaq
-            , pluralsFallbackFunction // Tahitian
-            , pluralsFallbackFunction // Tuvinian
-            , pluralsFunction35       // CentralAtlasTamazight
-            , pluralsFallbackFunction // Udmurt
-            , pluralsFunction1        // Uyghur
-            , pluralsFunction1        // Uighur
-            , pluralsFallbackFunction // Ugaritic
-            , pluralsFunction31       // Ukrainian
-            , pluralsFallbackFunction // Umbundu
-            , pluralsFallbackFunction // UnknownLanguage
-            , pluralsDefaultFunction  // Urdu
-            , pluralsFunction1        // Uzbek
-            , pluralsFallbackFunction // Vai
-            , pluralsFunction1        // Venda
-            , pluralsFallbackFunction // Venetian
-            , pluralsFallbackFunction // Veps
-            , pluralsFunction6        // Vietnamese
-            , pluralsFallbackFunction // WestFlemish
-            , pluralsFallbackFunction // MainFranconian
-            , pluralsFunction1        // Volapuk
-            , pluralsFallbackFunction // Votic
-            , pluralsFallbackFunction // Voro
-            , pluralsFunction1        // Vunjo
-            , pluralsFunction2        // Walloon
-            , pluralsFunction1        // Walser
-            , pluralsFallbackFunction // Wolaytta
-            , pluralsFallbackFunction // Waray
-            , pluralsFallbackFunction // Washo
-            , pluralsFunction6        // Wolof
-            , pluralsFallbackFunction // WuChinese
-            , pluralsFallbackFunction // Kalmyk
-            , pluralsFunction1        // Xhosa
-            , pluralsFallbackFunction // Mingrelian
-            , pluralsFunction1        // Soga
-            , pluralsFallbackFunction // Yao
-            , pluralsFallbackFunction // Yapese
-            , pluralsFallbackFunction // Yangben
-            , pluralsFallbackFunction // Yemba
-            , pluralsDefaultFunction  // Yiddish
-            , pluralsFunction6        // Yoruba
-            , pluralsFallbackFunction // Nheengatu
-            , pluralsFallbackFunction // Cantonese
-            , pluralsFallbackFunction // Zhuang
-            , pluralsFallbackFunction // Zapotec
-            , pluralsFallbackFunction // Blissymbols
-            , pluralsFallbackFunction // Zeelandic
-            , pluralsFallbackFunction // Zenaga
-            , pluralsFallbackFunction // StandardMoroccanTamazight
-            , pluralsFunction6        // Chinese
-            , pluralsFunction6        // SimplifiedChinese
-            , pluralsFunction6        // TraditionalChinese
-            , pluralsFunction3        // Zulu
-            , pluralsFallbackFunction // Zuni
-            , pluralsFallbackFunction // NoLinguisticContent
-            , pluralsFallbackFunction // Zaza
+              PluralsDefaultFunction  // Default
+            , PluralsFallbackFunction // Afar
+            , PluralsFallbackFunction // Abkhazian
+            , PluralsFallbackFunction // Achinese
+            , PluralsFallbackFunction // Acoli
+            , PluralsFallbackFunction // Adangme
+            , PluralsFallbackFunction // Adyghe
+            , PluralsFallbackFunction // Avestan
+            , PluralsFallbackFunction // TunisianArabic
+            , PluralsFunction1        // Afrikaans
+            , PluralsFallbackFunction // Afrihili
+            , PluralsFallbackFunction // Aghem
+            , PluralsFallbackFunction // Ainu
+            , PluralsFunction2        // Akan
+            , PluralsFallbackFunction // Akkadian
+            , PluralsFallbackFunction // Alabama
+            , PluralsFallbackFunction // Aleut
+            , PluralsFallbackFunction // GhegAlbanian
+            , PluralsFallbackFunction // SouthernAltai
+            , PluralsFunction3        // Amharic
+            , PluralsFallbackFunction // Aragonese
+            , PluralsFallbackFunction // OldEnglish
+            , PluralsFallbackFunction // Angika
+            , PluralsFunction4        // Arabic
+            , PluralsFunction4        // ModernStandardArabic
+            , PluralsFallbackFunction // Aramaic
+            , PluralsFallbackFunction // Mapuche
+            , PluralsFallbackFunction // Araona
+            , PluralsFallbackFunction // Arapaho
+            , PluralsFallbackFunction // AlgerianArabic
+            , PluralsFallbackFunction // Arawak
+            , PluralsFallbackFunction // MoroccanArabic
+            , PluralsFallbackFunction // EgyptianArabic
+            , PluralsFallbackFunction // Assamese
+            , PluralsFunction1        // Asu
+            , PluralsFallbackFunction // AmericanSignLanguage
+            , PluralsDefaultFunction  // Asturian
+            , PluralsFallbackFunction // Avaric
+            , PluralsFallbackFunction // Kotava
+            , PluralsFallbackFunction // Awadhi
+            , PluralsFallbackFunction // Aymara
+            , PluralsFunction1        // Azerbaijani
+            , PluralsFunction1        // Azeri
+            , PluralsFallbackFunction // SouthAzerbaijani
+            , PluralsFallbackFunction // Bashkir
+            , PluralsFallbackFunction // Baluchi
+            , PluralsFallbackFunction // Balinese
+            , PluralsFallbackFunction // Bavarian
+            , PluralsFallbackFunction // Basaa
+            , PluralsFallbackFunction // Bamun
+            , PluralsFallbackFunction // BatakToba
+            , PluralsFallbackFunction // Ghomala
+            , PluralsFunction5        // Belarusian
+            , PluralsFallbackFunction // Beja
+            , PluralsFunction1        // Bemba
+            , PluralsFallbackFunction // Betawi
+            , PluralsFunction1        // Bena
+            , PluralsFallbackFunction // Bafut
+            , PluralsFallbackFunction // Badaga
+            , PluralsFunction1        // Bulgarian
+            , PluralsFallbackFunction // Bhojpuri
+            , PluralsFallbackFunction // Bislama
+            , PluralsFallbackFunction // Bikol
+            , PluralsFallbackFunction // Bini
+            , PluralsFallbackFunction // Banjar
+            , PluralsFallbackFunction // Kom
+            , PluralsFallbackFunction // Siksika
+            , PluralsFunction6        // Bambara
+            , PluralsFunction3        // Bengali
+            , PluralsFunction6        // Tibetan
+            , PluralsFallbackFunction // Bishnupriya
+            , PluralsFallbackFunction // Bakhtiari
+            , PluralsFunction7        // Breton
+            , PluralsFallbackFunction // Braj
+            , PluralsFallbackFunction // Brahui
+            , PluralsFunction1        // Bodo
+            , PluralsFunction8        // Bosnian
+            , PluralsFallbackFunction // Akoose
+            , PluralsFallbackFunction // Buriat
+            , PluralsFallbackFunction // Buginese
+            , PluralsFallbackFunction // Bulu
+            , PluralsFallbackFunction // Blin
+            , PluralsFallbackFunction // Medumba
+            , PluralsDefaultFunction  // Catalan
+            , PluralsFallbackFunction // Caddo
+            , PluralsFallbackFunction // Carib
+            , PluralsFallbackFunction // Cayuga
+            , PluralsFallbackFunction // Atsam
+            , PluralsFallbackFunction // Chechen
+            , PluralsFallbackFunction // Cebuano
+            , PluralsFunction1        // Chiga
+            , PluralsFallbackFunction // Chamorro
+            , PluralsFallbackFunction // Chibcha
+            , PluralsFallbackFunction // Chagatai
+            , PluralsFallbackFunction // Chuukese
+            , PluralsFallbackFunction // Mari
+            , PluralsFallbackFunction // ChinookJargon
+            , PluralsFallbackFunction // Choctaw
+            , PluralsFallbackFunction // Chipewyan
+            , PluralsFunction1        // Cherokee
+            , PluralsFallbackFunction // Cheyenne
+            , PluralsFunction1        // SoraniKurdish
+            , PluralsFallbackFunction // Corsican
+            , PluralsFallbackFunction // Coptic
+            , PluralsFallbackFunction // Capiznon
+            , PluralsFallbackFunction // Cree
+            , PluralsFallbackFunction // CrimeanTurkish
+            , PluralsFunction9        // Czech
+            , PluralsFallbackFunction // Kashubian
+            , PluralsFallbackFunction // ChurchSlavic
+            , PluralsFallbackFunction // Chuvash
+            , PluralsFunction10       // Welsh
+            , PluralsFunction11       // Danish
+            , PluralsFallbackFunction // Dakota
+            , PluralsFallbackFunction // Dargwa
+            , PluralsFallbackFunction // Taita
+            , PluralsDefaultFunction  // German
+            , PluralsDefaultFunction  // AustrianGerman
+            , PluralsDefaultFunction  // SwissHighGerman
+            , PluralsFallbackFunction // Delaware
+            , PluralsFallbackFunction // Slave
+            , PluralsFallbackFunction // Dogrib
+            , PluralsFallbackFunction // Dinka
+            , PluralsFallbackFunction // Zarma
+            , PluralsFallbackFunction // Dogri
+            , PluralsFunction12       // LowerSorbian
+            , PluralsFallbackFunction // CentralDusun
+            , PluralsFallbackFunction // Duala
+            , PluralsFallbackFunction // MiddleDutch
+            , PluralsFunction1        // Divehi
+            , PluralsFallbackFunction // JolaFonyi
+            , PluralsFallbackFunction // Dyula
+            , PluralsFunction6        // Dzongkha
+            , PluralsFallbackFunction // Dazaga
+            , PluralsFallbackFunction // Embu
+            , PluralsFunction1        // Ewe
+            , PluralsFallbackFunction // Efik
+            , PluralsFallbackFunction // Emilian
+            , PluralsFallbackFunction // AncientEgyptian
+            , PluralsFallbackFunction // Ekajuk
+            , PluralsFunction1        // Greek
+            , PluralsFallbackFunction // Elamite
+            , PluralsDefaultFunction  // English
+            , PluralsDefaultFunction  // AustralianEnglish
+            , PluralsDefaultFunction  // CanadianEnglish
+            , PluralsDefaultFunction  // BritishEnglish
+            , PluralsDefaultFunction  // UKEnglish
+            , PluralsDefaultFunction  // AmericanEnglish
+            , PluralsDefaultFunction  // USEnglish
+            , PluralsFallbackFunction // MiddleEnglish
+            , PluralsFunction1        // Esperanto
+            , PluralsFunction1        // Spanish
+            , PluralsFunction1        // LatinAmericanSpanish
+            , PluralsFunction1        // EuropeanSpanish
+            , PluralsFunction1        // MexicanSpanish
+            , PluralsFallbackFunction // CentralYupik
+            , PluralsDefaultFunction  // Estonian
+            , PluralsFunction1        // Basque
+            , PluralsFallbackFunction // Ewondo
+            , PluralsFallbackFunction // Extremaduran
+            , PluralsFunction3        // Persian
+            , PluralsFallbackFunction // Fang
+            , PluralsFallbackFunction // Fanti
+            , PluralsFunction13       // Fulah
+            , PluralsDefaultFunction  // Finnish
+            , PluralsFunction14       // Filipino
+            , PluralsFallbackFunction // TornedalenFinnish
+            , PluralsFallbackFunction // Fijian
+            , PluralsFunction1        // Faroese
+            , PluralsFallbackFunction // Fon
+            , PluralsFunction13       // French
+            , PluralsFunction13       // CanadianFrench
+            , PluralsFunction13       // SwissFrench
+            , PluralsFallbackFunction // CajunFrench
+            , PluralsFallbackFunction // MiddleFrench
+            , PluralsFallbackFunction // OldFrench
+            , PluralsFallbackFunction // Arpitan
+            , PluralsFallbackFunction // NorthernFrisian
+            , PluralsFallbackFunction // EasternFrisian
+            , PluralsFunction1        // Friulian
+            , PluralsDefaultFunction  // WesternFrisian
+            , PluralsFunction15       // Irish
+            , PluralsFallbackFunction // Ga
+            , PluralsFallbackFunction // Gagauz
+            , PluralsFallbackFunction // GanChinese
+            , PluralsFallbackFunction // Gayo
+            , PluralsFallbackFunction // Gbaya
+            , PluralsFallbackFunction // ZoroastrianDari
+            , PluralsFunction16       // ScottishGaelic
+            , PluralsFallbackFunction // Geez
+            , PluralsFallbackFunction // Gilbertese
+            , PluralsDefaultFunction  // Galician
+            , PluralsFallbackFunction // Gilaki
+            , PluralsFallbackFunction // MiddleHighGerman
+            , PluralsFallbackFunction // Guarani
+            , PluralsFallbackFunction // OldHighGerman
+            , PluralsFallbackFunction // GoanKonkani
+            , PluralsFallbackFunction // Gondi
+            , PluralsFallbackFunction // Gorontalo
+            , PluralsFallbackFunction // Gothic
+            , PluralsFallbackFunction // Grebo
+            , PluralsFallbackFunction // AncientGreek
+            , PluralsFunction1        // SwissGerman
+            , PluralsFunction3        // Gujarati
+            , PluralsFallbackFunction // Wayuu
+            , PluralsFallbackFunction // Frafra
+            , PluralsFallbackFunction // Gusii
+            , PluralsFunction17       // Manx
+            , PluralsFallbackFunction // Gwichin
+            , PluralsFunction1        // Hausa
+            , PluralsFallbackFunction // Haida
+            , PluralsFallbackFunction // HakkaChinese
+            , PluralsFunction1        // Hawaiian
+            , PluralsFunction18       // Hebrew
+            , PluralsFunction3        // Hindi
+            , PluralsFallbackFunction // FijiHindi
+            , PluralsFallbackFunction // Hiligaynon
+            , PluralsFallbackFunction // Hittite
+            , PluralsFallbackFunction // Hmong
+            , PluralsFallbackFunction // HiriMotu
+            , PluralsFunction8        // Croatian
+            , PluralsFunction12       // UpperSorbian
+            , PluralsFallbackFunction // XiangChinese
+            , PluralsFallbackFunction // Haitian
+            , PluralsFunction1        // Hungarian
+            , PluralsFallbackFunction // Hupa
+            , PluralsFunction13       // Armenian
+            , PluralsFallbackFunction // Herero
+            , PluralsFallbackFunction // Interlingua
+            , PluralsFallbackFunction // Iban
+            , PluralsFallbackFunction // Ibibio
+            , PluralsFunction6        // Indonesian
+            , PluralsFallbackFunction // Interlingue
+            , PluralsFunction6        // Igbo
+            , PluralsFunction6        // SichuanYi
+            , PluralsFallbackFunction // Inupiaq
+            , PluralsFallbackFunction // Iloko
+            , PluralsFallbackFunction // Ingush
+            , PluralsFallbackFunction // Ido
+            , PluralsFunction19       // Icelandic
+            , PluralsDefaultFunction  // Italian
+            , PluralsFunction20       // Inuktitut
+            , PluralsFallbackFunction // Ingrian
+            , PluralsFunction6        // Japanese
+            , PluralsFallbackFunction // JamaicanCreoleEnglish
+            , PluralsFunction6        // Lojban
+            , PluralsFunction1        // Ngomba
+            , PluralsFunction1        // Machame
+            , PluralsFallbackFunction // JudeoPersian
+            , PluralsFallbackFunction // JudeoArabic
+            , PluralsFallbackFunction // Jutish
+            , PluralsFunction6        // Javanese
+            , PluralsFunction1        // Georgian
+            , PluralsFallbackFunction // KaraKalpak
+            , PluralsFunction13       // Kabyle
+            , PluralsFallbackFunction // Kachin
+            , PluralsFunction1        // Jju
+            , PluralsFallbackFunction // Kamba
+            , PluralsFallbackFunction // Kawi
+            , PluralsFallbackFunction // Kabardian
+            , PluralsFallbackFunction // Kanembu
+            , PluralsFunction1        // Tyap
+            , PluralsFunction6        // Makonde
+            , PluralsFunction6        // Kabuverdianu
+            , PluralsFallbackFunction // Kenyang
+            , PluralsFallbackFunction // Koro
+            , PluralsFallbackFunction // Kongo
+            , PluralsFallbackFunction // Kaingang
+            , PluralsFallbackFunction // Khasi
+            , PluralsFallbackFunction // Khotanese
+            , PluralsFallbackFunction // KoyraChiini
+            , PluralsFallbackFunction // Khowar
+            , PluralsFallbackFunction // Kikuyu
+            , PluralsFallbackFunction // Kirmanjki
+            , PluralsFallbackFunction // Kuanyama
+            , PluralsFunction1        // Kazakh
+            , PluralsFunction1        // Kako
+            , PluralsFunction1        // Kalaallisut
+            , PluralsFallbackFunction // Kalenjin
+            , PluralsFunction6        // Khmer
+            , PluralsFallbackFunction // Kimbundu
+            , PluralsFunction3        // Kannada
+            , PluralsFunction6        // Korean
+            , PluralsFallbackFunction // KomiPermyak
+            , PluralsFallbackFunction // Konkani
+            , PluralsFallbackFunction // Kosraean
+            , PluralsFallbackFunction // Kpelle
+            , PluralsFallbackFunction // Kanuri
+            , PluralsFallbackFunction // KarachayBalkar
+            , PluralsFallbackFunction // Krio
+            , PluralsFallbackFunction // KinarayA
+            , PluralsFallbackFunction // Karelian
+            , PluralsFallbackFunction // Kurukh
+            , PluralsFunction1        // Kashmiri
+            , PluralsFunction1        // Shambala
+            , PluralsFallbackFunction // Bafia
+            , PluralsFunction21       // Colognian
+            , PluralsFunction1        // Kurdish
+            , PluralsFallbackFunction // Kumyk
+            , PluralsFallbackFunction // Kutenai
+            , PluralsFallbackFunction // Komi
+            , PluralsFunction20       // Cornish
+            , PluralsFunction1        // Kyrgyz
+            , PluralsFunction1        // Kirghiz
+            , PluralsFallbackFunction // Latin
+            , PluralsFallbackFunction // Ladino
+            , PluralsFunction22       // Langi
+            , PluralsFallbackFunction // Lahnda
+            , PluralsFallbackFunction // Lamba
+            , PluralsFunction1        // Luxembourgish
+            , PluralsFallbackFunction // Lezghian
+            , PluralsFallbackFunction // LinguaFrancaNova
+            , PluralsFunction1        // Ganda
+            , PluralsFallbackFunction // Limburgish
+            , PluralsFallbackFunction // Ligurian
+            , PluralsFallbackFunction // Livonian
+            , PluralsFunction6        // Lakota
+            , PluralsFallbackFunction // Lombard
+            , PluralsFunction2        // Lingala
+            , PluralsFunction6        // Lao
+            , PluralsFallbackFunction // Mongo
+            , PluralsFallbackFunction // Lozi
+            , PluralsFunction23       // Lithuanian
+            , PluralsFallbackFunction // Latgalian
+            , PluralsFallbackFunction // LubaKatanga
+            , PluralsFallbackFunction // LubaLulua
+            , PluralsFallbackFunction // Luiseno
+            , PluralsFallbackFunction // Lunda
+            , PluralsFallbackFunction // Luo
+            , PluralsFallbackFunction // Mizo
+            , PluralsFallbackFunction // Luyia
+            , PluralsFunction24       // Latvian
+            , PluralsFallbackFunction // LiteraryChinese
+            , PluralsFallbackFunction // Laz
+            , PluralsFallbackFunction // Madurese
+            , PluralsFallbackFunction // Mafa
+            , PluralsFallbackFunction // Magahi
+            , PluralsFallbackFunction // Maithili
+            , PluralsFallbackFunction // Makasar
+            , PluralsFallbackFunction // Mandingo
+            , PluralsFunction1        // Masai
+            , PluralsFallbackFunction // Maba
+            , PluralsFallbackFunction // Moksha
+            , PluralsFallbackFunction // Mandar
+            , PluralsFallbackFunction // Mende
+            , PluralsFallbackFunction // Meru
+            , PluralsFallbackFunction // Morisyen
+            , PluralsFunction2        // Malagasy
+            , PluralsFallbackFunction // MiddleIrish
+            , PluralsFallbackFunction // MakhuwaMeetto
+            , PluralsFunction1        // Meta
+            , PluralsFallbackFunction // Marshallese
+            , PluralsFallbackFunction // Maori
+            , PluralsFallbackFunction // Micmac
+            , PluralsFallbackFunction // Minangkabau
+            , PluralsFunction25       // Macedonian
+            , PluralsFunction1        // Malayalam
+            , PluralsFunction1        // Mongolian
+            , PluralsFallbackFunction // Manchu
+            , PluralsFallbackFunction // Manipuri
+            , PluralsFallbackFunction // Mohawk
+            , PluralsFallbackFunction // Mossi
+            , PluralsFunction3        // Marathi
+            , PluralsFallbackFunction // WesternMari
+            , PluralsFunction6        // Malay
+            , PluralsFunction26       // Maltese
+            , PluralsFallbackFunction // Mundang
+            , PluralsFallbackFunction // MultipleLanguages
+            , PluralsFallbackFunction // Creek
+            , PluralsFallbackFunction // Mirandese
+            , PluralsFallbackFunction // Marwari
+            , PluralsFallbackFunction // Mentawai
+            , PluralsFunction6        // Burmese
+            , PluralsFallbackFunction // Myene
+            , PluralsFallbackFunction // Erzya
+            , PluralsFallbackFunction // Mazanderani
+            , PluralsFallbackFunction // Nauru
+            , PluralsFallbackFunction // MinNanChinese
+            , PluralsFallbackFunction // Neapolitan
+            , PluralsFunction20       // Nama
+            , PluralsFunction1        // NorwegianBokmal
+            , PluralsFunction1        // NorthNdebele
+            , PluralsFallbackFunction // LowGerman
+            , PluralsFunction1        // Nepali
+            , PluralsFallbackFunction // Newari
+            , PluralsFallbackFunction // Ndonga
+            , PluralsFallbackFunction // Nias
+            , PluralsFallbackFunction // Niuean
+            , PluralsFallbackFunction // AoNaga
+            , PluralsDefaultFunction  // Dutch
+            , PluralsDefaultFunction  // Flemish
+            , PluralsFallbackFunction // Kwasio
+            , PluralsFunction1        // NorwegianNynorsk
+            , PluralsFunction1        // Ngiemboon
+            , PluralsFunction1        // Norwegian
+            , PluralsFallbackFunction // Nogai
+            , PluralsFallbackFunction // OldNorse
+            , PluralsFallbackFunction // Novial
+            , PluralsFunction6        // Nko
+            , PluralsFunction1        // SouthNdebele
+            , PluralsFunction2        // NorthernSotho
+            , PluralsFallbackFunction // Nuer
+            , PluralsFallbackFunction // Navajo
+            , PluralsFallbackFunction // ClassicalNewari
+            , PluralsFunction1        // Nyanja
+            , PluralsFallbackFunction // Nyamwezi
+            , PluralsFunction1        // Nyankole
+            , PluralsFallbackFunction // Nyoro
+            , PluralsFallbackFunction // Nzima
+            , PluralsFallbackFunction // Occitan
+            , PluralsFallbackFunction // Ojibwa
+            , PluralsFunction1        // Oromo
+            , PluralsFunction1        // Oriya
+            , PluralsFunction1        // Ossetic
+            , PluralsFallbackFunction // Osage
+            , PluralsFallbackFunction // OttomanTurkish
+            , PluralsFunction2        // Punjabi
+            , PluralsFallbackFunction // Pangasinan
+            , PluralsFallbackFunction // Pahlavi
+            , PluralsFallbackFunction // Pampanga
+            , PluralsFunction1        // Papiamento
+            , PluralsFallbackFunction // Palauan
+            , PluralsFallbackFunction // Picard
+            , PluralsFallbackFunction // PennsylvaniaGerman
+            , PluralsFallbackFunction // Plautdietsch
+            , PluralsFallbackFunction // OldPersian
+            , PluralsFallbackFunction // PalatineGerman
+            , PluralsFallbackFunction // Phoenician
+            , PluralsFallbackFunction // Pali
+            , PluralsFunction27       // Polish
+            , PluralsFallbackFunction // Piedmontese
+            , PluralsFallbackFunction // Pontic
+            , PluralsFallbackFunction // Pohnpeian
+            , PluralsFunction24       // Prussian
+            , PluralsFallbackFunction // OldProvencal
+            , PluralsFunction1        // Pashto
+            , PluralsFunction1        // Pushto
+            , PluralsFunction28       // Portuguese
+            , PluralsFunction28       // BrazilianPortuguese
+            , PluralsFunction28       // EuropeanPortuguese
+            , PluralsFallbackFunction // Quechua
+            , PluralsFallbackFunction // Kiche
+            , PluralsFallbackFunction // ChimborazoHighlandQuichua
+            , PluralsFallbackFunction // Rajasthani
+            , PluralsFallbackFunction // Rapanui
+            , PluralsFallbackFunction // Rarotongan
+            , PluralsFallbackFunction // Romagnol
+            , PluralsFallbackFunction // Riffian
+            , PluralsFunction1        // Romansh
+            , PluralsFallbackFunction // Rundi
+            , PluralsFunction30       // Romanian
+            , PluralsFunction30       // Moldavian
+            , PluralsFunction1        // Rombo
+            , PluralsFallbackFunction // Romany
+            , PluralsFallbackFunction // Rotuman
+            , PluralsFunction31       // Russian
+            , PluralsFallbackFunction // Rusyn
+            , PluralsFallbackFunction // Roviana
+            , PluralsFallbackFunction // Aromanian
+            , PluralsFallbackFunction // Kinyarwanda
+            , PluralsFunction1        // Rwa
+            , PluralsFallbackFunction // Sanskrit
+            , PluralsFallbackFunction // Sandawe
+            , PluralsFunction6        // Sakha
+            , PluralsFallbackFunction // SamaritanAramaic
+            , PluralsFunction1        // Samburu
+            , PluralsFallbackFunction // Sasak
+            , PluralsFallbackFunction // Santali
+            , PluralsFallbackFunction // Saurashtra
+            , PluralsFallbackFunction // Ngambay
+            , PluralsFallbackFunction // Sangu
+            , PluralsFallbackFunction // Sardinian
+            , PluralsFallbackFunction // Sicilian
+            , PluralsFallbackFunction // Scots
+            , PluralsFallbackFunction // Sindhi
+            , PluralsFallbackFunction // SassareseSardinian
+            , PluralsFunction20       // NorthernSami
+            , PluralsFallbackFunction // Seneca
+            , PluralsFunction1        // Sena
+            , PluralsFallbackFunction // Seri
+            , PluralsFallbackFunction // Selkup
+            , PluralsFunction6        // KoyraboroSenni
+            , PluralsFunction6        // Sango
+            , PluralsFallbackFunction // OldIrish
+            , PluralsFallbackFunction // Samogitian
+            , PluralsFunction8        // SerboCroatian
+            , PluralsFunction32       // Tachelhit
+            , PluralsFallbackFunction // Shan
+            , PluralsFallbackFunction // ChadianArabic
+            , PluralsFunction33       // Sinhala
+            , PluralsFallbackFunction // Sidamo
+            , PluralsFunction9        // Slovak
+            , PluralsFunction34       // Slovenian
+            , PluralsFallbackFunction // LowerSilesian
+            , PluralsFallbackFunction // Selayar
+            , PluralsFallbackFunction // Samoan
+            , PluralsFunction20       // SouthernSami
+            , PluralsFunction20       // LuleSami
+            , PluralsFunction20       // InariSami
+            , PluralsFunction20       // SkoltSami
+            , PluralsFunction1        // Shona
+            , PluralsFallbackFunction // Soninke
+            , PluralsFunction1        // Somali
+            , PluralsFallbackFunction // Sogdien
+            , PluralsFunction1        // Albanian
+            , PluralsFunction8        // Serbian
+            , PluralsFallbackFunction // SrananTongo
+            , PluralsFallbackFunction // Serer
+            , PluralsFunction1        // Swati
+            , PluralsFunction1        // Saho
+            , PluralsFunction1        // SouthernSotho
+            , PluralsFallbackFunction // SaterlandFrisian
+            , PluralsFallbackFunction // Sundanese
+            , PluralsFallbackFunction // Sukuma
+            , PluralsFallbackFunction // Susu
+            , PluralsFallbackFunction // Sumerian
+            , PluralsDefaultFunction  // Swedish
+            , PluralsDefaultFunction  // Swahili
+            , PluralsFallbackFunction // Comorian
+            , PluralsFallbackFunction // CongoSwahili
+            , PluralsFallbackFunction // ClassicalSyriac
+            , PluralsFunction1        // Syriac
+            , PluralsFallbackFunction // Silesian
+            , PluralsFunction1        // Tamil
+            , PluralsFallbackFunction // Tulu
+            , PluralsFunction1        // Telugu
+            , PluralsFallbackFunction // Timne
+            , PluralsFunction1        // Teso
+            , PluralsFallbackFunction // Tereno
+            , PluralsFallbackFunction // Tetum
+            , PluralsFallbackFunction // Tajik
+            , PluralsFunction6        // Thai
+            , PluralsFunction2        // Tigrinya
+            , PluralsFunction1        // Tigre
+            , PluralsFallbackFunction // Tiv
+            , PluralsFunction1        // Turkmen
+            , PluralsFallbackFunction // Tokelau
+            , PluralsFallbackFunction // Tsakhur
+            , PluralsFunction14       // Tagalog
+            , PluralsFallbackFunction // Klingon
+            , PluralsFallbackFunction // Tlingit
+            , PluralsFallbackFunction // Talysh
+            , PluralsFallbackFunction // Tamashek
+            , PluralsFunction1        // Tswana
+            , PluralsFunction6        // Tongan
+            , PluralsFallbackFunction // NyasaTonga
+            , PluralsFallbackFunction // TokPisin
+            , PluralsFunction1        // Turkish
+            , PluralsFallbackFunction // Turoyo
+            , PluralsFallbackFunction // Taroko
+            , PluralsFunction1        // Tsonga
+            , PluralsFallbackFunction // Tsakonian
+            , PluralsFallbackFunction // Tsimshian
+            , PluralsFallbackFunction // Tatar
+            , PluralsFallbackFunction // MuslimTat
+            , PluralsFallbackFunction // Tumbuka
+            , PluralsFallbackFunction // Tuvalu
+            , PluralsFallbackFunction // Twi
+            , PluralsFallbackFunction // Tasawaq
+            , PluralsFallbackFunction // Tahitian
+            , PluralsFallbackFunction // Tuvinian
+            , PluralsFunction35       // CentralAtlasTamazight
+            , PluralsFallbackFunction // Udmurt
+            , PluralsFunction1        // Uyghur
+            , PluralsFunction1        // Uighur
+            , PluralsFallbackFunction // Ugaritic
+            , PluralsFunction31       // Ukrainian
+            , PluralsFallbackFunction // Umbundu
+            , PluralsFallbackFunction // UnknownLanguage
+            , PluralsDefaultFunction  // Urdu
+            , PluralsFunction1        // Uzbek
+            , PluralsFallbackFunction // Vai
+            , PluralsFunction1        // Venda
+            , PluralsFallbackFunction // Venetian
+            , PluralsFallbackFunction // Veps
+            , PluralsFunction6        // Vietnamese
+            , PluralsFallbackFunction // WestFlemish
+            , PluralsFallbackFunction // MainFranconian
+            , PluralsFunction1        // Volapuk
+            , PluralsFallbackFunction // Votic
+            , PluralsFallbackFunction // Voro
+            , PluralsFunction1        // Vunjo
+            , PluralsFunction2        // Walloon
+            , PluralsFunction1        // Walser
+            , PluralsFallbackFunction // Wolaytta
+            , PluralsFallbackFunction // Waray
+            , PluralsFallbackFunction // Washo
+            , PluralsFunction6        // Wolof
+            , PluralsFallbackFunction // WuChinese
+            , PluralsFallbackFunction // Kalmyk
+            , PluralsFunction1        // Xhosa
+            , PluralsFallbackFunction // Mingrelian
+            , PluralsFunction1        // Soga
+            , PluralsFallbackFunction // Yao
+            , PluralsFallbackFunction // Yapese
+            , PluralsFallbackFunction // Yangben
+            , PluralsFallbackFunction // Yemba
+            , PluralsDefaultFunction  // Yiddish
+            , PluralsFunction6        // Yoruba
+            , PluralsFallbackFunction // Nheengatu
+            , PluralsFallbackFunction // Cantonese
+            , PluralsFallbackFunction // Zhuang
+            , PluralsFallbackFunction // Zapotec
+            , PluralsFallbackFunction // Blissymbols
+            , PluralsFallbackFunction // Zeelandic
+            , PluralsFallbackFunction // Zenaga
+            , PluralsFallbackFunction // StandardMoroccanTamazight
+            , PluralsFunction6        // Chinese
+            , PluralsFunction6        // SimplifiedChinese
+            , PluralsFunction6        // TraditionalChinese
+            , PluralsFunction3        // Zulu
+            , PluralsFallbackFunction // Zuni
+            , PluralsFallbackFunction // NoLinguisticContent
+            , PluralsFallbackFunction // Zaza
         };
 
         /// <summary>
@@ -643,7 +643,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity.Other.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFallbackFunction(double quantity)
+        private static PluralsQuantity PluralsFallbackFunction(double quantity)
         {
             return PluralsQuantity.Other;
         }
@@ -677,7 +677,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsDefaultFunction(double quantity)
+        private static PluralsQuantity PluralsDefaultFunction(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -800,7 +800,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction1(double quantity)
+        private static PluralsQuantity PluralsFunction1(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -825,7 +825,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction2(double quantity)
+        private static PluralsQuantity PluralsFunction2(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -851,7 +851,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction3(double quantity)
+        private static PluralsQuantity PluralsFunction3(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -872,7 +872,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction4(double quantity)
+        private static PluralsQuantity PluralsFunction4(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             double n_mod_100 = n % 100;
@@ -912,7 +912,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction5(double quantity)
+        private static PluralsQuantity PluralsFunction5(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             double n_mod_100 = n % 100;
@@ -971,7 +971,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction6(double quantity)
+        private static PluralsQuantity PluralsFunction6(double quantity)
         {
             return PluralsQuantity.Other;
         }
@@ -983,7 +983,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction7(double quantity)
+        private static PluralsQuantity PluralsFunction7(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             double n_mod_100 = n % 100;
@@ -1023,7 +1023,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction8(double quantity)
+        private static PluralsQuantity PluralsFunction8(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1068,7 +1068,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction9(double quantity)
+        private static PluralsQuantity PluralsFunction9(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1113,7 +1113,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction10(double quantity)
+        private static PluralsQuantity PluralsFunction10(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -1152,7 +1152,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction11(double quantity)
+        private static PluralsQuantity PluralsFunction11(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1190,7 +1190,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction12(double quantity)
+        private static PluralsQuantity PluralsFunction12(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1242,7 +1242,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction13(double quantity)
+        private static PluralsQuantity PluralsFunction13(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1263,7 +1263,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction14(double quantity)
+        private static PluralsQuantity PluralsFunction14(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1300,7 +1300,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction15(double quantity)
+        private static PluralsQuantity PluralsFunction15(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -1334,7 +1334,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction16(double quantity)
+        private static PluralsQuantity PluralsFunction16(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -1363,7 +1363,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction17(double quantity)
+        private static PluralsQuantity PluralsFunction17(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1415,7 +1415,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction18(double quantity)
+        private static PluralsQuantity PluralsFunction18(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1461,7 +1461,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction19(double quantity)
+        private static PluralsQuantity PluralsFunction19(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1507,7 +1507,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction20(double quantity)
+        private static PluralsQuantity PluralsFunction20(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -1531,7 +1531,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction21(double quantity)
+        private static PluralsQuantity PluralsFunction21(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -1555,7 +1555,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction22(double quantity)
+        private static PluralsQuantity PluralsFunction22(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1580,7 +1580,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction23(double quantity)
+        private static PluralsQuantity PluralsFunction23(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             double n_mod_100 = n % 100;
@@ -1627,7 +1627,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction24(double quantity)
+        private static PluralsQuantity PluralsFunction24(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
@@ -1670,7 +1670,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction25(double quantity)
+        private static PluralsQuantity PluralsFunction25(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1707,7 +1707,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction26(double quantity)
+        private static PluralsQuantity PluralsFunction26(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             double n_mod_100 = n % 100;
@@ -1737,7 +1737,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction27(double quantity)
+        private static PluralsQuantity PluralsFunction27(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1786,7 +1786,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction28(double quantity)
+        private static PluralsQuantity PluralsFunction28(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 
@@ -1805,7 +1805,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction29(double quantity)
+        private static PluralsQuantity PluralsFunction29(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
@@ -1840,7 +1840,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction30(double quantity)
+        private static PluralsQuantity PluralsFunction30(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1882,7 +1882,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction31(double quantity)
+        private static PluralsQuantity PluralsFunction31(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1929,7 +1929,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction32(double quantity)
+        private static PluralsQuantity PluralsFunction32(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1954,7 +1954,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction33(double quantity)
+        private static PluralsQuantity PluralsFunction33(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -1989,7 +1989,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction34(double quantity)
+        private static PluralsQuantity PluralsFunction34(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    i = (int)Math.Floor(n);       // integer digits of n
@@ -2035,7 +2035,7 @@ namespace UnityTranslationInternal
         /// </summary>
         /// <returns>PluralsQuantity related to provided quantity.</returns>
         /// <param name="quantity">Quantity.</param>
-        private static PluralsQuantity pluralsFunction35(double quantity)
+        private static PluralsQuantity PluralsFunction35(double quantity)
         {
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
 

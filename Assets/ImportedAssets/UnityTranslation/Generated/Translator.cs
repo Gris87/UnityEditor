@@ -46,18 +46,18 @@ namespace UnityTranslation
         /// Adds specified language changed listener and invoke it.
         /// </summary>
         /// <param name="listener">Language changed listener.</param>
-        public static void addLanguageChangedListener(UnityAction listener)
+        public static void AddLanguageChangedListener(UnityAction listener)
         {
-            UnityTranslationInternal.Translator.addLanguageChangedListener(listener);
+            UnityTranslationInternal.Translator.AddLanguageChangedListener(listener);
         }
 
         /// <summary>
         /// Removes specified language changed listener.
         /// </summary>
         /// <param name="listener">Language changed listener.</param>
-        public static void removeLanguageChangedListener(UnityAction listener)
+        public static void RemoveLanguageChangedListener(UnityAction listener)
         {
-            UnityTranslationInternal.Translator.removeLanguageChangedListener(listener);
+            UnityTranslationInternal.Translator.RemoveLanguageChangedListener(listener);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.strings id)
+        public static string GetString(R.strings id)
         {
             if (
                 UnityTranslationInternal.Translator.tokens[0].selectedLanguage != null
@@ -117,9 +117,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.strings id, params object[] formatArgs)
+        public static string GetString(R.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.array id)
+        public static string[] GetStringArray(R.array id)
         {
             if (
                 UnityTranslationInternal.Translator.tokens[0].selectedLanguage != null
@@ -149,7 +149,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.plurals id, double quantity)
+        public static string GetQuantityString(R.plurals id, double quantity)
         {
             string[]                                 pluralsValues;
             UnityTranslationInternal.PluralsQuantity pluralsQuantity;
@@ -195,9 +195,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.AboutDialog.strings id)
+        public static string GetString(R.sections.AboutDialog.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.AboutDialog, false);
 
@@ -229,9 +229,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.AboutDialog.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.AboutDialog.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -239,7 +239,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.AboutDialog.array id)
+        public static string[] GetStringArray(R.sections.AboutDialog.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.AboutDialog, false);
 
@@ -263,7 +263,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.AboutDialog.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.AboutDialog.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.AboutDialog, false);
 
@@ -311,9 +311,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.AboutDialog.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.AboutDialog.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -321,7 +321,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.DockWidgets.strings id)
+        public static string GetString(R.sections.DockWidgets.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.DockWidgets, false);
 
@@ -345,9 +345,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.DockWidgets.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.DockWidgets.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -355,7 +355,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.DockWidgets.array id)
+        public static string[] GetStringArray(R.sections.DockWidgets.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.DockWidgets, false);
 
@@ -379,7 +379,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.DockWidgets.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.DockWidgets.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.DockWidgets, false);
 
@@ -427,9 +427,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.DockWidgets.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.DockWidgets.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -437,7 +437,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.MenuItems.strings id)
+        public static string GetString(R.sections.MenuItems.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.MenuItems, false);
 
@@ -461,9 +461,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.MenuItems.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.MenuItems.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -471,7 +471,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.MenuItems.array id)
+        public static string[] GetStringArray(R.sections.MenuItems.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.MenuItems, false);
 
@@ -495,7 +495,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.MenuItems.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.MenuItems.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.MenuItems, false);
 
@@ -543,9 +543,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.MenuItems.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.MenuItems.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -553,7 +553,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.Toasts.strings id)
+        public static string GetString(R.sections.Toasts.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Toasts, false);
 
@@ -577,9 +577,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.Toasts.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.Toasts.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -587,7 +587,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.Toasts.array id)
+        public static string[] GetStringArray(R.sections.Toasts.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Toasts, false);
 
@@ -611,7 +611,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.Toasts.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.Toasts.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Toasts, false);
 
@@ -659,9 +659,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.Toasts.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.Toasts.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -669,7 +669,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.Toolbar.strings id)
+        public static string GetString(R.sections.Toolbar.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Toolbar, false);
 
@@ -693,9 +693,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.Toolbar.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.Toolbar.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -703,7 +703,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.Toolbar.array id)
+        public static string[] GetStringArray(R.sections.Toolbar.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Toolbar, false);
 
@@ -727,7 +727,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.Toolbar.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.Toolbar.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Toolbar, false);
 
@@ -775,9 +775,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.Toolbar.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.Toolbar.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -785,7 +785,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.Tooltips.strings id)
+        public static string GetString(R.sections.Tooltips.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Tooltips, false);
 
@@ -809,9 +809,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.Tooltips.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.Tooltips.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -819,7 +819,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.Tooltips.array id)
+        public static string[] GetStringArray(R.sections.Tooltips.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Tooltips, false);
 
@@ -843,7 +843,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.Tooltips.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.Tooltips.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Tooltips, false);
 
@@ -891,9 +891,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.Tooltips.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.Tooltips.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -901,7 +901,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.Version.strings id)
+        public static string GetString(R.sections.Version.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Version, false);
 
@@ -925,9 +925,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.Version.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.Version.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -935,7 +935,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.Version.array id)
+        public static string[] GetStringArray(R.sections.Version.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Version, false);
 
@@ -959,7 +959,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.Version.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.Version.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.Version, false);
 
@@ -1007,9 +1007,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.Version.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.Version.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
 
         /// <summary>
@@ -1017,7 +1017,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
-        public static string getString(R.sections.WindowTitles.strings id)
+        public static string GetString(R.sections.WindowTitles.strings id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.WindowTitles, false);
 
@@ -1041,9 +1041,9 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">String resource ID.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getString(R.sections.WindowTitles.strings id, params object[] formatArgs)
+        public static string GetString(R.sections.WindowTitles.strings id, params object[] formatArgs)
         {
-            return string.Format(getString(id), formatArgs);
+            return string.Format(GetString(id), formatArgs);
         }
 
         /// <summary>
@@ -1051,7 +1051,7 @@ namespace UnityTranslation
         /// </summary>
         /// <returns>Localized string array.</returns>
         /// <param name="id">String array resource ID.</param>
-        public static string[] getStringArray(R.sections.WindowTitles.array id)
+        public static string[] GetStringArray(R.sections.WindowTitles.array id)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.WindowTitles, false);
 
@@ -1075,7 +1075,7 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.WindowTitles.plurals id, double quantity)
+        public static string GetQuantityString(R.sections.WindowTitles.plurals id, double quantity)
         {
             UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.WindowTitles, false);
 
@@ -1123,9 +1123,9 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.WindowTitles.plurals id, double quantity, params object[] formatArgs)
+        public static string GetQuantityString(R.sections.WindowTitles.plurals id, double quantity, params object[] formatArgs)
         {
-            return string.Format(getQuantityString(id, quantity), formatArgs);
+            return string.Format(GetQuantityString(id, quantity), formatArgs);
         }
         #endregion
     }

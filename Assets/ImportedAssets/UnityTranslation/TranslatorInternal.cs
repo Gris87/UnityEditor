@@ -83,7 +83,7 @@ namespace UnityTranslationInternal
             /// <summary>
             /// Optimize this instance by removing the same translations from selected language.
             /// </summary>
-            public void optimize()
+            public void Optimize()
             {
                 if (selectedLanguage != null)
                 {
@@ -169,8 +169,8 @@ namespace UnityTranslationInternal
                             int stringArrayCount               = tokenIds[1].Count;
                             int pluralsCount                   = tokenIds[2].Count;
 
-                            tokens[0].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
-                            tokens[0].optimize();
+                            tokens[0].selectedLanguage = ParseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
+                            tokens[0].Optimize();
 
                             foreach (R.sections.SectionID section in sLoadedSections.Keys)
                             {
@@ -180,8 +180,8 @@ namespace UnityTranslationInternal
                                 stringArrayCount = tokenIds[1].Count;
                                 pluralsCount     = tokenIds[2].Count;
 
-                                tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
-                                tokens[(int)section + 1].optimize();
+                                tokens[(int)section + 1].selectedLanguage = ParseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
+                                tokens[(int)section + 1].Optimize();
                             }
                         }
 
@@ -203,7 +203,7 @@ namespace UnityTranslationInternal
         static Translator()
         {
             #if UNITY_EDITOR
-            CodeGenerator.generate();
+            CodeGenerator.Generate();
             #endif
 
             sLanguageChangedAction = new UnityEvent();
@@ -220,11 +220,11 @@ namespace UnityTranslationInternal
             int stringArrayCount               = tokenIds[1].Count;
             int pluralsCount                   = tokenIds[2].Count;
 
-            tokens[0].defaultLanguage = parseXmlTokens(xmlFile, "", tokenIds, stringCount, stringArrayCount, pluralsCount);
+            tokens[0].defaultLanguage = ParseXmlTokens(xmlFile, "", tokenIds, stringCount, stringArrayCount, pluralsCount);
             #endregion
 
             #region Set language according to system language
-            Language selectLanguage = LanguageSystemName.systemLanguageToLanguage(Application.systemLanguage);
+            Language selectLanguage = LanguageSystemName.SystemLanguageToLanguage(Application.systemLanguage);
 
             if (AvailableLanguages.list.ContainsKey(selectLanguage))
             {
@@ -237,7 +237,7 @@ namespace UnityTranslationInternal
         /// Adds specified language changed listener.
         /// </summary>
         /// <param name="listener">Language changed listener.</param>
-        public static void addLanguageChangedListener(UnityAction listener)
+        public static void AddLanguageChangedListener(UnityAction listener)
         {
             sLanguageChangedAction.AddListener(listener);
         }
@@ -246,7 +246,7 @@ namespace UnityTranslationInternal
         /// Removes specified language changed listener.
         /// </summary>
         /// <param name="listener">Language changed listener.</param>
-        public static void removeLanguageChangedListener(UnityAction listener)
+        public static void RemoveLanguageChangedListener(UnityAction listener)
         {
             sLanguageChangedAction.RemoveListener(listener);
         }
@@ -268,14 +268,14 @@ namespace UnityTranslationInternal
                 int stringArrayCount               = tokenIds[1].Count;
                 int pluralsCount                   = tokenIds[2].Count;
 
-                tokens[(int)section + 1].defaultLanguage = parseXmlTokens(xmlFile, "", tokenIds, stringCount, stringArrayCount, pluralsCount);
+                tokens[(int)section + 1].defaultLanguage = ParseXmlTokens(xmlFile, "", tokenIds, stringCount, stringArrayCount, pluralsCount);
 
                 if (sLanguage != Language.Default)
                 {
                     string locale = AvailableLanguages.list[sLanguage];
 
-                    tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
-                    tokens[(int)section + 1].optimize();
+                    tokens[(int)section + 1].selectedLanguage = ParseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
+                    tokens[(int)section + 1].Optimize();
                 }
 
                 sLoadedSections[section] = tokens[(int)section + 1];
@@ -330,7 +330,7 @@ namespace UnityTranslationInternal
         /// <param name="stringCount">String count.</param>
         /// <param name="stringArrayCount">String array count.</param>
         /// <param name="pluralsCount">Plurals count.</param>
-        private static SectionLocaleTokens parseXmlTokens(string filename, string locale, Dictionary<string, int>[] tokenIds, int stringCount, int stringArrayCount, int pluralsCount)
+        private static SectionLocaleTokens ParseXmlTokens(string filename, string locale, Dictionary<string, int>[] tokenIds, int stringCount, int stringArrayCount, int pluralsCount)
         {
             SectionLocaleTokens res = null;
 
@@ -376,7 +376,7 @@ namespace UnityTranslationInternal
                                         {
                                             string tokenName = reader.GetAttribute("name");
 
-                                            if (Utils.checkTokenName(tokenName, reader.Name, stringNames))
+                                            if (Utils.CheckTokenName(tokenName, reader.Name, stringNames))
                                             {
                                                 stringNames.Add(tokenName);
 
@@ -386,7 +386,7 @@ namespace UnityTranslationInternal
                                                 {
                                                     if (res.stringValues[index] == null)
                                                     {
-                                                        res.stringValues[index] = Utils.processTokenValue(reader.ReadString());
+                                                        res.stringValues[index] = Utils.ProcessTokenValue(reader.ReadString());
                                                     }
                                                 }
                                                 else
@@ -400,7 +400,7 @@ namespace UnityTranslationInternal
                                         {
                                             string tokenName = reader.GetAttribute("name");
 
-                                            if (Utils.checkTokenName(tokenName, reader.Name, stringArrayNames))
+                                            if (Utils.CheckTokenName(tokenName, reader.Name, stringArrayNames))
                                             {
                                                 List<string> values = new List<string>();
 
@@ -410,7 +410,7 @@ namespace UnityTranslationInternal
                                                     {
                                                         if (reader.Name == "item")
                                                         {
-                                                            values.Add(Utils.processTokenValue(reader.ReadString()));
+                                                            values.Add(Utils.ProcessTokenValue(reader.ReadString()));
                                                         }
                                                         else
                                                         {
@@ -449,7 +449,7 @@ namespace UnityTranslationInternal
                                         {
                                             string tokenName = reader.GetAttribute("name");
 
-                                            if (Utils.checkTokenName(tokenName, reader.Name, pluralsNames))
+                                            if (Utils.CheckTokenName(tokenName, reader.Name, pluralsNames))
                                             {
                                                 string[] values = new string[(int)PluralsQuantity.Count];
 
@@ -511,7 +511,7 @@ namespace UnityTranslationInternal
                                                             {
                                                                 if (values[(int)quantity] == null)
                                                                 {
-                                                                    values[(int)quantity] = Utils.processTokenValue(reader.ReadString());
+                                                                    values[(int)quantity] = Utils.ProcessTokenValue(reader.ReadString());
                                                                 }
                                                                 else
                                                                 {
