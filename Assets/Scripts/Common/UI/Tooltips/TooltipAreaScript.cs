@@ -297,7 +297,8 @@ namespace Common.UI.Tooltips
             #endregion
             #endregion
 
-            Vector3 mousePos = InputControl.mousePosition;
+			float mouseX = Mouse.scaledX;
+			float mouseY = Mouse.scaledY;
 
             float tooltipWidth = tooltipText.preferredWidth + tooltipBorderLeft + tooltipBorderRight;
             int   screenWidth  = Screen.width;
@@ -310,7 +311,7 @@ namespace Common.UI.Tooltips
             tooltipTransform.sizeDelta = new Vector2(tooltipWidth, 0f);
             float tooltipHeight = tooltipText.preferredHeight + tooltipBorderTop + tooltipBorderBottom;
 
-            Utils.FitRectTransformToScreen(tooltipTransform, tooltipWidth, tooltipHeight, mousePos.x, -mousePos.y + Screen.height);
+			Utils.FitRectTransformToScreen(tooltipTransform, tooltipWidth, tooltipHeight, mouseX, mouseY);
             #endregion
         }
 

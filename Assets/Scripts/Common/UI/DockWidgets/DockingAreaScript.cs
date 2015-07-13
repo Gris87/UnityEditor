@@ -403,8 +403,8 @@ namespace Common.UI.DockWidgets
                 float horizontalSection = (right  - left) / 3f;
                 float verticalSection   = (bottom - top)  / 3f;
 
-                float mouseX = eventData.position.x;
-                float mouseY = screenHeight - eventData.position.y;
+                float mouseX = Mouse.scaledX;
+                float mouseY = Mouse.scaledY;
 
                 #region Get mouse location
                 if (
@@ -1238,8 +1238,8 @@ namespace Common.UI.DockWidgets
                             float right  = corners[3].x + GAP;
                             float bottom = corners[3].y + GAP;
 
-                            float mouseX = Mouse.x;
-                            float mouseY = Mouse.y;
+                            float mouseX = Mouse.scaledX;
+                            float mouseY = Mouse.scaledY;
 
                             if (
                                 mouseX >= left && mouseX <= right
@@ -1333,8 +1333,8 @@ namespace Common.UI.DockWidgets
                                 {
                                     MouseLocation usedLocation = sMouseLocation;
 
-                                    float mouseX = Mouse.x;
-                                    float mouseY = Mouse.y;
+                                    float mouseX = Mouse.scaledX;
+                                    float mouseY = Mouse.scaledY;
 
                                     float oldWidth  = 0f;
                                     float oldHeight = 0f;

@@ -531,7 +531,7 @@ namespace Common.UI.DockWidgets
         /// <param name="dragCorners">Cached drag corners.</param>
         public void ProcessDockWidgetDrag(PointerEventData eventData, Vector3[] dragCorners)
         {
-            float x = eventData.position.x - dragCorners[0].x;
+            float x = Mouse.scaledX - dragCorners[0].x;
 
             DragInfoHolder.dockingArea = mParent;
 

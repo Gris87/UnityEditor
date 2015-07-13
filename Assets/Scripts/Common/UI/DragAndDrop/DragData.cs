@@ -112,7 +112,6 @@ namespace Common.UI.DragAndDrop
         /// <summary>
         /// Begins dragging according to specified parameters.
         /// </summary>
-        /// <param name="eventData">Pointer data.</param>
         /// <param name="draggingType">Dragging type.</param>
         /// <param name="gameObject">Game object.</param>
         /// <param name="sprite">Sprite image.</param>
@@ -121,8 +120,7 @@ namespace Common.UI.DragAndDrop
         /// <param name="dragPosX">Mouse dragged position X.</param>
         /// <param name="dragPosY">Mouse dragged position Y.</param>
         public static void BeginDrag(
-                                       PointerEventData eventData
-                                     , DraggingType draggingType
+                                       DraggingType draggingType
                                      , GameObject gameObject
                                      , Sprite sprite
                                      , float width
@@ -189,7 +187,7 @@ namespace Common.UI.DragAndDrop
                     #endregion
                     #endregion
 
-                    SetDraggedPosition(eventData);
+                    SetDraggedPosition();
                 }
                 else
                 {
@@ -205,20 +203,18 @@ namespace Common.UI.DragAndDrop
         /// <summary>
         /// Process dragging.
         /// </summary>
-        /// <param name="eventData">Pointer data.</param>
-        public static void Drag(PointerEventData eventData)
+        public static void Drag()
         {
             if (sType != DraggingType.None)
             {
-                SetDraggedPosition(eventData);
+                SetDraggedPosition();
             }
         }
 
         /// <summary>
         /// Ends dragging.
         /// </summary>
-        /// <param name="eventData">Pointer data.</param>
-        public static void EndDrag(PointerEventData eventData)
+        public static void EndDrag()
         {
             if (sType != DraggingType.None)
             {
@@ -236,18 +232,17 @@ namespace Common.UI.DragAndDrop
         /// <summary>
         /// Sets the dragged position.
         /// </summary>
-        /// <param name="eventData">Pointer data.</param>
-        private static void SetDraggedPosition(PointerEventData eventData)
+        private static void SetDraggedPosition()
         {
             float screenHeight = Screen.height;
 
             RectTransform imageTransform = sDraggingImage.transform as RectTransform;
 
-            float mouseX = eventData.position.x;
-            float mouseY = -screenHeight + eventData.position.y;
+            float mouseX = Mouse.scaledX;
+            float mouseY = Mouse.scaledY;
 
-            imageTransform.offsetMin = new Vector2(mouseX - sDragPosX,          mouseY + sDragPosY - sHeight);
-            imageTransform.offsetMax = new Vector2(mouseX - sDragPosX + sWidth, mouseY + sDragPosY);
+            imageTransform.offsetMin = new Vector2(mouseX - sDragPosX,          -mouseY + sDragPosY - sHeight);
+            imageTransform.offsetMax = new Vector2(mouseX - sDragPosX + sWidth, -mouseY + sDragPosY);
         }
 
         /// <summary>

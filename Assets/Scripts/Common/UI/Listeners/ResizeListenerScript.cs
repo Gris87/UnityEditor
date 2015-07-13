@@ -14,7 +14,7 @@ namespace Common.UI.Listeners
 
 
 
-        private static ResizeListenerScript instance = null;
+        private static ResizeListenerScript sInstance = null;
 
 
 
@@ -31,9 +31,9 @@ namespace Common.UI.Listeners
         /// </summary>
         void Start()
         {
-            if (instance == null)
+            if (sInstance == null)
             {
-                instance = this;
+                sInstance = this;
             }
             else
             {
@@ -52,9 +52,9 @@ namespace Common.UI.Listeners
         /// </summary>
         void OnDestroy()
         {
-            if (instance == this)
+            if (sInstance == this)
             {
-                instance = null;
+                sInstance = null;
             }
         }
 
@@ -92,9 +92,9 @@ namespace Common.UI.Listeners
         /// <param name="listener">Listener.</param>
         public static void AddListener(UnityAction listener)
         {
-            if (instance != null)
+            if (sInstance != null)
             {
-                instance.mListeners.AddListener(listener);
+                sInstance.mListeners.AddListener(listener);
             }
             else
             {
@@ -108,9 +108,9 @@ namespace Common.UI.Listeners
         /// <param name="listener">Listener.</param>
         public static void RemoveListener(UnityAction listener)
         {
-            if (instance != null)
+            if (sInstance != null)
             {
-                instance.mListeners.RemoveListener(listener);
+                sInstance.mListeners.RemoveListener(listener);
             }
         }
     }

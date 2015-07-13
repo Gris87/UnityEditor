@@ -27,8 +27,8 @@ public static class Assets
 
 
 
-            private static Dictionary<string, Font> fonts;
-            private static string[]                 osFonts;
+            private static Dictionary<string, Font> sFonts;
+            private static string[]                 sOsFonts;
 
 
 
@@ -39,8 +39,8 @@ public static class Assets
             {
                 defaultFont = LoadResource<Font>("Fonts/Default");
 
-                fonts   = new Dictionary<string, Font>();
-                osFonts = Font.GetOSInstalledFontNames();
+                sFonts   = new Dictionary<string, Font>();
+                sOsFonts = Font.GetOSInstalledFontNames();
 
                 ResetValues();
             }
@@ -50,7 +50,7 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
-                fonts.Clear();
+                sFonts.Clear();
 
                 Font[] fontList = Resources.LoadAll<Font>("Fonts/");
 
@@ -60,9 +60,9 @@ public static class Assets
 
                     foreach (string fontName in fontNames)
                     {
-                        if (!fonts.ContainsKey(fontName))
+                        if (!sFonts.ContainsKey(fontName))
                         {
-                            fonts.Add(fontName, font);
+                            sFonts.Add(fontName, font);
                         }
                         else
                         {
@@ -75,9 +75,9 @@ public static class Assets
 
                 foreach (string fontName in defaultFontNames)
                 {
-                    if (!fonts.ContainsKey(fontName))
+                    if (!sFonts.ContainsKey(fontName))
                     {
-                        fonts.Add(fontName, defaultFont);
+                        sFonts.Add(fontName, defaultFont);
                     }
                 }
             }
@@ -92,7 +92,7 @@ public static class Assets
             {
                 Font res;
 
-                if (fonts.TryGetValue(fontName, out res))
+                if (sFonts.TryGetValue(fontName, out res))
                 {
                     return res;
                 }
@@ -100,7 +100,7 @@ public static class Assets
                 string nameLower = fontName.ToLower();
                 string bestFont  = "";
 
-                foreach (string osFont in osFonts)
+                foreach (string osFont in sOsFonts)
                 {
                     if (osFont == fontName)
                     {
@@ -128,7 +128,7 @@ public static class Assets
                 if (bestFont != "")
                 {
                     res = Font.CreateDynamicFontFromOSFont(bestFont, fontSize);
-                    fonts.Add(fontName, res);
+                    sFonts.Add(fontName, res);
 
                     return res;
                 }

@@ -2458,10 +2458,8 @@ namespace Common.UI.Windows
         /// </summary>
         protected void StartDragging()
         {
-            Vector3 mousePos = InputControl.mousePosition;
-
-            float mouseX = mousePos.x;
-            float mouseY = Screen.height - mousePos.y;
+            float mouseX = Mouse.scaledX;
+			float mouseY = Mouse.scaledY;
 
             mMouseState = MouseState.Dragging;
 
@@ -2485,10 +2483,8 @@ namespace Common.UI.Windows
                         {
                             bool isInsideButtons = false;
 
-                            Vector3 mousePos = InputControl.mousePosition;
-
-                            float mouseX = mousePos.x;
-                            float mouseY = Screen.height - mousePos.y;
+                            float mouseX = Mouse.scaledX;
+							float mouseY = Mouse.scaledY;
 
                             if (mMinimizeGameObject != null)
                             {
@@ -2804,10 +2800,8 @@ namespace Common.UI.Windows
 
                     case MouseState.Dragging:
                     {
-                        Vector3 mousePos = InputControl.mousePosition;
-
-                        float mouseX = mousePos.x;
-                        float mouseY = Screen.height - mousePos.y;
+                        float mouseX = Mouse.scaledX;
+						float mouseY = Mouse.scaledY;
 
                         #region Calculate new position
                         int screenWidth  = Screen.width;
@@ -3046,10 +3040,8 @@ namespace Common.UI.Windows
 
                     case MouseState.Resizing:
                     {
-                        Vector3 mousePos = InputControl.mousePosition;
-
-                        float mouseX = mousePos.x;
-                        float mouseY = Screen.height - mousePos.y;
+                        float mouseX = Mouse.scaledX;
+						float mouseY = Mouse.scaledY;
 
                         #region Calculate new geometry
                         int screenWidth  = Screen.width;

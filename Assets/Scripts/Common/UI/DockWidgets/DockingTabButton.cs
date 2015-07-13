@@ -199,7 +199,7 @@ namespace Common.UI.DockWidgets
                 DummyDockWidgetScript.DestroyInstance();
 
                 DragData.ShowImage();
-                DragData.Drag(eventData);
+                DragData.Drag();
             }
         }
 
@@ -275,7 +275,7 @@ namespace Common.UI.DockWidgets
             DragInfoHolder.dockingArea   = null;
             DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
-            DragData.EndDrag(eventData);
+            DragData.EndDrag();
         }
 
         /// <summary>
@@ -322,12 +322,11 @@ namespace Common.UI.DockWidgets
             int widgetWidth  = Mathf.FloorToInt(right  - left);
             int widgetHeight = Mathf.FloorToInt(bottom - top);
 
-            float dragPosX = eventData.pressPosition.x - widgetX;
-            float dragPosY = Screen.height - eventData.pressPosition.y - widgetY;
+            float dragPosX = eventData.pressPosition.x                   / Utils.canvasScale - widgetX;
+			float dragPosY = (Screen.height - eventData.pressPosition.y) / Utils.canvasScale - widgetY;
 
             DragData.BeginDrag(
-                                 eventData
-                               , DraggingType.DockWidget
+                                 DraggingType.DockWidget
                                , gameObject
                                , Sprite.Create(
                                                  Utils.TakeScreenshot(widgetX, widgetY, widgetWidth, widgetHeight)

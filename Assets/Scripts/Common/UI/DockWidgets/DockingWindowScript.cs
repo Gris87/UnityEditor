@@ -230,8 +230,8 @@ namespace Common.UI.DockWidgets
         /// <param name="eventData">Pointer data.</param>
         public void OnPointerDown(PointerEventData eventData)
         {
-            float mouseX = eventData.position.x;
-            float mouseY = Screen.height - eventData.position.y;
+            float mouseX = Mouse.scaledX;
+			float mouseY = Mouse.scaledY;
 
             float headerX      = contentX;
             float headerY      = contentY;
