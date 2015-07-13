@@ -140,20 +140,20 @@ namespace Common.UI.Windows
 
 
 
-		private static float SHADOW_WIDTH           = 15f;
-		private static float BUTTON_GLOW_WIDTH      = 8f;
-		private static float TOOL_BUTTON_GLOW_WIDTH = 4f;
-		private static float MAXIMIZED_OFFSET       = 3f;
-		private static float RESIZING_GAP           = 8f;
-		private static float DRAGGING_GAP           = 15f;
+		private const float SHADOW_WIDTH           = 15f;
+		private const float BUTTON_GLOW_WIDTH      = 8f;
+		private const float TOOL_BUTTON_GLOW_WIDTH = 4f;
+		private const float MAXIMIZED_OFFSET       = 3f;
+		private const float RESIZING_GAP           = 8f;
+		private const float DRAGGING_GAP           = 15f;
 
-		private static float MINIMAL_WIDTH  = 120f;
-		private static float MINIMAL_HEIGHT = 38f;
+		private const float MINIMAL_WIDTH  = 120f;
+		private const float MINIMAL_HEIGHT = 38f;
 
-		private static float MINIMIZED_OFFSET_LEFT   = 8f;
-		private static float MINIMIZED_OFFSET_BOTTOM = 8f;
-		private static float MINIMIZED_WIDTH         = 120f;
-		private static float MINIMIZED_HEIGHT        = 20f;
+		private const float MINIMIZED_OFFSET_LEFT   = 8f;
+		private const float MINIMIZED_OFFSET_BOTTOM = 8f;
+		private const float MINIMIZED_WIDTH         = 120f;
+		private const float MINIMIZED_HEIGHT        = 20f;
 
 
 
@@ -1155,13 +1155,13 @@ namespace Common.UI.Windows
 		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
 		public bool selected
 		{
-			get { return mSelectedWindow == this; }
+			get { return sSelectedWindow == this; }
 		}
 
 
 
-		private static List<WindowScript> mInstances      = new List<WindowScript>();
-		private static WindowScript       mSelectedWindow = null;
+		private static List<WindowScript> sInstances      = new List<WindowScript>();
+		private static WindowScript       sSelectedWindow = null;
 				
 
 		
@@ -1213,7 +1213,7 @@ namespace Common.UI.Windows
 		public WindowScript()
 			: base()
         {
-			mInstances.Add(this);
+			sInstances.Add(this);
 
 			mFrame           = WindowFrameType.Window;
 			mState           = WindowState.NoState;
@@ -2297,18 +2297,18 @@ namespace Common.UI.Windows
 
 
 
-			if (!mInstances.Remove(this))
+			if (!sInstances.Remove(this))
 			{
 				Debug.LogError("Failed to remove window");
 			}
 
-			if (mSelectedWindow == this)
+			if (sSelectedWindow == this)
 			{
-				mSelectedWindow = null;
+				sSelectedWindow = null;
 
-				if (mInstances.Count > 0)
+				if (sInstances.Count > 0)
 				{
-					mInstances[0].SetSelected(true);
+					sInstances[0].SetSelected(true);
 				}
 			}
 		}
@@ -3340,20 +3340,20 @@ namespace Common.UI.Windows
 		/// <param name="value">If set to <c>true</c> window is selected.</param>
 		private void SetSelected(bool value)
 		{
-			if (value != (mSelectedWindow == this))
+			if (value != (sSelectedWindow == this))
 			{
 				if (value)
 				{
-					if (mSelectedWindow != null)
+					if (sSelectedWindow != null)
 					{
-						mSelectedWindow.SetSelected(false);
+						sSelectedWindow.SetSelected(false);
                     }
 
-					mSelectedWindow = this;
+					sSelectedWindow = this;
 
-					if (mInstances.Count > 0)
+					if (sInstances.Count > 0)
 					{
-						if (mInstances[0] != this)
+						if (sInstances[0] != this)
 						{
 							transform.SetAsLastSibling();
 						}
@@ -3365,7 +3365,7 @@ namespace Common.UI.Windows
 				}
 				else
 				{
-					mSelectedWindow = null;
+					sSelectedWindow = null;
 				}
 
 				if (IsUICreated())

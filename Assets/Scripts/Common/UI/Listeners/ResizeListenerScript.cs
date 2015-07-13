@@ -10,7 +10,7 @@ namespace Common.UI.Listeners
 	/// </summary>
 	public class ResizeListenerScript : MonoBehaviour
 	{
-		private static readonly float CHECK_INTERVAL = 200f / 1000f;
+		private const float CHECK_INTERVAL = 200f / 1000f;
 
 
 

@@ -14,16 +14,16 @@ namespace Common.UI.Toasts
 		/// <summary>
 		/// Show text notification for a long period of time.
 		/// </summary>
-		public static readonly float LENGTH_LONG  = 3000f;
+		public const float LENGTH_LONG  = 3000f;
 		
 		/// <summary>
 		/// Show text notification for a short period of time.
 		/// </summary>
-		public static readonly float LENGTH_SHORT = 1000f;
+		public const float LENGTH_SHORT = 1000f;
 
 
 
-		private static List<ToastScript> mToasts;
+		private static List<ToastScript> sToasts;
 
 
 
@@ -32,7 +32,7 @@ namespace Common.UI.Toasts
 		/// </summary>
 		static Toast()
 		{
-			mToasts = new List<ToastScript>();
+			sToasts = new List<ToastScript>();
 		}
 
 		/// <summary>
@@ -110,9 +110,9 @@ namespace Common.UI.Toasts
             #endregion
             #endregion
             
-			mToasts.Add(toastScript);
+			sToasts.Add(toastScript);
             
-            if (mToasts.Count == 1)
+            if (sToasts.Count == 1)
 			{
 				ShowNextToast();
 			}
@@ -123,7 +123,7 @@ namespace Common.UI.Toasts
 		/// </summary>
 		private static void ShowNextToast()
 		{
-			mToasts[0].Show();
+			sToasts[0].Show();
 		}
 
 		/// <summary>
@@ -132,13 +132,13 @@ namespace Common.UI.Toasts
 		/// <param name="toast">Toast script.</param>
 		public static void ToastDestroyed(ToastScript toast)
 		{
-			int index = mToasts.IndexOf(toast);
+			int index = sToasts.IndexOf(toast);
 
 			if (index >= 0)
 			{
-				mToasts.RemoveAt(index);
+				sToasts.RemoveAt(index);
 
-				if (index == 0 && mToasts.Count > 0)
+				if (index == 0 && sToasts.Count > 0)
 				{
 					ShowNextToast();
 				}

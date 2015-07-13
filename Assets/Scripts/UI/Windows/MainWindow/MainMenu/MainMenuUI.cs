@@ -17,7 +17,7 @@ namespace UI.Windows.MainWindow.MainMenu
 	/// </summary>
 	public class MainMenuUI
 	{
-		private static readonly float AUTO_POPUP_DELAY = 0f;
+		private const float AUTO_POPUP_DELAY = 0f;
 
 
 

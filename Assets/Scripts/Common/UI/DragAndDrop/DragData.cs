@@ -17,7 +17,7 @@ namespace Common.UI.DragAndDrop
 		/// <value>Dragging type.</value>
 		public static DraggingType type
 		{
-			get { return mType; }
+			get { return sType; }
 		}
 
 		/// <summary>
@@ -26,7 +26,7 @@ namespace Common.UI.DragAndDrop
 		/// <value>Dragging image object.</value>
 		public static GameObject draggingImage
 		{
-			get { return mDraggingImage; }
+			get { return sDraggingImage; }
         }
 
 		/// <summary>
@@ -37,9 +37,9 @@ namespace Common.UI.DragAndDrop
 		{
 			get
 			{
-				if (mDraggingImage != null)
+				if (sDraggingImage != null)
 				{
-					RectTransform imageTransform = mDraggingImage.transform as RectTransform;
+					RectTransform imageTransform = sDraggingImage.transform as RectTransform;
 
 					return imageTransform.offsetMin.x;
 				}
@@ -56,9 +56,9 @@ namespace Common.UI.DragAndDrop
 		{
 			get
 			{
-				if (mDraggingImage != null)
+				if (sDraggingImage != null)
 				{
-					RectTransform imageTransform = mDraggingImage.transform as RectTransform;
+					RectTransform imageTransform = sDraggingImage.transform as RectTransform;
 					
 					return -imageTransform.offsetMax.y;
 				}
@@ -73,7 +73,7 @@ namespace Common.UI.DragAndDrop
 		/// <value>Width.</value>
 		public static float width
 		{
-			get { return mWidth; }
+			get { return sWidth; }
         }
 
 		/// <summary>
@@ -82,17 +82,17 @@ namespace Common.UI.DragAndDrop
 		/// <value>Height.</value>
 		public static float height
 		{
-			get { return mHeight; }
+			get { return sHeight; }
         }
         
 
         
-        private static DraggingType mType;
-		private static GameObject   mDraggingImage;
-		private static float        mWidth;
-		private static float        mHeight;
-		private static float        mDragPosX;
-		private static float        mDragPosY;
+        private static DraggingType sType;
+		private static GameObject   sDraggingImage;
+		private static float        sWidth;
+		private static float        sHeight;
+		private static float        sDragPosX;
+		private static float        sDragPosY;
 
 
 
@@ -101,12 +101,12 @@ namespace Common.UI.DragAndDrop
 		/// </summary>
 		static DragData()
 		{
-			mType          = DraggingType.None;
-			mDraggingImage = null;
-			mWidth         = 0f;
-			mHeight        = 0f;
-			mDragPosX      = 0f;
-			mDragPosY      = 0f;
+			sType          = DraggingType.None;
+			sDraggingImage = null;
+			sWidth         = 0f;
+			sHeight        = 0f;
+			sDragPosX      = 0f;
+			sDragPosY      = 0f;
 		}
 
 		/// <summary>
@@ -137,45 +137,45 @@ namespace Common.UI.DragAndDrop
 				return;
 			}
 
-			if (mType == DraggingType.None)
+			if (sType == DraggingType.None)
 			{
 				Canvas canvas = Utils.FindInParents<Canvas>(gameObject);
 				
 				if (canvas != null)
 				{			
-					mType     = draggingType;
-					mWidth    = width;
-					mHeight   = height;
-					mDragPosX = dragPosX;
-					mDragPosY = dragPosY;
+					sType     = draggingType;
+					sWidth    = width;
+					sHeight   = height;
+					sDragPosX = dragPosX;
+					sDragPosY = dragPosY;
 					
 					//===========================================================================
 					// Image GameObject
 					//===========================================================================
 					#region Image GameObject
-					mDraggingImage = new GameObject("DraggingImage");
-					Utils.InitUIObject(mDraggingImage, canvas.transform);
+					sDraggingImage = new GameObject("DraggingImage");
+					Utils.InitUIObject(sDraggingImage, canvas.transform);
 					
 					//===========================================================================
 					// RectTransform Component
 					//===========================================================================
 					#region RectTransform Component
-					RectTransform imageTransform = mDraggingImage.AddComponent<RectTransform>();
-					Utils.AlignRectTransformTopLeft(imageTransform, mWidth, mHeight);
+					RectTransform imageTransform = sDraggingImage.AddComponent<RectTransform>();
+					Utils.AlignRectTransformTopLeft(imageTransform, sWidth, sHeight);
 					#endregion
 					
 					//===========================================================================
 					// CanvasRenderer Component
 					//===========================================================================
 					#region CanvasRenderer Component
-					mDraggingImage.AddComponent<CanvasRenderer>();
+					sDraggingImage.AddComponent<CanvasRenderer>();
 					#endregion
 					
 					//===========================================================================
 					// Image Component
 					//===========================================================================
 					#region Image Component
-					Image image = mDraggingImage.AddComponent<Image>();
+					Image image = sDraggingImage.AddComponent<Image>();
 					
 					image.sprite = sprite;
 					image.type   = Image.Type.Sliced;
@@ -185,7 +185,7 @@ namespace Common.UI.DragAndDrop
 					// IgnoreRaycast Component
 					//===========================================================================
 					#region IgnoreRaycast Component
-					mDraggingImage.AddComponent<IgnoreRaycast>();
+					sDraggingImage.AddComponent<IgnoreRaycast>();
                     #endregion
 					#endregion
 
@@ -208,7 +208,7 @@ namespace Common.UI.DragAndDrop
 		/// <param name="eventData">Pointer data.</param>
 		public static void Drag(PointerEventData eventData)
 		{
-			if (mType != DraggingType.None)
+			if (sType != DraggingType.None)
 			{
 				SetDraggedPosition(eventData);
 			}
@@ -220,16 +220,16 @@ namespace Common.UI.DragAndDrop
 		/// <param name="eventData">Pointer data.</param>
         public static void EndDrag(PointerEventData eventData)
 		{
-			if (mType != DraggingType.None)
+			if (sType != DraggingType.None)
 			{
-				UnityEngine.Object.DestroyObject(mDraggingImage);
+				UnityEngine.Object.DestroyObject(sDraggingImage);
 
-				mType          = DraggingType.None;
-				mDraggingImage = null;
-				mWidth         = 0f;
-				mHeight        = 0f;
-                mDragPosX      = 0f;
-                mDragPosY      = 0f;
+				sType          = DraggingType.None;
+				sDraggingImage = null;
+				sWidth         = 0f;
+				sHeight        = 0f;
+                sDragPosX      = 0f;
+                sDragPosY      = 0f;
 			}
         }
 
@@ -241,13 +241,13 @@ namespace Common.UI.DragAndDrop
 		{
 			float screenHeight = Screen.height;
 
-			RectTransform imageTransform = mDraggingImage.transform as RectTransform;
+			RectTransform imageTransform = sDraggingImage.transform as RectTransform;
 
 			float mouseX = eventData.position.x;
 			float mouseY = -screenHeight + eventData.position.y;
 
-			imageTransform.offsetMin = new Vector2(mouseX - mDragPosX,          mouseY + mDragPosY - mHeight);
-			imageTransform.offsetMax = new Vector2(mouseX - mDragPosX + mWidth, mouseY + mDragPosY);
+			imageTransform.offsetMin = new Vector2(mouseX - sDragPosX,          mouseY + sDragPosY - sHeight);
+			imageTransform.offsetMax = new Vector2(mouseX - sDragPosX + sWidth, mouseY + sDragPosY);
 		}
 
 		/// <summary>
@@ -255,9 +255,9 @@ namespace Common.UI.DragAndDrop
 		/// </summary>
 		public static void HideImage()
 		{
-			if (mDraggingImage != null)
+			if (sDraggingImage != null)
 			{
-				mDraggingImage.SetActive(false);
+				sDraggingImage.SetActive(false);
 			}
 		}
 
@@ -266,9 +266,9 @@ namespace Common.UI.DragAndDrop
 		/// </summary>
 		public static void ShowImage()
 		{
-			if (mDraggingImage != null)
+			if (sDraggingImage != null)
 			{
-				mDraggingImage.SetActive(true);
+				sDraggingImage.SetActive(true);
             }
         }
     }

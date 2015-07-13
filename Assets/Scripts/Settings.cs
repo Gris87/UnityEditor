@@ -11,7 +11,7 @@ public static class Settings
 	/// <summary>
 	/// Key for storing InternalMode value.
 	/// </summary>
-	public static readonly string KEY_INTERNAL_MODE = "Settings.InternalMode";
+	public const string KEY_INTERNAL_MODE = "Settings.InternalMode";
 
 
 
@@ -23,28 +23,28 @@ public static class Settings
 	{
 		get
         {
-			return mInternalMode;
+			return sInternalMode;
 		}
 
 		set
 		{
-			if (mInternalMode != value)
+			if (sInternalMode != value)
 			{
-				mInternalMode = value;
+				sInternalMode = value;
 
-				PlayerPrefs.SetString(KEY_INTERNAL_MODE, mInternalMode.ToString());				
+				PlayerPrefs.SetString(KEY_INTERNAL_MODE, sInternalMode.ToString());				
 				PlayerPrefs.Save();
 
-				mInternalModeListeners.Invoke();
+				sInternalModeListeners.Invoke();
 			}
 		}
 	}
 
 
 
-	private static bool mInternalMode;
+	private static bool sInternalMode;
 
-	private static UnityEvent mInternalModeListeners;
+	private static UnityEvent sInternalModeListeners;
 
 
 
@@ -53,7 +53,7 @@ public static class Settings
 	/// </summary>
 	static Settings()
 	{
-		mInternalModeListeners = new UnityEvent();
+		sInternalModeListeners = new UnityEvent();
 
 		Load();
 	}
@@ -64,7 +64,7 @@ public static class Settings
 	/// <param name="listener">Listener.</param>
 	public static void AddInternalModeListener(UnityAction listener)
 	{
-		mInternalModeListeners.AddListener(listener);
+		sInternalModeListeners.AddListener(listener);
 	}
 
 	/// <summary>
@@ -73,7 +73,7 @@ public static class Settings
 	/// <param name="listener">Listener.</param>
 	public static void RemoveInternalModeListener(UnityAction listener)
 	{
-		mInternalModeListeners.RemoveListener(listener);
+		sInternalModeListeners.RemoveListener(listener);
 	}
 
 	/// <summary>
@@ -81,7 +81,7 @@ public static class Settings
 	/// </summary>
 	public static void Save()
 	{
-		PlayerPrefs.SetString(KEY_INTERNAL_MODE, mInternalMode.ToString());
+		PlayerPrefs.SetString(KEY_INTERNAL_MODE, sInternalMode.ToString());
 		
 		PlayerPrefs.Save();
 	}
@@ -91,6 +91,6 @@ public static class Settings
 	/// </summary>
 	public static void Load()
 	{
-		mInternalMode = (PlayerPrefs.GetString(KEY_INTERNAL_MODE, "False").ToLower() == "true");
+		sInternalMode = (PlayerPrefs.GetString(KEY_INTERNAL_MODE, "False").ToLower() == "true");
 	}
 }

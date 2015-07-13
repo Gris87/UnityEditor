@@ -121,9 +121,9 @@ namespace UnityTranslationInternal
         /// </summary>
         public static SectionTokens[] tokens;
 
-        private static Language                                        mLanguage              = Language.Default;
-        private static UnityEvent                                      mLanguageChangedAction = null;
-        private static Dictionary<R.sections.SectionID, SectionTokens> mLoadedSections        = null;
+        private static Language                                        sLanguage              = Language.Default;
+        private static UnityEvent                                      sLanguageChangedAction = null;
+        private static Dictionary<R.sections.SectionID, SectionTokens> sLoadedSections        = null;
 
 
         #region Properties
@@ -139,24 +139,24 @@ namespace UnityTranslationInternal
         {
             get
             {
-                return mLanguage;
+                return sLanguage;
             }
 
             set
             {
-                if (mLanguage != value)
+                if (sLanguage != value)
                 {
                     string locale;
 
                     if (AvailableLanguages.list.TryGetValue(value, out locale))
                     {
-                        mLanguage = value;
+                        sLanguage = value;
 
-                        if (mLanguage == Language.Default)
+                        if (sLanguage == Language.Default)
                         {
                             tokens[0].selectedLanguage = null;
 
-                            foreach (R.sections.SectionID section in mLoadedSections.Keys)
+                            foreach (R.sections.SectionID section in sLoadedSections.Keys)
                             {
                                 tokens[(int)section + 1].selectedLanguage = null;
                             }
@@ -172,7 +172,7 @@ namespace UnityTranslationInternal
                             tokens[0].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
 							tokens[0].optimize();
 
-                            foreach (R.sections.SectionID section in mLoadedSections.Keys)
+                            foreach (R.sections.SectionID section in sLoadedSections.Keys)
                             {
                                 xmlFile          = R.sections.xmlFiles[(int)section];
                                 tokenIds         = R.tokenIds[(int)section + 1];
@@ -185,7 +185,7 @@ namespace UnityTranslationInternal
                             }
                         }
 
-                        mLanguageChangedAction.Invoke();
+                        sLanguageChangedAction.Invoke();
                     }
                     else
                     {
@@ -206,9 +206,9 @@ namespace UnityTranslationInternal
             CodeGenerator.generate();
             #endif
 
-            mLanguageChangedAction = new UnityEvent();
+            sLanguageChangedAction = new UnityEvent();
 
-            mLoadedSections = new Dictionary<R.sections.SectionID, SectionTokens>();
+            sLoadedSections = new Dictionary<R.sections.SectionID, SectionTokens>();
 
             #region Initialize default tokens
             tokens    = new SectionTokens[(int)R.sections.SectionID.Count + 1];
@@ -239,7 +239,7 @@ namespace UnityTranslationInternal
         /// <param name="listener">Language changed listener.</param>
         public static void addLanguageChangedListener(UnityAction listener)
         {
-            mLanguageChangedAction.AddListener(listener);
+            sLanguageChangedAction.AddListener(listener);
         }
 
         /// <summary>
@@ -248,7 +248,7 @@ namespace UnityTranslationInternal
         /// <param name="listener">Language changed listener.</param>
         public static void removeLanguageChangedListener(UnityAction listener)
         {
-            mLanguageChangedAction.RemoveListener(listener);
+            sLanguageChangedAction.RemoveListener(listener);
         }
 
         /// <summary>
@@ -270,15 +270,15 @@ namespace UnityTranslationInternal
 
                 tokens[(int)section + 1].defaultLanguage = parseXmlTokens(xmlFile, "", tokenIds, stringCount, stringArrayCount, pluralsCount);
 
-                if (mLanguage != Language.Default)
+                if (sLanguage != Language.Default)
                 {
-                    string locale = AvailableLanguages.list[mLanguage];
+                    string locale = AvailableLanguages.list[sLanguage];
 
                     tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
 					tokens[(int)section + 1].optimize();
                 }
 
-                mLoadedSections[section] = tokens[(int)section + 1];
+                sLoadedSections[section] = tokens[(int)section + 1];
             }
             else
             {
@@ -299,7 +299,7 @@ namespace UnityTranslationInternal
             {
                 tokens[(int)section + 1] = null;
                 
-				if (!mLoadedSections.Remove(section))
+				if (!sLoadedSections.Remove(section))
 				{
 					Debug.LogError("Failed to remove section \"" + section.ToString() + "\"");
 				}

@@ -8,16 +8,26 @@ public static class Version
 	/// </summary>
 	public enum BuildType
 	{
+		/// <summary>
+		/// Personal edition.
+		/// </summary>
 		Personal
+		,
+		/// <summary>
+		/// Professional edition.
+		/// </summary>
+		Professional
 	}
+
+
 
 	/// <summary>
 	/// Version build.
 	/// </summary>
-	public static readonly string build = "5.0.2f1";
+	public const string BUILD = "5.1.1f1";
 
 	/// <summary>
 	/// The type of the build.
 	/// </summary>
-	public static readonly BuildType buildType = BuildType.Personal;
+	public static BuildType buildType = BuildType.Personal;
 }

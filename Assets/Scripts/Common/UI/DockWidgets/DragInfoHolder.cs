@@ -54,8 +54,8 @@ namespace Common.UI.DockWidgets
 		/// <value>The dock widget.</value>
 		public static DockWidgetScript dockWidget
 		{
-			get { return mDockWidget;  }
-            set { mDockWidget = value; }
+			get { return sDockWidget;  }
+            set { sDockWidget = value; }
         }
 
 		/// <summary>
@@ -64,8 +64,8 @@ namespace Common.UI.DockWidgets
 		/// <value>The minimum value.</value>
 		public static float minimum
 		{
-			get { return mMinimum;  }
-			set { mMinimum = value; }
+			get { return sMinimum;  }
+			set { sMinimum = value; }
 		}
 
 		/// <summary>
@@ -74,8 +74,8 @@ namespace Common.UI.DockWidgets
 		/// <value>The docking area.</value>
 		public static DockingAreaScript dockingArea
 		{
-			get { return mDockingArea;  }
-			set { mDockingArea = value; }
+			get { return sDockingArea;  }
+			set { sDockingArea = value; }
 		}
 
 		/// <summary>
@@ -84,16 +84,16 @@ namespace Common.UI.DockWidgets
 		/// <value>The mouse location.</value>
 		public static MouseLocation mouseLocation
 		{
-			get { return mMouseLocation;  }
-			set { mMouseLocation = value; }
+			get { return sMouseLocation;  }
+			set { sMouseLocation = value; }
 		}
 
 
 
-		private static DockWidgetScript  mDockWidget;
-		private static float             mMinimum;
-		private static DockingAreaScript mDockingArea;
-		private static MouseLocation     mMouseLocation;
+		private static DockWidgetScript  sDockWidget;
+		private static float             sMinimum;
+		private static DockingAreaScript sDockingArea;
+		private static MouseLocation     sMouseLocation;
 
 
 
@@ -102,10 +102,10 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		static DragInfoHolder()
 		{
-			mDockWidget    = null;
-			mMinimum       = float.MaxValue;
-			mDockingArea   = null;
-			mMouseLocation = MouseLocation.Outside;
+			sDockWidget    = null;
+			sMinimum       = float.MaxValue;
+			sDockingArea   = null;
+			sMouseLocation = MouseLocation.Outside;
 		}
 	}
 }

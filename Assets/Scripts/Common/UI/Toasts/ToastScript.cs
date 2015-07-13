@@ -11,7 +11,7 @@ namespace Common.UI.Toasts
 	/// </summary>
 	public class ToastScript : MonoBehaviour
 	{
-		private static readonly float FADE_TIME = 300f / 1000f;
+		private const float FADE_TIME = 300f / 1000f;
 
 
 

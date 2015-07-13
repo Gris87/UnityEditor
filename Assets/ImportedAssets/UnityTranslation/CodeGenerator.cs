@@ -63,16 +63,16 @@ namespace UnityTranslationInternal
 
 
 #if !FORCE_CODE_GENERATION
-        private static bool changedCodeGenerator_cs            = false;
+        private static bool sChangedCodeGenerator_cs            = false;
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-        private static bool changedGeneratedLanguage           = false;
-        private static bool changedGeneratedPluralsRules       = false;
+        private static bool sChangedGeneratedLanguage           = false;
+        private static bool sChangedGeneratedPluralsRules       = false;
 #endif
 
-        private static bool changedGeneratedAvailableLanguages = false;
-        private static bool changedGeneratedR                  = false;
-        private static bool changedGeneratedTranslator         = false;
+        private static bool sСhangedGeneratedAvailableLanguages = false;
+        private static bool sChangedGeneratedR                  = false;
+        private static bool sChangedGeneratedTranslator         = false;
 #endif
 
 
@@ -118,8 +118,8 @@ namespace UnityTranslationInternal
 			generateTranslator(         sectionIds);
 			generateTextAutoTranslation(sectionIds);
 #else
-			generateTranslator(         sectionIds, changedCodeGenerator_cs || generateFilesDependedOnR_cs);
-			generateTextAutoTranslation(sectionIds, changedCodeGenerator_cs || generateFilesDependedOnR_cs);
+			generateTranslator(         sectionIds, sChangedCodeGenerator_cs || generateFilesDependedOnR_cs);
+			generateTextAutoTranslation(sectionIds, sChangedCodeGenerator_cs || generateFilesDependedOnR_cs);
 #endif
         }
 
@@ -175,18 +175,18 @@ namespace UnityTranslationInternal
                 string generatedFolder = pathToGeneratedFile("CodeGenerator.cs");
 
 				generatedFolder = generatedFolder.Remove(generatedFolder.LastIndexOf('/'));
-				changedCodeGenerator_cs = checkPreviouslyGeneratedFile(generatedFolder, "CodeGenerator.cs");
+				sChangedCodeGenerator_cs = checkPreviouslyGeneratedFile(generatedFolder, "CodeGenerator.cs");
 
                 generatedFolder += "/Generated";
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-				changedGeneratedLanguage           = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Language.cs");
-				changedGeneratedPluralsRules       = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
+				sChangedGeneratedLanguage           = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Language.cs");
+				sChangedGeneratedPluralsRules       = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
 #endif
 
-				changedGeneratedAvailableLanguages = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
-				changedGeneratedR                  = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "R.cs");
-				changedGeneratedTranslator         = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
+				sСhangedGeneratedAvailableLanguages = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
+				sChangedGeneratedR                  = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "R.cs");
+				sChangedGeneratedTranslator         = sChangedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
             }
         }
 #endif
@@ -296,7 +296,7 @@ namespace UnityTranslationInternal
 
 #if !FORCE_CODE_GENERATION
             if (
-                !changedGeneratedLanguage
+                !sChangedGeneratedLanguage
                 &&
                 File.Exists(targetFile)
                 &&
@@ -781,9 +781,9 @@ namespace UnityTranslationInternal
 
 #if !FORCE_CODE_GENERATION
             if (
-                !changedGeneratedLanguage
+                !sChangedGeneratedLanguage
                 &&
-                !changedGeneratedPluralsRules
+                !sChangedGeneratedPluralsRules
                 &&
                 File.Exists(targetFile)
                 &&
@@ -1611,10 +1611,10 @@ namespace UnityTranslationInternal
 #if !FORCE_CODE_GENERATION
             if (
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-                !changedGeneratedLanguage
+                !sChangedGeneratedLanguage
                 &&
 #endif
-                !changedGeneratedAvailableLanguages
+                !sСhangedGeneratedAvailableLanguages
                 &&
                 File.Exists(targetFile)
                 &&
@@ -1762,7 +1762,7 @@ namespace UnityTranslationInternal
             #region Check that R.cs is up to date
 #if !FORCE_CODE_GENERATION
             if (
-                !changedGeneratedR
+                !sChangedGeneratedR
                 &&
                 File.Exists(targetFile)
                 &&
@@ -2625,7 +2625,7 @@ namespace UnityTranslationInternal
 			if (
 				!forceGeneration
 				&&
-				!changedGeneratedTranslator
+				!sChangedGeneratedTranslator
 				&&
 				File.Exists(targetFile)
 			   )

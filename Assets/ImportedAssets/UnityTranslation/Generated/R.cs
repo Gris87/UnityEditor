@@ -3078,6 +3078,13 @@ namespace UnityTranslation
                     personal
                     ,
                     /// <summary>
+                    /// <para>AboutDialog: Professional</para>
+                    /// <para>Value:</para>
+                    ///   <para>Professional</para>
+                    /// </summary>
+                    professional
+                    ,
+                    /// <summary>
                     /// Total amount of strings.
                     /// </summary>
                     Count // Should be last
@@ -3658,7 +3665,8 @@ namespace UnityTranslation
             {
                 new Dictionary<string, int> // strings
                 {
-                      { "personal", (int)R.sections.Version.strings.personal }
+                      { "personal"    , (int)R.sections.Version.strings.personal }
+                    , { "professional", (int)R.sections.Version.strings.professional }
                 }
                 ,
                 new Dictionary<string, int> // array

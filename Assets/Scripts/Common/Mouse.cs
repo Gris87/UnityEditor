@@ -19,7 +19,7 @@ namespace Common
 			{
 				UpdatePosition();
 
-				return mX;
+				return sX;
 			}
 		}
 
@@ -33,7 +33,7 @@ namespace Common
 			{
 				UpdatePosition();
 				
-				return mY;
+				return sY;
 			}
 		}
 
@@ -57,9 +57,9 @@ namespace Common
 
 
 
-		private static float mX;
-		private static float mY;
-		private static int   mLastUpdate;
+		private static float sX;
+		private static float sY;
+		private static int   sLastUpdate;
 
 
 
@@ -68,9 +68,9 @@ namespace Common
 		/// </summary>
 		static Mouse()
 		{
-			mX          = -1;
-			mY          = -1;
-			mLastUpdate = -1;
+			sX          = -1;
+			sY          = -1;
+			sLastUpdate = -1;
 		}
 
 		/// <summary>
@@ -78,14 +78,14 @@ namespace Common
 		/// </summary>
 		private static void UpdatePosition()
 		{
-			if (mLastUpdate != Time.frameCount)
+			if (sLastUpdate != Time.frameCount)
 			{
-				mLastUpdate = Time.frameCount;
+				sLastUpdate = Time.frameCount;
 
 				Vector3 mousePos = InputControl.mousePosition;
 				
-				mX = mousePos.x;
-				mY = Screen.height - mousePos.y;
+				sX = mousePos.x;
+				sY = Screen.height - mousePos.y;
 			}
 		}
 	}

@@ -15,13 +15,19 @@ public static class AppUtils
 	/// </summary>
 	public static string version()
 	{
-		string res = Version.build + " ";
+		string res = Version.BUILD + " ";
 		
 		switch (Version.buildType)
 		{
 			case Version.BuildType.Personal:
 			{
 				res += Translator.getString(R.sections.Version.strings.personal);
+			}
+			break;
+
+			case Version.BuildType.Professional:
+			{
+				res += Translator.getString(R.sections.Version.strings.professional);
 			}
 			break;
 
@@ -32,7 +38,7 @@ public static class AppUtils
 			}
 			break;
 		}
-		
+
 		return res;
 	}
 
@@ -50,6 +56,6 @@ public static class AppUtils
 	/// <param name="parent">Parent transform.</param>
 	public static void ShowContributeMessage(Transform parent)
 	{
-		Toast.Show(parent, R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG, Constants.sourceCodeUrl);
+		Toast.Show(parent, R.sections.Toasts.strings.contribute, Toast.LENGTH_LONG, Constants.SOURCE_CODE_URL);
 	}
 }

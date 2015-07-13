@@ -13,8 +13,8 @@ public abstract class CustomInput
 
 
 
-    protected static int         mCachedModifiersFrame = 0;
-    protected static KeyModifier mCachedModifiersState = KeyModifier.NoModifier;
+    protected static int         sCachedModifiersFrame = 0;
+    protected static KeyModifier sCachedModifiersState = KeyModifier.NoModifier;
 
 
 
@@ -77,7 +77,7 @@ public abstract class CustomInput
             return true;
         }
 
-        if (mCachedModifiersFrame != Time.frameCount)
+        if (sCachedModifiersFrame != Time.frameCount)
         {
             KeyModifier res = KeyModifier.NoModifier;
 
@@ -96,17 +96,17 @@ public abstract class CustomInput
                 res |= KeyModifier.Shift;
             }
 
-            mCachedModifiersFrame = Time.frameCount;
-            mCachedModifiersState = res;
+            sCachedModifiersFrame = Time.frameCount;
+            sCachedModifiersState = res;
         }
 
         if (exactKeyModifiers)
         {
-            return mModifiers == mCachedModifiersState;
+            return mModifiers == sCachedModifiersState;
         }
         else
         {
-            return (mModifiers & mCachedModifiersState) == mModifiers;
+            return (mModifiers & sCachedModifiersState) == mModifiers;
         }
     }
 

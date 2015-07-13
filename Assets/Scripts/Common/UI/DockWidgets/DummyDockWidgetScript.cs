@@ -15,12 +15,12 @@ namespace Common.UI.DockWidgets
 		/// <value>The instance.</value>
 		public static DummyDockWidgetScript instance
 		{
-			get { return mInstance; }
+			get { return sInstance; }
 		}
 
 
 
-		private static DummyDockWidgetScript mInstance = null;
+		private static DummyDockWidgetScript sInstance = null;
 
 
 
@@ -51,15 +51,15 @@ namespace Common.UI.DockWidgets
 			// DummyDockWidgetScript Component
 			//===========================================================================
 			#region DummyDockWidgetScript Component
-			mInstance = dummy.AddComponent<DummyDockWidgetScript>();
+			sInstance = dummy.AddComponent<DummyDockWidgetScript>();
 
-			mInstance.image           = baseScript.image;
-			mInstance.tokenId         = baseScript.tokenId;
-			mInstance.backgroundColor = Assets.DockWidgets.Colors.dummyBackground;
+			sInstance.image           = baseScript.image;
+			sInstance.tokenId         = baseScript.tokenId;
+			sInstance.backgroundColor = Assets.DockWidgets.Colors.dummyBackground;
 			#endregion
 			#endregion
 			
-			return mInstance;
+			return sInstance;
 		}
 
 		/// <summary>
@@ -67,10 +67,10 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		public static void DestroyInstance()
 		{
-			if (mInstance != null)
+			if (sInstance != null)
 			{
-				mInstance.Destroy();
-				mInstance = null;
+				sInstance.Destroy();
+				sInstance = null;
 			}
 		}
 
@@ -79,9 +79,9 @@ namespace Common.UI.DockWidgets
 		/// </summary>
 		void OnDestroy()
 		{
-			if (mInstance == this)
+			if (sInstance == this)
 			{
-				mInstance = null;
+				sInstance = null;
 			}
 		}
 	}

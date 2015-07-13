@@ -11,7 +11,7 @@ namespace Common.UI.Popups
 	/// </summary>
 	public class PopupMenuAreaScript : MonoBehaviour
 	{	
-		private static float TIMER_NOT_ACTIVE = -10000f;
+		private const float TIMER_NOT_ACTIVE = -10000f;
 
 
 
@@ -21,12 +21,12 @@ namespace Common.UI.Popups
 		/// <value>Instance geometry.</value>
 		public static Transform geometry
 		{
-			get { return instance.transform; }
+			get { return sInstance.transform; }
 		}
 
 
 
-		private static PopupMenuAreaScript instance = null;
+		private static PopupMenuAreaScript sInstance = null;
 
 
 
@@ -41,9 +41,9 @@ namespace Common.UI.Popups
 		/// </summary>
 		void Start()
 		{
-			if (instance == null)
+			if (sInstance == null)
 			{
-				instance = this;
+				sInstance = this;
 			}
 			else
 			{
@@ -62,9 +62,9 @@ namespace Common.UI.Popups
 		/// </summary>
 		void OnDestroy()
 		{
-			if (instance == this)
+			if (sInstance == this)
 			{
-				instance = null;
+				sInstance = null;
 			}
 		}
 		
@@ -124,14 +124,14 @@ namespace Common.UI.Popups
 
 		public static void OnAutoPopupItemDestroy(AutoPopupItemScript item)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mPopupMenus.Count > 0)
+				if (sInstance.mPopupMenus.Count > 0)
 				{
-					if (instance.mAutoPopupItem == item)
+					if (sInstance.mAutoPopupItem == item)
 					{
-						instance.mAutoPopupItem = null;
-						instance.StopTimer();
+						sInstance.mAutoPopupItem = null;
+						sInstance.StopTimer();
 					}
 				}
 			}
@@ -143,14 +143,14 @@ namespace Common.UI.Popups
 
 		public static void OnAutoPopupItemDisable(AutoPopupItemScript item)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mPopupMenus.Count > 0)
+				if (sInstance.mPopupMenus.Count > 0)
 				{
-					if (instance.mAutoPopupItem == item)
+					if (sInstance.mAutoPopupItem == item)
 					{
-						instance.mAutoPopupItem = null;
-						instance.StopTimer();
+						sInstance.mAutoPopupItem = null;
+						sInstance.StopTimer();
 					}
 				}
 			}
@@ -162,12 +162,12 @@ namespace Common.UI.Popups
 
 		public static void OnAutoPopupItemEnter(AutoPopupItemScript item)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mPopupMenus.Count > 0)
+				if (sInstance.mPopupMenus.Count > 0)
 				{
-					instance.mAutoPopupItem = item;
-					instance.StartTimer(instance.mAutoPopupItem.delay);
+					sInstance.mAutoPopupItem = item;
+					sInstance.StartTimer(sInstance.mAutoPopupItem.delay);
 				}
 			}
 			else
@@ -178,12 +178,12 @@ namespace Common.UI.Popups
 
 		public static void OnAutoPopupItemExit(AutoPopupItemScript item)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mPopupMenus.Count > 0)
+				if (sInstance.mPopupMenus.Count > 0)
 				{
-					instance.mAutoPopupItem = null;
-					instance.StopTimer();
+					sInstance.mAutoPopupItem = null;
+					sInstance.StopTimer();
 				}
 			}
 			else
@@ -198,10 +198,10 @@ namespace Common.UI.Popups
 		/// <param name="menu">Popup menu.</param>
 		public static void RegisterPopupMenu(PopupMenu menu)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				instance.mPopupMenus.Add(menu);
-				instance.enabled = true;
+				sInstance.mPopupMenus.Add(menu);
+				sInstance.enabled = true;
 			}
 			else
 			{
@@ -215,15 +215,15 @@ namespace Common.UI.Popups
 		/// <param name="menu">Popup menu.</param>
 		public static void DeregisterPopupMenu(PopupMenu menu)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mPopupMenus.Remove(menu))
+				if (sInstance.mPopupMenus.Remove(menu))
 				{
-					if (instance.mPopupMenus.Count == 0)
+					if (sInstance.mPopupMenus.Count == 0)
 					{
-						instance.enabled = false;
-						instance.mAutoPopupItem = null;
-						instance.StopTimer();
+						sInstance.enabled = false;
+						sInstance.mAutoPopupItem = null;
+						sInstance.StopTimer();
 					}
 				}
 				else
@@ -242,11 +242,11 @@ namespace Common.UI.Popups
 		/// </summary>
 		public static void DestroyAll()
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mPopupMenus.Count > 0)
+				if (sInstance.mPopupMenus.Count > 0)
 				{
-					instance.mPopupMenus[0].Destroy();
+					sInstance.mPopupMenus[0].Destroy();
 				}
 			}
 			else

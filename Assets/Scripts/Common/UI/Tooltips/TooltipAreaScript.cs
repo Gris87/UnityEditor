@@ -14,13 +14,13 @@ namespace Common.UI.Tooltips
 	/// </summary>
 	public class TooltipAreaScript : MonoBehaviour
 	{
-		private static float TIMER_NOT_ACTIVE = -10000f;
-		private static float SHOW_DELAY       = 500f;
-		private static float HIDE_DELAY       = 500f;
+		private const float TIMER_NOT_ACTIVE = -10000f;
+		private const float SHOW_DELAY       = 500f;
+		private const float HIDE_DELAY       = 500f;
 
 
 
-		private static TooltipAreaScript instance = null;
+		private static TooltipAreaScript sInstance = null;
 
 
 
@@ -36,9 +36,9 @@ namespace Common.UI.Tooltips
 		/// </summary>
 		void Start()
 		{
-			if (instance == null)
+			if (sInstance == null)
 			{
-				instance = this;
+				sInstance = this;
 			}
 			else
 			{
@@ -56,9 +56,9 @@ namespace Common.UI.Tooltips
 		/// </summary>
 		void OnDestroy()
 		{
-			if (instance == this)
+			if (sInstance == this)
 			{
-				instance = null;
+				sInstance = null;
 			}
 		}
 		
@@ -93,17 +93,17 @@ namespace Common.UI.Tooltips
 		/// <param name="owner">Tooltip owner.</param>
 		public static void OnTooltipOwnerDestroy(TooltipOwnerScript owner)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mCurrentOwner == owner)
+				if (sInstance.mCurrentOwner == owner)
 				{
-					instance.DestroyTooltip();
+					sInstance.DestroyTooltip();
 				}
 				else
-				if (instance.mNextOwner == owner)
+				if (sInstance.mNextOwner == owner)
 				{
-					instance.mNextOwner = null;
-					instance.StopTimer();
+					sInstance.mNextOwner = null;
+					sInstance.StopTimer();
 				}
 			}
 			else
@@ -118,17 +118,17 @@ namespace Common.UI.Tooltips
 		/// <param name="owner">Tooltip owner.</param>
 		public static void OnTooltipOwnerDisable(TooltipOwnerScript owner)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mCurrentOwner == owner)
+				if (sInstance.mCurrentOwner == owner)
 				{
-					instance.DestroyTooltip();
+					sInstance.DestroyTooltip();
 				}
 				else
-				if (instance.mNextOwner == owner)
+				if (sInstance.mNextOwner == owner)
 				{
-					instance.mNextOwner = null;
-					instance.StopTimer();
+					sInstance.mNextOwner = null;
+					sInstance.StopTimer();
 				}
 			}
 			else
@@ -143,34 +143,34 @@ namespace Common.UI.Tooltips
 		/// <param name="owner">Tooltip owner.</param>
 		public static void OnTooltipOwnerEnter(TooltipOwnerScript owner)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				if (instance.mCurrentOwner != null)
+				if (sInstance.mCurrentOwner != null)
 				{
-					if (instance.mCurrentOwner == owner)
+					if (sInstance.mCurrentOwner == owner)
 					{
-						instance.mNextOwner = null;
-						instance.StopTimer();
+						sInstance.mNextOwner = null;
+						sInstance.StopTimer();
 					}
 					else
 					{
-						instance.mNextOwner = owner;
+						sInstance.mNextOwner = owner;
 						
-						if (instance.IsTimerActive())
+						if (sInstance.IsTimerActive())
 						{
-							instance.CreateTooltip();
-							instance.StopTimer();
+							sInstance.CreateTooltip();
+							sInstance.StopTimer();
 						}
 						else
 						{
-							instance.StartTimer(SHOW_DELAY, instance.CreateTooltip);
+							sInstance.StartTimer(SHOW_DELAY, sInstance.CreateTooltip);
 						}
 					}
 				}
 				else
 				{
-					instance.mNextOwner = owner;
-					instance.StartTimer(SHOW_DELAY, instance.CreateTooltip);
+					sInstance.mNextOwner = owner;
+					sInstance.StartTimer(SHOW_DELAY, sInstance.CreateTooltip);
 				}
 			}
 			else
@@ -185,20 +185,20 @@ namespace Common.UI.Tooltips
 		/// <param name="owner">Tooltip owner.</param>
 		public static void OnTooltipOwnerExit(TooltipOwnerScript owner)
 		{
-			if (instance != null)
+			if (sInstance != null)
 			{
-				instance.mNextOwner = null;
+				sInstance.mNextOwner = null;
 				
-				if (instance.mCurrentOwner != null)
+				if (sInstance.mCurrentOwner != null)
 				{
-					if (instance.mCurrentOwner == owner)
+					if (sInstance.mCurrentOwner == owner)
 					{
-						instance.StartTimer(HIDE_DELAY, instance.DestroyTooltip);
+						sInstance.StartTimer(HIDE_DELAY, sInstance.DestroyTooltip);
 					}
 				}
 				else
 				{
-					instance.StopTimer();
+					sInstance.StopTimer();
 				}
 			}
 			else

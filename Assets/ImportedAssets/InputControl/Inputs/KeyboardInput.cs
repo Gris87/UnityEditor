@@ -15,7 +15,7 @@ namespace Internal
 		/// <summary>
 		/// Map of string conversions for KeyCode.
 		/// </summary>
-		private static readonly Dictionary<KeyCode, string> toStringMap = new Dictionary<KeyCode, string>()
+		private static readonly Dictionary<KeyCode, string> sToStringMap = new Dictionary<KeyCode, string>()
 		{
 			  { KeyCode.None,              "None"                 }
 			, { KeyCode.Backspace,         "Backspace"            }
@@ -343,7 +343,7 @@ namespace Internal
 		/// <summary>
 		/// Map of KeyCode conversions for string.
 		/// </summary>
-		private static readonly Dictionary<string, KeyCode> fromStringMap = new Dictionary<string, KeyCode>()
+		private static readonly Dictionary<string, KeyCode> sFromStringMap = new Dictionary<string, KeyCode>()
 		{
 			  { "None",                 KeyCode.None              }                       
 			, { "Backspace",            KeyCode.Backspace         }
@@ -676,9 +676,9 @@ namespace Internal
 			string[] keyCodes = Enum.GetNames(typeof(KeyCode));
 
 			if (
-				keyCodes.Length != toStringMap.Count + 2 // Two duplicates for Apple keys
+				keyCodes.Length != sToStringMap.Count + 2 // Two duplicates for Apple keys
 				||
-				keyCodes.Length != fromStringMap.Count
+				keyCodes.Length != sFromStringMap.Count
 			   )
 			{
 				Debug.LogError("KeyCode to string conversion may fail, please contact with developer: Gris87@yandex.ru");
@@ -694,7 +694,7 @@ namespace Internal
 		{
 			string res;
 			
-			if (toStringMap.TryGetValue(keyCode, out res))
+			if (sToStringMap.TryGetValue(keyCode, out res))
 			{
 				return res;
 			}
@@ -713,7 +713,7 @@ namespace Internal
 		{
 			KeyCode res;
 			
-			if (fromStringMap.TryGetValue(value, out res))
+			if (sFromStringMap.TryGetValue(value, out res))
 			{
 				return res;
 			}
@@ -944,7 +944,7 @@ public class KeyboardInput : CustomInput
             return true;
         }
 
-        if (mCachedModifiersFrame != Time.frameCount)
+        if (sCachedModifiersFrame != Time.frameCount)
         {
             KeyModifier res = KeyModifier.NoModifier;
 
@@ -963,8 +963,8 @@ public class KeyboardInput : CustomInput
                 res |= KeyModifier.Shift;
             }
 
-            mCachedModifiersFrame = Time.frameCount;
-            mCachedModifiersState = res;
+            sCachedModifiersFrame = Time.frameCount;
+            sCachedModifiersState = res;
         }
 
         if (exactKeyModifiers)
@@ -975,7 +975,7 @@ public class KeyboardInput : CustomInput
                 mKey == KeyCode.RightControl
                )
             {
-                return (mModifiers | KeyModifier.Ctrl) == mCachedModifiersState;
+                return (mModifiers | KeyModifier.Ctrl) == sCachedModifiersState;
             }
 
             if (
@@ -984,7 +984,7 @@ public class KeyboardInput : CustomInput
                 mKey == KeyCode.RightAlt
                )
             {
-                return (mModifiers | KeyModifier.Alt) == mCachedModifiersState;
+                return (mModifiers | KeyModifier.Alt) == sCachedModifiersState;
             }
 
             if (
@@ -993,14 +993,14 @@ public class KeyboardInput : CustomInput
                 mKey == KeyCode.RightShift
                )
             {
-                return (mModifiers | KeyModifier.Shift) == mCachedModifiersState;
+                return (mModifiers | KeyModifier.Shift) == sCachedModifiersState;
             }
         }
         else
         {
-            return (mModifiers & mCachedModifiersState) == mModifiers;
+            return (mModifiers & sCachedModifiersState) == mModifiers;
         }
 
-        return mModifiers == mCachedModifiersState;
+        return mModifiers == sCachedModifiersState;
     }
 }

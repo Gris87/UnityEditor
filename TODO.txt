@@ -1,7 +1,7 @@
 Read only statics
 Statics starts with s
-Docking area looks ugly
 Support for Android
+Docking area looks ugly
 Layout manager
 Download system that downloads everything that needed and updates it
 CustomPopup

@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 
 /// <summary>
-/// <see cref="InputControl"/> provide interface to the Input system. It's based on <see cref="Input"/> class and allow to change key mappings in runtime.
+/// <see cref="InputControl"/> provide interface to the Input system. It's based on <see cref="Input"/> class and allow to change key mapping in runtime.
 /// </summary>
 public static class InputControl
 {
@@ -16,26 +16,26 @@ public static class InputControl
 
 
     // Set of keys
-    private static List<KeyMapping>               mKeysList          = new List<KeyMapping>();
-    private static Dictionary<string, KeyMapping> mKeysMap           = new Dictionary<string, KeyMapping>();
+    private static readonly List<KeyMapping>               sKeysList          = new List<KeyMapping>();
+	private static readonly Dictionary<string, KeyMapping> sKeysMap           = new Dictionary<string, KeyMapping>();
 
     // Set of axes
-    private static List<Axis>                     mAxesList          = new List<Axis>();
-    private static Dictionary<string, Axis>       mAxesMap           = new Dictionary<string, Axis>();
+	private static readonly List<Axis>                     sAxesList          = new List<Axis>();
+	private static readonly Dictionary<string, Axis>       sAxesMap           = new Dictionary<string, Axis>();
 
     // Smooth for GetAxis
-    private static Dictionary<string, float>      mSmoothAxesValues  = new Dictionary<string, float>();
-    private static float                          mSmoothCoefficient = 5f; // Smooth looks the same as in Input.GetAxis() with this value
+	private static readonly Dictionary<string, float>      sSmoothAxesValues  = new Dictionary<string, float>();
+    private static float                          		   sSmoothCoefficient = 5f; // Smooth looks the same as in Input.GetAxis() with this value
 
     // Joystick options
-    private static float                          mJoystickThreshold = 0.2f;
+    private static float                                   sJoystickThreshold = 0.2f;
 
     // Mouse options
-    private static float                          mMouseSensitivity  = 1f;
-    private static bool                           mInvertMouseY      = false;
+    private static float                                   sMouseSensitivity  = 1f;
+    private static bool                                    sInvertMouseY      = false;
 
     // Common options
-    private static InputDevice                    mInputDevice       = InputDevice.Any;
+    private static InputDevice                             sInputDevice       = InputDevice.Any;
 
 
 
@@ -50,23 +50,23 @@ public static class InputControl
     {
         get
         {
-            return mSmoothCoefficient;
+            return sSmoothCoefficient;
         }
 
         set
         {
             if (value < 0.0001f)
             {
-                mSmoothCoefficient = 0.0001f;
+                sSmoothCoefficient = 0.0001f;
             }
             else
             if (value > NO_SMOOTH)
             {
-                mSmoothCoefficient = NO_SMOOTH;
+                sSmoothCoefficient = NO_SMOOTH;
             }
             else
             {
-                mSmoothCoefficient = value;
+                sSmoothCoefficient = value;
             }
         }
     }
@@ -81,23 +81,23 @@ public static class InputControl
     {
         get
         {
-            return mJoystickThreshold;
+            return sJoystickThreshold;
         }
 
         set
         {
             if (value < 0f)
             {
-                mJoystickThreshold = 0f;
+                sJoystickThreshold = 0f;
             }
             else
             if (value > 1f)
             {
-                mJoystickThreshold = 1f;
+                sJoystickThreshold = 1f;
             }
             else
             {
-                mJoystickThreshold = value;
+                sJoystickThreshold = value;
             }
         }
     }
@@ -112,18 +112,18 @@ public static class InputControl
     {
         get
         {
-            return mMouseSensitivity;
+            return sMouseSensitivity;
         }
 
         set
         {
             if (value<0f)
             {
-                mMouseSensitivity = 0f;
+                sMouseSensitivity = 0f;
             }
             else
             {
-                mMouseSensitivity = value;
+                sMouseSensitivity = value;
             }
         }
     }
@@ -138,12 +138,12 @@ public static class InputControl
     {
         get
         {
-            return mInvertMouseY;
+            return sInvertMouseY;
         }
 
         set
         {
-            mInvertMouseY = value;
+            sInvertMouseY = value;
         }
     }
     #endregion
@@ -1357,7 +1357,7 @@ public static class InputControl
     {
         KeyMapping outKey = null;
 
-        if (mKeysMap.TryGetValue(name, out outKey))
+        if (sKeysMap.TryGetValue(name, out outKey))
         {
             outKey.primaryInput   = primary;
             outKey.secondaryInput = secondary;
@@ -1367,8 +1367,8 @@ public static class InputControl
         {
             outKey = new KeyMapping(name, primary, secondary, third);
 
-            mKeysList.Add(outKey);
-            mKeysMap.Add (name, outKey);
+            sKeysList.Add(outKey);
+            sKeysMap.Add (name, outKey);
         }
 
         return outKey;
@@ -1382,7 +1382,7 @@ public static class InputControl
     {
         KeyMapping outKey = null;
 
-        if (mKeysMap.TryGetValue(name, out outKey))
+        if (sKeysMap.TryGetValue(name, out outKey))
         {
             removeKey(outKey);
         }
@@ -1396,12 +1396,12 @@ public static class InputControl
     {
 		bool good = true;
 
-        if (!mKeysList.Remove(key))
+        if (!sKeysList.Remove(key))
 		{
 			good = false;
 		}
 
-		if (!mKeysMap.Remove(key.name))
+		if (!sKeysMap.Remove(key.name))
 		{
 			good = false;
 		}
@@ -1420,7 +1420,7 @@ public static class InputControl
     {
         KeyMapping outKey = null;
 
-        if (mKeysMap.TryGetValue(name, out outKey))
+        if (sKeysMap.TryGetValue(name, out outKey))
         {
             return outKey;
         }
@@ -1435,7 +1435,7 @@ public static class InputControl
     [Obsolete("Please use getKeysList instead of this. Obsoletion date: 2014-12-28. It will be removed after 1 year")]
     public static List<KeyMapping> getKeys()
     {
-        return mKeysList;
+        return sKeysList;
     }
 
     /// <summary>
@@ -1444,7 +1444,7 @@ public static class InputControl
     /// <returns>List of keys.</returns>
     public static ReadOnlyCollection<KeyMapping> getKeysList()
     {
-        return mKeysList.AsReadOnly();
+        return sKeysList.AsReadOnly();
     }
     #endregion
 
@@ -1461,14 +1461,14 @@ public static class InputControl
         KeyMapping negativeKey = null;
         KeyMapping positiveKey = null;
 
-        if (!mKeysMap.TryGetValue(negative, out negativeKey))
+        if (!sKeysMap.TryGetValue(negative, out negativeKey))
         {
             Debug.LogError("Negative key \"" + negative + "\" not found for axis " + name);
 
             return null;
         }
 
-        if (!mKeysMap.TryGetValue(positive, out positiveKey))
+        if (!sKeysMap.TryGetValue(positive, out positiveKey))
         {
             Debug.LogError("Positive key \"" + positive + "\" not found for axis " + name);
 
@@ -1489,7 +1489,7 @@ public static class InputControl
     {
         Axis outAxis = null;
 
-        if (mAxesMap.TryGetValue(name, out outAxis))
+        if (sAxesMap.TryGetValue(name, out outAxis))
         {
             outAxis.set(negative, positive);
         }
@@ -1497,8 +1497,8 @@ public static class InputControl
         {
             outAxis = new Axis(name, negative, positive);
 
-            mAxesList.Add(outAxis);
-            mAxesMap.Add (name, outAxis);
+            sAxesList.Add(outAxis);
+            sAxesMap.Add (name, outAxis);
         }
 
         return outAxis;
@@ -1512,7 +1512,7 @@ public static class InputControl
     {
         Axis outAxis=null;
 
-        if (mAxesMap.TryGetValue(name, out outAxis))
+        if (sAxesMap.TryGetValue(name, out outAxis))
         {
             removeAxis(outAxis);
         }
@@ -1526,12 +1526,12 @@ public static class InputControl
     {
 		bool good = true;
 
-		if (!mAxesList.Remove(axis))
+		if (!sAxesList.Remove(axis))
 		{
 			good = false;
 		}
 
-		if (!mAxesMap.Remove(axis.name))
+		if (!sAxesMap.Remove(axis.name))
 		{
 			good = false;
 		}
@@ -1550,7 +1550,7 @@ public static class InputControl
     {
         Axis outAxis=null;
 
-        if (mAxesMap.TryGetValue(name, out outAxis))
+        if (sAxesMap.TryGetValue(name, out outAxis))
         {
             return outAxis;
         }
@@ -1565,7 +1565,7 @@ public static class InputControl
     [Obsolete("Please use getAxesList instead of this. Obsoletion date: 2014-12-28. It will be removed after 1 year")]
     public static List<Axis> getAxes()
     {
-        return mAxesList;
+        return sAxesList;
     }
 
     /// <summary>
@@ -1574,7 +1574,7 @@ public static class InputControl
     /// <returns>List of axes.</returns>
     public static ReadOnlyCollection<Axis> getAxesList()
     {
-        return mAxesList.AsReadOnly();
+        return sAxesList.AsReadOnly();
     }
     #endregion
 
@@ -1726,12 +1726,12 @@ public static class InputControl
             {
                 float joyAxis = Input.GetAxis(target + "Axis " + j.ToString());
 
-                if (joyAxis < -mJoystickThreshold)
+                if (joyAxis < -sJoystickThreshold)
                 {
                     return new JoystickInput((JoystickAxis)((j - 1) * 2 + 1), (Joystick)i, modifiers);
                 }
 
-                if (joyAxis > mJoystickThreshold)
+                if (joyAxis > sJoystickThreshold)
                 {
                     return new JoystickInput((JoystickAxis)((j - 1) * 2),     (Joystick)i, modifiers);
                 }
@@ -1881,12 +1881,12 @@ public static class InputControl
     {
         float previousValue;
 
-        if (!mSmoothAxesValues.TryGetValue(axisName, out previousValue))
+        if (!sSmoothAxesValues.TryGetValue(axisName, out previousValue))
         {
             previousValue = 0f;
         }
 
-        float totalCoefficient = mSmoothCoefficient * Time.deltaTime;
+        float totalCoefficient = sSmoothCoefficient * Time.deltaTime;
 
         if (totalCoefficient > 1)
         {
@@ -1896,7 +1896,7 @@ public static class InputControl
         float newValue = GetAxisRaw(axisName, exactKeyModifiers);
         float res      = previousValue + (newValue - previousValue) * totalCoefficient;
 
-        mSmoothAxesValues[axisName] = res;
+        sSmoothAxesValues[axisName] = res;
 
         return res;
     }
@@ -1911,12 +1911,12 @@ public static class InputControl
     {
         float previousValue;
 
-        if (!mSmoothAxesValues.TryGetValue(axis.name, out previousValue))
+        if (!sSmoothAxesValues.TryGetValue(axis.name, out previousValue))
         {
             previousValue = 0f;
         }
 
-        float totalCoefficient = mSmoothCoefficient * Time.deltaTime;
+        float totalCoefficient = sSmoothCoefficient * Time.deltaTime;
 
         if (totalCoefficient > 1)
         {
@@ -1926,7 +1926,7 @@ public static class InputControl
         float newValue = GetAxisRaw(axis, exactKeyModifiers);
         float res      = previousValue + (newValue - previousValue) * totalCoefficient;
 
-        mSmoothAxesValues[axis.name] = res;
+        sSmoothAxesValues[axis.name] = res;
 
         return res;
     }
@@ -1944,25 +1944,25 @@ public static class InputControl
         #region Standard axes
         if (axisName.Equals("Mouse X"))
         {
-            sensitivity = mMouseSensitivity;
+            sensitivity = sMouseSensitivity;
         }
         else
         if (axisName.Equals("Mouse Y"))
         {
-            if (mInvertMouseY)
+            if (sInvertMouseY)
             {
-                sensitivity = -mMouseSensitivity;
+                sensitivity = -sMouseSensitivity;
             }
             else
             {
-                sensitivity = mMouseSensitivity;
+                sensitivity = sMouseSensitivity;
             }
         }
         #endregion
 
         Axis outAxis = null;
 
-        if (!mAxesMap.TryGetValue(axisName, out outAxis))
+        if (!sAxesMap.TryGetValue(axisName, out outAxis))
         {
             if (
                 !axisName.Equals("Mouse X")
@@ -1978,7 +1978,7 @@ public static class InputControl
             return Input.GetAxisRaw(axisName) * sensitivity;
         }
 
-        return outAxis.getValue(exactKeyModifiers, mInputDevice) * sensitivity;
+        return outAxis.getValue(exactKeyModifiers, sInputDevice) * sensitivity;
     }
 
     /// <summary>
@@ -1994,23 +1994,23 @@ public static class InputControl
         #region Standard axes
         if (axis.name.Equals("Mouse X"))
         {
-            sensitivity = mMouseSensitivity;
+            sensitivity = sMouseSensitivity;
         }
         else
         if (axis.name.Equals("Mouse Y"))
         {
-            if (mInvertMouseY)
+            if (sInvertMouseY)
             {
-                sensitivity = -mMouseSensitivity;
+                sensitivity = -sMouseSensitivity;
             }
             else
             {
-                sensitivity = mMouseSensitivity;
+                sensitivity = sMouseSensitivity;
             }
         }
         #endregion
 
-        return axis.getValue(exactKeyModifiers, mInputDevice) * sensitivity;
+        return axis.getValue(exactKeyModifiers, sInputDevice) * sensitivity;
     }
 
     /// <summary>
@@ -2023,13 +2023,13 @@ public static class InputControl
     {
         KeyMapping outKey = null;
 
-        if (!mKeysMap.TryGetValue(buttonName, out outKey))
+        if (!sKeysMap.TryGetValue(buttonName, out outKey))
         {
             Debug.LogError("Key \"" + buttonName + "\" not found");
             return false;
         }
 
-        return outKey.isPressed(exactKeyModifiers, mInputDevice);
+        return outKey.isPressed(exactKeyModifiers, sInputDevice);
     }
 
     /// <summary>
@@ -2040,7 +2040,7 @@ public static class InputControl
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
     public static bool GetButton(KeyMapping button, bool exactKeyModifiers = false)
     {
-        return button.isPressed(exactKeyModifiers, mInputDevice);
+        return button.isPressed(exactKeyModifiers, sInputDevice);
     }
 
     /// <summary>
@@ -2053,13 +2053,13 @@ public static class InputControl
     {
         KeyMapping outKey = null;
 
-        if (!mKeysMap.TryGetValue(buttonName, out outKey))
+        if (!sKeysMap.TryGetValue(buttonName, out outKey))
         {
             Debug.LogError("Key \"" + buttonName + "\" not found");
             return false;
         }
 
-        return outKey.isPressedDown(exactKeyModifiers, mInputDevice);
+        return outKey.isPressedDown(exactKeyModifiers, sInputDevice);
     }
 
     /// <summary>
@@ -2070,7 +2070,7 @@ public static class InputControl
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
     public static bool GetButtonDown(KeyMapping button, bool exactKeyModifiers = false)
     {
-        return button.isPressedDown(exactKeyModifiers, mInputDevice);
+        return button.isPressedDown(exactKeyModifiers, sInputDevice);
     }
 
     /// <summary>
@@ -2083,13 +2083,13 @@ public static class InputControl
     {
         KeyMapping outKey = null;
 
-        if (!mKeysMap.TryGetValue(buttonName, out outKey))
+        if (!sKeysMap.TryGetValue(buttonName, out outKey))
         {
             Debug.LogError("Key \"" + buttonName + "\" not found");
             return false;
         }
 
-        return outKey.isPressedUp(exactKeyModifiers, mInputDevice);
+        return outKey.isPressedUp(exactKeyModifiers, sInputDevice);
     }
 
     /// <summary>
@@ -2100,7 +2100,7 @@ public static class InputControl
     /// <param name="exactKeyModifiers">If set to <c>true</c> check that only specified key modifiers are active, otherwise check that at least specified key modifiers are active.</param>
     public static bool GetButtonUp(KeyMapping button, bool exactKeyModifiers = false)
     {
-        return button.isPressedUp(exactKeyModifiers, mInputDevice);
+        return button.isPressedUp(exactKeyModifiers, sInputDevice);
     }
 
     /// <summary>
@@ -2395,12 +2395,12 @@ public static class InputControl
     {
         get
         {
-            return mInputDevice;
+            return sInputDevice;
         }
 
         set
         {
-            mInputDevice = value;
+            sInputDevice = value;
         }
     }
 

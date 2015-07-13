@@ -10,9 +10,9 @@ namespace Common
     /// </summary>
     public static class Utils
     {
-        private static int mUiLayer;
+        private static int sUiLayer;
 
-		private static CanvasScaler mCanvasScaler;
+		private static CanvasScaler sCanvasScaler;
 
 
 
@@ -24,7 +24,7 @@ namespace Common
 		{
 			get
 			{
-				if (mCanvasScaler == null)
+				if (sCanvasScaler == null)
 				{
 					CanvasScaler[] scalers = GameObject.FindObjectsOfType<CanvasScaler>();
 
@@ -35,7 +35,7 @@ namespace Common
 							Debug.LogWarning("Several CanvasScalers found: " + scalers.Length);
 						}
 
-						mCanvasScaler = scalers[0];
+						sCanvasScaler = scalers[0];
 					}
 					else
 					{
@@ -44,7 +44,7 @@ namespace Common
 					}
 				}
 
-				return mCanvasScaler.scaleFactor;
+				return sCanvasScaler.scaleFactor;
 			}
 		}
 
@@ -79,9 +79,9 @@ namespace Common
 		/// </summary>
 		static Utils()
 		{
-			mUiLayer = LayerMask.NameToLayer("UI");
+			sUiLayer = LayerMask.NameToLayer("UI");
 			
-			mCanvasScaler = null;
+			sCanvasScaler = null;
 		}
 
 
@@ -95,7 +95,7 @@ namespace Common
 		public static void InitUIObject(GameObject uiObject, Transform parent, bool worldPositionStays = false)
         {
             uiObject.transform.SetParent(parent, worldPositionStays);
-			uiObject.layer = mUiLayer;
+			uiObject.layer = sUiLayer;
         }
 
 		/// <summary>

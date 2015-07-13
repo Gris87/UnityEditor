@@ -6,5 +6,5 @@ public static class Constants
 	/// <summary>
 	/// Source code URL.
 	/// </summary>
-	public static readonly string sourceCodeUrl = "https://github.com/Gris87/UnityEditor";
+	public const string SOURCE_CODE_URL = "https://github.com/Gris87/UnityEditor";
 }

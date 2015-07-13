@@ -55,8 +55,8 @@ namespace Common.UI.Popups
 	/// </summary>
 	public class PopupMenu
 	{
-		private static float SHADOW_WIDTH     = 5f;
-		private static float AUTO_POPUP_DELAY = 500f;
+		private const float SHADOW_WIDTH     = 5f;
+		private const float AUTO_POPUP_DELAY = 500f;
 		
 		
 		

@@ -3,5 +3,8 @@
 
     <!-- AboutDialog: Personal -->
     <string name="personal">Personal</string>
+    
+    <!-- AboutDialog: Professional -->
+    <string name="professional">Professional</string>
 
 </resources>

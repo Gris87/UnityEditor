@@ -17,9 +17,12 @@ namespace UI.Windows.AboutDialog
 	/// </summary>
 	public class AboutDialogScript : WindowScript
 	{
-		private static readonly string WINDOW_KEY     = "AboutDialog";
-		private static readonly string SECRET_CODE    = "internal";
-		private static readonly float  SCROLL_SPEED   = 0.02f;
+		private const string WINDOW_KEY     = "AboutDialog";
+		private const string SECRET_CODE    = "internal";
+		private const float  SCROLL_SPEED   = 0.02f;
+
+
+
 		private static readonly string CREDITS        = string.Join(", ", AboutDialogNames.names);        
 		private static readonly string SPECIAL_THANKS = "Thanks to Forest 'Yoggy' Johnson, Graham McAllister, David Janik-Jones, Raimund Schumacher, Alan J. Dickins and Emil 'Humus' Persson";
 
@@ -574,7 +577,7 @@ namespace UI.Windows.AboutDialog
 			mPhysXLogoText.text  = Translator.getString(R.sections.AboutDialog.strings.physics_powered_by, "PhysX");
 			mPhysXLogoText2.text = "(c) 2011 NVIDIA Corporation.";
 			mCopyrightText.text  = "(c) 2015 Unity Technologies ApS. " + Translator.getString(R.sections.AboutDialog.strings.all_rights_reserved);
-			mLicenseText.text    = Translator.getString(R.sections.AboutDialog.strings.license, License.type, License.serialNumber);
+			mLicenseText.text    = Translator.getString(R.sections.AboutDialog.strings.license, License.TYPE, License.serialNumber);
 		}
 	}
 }
