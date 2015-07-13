@@ -289,8 +289,8 @@ namespace Common.UI.DockWidgets
 
             Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
 
-            int screenWidth  = Screen.width;
-            int screenHeight = Screen.height;
+            float screenWidth  = Utils.scaledScreenWidth;
+			float screenHeight = Utils.scaledScreenHeight;
 
             float left   = corners[0].x;
             float top    = corners[0].y;
@@ -329,7 +329,12 @@ namespace Common.UI.DockWidgets
                                  DraggingType.DockWidget
                                , gameObject
                                , Sprite.Create(
-                                                 Utils.TakeScreenshot(widgetX, widgetY, widgetWidth, widgetHeight)
+                                                 Utils.TakeScreenshot(
+				                                                        (int)(widgetX      * Utils.canvasScale)
+																	  , (int)(widgetY      * Utils.canvasScale)
+																	  , (int)(widgetWidth  * Utils.canvasScale)
+																	  , (int)(widgetHeight * Utils.canvasScale)
+																	 )
                                                , new Rect(0, 0, widgetWidth, widgetHeight)
                                                , new Vector2(0.5f, 0.5f)
                                               )

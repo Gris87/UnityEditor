@@ -634,18 +634,18 @@ namespace Common.UI.Windows
 
                 if (mState == WindowState.FullScreen)
                 {
-                    return Screen.width;
+                    return Utils.scaledScreenWidth;
                 }
 
                 if (mState == WindowState.Maximized)
                 {
                     if (mFrame != WindowFrameType.Frameless)
                     {
-                        return Screen.width + MAXIMIZED_OFFSET * 2;
+                        return Utils.scaledScreenWidth + MAXIMIZED_OFFSET * 2;
                     }
                     else
                     {
-                        return Screen.width;
+                        return Utils.scaledScreenWidth;
                     }
                 }
 
@@ -675,18 +675,18 @@ namespace Common.UI.Windows
 
                 if (mState == WindowState.FullScreen)
                 {
-                    return Screen.height;
+                    return Utils.scaledScreenHeight;
                 }
 
                 if (mState == WindowState.Maximized)
                 {
                     if (mFrame != WindowFrameType.Frameless)
                     {
-                        return Screen.height + MAXIMIZED_OFFSET * 2;
+                        return Utils.scaledScreenHeight + MAXIMIZED_OFFSET * 2;
                     }
                     else
                     {
-                        return Screen.height;
+                        return Utils.scaledScreenHeight;
                     }
                 }
 
@@ -794,18 +794,18 @@ namespace Common.UI.Windows
 
                 if (mState == WindowState.FullScreen)
                 {
-                    return Screen.width;
+                    return Utils.scaledScreenWidth;
                 }
 
                 if (mState == WindowState.Maximized)
                 {
                     if (mFrame != WindowFrameType.Frameless)
                     {
-                        return Screen.width - mBorderLeft - mBorderRight + SHADOW_WIDTH * 2 + MAXIMIZED_OFFSET * 2;
+                        return Utils.scaledScreenWidth - mBorderLeft - mBorderRight + SHADOW_WIDTH * 2 + MAXIMIZED_OFFSET * 2;
                     }
                     else
                     {
-                        return Screen.width;
+                        return Utils.scaledScreenWidth;
                     }
                 }
 
@@ -833,18 +833,18 @@ namespace Common.UI.Windows
 
                 if (mState == WindowState.FullScreen)
                 {
-                    return Screen.height;
+					return Utils.scaledScreenHeight;
                 }
 
                 if (mState == WindowState.Maximized)
                 {
                     if (mFrame != WindowFrameType.Frameless)
                     {
-                        return Screen.height - mBorderTop - mBorderBottom + SHADOW_WIDTH * 2 + MAXIMIZED_OFFSET * 2;
+                        return Utils.scaledScreenHeight - mBorderTop - mBorderBottom + SHADOW_WIDTH * 2 + MAXIMIZED_OFFSET * 2;
                     }
                     else
                     {
-                        return Screen.height;
+                        return Utils.scaledScreenHeight;
                     }
                 }
 
@@ -1401,8 +1401,8 @@ namespace Common.UI.Windows
                 }
                 #endregion
 
-                mX = (Screen.width  - mWidth)  / 2; // Screen.width  / 2 - mWidth / 2;
-                mY = (Screen.height - mHeight) / 2; // Screen.height / 2 - mHeight / 2;
+                mX = (Utils.scaledScreenWidth  - mWidth)  / 2; // Utils.scaledScreenWidth  / 2 - mWidth / 2;
+                mY = (Utils.scaledScreenHeight - mHeight) / 2; // Utils.scaledScreenHeight / 2 - mHeight / 2;
             }
 
             UpdateState();
@@ -2148,7 +2148,7 @@ namespace Common.UI.Windows
                                                     , MINIMIZED_WIDTH  + 2 * SHADOW_WIDTH
                                                     , MINIMIZED_HEIGHT + 2 * SHADOW_WIDTH
                                                     , MINIMIZED_OFFSET_LEFT - SHADOW_WIDTH
-                                                    , Screen.height - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT - SHADOW_WIDTH
+                                                    , Utils.scaledScreenHeight - MINIMIZED_OFFSET_BOTTOM - MINIMIZED_HEIGHT - SHADOW_WIDTH
                                                    );
                 }
                 break;
@@ -2192,7 +2192,7 @@ namespace Common.UI.Windows
         private void CreateReplacementStretchLeft()
         {
             CreateReplacement();
-            Utils.AlignRectTransformStretchLeft(mReplacementTransform, Screen.width / 2 + SHADOW_WIDTH, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
+            Utils.AlignRectTransformStretchLeft(mReplacementTransform, Utils.scaledScreenWidth / 2 + SHADOW_WIDTH, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
         }
 
         /// <summary>
@@ -2201,7 +2201,7 @@ namespace Common.UI.Windows
         private void CreateReplacementStretchRight()
         {
             CreateReplacement();
-            Utils.AlignRectTransformStretchRight(mReplacementTransform, Screen.width / 2 + SHADOW_WIDTH, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
+            Utils.AlignRectTransformStretchRight(mReplacementTransform, Utils.scaledScreenWidth / 2 + SHADOW_WIDTH, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2, -SHADOW_WIDTH / 2);
         }
 
         /// <summary>
@@ -2219,7 +2219,7 @@ namespace Common.UI.Windows
         private void CreateReplacementStretchVertical()
         {
             CreateReplacement();
-            Utils.AlignRectTransformTopLeft(mReplacementTransform, mWidth, Screen.height + SHADOW_WIDTH, mX, -SHADOW_WIDTH / 2);
+            Utils.AlignRectTransformTopLeft(mReplacementTransform, mWidth, Utils.scaledScreenHeight + SHADOW_WIDTH, mX, -SHADOW_WIDTH / 2);
         }
 
         /// <summary>
@@ -2405,8 +2405,8 @@ namespace Common.UI.Windows
                     return true;
                 }
 
-                float mouseX = sp.x;
-                float mouseY = Screen.height - sp.y;
+                float mouseX = Mouse.scaledX;
+                float mouseY = Mouse.scaledY;
 
                 float windowX      = mWindowTransform.offsetMin.x  + SHADOW_WIDTH;
                 float windowY      = -mWindowTransform.offsetMax.y + SHADOW_WIDTH;
@@ -2804,8 +2804,8 @@ namespace Common.UI.Windows
 						float mouseY = Mouse.scaledY;
 
                         #region Calculate new position
-                        int screenWidth  = Screen.width;
-                        int screenHeight = Screen.height;
+                        float screenWidth  = Utils.scaledScreenWidth;
+						float screenHeight = Utils.scaledScreenHeight;
 
                         if (mState == WindowState.Maximized)
                         {
@@ -3044,8 +3044,8 @@ namespace Common.UI.Windows
 						float mouseY = Mouse.scaledY;
 
                         #region Calculate new geometry
-                        int screenWidth  = Screen.width;
-                        int screenHeight = Screen.height;
+						float screenWidth  = Utils.scaledScreenWidth;
+                        float screenHeight = Utils.scaledScreenHeight;
 
                         #region West
                         if (

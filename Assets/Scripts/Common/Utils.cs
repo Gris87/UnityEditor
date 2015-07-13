@@ -222,8 +222,8 @@ namespace Common
                 vMax = Vector3.Max(v, vMax);
             }
 
-            int screenWidthDiv2  = Screen.width  / 2;
-            int screenHeightDiv2 = Screen.height / 2;
+			float screenWidthDiv2  = Utils.scaledScreenWidth  / 2;
+			float screenHeightDiv2 = Utils.scaledScreenHeight / 2;
 
             res[0].Set(vMin.x + screenWidthDiv2, -vMax.y + screenHeightDiv2, 0f);
             res[1].Set(vMax.x + screenWidthDiv2, -vMax.y + screenHeightDiv2, 0f);
@@ -257,8 +257,8 @@ namespace Common
                                                     , float shadowBottom = 0f
                                                    )
         {
-            int screenWidth  = Screen.width;
-            int screenHeight = Screen.height;
+            float screenWidth  = scaledScreenWidth;
+			float screenHeight = scaledScreenHeight;
 
             if (width > screenWidth)
             {

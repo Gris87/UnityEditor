@@ -301,7 +301,7 @@ namespace Common.UI.Tooltips
 			float mouseY = Mouse.scaledY;
 
             float tooltipWidth = tooltipText.preferredWidth + tooltipBorderLeft + tooltipBorderRight;
-            int   screenWidth  = Screen.width;
+            float screenWidth  = Utils.scaledScreenWidth;
 
             if (tooltipWidth > screenWidth)
             {

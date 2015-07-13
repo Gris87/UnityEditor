@@ -392,8 +392,6 @@ namespace Common.UI.DockWidgets
         {
             if (mCachedDragCorners != null)
             {
-                float screenHeight = Screen.height;
-
                 float gap    = GAP / 2f + 1f;
                 float left   = mCachedDragCorners[0].x - gap;
                 float top    = mCachedDragCorners[0].y - gap;

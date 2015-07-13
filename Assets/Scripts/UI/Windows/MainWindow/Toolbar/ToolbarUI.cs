@@ -1449,15 +1449,15 @@ namespace UI.Windows.MainWindow.Toolbar
             #endregion
             #endregion
 
-            int screenWidth = Screen.width;
+			float windowWidth = Global.mainWindowScript.contentWidth;
 
-            if (contentWidth + width + 40f > screenWidth)
+            if (contentWidth + width + 40f > windowWidth)
             {
                 contentWidth += width + 40f;
             }
             else
             {
-                contentWidth = screenWidth;
+                contentWidth = windowWidth;
             }
 
             float leftEdge  = mBasePointTransform.anchoredPosition.x + mBasePointTransform.sizeDelta.x / 2;
@@ -1490,15 +1490,15 @@ namespace UI.Windows.MainWindow.Toolbar
             float contentWidth = mToolsTransform.sizeDelta.x + mBasePointTransform.sizeDelta.x + mPopupsTransform.sizeDelta.x + 40f;
             float width = mPlaybackTransform.sizeDelta.x;
 
-            int screenWidth = Screen.width;
+            float windowWidth = Global.mainWindowScript.contentWidth;
 
-            if (contentWidth + width + 40f > screenWidth)
+            if (contentWidth + width + 40f > windowWidth)
             {
                 contentWidth += width + 40f;
             }
             else
             {
-                contentWidth = screenWidth;
+                contentWidth = windowWidth;
             }
 
             float leftEdge  = mBasePointTransform.anchoredPosition.x + mBasePointTransform.sizeDelta.x / 2;

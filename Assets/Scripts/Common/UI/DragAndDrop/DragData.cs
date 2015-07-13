@@ -234,8 +234,6 @@ namespace Common.UI.DragAndDrop
         /// </summary>
         private static void SetDraggedPosition()
         {
-            float screenHeight = Screen.height;
-
             RectTransform imageTransform = sDraggingImage.transform as RectTransform;
 
             float mouseX = Mouse.scaledX;
