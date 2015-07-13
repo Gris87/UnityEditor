@@ -11,360 +11,360 @@ using Common.UI.Windows;
 
 namespace Common.UI.DockWidgets
 {
-	#region Internal namespace
-	namespace Internal
-	{
-		/// <summary>
-		/// Docking tab common things.
-		/// </summary>
-		static class DockingTabCommon
-		{
-			public static SpriteState buttonSpriteState;
-			public static SpriteState activeButtonSpriteState;
-			
-			
-			
-			/// <summary>
-			/// Initializes the <see cref="Common.UI.DockWidgets.Internal.DockingTabCommon"/> class.
-			/// </summary>
-			static DockingTabCommon()
-			{
-				buttonSpriteState       = new SpriteState();
-				activeButtonSpriteState = new SpriteState();
-
-				buttonSpriteState.disabledSprite          = Assets.DockWidgets.Textures.tabDisabled;
-				buttonSpriteState.highlightedSprite       = Assets.DockWidgets.Textures.tabHighlighted;
-				buttonSpriteState.pressedSprite           = Assets.DockWidgets.Textures.tabPressed;
-
-				activeButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.tabActiveDisabled;
-				activeButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.tabActiveHighlighted;
-				activeButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.tabActivePressed;
-			}
-		}
-	}
-	#endregion
+    #region Internal namespace
+    namespace Internal
+    {
+        /// <summary>
+        /// Docking tab common things.
+        /// </summary>
+        static class DockingTabCommon
+        {
+            public static SpriteState buttonSpriteState;
+            public static SpriteState activeButtonSpriteState;
 
 
 
-	/// <summary>
-	/// Button component for docking group tab.
-	/// </summary>
-	public class DockingTabButton : Button, IBeginDragHandler, IDragHandler, IEndDragHandler
-	{
-		/// <summary>
-		/// Gets or sets the dock widget.
-		/// </summary>
-		/// <value>The dock widget.</value>
-		public DockWidgetScript dockWidget
-		{
-			get { return mDockWidget;  }
-			set { mDockWidget = value; }
-		}
+            /// <summary>
+            /// Initializes the <see cref="Common.UI.DockWidgets.Internal.DockingTabCommon"/> class.
+            /// </summary>
+            static DockingTabCommon()
+            {
+                buttonSpriteState       = new SpriteState();
+                activeButtonSpriteState = new SpriteState();
 
-		/// <summary>
-		/// Gets or sets a value indicating whether this <see cref="Common.UI.DockWidgets.DockingTabButton"/> is active.
-		/// </summary>
-		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
-		public bool active
-		{
-			get
-			{
-				return mActive;  
-			}
+                buttonSpriteState.disabledSprite          = Assets.DockWidgets.Textures.tabDisabled;
+                buttonSpriteState.highlightedSprite       = Assets.DockWidgets.Textures.tabHighlighted;
+                buttonSpriteState.pressedSprite           = Assets.DockWidgets.Textures.tabPressed;
 
-			set
-			{
-				if (mActive != value)
-				{
-					mActive = value;
-				
-					UpdateImage();
-				}
-			}
-		}
+                activeButtonSpriteState.disabledSprite    = Assets.DockWidgets.Textures.tabActiveDisabled;
+                activeButtonSpriteState.highlightedSprite = Assets.DockWidgets.Textures.tabActiveHighlighted;
+                activeButtonSpriteState.pressedSprite     = Assets.DockWidgets.Textures.tabActivePressed;
+            }
+        }
+    }
+    #endregion
 
 
 
-		private DockWidgetScript mDockWidget;
-		private bool             mActive;
+    /// <summary>
+    /// Button component for docking group tab.
+    /// </summary>
+    public class DockingTabButton : Button, IBeginDragHandler, IDragHandler, IEndDragHandler
+    {
+        /// <summary>
+        /// Gets or sets the dock widget.
+        /// </summary>
+        /// <value>The dock widget.</value>
+        public DockWidgetScript dockWidget
+        {
+            get { return mDockWidget;  }
+            set { mDockWidget = value; }
+        }
 
-		List<DockingAreaScript> mDockingAreas;
-
-
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Common.UI.DockWidgets.DockingTabButton"/> class.
-		/// </summary>
-		public DockingTabButton()
-			: base()
-		{
-			transition = Selectable.Transition.SpriteSwap;
-
-			mDockWidget = null;
-			mActive     = false;
-
-			mDockingAreas = null;
-
-			onClick.AddListener(buttonClicked);
-		}
-
-		/// <summary>
-		/// Script starting callback.
-		/// </summary>
-		protected override void Start()
-		{
-			base.Start();
-
-			UpdateImage();
-		}
-
-		/// <summary>
-		/// Handler for pointer down event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public override void OnPointerDown(PointerEventData eventData)
-		{
-			base.OnPointerDown(eventData);
-
-			if (eventData.button == PointerEventData.InputButton.Middle)
-			{
-				mDockWidget.Destroy();
-			}
-		}
-
-		/// <summary>
-		/// Handler for begin drag event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public void OnBeginDrag(PointerEventData eventData)
-		{
-			buttonClicked();
-
-			DragInfoHolder.dockWidget    = mDockWidget;
-			DragInfoHolder.minimum       = float.MaxValue;
-			DragInfoHolder.dockingArea   = null;
-			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
-
-			mDockingAreas = new List<DockingAreaScript>(DockingAreaScript.instances);
-			
-			foreach (DockingAreaScript dockingArea in mDockingAreas)
-			{
-				dockingArea.CacheDragInfo();
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Common.UI.DockWidgets.DockingTabButton"/> is active.
+        /// </summary>
+        /// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        public bool active
+        {
+            get
+            {
+                return mActive;
             }
 
-			StartCoroutine(CreateDraggingImage(eventData));
-		}
-
-		/// <summary>
-		/// Handler for drag event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public void OnDrag(PointerEventData eventData)
-		{
-			DragInfoHolder.minimum       = float.MaxValue;
-			DragInfoHolder.dockingArea   = null;
-			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
-
-			RaycastResult     raycastResult  = eventData.pointerCurrentRaycast;
-			DockingAreaScript hitDockingArea = null;
-
-			if (raycastResult.gameObject != null)
-			{
-				hitDockingArea = Utils.FindInParents<DockingAreaScript>(raycastResult.gameObject);
-			}
-
-			if (hitDockingArea != null && hitDockingArea.HasDragInfo())
-			{
-				hitDockingArea.PreprocessDockWidgetDrag(eventData);
-			}
-			else
-			{
-				for (int i = mDockingAreas.Count - 1; i >= 0; --i)
-				{
-					mDockingAreas[i].PreprocessDockWidgetDrag(eventData);
-				}
-			}
-
-			if (DragInfoHolder.dockingArea != null)
-			{
-				DragInfoHolder.dockingArea.ProcessDockWidgetDrag(eventData);
-			}
-
-			if (DragInfoHolder.dockingArea != null)
+            set
             {
-				DragData.HideImage();
-			}
-			else
-			{
-				DummyDockWidgetScript.DestroyInstance();
+                if (mActive != value)
+                {
+                    mActive = value;
 
-				DragData.ShowImage();
-				DragData.Drag(eventData);
-			}
-		}
+                    UpdateImage();
+                }
+            }
+        }
 
-		/// <summary>
-		/// Handler for end drag event.
-		/// </summary>
-		/// <param name="eventData">Pointer data.</param>
-		public void OnEndDrag(PointerEventData eventData)
-		{
-			foreach (DockingAreaScript dockingArea in mDockingAreas)
-			{
-				dockingArea.ClearDragInfo();
-			}
 
-			mDockingAreas = null;
 
-			if (DummyDockWidgetScript.instance != null)
-			{
-				int index = DummyDockWidgetScript.instance.parent.children.IndexOf(DummyDockWidgetScript.instance);
+        private DockWidgetScript mDockWidget;
+        private bool             mActive;
 
-				if (index >= 0)
-				{
-					DummyDockWidgetScript.instance.parent.InsertDockWidget(DragInfoHolder.dockWidget, index);
-					DummyDockWidgetScript.instance.parent.selectedIndex = index;
-				}
-				else
-				{
-					Debug.LogError("Unexpected behaviour in DockingTabButton.OnEndDrag");
-				}
+        List<DockingAreaScript> mDockingAreas;
 
-				DummyDockWidgetScript.DestroyInstance();
-			}
-			else
-			if (DragInfoHolder.dockingArea == null)
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Common.UI.DockWidgets.DockingTabButton"/> class.
+        /// </summary>
+        public DockingTabButton()
+            : base()
+        {
+            transition = Selectable.Transition.SpriteSwap;
+
+            mDockWidget = null;
+            mActive     = false;
+
+            mDockingAreas = null;
+
+            onClick.AddListener(buttonClicked);
+        }
+
+        /// <summary>
+        /// Script starting callback.
+        /// </summary>
+        protected override void Start()
+        {
+            base.Start();
+
+            UpdateImage();
+        }
+
+        /// <summary>
+        /// Handler for pointer down event.
+        /// </summary>
+        /// <param name="eventData">Pointer data.</param>
+        public override void OnPointerDown(PointerEventData eventData)
+        {
+            base.OnPointerDown(eventData);
+
+            if (eventData.button == PointerEventData.InputButton.Middle)
             {
-				WindowScript parentWindow = Utils.FindInParents<WindowScript>(gameObject);
+                mDockWidget.Destroy();
+            }
+        }
 
-				if (parentWindow != null)
-				{
-					//***************************************************************************
-					// DockingWindow GameObject
-					//***************************************************************************
-					#region DockingWindow GameObject
-					GameObject dockingWindow = new GameObject("DockingWindow");
-					Utils.InitUIObject(dockingWindow, parentWindow.transform.parent);
-					
-					//===========================================================================
-					// DockingWindowScript Component
-					//===========================================================================
-					#region DockingWindowScript Component
-					DockingWindowScript dockingWindowScript = dockingWindow.AddComponent<DockingWindowScript>();
+        /// <summary>
+        /// Handler for begin drag event.
+        /// </summary>
+        /// <param name="eventData">Pointer data.</param>
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            buttonClicked();
 
-					dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
+            DragInfoHolder.dockWidget    = mDockWidget;
+            DragInfoHolder.minimum       = float.MaxValue;
+            DragInfoHolder.dockingArea   = null;
+            DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
 
-					// TODO: [Trivial] Check it home
-					dockingWindowScript.x      = DragData.x      - 8f;
-					dockingWindowScript.y      = DragData.y      - 13f; // - 8f      - 5f
-					dockingWindowScript.width  = DragData.width  + 16f; // + 8f + 8f
-					dockingWindowScript.height = DragData.height + 21f; // + 8f + 8f + 5f
+            mDockingAreas = new List<DockingAreaScript>(DockingAreaScript.instances);
 
-					dockingWindowScript.Show();
-					#endregion
-					#endregion
-				}
-				else
-				{
-					Debug.LogError("Unexpected behaviour in DockingTabButton.OnEndDrag");
-				}
-			}
+            foreach (DockingAreaScript dockingArea in mDockingAreas)
+            {
+                dockingArea.CacheDragInfo();
+            }
 
-			DragInfoHolder.dockWidget    = null;
-			DragInfoHolder.minimum       = float.MaxValue;
-			DragInfoHolder.dockingArea   = null;
-			DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
-			            
+            StartCoroutine(CreateDraggingImage(eventData));
+        }
+
+        /// <summary>
+        /// Handler for drag event.
+        /// </summary>
+        /// <param name="eventData">Pointer data.</param>
+        public void OnDrag(PointerEventData eventData)
+        {
+            DragInfoHolder.minimum       = float.MaxValue;
+            DragInfoHolder.dockingArea   = null;
+            DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
+
+            RaycastResult     raycastResult  = eventData.pointerCurrentRaycast;
+            DockingAreaScript hitDockingArea = null;
+
+            if (raycastResult.gameObject != null)
+            {
+                hitDockingArea = Utils.FindInParents<DockingAreaScript>(raycastResult.gameObject);
+            }
+
+            if (hitDockingArea != null && hitDockingArea.HasDragInfo())
+            {
+                hitDockingArea.PreprocessDockWidgetDrag(eventData);
+            }
+            else
+            {
+                for (int i = mDockingAreas.Count - 1; i >= 0; --i)
+                {
+                    mDockingAreas[i].PreprocessDockWidgetDrag(eventData);
+                }
+            }
+
+            if (DragInfoHolder.dockingArea != null)
+            {
+                DragInfoHolder.dockingArea.ProcessDockWidgetDrag(eventData);
+            }
+
+            if (DragInfoHolder.dockingArea != null)
+            {
+                DragData.HideImage();
+            }
+            else
+            {
+                DummyDockWidgetScript.DestroyInstance();
+
+                DragData.ShowImage();
+                DragData.Drag(eventData);
+            }
+        }
+
+        /// <summary>
+        /// Handler for end drag event.
+        /// </summary>
+        /// <param name="eventData">Pointer data.</param>
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            foreach (DockingAreaScript dockingArea in mDockingAreas)
+            {
+                dockingArea.ClearDragInfo();
+            }
+
+            mDockingAreas = null;
+
+            if (DummyDockWidgetScript.instance != null)
+            {
+                int index = DummyDockWidgetScript.instance.parent.children.IndexOf(DummyDockWidgetScript.instance);
+
+                if (index >= 0)
+                {
+                    DummyDockWidgetScript.instance.parent.InsertDockWidget(DragInfoHolder.dockWidget, index);
+                    DummyDockWidgetScript.instance.parent.selectedIndex = index;
+                }
+                else
+                {
+                    Debug.LogError("Unexpected behaviour in DockingTabButton.OnEndDrag");
+                }
+
+                DummyDockWidgetScript.DestroyInstance();
+            }
+            else
+            if (DragInfoHolder.dockingArea == null)
+            {
+                WindowScript parentWindow = Utils.FindInParents<WindowScript>(gameObject);
+
+                if (parentWindow != null)
+                {
+                    //***************************************************************************
+                    // DockingWindow GameObject
+                    //***************************************************************************
+                    #region DockingWindow GameObject
+                    GameObject dockingWindow = new GameObject("DockingWindow");
+                    Utils.InitUIObject(dockingWindow, parentWindow.transform.parent);
+
+                    //===========================================================================
+                    // DockingWindowScript Component
+                    //===========================================================================
+                    #region DockingWindowScript Component
+                    DockingWindowScript dockingWindowScript = dockingWindow.AddComponent<DockingWindowScript>();
+
+                    dockingWindowScript.dockWidget = DragInfoHolder.dockWidget;
+
+                    // TODO: [Trivial] Check it home
+                    dockingWindowScript.x      = DragData.x      - 8f;
+                    dockingWindowScript.y      = DragData.y      - 13f; // - 8f      - 5f
+                    dockingWindowScript.width  = DragData.width  + 16f; // + 8f + 8f
+                    dockingWindowScript.height = DragData.height + 21f; // + 8f + 8f + 5f
+
+                    dockingWindowScript.Show();
+                    #endregion
+                    #endregion
+                }
+                else
+                {
+                    Debug.LogError("Unexpected behaviour in DockingTabButton.OnEndDrag");
+                }
+            }
+
+            DragInfoHolder.dockWidget    = null;
+            DragInfoHolder.minimum       = float.MaxValue;
+            DragInfoHolder.dockingArea   = null;
+            DragInfoHolder.mouseLocation = DragInfoHolder.MouseLocation.Outside;
+
             DragData.EndDrag(eventData);
-		}
+        }
 
-		/// <summary>
-		/// Creates the dragging image.
-		/// </summary>
-		/// <returns>The dragging image.</returns>
-		/// <param name="eventData">Pointer data.</param>
-		public IEnumerator CreateDraggingImage(PointerEventData eventData)
-		{
-			yield return new WaitForEndOfFrame();
+        /// <summary>
+        /// Creates the dragging image.
+        /// </summary>
+        /// <returns>The dragging image.</returns>
+        /// <param name="eventData">Pointer data.</param>
+        public IEnumerator CreateDraggingImage(PointerEventData eventData)
+        {
+            yield return new WaitForEndOfFrame();
 
-			Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
+            Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
 
-			int screenWidth  = Screen.width;
-			int screenHeight = Screen.height;
+            int screenWidth  = Screen.width;
+            int screenHeight = Screen.height;
 
-			float left   = corners[0].x;
-			float top    = corners[0].y;
-			float right  = corners[3].x;
-			float bottom = corners[3].y;
+            float left   = corners[0].x;
+            float top    = corners[0].y;
+            float right  = corners[3].x;
+            float bottom = corners[3].y;
 
-			if (left < 0f)
-			{
-				left = 0f;
-			}
+            if (left < 0f)
+            {
+                left = 0f;
+            }
 
-			if (top < 0f)
-			{
-				top = 0f;
-			}
+            if (top < 0f)
+            {
+                top = 0f;
+            }
 
-			if (right > screenWidth - 1)
-			{
-				right = screenWidth - 1;
-			}
-			
-			if (bottom > screenHeight - 1)
-			{
-				bottom = screenHeight - 1;
-			}
+            if (right > screenWidth - 1)
+            {
+                right = screenWidth - 1;
+            }
 
-			int widgetX      = Mathf.CeilToInt(left);
-			int widgetY      = Mathf.CeilToInt(top);
-			int widgetWidth  = Mathf.FloorToInt(right  - left);
-			int widgetHeight = Mathf.FloorToInt(bottom - top);
+            if (bottom > screenHeight - 1)
+            {
+                bottom = screenHeight - 1;
+            }
 
-			float dragPosX = eventData.pressPosition.x - widgetX;
-			float dragPosY = Screen.height - eventData.pressPosition.y - widgetY;
-			
-			DragData.BeginDrag(
-								 eventData
-							   , DraggingType.DockWidget
-							   , gameObject
-							   , Sprite.Create(
-							                     Utils.TakeScreenshot(widgetX, widgetY, widgetWidth, widgetHeight)
-							                   , new Rect(0, 0, widgetWidth, widgetHeight)
-						                       , new Vector2(0.5f, 0.5f)
-				                              )
-							   , widgetWidth
-							   , widgetHeight
-							   , dragPosX
-							   , dragPosY
-			                  );
-		}
+            int widgetX      = Mathf.CeilToInt(left);
+            int widgetY      = Mathf.CeilToInt(top);
+            int widgetWidth  = Mathf.FloorToInt(right  - left);
+            int widgetHeight = Mathf.FloorToInt(bottom - top);
 
-		/// <summary>
-		/// Button click handler.
-		/// </summary>
-		private void buttonClicked()
-		{
-			mDockWidget.Select();
-		}
+            float dragPosX = eventData.pressPosition.x - widgetX;
+            float dragPosY = Screen.height - eventData.pressPosition.y - widgetY;
 
-		/// <summary>
-		/// Updates background image.
-		/// </summary>
-		private void UpdateImage()
-		{
-			if (mActive)
-			{
-				image.sprite = Assets.DockWidgets.Textures.tabActive;
-				spriteState = Internal.DockingTabCommon.activeButtonSpriteState;
-			}
-			else
-			{
-				image.sprite = Assets.DockWidgets.Textures.tab;
-				spriteState = Internal.DockingTabCommon.buttonSpriteState;
-			}
-		}
-	}
+            DragData.BeginDrag(
+                                 eventData
+                               , DraggingType.DockWidget
+                               , gameObject
+                               , Sprite.Create(
+                                                 Utils.TakeScreenshot(widgetX, widgetY, widgetWidth, widgetHeight)
+                                               , new Rect(0, 0, widgetWidth, widgetHeight)
+                                               , new Vector2(0.5f, 0.5f)
+                                              )
+                               , widgetWidth
+                               , widgetHeight
+                               , dragPosX
+                               , dragPosY
+                              );
+        }
+
+        /// <summary>
+        /// Button click handler.
+        /// </summary>
+        private void buttonClicked()
+        {
+            mDockWidget.Select();
+        }
+
+        /// <summary>
+        /// Updates background image.
+        /// </summary>
+        private void UpdateImage()
+        {
+            if (mActive)
+            {
+                image.sprite = Assets.DockWidgets.Textures.tabActive;
+                spriteState = Internal.DockingTabCommon.activeButtonSpriteState;
+            }
+            else
+            {
+                image.sprite = Assets.DockWidgets.Textures.tab;
+                spriteState = Internal.DockingTabCommon.buttonSpriteState;
+            }
+        }
+    }
 }
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Base point : Center -->
@@ -6,16 +6,16 @@
 
     <!-- Base point : Pivot -->
     <string name="pivot">Точка опоры</string>
-    
+
     <!-- Coordinate system : Local -->
     <string name="local">Локальная</string>
-    
+
     <!-- Coordinate system : Global -->
     <string name="global">Глобальная</string>
-    
+
     <!-- Popup : Layers -->
     <string name="layers">Слои</string>
-    
+
     <!-- Popup : Layout -->
     <string name="layout">Размещение</string>
 

@@ -1,18 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <!-- Base point : Tooltip for Center -->
     <string name="center">Инструмент опирается на центр выделения</string>
 
     <!-- Base point : Tooltip for Pivot -->
     <string name="pivot">Инструмент опирается на точку опоры активного объекта</string>
-    
+
     <!-- Coordinate system : Tooltip for Local -->
     <string name="local">Инструмент действует в локальной системе активного объекта</string>
-    
+
     <!-- Coordinate system : Tooltip for Global -->
     <string name="global">Инструмент действует в глобальной системе</string>
-    
+
     <!-- Popup : Tooltip for Layers -->
     <string name="layers">Какие слои видны на сцене</string>
 

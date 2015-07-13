@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <!-- Toast: Please contribute -->
     <string name="contribute">This feature is not implemented yet.\nPlease contribute to our project: {0}</string>
-    
+
     <!-- Toast: Internal Mode: {0} -->
     <string name="internal_mode">Internal Mode: {0}</string>
 

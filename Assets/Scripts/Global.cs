@@ -31,123 +31,123 @@ using UI.Windows.MainWindow.Toolbar;
 /// </summary>
 public static class Global
 {
-	/// <summary>
-	/// Windows transform.
-	/// </summary>
-	public static Transform windowsTransform = null;
+    /// <summary>
+    /// Windows transform.
+    /// </summary>
+    public static Transform windowsTransform = null;
 
-	/// <summary>
-	/// Main window script.
-	/// </summary>
-	public static MainWindowScript mainWindowScript = null;
-	
-	/// <summary>
-	/// MainMenu script.
-	/// </summary>
-	public static MainMenuScript mainMenuScript = null;
-	
-	/// <summary>
-	/// Toolbar script.
-	/// </summary>
-	public static ToolbarScript toolbarScript = null;
-	
-	/// <summary>
-	/// DockingArea script.
-	/// </summary>
-	public static DockingAreaScript dockingAreaScript = null;
+    /// <summary>
+    /// Main window script.
+    /// </summary>
+    public static MainWindowScript mainWindowScript = null;
 
-	/// <summary>
-	/// SceneDockWidget script.
-	/// </summary>
-	public static SceneDockWidgetScript sceneDockWidgetScript = null;
+    /// <summary>
+    /// MainMenu script.
+    /// </summary>
+    public static MainMenuScript mainMenuScript = null;
 
-	/// <summary>
-	/// GameDockWidget script.
-	/// </summary>
-	public static GameDockWidgetScript gameDockWidgetScript = null;
+    /// <summary>
+    /// Toolbar script.
+    /// </summary>
+    public static ToolbarScript toolbarScript = null;
 
-	/// <summary>
-	/// InspectorDockWidget script.
-	/// </summary>
-	public static InspectorDockWidgetScript inspectorDockWidgetScript = null;
+    /// <summary>
+    /// DockingArea script.
+    /// </summary>
+    public static DockingAreaScript dockingAreaScript = null;
 
-	/// <summary>
-	/// HierarchyDockWidget script.
-	/// </summary>
-	public static HierarchyDockWidgetScript hierarchyDockWidgetScript = null;
+    /// <summary>
+    /// SceneDockWidget script.
+    /// </summary>
+    public static SceneDockWidgetScript sceneDockWidgetScript = null;
 
-	/// <summary>
-	/// ProjectDockWidget script.
-	/// </summary>
-	public static ProjectDockWidgetScript projectDockWidgetScript = null;
+    /// <summary>
+    /// GameDockWidget script.
+    /// </summary>
+    public static GameDockWidgetScript gameDockWidgetScript = null;
 
-	/// <summary>
-	/// AnimationDockWidget script.
-	/// </summary>
-	public static AnimationDockWidgetScript animationDockWidgetScript = null;
+    /// <summary>
+    /// InspectorDockWidget script.
+    /// </summary>
+    public static InspectorDockWidgetScript inspectorDockWidgetScript = null;
 
-	/// <summary>
-	/// ProfilerDockWidget script.
-	/// </summary>
-	public static ProfilerDockWidgetScript profilerDockWidgetScript = null;
+    /// <summary>
+    /// HierarchyDockWidget script.
+    /// </summary>
+    public static HierarchyDockWidgetScript hierarchyDockWidgetScript = null;
 
-	/// <summary>
-	/// AudioMixerDockWidget script.
-	/// </summary>
-	public static AudioMixerDockWidgetScript audioMixerDockWidgetScript = null;
+    /// <summary>
+    /// ProjectDockWidget script.
+    /// </summary>
+    public static ProjectDockWidgetScript projectDockWidgetScript = null;
 
-	/// <summary>
-	/// AssetStoreDockWidget script.
-	/// </summary>
-	public static AssetStoreDockWidgetScript assetStoreDockWidgetScript = null;
+    /// <summary>
+    /// AnimationDockWidget script.
+    /// </summary>
+    public static AnimationDockWidgetScript animationDockWidgetScript = null;
 
-	/// <summary>
-	/// VersionControlDockWidget script.
-	/// </summary>
-	public static VersionControlDockWidgetScript versionControlDockWidgetScript = null;
+    /// <summary>
+    /// ProfilerDockWidget script.
+    /// </summary>
+    public static ProfilerDockWidgetScript profilerDockWidgetScript = null;
 
-	/// <summary>
-	/// AnimatorParameterDockWidget script.
-	/// </summary>
-	public static AnimatorParameterDockWidgetScript animatorParameterDockWidgetScript = null;
+    /// <summary>
+    /// AudioMixerDockWidget script.
+    /// </summary>
+    public static AudioMixerDockWidgetScript audioMixerDockWidgetScript = null;
 
-	/// <summary>
-	/// AnimatorDockWidget script.
-	/// </summary>
-	public static AnimatorDockWidgetScript animatorDockWidgetScript = null;
+    /// <summary>
+    /// AssetStoreDockWidget script.
+    /// </summary>
+    public static AssetStoreDockWidgetScript assetStoreDockWidgetScript = null;
 
-	/// <summary>
-	/// SpritePackerDockWidget script.
-	/// </summary>
-	public static SpritePackerDockWidgetScript spritePackerDockWidgetScript = null;
+    /// <summary>
+    /// VersionControlDockWidget script.
+    /// </summary>
+    public static VersionControlDockWidgetScript versionControlDockWidgetScript = null;
 
-	/// <summary>
-	/// LightingDockWidget script.
-	/// </summary>
-	public static LightingDockWidgetScript lightingDockWidgetScript = null;
+    /// <summary>
+    /// AnimatorParameterDockWidget script.
+    /// </summary>
+    public static AnimatorParameterDockWidgetScript animatorParameterDockWidgetScript = null;
 
-	/// <summary>
-	/// OcclusionCullingDockWidget script.
-	/// </summary>
-	public static OcclusionCullingDockWidgetScript occlusionCullingDockWidgetScript = null;
+    /// <summary>
+    /// AnimatorDockWidget script.
+    /// </summary>
+    public static AnimatorDockWidgetScript animatorDockWidgetScript = null;
 
-	/// <summary>
-	/// FrameDebuggerDockWidget script.
-	/// </summary>
-	public static FrameDebuggerDockWidgetScript frameDebuggerDockWidgetScript = null;
+    /// <summary>
+    /// SpritePackerDockWidget script.
+    /// </summary>
+    public static SpritePackerDockWidgetScript spritePackerDockWidgetScript = null;
 
-	/// <summary>
-	/// NavigationDockWidget script.
-	/// </summary>
-	public static NavigationDockWidgetScript navigationDockWidgetScript = null;
+    /// <summary>
+    /// LightingDockWidget script.
+    /// </summary>
+    public static LightingDockWidgetScript lightingDockWidgetScript = null;
 
-	/// <summary>
-	/// ConsoleDockWidget script.
-	/// </summary>
-	public static ConsoleDockWidgetScript consoleDockWidgetScript = null;
+    /// <summary>
+    /// OcclusionCullingDockWidget script.
+    /// </summary>
+    public static OcclusionCullingDockWidgetScript occlusionCullingDockWidgetScript = null;
 
-	/// <summary>
-	/// About dialog script.
-	/// </summary>
-	public static AboutDialogScript aboutDialogScript = null;
+    /// <summary>
+    /// FrameDebuggerDockWidget script.
+    /// </summary>
+    public static FrameDebuggerDockWidgetScript frameDebuggerDockWidgetScript = null;
+
+    /// <summary>
+    /// NavigationDockWidget script.
+    /// </summary>
+    public static NavigationDockWidgetScript navigationDockWidgetScript = null;
+
+    /// <summary>
+    /// ConsoleDockWidget script.
+    /// </summary>
+    public static ConsoleDockWidgetScript consoleDockWidgetScript = null;
+
+    /// <summary>
+    /// About dialog script.
+    /// </summary>
+    public static AboutDialogScript aboutDialogScript = null;
 }

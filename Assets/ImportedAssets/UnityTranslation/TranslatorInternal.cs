@@ -80,38 +80,38 @@ namespace UnityTranslationInternal
                 selectedLanguage = null;
             }
 
-			/// <summary>
-			/// Optimize this instance by removing the same translations from selected language.
-			/// </summary>
-			public void optimize()
-			{
-				if (selectedLanguage != null)
-				{
-					for (int i = 0; i < selectedLanguage.stringValues.Length; ++i)
-					{
-						if (selectedLanguage.stringValues[i] == defaultLanguage.stringValues[i])
-						{
-							selectedLanguage.stringValues[i] = null;
-						}
-					}
+            /// <summary>
+            /// Optimize this instance by removing the same translations from selected language.
+            /// </summary>
+            public void optimize()
+            {
+                if (selectedLanguage != null)
+                {
+                    for (int i = 0; i < selectedLanguage.stringValues.Length; ++i)
+                    {
+                        if (selectedLanguage.stringValues[i] == defaultLanguage.stringValues[i])
+                        {
+                            selectedLanguage.stringValues[i] = null;
+                        }
+                    }
 
-					for (int i = 0; i < selectedLanguage.stringArrayValues.Length; ++i)
-					{
-						if (Enumerable.SequenceEqual(selectedLanguage.stringArrayValues[i], defaultLanguage.stringArrayValues[i]))
-						{
-							selectedLanguage.stringArrayValues[i] = null;
-						}
-					}
+                    for (int i = 0; i < selectedLanguage.stringArrayValues.Length; ++i)
+                    {
+                        if (Enumerable.SequenceEqual(selectedLanguage.stringArrayValues[i], defaultLanguage.stringArrayValues[i]))
+                        {
+                            selectedLanguage.stringArrayValues[i] = null;
+                        }
+                    }
 
-					for (int i = 0; i < selectedLanguage.pluralsValues.Length; ++i)
-					{
-						if (Enumerable.SequenceEqual(selectedLanguage.pluralsValues[i], defaultLanguage.pluralsValues[i]))
-						{
-							selectedLanguage.pluralsValues[i] = null;
-						}
-					}
-				}
-			}
+                    for (int i = 0; i < selectedLanguage.pluralsValues.Length; ++i)
+                    {
+                        if (Enumerable.SequenceEqual(selectedLanguage.pluralsValues[i], defaultLanguage.pluralsValues[i]))
+                        {
+                            selectedLanguage.pluralsValues[i] = null;
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -170,7 +170,7 @@ namespace UnityTranslationInternal
                             int pluralsCount                   = tokenIds[2].Count;
 
                             tokens[0].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
-							tokens[0].optimize();
+                            tokens[0].optimize();
 
                             foreach (R.sections.SectionID section in sLoadedSections.Keys)
                             {
@@ -181,7 +181,7 @@ namespace UnityTranslationInternal
                                 pluralsCount     = tokenIds[2].Count;
 
                                 tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
-								tokens[(int)section + 1].optimize();
+                                tokens[(int)section + 1].optimize();
                             }
                         }
 
@@ -275,7 +275,7 @@ namespace UnityTranslationInternal
                     string locale = AvailableLanguages.list[sLanguage];
 
                     tokens[(int)section + 1].selectedLanguage = parseXmlTokens(xmlFile, locale, tokenIds, stringCount, stringArrayCount, pluralsCount);
-					tokens[(int)section + 1].optimize();
+                    tokens[(int)section + 1].optimize();
                 }
 
                 sLoadedSections[section] = tokens[(int)section + 1];
@@ -298,11 +298,11 @@ namespace UnityTranslationInternal
             if (tokens[(int)section + 1] != null)
             {
                 tokens[(int)section + 1] = null;
-                
-				if (!sLoadedSections.Remove(section))
-				{
-					Debug.LogError("Failed to remove section \"" + section.ToString() + "\"");
-				}
+
+                if (!sLoadedSections.Remove(section))
+                {
+                    Debug.LogError("Failed to remove section \"" + section.ToString() + "\"");
+                }
             }
             else
             {

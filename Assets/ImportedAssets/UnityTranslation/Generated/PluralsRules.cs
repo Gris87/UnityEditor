@@ -1,4 +1,4 @@
-﻿// This file generated from "CLDR/json-full/supplemental/plurals.json" file.
+// This file generated from "CLDR/json-full/supplemental/plurals.json" file.
 using System;
 
 

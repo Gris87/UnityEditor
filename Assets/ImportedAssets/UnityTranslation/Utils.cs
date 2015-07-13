@@ -78,79 +78,79 @@ namespace UnityTranslationInternal
         {
             string res = value.Trim();
 
-			for (int i = 0; i < res.Length; ++i)
-			{
-				if (res[i] == '\n')
-				{
-					res = res.Remove(i, 1).Insert(i, " ");
-					++i;
+            for (int i = 0; i < res.Length; ++i)
+            {
+                if (res[i] == '\n')
+                {
+                    res = res.Remove(i, 1).Insert(i, " ");
+                    ++i;
 
-					while (i < res.Length && (res[i] == ' ' || res[i] == '\t' || res[i] == '\n'))
-					{
-						res = res.Remove(i, 1);
-					}
-				}
-				else
-				if (res[i] == '\\')
-				{
-					if (i < res.Length - 1)
-					{
-						if (res[i + 1] == '\\')
-						{
-							res = res.Remove(i, 1);
-						}
-						else
-						if (res[i + 1] == '\"')
-						{
-							res = res.Remove(i, 1);
-						}
-						else
-						if (res[i + 1] == '\'')
-						{
-							res = res.Remove(i, 1);
-						}
-						else
-						if (res[i + 1] == 'n')
-						{
-							res = res.Remove(i, 2).Insert(i, "\n");
-						}
-						else
-						if (res[i + 1] == 't')
-						{
-							res = res.Remove(i, 2).Insert(i, "\t");
-						}
-						else
-						if (res[i + 1] == 'u')
-						{
-							if (i < res.Length - 5)
-							{
-								string charHex = res.Substring(i + 2, 4);
-								
-								int unicodeChar;
-								
-								if (int.TryParse(charHex, System.Globalization.NumberStyles.HexNumber, null, out unicodeChar))
-								{
-									res = res.Remove(i, 6).Insert(i, char.ConvertFromUtf32(unicodeChar));
-								}
-								else
-								{
-									Debug.LogWarning("Incorrect unicode char in token value: " + value);
-								}
-							}
-							else
-							{
-								Debug.LogWarning("Incorrect unicode char in token value: " + value);
-								
-								break;
-							}
-						}
-					}
-					else
-					{
-						Debug.LogWarning("Unexpected escape character at the end of token value: " + value);
-					}
-				}
-			}
+                    while (i < res.Length && (res[i] == ' ' || res[i] == '\t' || res[i] == '\n'))
+                    {
+                        res = res.Remove(i, 1);
+                    }
+                }
+                else
+                if (res[i] == '\\')
+                {
+                    if (i < res.Length - 1)
+                    {
+                        if (res[i + 1] == '\\')
+                        {
+                            res = res.Remove(i, 1);
+                        }
+                        else
+                        if (res[i + 1] == '\"')
+                        {
+                            res = res.Remove(i, 1);
+                        }
+                        else
+                        if (res[i + 1] == '\'')
+                        {
+                            res = res.Remove(i, 1);
+                        }
+                        else
+                        if (res[i + 1] == 'n')
+                        {
+                            res = res.Remove(i, 2).Insert(i, "\n");
+                        }
+                        else
+                        if (res[i + 1] == 't')
+                        {
+                            res = res.Remove(i, 2).Insert(i, "\t");
+                        }
+                        else
+                        if (res[i + 1] == 'u')
+                        {
+                            if (i < res.Length - 5)
+                            {
+                                string charHex = res.Substring(i + 2, 4);
+
+                                int unicodeChar;
+
+                                if (int.TryParse(charHex, System.Globalization.NumberStyles.HexNumber, null, out unicodeChar))
+                                {
+                                    res = res.Remove(i, 6).Insert(i, char.ConvertFromUtf32(unicodeChar));
+                                }
+                                else
+                                {
+                                    Debug.LogWarning("Incorrect unicode char in token value: " + value);
+                                }
+                            }
+                            else
+                            {
+                                Debug.LogWarning("Incorrect unicode char in token value: " + value);
+
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Unexpected escape character at the end of token value: " + value);
+                    }
+                }
+            }
 
             return res;
         }

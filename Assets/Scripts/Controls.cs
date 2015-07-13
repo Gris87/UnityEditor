@@ -32,21 +32,21 @@ public static class Controls
 
 
 
-	/// <summary>
-	/// Set of buttons.
-	/// </summary>
+    /// <summary>
+    /// Set of buttons.
+    /// </summary>
     public static Buttons buttons;
 
-	/// <summary>
-	/// Set of axes.
-	/// </summary>
+    /// <summary>
+    /// Set of axes.
+    /// </summary>
     public static Axes axes;
 
 
 
-	/// <summary>
-	/// Initializes the <see cref="Controls"/> class.
-	/// </summary>
+    /// <summary>
+    /// Initializes the <see cref="Controls"/> class.
+    /// </summary>
     static Controls()
     {
         buttons.up      = InputControl.setKey("Up",     KeyCode.W,     KeyCode.UpArrow,    new JoystickInput(JoystickAxis.Axis2Negative));
@@ -62,17 +62,17 @@ public static class Controls
         load();
     }
 
-	/// <summary>
-	/// Nothing. It just call static constructor if needed.
-	/// </summary>
+    /// <summary>
+    /// Nothing. It just call static constructor if needed.
+    /// </summary>
     public static void init()
     {
         // Nothing. It just call static constructor if needed
     }
 
-	/// <summary>
-	/// Save controls.
-	/// </summary>
+    /// <summary>
+    /// Save controls.
+    /// </summary>
     public static void save()
     {
         // It is just an example. You may remove it or modify it if you want
@@ -88,9 +88,9 @@ public static class Controls
         PlayerPrefs.Save();
     }
 
-	/// <summary>
-	/// Load controls.
-	/// </summary>
+    /// <summary>
+    /// Load controls.
+    /// </summary>
     public static void load()
     {
         // It is just an example. You may remove it or modify it if you want
@@ -123,11 +123,11 @@ public static class Controls
         }
     }
 
-	/// <summary>
-	/// Converts string representation of CustomInput to CustomInput.
-	/// </summary>
-	/// <returns>CustomInput from string.</returns>
-	/// <param name="value">String representation of CustomInput.</param>
+    /// <summary>
+    /// Converts string representation of CustomInput to CustomInput.
+    /// </summary>
+    /// <returns>CustomInput from string.</returns>
+    /// <param name="value">String representation of CustomInput.</param>
     private static CustomInput customInputFromString(string value)
     {
         CustomInput res;
@@ -146,7 +146,7 @@ public static class Controls
             return res;
         }
 
-		res = KeyboardInput.FromString(value);
+        res = KeyboardInput.FromString(value);
 
         if (res != null)
         {

@@ -17,14 +17,14 @@ public static class InputControl
 
     // Set of keys
     private static readonly List<KeyMapping>               sKeysList          = new List<KeyMapping>();
-	private static readonly Dictionary<string, KeyMapping> sKeysMap           = new Dictionary<string, KeyMapping>();
+    private static readonly Dictionary<string, KeyMapping> sKeysMap           = new Dictionary<string, KeyMapping>();
 
     // Set of axes
-	private static readonly List<Axis>                     sAxesList          = new List<Axis>();
-	private static readonly Dictionary<string, Axis>       sAxesMap           = new Dictionary<string, Axis>();
+    private static readonly List<Axis>                     sAxesList          = new List<Axis>();
+    private static readonly Dictionary<string, Axis>       sAxesMap           = new Dictionary<string, Axis>();
 
     // Smooth for GetAxis
-	private static readonly Dictionary<string, float>      sSmoothAxesValues  = new Dictionary<string, float>();
+    private static readonly Dictionary<string, float>      sSmoothAxesValues  = new Dictionary<string, float>();
     private static float                          		   sSmoothCoefficient = 5f; // Smooth looks the same as in Input.GetAxis() with this value
 
     // Joystick options
@@ -1394,22 +1394,22 @@ public static class InputControl
     /// <param name="key">KeyMapping instance.</param>
     public static void removeKey(KeyMapping key)
     {
-		bool good = true;
+        bool good = true;
 
         if (!sKeysList.Remove(key))
-		{
-			good = false;
-		}
+        {
+            good = false;
+        }
 
-		if (!sKeysMap.Remove(key.name))
-		{
-			good = false;
-		}
+        if (!sKeysMap.Remove(key.name))
+        {
+            good = false;
+        }
 
-		if (!good)
-		{
-			Debug.LogError("Failed to remove key \"" + key.name + "\"");
-		}
+        if (!good)
+        {
+            Debug.LogError("Failed to remove key \"" + key.name + "\"");
+        }
     }
 
     /// <summary>
@@ -1524,22 +1524,22 @@ public static class InputControl
     /// <param name="axis">Axis instance.</param>
     public static void removeAxis(Axis axis)
     {
-		bool good = true;
+        bool good = true;
 
-		if (!sAxesList.Remove(axis))
-		{
-			good = false;
-		}
+        if (!sAxesList.Remove(axis))
+        {
+            good = false;
+        }
 
-		if (!sAxesMap.Remove(axis.name))
-		{
-			good = false;
-		}
+        if (!sAxesMap.Remove(axis.name))
+        {
+            good = false;
+        }
 
-		if (!good)
-		{
-			Debug.LogError("Failed to remove axis \"" + axis.name + "\"");
-		}
+        if (!good)
+        {
+            Debug.LogError("Failed to remove axis \"" + axis.name + "\"");
+        }
     }
 
     /// <summary>

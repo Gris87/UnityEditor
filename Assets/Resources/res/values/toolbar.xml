@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Base point : Center -->
@@ -6,16 +6,16 @@
 
     <!-- Base point : Pivot -->
     <string name="pivot">Pivot</string>
-    
+
     <!-- Coordinate system : Local -->
     <string name="local">Local</string>
-    
+
     <!-- Coordinate system : Global -->
     <string name="global">Global</string>
-    
+
     <!-- Popup : Layers -->
     <string name="layers">Layers</string>
-    
+
     <!-- Popup : Layout -->
     <string name="layout">Layout</string>
 

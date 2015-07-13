@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!--
@@ -1197,9 +1197,9 @@
 
     <!-- Menu item : Window -> Layouts -> Revert Factory Settings... -->
     <string name="window__layouts__revert_factory_settings">Revert Factory Settings...</string>
-    
-    
-    
+
+
+
     <!--
     ====================================================
                      Window -> Screenshot
@@ -1226,10 +1226,10 @@
 
     <!-- Menu item : Window -> Screenshot -> Snap Component -->
     <string name="window__screenshot__snap_component">Snap Component</string>
-    
+
     <!-- Menu item : Window -> Screenshot -> Snap Game View Content -->
     <string name="window__screenshot__snap_game_view_content">Snap Game View Content</string>
-    
+
     <!-- Menu item : Window -> Screenshot -> Toggle DeveloperBuild -->
     <string name="window__screenshot__toggle_developerbuild">Toggle DeveloperBuild</string>
 
