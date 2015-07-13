@@ -70,7 +70,7 @@ namespace UnityTranslationInternal
         private static bool sChangedGeneratedPluralsRules       = false;
 #endif
 
-        private static bool sСhangedGeneratedAvailableLanguages = false;
+        private static bool sChangedGeneratedAvailableLanguages = false;
         private static bool sChangedGeneratedR                  = false;
         private static bool sChangedGeneratedTranslator         = false;
 #endif
@@ -184,7 +184,7 @@ namespace UnityTranslationInternal
                 sChangedGeneratedPluralsRules       = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
 #endif
 
-                sСhangedGeneratedAvailableLanguages = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
+                sChangedGeneratedAvailableLanguages = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
                 sChangedGeneratedR                  = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "R.cs");
                 sChangedGeneratedTranslator         = sChangedCodeGenerator_cs || CheckPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
             }
@@ -1614,7 +1614,7 @@ namespace UnityTranslationInternal
                 !sChangedGeneratedLanguage
                 &&
 #endif
-                !sСhangedGeneratedAvailableLanguages
+                !sChangedGeneratedAvailableLanguages
                 &&
                 File.Exists(targetFile)
                 &&
