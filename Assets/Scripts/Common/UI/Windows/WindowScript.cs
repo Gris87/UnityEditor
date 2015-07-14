@@ -3270,11 +3270,8 @@ namespace Common.UI.Windows
 
             if (leftMouseButtonPressed)
             {
-                PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
-                pointerEvent.position = InputControl.mousePosition;
-
                 List<RaycastResult> hits = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerEvent, hits);
+                Mouse.RaycastAll(hits);
 
                 bool isSelected = false;
 

@@ -77,11 +77,8 @@ namespace Common.UI.Popups
         {
             if (InputControl.GetMouseButtonDown(MouseButton.Left))
             {
-                PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
-                pointerEvent.position = InputControl.mousePosition;
-
-                List<RaycastResult> hits = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerEvent, hits);
+				List<RaycastResult> hits = new List<RaycastResult>();
+                Mouse.RaycastAll(hits);
 
                 bool hitPopupMenu = false;
 

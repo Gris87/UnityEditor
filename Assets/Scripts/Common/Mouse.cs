@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 
@@ -57,10 +59,11 @@ namespace Common
 
 
 
-        private static float sX;
-        private static float sY;
-        private static int   sLastUpdate;
-
+		private static int                 sLastUpdate;
+        private static float               sX;
+        private static float               sY;
+		private static List<RaycastResult> sHits;
+        
 
 
         /// <summary>
@@ -68,9 +71,10 @@ namespace Common
         /// </summary>
         static Mouse()
         {
+			sLastUpdate = -1;
             sX          = -1;
             sY          = -1;
-            sLastUpdate = -1;
+			sHits       = null;
         }
 
         /// <summary>
@@ -86,8 +90,30 @@ namespace Common
 
                 sX = mousePos.x;
                 sY = Screen.height - mousePos.y;
+
+				sHits = null;
             }
         }
+
+		/// <summary>
+		/// Raycasts all.
+		/// </summary>
+		/// <param name="hits">List of raycast results.</param>
+		public static void RaycastAll(List<RaycastResult> hits)
+		{
+			UpdatePosition();
+
+			if (sHits == null)
+			{
+				PointerEventData pointerEvent = new PointerEventData(EventSystem.current);
+				pointerEvent.position = InputControl.mousePosition;
+				
+				sHits = new List<RaycastResult>();
+				EventSystem.current.RaycastAll(pointerEvent, sHits);
+			}
+
+			hits.AddRange(sHits);
+		}
     }
 }
 

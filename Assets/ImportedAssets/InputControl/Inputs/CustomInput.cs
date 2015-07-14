@@ -151,7 +151,7 @@ public abstract class CustomInput
             }
 
             break;
-        } while(true);
+        } while (true);
 
         return res;
     }
