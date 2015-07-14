@@ -289,13 +289,13 @@ namespace Common.UI.DockWidgets
 
             Vector3[] corners = Utils.GetWindowCorners(mDockWidget.parent.transform as RectTransform);
 
-            float screenWidth  = Utils.scaledScreenWidth;
-			float screenHeight = Utils.scaledScreenHeight;
+            float screenWidth  = Screen.width;
+			float screenHeight = Screen.height;
 
-            float left   = corners[0].x;
-            float top    = corners[0].y;
-            float right  = corners[3].x;
-            float bottom = corners[3].y;
+            float left   = corners[0].x * Utils.canvasScale;
+			float top    = corners[0].y * Utils.canvasScale;
+			float right  = corners[3].x * Utils.canvasScale;
+			float bottom = corners[3].y * Utils.canvasScale;
 
             if (left < 0f)
             {
@@ -322,24 +322,19 @@ namespace Common.UI.DockWidgets
             int widgetWidth  = Mathf.FloorToInt(right  - left);
             int widgetHeight = Mathf.FloorToInt(bottom - top);
 
-            float dragPosX = eventData.pressPosition.x                   / Utils.canvasScale - widgetX;
-			float dragPosY = (Screen.height - eventData.pressPosition.y) / Utils.canvasScale - widgetY;
+			float dragPosX = (eventData.pressPosition.x                - widgetX) / Utils.canvasScale;
+			float dragPosY = (screenHeight - eventData.pressPosition.y - widgetY) / Utils.canvasScale;
 
             DragData.BeginDrag(
                                  DraggingType.DockWidget
                                , gameObject
                                , Sprite.Create(
-                                                 Utils.TakeScreenshot(
-				                                                        (int)(widgetX      * Utils.canvasScale)
-																	  , (int)(widgetY      * Utils.canvasScale)
-																	  , (int)(widgetWidth  * Utils.canvasScale)
-																	  , (int)(widgetHeight * Utils.canvasScale)
-																	 )
+                                                 Utils.TakeScreenshot(widgetX, widgetY, widgetWidth, widgetHeight)
                                                , new Rect(0, 0, widgetWidth, widgetHeight)
                                                , new Vector2(0.5f, 0.5f)
                                               )
-                               , widgetWidth
-                               , widgetHeight
+				               , widgetWidth  / Utils.canvasScale
+							   , widgetHeight / Utils.canvasScale
                                , dragPosX
                                , dragPosY
                               );

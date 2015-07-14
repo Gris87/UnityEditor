@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+using Common.UI.Listeners;
+
 
 
 namespace Common.UI.Popups
@@ -9,7 +11,7 @@ namespace Common.UI.Popups
     /// <summary>
     /// Script that realize behaviour for PopupMenus controller.
     /// </summary>
-    public class PopupMenuAreaScript : MonoBehaviour
+    public class PopupMenuAreaScript : MonoBehaviour, EscapeButtonHandler
     {
         private const float TIMER_NOT_ACTIVE = -10000f;
 
@@ -104,11 +106,6 @@ namespace Common.UI.Popups
                     mPopupMenus[0].Destroy();
                 }
             }
-            else
-            if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
-            {
-                mPopupMenus[mPopupMenus.Count - 1].Destroy();
-            }
 
             if (IsTimerActive())
             {
@@ -122,6 +119,18 @@ namespace Common.UI.Popups
             }
         }
 
+		/// <summary>
+		/// Handles escape button press event.
+		/// </summary>
+		public void OnEscapeButtonPressed()
+		{
+			mPopupMenus[mPopupMenus.Count - 1].Destroy();
+		}
+
+		/// <summary>
+		/// Handler for auto popup item destroy event.
+		/// </summary>
+		/// <param name="item">Popup menu item.</param>
         public static void OnAutoPopupItemDestroy(AutoPopupItemScript item)
         {
             if (sInstance != null)
@@ -141,6 +150,10 @@ namespace Common.UI.Popups
             }
         }
 
+		/// <summary>
+		/// Handler for auto popup item disable event.
+		/// </summary>
+		/// <param name="item">Popup menu item.</param>
         public static void OnAutoPopupItemDisable(AutoPopupItemScript item)
         {
             if (sInstance != null)
@@ -160,6 +173,10 @@ namespace Common.UI.Popups
             }
         }
 
+		/// <summary>
+		/// Handler for auto popup item enter event.
+		/// </summary>
+		/// <param name="item">Popup menu item.</param>
         public static void OnAutoPopupItemEnter(AutoPopupItemScript item)
         {
             if (sInstance != null)
@@ -176,6 +193,10 @@ namespace Common.UI.Popups
             }
         }
 
+		/// <summary>
+		/// Handler for auto popup item exit event.
+		/// </summary>
+		/// <param name="item">Popup menu item.</param>
         public static void OnAutoPopupItemExit(AutoPopupItemScript item)
         {
             if (sInstance != null)
@@ -202,6 +223,8 @@ namespace Common.UI.Popups
             {
                 sInstance.mPopupMenus.Add(menu);
                 sInstance.enabled = true;
+
+				EscapeButtonListenerScript.PushHandlerToTop(sInstance);
             }
             else
             {
@@ -224,6 +247,8 @@ namespace Common.UI.Popups
                         sInstance.enabled = false;
                         sInstance.mAutoPopupItem = null;
                         sInstance.StopTimer();
+
+						EscapeButtonListenerScript.RemoveHandler(sInstance);
                     }
                 }
                 else

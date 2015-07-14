@@ -1,5 +1,12 @@
+Fix issue with overlapping window and resize cursor for dock widget
+Menu button to show/hide main menu and toolbar
+Let user add dock widgets
+Queue for handling escape button
+Put about dialog in fullscreen mode for Android
+Increase all sizes in 5 times
 Docking area looks ugly
 Layout manager
+Own layout for Android
 Download system that downloads everything that needed and updates it
 CustomPopup
 Toolbar
