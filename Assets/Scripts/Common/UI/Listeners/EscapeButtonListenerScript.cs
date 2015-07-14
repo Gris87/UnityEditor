@@ -55,7 +55,13 @@ namespace Common.UI.Listeners
 		{
 			if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
 			{
-				mHandlers[mHandlers.Count - 1].OnEscapeButtonPressed();
+				for (int i = mHandlers.Count - 1; i >= 0; --i)
+				{
+					if (mHandlers[i].OnEscapeButtonPressed())
+					{
+						break;
+					}
+				}
 			}
 		}
 

@@ -8,7 +8,8 @@ namespace Common.UI.Listeners
 		/// <summary>
 		/// Handles escape button press event.
 		/// </summary>
-		void OnEscapeButtonPressed();
+		/// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
+		bool OnEscapeButtonPressed();
 	}
 }
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityTranslation;
 
 using Common;
+using Common.UI.Listeners;
 using Common.UI.Toasts;
 using Common.UI.Windows;
 
@@ -15,7 +16,7 @@ namespace UI.Windows.AboutDialog
     /// <summary>
     /// Script that realize about dialog behaviour.
     /// </summary>
-    public class AboutDialogScript : WindowScript
+    public class AboutDialogScript : WindowScript, EscapeButtonHandler
     {
         private const string WINDOW_KEY     = "AboutDialog";
         private const string SECRET_CODE    = "internal";
@@ -489,6 +490,7 @@ namespace UI.Windows.AboutDialog
             #endregion
             #endregion
 
+			EscapeButtonListenerScript.PushHandlerToTop(this);
             Translator.AddLanguageChangedListener(OnLanguageChanged);
             OnLanguageChanged();
 
@@ -504,6 +506,7 @@ namespace UI.Windows.AboutDialog
 
             Save(WINDOW_KEY);
 
+			EscapeButtonListenerScript.RemoveHandler(this);
             Translator.RemoveLanguageChangedListener(OnLanguageChanged);
 
             if (Global.aboutDialogScript == this)
@@ -565,6 +568,30 @@ namespace UI.Windows.AboutDialog
         {
             mIsCreditsDragging = false;
         }
+
+		/// <summary>
+		/// Handler for select event.
+		/// </summary>
+		protected override void OnSelected()
+		{
+			EscapeButtonListenerScript.PushHandlerToTop(this);
+		}
+
+		/// <summary>
+		/// Handles escape button press event.
+		/// </summary>
+		/// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
+		public bool OnEscapeButtonPressed()
+		{
+			if (selected)
+			{
+				Close();
+
+				return true;
+			}
+
+			return false;
+		}
 
         /// <summary>
         /// Handler for language changed event.

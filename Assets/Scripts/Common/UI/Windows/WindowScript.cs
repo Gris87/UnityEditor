@@ -3342,6 +3342,7 @@ namespace Common.UI.Windows
                     }
 
                     sSelectedWindow = this;
+					OnSelected();
 
                     if (sInstances.Count > 0)
                     {
@@ -3357,6 +3358,7 @@ namespace Common.UI.Windows
                 }
                 else
                 {
+					OnDeselected();
                     sSelectedWindow = null;
                 }
 
@@ -3485,6 +3487,22 @@ namespace Common.UI.Windows
             PlayerPrefs.Save();
         }
 
+		/// <summary>
+		/// Handler for select event.
+		/// </summary>
+		protected virtual void OnSelected()
+		{
+			// Nothing
+		}
+
+		/// <summary>
+		/// Handler for deselect event.
+		/// </summary>
+		protected virtual void OnDeselected()
+        {
+            // Nothing
+        }
+        
         /// <summary>
         /// Load window state.
         /// </summary>

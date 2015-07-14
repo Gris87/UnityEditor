@@ -122,9 +122,12 @@ namespace Common.UI.Popups
 		/// <summary>
 		/// Handles escape button press event.
 		/// </summary>
-		public void OnEscapeButtonPressed()
+		/// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
+		public bool OnEscapeButtonPressed()
 		{
 			mPopupMenus[mPopupMenus.Count - 1].Destroy();
+
+			return true;
 		}
 
 		/// <summary>
