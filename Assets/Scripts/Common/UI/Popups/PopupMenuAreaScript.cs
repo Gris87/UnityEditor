@@ -144,10 +144,6 @@ namespace Common.UI.Popups
                     }
                 }
             }
-            else
-            {
-                Debug.LogError("There is no PopupMenuAreaScript instance");
-            }
         }
 
 		/// <summary>

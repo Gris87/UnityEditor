@@ -88,8 +88,8 @@ namespace Common.UI.DockWidgets
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-            width  = 200f;
-            height = 200f;
+            width  = 150f;
+            height = 150f;
 
             //***************************************************************************
             // Header GameObject
