@@ -1,8 +1,19 @@
+#if UNITY_ANDROID
+#define MENU_BUTTON_TO_SHOW_MENU
+#endif
+
+#if UNITY_ANDROID
+#define HANDLE_ESCAPE_BUTTON
+#endif
+
+
+
 using UnityEngine;
 using UnityEngine.UI;
 
 using Common;
 using Common.UI.DockWidgets;
+using Common.UI.Listeners;
 using Common.UI.Windows;
 using UI.Windows.MainWindow.DockWidgets.Animation; // TODO: [Trivial] Remove it
 using UI.Windows.MainWindow.DockWidgets.Animator;
@@ -33,7 +44,15 @@ namespace UI.Windows.MainWindow
     /// Script that realize main window behaviour.
     /// </summary>
     public class MainWindowScript : WindowScript
+#if HANDLE_ESCAPE_BUTTON
+								  , EscapeButtonHandler
+#endif
     {
+		private const float MAIN_MENU_HEIGHT = 20f;
+		private const float TOOLBAR_HEIGHT   = 32f;
+
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.MainWindowScript"/> class.
         /// </summary>
@@ -83,9 +102,6 @@ namespace UI.Windows.MainWindow
             width  = 0f;
             height = 0f;
 
-            float mainMenuHeight = 20f;
-            float toolbarHeight  = 32f;
-
             //***************************************************************************
             // MainMenu GameObject
             //***************************************************************************
@@ -93,12 +109,16 @@ namespace UI.Windows.MainWindow
             GameObject mainMenu = new GameObject("MainMenu");
             Utils.InitUIObject(mainMenu, contentTransform);
 
+#if MENU_BUTTON_TO_SHOW_MENU
+			mainMenu.SetActive(false);
+#endif
+
             //===========================================================================
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
             RectTransform mainMenuTransform = mainMenu.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopStretch(mainMenuTransform, mainMenuHeight);
+            Utils.AlignRectTransformTopStretch(mainMenuTransform, MAIN_MENU_HEIGHT);
             #endregion
 
             //===========================================================================
@@ -118,12 +138,16 @@ namespace UI.Windows.MainWindow
             GameObject toolbar = new GameObject("Toolbar");
             Utils.InitUIObject(toolbar, contentTransform);
 
+#if MENU_BUTTON_TO_SHOW_MENU
+			toolbar.SetActive(false);
+#endif
+
             //===========================================================================
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
             RectTransform toolbarTransform = toolbar.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopStretch(toolbarTransform, toolbarHeight, mainMenuHeight);
+            Utils.AlignRectTransformTopStretch(toolbarTransform, TOOLBAR_HEIGHT, MAIN_MENU_HEIGHT);
             #endregion
 
             //===========================================================================
@@ -148,7 +172,12 @@ namespace UI.Windows.MainWindow
             //===========================================================================
             #region RectTransform Component
             RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
-            Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, mainMenuHeight + toolbarHeight, 0f, 0f);
+
+#if MENU_BUTTON_TO_SHOW_MENU
+			Utils.AlignRectTransformStretchStretch(dockingAreaTransform);
+#else
+			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, MAIN_MENU_HEIGHT + TOOLBAR_HEIGHT, 0f, 0f);
+#endif
             #endregion
 
             //===========================================================================
@@ -158,6 +187,10 @@ namespace UI.Windows.MainWindow
             Global.dockingAreaScript = dockingArea.AddComponent<DockingAreaScript>();
             #endregion
             #endregion
+
+#if HANDLE_ESCAPE_BUTTON
+			EscapeButtonListenerScript.PushHandlerToTop(this);
+#endif
 
             LoadDockWidgets();
         }
@@ -169,6 +202,10 @@ namespace UI.Windows.MainWindow
         {
             base.OnDestroy();
 
+#if HANDLE_ESCAPE_BUTTON
+			EscapeButtonListenerScript.RemoveHandler(this);
+#endif
+
             if (Global.mainWindowScript == this)
             {
                 Global.mainWindowScript = null;
@@ -178,6 +215,28 @@ namespace UI.Windows.MainWindow
                 Debug.LogError("Unexpected behaviour in MainWindowScript.OnDestroy");
             }
         }
+
+#if MENU_BUTTON_TO_SHOW_MENU
+		/// <summary>
+		/// Update is called once per frame.
+		/// </summary>
+		protected override void Update()
+		{
+			base.Update();
+
+			if (InputControl.GetButtonDown(Controls.buttons.menu, true))
+			{
+				if (IsMenuVisible())
+				{
+					HideMenu();
+				}
+				else
+				{
+					ShowMenu();
+				}
+			}
+		}
+#endif
 
         /// <summary>
         /// Handler for resize event.
@@ -195,6 +254,67 @@ namespace UI.Windows.MainWindow
             }
         }
 
+#if HANDLE_ESCAPE_BUTTON
+		/// <summary>
+		/// Handles escape button press event.
+		/// </summary>
+		/// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
+		public bool OnEscapeButtonPressed()
+		{
+#if MENU_BUTTON_TO_SHOW_MENU
+			if (IsMenuVisible())
+			{
+				HideMenu();
+			}
+			else
+			{
+				Global.mainMenuScript.OnFile_Exit();
+			}
+#elif
+			Global.mainMenuScript.OnFile_Exit();
+#endif
+
+			return true;
+		}
+#endif
+
+#if MENU_BUTTON_TO_SHOW_MENU
+		/// <summary>
+		/// Determines whether menu is visible.
+		/// </summary>
+		/// <returns><c>true</c> if menu is visible; otherwise, <c>false</c>.</returns>
+		private bool IsMenuVisible()
+		{
+			return Global.mainMenuScript.gameObject.activeSelf;
+		}
+
+		/// <summary>
+		/// Shows menu.
+		/// </summary>
+		private void ShowMenu()
+		{
+			Global.mainMenuScript.gameObject.SetActive(true);
+			Global.toolbarScript.gameObject.SetActive(true);
+
+			RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
+
+			dockingAreaTransform.offsetMax = new Vector2(0f, -MAIN_MENU_HEIGHT - TOOLBAR_HEIGHT);
+		}
+
+		/// <summary>
+		/// Hides menu.
+		/// </summary>
+		private void HideMenu()
+		{
+			Global.mainMenuScript.gameObject.SetActive(false);
+			Global.toolbarScript.gameObject.SetActive(false);
+
+			RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
+			
+			dockingAreaTransform.offsetMax = new Vector2(0f, 0f);
+		}
+#endif
+
         /// <summary>
         /// Loads dock widgets layout.
         /// </summary>
@@ -209,4 +329,3 @@ namespace UI.Windows.MainWindow
         }
     }
 }
-

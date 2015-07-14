@@ -53,7 +53,7 @@ namespace Common.UI.Listeners
 		/// </summary>
 		void Update()
 		{
-			if (InputControl.GetButtonDown(Controls.buttons.cancel, true))
+			if (InputControl.GetButtonDown(Controls.buttons.escape, true))
 			{
 				for (int i = mHandlers.Count - 1; i >= 0; --i)
 				{
@@ -103,10 +103,6 @@ namespace Common.UI.Listeners
 				{
 					Debug.LogError("Failed to remove handler");
 				}
-			}
-			else
-			{
-				Debug.LogError("There is no EscapeButtonListener instance");
 			}
 		}
 	}

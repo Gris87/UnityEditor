@@ -13,21 +13,8 @@ public static class Controls
     /// </summary>
     public struct Buttons
     {
-        public KeyMapping up;
-        public KeyMapping down;
-        public KeyMapping left;
-        public KeyMapping right;
-        public KeyMapping jump;
-        public KeyMapping cancel;
-    }
-
-    /// <summary>
-    /// <see cref="Axes"/> is a set of user defined axes.
-    /// </summary>
-    public struct Axes
-    {
-        public Axis vertical;
-        public Axis horizontal;
+        public KeyMapping escape;
+		public KeyMapping menu;
     }
 
 
@@ -37,11 +24,6 @@ public static class Controls
     /// </summary>
     public static Buttons buttons;
 
-    /// <summary>
-    /// Set of axes.
-    /// </summary>
-    public static Axes axes;
-
 
 
     /// <summary>
@@ -49,15 +31,8 @@ public static class Controls
     /// </summary>
     static Controls()
     {
-        buttons.up      = InputControl.SetKey("Up",     KeyCode.W,     KeyCode.UpArrow,    new JoystickInput(JoystickAxis.Axis2Negative));
-        buttons.down    = InputControl.SetKey("Down",   KeyCode.S,     KeyCode.DownArrow,  new JoystickInput(JoystickAxis.Axis2Positive));
-        buttons.left    = InputControl.SetKey("Left",   KeyCode.A,     KeyCode.LeftArrow,  new JoystickInput(JoystickAxis.Axis1Negative));
-        buttons.right   = InputControl.SetKey("Right",  KeyCode.D,     KeyCode.RightArrow, new JoystickInput(JoystickAxis.Axis1Positive));
-        buttons.jump    = InputControl.SetKey("Jump",   KeyCode.Space, KeyCode.None,       new JoystickInput(JoystickButton.Button1));
-        buttons.cancel  = InputControl.SetKey("Cancel", KeyCode.Escape);
-
-        axes.vertical   = InputControl.SetAxis("Vertical",   buttons.down, buttons.up);
-        axes.horizontal = InputControl.SetAxis("Horizontal", buttons.left, buttons.right);
+		buttons.escape = InputControl.SetKey("Escape", KeyCode.Escape);
+		buttons.menu   = InputControl.SetKey("Menu",   KeyCode.Menu);
 
         Load();
     }
