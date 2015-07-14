@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityTranslation;
 
 using Common;
 using Common.UI.MenuItems;
 using Common.UI.Popups;
+using Common.UI.Windows;
 using UI.Windows.AboutDialog;
 
 
@@ -3187,10 +3189,30 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_NextWindow()
         {
-            Debug.Log("MainMenuScript.OnWindow_NextWindow");
-            // TODO: [Minor] Implement MainMenuScript.OnWindow_NextWindow
+			Debug.Log("MainMenuScript.OnWindow_NextWindow");
 
-            AppUtils.ShowContributeMessage();
+			ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
+
+			int index = windows.IndexOf(WindowScript.selectedWindow);
+
+			if (index >= 0)
+			{
+				if (windows.Count > 1)
+				{
+					++index;
+
+					if (index >= windows.Count)
+					{
+						index = 0;
+					}
+
+					windows[index].Select();
+				}
+			}
+			else
+			{
+				Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
+			}
         }
 
         /// <summary>
@@ -3198,10 +3220,30 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_PreviousWindow()
         {
-            Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
-            // TODO: [Minor] Implement MainMenuScript.OnWindow_PreviousWindow
+			Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
+			
+			ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
+			
+			int index = windows.IndexOf(WindowScript.selectedWindow);
+			
+			if (index >= 0)
+			{
+				if (windows.Count > 1)
+				{
+					--index;
 
-            AppUtils.ShowContributeMessage();
+                    if (index < 0)
+                    {
+                        index = windows.Count - 1;
+                    }
+					
+					windows[index].Select();
+				}
+			}
+			else
+			{
+				Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
+			}
         }
 
         #region Window -> Layouts

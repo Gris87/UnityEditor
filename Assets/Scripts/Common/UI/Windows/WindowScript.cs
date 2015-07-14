@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -6,6 +7,7 @@ using UnityTranslation;
 
 using Common;
 using Common.UI.Listeners;
+using Common.UI.Popups;
 
 
 
@@ -154,6 +156,31 @@ namespace Common.UI.Windows
         private const float MINIMIZED_OFFSET_BOTTOM = 8f;
         private const float MINIMIZED_WIDTH         = 120f;
         private const float MINIMIZED_HEIGHT        = 20f;
+
+
+
+		/// <summary>
+		/// Gets instances.
+		/// </summary>
+		/// <value>List of all window instances.</value>
+		public static ReadOnlyCollection<WindowScript> instances
+		{
+			get { return sInstances.AsReadOnly(); }
+		}
+
+		/// <summary>
+		/// Gets the selected window.
+		/// </summary>
+		/// <value>Selected window.</value>
+		public static WindowScript selectedWindow
+		{
+			get { return sSelectedWindow; }
+		}
+
+
+
+		private static List<WindowScript> sInstances      = new List<WindowScript>();
+		private static WindowScript       sSelectedWindow = null;
 
 
 
@@ -1157,11 +1184,6 @@ namespace Common.UI.Windows
         {
             get { return sSelectedWindow == this; }
         }
-
-
-
-        private static List<WindowScript> sInstances      = new List<WindowScript>();
-        private static WindowScript       sSelectedWindow = null;
 
 
 
@@ -3273,6 +3295,7 @@ namespace Common.UI.Windows
                 List<RaycastResult> hits = new List<RaycastResult>();
                 Mouse.RaycastAll(hits);
 
+				bool isOk       = true;
                 bool isSelected = false;
 
                 if (hits.Count > 0)
@@ -3284,6 +3307,7 @@ namespace Common.UI.Windows
                         if (curTransform == transform)
                         {
                             isSelected = true;
+
                             break;
                         }
 
@@ -3292,11 +3316,21 @@ namespace Common.UI.Windows
                             break;
                         }
 
+						if (curTransform.GetComponent<PopupMenuAreaScript>() != null)
+						{
+							isOk = false;
+
+							break;
+						}
+                        
                         curTransform = curTransform.parent;
                     }
                 }
 
-                SetSelected(isSelected);
+				if (isOk)
+				{
+					SetSelected(isSelected);
+				}
             }
         }
 
@@ -3469,6 +3503,14 @@ namespace Common.UI.Windows
                 }
             }
         }
+
+		/// <summary>
+		/// Select this window.
+		/// </summary>
+		public void Select()
+		{
+			SetSelected(true);
+		}
 
         /// <summary>
         /// Save window state.

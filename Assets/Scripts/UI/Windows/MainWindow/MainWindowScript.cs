@@ -270,7 +270,7 @@ namespace UI.Windows.MainWindow
 			{
 				Global.mainMenuScript.OnFile_Exit();
 			}
-#elif
+#else
 			Global.mainMenuScript.OnFile_Exit();
 #endif
 
