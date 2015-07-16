@@ -37,14 +37,27 @@ namespace UI.Windows.AboutDialog
         private bool              mIsCreditsDragging;
         private byte              mCurrentSecretChar;
 
-        private Text       mVersionText;
-        private ScrollRect mCreditsScrollRect;
-        private Text       mMonoLogoText;
-        private Text       mMonoLogoText2;
-        private Text       mPhysXLogoText;
-        private Text       mPhysXLogoText2;
-        private Text       mCopyrightText;
-        private Text       mLicenseText;
+		private RectTransform mUnityLogoTransform;
+		private RectTransform mVersionTransform;
+        private Text          mVersionText;
+		private RectTransform mCreditsTransform;
+        private ScrollRect    mCreditsScrollRect;
+		private RectTransform mContentsTransform;
+		private RectTransform mCreditsTextTransform;
+		private RectTransform mMonoLogoTransform;
+		private RectTransform mMonoLogoTextTransform;
+        private Text          mMonoLogoText;
+		private RectTransform mMonoLogoTextTransform2;
+        private Text          mMonoLogoText2;
+		private RectTransform mPhysXLogoTransform;
+		private RectTransform mPhysXLogoTextTransform;
+        private Text          mPhysXLogoText;
+		private RectTransform mPhysXLogoTextTransform2;
+        private Text          mPhysXLogoText2;
+		private RectTransform mCopyrightTransform;
+        private Text          mCopyrightText;
+		private RectTransform mLicenseTransform;
+        private Text          mLicenseText;
 
 
 
@@ -58,14 +71,27 @@ namespace UI.Windows.AboutDialog
             mIsCreditsDragging = false;
             mCurrentSecretChar = 0;
 
-            mVersionText       = null;
-            mCreditsScrollRect = null;
-            mMonoLogoText      = null;
-            mMonoLogoText2     = null;
-            mPhysXLogoText     = null;
-            mPhysXLogoText2    = null;
-            mCopyrightText     = null;
-            mLicenseText       = null;
+			mUnityLogoTransform      = null;
+			mVersionTransform        = null;
+			mVersionText             = null;
+			mCreditsTransform        = null;
+			mCreditsScrollRect       = null;
+			mContentsTransform       = null;
+			mCreditsTextTransform    = null;
+			mMonoLogoTransform       = null;
+			mMonoLogoTextTransform   = null;
+			mMonoLogoText            = null;
+			mMonoLogoTextTransform2  = null;
+			mMonoLogoText2           = null;
+			mPhysXLogoTransform      = null;
+			mPhysXLogoTextTransform  = null;
+			mPhysXLogoText           = null;
+			mPhysXLogoTextTransform2 = null;
+			mPhysXLogoText2          = null;
+			mCopyrightTransform      = null;
+			mCopyrightText           = null;
+			mLicenseTransform        = null;
+			mLicenseText             = null;
 
 			if (
 				WINDOW_WIDTH  <= Utils.scaledScreenWidth
@@ -135,8 +161,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform unityLogoTransform = unityLogo.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(unityLogoTransform, 123f, 46f, 6f, 14f);
+            mUnityLogoTransform = unityLogo.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mUnityLogoTransform, 123f, 46f, 6f, 14f);
             #endregion
 
             //===========================================================================
@@ -168,8 +194,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform versionTransform = version.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopStretch(versionTransform, 12f, 64f, 59f, 4f);
+            mVersionTransform = version.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopStretch(mVersionTransform, 12f, 64f, 59f, 4f);
             #endregion
 
             //===========================================================================
@@ -193,8 +219,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform creditsTransform = credits.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopStretch(creditsTransform, 120f, 87f, 7f, 7f);
+            mCreditsTransform = credits.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopStretch(mCreditsTransform, 120f, 87f, 7f, 7f);
             #endregion
 
             //***************************************************************************
@@ -208,8 +234,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform contentsTransform = contents.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopStretch(contentsTransform, 1600f, 0f, 0f, 0f, 0.5f, 1f);
+            mContentsTransform = contents.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopStretch(mContentsTransform, 1600f, 0f, 0f, 0f, 0.5f, 1f);
             #endregion
 
             //***************************************************************************
@@ -223,8 +249,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform creditsTextTransform = creditsTextObject.AddComponent<RectTransform>();
-            Utils.AlignRectTransformStretchStretch(creditsTextTransform, 0f, 120f, 0f, 120f);
+            mCreditsTextTransform = creditsTextObject.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(mCreditsTextTransform, 0f, 120f, 0f, 120f);
             #endregion
 
             //===========================================================================
@@ -246,7 +272,7 @@ namespace UI.Windows.AboutDialog
             #region ScrollRect Component
             mCreditsScrollRect = credits.AddComponent<ScrollRect>();
 
-            mCreditsScrollRect.content     = contentsTransform;
+            mCreditsScrollRect.content     = mContentsTransform;
             mCreditsScrollRect.horizontal  = false;
             #endregion
 
@@ -304,8 +330,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform monoLogoTransform = monoLogo.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(monoLogoTransform, 57f, 69f, 9f, 215f);
+            mMonoLogoTransform = monoLogo.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mMonoLogoTransform, 57f, 69f, 9f, 215f);
             #endregion
 
             //===========================================================================
@@ -337,8 +363,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform monoLogoTextTransform = monoLogoTextObject.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(monoLogoTextTransform, 200f, 30f, 73f, 217f);
+            mMonoLogoTextTransform = monoLogoTextObject.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mMonoLogoTextTransform, 200f, 30f, 73f, 217f);
             #endregion
 
             //===========================================================================
@@ -367,8 +393,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform monoLogoTextTransform2 = monoLogoTextObject2.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(monoLogoTextTransform2, 200f, 30f, 73f, 249f);
+            mMonoLogoTextTransform2 = monoLogoTextObject2.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mMonoLogoTextTransform2, 200f, 30f, 73f, 249f);
             #endregion
 
             //===========================================================================
@@ -392,8 +418,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform physXLogoTransform = physXLogo.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(physXLogoTransform, 120f, 42f, 276f, 215f);
+            mPhysXLogoTransform = physXLogo.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mPhysXLogoTransform, 120f, 42f, 276f, 215f);
             #endregion
 
             //===========================================================================
@@ -425,8 +451,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform physXLogoTextTransform = physXLogoTextObject.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(physXLogoTextTransform, 165f, 30f, 405f, 217f);
+            mPhysXLogoTextTransform = physXLogoTextObject.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mPhysXLogoTextTransform, 165f, 30f, 405f, 217f);
             #endregion
 
             //===========================================================================
@@ -455,8 +481,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform physXLogoTextTransform2 = physXLogoTextObject2.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(physXLogoTextTransform2, 165f, 30f, 405f, 249f);
+            mPhysXLogoTextTransform2 = physXLogoTextObject2.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mPhysXLogoTextTransform2, 165f, 30f, 405f, 249f);
             #endregion
 
             //===========================================================================
@@ -480,8 +506,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform copyrightTransform = copyright.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(copyrightTransform, 280f, 30f, 8f, 302f);
+            mCopyrightTransform = copyright.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mCopyrightTransform, 280f, 30f, 8f, 302f);
             #endregion
 
             //===========================================================================
@@ -505,8 +531,8 @@ namespace UI.Windows.AboutDialog
             // RectTransform Component
             //===========================================================================
             #region RectTransform Component
-            RectTransform licenseTransform = license.AddComponent<RectTransform>();
-            Utils.AlignRectTransformTopLeft(licenseTransform, 270f, 40f, 295f, 292f);
+            mLicenseTransform = license.AddComponent<RectTransform>();
+            Utils.AlignRectTransformTopLeft(mLicenseTransform, 270f, 40f, 295f, 292f);
             #endregion
 
             //===========================================================================
