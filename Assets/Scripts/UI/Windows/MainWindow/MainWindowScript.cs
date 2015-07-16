@@ -62,7 +62,6 @@ namespace UI.Windows.MainWindow
             frame           = WindowFrameType.Frameless;
             state           = WindowState.FullScreen;
             backgroundColor = Assets.Windows.MainWindow.Colors.background;
-            allowClose      = false;
         }
 
         /// <summary>

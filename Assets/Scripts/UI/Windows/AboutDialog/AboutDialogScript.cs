@@ -18,9 +18,13 @@ namespace UI.Windows.AboutDialog
     /// </summary>
     public class AboutDialogScript : WindowScript, EscapeButtonHandler
     {
-        private const string WINDOW_KEY     = "AboutDialog";
-        private const string SECRET_CODE    = "internal";
-        private const float  SCROLL_SPEED   = 0.02f;
+        private const string WINDOW_KEY           = "AboutDialog";
+		private const float  WINDOW_WIDTH         = 570f;
+		private const float  WINDOW_HEIGHT        = 340f;
+		private const string SCRIPTING_POWERED_BY = "The Mono Project";
+		private const string PHYSICS_POWERED_BY   = "PhysX";
+        private const string SECRET_CODE          = "internal";
+        private const float  SCROLL_SPEED         = 0.02f;
 
 
 
@@ -29,8 +33,9 @@ namespace UI.Windows.AboutDialog
 
 
 
-        private bool       mIsCreditsDragging;
-        private byte       mCurrentSecretChar;
+		private ScreenOrientation mScreenOrientation;
+        private bool              mIsCreditsDragging;
+        private byte              mCurrentSecretChar;
 
         private Text       mVersionText;
         private ScrollRect mCreditsScrollRect;
@@ -49,6 +54,7 @@ namespace UI.Windows.AboutDialog
         private AboutDialogScript()
             : base()
         {
+			mScreenOrientation = ScreenOrientation.Unknown;
             mIsCreditsDragging = false;
             mCurrentSecretChar = 0;
 
@@ -61,11 +67,24 @@ namespace UI.Windows.AboutDialog
             mCopyrightText     = null;
             mLicenseText       = null;
 
-            frame           = WindowFrameType.Drawer;
-            tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
-            backgroundColor = Assets.Windows.AboutDialog.Colors.background;
-            resizable       = false;
-            allowMaximize   = false;
+			if (
+				WINDOW_WIDTH  <= Utils.scaledScreenWidth
+				&&
+				WINDOW_HEIGHT <= Utils.scaledScreenHeight
+			   )
+			{
+				frame           = WindowFrameType.Drawer;
+				tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
+				resizable       = false;
+				allowMaximize   = false;
+			}
+			else
+			{
+				frame = WindowFrameType.Frameless;
+				state = WindowState.FullScreen;
+			}
+
+			backgroundColor = Assets.Windows.AboutDialog.Colors.background;
         }
 
         /// <summary>
@@ -102,8 +121,8 @@ namespace UI.Windows.AboutDialog
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-            width  = 570f;
-            height = 340f;
+			width  = WINDOW_WIDTH;
+			height = WINDOW_HEIGHT;
 
             //***************************************************************************
             // UnityLogo GameObject
@@ -329,6 +348,11 @@ namespace UI.Windows.AboutDialog
             mMonoLogoText = monoLogoTextObject.AddComponent<Text>();
 
             Assets.Windows.AboutDialog.TextStyles.monoLogo.Apply(mMonoLogoText);
+
+			if (state == WindowState.FullScreen)
+			{
+				mMonoLogoText.text = SCRIPTING_POWERED_BY; 
+			}
             #endregion
             #endregion
 
@@ -412,6 +436,11 @@ namespace UI.Windows.AboutDialog
             mPhysXLogoText = physXLogoTextObject.AddComponent<Text>();
 
             Assets.Windows.AboutDialog.TextStyles.physXLogo.Apply(mPhysXLogoText);
+
+			if (state == WindowState.FullScreen)
+			{
+				mPhysXLogoText.text = PHYSICS_POWERED_BY;
+			}
             #endregion
             #endregion
 
@@ -494,7 +523,10 @@ namespace UI.Windows.AboutDialog
             Translator.AddLanguageChangedListener(OnLanguageChanged);
             OnLanguageChanged();
 
-            Load(WINDOW_KEY);
+			if (state != WindowState.FullScreen)
+			{
+				Load(WINDOW_KEY);
+			}
         }
 
         /// <summary>
@@ -504,7 +536,10 @@ namespace UI.Windows.AboutDialog
         {
             base.OnDestroy();
 
-            Save(WINDOW_KEY);
+			if (state != WindowState.FullScreen)
+			{
+	            Save(WINDOW_KEY);
+			}
 
 			EscapeButtonListenerScript.RemoveHandler(this);
             Translator.RemoveLanguageChangedListener(OnLanguageChanged);
@@ -535,7 +570,6 @@ namespace UI.Windows.AboutDialog
                     mCreditsScrollRect.verticalNormalizedPosition = 1f;
                 }
 
-                // TODO: [Trivial] Check it home
                 if (selected && InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
                 {
                     ++mCurrentSecretChar;
@@ -593,15 +627,52 @@ namespace UI.Windows.AboutDialog
 			return false;
 		}
 
+		/// <summary>
+		/// Handler for resize event.
+		/// </summary>
+		protected override void OnResize()
+		{
+			if (state == WindowState.FullScreen)
+			{
+				ScreenOrientation orientation = ScreenOrientation.Unknown;
+				
+				if (Screen.width > Screen.height)
+				{
+					orientation = ScreenOrientation.Landscape;
+				}
+				else
+				{
+					orientation = ScreenOrientation.Portrait;
+				}
+				
+				if (mScreenOrientation != orientation)
+				{
+					mScreenOrientation = orientation;
+					
+					// TODO: [Major] Change widgets geometry
+				}
+			}
+		}
+
         /// <summary>
         /// Handler for language changed event.
         /// </summary>
         public void OnLanguageChanged()
         {
-            mVersionText.text    = Translator.GetString(R.sections.AboutDialog.strings.version, AppUtils.GetVersionString());
-            mMonoLogoText.text   = Translator.GetString(R.sections.AboutDialog.strings.scripting_powered_by, "The Mono Project");
-            mMonoLogoText2.text  = "(c) 2011 Novell, Inc.";
-            mPhysXLogoText.text  = Translator.GetString(R.sections.AboutDialog.strings.physics_powered_by, "PhysX");
+            mVersionText.text = Translator.GetString(R.sections.AboutDialog.strings.version, AppUtils.GetVersionString());
+
+			if (state != WindowState.FullScreen)
+			{
+				mMonoLogoText.text = Translator.GetString(R.sections.AboutDialog.strings.scripting_powered_by, SCRIPTING_POWERED_BY);
+			}
+
+            mMonoLogoText2.text = "(c) 2011 Novell, Inc.";
+
+			if (state != WindowState.FullScreen)
+			{
+				mPhysXLogoText.text = Translator.GetString(R.sections.AboutDialog.strings.physics_powered_by, PHYSICS_POWERED_BY);
+			}
+
             mPhysXLogoText2.text = "(c) 2011 NVIDIA Corporation.";
             mCopyrightText.text  = "(c) 2015 Unity Technologies ApS. " + Translator.GetString(R.sections.AboutDialog.strings.all_rights_reserved);
             mLicenseText.text    = Translator.GetString(R.sections.AboutDialog.strings.license, License.TYPE, License.serialNumber);

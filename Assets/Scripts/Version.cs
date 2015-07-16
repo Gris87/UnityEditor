@@ -24,7 +24,12 @@ public static class Version
     /// <summary>
     /// Version build.
     /// </summary>
-    public const string BUILD = "5.1.1f1";
+    public const string BUILD = "0.5.1.1f1";
+
+	/// <summary>
+	/// Version postfix.
+	/// </summary>
+	public const string POSTFIX = "Alpha";
 
     /// <summary>
     /// The type of the build.

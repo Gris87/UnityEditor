@@ -15,7 +15,12 @@ public static class AppUtils
     /// </summary>
     public static string GetVersionString()
     {
-        string res = Version.BUILD + " ";
+		string res = Version.BUILD + " ";
+
+		if (Version.POSTFIX != "")
+		{
+			res += Version.POSTFIX + " ";
+		}
 
         switch (Version.buildType)
         {
