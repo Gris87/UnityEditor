@@ -69,11 +69,7 @@ namespace UI.Windows.MainWindow.MainMenu
         void Update()
         {
             if (
-				(
-				 Global.mainWindowScript.selected
-				 ||
-				 WindowScript.selectedWindow is DockingWindowScript
-				)
+				Global.mainWindowScript.selected
 				&&
 				InputControl.anyKeyDown
 			   )

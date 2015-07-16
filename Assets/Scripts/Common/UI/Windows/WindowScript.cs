@@ -1180,7 +1180,7 @@ namespace Common.UI.Windows
         /// Gets a value indicating whether this <see cref="Common.UI.Windows.WindowScript"/> is selected.
         /// </summary>
         /// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
-        public bool selected
+        public virtual bool selected
         {
             get { return sSelectedWindow == this; }
         }
@@ -1499,7 +1499,7 @@ namespace Common.UI.Windows
             {
                 case WindowFrameType.Window:
                 {
-                    if (selected)
+					if (sSelectedWindow == this)
                     {
                         mBorderImage.sprite = Assets.Windows.Common.Textures.window;
                     }
@@ -1512,7 +1512,7 @@ namespace Common.UI.Windows
 
                 case WindowFrameType.SubWindow:
                 {
-                    if (selected)
+					if (sSelectedWindow == this)
                     {
                         mBorderImage.sprite = Assets.Windows.Common.Textures.subWindow;
                     }
@@ -1525,7 +1525,7 @@ namespace Common.UI.Windows
 
                 case WindowFrameType.Drawer:
                 {
-                    if (selected)
+					if (sSelectedWindow == this)
                     {
                         mBorderImage.sprite = Assets.Windows.Common.Textures.drawer;
                     }
@@ -1538,7 +1538,7 @@ namespace Common.UI.Windows
 
                 case WindowFrameType.SingleFrame:
                 {
-                    if (selected)
+					if (sSelectedWindow == this)
                     {
                         mBorderImage.sprite = Assets.Windows.Common.Textures.singleFrame;
                     }
@@ -1662,7 +1662,7 @@ namespace Common.UI.Windows
                         #region Image Component
                         mCloseImage = closeImageObject.AddComponent<Image>();
 
-                        if (selected)
+						if (sSelectedWindow == this)
                         {
                             mCloseImage.sprite = Assets.Windows.Common.Textures.closeButton;
                         }
@@ -1752,7 +1752,7 @@ namespace Common.UI.Windows
 
                             if (mState != WindowState.Maximized)
                             {
-                                if (selected)
+								if (sSelectedWindow == this)
                                 {
                                     mMaximizeImage.sprite = Assets.Windows.Common.Textures.maximizeButton;
                                 }
@@ -1763,7 +1763,7 @@ namespace Common.UI.Windows
                             }
                             else
                             {
-                                if (selected)
+								if (sSelectedWindow == this)
                                 {
                                     mMaximizeImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
                                 }
@@ -1857,7 +1857,7 @@ namespace Common.UI.Windows
 
                             if (mState != WindowState.Minimized)
                             {
-                                if (selected)
+								if (sSelectedWindow == this)
                                 {
                                     mMinimizeImage.sprite = Assets.Windows.Common.Textures.minimizeButton;
                                 }
@@ -1868,7 +1868,7 @@ namespace Common.UI.Windows
                             }
                             else
                             {
-                                if (selected)
+								if (sSelectedWindow == this)
                                 {
                                     mMinimizeImage.sprite = Assets.Windows.Common.Textures.normalizeButton;
                                 }
@@ -1996,7 +1996,7 @@ namespace Common.UI.Windows
                         #region Image Component
                         mCloseImage = closeImageObject.AddComponent<Image>();
 
-                        if (selected)
+						if (sSelectedWindow == this)
                         {
                             mCloseImage.sprite = Assets.Windows.Common.Textures.toolCloseButton;
                         }

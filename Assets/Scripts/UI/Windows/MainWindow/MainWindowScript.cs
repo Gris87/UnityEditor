@@ -1,9 +1,11 @@
+#if !UNITY_EDITOR
 #if UNITY_ANDROID
 #define MENU_BUTTON_TO_SHOW_MENU
 #endif
 
 #if UNITY_ANDROID
 #define HANDLE_ESCAPE_BUTTON
+#endif
 #endif
 
 
@@ -50,6 +52,24 @@ namespace UI.Windows.MainWindow
     {
 		private const float MAIN_MENU_HEIGHT = 20f;
 		private const float TOOLBAR_HEIGHT   = 32f;
+
+
+
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="UI.Windows.MainWindow.MainWindowScript"/> is selected.
+		/// </summary>
+		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
+		public override bool selected
+		{
+			get
+			{
+				return (
+					    base.selected
+					    ||
+						WindowScript.selectedWindow is DockingWindowScript
+					   );
+			}
+		}
 
 
 
@@ -191,6 +211,7 @@ namespace UI.Windows.MainWindow
 			EscapeButtonListenerScript.PushHandlerToTop(this);
 #endif
 
+			// TODO: [Major] It looks bad on start up on Android
             LoadDockWidgets();
         }
 
@@ -223,15 +244,18 @@ namespace UI.Windows.MainWindow
 		{
 			base.Update();
 
-			if (InputControl.GetButtonDown(Controls.buttons.menu, true))
+			if (selected)
 			{
-				if (IsMenuVisible())
+				if (InputControl.GetButtonDown(Controls.buttons.menu, true))
 				{
-					HideMenu();
-				}
-				else
-				{
-					ShowMenu();
+					if (IsMenuVisible())
+					{
+						HideMenu();
+					}
+					else
+					{
+						ShowMenu();
+					}
 				}
 			}
 		}
@@ -298,6 +322,8 @@ namespace UI.Windows.MainWindow
 			RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
 
 			dockingAreaTransform.offsetMax = new Vector2(0f, -MAIN_MENU_HEIGHT - TOOLBAR_HEIGHT);
+
+			Global.dockingAreaScript.OnResize();
 		}
 
 		/// <summary>
@@ -311,6 +337,8 @@ namespace UI.Windows.MainWindow
 			RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
 			
 			dockingAreaTransform.offsetMax = new Vector2(0f, 0f);
+
+			Global.dockingAreaScript.OnResize();
 		}
 #endif
 

@@ -596,6 +596,7 @@ namespace UI.Windows.AboutDialog
                     mCreditsScrollRect.verticalNormalizedPosition = 1f;
                 }
 
+				// TODO: [Major] Let to do the same with multiple clicking over Unity logo
                 if (selected && InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
                 {
                     ++mCurrentSecretChar;
@@ -661,8 +662,11 @@ namespace UI.Windows.AboutDialog
 			if (state == WindowState.FullScreen)
 			{
 				ScreenOrientation orientation = ScreenOrientation.Unknown;
+
+				float screenWidth  = Utils.scaledScreenWidth;
+				float screenHeight = Utils.scaledScreenHeight;
 				
-				if (Screen.width > Screen.height)
+				if (screenWidth > screenHeight)
 				{
 					orientation = ScreenOrientation.Landscape;
 				}
@@ -676,6 +680,51 @@ namespace UI.Windows.AboutDialog
 					mScreenOrientation = orientation;
 					
 					// TODO: [Major] Change widgets geometry
+
+					switch (mScreenOrientation)
+					{
+						case ScreenOrientation.Portrait:
+						{
+							Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      123f, 46f, 6f, 6f);
+							Utils.AlignRectTransformTopStretch(    mVersionTransform,        46f, 6f, 135f, 6f);
+							Utils.AlignRectTransformStretchStretch(mCreditsTransform,        6f, 58f, 6f, 219f);
+							Utils.AlignRectTransformTopStretch(    mContentsTransform,       screenWidth * 15.1f, 0f, 0f, 0f, 0.5f, 1f);
+							Utils.AlignRectTransformStretchStretch(mCreditsTextTransform,    0f, screenHeight - 277f, 0f, screenHeight - 277f);
+							Utils.AlignRectTransformBottomLeft(    mMonoLogoTransform,       57f, 69f, 6f, 144f);
+							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform,   13f, 200f, 69f, 6f);
+							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform2,  13f, 181f, 69f, 6f);
+							Utils.AlignRectTransformBottomLeft(    mPhysXLogoTransform,      120f, 42f, 6f, 96f);
+							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform,  13f, 128f, 132f, 6f);
+							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform2, 26f, 96f, 132f, 6f);
+							Utils.AlignRectTransformBottomStretch( mCopyrightTransform,      26f, 64f, 6f, 6f);
+							Utils.AlignRectTransformBottomStretch( mLicenseTransform,        52f, 6f, 6f, 6f);
+						}
+						break;
+
+						case ScreenOrientation.Landscape:
+						{
+							Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      123f, 46f, 6f, 6f);
+							Utils.AlignRectTransformTopStretch(    mVersionTransform,        13f, 58f, 6f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformStretchRight(  mCreditsTransform,        screenWidth / 2f - 6f, 6f, 6f, 6f);
+						    Utils.AlignRectTransformTopStretch(    mContentsTransform,       screenWidth * 9.6f, 0f, 0f, 0f, 0.5f, 1f);
+							Utils.AlignRectTransformStretchStretch(mCreditsTextTransform,    0f, screenHeight - 12f, 0f, screenHeight - 12f);
+							Utils.AlignRectTransformTopLeft(       mMonoLogoTransform,       57f,   69f,  9f,   215f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mMonoLogoTextTransform,   200f,  30f,  73f,  217f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mMonoLogoTextTransform2,  200f,  30f,  73f,  249f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mPhysXLogoTransform,      120f,  42f,  276f, 215f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mPhysXLogoTextTransform,  165f,  30f,  405f, 217f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mPhysXLogoTextTransform2, 165f,  30f,  405f, 249f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mCopyrightTransform,      280f,  30f,  8f,   302f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(       mLicenseTransform,        270f,  40f,  295f, 292f);     // TODO: Change it
+						}
+						break;
+
+						default:
+						{
+							Debug.LogError("Incorrect screen orientation: " + mScreenOrientation);
+						}
+						break;
+					}
 				}
 			}
 		}
