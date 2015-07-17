@@ -181,6 +181,7 @@ namespace Common.UI.Windows
 
 		private static List<WindowScript> sInstances      = new List<WindowScript>();
 		private static WindowScript       sSelectedWindow = null;
+		// TODO: [Major] Only one fullscreen window. Hide others
 
 
 

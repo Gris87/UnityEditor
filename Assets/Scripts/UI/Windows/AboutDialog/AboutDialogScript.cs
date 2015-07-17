@@ -44,6 +44,7 @@ namespace UI.Windows.AboutDialog
         private ScrollRect    mCreditsScrollRect;
 		private RectTransform mContentsTransform;
 		private RectTransform mCreditsTextTransform;
+		private Text          mCreditsText;
 		private RectTransform mMonoLogoTransform;
 		private RectTransform mMonoLogoTextTransform;
         private Text          mMonoLogoText;
@@ -78,6 +79,7 @@ namespace UI.Windows.AboutDialog
 			mCreditsScrollRect       = null;
 			mContentsTransform       = null;
 			mCreditsTextTransform    = null;
+			mCreditsText             = null;
 			mMonoLogoTransform       = null;
 			mMonoLogoTextTransform   = null;
 			mMonoLogoText            = null;
@@ -257,11 +259,11 @@ namespace UI.Windows.AboutDialog
             // Text Component
             //===========================================================================
             #region Text Component
-            Text creditsText = creditsTextObject.AddComponent<Text>();
+			mCreditsText = creditsTextObject.AddComponent<Text>();
 
-            Assets.Windows.AboutDialog.TextStyles.credits.Apply(creditsText);
+            Assets.Windows.AboutDialog.TextStyles.credits.Apply(mCreditsText);
 
-            creditsText.text = CREDITS + "\n" + SPECIAL_THANKS;
+            mCreditsText.text = CREDITS + "\n" + SPECIAL_THANKS;
             #endregion
             #endregion
             #endregion
@@ -678,24 +680,22 @@ namespace UI.Windows.AboutDialog
 				if (mScreenOrientation != orientation)
 				{
 					mScreenOrientation = orientation;
-					
-					// TODO: [Major] Change widgets geometry
+
+					float oldScrollPosition = mCreditsScrollRect.verticalNormalizedPosition;
 
 					switch (mScreenOrientation)
 					{
 						case ScreenOrientation.Portrait:
 						{
-							Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      123f, 46f, 6f, 6f);
-							Utils.AlignRectTransformTopStretch(    mVersionTransform,        46f, 6f, 135f, 6f);
-							Utils.AlignRectTransformStretchStretch(mCreditsTransform,        6f, 58f, 6f, 219f);
-							Utils.AlignRectTransformTopStretch(    mContentsTransform,       screenWidth * 15.1f, 0f, 0f, 0f, 0.5f, 1f);
-							Utils.AlignRectTransformStretchStretch(mCreditsTextTransform,    0f, screenHeight - 277f, 0f, screenHeight - 277f);
-							Utils.AlignRectTransformBottomLeft(    mMonoLogoTransform,       57f, 69f, 6f, 144f);
-							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform,   13f, 200f, 69f, 6f);
-							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform2,  13f, 181f, 69f, 6f);
-							Utils.AlignRectTransformBottomLeft(    mPhysXLogoTransform,      120f, 42f, 6f, 96f);
-							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform,  13f, 128f, 132f, 6f);
-							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform2, 26f, 96f, 132f, 6f);
+							Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      86f, 32f, 6f, 6f);
+							Utils.AlignRectTransformTopStretch(    mVersionTransform,        32f, 6f, 98f, 6f);
+							Utils.AlignRectTransformStretchStretch(mCreditsTransform,        6f, 44f, 6f, 188f);
+							Utils.AlignRectTransformBottomLeft(    mMonoLogoTransform,       40f, 48f, 6f, 134f);
+							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform,   13f, 169f, 52f, 6f);
+							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform2,  13f, 150f, 52f, 6f);
+							Utils.AlignRectTransformBottomLeft(    mPhysXLogoTransform,      83f, 29f, 6f, 96f);
+							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform,  13f, 115f, 95f, 6f);
+							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform2, 13f, 96f, 95f, 6f);
 							Utils.AlignRectTransformBottomStretch( mCopyrightTransform,      26f, 64f, 6f, 6f);
 							Utils.AlignRectTransformBottomStretch( mLicenseTransform,        52f, 6f, 6f, 6f);
 						}
@@ -703,19 +703,17 @@ namespace UI.Windows.AboutDialog
 
 						case ScreenOrientation.Landscape:
 						{
-							Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      123f, 46f, 6f, 6f);
-							Utils.AlignRectTransformTopStretch(    mVersionTransform,        13f, 58f, 6f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformStretchRight(  mCreditsTransform,        screenWidth / 2f - 6f, 6f, 6f, 6f);
-						    Utils.AlignRectTransformTopStretch(    mContentsTransform,       screenWidth * 9.6f, 0f, 0f, 0f, 0.5f, 1f);
-							Utils.AlignRectTransformStretchStretch(mCreditsTextTransform,    0f, screenHeight - 12f, 0f, screenHeight - 12f);
-							Utils.AlignRectTransformTopLeft(       mMonoLogoTransform,       57f,   69f,  9f,   215f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mMonoLogoTextTransform,   200f,  30f,  73f,  217f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mMonoLogoTextTransform2,  200f,  30f,  73f,  249f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mPhysXLogoTransform,      120f,  42f,  276f, 215f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mPhysXLogoTextTransform,  165f,  30f,  405f, 217f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mPhysXLogoTextTransform2, 165f,  30f,  405f, 249f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mCopyrightTransform,      280f,  30f,  8f,   302f);     // TODO: Change it
-							Utils.AlignRectTransformTopLeft(       mLicenseTransform,        270f,  40f,  295f, 292f);     // TODO: Change it
+							Utils.AlignRectTransformTopLeft(      mUnityLogoTransform,      86f, 32f, 6f, 6f);
+							Utils.AlignRectTransformTopStretch(   mVersionTransform,        13f, 44f, 6f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformStretchRight( mCreditsTransform,        screenWidth / 2f - 6f, 6f, 6f, 6f);
+							Utils.AlignRectTransformBottomLeft(   mMonoLogoTransform,       40f, 48f, 6f, 134f);
+							Utils.AlignRectTransformBottomStretch(mMonoLogoTextTransform,   13f, 169f, 52f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformBottomStretch(mMonoLogoTextTransform2,  13f, 150f, 52f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformBottomLeft(   mPhysXLogoTransform,      83f, 29f, 6f, 96f);
+							Utils.AlignRectTransformBottomStretch(mPhysXLogoTextTransform,  13f, 115f, 95f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformBottomStretch(mPhysXLogoTextTransform2, 26f, 90f, 95f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformBottomStretch(mCopyrightTransform,      26f, 64f, 6f, screenWidth / 2f + 6f);
+							Utils.AlignRectTransformBottomStretch(mLicenseTransform,        52f, 6f, 6f, screenWidth / 2f + 6f);
 						}
 						break;
 
@@ -725,6 +723,15 @@ namespace UI.Windows.AboutDialog
 						}
 						break;
 					}
+
+					Vector3[] corners = Utils.GetWindowCorners(mCreditsTransform);
+
+					float creditsHeight = corners[3].y - corners[0].y;
+
+					Utils.AlignRectTransformTopStretch(    mContentsTransform,    mCreditsText.preferredHeight * 1.13f, 0f, 0f, 0f, 0.5f, 1f); // TODO: [Trivial] Remove workaround when Text.preferredHeight will be fixed
+					Utils.AlignRectTransformStretchStretch(mCreditsTextTransform, 0f, creditsHeight, 0f, creditsHeight);
+
+					mCreditsScrollRect.verticalNormalizedPosition = oldScrollPosition;
 				}
 			}
 		}
