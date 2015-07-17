@@ -187,9 +187,9 @@ namespace Common.UI.Windows
 
 
 
-		private static List<WindowScript> sInstances      = new List<WindowScript>();
-		private static WindowScript       sSelectedWindow = null;
-		// TODO: [Major] Only one fullscreen window. Hide others
+		private static List<WindowScript>                           sInstances         = new List<WindowScript>();
+		private static WindowScript                                 sSelectedWindow    = null;
+		private static List<Pair<WindowScript, List<WindowScript>>> sFullscreenWindows = new List<Pair<WindowScript, List<WindowScript>>>();
 
 
 
@@ -301,6 +301,7 @@ namespace Common.UI.Windows
             {
                 if (mState != value)
                 {
+					WindowState oldValue = mState;
                     bool wasFramePresent = IsFramePresent();
 
                     mState = value;
@@ -336,6 +337,18 @@ namespace Common.UI.Windows
                             OnResize();
                         }
                     }
+
+					if ((oldValue == WindowState.FullScreen) || (mState == WindowState.FullScreen))
+					{
+						if (mState == WindowState.FullScreen)
+						{
+							AddToFullscreenList();
+						}
+						else
+						{
+							RemoveFromFullscreenList();
+						}
+					}
                 }
             }
         }
@@ -2331,6 +2344,16 @@ namespace Common.UI.Windows
 
 
 
+			foreach (Pair<WindowScript, List<WindowScript>> pair in sFullscreenWindows)
+			{
+				pair.second.Remove(this);
+			}
+
+			if (mState == WindowState.FullScreen)
+			{
+				RemoveFromFullscreenList();
+			}
+
             if (!sInstances.Remove(this))
             {
                 Debug.LogError("Failed to remove window");
@@ -3534,6 +3557,85 @@ namespace Common.UI.Windows
 		{
 			SetSelected(true);
 		}
+				
+		/// <summary>
+		/// Handler for select event.
+		/// </summary>
+		protected virtual void OnSelected()
+		{
+			// Nothing
+		}
+		
+		/// <summary>
+		/// Handler for deselect event.
+		/// </summary>
+		protected virtual void OnDeselected()
+		{
+			// Nothing
+		}
+
+		/// <summary>
+		/// Adds this instance to fullscreen list.
+		/// </summary>
+		private void AddToFullscreenList()
+		{
+			if (mState == WindowState.FullScreen)
+			{
+				List<WindowScript> visibleWindows = new List<WindowScript>();
+
+				foreach (WindowScript window in sInstances)
+				{
+					if (window != this && window.IsVisible())
+					{
+						visibleWindows.Add(window);
+						window.Hide();
+					}
+				}
+
+				sFullscreenWindows.Add(new Pair<WindowScript, List<WindowScript>>(this, visibleWindows));
+			}
+			else
+			{
+				Debug.LogError("Unexpected behaviour in WindowScript.AddToFullscreenList");
+			}
+		}
+
+		/// <summary>
+		/// Removes this instance from fullscreen list.
+		/// </summary>
+		private void RemoveFromFullscreenList()
+		{
+			int index = -1;
+
+			for (int i = sFullscreenWindows.Count - 1; i >= 0; --i)
+			{
+				if (sFullscreenWindows[i].first == this)
+				{
+					break;
+				}
+			}
+
+			if (index >= 0)
+			{
+				if (index == sFullscreenWindows.Count - 1)
+				{
+					foreach (WindowScript window in sFullscreenWindows[index].second)
+					{
+						window.Show();
+					}
+				}
+				else
+				{
+					sFullscreenWindows[index + 1].second.AddRange(sFullscreenWindows[index].second);
+				}
+
+				sFullscreenWindows.RemoveAt(index);
+			}
+			else
+			{
+				Debug.LogError("Unexpected behaviour in WindowScript.RemoveFromFullscreenList");
+			}
+		}
 
         /// <summary>
         /// Save window state.
@@ -3547,22 +3649,6 @@ namespace Common.UI.Windows
             PlayerPrefs.SetString("Windows." + key + ".Maximized", (mState == WindowState.Maximized) ? "True" : "False");
 
             PlayerPrefs.Save();
-        }
-
-		/// <summary>
-		/// Handler for select event.
-		/// </summary>
-		protected virtual void OnSelected()
-		{
-			// Nothing
-		}
-
-		/// <summary>
-		/// Handler for deselect event.
-		/// </summary>
-		protected virtual void OnDeselected()
-        {
-            // Nothing
         }
         
         /// <summary>
