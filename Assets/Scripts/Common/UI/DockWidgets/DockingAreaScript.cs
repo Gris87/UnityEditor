@@ -1,3 +1,11 @@
+#if !UNITY_EDITOR
+#if UNITY_ANDROID
+#define CURSORLESS_PLATFORM
+#endif
+#endif
+
+
+
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
@@ -55,11 +63,14 @@ namespace Common.UI.DockWidgets
 
         private static List<DockingAreaScript> sInstances = new List<DockingAreaScript>();
 
-        private static int                     sLastUpdate            = -1;
-        private static DockingAreaScript       sResizingArea          = null;
-        private static MouseLocation           sPreviousMouseLocation = MouseLocation.Outside;
-        private static MouseLocation           sMouseLocation         = MouseLocation.Outside;
-        private static MouseState              sMouseState            = MouseState.NoState;
+#if !CURSORLESS_PLATFORM
+		private static MouseLocation sPreviousMouseLocation = MouseLocation.Outside;
+#endif
+
+        private static int               sLastUpdate    = -1;
+        private static DockingAreaScript sResizingArea  = null;        
+        private static MouseLocation     sMouseLocation = MouseLocation.Outside;
+        private static MouseState        sMouseState    = MouseState.NoState;
 
 
 
@@ -232,12 +243,15 @@ namespace Common.UI.DockWidgets
         {
             if (sResizingArea == this)
             {
+#if !CURSORLESS_PLATFORM
                 RemoveCursorIfNeeded();
 
-                sResizingArea          = null;
-                sPreviousMouseLocation = MouseLocation.Outside;
-                sMouseLocation         = MouseLocation.Outside;
-                sMouseState            = MouseState.NoState;
+				sPreviousMouseLocation = MouseLocation.Outside;
+#endif
+
+                sResizingArea  = null;
+                sMouseLocation = MouseLocation.Outside;
+                sMouseState    = MouseState.NoState;
             }
 
             if (!sInstances.Remove(this))
@@ -246,6 +260,7 @@ namespace Common.UI.DockWidgets
             }
         }
 
+#if !CURSORLESS_PLATFORM
         /// <summary>
         /// Removes the cursor if needed.
         /// </summary>
@@ -272,6 +287,7 @@ namespace Common.UI.DockWidgets
         {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
+#endif
 
         /// <summary>
         /// Handler for resize event.
@@ -1642,6 +1658,7 @@ namespace Common.UI.DockWidgets
         /// </summary>
         void LateUpdate()
         {
+#if !CURSORLESS_PLATFORM
             if (sPreviousMouseLocation != sMouseLocation)
             {
                 MouseLocation oldLocation = sPreviousMouseLocation;
@@ -1666,14 +1683,14 @@ namespace Common.UI.DockWidgets
                         case MouseLocation.North:
                         case MouseLocation.South:
                         {
-                            Cursor.SetCursor(Assets.Cursors.northSouth, new Vector2(16f, 16f), CursorMode.Auto);
+							Cursor.SetCursor(Assets.Cursors.northSouth, new Vector2(16f * Utils.canvasScale, 16f * Utils.canvasScale), CursorMode.Auto);
 						}
                         break;
 
                         case MouseLocation.West:
                         case MouseLocation.East:
                         {
-                            Cursor.SetCursor(Assets.Cursors.eastWest, new Vector2(16f, 16f), CursorMode.Auto);
+							Cursor.SetCursor(Assets.Cursors.eastWest, new Vector2(16f * Utils.canvasScale, 16f * Utils.canvasScale), CursorMode.Auto);
                         }
                         break;
 
@@ -1692,6 +1709,7 @@ namespace Common.UI.DockWidgets
                     }
                 }
             }
+#endif
 
             if (sResizingArea == this)
             {

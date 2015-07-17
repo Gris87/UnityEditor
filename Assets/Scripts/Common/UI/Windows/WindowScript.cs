@@ -1,3 +1,11 @@
+#if !UNITY_EDITOR
+#if UNITY_ANDROID
+#define CURSORLESS_PLATFORM
+#endif
+#endif
+
+
+
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
@@ -2316,7 +2324,10 @@ namespace Common.UI.Windows
 
 
             DestroyReplacement();
+
+#if !CURSORLESS_PLATFORM
             RemoveCursorIfNeeded();
+#endif
 
 
 
@@ -2374,6 +2385,7 @@ namespace Common.UI.Windows
             UnityEngine.Object.DestroyObject(gameObject);
         }
 
+#if !CURSORLESS_PLATFORM
         /// <summary>
         /// Removes the cursor if needed.
         /// </summary>
@@ -2412,6 +2424,7 @@ namespace Common.UI.Windows
         {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
+#endif
 
         /// <summary>
         /// Handler for raycast validation.
@@ -2470,7 +2483,9 @@ namespace Common.UI.Windows
         {
             if (mMouseState == MouseState.NoState)
             {
+#if !CURSORLESS_PLATFORM
                 RemoveCursorIfNeeded();
+#endif
 
                 mMouseLocation = MouseLocation.Outside;
             }
@@ -2576,7 +2591,9 @@ namespace Common.UI.Windows
                             {
                                 case WindowState.NoState:
                                 {
+#if !CURSORLESS_PLATFORM
                                     MouseLocation oldLocation = mMouseLocation;
+#endif
 
                                     if (isInsideButtons)
                                     {
@@ -2666,6 +2683,7 @@ namespace Common.UI.Windows
                                         }
                                     }
 
+#if !CURSORLESS_PLATFORM
                                     if (mResizable && oldLocation != mMouseLocation)
                                     {
                                         switch (mMouseLocation)
@@ -2673,28 +2691,28 @@ namespace Common.UI.Windows
                                             case MouseLocation.North:
                                             case MouseLocation.South:
                                             {
-                                                Cursor.SetCursor(Assets.Cursors.northSouth, new Vector2(16f, 16f), CursorMode.Auto);
+												Cursor.SetCursor(Assets.Cursors.northSouth, new Vector2(16f * Utils.canvasScale, 16f * Utils.canvasScale), CursorMode.Auto);
                                             }
                                             break;
 
                                             case MouseLocation.West:
                                             case MouseLocation.East:
                                             {
-                                                Cursor.SetCursor(Assets.Cursors.eastWest, new Vector2(16f, 16f), CursorMode.Auto);
+												Cursor.SetCursor(Assets.Cursors.eastWest, new Vector2(16f * Utils.canvasScale, 16f * Utils.canvasScale), CursorMode.Auto);
                                             }
                                             break;
 
                                             case MouseLocation.NorthWest:
                                             case MouseLocation.SouthEast:
                                             {
-                                                Cursor.SetCursor(Assets.Cursors.northWestSouthEast, new Vector2(16f, 16f), CursorMode.Auto);
+												Cursor.SetCursor(Assets.Cursors.northWestSouthEast, new Vector2(16f * Utils.canvasScale, 16f * Utils.canvasScale), CursorMode.Auto);
                                             }
                                             break;
 
                                             case MouseLocation.NorthEast:
                                             case MouseLocation.SouthWest:
                                             {
-                                                Cursor.SetCursor(Assets.Cursors.northEastSouthWest, new Vector2(16f, 16f), CursorMode.Auto);
+												Cursor.SetCursor(Assets.Cursors.northEastSouthWest, new Vector2(16f * Utils.canvasScale, 16f * Utils.canvasScale), CursorMode.Auto);
                                             }
                                             break;
 
@@ -2718,6 +2736,7 @@ namespace Common.UI.Windows
                                             break;
                                         }
                                     }
+#endif
                                 }
                                 break;
 
@@ -3276,7 +3295,10 @@ namespace Common.UI.Windows
                                 ||
                                 mouseY < mY + SHADOW_WIDTH || mouseY > mY + mHeight - SHADOW_WIDTH)
                             {
+#if !CURSORLESS_PLATFORM
                                 RemoveCursor();
+#endif
+
                                 mMouseLocation = MouseLocation.Outside;
                             }
                         }

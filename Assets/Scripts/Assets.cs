@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Common;
 using Common.UI.ResourceTypes;
 
 
@@ -145,10 +146,10 @@ public static class Assets
     /// </summary>
     public static class Cursors
     {
-        public static Texture2D eastWest           = LoadResource<Texture2D>("Cursors/EastWest");
-        public static Texture2D northEastSouthWest = LoadResource<Texture2D>("Cursors/NorthEastSouthWest");
-        public static Texture2D northSouth         = LoadResource<Texture2D>("Cursors/NorthSouth");
-        public static Texture2D northWestSouthEast = LoadResource<Texture2D>("Cursors/NorthWestSouthEast");
+        public static Texture2D eastWest           = LoadScaledTexture2D("Cursors/EastWest");
+        public static Texture2D northEastSouthWest = LoadScaledTexture2D("Cursors/NorthEastSouthWest");
+        public static Texture2D northSouth         = LoadScaledTexture2D("Cursors/NorthSouth");
+        public static Texture2D northWestSouthEast = LoadScaledTexture2D("Cursors/NorthWestSouthEast");
     }
     #endregion
 
@@ -987,6 +988,23 @@ public static class Assets
 
         return res;
     }
+
+	/// <summary>
+	/// Loads texture 2D stored at path in a resources and scales it.
+	/// </summary>
+	/// <returns>The asset at path if it can be found otherwise returns null.</returns>
+	/// <param name="path">Pathname of the target asset.</param>
+	private static Texture2D LoadScaledTexture2D(string path)
+	{
+		Texture2D res = LoadResource<Texture2D>(path);
+
+		if (res != null && Utils.canvasScale != 1f)
+		{
+			TextureScale.Point(res, (int)(res.width * Utils.canvasScale), (int)(res.height * Utils.canvasScale));
+		}
+
+		return res;
+	}
 
     /// <summary>
     /// Loads color asset stored at path in a resources.
