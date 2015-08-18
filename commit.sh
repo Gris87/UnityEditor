@@ -5,7 +5,7 @@ else
   git commit -a -m "$1"
 
   git submodule foreach "git add ."
-  git submodule foreach "git commit -a -m '$1'"
+  git submodule foreach "git commit -a -m '$1' || echo Skipped"
 
   . push.sh
 fi
