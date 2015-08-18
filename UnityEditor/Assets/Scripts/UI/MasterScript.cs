@@ -27,18 +27,6 @@ namespace UI
         }
 
         /// <summary>
-        /// Creates user interface.
-        /// </summary>
-        private void CreateUI()
-        {
-            CreateCommon();
-            CreateWindows();
-            CreateOverlap();
-
-            MainWindowScript.Create().Show();
-        }
-
-        /// <summary>
         /// Setups the canvas.
         /// </summary>
         private void SetupCanvas()
@@ -55,6 +43,18 @@ namespace UI
             {
                 Debug.LogWarning("Failed to determine DPI");
             }
+        }
+
+        /// <summary>
+        /// Creates user interface.
+        /// </summary>
+        private void CreateUI()
+        {
+            CreateCommon();
+            CreateWindows();
+            CreateOverlap();
+
+            MainWindowScript.Create().Show();
         }
 
         /// <summary>

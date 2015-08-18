@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 /// </summary>
 public static class Server
 {
-	private static int mHostId;
+//	private static int mHostId;
 
 
 
@@ -17,7 +17,7 @@ public static class Server
 	/// </summary>
 	static Server()
 	{
-		mHostId = -1;
+		//mHostId = -1;
 	}
 
 	/// <summary>
@@ -25,6 +25,10 @@ public static class Server
 	/// </summary>
 	public static void Start()
 	{
+		Network.InitializeServer(10000, 52794, !Network.HavePublicAddress());
+		MasterServer.RegisterHost("UnityEditor", "Server #1");
+
+		/*
 		if (mHostId == -1)
 		{
 			ConnectionConfig config = new ConnectionConfig();
@@ -44,6 +48,7 @@ public static class Server
 		{
 			Debug.LogError("Server already started");
 		}
+		*/
 	}
 
 	/// <summary>
@@ -51,6 +56,7 @@ public static class Server
 	/// </summary>
 	public static void Stop()
 	{
+		/*
 		if (mHostId != -1)
 		{
 			if (NetworkTransport.RemoveHost(mHostId))
@@ -66,5 +72,6 @@ public static class Server
 		{
 			Debug.LogError("Server already stopped");
 		}
+		*/
 	}
 }
