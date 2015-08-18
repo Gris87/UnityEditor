@@ -7,10 +7,6 @@ if not exist %UNITY% (
     set UNITY="C:\Program Files (x86)\Unity\Editor\Unity.exe"
 )
 
-if exist out (
-    rmdir /S /Q out
-)
-
 
 
 echo ---------------------------------------------------------------
@@ -19,6 +15,7 @@ echo Prepare binaries for %APP_NAME%
 echo ---------------------------------------------------------------
 echo.
 
+call clean.bat
 mkdir out
 
 echo Windows x86
@@ -45,5 +42,5 @@ echo Web
 %UNITY% -batchmode -projectPath %CD% -buildWebPlayer out\Web\%APP_NAME% -quit
 
 if [%1]==[] (
-pause
+    pause
 )

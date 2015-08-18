@@ -1,5 +1,7 @@
 @echo off
 
+call clean.bat /q
+
 rem ------------------------------------------------
 
 cd UnityEditor
@@ -15,10 +17,6 @@ call build.bat /q
 cd ..
 
 rem ------------------------------------------------
-
-if exist out (
-    rmdir /S /Q out
-)
 
 mkdir out
 
