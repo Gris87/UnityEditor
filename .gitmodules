@@ -1,0 +1,9 @@
+[submodule "UnityEditor/Assets/Scripts/Common"]
+	path = UnityEditor/Assets/Scripts/Common
+	url = https://github.com/Gris87/UnityEditorCommonScripts.git
+[submodule "UnityServer/Assets/Scripts/Common"]
+	path = UnityServer/Assets/Scripts/Common
+	url = https://github.com/Gris87/UnityEditorCommonScripts.git
+[submodule "UnityUpdater/Assets/Scripts/Common"]
+	path = UnityUpdater/Assets/Scripts/Common
+	url = https://github.com/Gris87/UnityEditorCommonScripts.git
