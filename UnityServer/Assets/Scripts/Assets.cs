@@ -38,7 +38,7 @@ public static class Assets
             /// </summary>
             static Fonts()
             {
-                defaultFont = LoadResource<Font>("Fonts/Default");
+                defaultFont = LoadResource<Font>("Common/Fonts/Default");
 
                 sFonts   = new Dictionary<string, Font>();
                 sOsFonts = Font.GetOSInstalledFontNames();
@@ -53,7 +53,7 @@ public static class Assets
             {
                 sFonts.Clear();
 
-                Font[] fontList = Resources.LoadAll<Font>("Fonts/");
+				Font[] fontList = Resources.LoadAll<Font>("Common/Fonts/"); // TODO: [Trivial] And "Fonts/"
 
                 foreach (Font font in fontList)
                 {
@@ -146,10 +146,10 @@ public static class Assets
     /// </summary>
     public static class Cursors
     {
-        public static Texture2D eastWest           = LoadScaledTexture2D("Cursors/EastWest");
-        public static Texture2D northEastSouthWest = LoadScaledTexture2D("Cursors/NorthEastSouthWest");
-        public static Texture2D northSouth         = LoadScaledTexture2D("Cursors/NorthSouth");
-        public static Texture2D northWestSouthEast = LoadScaledTexture2D("Cursors/NorthWestSouthEast");
+        public static Texture2D eastWest           = LoadScaledTexture2D("Common/Cursors/EastWest");
+		public static Texture2D northEastSouthWest = LoadScaledTexture2D("Common/Cursors/NorthEastSouthWest");
+		public static Texture2D northSouth         = LoadScaledTexture2D("Common/Cursors/NorthSouth");
+		public static Texture2D northWestSouthEast = LoadScaledTexture2D("Common/Cursors/NorthWestSouthEast");
     }
     #endregion
 
@@ -170,7 +170,7 @@ public static class Assets
             /// </summary>
             public static class Colors
             {
-                public static Color background = LoadColor("Colors/Common/UI/Windows/Background");
+                public static Color background = LoadColor("Common/Colors/UI/Windows/Background");
             }
 
             /// <summary>
@@ -178,7 +178,7 @@ public static class Assets
             /// </summary>
             public static class TextStyles
             {
-                public static TextStyle title = LoadTextStyle("TextStyles/Common/UI/Windows/Title");
+                public static TextStyle title = LoadTextStyle("Common/TextStyles/UI/Windows/Title");
             }
 
             /// <summary>
@@ -186,40 +186,40 @@ public static class Assets
             /// </summary>
             public static class Textures
             {
-                public static Sprite window                     = LoadResource<Sprite>("Textures/Common/UI/Windows/Window");
-                public static Sprite windowDeselected           = LoadResource<Sprite>("Textures/Common/UI/Windows/WindowDeselected");
-                public static Sprite subWindow                  = LoadResource<Sprite>("Textures/Common/UI/Windows/SubWindow");
-                public static Sprite subWindowDeselected        = LoadResource<Sprite>("Textures/Common/UI/Windows/SubWindowDeselected");
-                public static Sprite drawer                     = LoadResource<Sprite>("Textures/Common/UI/Windows/Drawer");
-                public static Sprite drawerDeselected           = LoadResource<Sprite>("Textures/Common/UI/Windows/DrawerDeselected");
-                public static Sprite singleFrame                = LoadResource<Sprite>("Textures/Common/UI/Windows/SingleFrame");
-                public static Sprite singleFrameDeselected      = LoadResource<Sprite>("Textures/Common/UI/Windows/SingleFrameDeselected");
-                public static Sprite minimizeButton             = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButton");
-                public static Sprite minimizeButtonDeselected   = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButtonDeselected");
-                public static Sprite minimizeButtonDisabled     = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButtonDisabled");
-                public static Sprite minimizeButtonHighlighted  = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButtonHighlighted");
-                public static Sprite minimizeButtonPressed      = LoadResource<Sprite>("Textures/Common/UI/Windows/MinimizeButtonPressed");
-                public static Sprite maximizeButton             = LoadResource<Sprite>("Textures/Common/UI/Windows/MaximizeButton");
-                public static Sprite maximizeButtonDeselected   = LoadResource<Sprite>("Textures/Common/UI/Windows/MaximizeButtonDeselected");
-                public static Sprite maximizeButtonDisabled     = LoadResource<Sprite>("Textures/Common/UI/Windows/MaximizeButtonDisabled");
-                public static Sprite maximizeButtonHighlighted  = LoadResource<Sprite>("Textures/Common/UI/Windows/MaximizeButtonHighlighted");
-                public static Sprite maximizeButtonPressed      = LoadResource<Sprite>("Textures/Common/UI/Windows/MaximizeButtonPressed");
-                public static Sprite normalizeButton            = LoadResource<Sprite>("Textures/Common/UI/Windows/NormalizeButton");
-                public static Sprite normalizeButtonDeselected  = LoadResource<Sprite>("Textures/Common/UI/Windows/NormalizeButtonDeselected");
-                public static Sprite normalizeButtonDisabled    = LoadResource<Sprite>("Textures/Common/UI/Windows/NormalizeButtonDisabled");
-                public static Sprite normalizeButtonHighlighted = LoadResource<Sprite>("Textures/Common/UI/Windows/NormalizeButtonHighlighted");
-                public static Sprite normalizeButtonPressed     = LoadResource<Sprite>("Textures/Common/UI/Windows/NormalizeButtonPressed");
-                public static Sprite closeButton                = LoadResource<Sprite>("Textures/Common/UI/Windows/CloseButton");
-                public static Sprite closeButtonDeselected      = LoadResource<Sprite>("Textures/Common/UI/Windows/CloseButtonDeselected");
-                public static Sprite closeButtonDisabled        = LoadResource<Sprite>("Textures/Common/UI/Windows/CloseButtonDisabled");
-                public static Sprite closeButtonHighlighted     = LoadResource<Sprite>("Textures/Common/UI/Windows/CloseButtonHighlighted");
-                public static Sprite closeButtonPressed         = LoadResource<Sprite>("Textures/Common/UI/Windows/CloseButtonPressed");
-                public static Sprite toolCloseButton            = LoadResource<Sprite>("Textures/Common/UI/Windows/ToolCloseButton");
-                public static Sprite toolCloseButtonDeselected  = LoadResource<Sprite>("Textures/Common/UI/Windows/ToolCloseButtonDeselected");
-                public static Sprite toolCloseButtonDisabled    = LoadResource<Sprite>("Textures/Common/UI/Windows/ToolCloseButtonDisabled");
-                public static Sprite toolCloseButtonHighlighted = LoadResource<Sprite>("Textures/Common/UI/Windows/ToolCloseButtonHighlighted");
-                public static Sprite toolCloseButtonPressed     = LoadResource<Sprite>("Textures/Common/UI/Windows/ToolCloseButtonPressed");
-                public static Sprite replacement                = LoadResource<Sprite>("Textures/Common/UI/Windows/Replacement");
+                public static Sprite window                     = LoadResource<Sprite>("Common/Textures/UI/Windows/Window");
+                public static Sprite windowDeselected           = LoadResource<Sprite>("Common/Textures/UI/Windows/WindowDeselected");
+                public static Sprite subWindow                  = LoadResource<Sprite>("Common/Textures/UI/Windows/SubWindow");
+                public static Sprite subWindowDeselected        = LoadResource<Sprite>("Common/Textures/UI/Windows/SubWindowDeselected");
+                public static Sprite drawer                     = LoadResource<Sprite>("Common/Textures/UI/Windows/Drawer");
+                public static Sprite drawerDeselected           = LoadResource<Sprite>("Common/Textures/UI/Windows/DrawerDeselected");
+                public static Sprite singleFrame                = LoadResource<Sprite>("Common/Textures/UI/Windows/SingleFrame");
+                public static Sprite singleFrameDeselected      = LoadResource<Sprite>("Common/Textures/UI/Windows/SingleFrameDeselected");
+                public static Sprite minimizeButton             = LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButton");
+                public static Sprite minimizeButtonDeselected   = LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonDeselected");
+                public static Sprite minimizeButtonDisabled     = LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonDisabled");
+                public static Sprite minimizeButtonHighlighted  = LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonHighlighted");
+                public static Sprite minimizeButtonPressed      = LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonPressed");
+                public static Sprite maximizeButton             = LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButton");
+                public static Sprite maximizeButtonDeselected   = LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonDeselected");
+                public static Sprite maximizeButtonDisabled     = LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonDisabled");
+                public static Sprite maximizeButtonHighlighted  = LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonHighlighted");
+                public static Sprite maximizeButtonPressed      = LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonPressed");
+                public static Sprite normalizeButton            = LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButton");
+                public static Sprite normalizeButtonDeselected  = LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonDeselected");
+                public static Sprite normalizeButtonDisabled    = LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonDisabled");
+                public static Sprite normalizeButtonHighlighted = LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonHighlighted");
+                public static Sprite normalizeButtonPressed     = LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonPressed");
+                public static Sprite closeButton                = LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButton");
+                public static Sprite closeButtonDeselected      = LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonDeselected");
+                public static Sprite closeButtonDisabled        = LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonDisabled");
+                public static Sprite closeButtonHighlighted     = LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonHighlighted");
+                public static Sprite closeButtonPressed         = LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonPressed");
+                public static Sprite toolCloseButton            = LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButton");
+                public static Sprite toolCloseButtonDeselected  = LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonDeselected");
+                public static Sprite toolCloseButtonDisabled    = LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonDisabled");
+                public static Sprite toolCloseButtonHighlighted = LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonHighlighted");
+                public static Sprite toolCloseButtonPressed     = LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonPressed");
+                public static Sprite replacement                = LoadResource<Sprite>("Common/Textures/UI/Windows/Replacement");
             }
         }
         #endregion
@@ -837,8 +837,8 @@ public static class Assets
         /// </summary>
         public static class TextStyles
         {
-            public static TextStyle button         = LoadTextStyle("TextStyles/Common/UI/Popups/Button");
-            public static TextStyle buttonDisabled = LoadTextStyle("TextStyles/Common/UI/Popups/ButtonDisabled");
+            public static TextStyle button         = LoadTextStyle("Common/TextStyles/UI/Popups/Button");
+            public static TextStyle buttonDisabled = LoadTextStyle("Common/TextStyles/UI/Popups/ButtonDisabled");
         }
 
         /// <summary>
@@ -846,15 +846,15 @@ public static class Assets
         /// </summary>
         public static class Textures
         {
-            public static Sprite popupBackground   = LoadResource<Sprite>("Textures/Common/UI/Popups/PopupBackground");
-            public static Sprite background        = LoadResource<Sprite>("Textures/Common/UI/Popups/Background");
-            public static Sprite separator         = LoadResource<Sprite>("Textures/Common/UI/Popups/Separator");
-            public static Sprite button            = LoadResource<Sprite>("Textures/Common/UI/Popups/Button");
-            public static Sprite buttonDisabled    = LoadResource<Sprite>("Textures/Common/UI/Popups/ButtonDisabled");
-            public static Sprite buttonHighlighted = LoadResource<Sprite>("Textures/Common/UI/Popups/ButtonHighlighted");
-            public static Sprite buttonPressed     = LoadResource<Sprite>("Textures/Common/UI/Popups/ButtonPressed");
-            public static Sprite arrow             = LoadResource<Sprite>("Textures/Common/UI/Popups/Arrow");
-            public static Sprite checkbox          = LoadResource<Sprite>("Textures/Common/UI/Popups/Checkbox");
+            public static Sprite popupBackground   = LoadResource<Sprite>("Common/Textures/UI/Popups/PopupBackground");
+            public static Sprite background        = LoadResource<Sprite>("Common/Textures/UI/Popups/Background");
+            public static Sprite separator         = LoadResource<Sprite>("Common/Textures/UI/Popups/Separator");
+            public static Sprite button            = LoadResource<Sprite>("Common/Textures/UI/Popups/Button");
+            public static Sprite buttonDisabled    = LoadResource<Sprite>("Common/Textures/UI/Popups/ButtonDisabled");
+            public static Sprite buttonHighlighted = LoadResource<Sprite>("Common/Textures/UI/Popups/ButtonHighlighted");
+            public static Sprite buttonPressed     = LoadResource<Sprite>("Common/Textures/UI/Popups/ButtonPressed");
+            public static Sprite arrow             = LoadResource<Sprite>("Common/Textures/UI/Popups/Arrow");
+            public static Sprite checkbox          = LoadResource<Sprite>("Common/Textures/UI/Popups/Checkbox");
         }
     }
     #endregion
@@ -870,7 +870,7 @@ public static class Assets
         /// </summary>
         public static class TextStyles
         {
-            public static TextStyle tooltipText = LoadTextStyle("TextStyles/Common/UI/Tooltips/TooltipText");
+            public static TextStyle tooltipText = LoadTextStyle("Common/TextStyles/UI/Tooltips/TooltipText");
         }
 
         /// <summary>
@@ -878,7 +878,7 @@ public static class Assets
         /// </summary>
         public static class Textures
         {
-            public static Sprite tooltipBackground = LoadResource<Sprite>("Textures/Common/UI/Tooltips/TooltipBackground");
+            public static Sprite tooltipBackground = LoadResource<Sprite>("Common/Textures/UI/Tooltips/TooltipBackground");
         }
     }
     #endregion
@@ -894,7 +894,7 @@ public static class Assets
         /// </summary>
         public static class TextStyles
         {
-            public static TextStyle toastText = LoadTextStyle("TextStyles/Common/UI/Toasts/ToastText");
+            public static TextStyle toastText = LoadTextStyle("Common/TextStyles/UI/Toasts/ToastText");
         }
 
         /// <summary>
@@ -902,7 +902,7 @@ public static class Assets
         /// </summary>
         public static class Textures
         {
-            public static Sprite toastBackground = LoadResource<Sprite>("Textures/Common/UI/Toasts/ToastBackground");
+            public static Sprite toastBackground = LoadResource<Sprite>("Common/Textures/UI/Toasts/ToastBackground");
         }
     }
     #endregion
@@ -918,9 +918,9 @@ public static class Assets
         /// </summary>
         public static class Colors
         {
-            public static Color background      = LoadColor("Colors/Common/UI/DockWidgets/Background");
-            public static Color dummyBackground = LoadColor("Colors/Common/UI/DockWidgets/DummyBackground");
-            public static Color dockingWindow   = LoadColor("Colors/Common/UI/DockWidgets/DockingWindow");
+            public static Color background      = LoadColor("Common/Colors/UI/DockWidgets/Background");
+            public static Color dummyBackground = LoadColor("Common/Colors/UI/DockWidgets/DummyBackground");
+            public static Color dockingWindow   = LoadColor("Common/Colors/UI/DockWidgets/DockingWindow");
         }
 
         /// <summary>
@@ -928,7 +928,7 @@ public static class Assets
         /// </summary>
         public static class TextStyles
         {
-            public static TextStyle title = LoadTextStyle("TextStyles/Common/UI/DockWidgets/Title");
+            public static TextStyle title = LoadTextStyle("Common/TextStyles/UI/DockWidgets/Title");
         }
 
         /// <summary>
@@ -936,36 +936,36 @@ public static class Assets
         /// </summary>
         public static class Textures
         {
-            public static Sprite tab                          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Tab");
-            public static Sprite tabDisabled                  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabDisabled");
-            public static Sprite tabHighlighted               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabHighlighted");
-            public static Sprite tabPressed                   = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabPressed");
-            public static Sprite tabActive                    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActive");
-            public static Sprite tabActiveDisabled            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActiveDisabled");
-            public static Sprite tabActiveHighlighted         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActiveHighlighted");
-            public static Sprite tabActivePressed             = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/TabActivePressed");
-            public static Sprite icon                         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/Icon");
-            public static Sprite pageBackground               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/PageBackground");
-            public static Sprite maximizeButton               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButton");
-            public static Sprite maximizeButtonDisabled       = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonDisabled");
-            public static Sprite maximizeButtonHighlighted    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonHighlighted");
-            public static Sprite maximizeButtonPressed        = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/MaximizeButtonPressed");
-            public static Sprite closeButton                  = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButton");
-            public static Sprite closeButtonDisabled          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonDisabled");
-            public static Sprite closeButtonHighlighted       = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonHighlighted");
-            public static Sprite closeButtonPressed           = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/CloseButtonPressed");
-            public static Sprite unlockedButton               = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButton");
-            public static Sprite unlockedButtonDisabled       = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonDisabled");
-            public static Sprite unlockedButtonHighlighted    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonHighlighted");
-            public static Sprite unlockedButtonPressed        = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/UnlockedButtonPressed");
-            public static Sprite lockedButton                 = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButton");
-            public static Sprite lockedButtonDisabled         = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButtonDisabled");
-            public static Sprite lockedButtonHighlighted      = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButtonHighlighted");
-            public static Sprite lockedButtonPressed          = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/LockedButtonPressed");
-            public static Sprite contextMenuButton            = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButton");
-            public static Sprite contextMenuButtonDisabled    = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButtonDisabled");
-            public static Sprite contextMenuButtonHighlighted = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButtonHighlighted");
-            public static Sprite contextMenuButtonPressed     = LoadResource<Sprite>("Textures/Common/UI/DockWidgets/ContextMenuButtonPressed");
+            public static Sprite tab                          = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/Tab");
+            public static Sprite tabDisabled                  = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabDisabled");
+            public static Sprite tabHighlighted               = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabHighlighted");
+            public static Sprite tabPressed                   = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabPressed");
+            public static Sprite tabActive                    = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActive");
+            public static Sprite tabActiveDisabled            = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActiveDisabled");
+            public static Sprite tabActiveHighlighted         = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActiveHighlighted");
+            public static Sprite tabActivePressed             = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActivePressed");
+            public static Sprite icon                         = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/Icon");
+            public static Sprite pageBackground               = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/PageBackground");
+            public static Sprite maximizeButton               = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButton");
+            public static Sprite maximizeButtonDisabled       = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButtonDisabled");
+            public static Sprite maximizeButtonHighlighted    = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButtonHighlighted");
+            public static Sprite maximizeButtonPressed        = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButtonPressed");
+            public static Sprite closeButton                  = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButton");
+            public static Sprite closeButtonDisabled          = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButtonDisabled");
+            public static Sprite closeButtonHighlighted       = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButtonHighlighted");
+            public static Sprite closeButtonPressed           = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButtonPressed");
+            public static Sprite unlockedButton               = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButton");
+            public static Sprite unlockedButtonDisabled       = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButtonDisabled");
+            public static Sprite unlockedButtonHighlighted    = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButtonHighlighted");
+            public static Sprite unlockedButtonPressed        = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButtonPressed");
+            public static Sprite lockedButton                 = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButton");
+            public static Sprite lockedButtonDisabled         = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButtonDisabled");
+            public static Sprite lockedButtonHighlighted      = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButtonHighlighted");
+            public static Sprite lockedButtonPressed          = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButtonPressed");
+            public static Sprite contextMenuButton            = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButton");
+            public static Sprite contextMenuButtonDisabled    = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButtonDisabled");
+            public static Sprite contextMenuButtonHighlighted = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButtonHighlighted");
+            public static Sprite contextMenuButtonPressed     = LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButtonPressed");
         }
     }
     #endregion
