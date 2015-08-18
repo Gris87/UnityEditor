@@ -7,3 +7,12 @@
 [submodule "UnityUpdater/Assets/Scripts/Common"]
 	path = UnityUpdater/Assets/Scripts/Common
 	url = https://github.com/Gris87/UnityEditorCommonScripts.git
+[submodule "UnityEditor/Assets/ImportedAssets/Common"]
+	path = UnityEditor/Assets/ImportedAssets/Common
+	url = https://github.com/Gris87/UnityEditorCommonAssets.git
+[submodule "UnityServer/Assets/ImportedAssets/Common"]
+	path = UnityServer/Assets/ImportedAssets/Common
+	url = https://github.com/Gris87/UnityEditorCommonAssets.git
+[submodule "UnityUpdater/Assets/ImportedAssets/Common"]
+	path = UnityUpdater/Assets/ImportedAssets/Common
+	url = https://github.com/Gris87/UnityEditorCommonAssets.git
