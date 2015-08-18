@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnToolHandClicked");
             // TODO: [Minor] Implement ToolbarScript.OnToolHandClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnToolMoveClicked");
             // TODO: [Minor] Implement ToolbarScript.OnToolMoveClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnToolRotateClicked");
             // TODO: [Minor] Implement ToolbarScript.OnToolRotateClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnToolScaleClicked");
             // TODO: [Minor] Implement ToolbarScript.OnToolScaleClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnToolRectTransformClicked");
             // TODO: [Minor] Implement ToolbarScript.OnToolRectTransformClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnBasePointClicked");
             // TODO: [Minor] Implement ToolbarScript.OnBasePointClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnCoordinateSystemClicked");
             // TODO: [Minor] Implement ToolbarScript.OnCoordinateSystemClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnPlayClicked");
             // TODO: [Minor] Implement ToolbarScript.OnPlayClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnPauseClicked");
             // TODO: [Minor] Implement ToolbarScript.OnPauseClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnStepClicked");
             // TODO: [Minor] Implement ToolbarScript.OnStepClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnLayersClicked");
             // TODO: [Minor] Implement ToolbarScript.OnLayersClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Debug.Log("ToolbarScript.OnLayoutClicked");
             // TODO: [Minor] Implement ToolbarScript.OnLayoutClicked
 
-            AppUtils.ShowContributeMessage();
+            AppCommonUtils.ShowContributeMessage();
         }
     }
 }

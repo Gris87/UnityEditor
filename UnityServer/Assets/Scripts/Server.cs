@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 /// <summary>
 /// Server.
 /// </summary>
-public static class Server
+public static class Server // TODO: [Minor] Remove it
 {
 //	private static int mHostId;
 

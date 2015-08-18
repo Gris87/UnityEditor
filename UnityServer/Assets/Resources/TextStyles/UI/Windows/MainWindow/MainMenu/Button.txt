@@ -1,0 +1,14 @@
+[Font]
+
+Font        = Microsoft Sans Serif
+FontStyle   = Normal
+FontSize    = 12
+LineSpacing = 1
+Alignment   = MiddleCenter
+
+[Font/Color]
+
+Red   = 0
+Green = 0
+Blue  = 0
+Alpha = 1
