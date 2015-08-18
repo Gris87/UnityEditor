@@ -1,2 +1,2 @@
 git diff
-git submodule foreach 'git diff'
+git submodule foreach "git diff"
