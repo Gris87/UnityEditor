@@ -1,6 +1,0 @@
-[Color]
-
-Red   = 0.63
-Green = 0.63
-Blue  = 0.63
-Alpha = 1
