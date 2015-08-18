@@ -1,1 +1,1 @@
-git push origin master --tags
+git push origin master --tags --recurse-submodules=on-demand
