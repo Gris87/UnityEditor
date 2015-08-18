@@ -1,0 +1,6 @@
+[Color]
+
+Red   = 1
+Green = 1
+Blue  = 1
+Alpha = 1

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- AboutDialog: Personal -->
+    <string name="personal">Personal</string>
+
+    <!-- AboutDialog: Professional -->
+    <string name="professional">Professional</string>
+
+</resources>

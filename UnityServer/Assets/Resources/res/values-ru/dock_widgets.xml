@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- DockWidgets: Scene -->
+    <string name="scene">Сцена</string>
+
+    <!-- DockWidgets: Game -->
+    <string name="game">Игра</string>
+
+    <!-- DockWidgets: Inspector -->
+    <string name="inspector">Инспектор</string>
+
+    <!-- DockWidgets: Hierarchy -->
+    <string name="hierarchy">Иерархия</string>
+
+    <!-- DockWidgets: Project -->
+    <string name="project">Проект</string>
+
+    <!-- DockWidgets: Animation -->
+    <string name="animation">Анимация</string>
+
+    <!-- DockWidgets: Profiler -->
+    <string name="profiler">Профилировщик</string>
+
+    <!-- DockWidgets: Audio Mixer -->
+    <string name="audio_mixer">Аудиомикшер</string>
+
+    <!-- DockWidgets: Asset Store -->
+    <string name="asset_store">Asset Store</string>
+
+    <!-- DockWidgets: Version Control -->
+    <string name="version_control">Контроль версий</string>
+
+    <!-- DockWidgets: Animator Parameter -->
+    <string name="animator_parameter">Параметры аниматора</string>
+
+    <!-- DockWidgets: Animator -->
+    <string name="animator">Аниматор</string>
+
+    <!-- DockWidgets: Sprite Packer -->
+    <string name="sprite_packer">Упаковщик спрайта</string>
+
+    <!-- DockWidgets: Lighting -->
+    <string name="lighting">Освещение</string>
+
+    <!-- DockWidgets: Occlusion Culling -->
+    <string name="occlusion_culling">Отсев невидимых</string>
+
+    <!-- DockWidgets: Frame Debugger -->
+    <string name="frame_debugger">Отладчик кадра</string>
+
+    <!-- DockWidgets: Navigation -->
+    <string name="navigation">Навигация</string>
+
+    <!-- DockWidgets: Console -->
+    <string name="console">Консоль</string>
+
+</resources>

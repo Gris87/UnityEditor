@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- AboutDialog: Version {0} -->
+    <string name="version">Версия {0}</string>
+
+    <!-- AboutDialog: Scripting powered by {0} -->
+    <string name="scripting_powered_by">Скрипты работают с помощью {0}</string>
+
+    <!-- AboutDialog: Physics powered by {0}. -->
+    <string name="physics_powered_by">Физика работает с помощью {0}.</string>
+
+    <!-- AboutDialog: All rights reserved. -->
+    <string name="all_rights_reserved">Все права защищены.</string>
+
+    <!-- AboutDialog: License type: {0}\nSerial number: {1} -->
+    <string name="license">Тип лицензии: {0}\nСерийный номер: {1}</string>
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Window title : About Unity -->
+    <string name="about_unity">О Unity</string>
+
+</resources>
