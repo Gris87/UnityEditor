@@ -1,3 +1,4 @@
+Textures late loading (Load only when required. Create helper class)
 Download system that downloads everything that needed and updates it
 Unity file reading
 Layout manager
