@@ -5,7 +5,7 @@ namespace UI.Windows.MainWindow.Toolbar
     /// </summary>
     public class ToolbarUI
     {
-        private ToolbarScript mScript;
+        //private ToolbarScript mScript;
 
 
 
@@ -15,7 +15,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="script">Script.</param>
         public ToolbarUI(ToolbarScript script)
         {
-            mScript = script;
+            //mScript = script;
         }
 
         /// <summary>
@@ -35,4 +35,3 @@ namespace UI.Windows.MainWindow.Toolbar
         }      
     }
 }
-

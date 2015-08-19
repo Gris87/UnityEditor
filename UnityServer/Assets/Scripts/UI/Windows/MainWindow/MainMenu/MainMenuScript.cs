@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityTranslation;
 
 using Common;
+using Common.App;
 using Common.UI.DockWidgets;
 using Common.UI.MenuItems;
 using Common.UI.Popups;

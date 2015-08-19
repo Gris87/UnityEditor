@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityTranslation;
 
 using Common;
+using Common.App;
 using Common.UI.Listeners;
 using Common.UI.Toasts;
 using Common.UI.Windows;
