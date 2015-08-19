@@ -1,58 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- DockWidgets: Scene -->
-    <string name="scene">Scene</string>
-
-    <!-- DockWidgets: Game -->
-    <string name="game">Game</string>
-
-    <!-- DockWidgets: Inspector -->
-    <string name="inspector">Inspector</string>
-
-    <!-- DockWidgets: Hierarchy -->
-    <string name="hierarchy">Hierarchy</string>
-
-    <!-- DockWidgets: Project -->
-    <string name="project">Project</string>
-
-    <!-- DockWidgets: Animation -->
-    <string name="animation">Animation</string>
-
-    <!-- DockWidgets: Profiler -->
-    <string name="profiler">Profiler</string>
-
-    <!-- DockWidgets: Audio Mixer -->
-    <string name="audio_mixer">Audio Mixer</string>
-
-    <!-- DockWidgets: Asset Store -->
-    <string name="asset_store">Asset Store</string>
-
-    <!-- DockWidgets: Version Control -->
-    <string name="version_control">Version Control</string>
-
-    <!-- DockWidgets: Animator Parameter -->
-    <string name="animator_parameter">Animator Parameter</string>
-
-    <!-- DockWidgets: Animator -->
-    <string name="animator">Animator</string>
-
-    <!-- DockWidgets: Sprite Packer -->
-    <string name="sprite_packer">Sprite Packer</string>
-
-    <!-- DockWidgets: Lighting -->
-    <string name="lighting">Lighting</string>
-
-    <!-- DockWidgets: Occlusion Culling -->
-    <string name="occlusion_culling">Occlusion Culling</string>
-
-    <!-- DockWidgets: Frame Debugger -->
-    <string name="frame_debugger">Frame Debugger</string>
-
-    <!-- DockWidgets: Navigation -->
-    <string name="navigation">Navigation</string>
-
-    <!-- DockWidgets: Console -->
-    <string name="console">Console</string>
+    <!-- DockWidgets: Servers -->
+    <string name="servers">Servers</string>
 
 </resources>

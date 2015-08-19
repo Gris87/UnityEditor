@@ -1298,42 +1298,42 @@
     -->
 
     <!-- Menu item : Help -->
-    <string name="help">Help</string>
+    <string name="help">Помощь</string>
 
     <!-- Menu item : Help -> About Unity... -->
-    <string name="help__about_unity">About Unity...</string>
+    <string name="help__about_unity">О Unity...</string>
 
     <!-- Menu item : Help -> Manage License... -->
-    <string name="help__manage_license">Manage License...</string>
+    <string name="help__manage_license">Управление лицензией...</string>
 
     <!-- Menu item : Help -> Unity Manual -->
-    <string name="help__unity_manual">Unity Manual</string>
+    <string name="help__unity_manual">Руководство Unity</string>
 
     <!-- Menu item : Help -> Scripting Reference -->
-    <string name="help__scripting_reference">Scripting Reference</string>
+    <string name="help__scripting_reference">Справка по коду</string>
 
     <!-- Menu item : Help -> Unity Connect -->
     <string name="help__unity_connect">Unity Connect</string>
 
     <!-- Menu item : Help -> Unity Forum -->
-    <string name="help__unity_forum">Unity Forum</string>
+    <string name="help__unity_forum">Форум Unity</string>
 
     <!-- Menu item : Help -> Unity Answers -->
-    <string name="help__unity_answers">Unity Answers</string>
+    <string name="help__unity_answers">Вопросы и ответы</string>
 
     <!-- Menu item : Help -> Unity Feedback -->
-    <string name="help__unity_feedback">Unity Feedback</string>
+    <string name="help__unity_feedback">Оставить отзыв</string>
 
     <!-- Menu item : Help -> Check for Updates -->
-    <string name="help__check_for_updates">Check for Updates</string>
+    <string name="help__check_for_updates">Проверить обновления</string>
 
     <!-- Menu item : Help -> Download Beta... -->
-    <string name="help__download_beta">Download Beta...</string>
+    <string name="help__download_beta">Скачать бету...</string>
 
     <!-- Menu item : Help -> Release Notes -->
-    <string name="help__release_notes">Release Notes</string>
+    <string name="help__release_notes">Что нового</string>
 
     <!-- Menu item : Help -> Report a Bug... -->
-    <string name="help__report_a_bug">Report a Bug...</string>
+    <string name="help__report_a_bug">Сообщить о баге...</string>
 
 </resources>

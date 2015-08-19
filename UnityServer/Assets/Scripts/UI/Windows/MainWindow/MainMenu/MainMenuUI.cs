@@ -180,9 +180,9 @@ namespace UI.Windows.MainWindow.MainMenu
 
             #region Menu items
             #region File
-            fileMenu                  =   MakeItem(mItems,   R.sections.MenuItems.strings.file,                 mScript.OnFileMenu);
+            fileMenu         =   MakeItem(mItems,   R.sections.MenuItems.strings.file,       mScript.OnFileMenu);
 
-            /*mFile_ExitItem          =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__exit,           mScript.OnFile_Exit);
+            /*mFile_ExitItem =*/ MakeItem(fileMenu, R.sections.MenuItems.strings.file__exit, mScript.OnFile_Exit);
             #endregion
 
             #region Window
@@ -204,18 +204,18 @@ namespace UI.Windows.MainWindow.MainMenu
 
             #region Window -> Screenshot
             window_ScreenshotSeparator = MenuSeparatorItem.Create(windowMenu);
-            window_ScreenshotItem                         =   MakeItem(windowMenu,            R.sections.MenuItems.strings.window__screenshot);
+            window_ScreenshotItem                      =   MakeItem(windowMenu,            R.sections.MenuItems.strings.window__screenshot);
 
             window_ScreenshotSeparator.data.visible = Settings.internalMode;
             window_ScreenshotItem.data.visible      = Settings.internalMode;
 
-            /*window_Screenshot_SetWindowSizeItem         =*/ MakeItem(window_ScreenshotItem, R.sections.MenuItems.strings.window__screenshot__set_window_size,          mScript.OnWindow_Screenshot_SetWindowSize);
-            /*window_Screenshot_SetWindowSizeSmallItem    =*/ MakeItem(window_ScreenshotItem, R.sections.MenuItems.strings.window__screenshot__set_window_size_small,    mScript.OnWindow_Screenshot_SetWindowSizeSmall);
-            /*window_Screenshot_SnapViewItem              =*/ MakeItem(window_ScreenshotItem, R.sections.MenuItems.strings.window__screenshot__snap_view,                mScript.OnWindow_Screenshot_SnapView);
+            /*window_Screenshot_SetWindowSizeItem      =*/ MakeItem(window_ScreenshotItem, R.sections.MenuItems.strings.window__screenshot__set_window_size,       mScript.OnWindow_Screenshot_SetWindowSize);
+            /*window_Screenshot_SetWindowSizeSmallItem =*/ MakeItem(window_ScreenshotItem, R.sections.MenuItems.strings.window__screenshot__set_window_size_small, mScript.OnWindow_Screenshot_SetWindowSizeSmall);
+            /*window_Screenshot_SnapViewItem           =*/ MakeItem(window_ScreenshotItem, R.sections.MenuItems.strings.window__screenshot__snap_view,             mScript.OnWindow_Screenshot_SnapView);
             #endregion
 
             MenuSeparatorItem.Create(windowMenu);
-            /*window_ServersItem             =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__servers,              mScript.OnWindow_Servers,          true,  "Ctrl+1");
+            /*window_ServersItem =*/ MakeItem(windowMenu, R.sections.MenuItems.strings.window__servers, mScript.OnWindow_Servers, true, "Ctrl+1");
             #endregion
 
             #region Help
