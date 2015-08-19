@@ -1155,13 +1155,13 @@
     -->
 
     <!-- Menu item : Window -->
-    <string name="window">Window</string>
+    <string name="window">Окно</string>
 
     <!-- Menu item : Window -> Next Window -->
-    <string name="window__next_window">Next Window</string>
+    <string name="window__next_window">Следующее окно</string>
 
     <!-- Menu item : Window -> Previous Window -->
-    <string name="window__previous_window">Previous Window</string>
+    <string name="window__previous_window">Предыдущее окно</string>
 
 
 
@@ -1172,7 +1172,7 @@
     -->
 
     <!-- Menu item : Window -> Layouts -->
-    <string name="window__layouts">Layouts</string>
+    <string name="window__layouts">Раскладка</string>
 
     <!-- Menu item : Window -> Layouts -> 2 by 3 -->
     <string name="window__layouts__2_by_3">2 by 3</string>
@@ -1181,7 +1181,7 @@
     <string name="window__layouts__4_split">4 Split</string>
 
     <!-- Menu item : Window -> Layouts -> Default -->
-    <string name="window__layouts__default">Default</string>
+    <string name="window__layouts__default">По умолчанию</string>
 
     <!-- Menu item : Window -> Layouts -> Tall -->
     <string name="window__layouts__tall">Tall</string>
@@ -1190,13 +1190,13 @@
     <string name="window__layouts__wide">Wide</string>
 
     <!-- Menu item : Window -> Layouts -> Save Layout... -->
-    <string name="window__layouts__save_layout">Save Layout...</string>
+    <string name="window__layouts__save_layout">Сохранить раскладку...</string>
 
     <!-- Menu item : Window -> Layouts -> Delete Layout... -->
-    <string name="window__layouts__delete_layout">Delete Layout...</string>
+    <string name="window__layouts__delete_layout">Удалить раскладку...</string>
 
     <!-- Menu item : Window -> Layouts -> Revert Factory Settings... -->
-    <string name="window__layouts__revert_factory_settings">Revert Factory Settings...</string>
+    <string name="window__layouts__revert_factory_settings">Вернуть заводские настройки...</string>
 
 
 
@@ -1207,16 +1207,16 @@
     -->
 
     <!-- Menu item : Window -> Screenshot -->
-    <string name="window__screenshot">Screenshot</string>
+    <string name="window__screenshot">Скриншот</string>
 
     <!-- Menu item : Window -> Screenshot -> Set Window Size -->
-    <string name="window__screenshot__set_window_size">Set Window Size</string>
+    <string name="window__screenshot__set_window_size">Установить размер окна</string>
 
     <!-- Menu item : Window -> Screenshot -> Set Window Size Small -->
-    <string name="window__screenshot__set_window_size_small">Set Window Size Small</string>
+    <string name="window__screenshot__set_window_size_small">Установить маленький размер окна</string>
 
     <!-- Menu item : Window -> Screenshot -> Snap View -->
-    <string name="window__screenshot__snap_view">Snap View</string>
+    <string name="window__screenshot__snap_view">Сделать снимок</string>
 
     <!-- Menu item : Window -> Screenshot -> Snap View Toolbar -->
     <string name="window__screenshot__snap_view_toolbar">Snap View Toolbar</string>
