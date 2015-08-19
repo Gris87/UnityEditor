@@ -230,7 +230,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Layouts_Default");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_Default
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Layouts_SaveLayout");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_SaveLayout
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -252,7 +252,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Layouts_DeleteLayout");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_DeleteLayout
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Layouts_RevertFactorySettings");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_RevertFactorySettings
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
         #endregion
 
@@ -276,7 +276,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSize");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SetWindowSize
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -287,7 +287,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -298,7 +298,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapView");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapView
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
         #endregion
 
@@ -395,7 +395,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_ManageLicense");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ManageLicense
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_UnityManual");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityManual
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -417,7 +417,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_ScriptingReference");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ScriptingReference
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -428,7 +428,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_UnityConnect");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityConnect
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -439,7 +439,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_UnityForum");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityForum
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -450,7 +450,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_UnityAnswers");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityAnswers
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -461,7 +461,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_UnityFeedback");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityFeedback
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -472,7 +472,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_CheckForUpdates");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_CheckForUpdates
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -483,7 +483,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_DownloadBeta");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_DownloadBeta
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -494,7 +494,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_ReleaseNotes");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ReleaseNotes
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
 
         /// <summary>
@@ -505,7 +505,7 @@ namespace UI.Windows.MainWindow.MainMenu
             Debug.Log("MainMenuScript.OnHelp_ReportABug");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ReportABug
 
-            AppCommonUtils.ShowContributeMessage();
+            AppUtils.ShowContributeMessage();
         }
         #endregion
 
