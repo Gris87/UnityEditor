@@ -23,8 +23,6 @@ namespace UI.Windows.MainWindow.MainMenu
 
         private MainMenuScript mScript;
 
-        private SpriteState mButtonSpriteState;
-
         private GameObject    mScrollAreaContent;
         private RectTransform mScrollAreaContentTransform;
 
@@ -600,12 +598,6 @@ namespace UI.Windows.MainWindow.MainMenu
         public MainMenuUI(MainMenuScript script)
         {
             mScript = script;
-
-            mButtonSpriteState = new SpriteState();
-
-			mButtonSpriteState.disabledSprite    = Assets.Windows.MainWindow.MainMenu.Textures.buttonDisabled.sprite;
-			mButtonSpriteState.highlightedSprite = Assets.Windows.MainWindow.MainMenu.Textures.buttonHighlighted.sprite;
-			mButtonSpriteState.pressedSprite     = Assets.Windows.MainWindow.MainMenu.Textures.buttonPressed.sprite;
 
             mScrollAreaContent          = null;
             mScrollAreaContentTransform = null;
@@ -1344,7 +1336,7 @@ namespace UI.Windows.MainWindow.MainMenu
 
                         menuItemButtonButton.targetGraphic = menuItemButtonImage;
                         menuItemButtonButton.transition    = Selectable.Transition.SpriteSwap;
-                        menuItemButtonButton.spriteState   = mButtonSpriteState;
+						menuItemButtonButton.spriteState   = Assets.Windows.MainWindow.MainMenu.SpriteStates.button.spriteState;
 
                         if (item.enabled)
                         {

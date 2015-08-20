@@ -16,14 +16,6 @@ namespace UI.Windows.MainWindow.Toolbar
     {
         private ToolbarScript mScript;
 
-        private SpriteState mLeftButtonSpriteState;
-        private SpriteState mLeftButtonActiveSpriteState;
-        private SpriteState mMiddleButtonSpriteState;
-        private SpriteState mMiddleButtonActiveSpriteState;
-        private SpriteState mRightButtonSpriteState;
-        private SpriteState mRightButtonActiveSpriteState;
-        private SpriteState mPopupSpriteState;
-
         private RectTransform mScrollAreaContentTransform;
         private RectTransform mToolsTransform;
         private RectTransform mBasePointTransform;
@@ -48,14 +40,6 @@ namespace UI.Windows.MainWindow.Toolbar
         {
             mScript = script;
 
-            mLeftButtonSpriteState         = new SpriteState();
-            mLeftButtonActiveSpriteState   = new SpriteState();
-            mMiddleButtonSpriteState       = new SpriteState();
-            mMiddleButtonActiveSpriteState = new SpriteState();
-            mRightButtonSpriteState        = new SpriteState();
-            mRightButtonActiveSpriteState  = new SpriteState();
-            mPopupSpriteState              = new SpriteState();
-
             mScrollAreaContentTransform = null;
             mToolsTransform             = null;
             mBasePointTransform         = null;
@@ -69,36 +53,6 @@ namespace UI.Windows.MainWindow.Toolbar
             mLayersText                 = null;
             mLayoutTransform            = null;
             mLayoutText                 = null;
-
-
-
-            mLeftButtonSpriteState.disabledSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonDisabled.sprite;
-			mLeftButtonSpriteState.highlightedSprite         = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonHighlighted.sprite;
-			mLeftButtonSpriteState.pressedSprite             = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonPressed.sprite;
-
-			mLeftButtonActiveSpriteState.disabledSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveDisabled.sprite;
-			mLeftButtonActiveSpriteState.highlightedSprite   = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveHighlighted.sprite;
-			mLeftButtonActiveSpriteState.pressedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActivePressed.sprite;
-
-			mMiddleButtonSpriteState.disabledSprite          = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonDisabled.sprite;
-			mMiddleButtonSpriteState.highlightedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonHighlighted.sprite;
-			mMiddleButtonSpriteState.pressedSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonPressed.sprite;
-
-			mMiddleButtonActiveSpriteState.disabledSprite    = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveDisabled.sprite;
-			mMiddleButtonActiveSpriteState.highlightedSprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveHighlighted.sprite;
-			mMiddleButtonActiveSpriteState.pressedSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActivePressed.sprite;
-
-			mRightButtonSpriteState.disabledSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonDisabled.sprite;
-			mRightButtonSpriteState.highlightedSprite        = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonHighlighted.sprite;
-			mRightButtonSpriteState.pressedSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonPressed.sprite;
-
-			mRightButtonActiveSpriteState.disabledSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveDisabled.sprite;
-			mRightButtonActiveSpriteState.highlightedSprite  = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveHighlighted.sprite;
-			mRightButtonActiveSpriteState.pressedSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActivePressed.sprite;
-
-			mPopupSpriteState.disabledSprite                 = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonDisabled.sprite;
-			mPopupSpriteState.highlightedSprite              = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonHighlighted.sprite;
-			mPopupSpriteState.pressedSprite                  = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonPressed.sprite;
         }
 
         /// <summary>
@@ -273,7 +227,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             toolHandButton.targetGraphic = toolHandImage;
             toolHandButton.transition    = Selectable.Transition.SpriteSwap;
-            toolHandButton.spriteState   = mLeftButtonSpriteState;
+			toolHandButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.leftButton.spriteState;
             toolHandButton.onClick.AddListener(mScript.OnToolHandClicked);
             #endregion
 
@@ -353,7 +307,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             toolMoveButton.targetGraphic = toolMoveImage;
             toolMoveButton.transition    = Selectable.Transition.SpriteSwap;
-            toolMoveButton.spriteState   = mMiddleButtonSpriteState;
+			toolMoveButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.middleButton.spriteState;
             toolMoveButton.onClick.AddListener(mScript.OnToolMoveClicked);
             #endregion
 
@@ -433,7 +387,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             toolRotateButton.targetGraphic = toolRotateImage;
             toolRotateButton.transition    = Selectable.Transition.SpriteSwap;
-            toolRotateButton.spriteState   = mMiddleButtonSpriteState;
+			toolRotateButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.middleButton.spriteState;
             toolRotateButton.onClick.AddListener(mScript.OnToolRotateClicked);
             #endregion
 
@@ -513,7 +467,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             toolScaleButton.targetGraphic = toolScaleImage;
             toolScaleButton.transition    = Selectable.Transition.SpriteSwap;
-            toolScaleButton.spriteState   = mMiddleButtonSpriteState;
+            toolScaleButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.middleButton.spriteState;
             toolScaleButton.onClick.AddListener(mScript.OnToolScaleClicked);
             #endregion
 
@@ -593,7 +547,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             toolRectTransformButton.targetGraphic = toolRectTransformImage;
             toolRectTransformButton.transition    = Selectable.Transition.SpriteSwap;
-            toolRectTransformButton.spriteState   = mRightButtonSpriteState;
+			toolRectTransformButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.rightButton.spriteState;
             toolRectTransformButton.onClick.AddListener(mScript.OnToolRectTransformClicked);
             #endregion
 
@@ -704,7 +658,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             pointButton.targetGraphic = pointImage;
             pointButton.transition    = Selectable.Transition.SpriteSwap;
-            pointButton.spriteState   = mLeftButtonSpriteState;
+            pointButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.leftButton.spriteState;
             pointButton.onClick.AddListener(mScript.OnBasePointClicked);
             #endregion
 
@@ -816,7 +770,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             coordinateSystemButton.targetGraphic = coordinateSystemImage;
             coordinateSystemButton.transition    = Selectable.Transition.SpriteSwap;
-            coordinateSystemButton.spriteState   = mRightButtonSpriteState;
+            coordinateSystemButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.rightButton.spriteState;
             coordinateSystemButton.onClick.AddListener(mScript.OnCoordinateSystemClicked);
             #endregion
 
@@ -1015,7 +969,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             layersButton.targetGraphic = layersImage;
             layersButton.transition    = Selectable.Transition.SpriteSwap;
-            layersButton.spriteState   = mPopupSpriteState;
+			layersButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.popup.spriteState;
             layersButton.onClick.AddListener(mScript.OnLayersClicked);
             #endregion
 
@@ -1099,7 +1053,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             layoutButton.targetGraphic = layoutImage;
             layoutButton.transition    = Selectable.Transition.SpriteSwap;
-            layoutButton.spriteState   = mPopupSpriteState;
+			layoutButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.popup.spriteState;
             layoutButton.onClick.AddListener(mScript.OnLayoutClicked);
             #endregion
 
@@ -1248,7 +1202,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             playButton.targetGraphic = playImage;
             playButton.transition    = Selectable.Transition.SpriteSwap;
-            playButton.spriteState   = mLeftButtonSpriteState;
+            playButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.leftButton.spriteState;
             playButton.onClick.AddListener(mScript.OnPlayClicked);
             #endregion
 
@@ -1328,7 +1282,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             pauseButton.targetGraphic = pauseImage;
             pauseButton.transition    = Selectable.Transition.SpriteSwap;
-            pauseButton.spriteState   = mMiddleButtonSpriteState;
+            pauseButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.middleButton.spriteState;
             pauseButton.onClick.AddListener(mScript.OnPauseClicked);
             #endregion
 
@@ -1408,7 +1362,7 @@ namespace UI.Windows.MainWindow.Toolbar
 
             stepButton.targetGraphic = stepImage;
             stepButton.transition    = Selectable.Transition.SpriteSwap;
-            stepButton.spriteState   = mRightButtonSpriteState;
+            stepButton.spriteState   = Assets.Windows.MainWindow.Toolbar.SpriteStates.rightButton.spriteState;
             stepButton.onClick.AddListener(mScript.OnStepClicked);
             #endregion
 
