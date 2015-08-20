@@ -101,7 +101,7 @@ public static class Assets
 		public static class Windows
 		{
 			/// <summary>
-			/// Common color assets for Windows.
+			/// Color assets for Windows.
 			/// </summary>
 			public static class Colors
 			{
@@ -127,7 +127,7 @@ public static class Assets
 			}
 			
 			/// <summary>
-			/// Common text style assets for Windows.
+			/// Text style assets for Windows.
 			/// </summary>
 			public static class TextStyles
 			{
@@ -153,7 +153,7 @@ public static class Assets
 			}
 			
 			/// <summary>
-			/// Common texture assets for Windows.
+			/// Texture assets for Windows.
 			/// </summary>
 			public static class Textures
 			{
@@ -244,6 +244,40 @@ public static class Assets
 				}
 			}
 
+			/// <summary>
+			/// State sprites assets for Windows.
+			/// </summary>
+			public static class SpriteStates
+			{
+				public static SpriteStateLoader minimizeButton;
+				public static SpriteStateLoader maximizeButton;
+				public static SpriteStateLoader normalizeButton;
+				public static SpriteStateLoader closeButton;
+				public static SpriteStateLoader toolCloseButton;
+				
+				
+				
+				/// <summary>
+				/// Initializes the <see cref="Assets+Common+Windows+SpriteStates"/> class.
+				/// </summary>
+				static SpriteStates()
+				{
+					ResetValues();
+				}
+				
+				/// <summary>
+				/// Resets values.
+				/// </summary>
+				public static void ResetValues()
+				{
+					minimizeButton  = new SpriteStateLoader(Textures.minimizeButtonDisabled,  Textures.minimizeButtonHighlighted,  Textures.minimizeButtonPressed);
+					maximizeButton  = new SpriteStateLoader(Textures.maximizeButtonDisabled,  Textures.maximizeButtonHighlighted,  Textures.maximizeButtonPressed);
+					normalizeButton = new SpriteStateLoader(Textures.normalizeButtonDisabled, Textures.normalizeButtonHighlighted, Textures.normalizeButtonPressed);
+					closeButton     = new SpriteStateLoader(Textures.closeButtonDisabled,     Textures.closeButtonHighlighted,     Textures.closeButtonPressed);
+					toolCloseButton = new SpriteStateLoader(Textures.toolCloseButtonDisabled, Textures.toolCloseButtonHighlighted, Textures.toolCloseButtonPressed);
+				}
+			}
+
 
 
 			/// <summary>
@@ -254,6 +288,7 @@ public static class Assets
 				Colors.ResetValues();
 				TextStyles.ResetValues();
 				Textures.ResetValues();
+				SpriteStates.ResetValues();
 			}
 		}
 		#endregion
@@ -404,6 +439,44 @@ public static class Assets
 				}
 			}
 
+			/// <summary>
+			/// State sprites assets for DockWidgets.
+			/// </summary>
+			public static class SpriteStates
+			{
+				public static SpriteStateLoader button;
+				public static SpriteStateLoader activeButton;
+				public static SpriteStateLoader maximizeButton;
+				public static SpriteStateLoader closeButton;
+				public static SpriteStateLoader unlockedButton;
+				public static SpriteStateLoader lockedButton;
+				public static SpriteStateLoader contextMenuButton;
+				
+				
+				
+				/// <summary>
+				/// Initializes the <see cref="Assets+Common+DockWidgets+SpriteStates"/> class.
+				/// </summary>
+				static SpriteStates()
+				{
+					ResetValues();
+				}
+				
+				/// <summary>
+				/// Resets values.
+				/// </summary>
+				public static void ResetValues()
+				{
+					button            = new SpriteStateLoader(Textures.tabDisabled,               Textures.tabHighlighted,               Textures.tabPressed);
+					activeButton      = new SpriteStateLoader(Textures.tabActiveDisabled,         Textures.tabActiveHighlighted,         Textures.tabActivePressed);
+					maximizeButton    = new SpriteStateLoader(Textures.maximizeButtonDisabled,    Textures.maximizeButtonHighlighted,    Textures.maximizeButtonPressed);
+					closeButton       = new SpriteStateLoader(Textures.closeButtonDisabled,       Textures.closeButtonHighlighted,       Textures.closeButtonPressed);
+					unlockedButton    = new SpriteStateLoader(Textures.unlockedButtonDisabled,    Textures.unlockedButtonHighlighted,    Textures.unlockedButtonPressed);
+					lockedButton      = new SpriteStateLoader(Textures.lockedButtonDisabled,      Textures.lockedButtonHighlighted,      Textures.lockedButtonPressed);
+					contextMenuButton = new SpriteStateLoader(Textures.contextMenuButtonDisabled, Textures.contextMenuButtonHighlighted, Textures.contextMenuButtonPressed);
+				}
+			}
+
 
 
 			/// <summary>
@@ -414,6 +487,7 @@ public static class Assets
 				Colors.ResetValues();
 				TextStyles.ResetValues();
 				Textures.ResetValues();
+				SpriteStates.ResetValues();
 			}
 		}
 		#endregion
@@ -494,6 +568,33 @@ public static class Assets
 				}
 			}
 
+			/// <summary>
+			/// State sprites assets for Popus.
+			/// </summary>
+			public static class SpriteStates
+			{
+				public static SpriteStateLoader button;
+				public static SpriteStateLoader buttonDisabled;
+				
+				
+				
+				/// <summary>
+				/// Initializes the <see cref="Assets+Common+Popups+SpriteStates"/> class.
+				/// </summary>
+				static SpriteStates()
+				{
+					ResetValues();
+				}
+				
+				/// <summary>
+				/// Resets values.
+				/// </summary>
+				public static void ResetValues()
+				{
+					button         = new SpriteStateLoader(Textures.button, Textures.buttonHighlighted, Textures.buttonPressed);
+					buttonDisabled = new SpriteStateLoader(Textures.button, Textures.buttonDisabled,    Textures.buttonDisabled);
+				}
+			}
 
 
 			/// <summary>
@@ -503,6 +604,7 @@ public static class Assets
 			{
 				TextStyles.ResetValues();
 				Textures.ResetValues();
+				SpriteStates.ResetValues();
 			}
 		}
 		#endregion
@@ -773,6 +875,32 @@ public static class Assets
 					}
                 }
 
+				/// <summary>
+				/// State sprites assets for MainMenu.
+				/// </summary>
+				public static class SpriteStates
+				{
+					public static SpriteStateLoader button;
+
+					
+					
+					/// <summary>
+					/// Initializes the <see cref="Assets+Windows+MainWindow+MainMenu+SpriteStates"/> class.
+					/// </summary>
+					static SpriteStates()
+					{
+						ResetValues();
+					}
+					
+					/// <summary>
+					/// Resets values.
+					/// </summary>
+					public static void ResetValues()
+					{
+						button = new SpriteStateLoader(Textures.buttonDisabled, Textures.buttonHighlighted, Textures.buttonPressed);
+					}
+				}
+
 
 
 				/// <summary>
@@ -782,6 +910,7 @@ public static class Assets
 				{
 					TextStyles.ResetValues();
 					Textures.ResetValues();
+					SpriteStates.ResetValues();
 				}
             }
             #endregion
