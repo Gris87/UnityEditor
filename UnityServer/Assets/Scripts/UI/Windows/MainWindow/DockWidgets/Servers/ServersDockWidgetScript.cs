@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         private ServersDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.Servers.Textures.icon;
+            image   = Assets.Windows.MainWindow.DockWidgets.Servers.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.servers;
         }
 

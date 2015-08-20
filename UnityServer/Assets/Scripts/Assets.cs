@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Common;
 using Common.App;
-using Common.UI.ResourceTypes;
+using Common.App.ResourceTypes.Loaders;
 
 
 
@@ -66,10 +66,10 @@ public static class Assets
 		/// </summary>
 		public static class Cursors
 		{
-			public static Texture2D eastWest;
-			public static Texture2D northEastSouthWest;
-			public static Texture2D northSouth;
-			public static Texture2D northWestSouthEast;
+			public static ScaledTexture2DLoader eastWest;
+			public static ScaledTexture2DLoader northEastSouthWest;
+			public static ScaledTexture2DLoader northSouth;
+			public static ScaledTexture2DLoader northWestSouthEast;
 
 
 
@@ -86,10 +86,10 @@ public static class Assets
 			/// </summary>
 			public static void ResetValues()
 			{
-				eastWest           = AssetUtils.LoadScaledTexture2D("Common/Cursors/EastWest");
-				northEastSouthWest = AssetUtils.LoadScaledTexture2D("Common/Cursors/NorthEastSouthWest");
-				northSouth         = AssetUtils.LoadScaledTexture2D("Common/Cursors/NorthSouth");
-				northWestSouthEast = AssetUtils.LoadScaledTexture2D("Common/Cursors/NorthWestSouthEast");
+				eastWest           = new ScaledTexture2DLoader("Common/Cursors/EastWest");
+				northEastSouthWest = new ScaledTexture2DLoader("Common/Cursors/NorthEastSouthWest");
+				northSouth         = new ScaledTexture2DLoader("Common/Cursors/NorthSouth");
+				northWestSouthEast = new ScaledTexture2DLoader("Common/Cursors/NorthWestSouthEast");
 			}
 		}
 		#endregion
@@ -131,7 +131,7 @@ public static class Assets
 			/// </summary>
 			public static class TextStyles
 			{
-				public static TextStyle title;
+				public static TextStyleLoader title;
 
 
 
@@ -148,7 +148,7 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					title = AssetUtils.LoadTextStyle("Common/TextStyles/UI/Windows/Title");
+					title = new TextStyleLoader("Common/TextStyles/UI/Windows/Title");
 				}
 			}
 			
@@ -157,40 +157,40 @@ public static class Assets
 			/// </summary>
 			public static class Textures
 			{
-				public static Sprite window;
-				public static Sprite windowDeselected;
-				public static Sprite subWindow;
-				public static Sprite subWindowDeselected;
-				public static Sprite drawer;
-				public static Sprite drawerDeselected;
-				public static Sprite singleFrame;
-				public static Sprite singleFrameDeselected;
-				public static Sprite minimizeButton;
-				public static Sprite minimizeButtonDeselected;
-				public static Sprite minimizeButtonDisabled;
-				public static Sprite minimizeButtonHighlighted;
-				public static Sprite minimizeButtonPressed;
-				public static Sprite maximizeButton;
-				public static Sprite maximizeButtonDeselected;
-				public static Sprite maximizeButtonDisabled;
-				public static Sprite maximizeButtonHighlighted;
-				public static Sprite maximizeButtonPressed;
-				public static Sprite normalizeButton;
-				public static Sprite normalizeButtonDeselected;
-				public static Sprite normalizeButtonDisabled;
-				public static Sprite normalizeButtonHighlighted;
-				public static Sprite normalizeButtonPressed;
-				public static Sprite closeButton;
-				public static Sprite closeButtonDeselected;
-				public static Sprite closeButtonDisabled;
-				public static Sprite closeButtonHighlighted;
-				public static Sprite closeButtonPressed;
-				public static Sprite toolCloseButton;
-				public static Sprite toolCloseButtonDeselected;
-				public static Sprite toolCloseButtonDisabled;
-				public static Sprite toolCloseButtonHighlighted;
-				public static Sprite toolCloseButtonPressed;
-				public static Sprite replacement;
+				public static SpriteLoader window;
+				public static SpriteLoader windowDeselected;
+				public static SpriteLoader subWindow;
+				public static SpriteLoader subWindowDeselected;
+				public static SpriteLoader drawer;
+				public static SpriteLoader drawerDeselected;
+				public static SpriteLoader singleFrame;
+				public static SpriteLoader singleFrameDeselected;
+				public static SpriteLoader minimizeButton;
+				public static SpriteLoader minimizeButtonDeselected;
+				public static SpriteLoader minimizeButtonDisabled;
+				public static SpriteLoader minimizeButtonHighlighted;
+				public static SpriteLoader minimizeButtonPressed;
+				public static SpriteLoader maximizeButton;
+				public static SpriteLoader maximizeButtonDeselected;
+				public static SpriteLoader maximizeButtonDisabled;
+				public static SpriteLoader maximizeButtonHighlighted;
+				public static SpriteLoader maximizeButtonPressed;
+				public static SpriteLoader normalizeButton;
+				public static SpriteLoader normalizeButtonDeselected;
+				public static SpriteLoader normalizeButtonDisabled;
+				public static SpriteLoader normalizeButtonHighlighted;
+				public static SpriteLoader normalizeButtonPressed;
+				public static SpriteLoader closeButton;
+				public static SpriteLoader closeButtonDeselected;
+				public static SpriteLoader closeButtonDisabled;
+				public static SpriteLoader closeButtonHighlighted;
+				public static SpriteLoader closeButtonPressed;
+				public static SpriteLoader toolCloseButton;
+				public static SpriteLoader toolCloseButtonDeselected;
+				public static SpriteLoader toolCloseButtonDisabled;
+				public static SpriteLoader toolCloseButtonHighlighted;
+				public static SpriteLoader toolCloseButtonPressed;
+				public static SpriteLoader replacement;
 
 
 
@@ -207,40 +207,40 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					window                     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/Window");
-					windowDeselected           = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/WindowDeselected");
-					subWindow                  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/SubWindow");
-					subWindowDeselected        = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/SubWindowDeselected");
-					drawer                     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/Drawer");
-					drawerDeselected           = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/DrawerDeselected");
-					singleFrame                = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/SingleFrame");
-					singleFrameDeselected      = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/SingleFrameDeselected");
-					minimizeButton             = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButton");
-					minimizeButtonDeselected   = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonDeselected");
-					minimizeButtonDisabled     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonDisabled");
-					minimizeButtonHighlighted  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonHighlighted");
-					minimizeButtonPressed      = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MinimizeButtonPressed");
-					maximizeButton             = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButton");
-					maximizeButtonDeselected   = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonDeselected");
-					maximizeButtonDisabled     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonDisabled");
-					maximizeButtonHighlighted  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonHighlighted");
-					maximizeButtonPressed      = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/MaximizeButtonPressed");
-					normalizeButton            = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButton");
-					normalizeButtonDeselected  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonDeselected");
-					normalizeButtonDisabled    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonDisabled");
-					normalizeButtonHighlighted = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonHighlighted");
-					normalizeButtonPressed     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/NormalizeButtonPressed");
-					closeButton                = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButton");
-					closeButtonDeselected      = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonDeselected");
-					closeButtonDisabled        = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonDisabled");
-					closeButtonHighlighted     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonHighlighted");
-					closeButtonPressed         = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/CloseButtonPressed");
-					toolCloseButton            = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButton");
-					toolCloseButtonDeselected  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonDeselected");
-					toolCloseButtonDisabled    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonDisabled");
-					toolCloseButtonHighlighted = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonHighlighted");
-					toolCloseButtonPressed     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/ToolCloseButtonPressed");
-					replacement                = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Windows/Replacement");
+					window                     = new SpriteLoader("Common/Textures/UI/Windows/Window");
+					windowDeselected           = new SpriteLoader("Common/Textures/UI/Windows/WindowDeselected");
+					subWindow                  = new SpriteLoader("Common/Textures/UI/Windows/SubWindow");
+					subWindowDeselected        = new SpriteLoader("Common/Textures/UI/Windows/SubWindowDeselected");
+					drawer                     = new SpriteLoader("Common/Textures/UI/Windows/Drawer");
+					drawerDeselected           = new SpriteLoader("Common/Textures/UI/Windows/DrawerDeselected");
+					singleFrame                = new SpriteLoader("Common/Textures/UI/Windows/SingleFrame");
+					singleFrameDeselected      = new SpriteLoader("Common/Textures/UI/Windows/SingleFrameDeselected");
+					minimizeButton             = new SpriteLoader("Common/Textures/UI/Windows/MinimizeButton");
+					minimizeButtonDeselected   = new SpriteLoader("Common/Textures/UI/Windows/MinimizeButtonDeselected");
+					minimizeButtonDisabled     = new SpriteLoader("Common/Textures/UI/Windows/MinimizeButtonDisabled");
+					minimizeButtonHighlighted  = new SpriteLoader("Common/Textures/UI/Windows/MinimizeButtonHighlighted");
+					minimizeButtonPressed      = new SpriteLoader("Common/Textures/UI/Windows/MinimizeButtonPressed");
+					maximizeButton             = new SpriteLoader("Common/Textures/UI/Windows/MaximizeButton");
+					maximizeButtonDeselected   = new SpriteLoader("Common/Textures/UI/Windows/MaximizeButtonDeselected");
+					maximizeButtonDisabled     = new SpriteLoader("Common/Textures/UI/Windows/MaximizeButtonDisabled");
+					maximizeButtonHighlighted  = new SpriteLoader("Common/Textures/UI/Windows/MaximizeButtonHighlighted");
+					maximizeButtonPressed      = new SpriteLoader("Common/Textures/UI/Windows/MaximizeButtonPressed");
+					normalizeButton            = new SpriteLoader("Common/Textures/UI/Windows/NormalizeButton");
+					normalizeButtonDeselected  = new SpriteLoader("Common/Textures/UI/Windows/NormalizeButtonDeselected");
+					normalizeButtonDisabled    = new SpriteLoader("Common/Textures/UI/Windows/NormalizeButtonDisabled");
+					normalizeButtonHighlighted = new SpriteLoader("Common/Textures/UI/Windows/NormalizeButtonHighlighted");
+					normalizeButtonPressed     = new SpriteLoader("Common/Textures/UI/Windows/NormalizeButtonPressed");
+					closeButton                = new SpriteLoader("Common/Textures/UI/Windows/CloseButton");
+					closeButtonDeselected      = new SpriteLoader("Common/Textures/UI/Windows/CloseButtonDeselected");
+					closeButtonDisabled        = new SpriteLoader("Common/Textures/UI/Windows/CloseButtonDisabled");
+					closeButtonHighlighted     = new SpriteLoader("Common/Textures/UI/Windows/CloseButtonHighlighted");
+					closeButtonPressed         = new SpriteLoader("Common/Textures/UI/Windows/CloseButtonPressed");
+					toolCloseButton            = new SpriteLoader("Common/Textures/UI/Windows/ToolCloseButton");
+					toolCloseButtonDeselected  = new SpriteLoader("Common/Textures/UI/Windows/ToolCloseButtonDeselected");
+					toolCloseButtonDisabled    = new SpriteLoader("Common/Textures/UI/Windows/ToolCloseButtonDisabled");
+					toolCloseButtonHighlighted = new SpriteLoader("Common/Textures/UI/Windows/ToolCloseButtonHighlighted");
+					toolCloseButtonPressed     = new SpriteLoader("Common/Textures/UI/Windows/ToolCloseButtonPressed");
+					replacement                = new SpriteLoader("Common/Textures/UI/Windows/Replacement");
 				}
 			}
 
@@ -299,7 +299,7 @@ public static class Assets
 			/// </summary>
 			public static class TextStyles
 			{
-				public static TextStyle title;
+				public static TextStyleLoader title;
 
 
 
@@ -316,7 +316,7 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					title = AssetUtils.LoadTextStyle("Common/TextStyles/UI/DockWidgets/Title");
+					title = new TextStyleLoader("Common/TextStyles/UI/DockWidgets/Title");
 				}
 			}
 			
@@ -325,36 +325,36 @@ public static class Assets
 			/// </summary>
 			public static class Textures
 			{
-				public static Sprite tab;
-				public static Sprite tabDisabled;
-				public static Sprite tabHighlighted;
-				public static Sprite tabPressed;
-				public static Sprite tabActive;
-				public static Sprite tabActiveDisabled;
-				public static Sprite tabActiveHighlighted;
-				public static Sprite tabActivePressed;
-				public static Sprite icon;
-				public static Sprite pageBackground;
-				public static Sprite maximizeButton;
-				public static Sprite maximizeButtonDisabled;
-				public static Sprite maximizeButtonHighlighted;
-				public static Sprite maximizeButtonPressed;
-				public static Sprite closeButton;
-				public static Sprite closeButtonDisabled;
-				public static Sprite closeButtonHighlighted;
-				public static Sprite closeButtonPressed;
-				public static Sprite unlockedButton;
-				public static Sprite unlockedButtonDisabled;
-				public static Sprite unlockedButtonHighlighted;
-				public static Sprite unlockedButtonPressed;
-				public static Sprite lockedButton;
-				public static Sprite lockedButtonDisabled;
-				public static Sprite lockedButtonHighlighted;
-				public static Sprite lockedButtonPressed;
-				public static Sprite contextMenuButton;
-				public static Sprite contextMenuButtonDisabled;
-				public static Sprite contextMenuButtonHighlighted;
-				public static Sprite contextMenuButtonPressed;
+				public static SpriteLoader tab;
+				public static SpriteLoader tabDisabled;
+				public static SpriteLoader tabHighlighted;
+				public static SpriteLoader tabPressed;
+				public static SpriteLoader tabActive;
+				public static SpriteLoader tabActiveDisabled;
+				public static SpriteLoader tabActiveHighlighted;
+				public static SpriteLoader tabActivePressed;
+				public static SpriteLoader icon;
+				public static SpriteLoader pageBackground;
+				public static SpriteLoader maximizeButton;
+				public static SpriteLoader maximizeButtonDisabled;
+				public static SpriteLoader maximizeButtonHighlighted;
+				public static SpriteLoader maximizeButtonPressed;
+				public static SpriteLoader closeButton;
+				public static SpriteLoader closeButtonDisabled;
+				public static SpriteLoader closeButtonHighlighted;
+				public static SpriteLoader closeButtonPressed;
+				public static SpriteLoader unlockedButton;
+				public static SpriteLoader unlockedButtonDisabled;
+				public static SpriteLoader unlockedButtonHighlighted;
+				public static SpriteLoader unlockedButtonPressed;
+				public static SpriteLoader lockedButton;
+				public static SpriteLoader lockedButtonDisabled;
+				public static SpriteLoader lockedButtonHighlighted;
+				public static SpriteLoader lockedButtonPressed;
+				public static SpriteLoader contextMenuButton;
+				public static SpriteLoader contextMenuButtonDisabled;
+				public static SpriteLoader contextMenuButtonHighlighted;
+				public static SpriteLoader contextMenuButtonPressed;
 
 
 
@@ -371,36 +371,36 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					tab                          = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/Tab");
-					tabDisabled                  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabDisabled");
-					tabHighlighted               = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabHighlighted");
-					tabPressed                   = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabPressed");
-					tabActive                    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActive");
-					tabActiveDisabled            = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActiveDisabled");
-					tabActiveHighlighted         = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActiveHighlighted");
-					tabActivePressed             = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/TabActivePressed");
-					icon                         = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/Icon");
-					pageBackground               = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/PageBackground");
-					maximizeButton               = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButton");
-					maximizeButtonDisabled       = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButtonDisabled");
-					maximizeButtonHighlighted    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButtonHighlighted");
-					maximizeButtonPressed        = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/MaximizeButtonPressed");
-					closeButton                  = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButton");
-					closeButtonDisabled          = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButtonDisabled");
-					closeButtonHighlighted       = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButtonHighlighted");
-					closeButtonPressed           = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/CloseButtonPressed");
-					unlockedButton               = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButton");
-					unlockedButtonDisabled       = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButtonDisabled");
-					unlockedButtonHighlighted    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButtonHighlighted");
-					unlockedButtonPressed        = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/UnlockedButtonPressed");
-					lockedButton                 = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButton");
-					lockedButtonDisabled         = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButtonDisabled");
-					lockedButtonHighlighted      = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButtonHighlighted");
-					lockedButtonPressed          = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/LockedButtonPressed");
-					contextMenuButton            = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButton");
-					contextMenuButtonDisabled    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButtonDisabled");
-					contextMenuButtonHighlighted = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButtonHighlighted");
-					contextMenuButtonPressed     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/DockWidgets/ContextMenuButtonPressed");
+					tab                          = new SpriteLoader("Common/Textures/UI/DockWidgets/Tab");
+					tabDisabled                  = new SpriteLoader("Common/Textures/UI/DockWidgets/TabDisabled");
+					tabHighlighted               = new SpriteLoader("Common/Textures/UI/DockWidgets/TabHighlighted");
+					tabPressed                   = new SpriteLoader("Common/Textures/UI/DockWidgets/TabPressed");
+					tabActive                    = new SpriteLoader("Common/Textures/UI/DockWidgets/TabActive");
+					tabActiveDisabled            = new SpriteLoader("Common/Textures/UI/DockWidgets/TabActiveDisabled");
+					tabActiveHighlighted         = new SpriteLoader("Common/Textures/UI/DockWidgets/TabActiveHighlighted");
+					tabActivePressed             = new SpriteLoader("Common/Textures/UI/DockWidgets/TabActivePressed");
+					icon                         = new SpriteLoader("Common/Textures/UI/DockWidgets/Icon");
+					pageBackground               = new SpriteLoader("Common/Textures/UI/DockWidgets/PageBackground");
+					maximizeButton               = new SpriteLoader("Common/Textures/UI/DockWidgets/MaximizeButton");
+					maximizeButtonDisabled       = new SpriteLoader("Common/Textures/UI/DockWidgets/MaximizeButtonDisabled");
+					maximizeButtonHighlighted    = new SpriteLoader("Common/Textures/UI/DockWidgets/MaximizeButtonHighlighted");
+					maximizeButtonPressed        = new SpriteLoader("Common/Textures/UI/DockWidgets/MaximizeButtonPressed");
+					closeButton                  = new SpriteLoader("Common/Textures/UI/DockWidgets/CloseButton");
+					closeButtonDisabled          = new SpriteLoader("Common/Textures/UI/DockWidgets/CloseButtonDisabled");
+					closeButtonHighlighted       = new SpriteLoader("Common/Textures/UI/DockWidgets/CloseButtonHighlighted");
+					closeButtonPressed           = new SpriteLoader("Common/Textures/UI/DockWidgets/CloseButtonPressed");
+					unlockedButton               = new SpriteLoader("Common/Textures/UI/DockWidgets/UnlockedButton");
+					unlockedButtonDisabled       = new SpriteLoader("Common/Textures/UI/DockWidgets/UnlockedButtonDisabled");
+					unlockedButtonHighlighted    = new SpriteLoader("Common/Textures/UI/DockWidgets/UnlockedButtonHighlighted");
+					unlockedButtonPressed        = new SpriteLoader("Common/Textures/UI/DockWidgets/UnlockedButtonPressed");
+					lockedButton                 = new SpriteLoader("Common/Textures/UI/DockWidgets/LockedButton");
+					lockedButtonDisabled         = new SpriteLoader("Common/Textures/UI/DockWidgets/LockedButtonDisabled");
+					lockedButtonHighlighted      = new SpriteLoader("Common/Textures/UI/DockWidgets/LockedButtonHighlighted");
+					lockedButtonPressed          = new SpriteLoader("Common/Textures/UI/DockWidgets/LockedButtonPressed");
+					contextMenuButton            = new SpriteLoader("Common/Textures/UI/DockWidgets/ContextMenuButton");
+					contextMenuButtonDisabled    = new SpriteLoader("Common/Textures/UI/DockWidgets/ContextMenuButtonDisabled");
+					contextMenuButtonHighlighted = new SpriteLoader("Common/Textures/UI/DockWidgets/ContextMenuButtonHighlighted");
+					contextMenuButtonPressed     = new SpriteLoader("Common/Textures/UI/DockWidgets/ContextMenuButtonPressed");
 				}
 			}
 
@@ -429,8 +429,8 @@ public static class Assets
 			/// </summary>
 			public static class TextStyles
 			{
-				public static TextStyle button;
-				public static TextStyle buttonDisabled;
+				public static TextStyleLoader button;
+				public static TextStyleLoader buttonDisabled;
 
 
 
@@ -447,8 +447,8 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					button         = AssetUtils.LoadTextStyle("Common/TextStyles/UI/Popups/Button");
-					buttonDisabled = AssetUtils.LoadTextStyle("Common/TextStyles/UI/Popups/ButtonDisabled");
+					button         = new TextStyleLoader("Common/TextStyles/UI/Popups/Button");
+					buttonDisabled = new TextStyleLoader("Common/TextStyles/UI/Popups/ButtonDisabled");
 				}
 			}
 			
@@ -457,15 +457,15 @@ public static class Assets
 			/// </summary>
 			public static class Textures
 			{
-				public static Sprite popupBackground;
-				public static Sprite background;
-				public static Sprite separator;
-				public static Sprite button;
-				public static Sprite buttonDisabled;
-				public static Sprite buttonHighlighted;
-				public static Sprite buttonPressed;
-				public static Sprite arrow;
-				public static Sprite checkbox;
+				public static SpriteLoader popupBackground;
+				public static SpriteLoader background;
+				public static SpriteLoader separator;
+				public static SpriteLoader button;
+				public static SpriteLoader buttonDisabled;
+				public static SpriteLoader buttonHighlighted;
+				public static SpriteLoader buttonPressed;
+				public static SpriteLoader arrow;
+				public static SpriteLoader checkbox;
 
 
 
@@ -482,15 +482,15 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					popupBackground   = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/PopupBackground");
-					background        = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/Background");
-					separator         = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/Separator");
-					button            = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/Button");
-					buttonDisabled    = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/ButtonDisabled");
-					buttonHighlighted = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/ButtonHighlighted");
-					buttonPressed     = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/ButtonPressed");
-					arrow             = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/Arrow");
-					checkbox          = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Popups/Checkbox");
+					popupBackground   = new SpriteLoader("Common/Textures/UI/Popups/PopupBackground");
+					background        = new SpriteLoader("Common/Textures/UI/Popups/Background");
+					separator         = new SpriteLoader("Common/Textures/UI/Popups/Separator");
+					button            = new SpriteLoader("Common/Textures/UI/Popups/Button");
+					buttonDisabled    = new SpriteLoader("Common/Textures/UI/Popups/ButtonDisabled");
+					buttonHighlighted = new SpriteLoader("Common/Textures/UI/Popups/ButtonHighlighted");
+					buttonPressed     = new SpriteLoader("Common/Textures/UI/Popups/ButtonPressed");
+					arrow             = new SpriteLoader("Common/Textures/UI/Popups/Arrow");
+					checkbox          = new SpriteLoader("Common/Textures/UI/Popups/Checkbox");
 				}
 			}
 
@@ -518,7 +518,7 @@ public static class Assets
 			/// </summary>
 			public static class TextStyles
 			{
-				public static TextStyle tooltipText;
+				public static TextStyleLoader tooltipText;
 
 
 
@@ -535,7 +535,7 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					tooltipText = AssetUtils.LoadTextStyle("Common/TextStyles/UI/Tooltips/TooltipText");
+					tooltipText = new TextStyleLoader("Common/TextStyles/UI/Tooltips/TooltipText");
 				}
 			}
 			
@@ -544,7 +544,7 @@ public static class Assets
 			/// </summary>
 			public static class Textures
 			{
-				public static Sprite tooltipBackground;
+				public static SpriteLoader tooltipBackground;
 
 
 
@@ -561,7 +561,7 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					tooltipBackground = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Tooltips/TooltipBackground");
+					tooltipBackground = new SpriteLoader("Common/Textures/UI/Tooltips/TooltipBackground");
 				}
 			}
 
@@ -589,7 +589,7 @@ public static class Assets
 			/// </summary>
 			public static class TextStyles
 			{
-				public static TextStyle toastText;
+				public static TextStyleLoader toastText;
 
 
 
@@ -606,7 +606,7 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					toastText = AssetUtils.LoadTextStyle("Common/TextStyles/UI/Toasts/ToastText");
+					toastText = new TextStyleLoader("Common/TextStyles/UI/Toasts/ToastText");
 				}
 			}
 			
@@ -615,7 +615,7 @@ public static class Assets
 			/// </summary>
 			public static class Textures
 			{
-				public static Sprite toastBackground;
+				public static SpriteLoader toastBackground;
 
 
 
@@ -632,7 +632,7 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					toastBackground = AssetUtils.LoadResource<Sprite>("Common/Textures/UI/Toasts/ToastBackground");
+					toastBackground = new SpriteLoader("Common/Textures/UI/Toasts/ToastBackground");
 				}
 			}
 
@@ -718,7 +718,7 @@ public static class Assets
                 /// </summary>
                 public static class TextStyles
                 {
-                    public static TextStyle button;
+                    public static TextStyleLoader button;
 
 
 
@@ -735,7 +735,7 @@ public static class Assets
 					/// </summary>
 					public static void ResetValues()
 					{
-						button = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/MainWindow/MainMenu/Button");
+						button = new TextStyleLoader("TextStyles/UI/Windows/MainWindow/MainMenu/Button");
 					}
                 }
 
@@ -744,11 +744,11 @@ public static class Assets
                 /// </summary>
                 public static class Textures
                 {
-                    public static Sprite background;
-                    public static Sprite button;
-                    public static Sprite buttonDisabled;
-                    public static Sprite buttonHighlighted;
-                    public static Sprite buttonPressed;
+                    public static SpriteLoader background;
+                    public static SpriteLoader button;
+                    public static SpriteLoader buttonDisabled;
+                    public static SpriteLoader buttonHighlighted;
+                    public static SpriteLoader buttonPressed;
 
 
 
@@ -765,11 +765,11 @@ public static class Assets
 					/// </summary>
 					public static void ResetValues()
 					{
-						background        = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/Background");
-						button            = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/Button");
-						buttonDisabled    = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonDisabled");
-						buttonHighlighted = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonHighlighted");
-						buttonPressed     = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/MainWindow/MainMenu/ButtonPressed");
+						background        = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/Background");
+						button            = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/Button");
+						buttonDisabled    = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/ButtonDisabled");
+						buttonHighlighted = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/ButtonHighlighted");
+						buttonPressed     = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/ButtonPressed");
 					}
                 }
 
@@ -829,7 +829,7 @@ public static class Assets
                     /// </summary>
                     public static class Textures
                     {
-						public static Sprite icon;
+						public static SpriteLoader icon;
 
 
 
@@ -846,7 +846,7 @@ public static class Assets
 						/// </summary>
 						public static void ResetValues()
 						{
-							icon = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/MainWindow/DockWidgets/Servers/Icon");
+							icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Servers/Icon");
 						}
                     }
 
@@ -926,14 +926,14 @@ public static class Assets
             /// </summary>
             public static class TextStyles
             {
-                public static TextStyle version;
-                public static TextStyle credits;
-                public static TextStyle monoLogo;
-                public static TextStyle monoLogo2;
-                public static TextStyle physXLogo;
-                public static TextStyle physXLogo2;
-                public static TextStyle copyright;
-                public static TextStyle license;
+                public static TextStyleLoader version;
+                public static TextStyleLoader credits;
+                public static TextStyleLoader monoLogo;
+                public static TextStyleLoader monoLogo2;
+                public static TextStyleLoader physXLogo;
+                public static TextStyleLoader physXLogo2;
+                public static TextStyleLoader copyright;
+                public static TextStyleLoader license;
 
 
 
@@ -950,14 +950,14 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					version    = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/Version");
-					credits    = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/Credits");
-					monoLogo   = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/MonoLogo");
-					monoLogo2  = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/MonoLogo2");
-					physXLogo  = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/PhysXLogo");
-					physXLogo2 = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/PhysXLogo2");
-					copyright  = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/Copyright");
-					license    = AssetUtils.LoadTextStyle("TextStyles/UI/Windows/AboutDialog/License");
+					version    = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/Version");
+					credits    = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/Credits");
+					monoLogo   = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/MonoLogo");
+					monoLogo2  = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/MonoLogo2");
+					physXLogo  = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/PhysXLogo");
+					physXLogo2 = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/PhysXLogo2");
+					copyright  = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/Copyright");
+					license    = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/License");
 				}
             }
 
@@ -966,9 +966,9 @@ public static class Assets
             /// </summary>
             public static class Textures
             {
-                public static Sprite unity;
-                public static Sprite mono;
-                public static Sprite physX;
+                public static SpriteLoader unity;
+                public static SpriteLoader mono;
+                public static SpriteLoader physX;
 
 
 
@@ -985,9 +985,9 @@ public static class Assets
 				/// </summary>
 				public static void ResetValues()
 				{
-					unity = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/AboutDialog/Unity");
-					mono  = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/AboutDialog/Mono");
-					physX = AssetUtils.LoadResource<Sprite>("Textures/UI/Windows/AboutDialog/PhysX");
+					unity = new SpriteLoader("Textures/UI/Windows/AboutDialog/Unity");
+					mono  = new SpriteLoader("Textures/UI/Windows/AboutDialog/Mono");
+					physX = new SpriteLoader("Textures/UI/Windows/AboutDialog/PhysX");
 				}
             }
 
