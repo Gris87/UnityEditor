@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
         private SpritePackerDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.SpritePacker.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.SpritePacker.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.sprite_packer;
         }
 

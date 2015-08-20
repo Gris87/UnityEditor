@@ -72,33 +72,33 @@ namespace UI.Windows.MainWindow.Toolbar
 
 
 
-            mLeftButtonSpriteState.disabledSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonDisabled;
-            mLeftButtonSpriteState.highlightedSprite         = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonHighlighted;
-            mLeftButtonSpriteState.pressedSprite             = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonPressed;
+            mLeftButtonSpriteState.disabledSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonDisabled.sprite;
+			mLeftButtonSpriteState.highlightedSprite         = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonHighlighted.sprite;
+			mLeftButtonSpriteState.pressedSprite             = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonPressed.sprite;
 
-            mLeftButtonActiveSpriteState.disabledSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveDisabled;
-            mLeftButtonActiveSpriteState.highlightedSprite   = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveHighlighted;
-            mLeftButtonActiveSpriteState.pressedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActivePressed;
+			mLeftButtonActiveSpriteState.disabledSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveDisabled.sprite;
+			mLeftButtonActiveSpriteState.highlightedSprite   = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActiveHighlighted.sprite;
+			mLeftButtonActiveSpriteState.pressedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButtonActivePressed.sprite;
 
-            mMiddleButtonSpriteState.disabledSprite          = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonDisabled;
-            mMiddleButtonSpriteState.highlightedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonHighlighted;
-            mMiddleButtonSpriteState.pressedSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonPressed;
+			mMiddleButtonSpriteState.disabledSprite          = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonDisabled.sprite;
+			mMiddleButtonSpriteState.highlightedSprite       = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonHighlighted.sprite;
+			mMiddleButtonSpriteState.pressedSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonPressed.sprite;
 
-            mMiddleButtonActiveSpriteState.disabledSprite    = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveDisabled;
-            mMiddleButtonActiveSpriteState.highlightedSprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveHighlighted;
-            mMiddleButtonActiveSpriteState.pressedSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActivePressed;
+			mMiddleButtonActiveSpriteState.disabledSprite    = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveDisabled.sprite;
+			mMiddleButtonActiveSpriteState.highlightedSprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActiveHighlighted.sprite;
+			mMiddleButtonActiveSpriteState.pressedSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButtonActivePressed.sprite;
 
-            mRightButtonSpriteState.disabledSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonDisabled;
-            mRightButtonSpriteState.highlightedSprite        = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonHighlighted;
-            mRightButtonSpriteState.pressedSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonPressed;
+			mRightButtonSpriteState.disabledSprite           = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonDisabled.sprite;
+			mRightButtonSpriteState.highlightedSprite        = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonHighlighted.sprite;
+			mRightButtonSpriteState.pressedSprite            = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonPressed.sprite;
 
-            mRightButtonActiveSpriteState.disabledSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveDisabled;
-            mRightButtonActiveSpriteState.highlightedSprite  = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveHighlighted;
-            mRightButtonActiveSpriteState.pressedSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActivePressed;
+			mRightButtonActiveSpriteState.disabledSprite     = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveDisabled.sprite;
+			mRightButtonActiveSpriteState.highlightedSprite  = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActiveHighlighted.sprite;
+			mRightButtonActiveSpriteState.pressedSprite      = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButtonActivePressed.sprite;
 
-            mPopupSpriteState.disabledSprite                 = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonDisabled;
-            mPopupSpriteState.highlightedSprite              = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonHighlighted;
-            mPopupSpriteState.pressedSprite                  = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonPressed;
+			mPopupSpriteState.disabledSprite                 = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonDisabled.sprite;
+			mPopupSpriteState.highlightedSprite              = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonHighlighted.sprite;
+			mPopupSpriteState.pressedSprite                  = Assets.Windows.MainWindow.Toolbar.Textures.popupButtonPressed.sprite;
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image scrollAreaImage = scrollArea.AddComponent<Image>();
 
-            scrollAreaImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.background;
+			scrollAreaImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.background.sprite;
             scrollAreaImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -261,7 +261,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image toolHandImage = toolHand.AddComponent<Image>();
 
-            toolHandImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton;
+			toolHandImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton.sprite;
             toolHandImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -305,7 +305,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image handImageImage = handImage.AddComponent<Image>();
 
-            handImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolHand;
+			handImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolHand.sprite;
             handImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -341,7 +341,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image toolMoveImage = toolMove.AddComponent<Image>();
 
-            toolMoveImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton;
+			toolMoveImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton.sprite;
             toolMoveImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -385,7 +385,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image moveImageImage = moveImage.AddComponent<Image>();
 
-            moveImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMove;
+			moveImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMove.sprite;
             moveImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -421,7 +421,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image toolRotateImage = toolRotate.AddComponent<Image>();
 
-            toolRotateImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton;
+			toolRotateImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton.sprite;
             toolRotateImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -465,7 +465,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image rotateImageImage = rotateImage.AddComponent<Image>();
 
-            rotateImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRotate;
+			rotateImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRotate.sprite;
             rotateImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -501,7 +501,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image toolScaleImage = toolScale.AddComponent<Image>();
 
-            toolScaleImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton;
+			toolScaleImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton.sprite;
             toolScaleImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -545,7 +545,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image scaleImageImage = scaleImage.AddComponent<Image>();
 
-            scaleImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolScale;
+			scaleImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolScale.sprite;
             scaleImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -581,7 +581,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image toolRectTransformImage = toolRectTransform.AddComponent<Image>();
 
-            toolRectTransformImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton;
+			toolRectTransformImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton.sprite;
             toolRectTransformImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -625,7 +625,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image rectTransformImageImage = rectTransformImage.AddComponent<Image>();
 
-            rectTransformImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRectTransform;
+			rectTransformImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRectTransform.sprite;
             rectTransformImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -692,7 +692,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image pointImage = point.AddComponent<Image>();
 
-            pointImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton;
+			pointImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton.sprite;
             pointImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -746,7 +746,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Image pointImageImage = pointImageObject.AddComponent<Image>();
 
             // TODO: [Trivial] Display button image according to state
-            pointImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.center;
+			pointImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.center.sprite;
             pointImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -804,7 +804,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image coordinateSystemImage = coordinateSystem.AddComponent<Image>();
 
-            coordinateSystemImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton;
+			coordinateSystemImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton.sprite;
             coordinateSystemImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -858,7 +858,7 @@ namespace UI.Windows.MainWindow.Toolbar
             Image coordinateSystemImageImage = coordinateSystemImageObject.AddComponent<Image>();
 
             // TODO: [Trivial] Display button image according to state
-            coordinateSystemImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.local;
+			coordinateSystemImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.local.sprite;
             coordinateSystemImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -1003,7 +1003,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image layersImage = layers.AddComponent<Image>();
 
-            layersImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.popupButton;
+			layersImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.popupButton.sprite;
             layersImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -1087,7 +1087,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image layoutImage = layout.AddComponent<Image>();
 
-            layoutImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.popupButton;
+			layoutImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.popupButton.sprite;
             layoutImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -1236,7 +1236,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image playImage = play.AddComponent<Image>();
 
-            playImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton;
+			playImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolLeftButton.sprite;
             playImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -1280,7 +1280,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image playImageImage = playImageObject.AddComponent<Image>();
 
-            playImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.play;
+			playImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.play.sprite;
             playImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -1316,7 +1316,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image pauseImage = pause.AddComponent<Image>();
 
-            pauseImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton;
+			pauseImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolMiddleButton.sprite;
             pauseImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -1360,7 +1360,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image pauseImageImage = pauseImageObject.AddComponent<Image>();
 
-            pauseImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.pause;
+			pauseImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.pause.sprite;
             pauseImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -1396,7 +1396,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image stepImage = step.AddComponent<Image>();
 
-            stepImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton;
+			stepImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.toolRightButton.sprite;
             stepImage.type   = Image.Type.Sliced;
             #endregion
 
@@ -1440,7 +1440,7 @@ namespace UI.Windows.MainWindow.Toolbar
             #region Image Component
             Image stepImageImage = stepImageObject.AddComponent<Image>();
 
-            stepImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.step;
+			stepImageImage.sprite = Assets.Windows.MainWindow.Toolbar.Textures.step.sprite;
             stepImageImage.type   = Image.Type.Sliced;
             #endregion
             #endregion

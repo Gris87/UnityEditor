@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Animation
         private AnimationDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.Animation.Textures.icon;
+            image   = Assets.Windows.MainWindow.DockWidgets.Animation.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.animation;
         }
 

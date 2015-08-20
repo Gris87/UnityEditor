@@ -603,9 +603,9 @@ namespace UI.Windows.MainWindow.MainMenu
 
             mButtonSpriteState = new SpriteState();
 
-            mButtonSpriteState.disabledSprite    = Assets.Windows.MainWindow.MainMenu.Textures.buttonDisabled;
-            mButtonSpriteState.highlightedSprite = Assets.Windows.MainWindow.MainMenu.Textures.buttonHighlighted;
-            mButtonSpriteState.pressedSprite     = Assets.Windows.MainWindow.MainMenu.Textures.buttonPressed;
+			mButtonSpriteState.disabledSprite    = Assets.Windows.MainWindow.MainMenu.Textures.buttonDisabled.sprite;
+			mButtonSpriteState.highlightedSprite = Assets.Windows.MainWindow.MainMenu.Textures.buttonHighlighted.sprite;
+			mButtonSpriteState.pressedSprite     = Assets.Windows.MainWindow.MainMenu.Textures.buttonPressed.sprite;
 
             mScrollAreaContent          = null;
             mScrollAreaContentTransform = null;
@@ -1332,7 +1332,7 @@ namespace UI.Windows.MainWindow.MainMenu
                         #region Image Component
                         Image menuItemButtonImage = menuItemButton.AddComponent<Image>();
 
-                        menuItemButtonImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.button;
+						menuItemButtonImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.button.sprite;
                         menuItemButtonImage.type   = Image.Type.Sliced;
                         #endregion
 
@@ -1431,7 +1431,7 @@ namespace UI.Windows.MainWindow.MainMenu
             #region Image Component
             Image scrollAreaImage = scrollArea.AddComponent<Image>();
 
-            scrollAreaImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.background;
+			scrollAreaImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.background.sprite;
             scrollAreaImage.type   = Image.Type.Sliced;
             #endregion
 

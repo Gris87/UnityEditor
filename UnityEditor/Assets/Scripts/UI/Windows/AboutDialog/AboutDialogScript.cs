@@ -181,7 +181,7 @@ namespace UI.Windows.AboutDialog
             #region Image Component
             Image unityLogoImage = unityLogo.AddComponent<Image>();
 
-            unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity;
+			unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity.sprite;
             unityLogoImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -350,7 +350,7 @@ namespace UI.Windows.AboutDialog
             #region Image Component
             Image monoLogoImage = monoLogo.AddComponent<Image>();
 
-            monoLogoImage.sprite = Assets.Windows.AboutDialog.Textures.mono;
+			monoLogoImage.sprite = Assets.Windows.AboutDialog.Textures.mono.sprite;
             monoLogoImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -438,7 +438,7 @@ namespace UI.Windows.AboutDialog
             #region Image Component
             Image physXLogoImage = physXLogo.AddComponent<Image>();
 
-            physXLogoImage.sprite = Assets.Windows.AboutDialog.Textures.physX;
+			physXLogoImage.sprite = Assets.Windows.AboutDialog.Textures.physX.sprite;
             physXLogoImage.type   = Image.Type.Sliced;
             #endregion
             #endregion

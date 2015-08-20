@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
         private AssetStoreDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.AssetStore.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.AssetStore.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.asset_store;
         }
 

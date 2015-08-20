@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
         private HierarchyDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.hierarchy;
         }
 

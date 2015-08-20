@@ -786,6 +786,67 @@ public static class Assets
             }
             #endregion
 
+            #region Assets for Toolbar
+            /// <summary>
+            /// Assets for Toolbar.
+            /// </summary>
+            public static class Toolbar
+            {
+                /// <summary>
+                /// Text style assets for Toolbar.
+                /// </summary>
+                public static class TextStyles
+                {
+					/// <summary>
+					/// Initializes the <see cref="Assets+Windows+MainWindow+Toolbar+TextStyles"/> class.
+					/// </summary>
+					static TextStyles()
+					{
+						ResetValues();
+					}
+					
+					/// <summary>
+					/// Resets values.
+					/// </summary>
+					public static void ResetValues()
+					{
+                    }
+                }
+
+                /// <summary>
+                /// Texture assets for Toolbar.
+                /// </summary>
+                public static class Textures
+                {
+                    /// <summary>
+					/// Initializes the <see cref="Assets+Windows+MainWindow+Toolbar+Textures"/> class.
+					/// </summary>
+					static Textures()
+					{
+						ResetValues();
+					}
+					
+					/// <summary>
+					/// Resets values.
+					/// </summary>
+					public static void ResetValues()
+					{
+					}
+                }
+
+
+
+				/// <summary>
+				/// Resets values.
+				/// </summary>
+				public static void ResetValues()
+				{
+					TextStyles.ResetValues();
+					Textures.ResetValues();
+				}
+            }
+            #endregion
+
             #region Assets for DockWidgets
             /// <summary>
             /// Assets for DockWidgets.
@@ -884,6 +945,7 @@ public static class Assets
 			{
 				Colors.ResetValues();
 				MainMenu.ResetValues();
+				Toolbar.ResetValues();
 				DockWidgets.ResetValues();
 			}
         }

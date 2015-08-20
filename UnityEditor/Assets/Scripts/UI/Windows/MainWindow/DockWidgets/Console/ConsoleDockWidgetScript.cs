@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
         private ConsoleDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.Console.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.Console.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.console;
         }
 

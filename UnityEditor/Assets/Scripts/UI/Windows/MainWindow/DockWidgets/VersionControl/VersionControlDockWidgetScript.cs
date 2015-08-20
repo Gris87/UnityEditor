@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
         private VersionControlDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.VersionControl.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.VersionControl.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.version_control;
         }
 

@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
         private SceneDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.Scene.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.Scene.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.scene;
         }
 

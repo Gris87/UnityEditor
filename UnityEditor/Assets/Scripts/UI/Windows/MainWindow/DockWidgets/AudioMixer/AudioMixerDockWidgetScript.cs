@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
         private AudioMixerDockWidgetScript()
             : base()
         {
-            image   = Assets.Windows.MainWindow.DockWidgets.AudioMixer.Textures.icon;
+			image   = Assets.Windows.MainWindow.DockWidgets.AudioMixer.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.audio_mixer;
         }
 
