@@ -7,10 +7,10 @@ using UnityEngine;
 /// </summary>
 public class ServerScript : MonoBehaviour
 {
-	/// <summary>
-	/// Script starting callback.
-	/// </summary>
-	void Start()
-	{
-	}
+    /// <summary>
+    /// Script starting callback.
+    /// </summary>
+    void Start()
+    {
+    }
 }

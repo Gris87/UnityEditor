@@ -40,9 +40,9 @@ public static class Global
     public static DockingAreaScript dockingAreaScript = null;
 
     /// <summary>
-	/// ServersDockWidget script.
+    /// ServersDockWidget script.
     /// </summary>
-	public static ServersDockWidgetScript serversDockWidgetScript = null;
+    public static ServersDockWidgetScript serversDockWidgetScript = null;
 
     /// <summary>
     /// About dialog script.

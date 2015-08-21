@@ -20,10 +20,10 @@ namespace UI.Windows.AboutDialog
     public class AboutDialogScript : WindowScript, EscapeButtonHandler
     {
         private const string WINDOW_KEY           = "AboutDialog";
-		private const float  WINDOW_WIDTH         = 570f;
-		private const float  WINDOW_HEIGHT        = 340f;
-		private const string SCRIPTING_POWERED_BY = "The Mono Project";
-		private const string PHYSICS_POWERED_BY   = "PhysX";
+        private const float  WINDOW_WIDTH         = 570f;
+        private const float  WINDOW_HEIGHT        = 340f;
+        private const string SCRIPTING_POWERED_BY = "The Mono Project";
+        private const string PHYSICS_POWERED_BY   = "PhysX";
         private const string SECRET_CODE          = "internal";
         private const float  SCROLL_SPEED         = 0.02f;
 
@@ -34,31 +34,31 @@ namespace UI.Windows.AboutDialog
 
 
 
-		private ScreenOrientation mScreenOrientation;
+        private ScreenOrientation mScreenOrientation;
         private bool              mIsCreditsDragging;
         private byte              mCurrentSecretChar;
 
-		private RectTransform mUnityLogoTransform;
-		private RectTransform mVersionTransform;
+        private RectTransform mUnityLogoTransform;
+        private RectTransform mVersionTransform;
         private Text          mVersionText;
-		private RectTransform mCreditsTransform;
+        private RectTransform mCreditsTransform;
         private ScrollRect    mCreditsScrollRect;
-		private RectTransform mContentsTransform;
-		private RectTransform mCreditsTextTransform;
-		private Text          mCreditsText;
-		private RectTransform mMonoLogoTransform;
-		private RectTransform mMonoLogoTextTransform;
+        private RectTransform mContentsTransform;
+        private RectTransform mCreditsTextTransform;
+        private Text          mCreditsText;
+        private RectTransform mMonoLogoTransform;
+        private RectTransform mMonoLogoTextTransform;
         private Text          mMonoLogoText;
-		private RectTransform mMonoLogoTextTransform2;
+        private RectTransform mMonoLogoTextTransform2;
         private Text          mMonoLogoText2;
-		private RectTransform mPhysXLogoTransform;
-		private RectTransform mPhysXLogoTextTransform;
+        private RectTransform mPhysXLogoTransform;
+        private RectTransform mPhysXLogoTextTransform;
         private Text          mPhysXLogoText;
-		private RectTransform mPhysXLogoTextTransform2;
+        private RectTransform mPhysXLogoTextTransform2;
         private Text          mPhysXLogoText2;
-		private RectTransform mCopyrightTransform;
+        private RectTransform mCopyrightTransform;
         private Text          mCopyrightText;
-		private RectTransform mLicenseTransform;
+        private RectTransform mLicenseTransform;
         private Text          mLicenseText;
 
 
@@ -69,51 +69,51 @@ namespace UI.Windows.AboutDialog
         private AboutDialogScript()
             : base()
         {
-			mScreenOrientation = ScreenOrientation.Unknown;
+            mScreenOrientation = ScreenOrientation.Unknown;
             mIsCreditsDragging = false;
             mCurrentSecretChar = 0;
 
-			mUnityLogoTransform      = null;
-			mVersionTransform        = null;
-			mVersionText             = null;
-			mCreditsTransform        = null;
-			mCreditsScrollRect       = null;
-			mContentsTransform       = null;
-			mCreditsTextTransform    = null;
-			mCreditsText             = null;
-			mMonoLogoTransform       = null;
-			mMonoLogoTextTransform   = null;
-			mMonoLogoText            = null;
-			mMonoLogoTextTransform2  = null;
-			mMonoLogoText2           = null;
-			mPhysXLogoTransform      = null;
-			mPhysXLogoTextTransform  = null;
-			mPhysXLogoText           = null;
-			mPhysXLogoTextTransform2 = null;
-			mPhysXLogoText2          = null;
-			mCopyrightTransform      = null;
-			mCopyrightText           = null;
-			mLicenseTransform        = null;
-			mLicenseText             = null;
+            mUnityLogoTransform      = null;
+            mVersionTransform        = null;
+            mVersionText             = null;
+            mCreditsTransform        = null;
+            mCreditsScrollRect       = null;
+            mContentsTransform       = null;
+            mCreditsTextTransform    = null;
+            mCreditsText             = null;
+            mMonoLogoTransform       = null;
+            mMonoLogoTextTransform   = null;
+            mMonoLogoText            = null;
+            mMonoLogoTextTransform2  = null;
+            mMonoLogoText2           = null;
+            mPhysXLogoTransform      = null;
+            mPhysXLogoTextTransform  = null;
+            mPhysXLogoText           = null;
+            mPhysXLogoTextTransform2 = null;
+            mPhysXLogoText2          = null;
+            mCopyrightTransform      = null;
+            mCopyrightText           = null;
+            mLicenseTransform        = null;
+            mLicenseText             = null;
 
-			if (
-				WINDOW_WIDTH  <= Utils.scaledScreenWidth
-				&&
-				WINDOW_HEIGHT <= Utils.scaledScreenHeight
-			   )
-			{
-				frame           = WindowFrameType.Drawer;
-				tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
-				resizable       = false;
-				allowMaximize   = false;
-			}
-			else
-			{
-				frame = WindowFrameType.Frameless;
-				state = WindowState.FullScreen;
-			}
+            if (
+                WINDOW_WIDTH  <= Utils.scaledScreenWidth
+                &&
+                WINDOW_HEIGHT <= Utils.scaledScreenHeight
+               )
+            {
+                frame           = WindowFrameType.Drawer;
+                tokenId         = UnityTranslation.R.sections.WindowTitles.strings.about_unity;
+                resizable       = false;
+                allowMaximize   = false;
+            }
+            else
+            {
+                frame = WindowFrameType.Frameless;
+                state = WindowState.FullScreen;
+            }
 
-			backgroundColor = Assets.Windows.AboutDialog.Colors.background;
+            backgroundColor = Assets.Windows.AboutDialog.Colors.background;
         }
 
         /// <summary>
@@ -150,8 +150,8 @@ namespace UI.Windows.AboutDialog
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-			width  = WINDOW_WIDTH;
-			height = WINDOW_HEIGHT;
+            width  = WINDOW_WIDTH;
+            height = WINDOW_HEIGHT;
 
             //***************************************************************************
             // UnityLogo GameObject
@@ -181,7 +181,7 @@ namespace UI.Windows.AboutDialog
             #region Image Component
             Image unityLogoImage = unityLogo.AddComponent<Image>();
 
-			unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity.sprite;
+            unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity.sprite;
             unityLogoImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -260,7 +260,7 @@ namespace UI.Windows.AboutDialog
             // Text Component
             //===========================================================================
             #region Text Component
-			mCreditsText = creditsTextObject.AddComponent<Text>();
+            mCreditsText = creditsTextObject.AddComponent<Text>();
 
             Assets.Windows.AboutDialog.TextStyles.credits.Apply(mCreditsText);
 
@@ -350,7 +350,7 @@ namespace UI.Windows.AboutDialog
             #region Image Component
             Image monoLogoImage = monoLogo.AddComponent<Image>();
 
-			monoLogoImage.sprite = Assets.Windows.AboutDialog.Textures.mono.sprite;
+            monoLogoImage.sprite = Assets.Windows.AboutDialog.Textures.mono.sprite;
             monoLogoImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -378,10 +378,10 @@ namespace UI.Windows.AboutDialog
 
             Assets.Windows.AboutDialog.TextStyles.monoLogo.Apply(mMonoLogoText);
 
-			if (state == WindowState.FullScreen)
-			{
-				mMonoLogoText.text = SCRIPTING_POWERED_BY; 
-			}
+            if (state == WindowState.FullScreen)
+            {
+                mMonoLogoText.text = SCRIPTING_POWERED_BY;
+            }
             #endregion
             #endregion
 
@@ -438,7 +438,7 @@ namespace UI.Windows.AboutDialog
             #region Image Component
             Image physXLogoImage = physXLogo.AddComponent<Image>();
 
-			physXLogoImage.sprite = Assets.Windows.AboutDialog.Textures.physX.sprite;
+            physXLogoImage.sprite = Assets.Windows.AboutDialog.Textures.physX.sprite;
             physXLogoImage.type   = Image.Type.Sliced;
             #endregion
             #endregion
@@ -466,10 +466,10 @@ namespace UI.Windows.AboutDialog
 
             Assets.Windows.AboutDialog.TextStyles.physXLogo.Apply(mPhysXLogoText);
 
-			if (state == WindowState.FullScreen)
-			{
-				mPhysXLogoText.text = PHYSICS_POWERED_BY;
-			}
+            if (state == WindowState.FullScreen)
+            {
+                mPhysXLogoText.text = PHYSICS_POWERED_BY;
+            }
             #endregion
             #endregion
 
@@ -548,14 +548,14 @@ namespace UI.Windows.AboutDialog
             #endregion
             #endregion
 
-			EscapeButtonListenerScript.PushHandlerToTop(this);
+            EscapeButtonListenerScript.PushHandlerToTop(this);
             Translator.AddLanguageChangedListener(OnLanguageChanged);
             OnLanguageChanged();
 
-			if (state != WindowState.FullScreen)
-			{
-				Load(WINDOW_KEY);
-			}
+            if (state != WindowState.FullScreen)
+            {
+                Load(WINDOW_KEY);
+            }
         }
 
         /// <summary>
@@ -565,12 +565,12 @@ namespace UI.Windows.AboutDialog
         {
             base.OnDestroy();
 
-			if (state != WindowState.FullScreen)
-			{
-	            Save(WINDOW_KEY);
-			}
+            if (state != WindowState.FullScreen)
+            {
+                Save(WINDOW_KEY);
+            }
 
-			EscapeButtonListenerScript.RemoveHandler(this);
+            EscapeButtonListenerScript.RemoveHandler(this);
             Translator.RemoveLanguageChangedListener(OnLanguageChanged);
 
             if (Global.aboutDialogScript == this)
@@ -599,7 +599,7 @@ namespace UI.Windows.AboutDialog
                     mCreditsScrollRect.verticalNormalizedPosition = 1f;
                 }
 
-				// TODO: [Major] Let to do the same with multiple clicking over Unity logo
+                // TODO: [Major] Let to do the same with multiple clicking over Unity logo
                 if (selected && InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
                 {
                     ++mCurrentSecretChar;
@@ -633,109 +633,109 @@ namespace UI.Windows.AboutDialog
             mIsCreditsDragging = false;
         }
 
-		/// <summary>
-		/// Handler for select event.
-		/// </summary>
-		protected override void OnSelected()
-		{
-			EscapeButtonListenerScript.PushHandlerToTop(this);
-		}
+        /// <summary>
+        /// Handler for select event.
+        /// </summary>
+        protected override void OnSelected()
+        {
+            EscapeButtonListenerScript.PushHandlerToTop(this);
+        }
 
-		/// <summary>
-		/// Handles escape button press event.
-		/// </summary>
-		/// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
-		public bool OnEscapeButtonPressed()
-		{
-			if (selected)
-			{
-				Close();
+        /// <summary>
+        /// Handles escape button press event.
+        /// </summary>
+        /// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
+        public bool OnEscapeButtonPressed()
+        {
+            if (selected)
+            {
+                Close();
 
-				return true;
-			}
+                return true;
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		/// <summary>
-		/// Handler for resize event.
-		/// </summary>
-		protected override void OnResize()
-		{
-			if (state == WindowState.FullScreen)
-			{
-				ScreenOrientation orientation = ScreenOrientation.Unknown;
+        /// <summary>
+        /// Handler for resize event.
+        /// </summary>
+        protected override void OnResize()
+        {
+            if (state == WindowState.FullScreen)
+            {
+                ScreenOrientation orientation = ScreenOrientation.Unknown;
 
-				float screenWidth  = Utils.scaledScreenWidth;
-				float screenHeight = Utils.scaledScreenHeight;
-				
-				if (screenWidth > screenHeight)
-				{
-					orientation = ScreenOrientation.Landscape;
-				}
-				else
-				{
-					orientation = ScreenOrientation.Portrait;
-				}
-				
-				if (mScreenOrientation != orientation)
-				{
-					mScreenOrientation = orientation;
+                float screenWidth  = Utils.scaledScreenWidth;
+                float screenHeight = Utils.scaledScreenHeight;
 
-					float oldScrollPosition = mCreditsScrollRect.verticalNormalizedPosition;
+                if (screenWidth > screenHeight)
+                {
+                    orientation = ScreenOrientation.Landscape;
+                }
+                else
+                {
+                    orientation = ScreenOrientation.Portrait;
+                }
 
-					switch (mScreenOrientation)
-					{
-						case ScreenOrientation.Portrait:
-						{
-							Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      86f, 32f, 6f, 6f);
-							Utils.AlignRectTransformTopStretch(    mVersionTransform,        32f, 6f, 98f, 6f);
-							Utils.AlignRectTransformStretchStretch(mCreditsTransform,        6f, 44f, 6f, 188f);
-							Utils.AlignRectTransformBottomLeft(    mMonoLogoTransform,       40f, 48f, 6f, 134f);
-							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform,   13f, 169f, 52f, 6f);
-							Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform2,  13f, 150f, 52f, 6f);
-							Utils.AlignRectTransformBottomLeft(    mPhysXLogoTransform,      83f, 29f, 6f, 96f);
-							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform,  13f, 115f, 95f, 6f);
-							Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform2, 13f, 96f, 95f, 6f);
-							Utils.AlignRectTransformBottomStretch( mCopyrightTransform,      26f, 64f, 6f, 6f);
-							Utils.AlignRectTransformBottomStretch( mLicenseTransform,        52f, 6f, 6f, 6f);
-						}
-						break;
+                if (mScreenOrientation != orientation)
+                {
+                    mScreenOrientation = orientation;
 
-						case ScreenOrientation.Landscape:
-						{
-							Utils.AlignRectTransformTopLeft(      mUnityLogoTransform,      86f, 32f, 6f, 6f);
-							Utils.AlignRectTransformTopStretch(   mVersionTransform,        13f, 44f, 6f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformStretchRight( mCreditsTransform,        screenWidth / 2f - 6f, 6f, 6f, 6f);
-							Utils.AlignRectTransformBottomLeft(   mMonoLogoTransform,       40f, 48f, 6f, 134f);
-							Utils.AlignRectTransformBottomStretch(mMonoLogoTextTransform,   13f, 169f, 52f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformBottomStretch(mMonoLogoTextTransform2,  13f, 150f, 52f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformBottomLeft(   mPhysXLogoTransform,      83f, 29f, 6f, 96f);
-							Utils.AlignRectTransformBottomStretch(mPhysXLogoTextTransform,  13f, 115f, 95f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformBottomStretch(mPhysXLogoTextTransform2, 26f, 90f, 95f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformBottomStretch(mCopyrightTransform,      26f, 64f, 6f, screenWidth / 2f + 6f);
-							Utils.AlignRectTransformBottomStretch(mLicenseTransform,        52f, 6f, 6f, screenWidth / 2f + 6f);
-						}
-						break;
+                    float oldScrollPosition = mCreditsScrollRect.verticalNormalizedPosition;
 
-						default:
-						{
-							Debug.LogError("Incorrect screen orientation: " + mScreenOrientation);
-						}
-						break;
-					}
+                    switch (mScreenOrientation)
+                    {
+                        case ScreenOrientation.Portrait:
+                        {
+                            Utils.AlignRectTransformTopLeft(       mUnityLogoTransform,      86f, 32f, 6f, 6f);
+                            Utils.AlignRectTransformTopStretch(    mVersionTransform,        32f, 6f, 98f, 6f);
+                            Utils.AlignRectTransformStretchStretch(mCreditsTransform,        6f, 44f, 6f, 188f);
+                            Utils.AlignRectTransformBottomLeft(    mMonoLogoTransform,       40f, 48f, 6f, 134f);
+                            Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform,   13f, 169f, 52f, 6f);
+                            Utils.AlignRectTransformBottomStretch( mMonoLogoTextTransform2,  13f, 150f, 52f, 6f);
+                            Utils.AlignRectTransformBottomLeft(    mPhysXLogoTransform,      83f, 29f, 6f, 96f);
+                            Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform,  13f, 115f, 95f, 6f);
+                            Utils.AlignRectTransformBottomStretch( mPhysXLogoTextTransform2, 13f, 96f, 95f, 6f);
+                            Utils.AlignRectTransformBottomStretch( mCopyrightTransform,      26f, 64f, 6f, 6f);
+                            Utils.AlignRectTransformBottomStretch( mLicenseTransform,        52f, 6f, 6f, 6f);
+                        }
+                        break;
 
-					Vector3[] corners = Utils.GetWindowCorners(mCreditsTransform);
+                        case ScreenOrientation.Landscape:
+                        {
+                            Utils.AlignRectTransformTopLeft(      mUnityLogoTransform,      86f, 32f, 6f, 6f);
+                            Utils.AlignRectTransformTopStretch(   mVersionTransform,        13f, 44f, 6f, screenWidth / 2f + 6f);
+                            Utils.AlignRectTransformStretchRight( mCreditsTransform,        screenWidth / 2f - 6f, 6f, 6f, 6f);
+                            Utils.AlignRectTransformBottomLeft(   mMonoLogoTransform,       40f, 48f, 6f, 134f);
+                            Utils.AlignRectTransformBottomStretch(mMonoLogoTextTransform,   13f, 169f, 52f, screenWidth / 2f + 6f);
+                            Utils.AlignRectTransformBottomStretch(mMonoLogoTextTransform2,  13f, 150f, 52f, screenWidth / 2f + 6f);
+                            Utils.AlignRectTransformBottomLeft(   mPhysXLogoTransform,      83f, 29f, 6f, 96f);
+                            Utils.AlignRectTransformBottomStretch(mPhysXLogoTextTransform,  13f, 115f, 95f, screenWidth / 2f + 6f);
+                            Utils.AlignRectTransformBottomStretch(mPhysXLogoTextTransform2, 26f, 90f, 95f, screenWidth / 2f + 6f);
+                            Utils.AlignRectTransformBottomStretch(mCopyrightTransform,      26f, 64f, 6f, screenWidth / 2f + 6f);
+                            Utils.AlignRectTransformBottomStretch(mLicenseTransform,        52f, 6f, 6f, screenWidth / 2f + 6f);
+                        }
+                        break;
 
-					float creditsHeight = corners[3].y - corners[0].y;
+                        default:
+                        {
+                            Debug.LogError("Incorrect screen orientation: " + mScreenOrientation);
+                        }
+                        break;
+                    }
 
-					Utils.AlignRectTransformTopStretch(    mContentsTransform,    mCreditsText.preferredHeight * 1.13f, 0f, 0f, 0f, 0.5f, 1f); // TODO: [Trivial] Remove workaround when Text.preferredHeight will be fixed
-					Utils.AlignRectTransformStretchStretch(mCreditsTextTransform, 0f, creditsHeight, 0f, creditsHeight);
+                    Vector3[] corners = Utils.GetWindowCorners(mCreditsTransform);
 
-					mCreditsScrollRect.verticalNormalizedPosition = oldScrollPosition;
-				}
-			}
-		}
+                    float creditsHeight = corners[3].y - corners[0].y;
+
+                    Utils.AlignRectTransformTopStretch(    mContentsTransform,    mCreditsText.preferredHeight * 1.13f, 0f, 0f, 0f, 0.5f, 1f); // TODO: [Trivial] Remove workaround when Text.preferredHeight will be fixed
+                    Utils.AlignRectTransformStretchStretch(mCreditsTextTransform, 0f, creditsHeight, 0f, creditsHeight);
+
+                    mCreditsScrollRect.verticalNormalizedPosition = oldScrollPosition;
+                }
+            }
+        }
 
         /// <summary>
         /// Handler for language changed event.
@@ -744,17 +744,17 @@ namespace UI.Windows.AboutDialog
         {
             mVersionText.text = Translator.GetString(R.sections.AboutDialog.strings.version, AppUtils.GetVersionString());
 
-			if (state != WindowState.FullScreen)
-			{
-				mMonoLogoText.text = Translator.GetString(R.sections.AboutDialog.strings.scripting_powered_by, SCRIPTING_POWERED_BY);
-			}
+            if (state != WindowState.FullScreen)
+            {
+                mMonoLogoText.text = Translator.GetString(R.sections.AboutDialog.strings.scripting_powered_by, SCRIPTING_POWERED_BY);
+            }
 
             mMonoLogoText2.text = "(c) 2011 Novell, Inc.";
 
-			if (state != WindowState.FullScreen)
-			{
-				mPhysXLogoText.text = Translator.GetString(R.sections.AboutDialog.strings.physics_powered_by, PHYSICS_POWERED_BY);
-			}
+            if (state != WindowState.FullScreen)
+            {
+                mPhysXLogoText.text = Translator.GetString(R.sections.AboutDialog.strings.physics_powered_by, PHYSICS_POWERED_BY);
+            }
 
             mPhysXLogoText2.text = "(c) 2011 NVIDIA Corporation.";
             mCopyrightText.text  = "(c) 2015 Unity Technologies ApS. " + Translator.GetString(R.sections.AboutDialog.strings.all_rights_reserved);

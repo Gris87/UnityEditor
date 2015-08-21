@@ -1324,7 +1324,7 @@ namespace UI.Windows.MainWindow.MainMenu
                         #region Image Component
                         Image menuItemButtonImage = menuItemButton.AddComponent<Image>();
 
-						menuItemButtonImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.button.sprite;
+                        menuItemButtonImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.button.sprite;
                         menuItemButtonImage.type   = Image.Type.Sliced;
                         #endregion
 
@@ -1336,7 +1336,7 @@ namespace UI.Windows.MainWindow.MainMenu
 
                         menuItemButtonButton.targetGraphic = menuItemButtonImage;
                         menuItemButtonButton.transition    = Selectable.Transition.SpriteSwap;
-						menuItemButtonButton.spriteState   = Assets.Windows.MainWindow.MainMenu.SpriteStates.button.spriteState;
+                        menuItemButtonButton.spriteState   = Assets.Windows.MainWindow.MainMenu.SpriteStates.button.spriteState;
 
                         if (item.enabled)
                         {
@@ -1423,7 +1423,7 @@ namespace UI.Windows.MainWindow.MainMenu
             #region Image Component
             Image scrollAreaImage = scrollArea.AddComponent<Image>();
 
-			scrollAreaImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.background.sprite;
+            scrollAreaImage.sprite = Assets.Windows.MainWindow.MainMenu.Textures.background.sprite;
             scrollAreaImage.type   = Image.Type.Sliced;
             #endregion
 

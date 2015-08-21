@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
         private FrameDebuggerDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.frame_debugger;
         }
 

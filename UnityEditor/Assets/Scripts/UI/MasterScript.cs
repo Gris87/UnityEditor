@@ -130,28 +130,28 @@ namespace UI
 
 
 
-			//***************************************************************************
-			// EscapeButtonListener GameObject
-			//***************************************************************************
-			#region EscapeButtonListener GameObject
-			GameObject escapeButtonListener = new GameObject("EscapeButtonListener");
-			Utils.InitUIObject(escapeButtonListener, listeners.transform);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			RectTransform escapeButtonListenerTransform = escapeButtonListener.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(escapeButtonListenerTransform);
-			#endregion
-			
-			//===========================================================================
-			// EscapeButtonListenerScript Component
-			//===========================================================================
-			#region EscapeButtonListenerScript Component
-			escapeButtonListener.AddComponent<EscapeButtonListenerScript>();
-			#endregion
-			#endregion
+            //***************************************************************************
+            // EscapeButtonListener GameObject
+            //***************************************************************************
+            #region EscapeButtonListener GameObject
+            GameObject escapeButtonListener = new GameObject("EscapeButtonListener");
+            Utils.InitUIObject(escapeButtonListener, listeners.transform);
+
+            //===========================================================================
+            // RectTransform Component
+            //===========================================================================
+            #region RectTransform Component
+            RectTransform escapeButtonListenerTransform = escapeButtonListener.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(escapeButtonListenerTransform);
+            #endregion
+
+            //===========================================================================
+            // EscapeButtonListenerScript Component
+            //===========================================================================
+            #region EscapeButtonListenerScript Component
+            escapeButtonListener.AddComponent<EscapeButtonListenerScript>();
+            #endregion
+            #endregion
         }
 
         /// <summary>

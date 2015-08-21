@@ -32,6 +32,6 @@ namespace UI.Windows.MainWindow.Toolbar
         private void CreateUI()
         {
             // TODO: [Minor] Implement Create UI
-        }      
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
         private LightingDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.Lighting.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.Lighting.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.lighting;
         }
 

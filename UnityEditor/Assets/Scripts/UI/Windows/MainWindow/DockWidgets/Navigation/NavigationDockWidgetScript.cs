@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
         private NavigationDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.Navigation.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.Navigation.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.navigation;
         }
 

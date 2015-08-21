@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
         private ProjectDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.Project.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.Project.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
         }
 

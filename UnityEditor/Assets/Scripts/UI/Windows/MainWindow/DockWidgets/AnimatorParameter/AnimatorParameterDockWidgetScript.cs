@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
         private AnimatorParameterDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.animator_parameter;
         }
 

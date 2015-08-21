@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
         private InspectorDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.Inspector.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.Inspector.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.inspector;
         }
 

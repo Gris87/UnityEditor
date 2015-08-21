@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
         private OcclusionCullingDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.occlusion_culling;
         }
 

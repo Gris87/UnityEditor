@@ -30,7 +30,7 @@ public static class Controls
     /// </summary>
     static Controls()
     {
-		buttons.escape = InputControl.SetKey("Escape", KeyCode.Escape);
+        buttons.escape = InputControl.SetKey("Escape", KeyCode.Escape);
 
         Load();
     }

@@ -14,7 +14,7 @@ public static class Controls
     public struct Buttons
     {
         public KeyMapping escape;
-		public KeyMapping menu;
+        public KeyMapping menu;
     }
 
 
@@ -31,8 +31,8 @@ public static class Controls
     /// </summary>
     static Controls()
     {
-		buttons.escape = InputControl.SetKey("Escape", KeyCode.Escape);
-		buttons.menu   = InputControl.SetKey("Menu",   KeyCode.Menu);
+        buttons.escape = InputControl.SetKey("Escape", KeyCode.Escape);
+        buttons.menu   = InputControl.SetKey("Menu",   KeyCode.Menu);
 
         Load();
     }

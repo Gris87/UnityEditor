@@ -61,7 +61,7 @@ namespace UI.Windows.MainWindow
             width  = 0f;
             height = 0f;
 
-			// TODO: [Major] Implement CreateContent
+            // TODO: [Major] Implement CreateContent
         }
 
         /// <summary>

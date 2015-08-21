@@ -53,10 +53,10 @@ namespace UI.Windows.MainWindow.MainMenu
         void Update()
         {
             if (
-				Global.mainWindowScript.selected
-				&&
-				InputControl.anyKeyDown
-			   )
+                Global.mainWindowScript.selected
+                &&
+                InputControl.anyKeyDown
+               )
             {
                 foreach (MenuItem menuItem in mShortcuts)
                 {
@@ -165,30 +165,30 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_NextWindow()
         {
-			Debug.Log("MainMenuScript.OnWindow_NextWindow");
+            Debug.Log("MainMenuScript.OnWindow_NextWindow");
 
-			ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
+            ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
 
-			int index = windows.IndexOf(WindowScript.selectedWindow);
+            int index = windows.IndexOf(WindowScript.selectedWindow);
 
-			if (index >= 0)
-			{
-				if (windows.Count > 1)
-				{
-					++index;
+            if (index >= 0)
+            {
+                if (windows.Count > 1)
+                {
+                    ++index;
 
-					if (index >= windows.Count)
-					{
-						index = 0;
-					}
+                    if (index >= windows.Count)
+                    {
+                        index = 0;
+                    }
 
-					windows[index].Select();
-				}
-			}
-			else
-			{
-				Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
-			}
+                    windows[index].Select();
+                }
+            }
+            else
+            {
+                Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
+            }
         }
 
         /// <summary>
@@ -196,30 +196,30 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_PreviousWindow()
         {
-			Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
-			
-			ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
-			
-			int index = windows.IndexOf(WindowScript.selectedWindow);
-			
-			if (index >= 0)
-			{
-				if (windows.Count > 1)
-				{
-					--index;
+            Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
+
+            ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
+
+            int index = windows.IndexOf(WindowScript.selectedWindow);
+
+            if (index >= 0)
+            {
+                if (windows.Count > 1)
+                {
+                    --index;
 
                     if (index < 0)
                     {
                         index = windows.Count - 1;
                     }
-					
-					windows[index].Select();
-				}
-			}
-			else
-			{
-				Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
-			}
+
+                    windows[index].Select();
+                }
+            }
+            else
+            {
+                Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
+            }
         }
 
         #region Window -> Layouts
@@ -303,70 +303,70 @@ namespace UI.Windows.MainWindow.MainMenu
         }
         #endregion
 
-		/// <summary>
-		/// Shows dock widget.
-		/// </summary>
-		/// <param name="globalPointer">Global pointer for storing.</param>
-		/// <param name="name">Dock widget name.</param>
-		/// <typeparam name="T">Type of dock widget.</typeparam>
-		private void ShowDockWidget<T>(ref T globalPointer, string name) where T : DockWidgetScript
-		{
-			if (globalPointer == null)
-			{
-				//***************************************************************************
-				// DockWidget GameObject
-				//***************************************************************************
-				#region DockWidget GameObject
-				GameObject dockWidget = new GameObject(name);
-				Utils.InitUIObject(dockWidget, Global.dockingAreaScript.transform);
-				
-				//===========================================================================
-				// T Component
-				//===========================================================================
+        /// <summary>
+        /// Shows dock widget.
+        /// </summary>
+        /// <param name="globalPointer">Global pointer for storing.</param>
+        /// <param name="name">Dock widget name.</param>
+        /// <typeparam name="T">Type of dock widget.</typeparam>
+        private void ShowDockWidget<T>(ref T globalPointer, string name) where T : DockWidgetScript
+        {
+            if (globalPointer == null)
+            {
+                //***************************************************************************
+                // DockWidget GameObject
+                //***************************************************************************
+                #region DockWidget GameObject
+                GameObject dockWidget = new GameObject(name);
+                Utils.InitUIObject(dockWidget, Global.dockingAreaScript.transform);
+
+                //===========================================================================
+                // T Component
+                //===========================================================================
                 #region T Component
                 globalPointer = dockWidget.AddComponent<T>();
                 #endregion
                 #endregion
 
 
-				if (Global.dockingAreaScript.dockingGroupScript == null && Global.dockingAreaScript.children.Count == 0)
-				{
-					globalPointer.InsertToDockingArea(Global.dockingAreaScript);
-				}
-				else
-				{
-					//***************************************************************************
-					// DockingWindow GameObject
-					//***************************************************************************
-					#region DockingWindow GameObject
-					GameObject dockingWindow = new GameObject("DockingWindow");
-					Utils.InitUIObject(dockingWindow, Global.windowsTransform);
-					
-					//===========================================================================
-					// DockingWindowScript Component
-					//===========================================================================
-					#region DockingWindowScript Component
-					DockingWindowScript dockingWindowScript = dockingWindow.AddComponent<DockingWindowScript>();
-                    
-                    dockingWindowScript.dockWidget = globalPointer;				
+                if (Global.dockingAreaScript.dockingGroupScript == null && Global.dockingAreaScript.children.Count == 0)
+                {
+                    globalPointer.InsertToDockingArea(Global.dockingAreaScript);
+                }
+                else
+                {
+                    //***************************************************************************
+                    // DockingWindow GameObject
+                    //***************************************************************************
+                    #region DockingWindow GameObject
+                    GameObject dockingWindow = new GameObject("DockingWindow");
+                    Utils.InitUIObject(dockingWindow, Global.windowsTransform);
+
+                    //===========================================================================
+                    // DockingWindowScript Component
+                    //===========================================================================
+                    #region DockingWindowScript Component
+                    DockingWindowScript dockingWindowScript = dockingWindow.AddComponent<DockingWindowScript>();
+
+                    dockingWindowScript.dockWidget = globalPointer;
                     dockingWindowScript.Show();
                     #endregion
-					#endregion
-				}
-			}
-			else
-			{
-				globalPointer.Select();
-			}
+                    #endregion
+                }
+            }
+            else
+            {
+                globalPointer.Select();
+            }
         }
-        
+
         /// <summary>
         /// Handler for Window -> Servers.
         /// </summary>
         public void OnWindow_Servers()
         {
             Debug.Log("MainMenuScript.OnWindow_Servers");
-            
+
             ShowDockWidget<ServersDockWidgetScript>(ref Global.serversDockWidgetScript, "Servers");
         }
         #endregion

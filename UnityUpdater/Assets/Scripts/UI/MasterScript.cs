@@ -43,19 +43,19 @@ namespace UI
             {
                 Debug.LogWarning("Failed to determine DPI");
             }
-		}
-		
-		/// <summary>
-		/// Creates user interface.
-		/// </summary>
-		private void CreateUI()
-		{
+        }
+
+        /// <summary>
+        /// Creates user interface.
+        /// </summary>
+        private void CreateUI()
+        {
             CreateCommon();
             CreateWindows();
             CreateOverlap();
 
             MainWindowScript.Create().Show();
-		}
+        }
 
         /// <summary>
         /// Creates common things.
@@ -130,28 +130,28 @@ namespace UI
 
 
 
-			//***************************************************************************
-			// EscapeButtonListener GameObject
-			//***************************************************************************
-			#region EscapeButtonListener GameObject
-			GameObject escapeButtonListener = new GameObject("EscapeButtonListener");
-			Utils.InitUIObject(escapeButtonListener, listeners.transform);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			RectTransform escapeButtonListenerTransform = escapeButtonListener.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(escapeButtonListenerTransform);
-			#endregion
-			
-			//===========================================================================
-			// EscapeButtonListenerScript Component
-			//===========================================================================
-			#region EscapeButtonListenerScript Component
-			escapeButtonListener.AddComponent<EscapeButtonListenerScript>();
-			#endregion
-			#endregion
+            //***************************************************************************
+            // EscapeButtonListener GameObject
+            //***************************************************************************
+            #region EscapeButtonListener GameObject
+            GameObject escapeButtonListener = new GameObject("EscapeButtonListener");
+            Utils.InitUIObject(escapeButtonListener, listeners.transform);
+
+            //===========================================================================
+            // RectTransform Component
+            //===========================================================================
+            #region RectTransform Component
+            RectTransform escapeButtonListenerTransform = escapeButtonListener.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(escapeButtonListenerTransform);
+            #endregion
+
+            //===========================================================================
+            // EscapeButtonListenerScript Component
+            //===========================================================================
+            #region EscapeButtonListenerScript Component
+            escapeButtonListener.AddComponent<EscapeButtonListenerScript>();
+            #endregion
+            #endregion
         }
 
         /// <summary>

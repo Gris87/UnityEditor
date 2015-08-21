@@ -47,29 +47,29 @@ namespace UI.Windows.MainWindow
     /// </summary>
     public class MainWindowScript : WindowScript
 #if HANDLE_ESCAPE_BUTTON
-								  , EscapeButtonHandler
+                                  , EscapeButtonHandler
 #endif
     {
-		private const float MAIN_MENU_HEIGHT = 20f;
-		private const float TOOLBAR_HEIGHT   = 32f;
+        private const float MAIN_MENU_HEIGHT = 20f;
+        private const float TOOLBAR_HEIGHT   = 32f;
 
 
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="UI.Windows.MainWindow.MainWindowScript"/> is selected.
-		/// </summary>
-		/// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
-		public override bool selected
-		{
-			get
-			{
-				return (
-					    base.selected
-					    ||
-						WindowScript.selectedWindow is DockingWindowScript
-					   );
-			}
-		}
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="UI.Windows.MainWindow.MainWindowScript"/> is selected.
+        /// </summary>
+        /// <value><c>true</c> if selected; otherwise, <c>false</c>.</value>
+        public override bool selected
+        {
+            get
+            {
+                return (
+                        base.selected
+                        ||
+                        WindowScript.selectedWindow is DockingWindowScript
+                       );
+            }
+        }
 
 
 
@@ -129,7 +129,7 @@ namespace UI.Windows.MainWindow
             Utils.InitUIObject(mainMenu, contentTransform);
 
 #if MENU_BUTTON_TO_SHOW_MENU
-			mainMenu.SetActive(false);
+            mainMenu.SetActive(false);
 #endif
 
             //===========================================================================
@@ -158,7 +158,7 @@ namespace UI.Windows.MainWindow
             Utils.InitUIObject(toolbar, contentTransform);
 
 #if MENU_BUTTON_TO_SHOW_MENU
-			toolbar.SetActive(false);
+            toolbar.SetActive(false);
 #endif
 
             //===========================================================================
@@ -193,9 +193,9 @@ namespace UI.Windows.MainWindow
             RectTransform dockingAreaTransform = dockingArea.AddComponent<RectTransform>();
 
 #if MENU_BUTTON_TO_SHOW_MENU
-			Utils.AlignRectTransformStretchStretch(dockingAreaTransform);
+            Utils.AlignRectTransformStretchStretch(dockingAreaTransform);
 #else
-			Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, MAIN_MENU_HEIGHT + TOOLBAR_HEIGHT, 0f, 0f);
+            Utils.AlignRectTransformStretchStretch(dockingAreaTransform, 0f, MAIN_MENU_HEIGHT + TOOLBAR_HEIGHT, 0f, 0f);
 #endif
             #endregion
 
@@ -208,10 +208,10 @@ namespace UI.Windows.MainWindow
             #endregion
 
 #if HANDLE_ESCAPE_BUTTON
-			EscapeButtonListenerScript.PushHandlerToTop(this);
+            EscapeButtonListenerScript.PushHandlerToTop(this);
 #endif
 
-			// TODO: [Major] It looks bad on start up on Android
+            // TODO: [Major] It looks bad on start up on Android
             LoadDockWidgets();
         }
 
@@ -223,7 +223,7 @@ namespace UI.Windows.MainWindow
             base.OnDestroy();
 
 #if HANDLE_ESCAPE_BUTTON
-			EscapeButtonListenerScript.RemoveHandler(this);
+            EscapeButtonListenerScript.RemoveHandler(this);
 #endif
 
             if (Global.mainWindowScript == this)
@@ -237,28 +237,28 @@ namespace UI.Windows.MainWindow
         }
 
 #if MENU_BUTTON_TO_SHOW_MENU
-		/// <summary>
-		/// Update is called once per frame.
-		/// </summary>
-		protected override void Update()
-		{
-			base.Update();
+        /// <summary>
+        /// Update is called once per frame.
+        /// </summary>
+        protected override void Update()
+        {
+            base.Update();
 
-			if (selected)
-			{
-				if (InputControl.GetButtonDown(Controls.buttons.menu, true))
-				{
-					if (IsMenuVisible())
-					{
-						HideMenu();
-					}
-					else
-					{
-						ShowMenu();
-					}
-				}
-			}
-		}
+            if (selected)
+            {
+                if (InputControl.GetButtonDown(Controls.buttons.menu, true))
+                {
+                    if (IsMenuVisible())
+                    {
+                        HideMenu();
+                    }
+                    else
+                    {
+                        ShowMenu();
+                    }
+                }
+            }
+        }
 #endif
 
         /// <summary>
@@ -278,68 +278,68 @@ namespace UI.Windows.MainWindow
         }
 
 #if HANDLE_ESCAPE_BUTTON
-		/// <summary>
-		/// Handles escape button press event.
-		/// </summary>
-		/// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
-		public bool OnEscapeButtonPressed()
-		{
+        /// <summary>
+        /// Handles escape button press event.
+        /// </summary>
+        /// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
+        public bool OnEscapeButtonPressed()
+        {
 #if MENU_BUTTON_TO_SHOW_MENU
-			if (IsMenuVisible())
-			{
-				HideMenu();
-			}
-			else
-			{
-				Global.mainMenuScript.OnFile_Exit();
-			}
+            if (IsMenuVisible())
+            {
+                HideMenu();
+            }
+            else
+            {
+                Global.mainMenuScript.OnFile_Exit();
+            }
 #else
-			Global.mainMenuScript.OnFile_Exit();
+            Global.mainMenuScript.OnFile_Exit();
 #endif
 
-			return true;
-		}
+            return true;
+        }
 #endif
 
 #if MENU_BUTTON_TO_SHOW_MENU
-		/// <summary>
-		/// Determines whether menu is visible.
-		/// </summary>
-		/// <returns><c>true</c> if menu is visible; otherwise, <c>false</c>.</returns>
-		private bool IsMenuVisible()
-		{
-			return Global.mainMenuScript.gameObject.activeSelf;
-		}
+        /// <summary>
+        /// Determines whether menu is visible.
+        /// </summary>
+        /// <returns><c>true</c> if menu is visible; otherwise, <c>false</c>.</returns>
+        private bool IsMenuVisible()
+        {
+            return Global.mainMenuScript.gameObject.activeSelf;
+        }
 
-		/// <summary>
-		/// Shows menu.
-		/// </summary>
-		private void ShowMenu()
-		{
-			Global.mainMenuScript.gameObject.SetActive(true);
-			Global.toolbarScript.gameObject.SetActive(true);
+        /// <summary>
+        /// Shows menu.
+        /// </summary>
+        private void ShowMenu()
+        {
+            Global.mainMenuScript.gameObject.SetActive(true);
+            Global.toolbarScript.gameObject.SetActive(true);
 
-			RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
+            RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
 
-			dockingAreaTransform.offsetMax = new Vector2(0f, -MAIN_MENU_HEIGHT - TOOLBAR_HEIGHT);
+            dockingAreaTransform.offsetMax = new Vector2(0f, -MAIN_MENU_HEIGHT - TOOLBAR_HEIGHT);
 
-			Global.dockingAreaScript.OnResize();
-		}
+            Global.dockingAreaScript.OnResize();
+        }
 
-		/// <summary>
-		/// Hides menu.
-		/// </summary>
-		private void HideMenu()
-		{
-			Global.mainMenuScript.gameObject.SetActive(false);
-			Global.toolbarScript.gameObject.SetActive(false);
+        /// <summary>
+        /// Hides menu.
+        /// </summary>
+        private void HideMenu()
+        {
+            Global.mainMenuScript.gameObject.SetActive(false);
+            Global.toolbarScript.gameObject.SetActive(false);
 
-			RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
-			
-			dockingAreaTransform.offsetMax = new Vector2(0f, 0f);
+            RectTransform dockingAreaTransform = Global.dockingAreaScript.transform as RectTransform;
 
-			Global.dockingAreaScript.OnResize();
-		}
+            dockingAreaTransform.offsetMax = new Vector2(0f, 0f);
+
+            Global.dockingAreaScript.OnResize();
+        }
 #endif
 
         /// <summary>

@@ -18,7 +18,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
         private GameDockWidgetScript()
             : base()
         {
-			image   = Assets.Windows.MainWindow.DockWidgets.Game.Textures.icon.sprite;
+            image   = Assets.Windows.MainWindow.DockWidgets.Game.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.game;
         }
 

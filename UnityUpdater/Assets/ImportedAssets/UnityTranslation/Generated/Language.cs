@@ -1,4 +1,4 @@
-﻿// This file generated from "CLDR/json-full/main/en/languages.json" file.
+// This file generated from "CLDR/json-full/main/en/languages.json" file.
 using UnityEngine;
 
 
