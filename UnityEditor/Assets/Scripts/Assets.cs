@@ -2571,6 +2571,8 @@ public static class Assets
         }
         #endregion
 
+
+
 		/// <summary>
 		/// Resets values.
 		/// </summary>
@@ -2581,6 +2583,8 @@ public static class Assets
 		}
     }
     #endregion
+
+
 
 	/// <summary>
 	/// Resets values.

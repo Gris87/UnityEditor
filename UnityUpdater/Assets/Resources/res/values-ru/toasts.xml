@@ -4,7 +4,4 @@
     <!-- Toast: Please contribute -->
     <string name="contribute">Данная функция еще не поддерживается.\nПожалуйста, помогите нашему проекту: {0}</string>
 
-    <!-- Toast: Internal Mode: {0} -->
-    <string name="internal_mode">Внутренний режим: {0}</string>
-
 </resources>
