@@ -1,4 +1,5 @@
 @echo off
+
 set APP_NAME=UnityEditor
 
 set UNITY="C:\Program Files\Unity\Editor\Unity.exe"
