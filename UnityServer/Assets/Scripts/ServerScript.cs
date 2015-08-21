@@ -12,5 +12,6 @@ public class ServerScript : MonoBehaviour
     /// </summary>
     void Start()
     {
+        // TODO: [Major] Implement server
     }
 }

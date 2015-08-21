@@ -103,14 +103,22 @@ namespace UI
             #endregion
             #endregion
 
+			CreateResizeListener(listeners.transform);
+			CreateEscapeButtonListener(listeners.transform);
+		}
 
-
+		/// <summary>
+		/// Creates resize listener.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreateResizeListener(Transform parent)
+		{
             //***************************************************************************
             // ResizeListener GameObject
             //***************************************************************************
             #region ResizeListener GameObject
             GameObject resizeListener = new GameObject("ResizeListener");
-            Utils.InitUIObject(resizeListener, listeners.transform);
+			Utils.InitUIObject(resizeListener, parent);
 
             //===========================================================================
             // RectTransform Component
@@ -127,15 +135,20 @@ namespace UI
             resizeListener.AddComponent<ResizeListenerScript>();
             #endregion
             #endregion
+		}
 
-
-
+		/// <summary>
+		/// Creates escape button listener.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreateEscapeButtonListener(Transform parent)
+		{
             //***************************************************************************
             // EscapeButtonListener GameObject
             //***************************************************************************
             #region EscapeButtonListener GameObject
             GameObject escapeButtonListener = new GameObject("EscapeButtonListener");
-            Utils.InitUIObject(escapeButtonListener, listeners.transform);
+			Utils.InitUIObject(escapeButtonListener, parent);
 
             //===========================================================================
             // RectTransform Component
@@ -199,14 +212,22 @@ namespace UI
             #endregion
             #endregion
 
+			CreatePopupMenuArea(overlap.transform);
+			CreateTooltipArea(overlap.transform);
+		}
 
-
+		/// <summary>
+		/// Creates popup menu area.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreatePopupMenuArea(Transform parent)
+		{
             //***************************************************************************
             // PopupMenuArea GameObject
             //***************************************************************************
             #region PopupMenuArea GameObject
             GameObject popupMenuArea = new GameObject("PopupMenuArea");
-            Utils.InitUIObject(popupMenuArea, overlap.transform);
+			Utils.InitUIObject(popupMenuArea, parent);
 
             //===========================================================================
             // RectTransform Component
@@ -223,15 +244,20 @@ namespace UI
             popupMenuArea.AddComponent<PopupMenuAreaScript>();
             #endregion
             #endregion
+		}
 
-
-
+		/// <summary>
+		/// Creates tooltip area.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreateTooltipArea(Transform parent)
+		{
             //***************************************************************************
             // TooltipArea GameObject
             //***************************************************************************
             #region TooltipArea GameObject
             GameObject tooltipArea = new GameObject("TooltipArea");
-            Utils.InitUIObject(tooltipArea, overlap.transform);
+			Utils.InitUIObject(tooltipArea, parent);
 
             //===========================================================================
             // RectTransform Component
