@@ -57,4 +57,3 @@ namespace UI.Windows.AboutDialog
         };
     }
 }
-

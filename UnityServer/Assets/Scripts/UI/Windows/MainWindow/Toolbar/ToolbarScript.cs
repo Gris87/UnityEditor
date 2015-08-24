@@ -1,7 +1,4 @@
 using UnityEngine;
-using UnityTranslation;
-
-using Common.App;
 
 
 

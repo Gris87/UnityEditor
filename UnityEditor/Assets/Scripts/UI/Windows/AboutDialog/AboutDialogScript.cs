@@ -762,4 +762,3 @@ namespace UI.Windows.AboutDialog
         }
     }
 }
-
