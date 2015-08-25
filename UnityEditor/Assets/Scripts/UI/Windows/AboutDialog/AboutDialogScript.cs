@@ -25,6 +25,7 @@ namespace UI.Windows.AboutDialog
         private const string SCRIPTING_POWERED_BY = "The Mono Project";
         private const string PHYSICS_POWERED_BY   = "PhysX";
         private const string SECRET_CODE          = "internal";
+		private const byte   CLICK_AMOUNT         = 10;
         private const float  SCROLL_SPEED         = 0.02f;
 
 
@@ -37,6 +38,7 @@ namespace UI.Windows.AboutDialog
         private ScreenOrientation mScreenOrientation;
         private bool              mIsCreditsDragging;
         private byte              mCurrentSecretChar;
+		private byte              mCurrentClick;
 
         private RectTransform mUnityLogoTransform;
         private RectTransform mVersionTransform;
@@ -72,6 +74,7 @@ namespace UI.Windows.AboutDialog
             mScreenOrientation = ScreenOrientation.Unknown;
             mIsCreditsDragging = false;
             mCurrentSecretChar = 0;
+			mCurrentClick      = 0;
 
             mUnityLogoTransform      = null;
             mVersionTransform        = null;
@@ -184,6 +187,17 @@ namespace UI.Windows.AboutDialog
             unityLogoImage.sprite = Assets.Windows.AboutDialog.Textures.unity.sprite;
             unityLogoImage.type   = Image.Type.Sliced;
             #endregion
+
+			//===========================================================================
+			// Button Component
+			//===========================================================================
+			#region Button Component
+			Button unityLogoButton = unityLogo.AddComponent<Button>();
+			
+			unityLogoButton.targetGraphic = unityLogoImage;
+			unityLogoButton.transition    = Selectable.Transition.None;
+			unityLogoButton.onClick.AddListener(OnUnityLogoClick);
+			#endregion
             #endregion
 
             //***************************************************************************
@@ -599,23 +613,44 @@ namespace UI.Windows.AboutDialog
                     mCreditsScrollRect.verticalNormalizedPosition = 1f;
                 }
 
-                // TODO: [Major] Let to do the same with multiple clicking over Unity logo
                 if (selected && InputControl.GetKeyDown((KeyCode)(KeyCode.A + SECRET_CODE[mCurrentSecretChar] - 'a')))
                 {
                     ++mCurrentSecretChar;
 
                     if (mCurrentSecretChar >= SECRET_CODE.Length)
                     {
-                        mCurrentSecretChar = 0;
-
-                        Settings.internalMode = !Settings.internalMode;
-
-                        Debug.Log("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
-                        Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
+						ToggleInternalMode();
                     }
                 }
             }
         }
+
+		/// <summary>
+		/// Handler for click event over unity logo image.
+		/// </summary>
+		private void OnUnityLogoClick()
+		{
+			++mCurrentClick;
+
+			if (mCurrentClick >= CLICK_AMOUNT)
+			{
+				ToggleInternalMode();
+			}
+		}
+
+		/// <summary>
+		/// Toggles the internal mode.
+		/// </summary>
+		private void ToggleInternalMode()
+		{
+			mCurrentSecretChar = 0;
+			mCurrentClick      = 0;
+			
+			Settings.internalMode = !Settings.internalMode;
+			
+			Debug.Log("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
+			Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
+		}
 
         /// <summary>
         /// Handler for begin drag event.
