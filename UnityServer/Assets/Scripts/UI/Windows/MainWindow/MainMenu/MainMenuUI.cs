@@ -130,12 +130,12 @@ namespace UI.Windows.MainWindow.MainMenu
         /// <param name="radioGroup">Menu radio group.</param>
         private TreeNode<CustomMenuItem> MakeItem(
                                                     TreeNode<CustomMenuItem>     owner
-                                                     , R.sections.MenuItems.strings tokenId
-                                                    , UnityAction                  onClick    = null
-                                                    , bool                         enabled    = true
-                                                    , string                       shortcut   = null
+                                                  , R.sections.MenuItems.strings tokenId
+                                                  , UnityAction                  onClick    = null
+                                                  , bool                         enabled    = true
+                                                  , string                       shortcut   = null
                                                   , MenuRadioGroup               radioGroup = null
-                                                     )
+                                                 )
         {
             return MenuItem.Create(owner, tokenId, onClick, enabled, mScript, shortcut, radioGroup);
         }
@@ -152,12 +152,12 @@ namespace UI.Windows.MainWindow.MainMenu
         /// <param name="radioGroup">Menu radio group.</param>
         private TreeNode<CustomMenuItem> MakeItem(
                                                     TreeNode<CustomMenuItem> owner
-                                                    , string 		             text
-                                                    , UnityAction              onClick    = null
-                                                    , bool                     enabled    = true
-                                                    , string                   shortcut   = null
+                                                  , string 		             text
+                                                  , UnityAction              onClick    = null
+                                                  , bool                     enabled    = true
+                                                  , string                   shortcut   = null
                                                   , MenuRadioGroup           radioGroup = null
-                                                  )
+                                                 )
         {
             return MenuItem.Create(owner, text, onClick, enabled, mScript, shortcut, radioGroup);
         }
