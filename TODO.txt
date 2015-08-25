@@ -1,4 +1,8 @@
+Multiple clicking for internal mode
 Regenerate docs for all constructors
+Implement server part
+Implement client part
+Show context menu on dock widget
 Download system that downloads everything that needed and updates it
 Unity file reading
 Layout manager

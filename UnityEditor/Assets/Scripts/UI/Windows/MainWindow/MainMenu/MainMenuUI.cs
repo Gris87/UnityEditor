@@ -1251,7 +1251,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// <summary>
         /// Creates user interface.
         /// </summary>
-        private void CreateUI() // TODO: [Trivial] Report bug for ///
+        private void CreateUI()
         {
             //***************************************************************************
             // ScrollArea GameObject
