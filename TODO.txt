@@ -1,6 +1,8 @@
 Implement server part
 Implement client part
+Implement lock button on dock widget
 Show context menu on dock widget
+Put tag to repos
 Download system that downloads everything that needed and updates it
 Unity file reading
 Layout manager
