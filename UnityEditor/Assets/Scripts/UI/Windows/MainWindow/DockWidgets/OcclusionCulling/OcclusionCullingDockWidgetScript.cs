@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
     public class OcclusionCullingDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.OcclusionCulling.OcclusionCullingDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.OcclusionCulling.OcclusionCullingDockWidgetScript"/> class.
         /// </summary>
         private OcclusionCullingDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.occlusion_culling;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.OcclusionCulling.OcclusionCullingDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.OcclusionCulling.OcclusionCullingDockWidgetScript"/> class.
+		/// </summary>
         public static OcclusionCullingDockWidgetScript Create()
         {
             if (Global.occlusionCullingDockWidgetScript == null)

@@ -10,9 +10,9 @@ namespace UI.Windows.MainWindow.Toolbar
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.ToolbarUI"/> class.
+        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.Toolbar.ToolbarUI"/> class.
         /// </summary>
-        /// <param name="script">Script.</param>
+        /// <param name="script">Toolbar script.</param>
         public ToolbarUI(ToolbarScript script)
         {
             //mScript = script;

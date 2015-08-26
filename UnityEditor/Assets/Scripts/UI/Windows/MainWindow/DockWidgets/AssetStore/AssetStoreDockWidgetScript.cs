@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
     public class AssetStoreDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.AssetStore.AssetStoreDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.AssetStore.AssetStoreDockWidgetScript"/> class.
         /// </summary>
         private AssetStoreDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.asset_store;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.AssetStore.AssetStoreDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.AssetStore.AssetStoreDockWidgetScript"/> class.
+		/// </summary>
         public static AssetStoreDockWidgetScript Create()
         {
             if (Global.assetStoreDockWidgetScript == null)

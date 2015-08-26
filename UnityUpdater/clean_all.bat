@@ -6,6 +6,10 @@ if exist Library (
     rmdir /S /Q Library
 )
 
+if exist Temp (
+    rmdir /S /Q Temp
+)
+
 if exist Assembly-CSharp.csproj (
     del /F /Q Assembly-CSharp.csproj
 )

@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
     public class ProjectDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
         /// </summary>
         private ProjectDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
+		/// </summary>
         public static ProjectDockWidgetScript Create()
         {
             if (Global.projectDockWidgetScript == null)

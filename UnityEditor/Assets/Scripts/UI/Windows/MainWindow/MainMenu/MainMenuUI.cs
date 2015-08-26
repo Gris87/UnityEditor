@@ -593,8 +593,9 @@ namespace UI.Windows.MainWindow.MainMenu
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainMenuUI"/> class.
+        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.MainMenu.MainMenuUI"/> class.
         /// </summary>
+        /// <param name="script">Main menu script.</param>
         public MainMenuUI(MainMenuScript script)
         {
             mScript = script;

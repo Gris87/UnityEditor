@@ -1882,7 +1882,8 @@ public static class Assets
 
 
                         /// <summary>
-                        /// Initializes the <see cref="Assets+Windows+MainWindow+DockWidgets+AnimatorParameter+Textures"/> class.
+                        /// Initializes the
+                        /// <see cref="Assets+Windows+MainWindow+DockWidgets+AnimatorParameter+Textures"/> class.
                         /// </summary>
                         static Textures()
                         {
@@ -2166,7 +2167,8 @@ public static class Assets
 
 
                         /// <summary>
-                        /// Initializes the <see cref="Assets+Windows+MainWindow+DockWidgets+OcclusionCulling+Textures"/> class.
+                        /// Initializes the
+                        /// <see cref="Assets+Windows+MainWindow+DockWidgets+OcclusionCulling+Textures"/> class.
                         /// </summary>
                         static Textures()
                         {

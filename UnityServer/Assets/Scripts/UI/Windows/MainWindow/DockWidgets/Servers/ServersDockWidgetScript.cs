@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
     public class ServersDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Servers.ServersDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Servers.ServersDockWidgetScript"/> class.
         /// </summary>
         private ServersDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.servers;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Servers.ServersDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.Servers.ServersDockWidgetScript"/> class.
+		/// </summary>
         public static ServersDockWidgetScript Create()
         {
             if (Global.serversDockWidgetScript == null)

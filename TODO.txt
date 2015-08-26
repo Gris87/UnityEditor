@@ -1,4 +1,3 @@
-Regenerate docs for all constructors
 Implement server part
 Implement client part
 Show context menu on dock widget

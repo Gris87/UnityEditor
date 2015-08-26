@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
     public class ProfilerDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Profiler.ProfilerDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Profiler.ProfilerDockWidgetScript"/> class.
         /// </summary>
         private ProfilerDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.profiler;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.Profiler.ProfilerDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.Profiler.ProfilerDockWidgetScript"/> class.
+		/// </summary>
         public static ProfilerDockWidgetScript Create()
         {
             if (Global.profilerDockWidgetScript == null)

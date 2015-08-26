@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
     public class AnimatorParameterDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.AnimatorParameter.AnimatorParameterDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.AnimatorParameter.AnimatorParameterDockWidgetScript"/> class.
         /// </summary>
         private AnimatorParameterDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.animator_parameter;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.AnimatorParameter.AnimatorParameterDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.AnimatorParameter.AnimatorParameterDockWidgetScript"/> class.
+		/// </summary>
         public static AnimatorParameterDockWidgetScript Create()
         {
             if (Global.animatorParameterDockWidgetScript == null)

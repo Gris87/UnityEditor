@@ -13,7 +13,8 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
     public class SpritePackerDockWidgetScript : DockWidgetScript
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.SpritePacker.SpritePackerDockWidgetScript"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.SpritePacker.SpritePackerDockWidgetScript"/> class.
         /// </summary>
         private SpritePackerDockWidgetScript()
             : base()
@@ -22,9 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.sprite_packer;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UI.Windows.MainWindow.DockWidgets.SpritePacker.SpritePackerDockWidgetScript"/> class.
-        /// </summary>
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="UI.Windows.MainWindow.DockWidgets.SpritePacker.SpritePackerDockWidgetScript"/> class.
+		/// </summary>
         public static SpritePackerDockWidgetScript Create()
         {
             if (Global.spritePackerDockWidgetScript == null)
