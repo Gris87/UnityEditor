@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using Common.App;
 using Common.UI.DockWidgets;
 using UI.Windows.AboutDialog;
 using UI.Windows.MainWindow;
@@ -31,6 +32,11 @@ using UI.Windows.MainWindow.Toolbar;
 /// </summary>
 public static class Global
 {
+    /// <summary>
+	/// Client script.
+	/// </summary>
+	public static ClientScript clientScript = null;
+
     /// <summary>
     /// Windows transform.
     /// </summary>

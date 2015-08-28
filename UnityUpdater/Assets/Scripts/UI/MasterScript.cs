@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using Common;
+using Common.App;
 using Common.UI.Listeners;
 using Common.UI.Popups;
 using Common.UI.Tooltips;
@@ -79,6 +80,7 @@ namespace UI
             #endregion
 
             CreateCommonListeners(common.transform);
+			CreateCommonNetwork(common.transform);
         }
 
         /// <summary>
@@ -166,6 +168,61 @@ namespace UI
             #endregion
             #endregion
         }
+
+        /// <summary>
+		/// Creates common network.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreateCommonNetwork(Transform parent)
+		{
+			//***************************************************************************
+			// Network GameObject
+			//***************************************************************************
+			#region Network GameObject
+			GameObject network = new GameObject("Network");
+			Utils.InitUIObject(network, parent);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform networkTransform = network.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(networkTransform);
+			#endregion
+			#endregion
+			
+			CreateClientScript(network.transform);
+		}
+
+		/// <summary>
+		/// Creates client script.
+		/// </summary>
+		/// <param name="parent">Parent transform.</param>
+		private void CreateClientScript(Transform parent)
+		{
+			//***************************************************************************
+			// Client GameObject
+			//***************************************************************************
+			#region Client GameObject
+			GameObject client = new GameObject("Client");
+			Utils.InitUIObject(client, parent);
+			
+			//===========================================================================
+			// RectTransform Component
+			//===========================================================================
+			#region RectTransform Component
+			RectTransform clientTransform = client.AddComponent<RectTransform>();
+			Utils.AlignRectTransformStretchStretch(clientTransform);
+			#endregion
+			
+			//===========================================================================
+			// ClientScript Component
+			//===========================================================================
+			#region ClientScript Component
+			Global.clientScript = client.AddComponent<ClientScript>();
+			#endregion
+			#endregion
+		}
 
         /// <summary>
         /// Creates windows container.
