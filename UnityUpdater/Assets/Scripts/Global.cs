@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using Common.App;
+using Common.App.Net;
 using Common.UI.DockWidgets;
 using UI.Windows.MainWindow;
 
@@ -15,6 +16,11 @@ public static class Global
 	/// Client script.
 	/// </summary>
 	public static ClientScript clientScript = null;
+
+    /// <summary>
+	/// Server browser script.
+	/// </summary>
+	public static ServerBrowserScript serverBrowserScript = null;
 
     /// <summary>
     /// Windows transform.
