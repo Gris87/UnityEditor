@@ -42,8 +42,14 @@ namespace Net
 			Network.natFacilitatorPort = 50005;
 #endif
 
-			Network.InitializeServer(10000, 52794, !Network.HavePublicAddress());
-			StartServer();
+			if (Network.InitializeServer(10000, 52794, !Network.HavePublicAddress()) == NetworkConnectionError.NoError)
+			{
+				StartServer();
+			}
+			else
+			{
+				Debug.LogError("Server initialization failed");
+			}
 		}
 		
 		/// <summary>
@@ -53,7 +59,7 @@ namespace Net
 		{
 			if (!mStarted)
 			{
-				MasterServer.RegisterHost("UnityEditor", "Server #1");
+				MasterServer.RegisterHost("UnityEditor", "Server_1");
 				mStarted = true;
 			}
 			else
