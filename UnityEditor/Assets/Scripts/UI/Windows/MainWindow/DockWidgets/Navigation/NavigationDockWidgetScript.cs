@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.navigation;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Navigation.NavigationDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Navigation.NavigationDockWidgetScript"/> class.
+        /// </summary>
         public static NavigationDockWidgetScript Create()
         {
             if (Global.navigationDockWidgetScript == null)

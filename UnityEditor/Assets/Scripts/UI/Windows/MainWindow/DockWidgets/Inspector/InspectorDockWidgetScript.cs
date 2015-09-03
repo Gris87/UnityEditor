@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.inspector;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Inspector.InspectorDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Inspector.InspectorDockWidgetScript"/> class.
+        /// </summary>
         public static InspectorDockWidgetScript Create()
         {
             if (Global.inspectorDockWidgetScript == null)

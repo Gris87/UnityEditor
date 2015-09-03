@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.version_control;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.VersionControl.VersionControlDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.VersionControl.VersionControlDockWidgetScript"/> class.
+        /// </summary>
         public static VersionControlDockWidgetScript Create()
         {
             if (Global.versionControlDockWidgetScript == null)

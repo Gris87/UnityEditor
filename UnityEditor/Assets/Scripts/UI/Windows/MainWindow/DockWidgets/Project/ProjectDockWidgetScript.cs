@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Project.ProjectDockWidgetScript"/> class.
+        /// </summary>
         public static ProjectDockWidgetScript Create()
         {
             if (Global.projectDockWidgetScript == null)

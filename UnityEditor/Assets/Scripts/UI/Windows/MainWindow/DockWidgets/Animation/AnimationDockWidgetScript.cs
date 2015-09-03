@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Animation
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.animation;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Animation.AnimationDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Animation.AnimationDockWidgetScript"/> class.
+        /// </summary>
         public static AnimationDockWidgetScript Create()
         {
             if (Global.animationDockWidgetScript == null)

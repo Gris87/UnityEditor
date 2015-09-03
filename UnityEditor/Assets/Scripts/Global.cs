@@ -34,14 +34,14 @@ using UI.Windows.MainWindow.Toolbar;
 public static class Global
 {
     /// <summary>
-	/// Client script.
-	/// </summary>
-	public static ClientScript clientScript = null;
+    /// Client script.
+    /// </summary>
+    public static ClientScript clientScript = null;
 
     /// <summary>
-	/// Server browser script.
-	/// </summary>
-	public static ServerBrowserScript serverBrowserScript = null;
+    /// Server browser script.
+    /// </summary>
+    public static ServerBrowserScript serverBrowserScript = null;
 
     /// <summary>
     /// Windows transform.

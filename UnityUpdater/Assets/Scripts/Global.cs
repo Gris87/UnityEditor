@@ -12,15 +12,15 @@ using UI.Windows.MainWindow;
 /// </summary>
 public static class Global
 {
-	/// <summary>
-	/// Client script.
-	/// </summary>
-	public static ClientScript clientScript = null;
+    /// <summary>
+    /// Client script.
+    /// </summary>
+    public static ClientScript clientScript = null;
 
     /// <summary>
-	/// Server browser script.
-	/// </summary>
-	public static ServerBrowserScript serverBrowserScript = null;
+    /// Server browser script.
+    /// </summary>
+    public static ServerBrowserScript serverBrowserScript = null;
 
     /// <summary>
     /// Windows transform.

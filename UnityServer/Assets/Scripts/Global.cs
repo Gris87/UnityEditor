@@ -17,20 +17,20 @@ using UI.Windows.MainWindow.Toolbar;
 /// </summary>
 public static class Global
 {
-	/// <summary>
-	/// Server script.
-	/// </summary>
-	public static ServerScript serverScript = null;
+    /// <summary>
+    /// Server script.
+    /// </summary>
+    public static ServerScript serverScript = null;
 
-	/// <summary>
-	/// Client script.
-	/// </summary>
-	public static ClientScript clientScript = null;
+    /// <summary>
+    /// Client script.
+    /// </summary>
+    public static ClientScript clientScript = null;
 
-	/// <summary>
-	/// Server browser script.
-	/// </summary>
-	public static ServerBrowserScript serverBrowserScript = null;
+    /// <summary>
+    /// Server browser script.
+    /// </summary>
+    public static ServerBrowserScript serverBrowserScript = null;
 
     /// <summary>
     /// Windows transform.

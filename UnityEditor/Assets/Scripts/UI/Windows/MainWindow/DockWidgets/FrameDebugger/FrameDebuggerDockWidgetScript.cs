@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.frame_debugger;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.FrameDebugger.FrameDebuggerDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.FrameDebugger.FrameDebuggerDockWidgetScript"/> class.
+        /// </summary>
         public static FrameDebuggerDockWidgetScript Create()
         {
             if (Global.frameDebuggerDockWidgetScript == null)

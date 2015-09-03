@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.scene;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Scene.SceneDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Scene.SceneDockWidgetScript"/> class.
+        /// </summary>
         public static SceneDockWidgetScript Create()
         {
             if (Global.sceneDockWidgetScript == null)

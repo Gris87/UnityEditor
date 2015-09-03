@@ -81,7 +81,7 @@ namespace UI
             #endregion
 
             CreateCommonListeners(common.transform);
-			CreateCommonNetwork(common.transform);
+            CreateCommonNetwork(common.transform);
         }
 
         /// <summary>
@@ -106,22 +106,22 @@ namespace UI
             #endregion
             #endregion
 
-			CreateResizeListener(listeners.transform);
-			CreateEscapeButtonListener(listeners.transform);
-		}
+            CreateResizeListener(listeners.transform);
+            CreateEscapeButtonListener(listeners.transform);
+        }
 
-		/// <summary>
-		/// Creates resize listener.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreateResizeListener(Transform parent)
-		{
+        /// <summary>
+        /// Creates resize listener.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreateResizeListener(Transform parent)
+        {
             //***************************************************************************
             // ResizeListener GameObject
             //***************************************************************************
             #region ResizeListener GameObject
             GameObject resizeListener = new GameObject("ResizeListener");
-			Utils.InitUIObject(resizeListener, parent);
+            Utils.InitUIObject(resizeListener, parent);
 
             //===========================================================================
             // RectTransform Component
@@ -138,20 +138,20 @@ namespace UI
             resizeListener.AddComponent<ResizeListenerScript>();
             #endregion
             #endregion
-		}
+        }
 
-		/// <summary>
-		/// Creates escape button listener.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreateEscapeButtonListener(Transform parent)
-		{
+        /// <summary>
+        /// Creates escape button listener.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreateEscapeButtonListener(Transform parent)
+        {
             //***************************************************************************
             // EscapeButtonListener GameObject
             //***************************************************************************
             #region EscapeButtonListener GameObject
             GameObject escapeButtonListener = new GameObject("EscapeButtonListener");
-			Utils.InitUIObject(escapeButtonListener, parent);
+            Utils.InitUIObject(escapeButtonListener, parent);
 
             //===========================================================================
             // RectTransform Component
@@ -171,90 +171,90 @@ namespace UI
         }
 
         /// <summary>
-		/// Creates common network.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreateCommonNetwork(Transform parent)
-		{
-			//***************************************************************************
-			// Network GameObject
-			//***************************************************************************
-			#region Network GameObject
-			GameObject network = new GameObject("Network");
-			Utils.InitUIObject(network, parent);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			RectTransform networkTransform = network.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(networkTransform);
-			#endregion
-			#endregion
-			
-			CreateClientScript(network.transform);
-            CreateServerBrowserScript(network.transform);
-		}
+        /// Creates common network.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreateCommonNetwork(Transform parent)
+        {
+            //***************************************************************************
+            // Network GameObject
+            //***************************************************************************
+            #region Network GameObject
+            GameObject network = new GameObject("Network");
+            Utils.InitUIObject(network, parent);
 
-		/// <summary>
-		/// Creates client script.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreateClientScript(Transform parent)
-		{
-			//***************************************************************************
-			// Client GameObject
-			//***************************************************************************
-			#region Client GameObject
-			GameObject client = new GameObject("Client");
-			Utils.InitUIObject(client, parent);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			RectTransform clientTransform = client.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(clientTransform);
-			#endregion
-			
-			//===========================================================================
-			// ClientScript Component
-			//===========================================================================
-			#region ClientScript Component
-			Global.clientScript = client.AddComponent<ClientScript>();
-			#endregion
-			#endregion
-		}
+            //===========================================================================
+            // RectTransform Component
+            //===========================================================================
+            #region RectTransform Component
+            RectTransform networkTransform = network.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(networkTransform);
+            #endregion
+            #endregion
+
+            CreateClientScript(network.transform);
+            CreateServerBrowserScript(network.transform);
+        }
 
         /// <summary>
-		/// Creates server browser script.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreateServerBrowserScript(Transform parent)
-		{
-			//***************************************************************************
-			// ServerBrowser GameObject
-			//***************************************************************************
-			#region ServerBrowser GameObject
-			GameObject serverBrowser = new GameObject("ServerBrowser");
-			Utils.InitUIObject(serverBrowser, parent);
-			
-			//===========================================================================
-			// RectTransform Component
-			//===========================================================================
-			#region RectTransform Component
-			RectTransform serverBrowserTransform = serverBrowser.AddComponent<RectTransform>();
-			Utils.AlignRectTransformStretchStretch(serverBrowserTransform);
-			#endregion
-			
-			//===========================================================================
-			// ServerBrowserScript Component
-			//===========================================================================
-			#region ServerBrowserScript Component
-			Global.serverBrowserScript = serverBrowser.AddComponent<ServerBrowserScript>();
-			#endregion
-			#endregion
-		}
+        /// Creates client script.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreateClientScript(Transform parent)
+        {
+            //***************************************************************************
+            // Client GameObject
+            //***************************************************************************
+            #region Client GameObject
+            GameObject client = new GameObject("Client");
+            Utils.InitUIObject(client, parent);
+
+            //===========================================================================
+            // RectTransform Component
+            //===========================================================================
+            #region RectTransform Component
+            RectTransform clientTransform = client.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(clientTransform);
+            #endregion
+
+            //===========================================================================
+            // ClientScript Component
+            //===========================================================================
+            #region ClientScript Component
+            Global.clientScript = client.AddComponent<ClientScript>();
+            #endregion
+            #endregion
+        }
+
+        /// <summary>
+        /// Creates server browser script.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreateServerBrowserScript(Transform parent)
+        {
+            //***************************************************************************
+            // ServerBrowser GameObject
+            //***************************************************************************
+            #region ServerBrowser GameObject
+            GameObject serverBrowser = new GameObject("ServerBrowser");
+            Utils.InitUIObject(serverBrowser, parent);
+
+            //===========================================================================
+            // RectTransform Component
+            //===========================================================================
+            #region RectTransform Component
+            RectTransform serverBrowserTransform = serverBrowser.AddComponent<RectTransform>();
+            Utils.AlignRectTransformStretchStretch(serverBrowserTransform);
+            #endregion
+
+            //===========================================================================
+            // ServerBrowserScript Component
+            //===========================================================================
+            #region ServerBrowserScript Component
+            Global.serverBrowserScript = serverBrowser.AddComponent<ServerBrowserScript>();
+            #endregion
+            #endregion
+        }
 
         /// <summary>
         /// Creates windows container.
@@ -301,22 +301,22 @@ namespace UI
             #endregion
             #endregion
 
-			CreatePopupMenuArea(overlap.transform);
-			CreateTooltipArea(overlap.transform);
-		}
+            CreatePopupMenuArea(overlap.transform);
+            CreateTooltipArea(overlap.transform);
+        }
 
-		/// <summary>
-		/// Creates popup menu area.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreatePopupMenuArea(Transform parent)
-		{
+        /// <summary>
+        /// Creates popup menu area.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreatePopupMenuArea(Transform parent)
+        {
             //***************************************************************************
             // PopupMenuArea GameObject
             //***************************************************************************
             #region PopupMenuArea GameObject
             GameObject popupMenuArea = new GameObject("PopupMenuArea");
-			Utils.InitUIObject(popupMenuArea, parent);
+            Utils.InitUIObject(popupMenuArea, parent);
 
             //===========================================================================
             // RectTransform Component
@@ -333,20 +333,20 @@ namespace UI
             popupMenuArea.AddComponent<PopupMenuAreaScript>();
             #endregion
             #endregion
-		}
+        }
 
-		/// <summary>
-		/// Creates tooltip area.
-		/// </summary>
-		/// <param name="parent">Parent transform.</param>
-		private void CreateTooltipArea(Transform parent)
-		{
+        /// <summary>
+        /// Creates tooltip area.
+        /// </summary>
+        /// <param name="parent">Parent transform.</param>
+        private void CreateTooltipArea(Transform parent)
+        {
             //***************************************************************************
             // TooltipArea GameObject
             //***************************************************************************
             #region TooltipArea GameObject
             GameObject tooltipArea = new GameObject("TooltipArea");
-			Utils.InitUIObject(tooltipArea, parent);
+            Utils.InitUIObject(tooltipArea, parent);
 
             //===========================================================================
             // RectTransform Component

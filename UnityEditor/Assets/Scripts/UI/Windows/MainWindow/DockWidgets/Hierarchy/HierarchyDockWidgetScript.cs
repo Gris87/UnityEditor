@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.hierarchy;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Hierarchy.HierarchyDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Hierarchy.HierarchyDockWidgetScript"/> class.
+        /// </summary>
         public static HierarchyDockWidgetScript Create()
         {
             if (Global.hierarchyDockWidgetScript == null)

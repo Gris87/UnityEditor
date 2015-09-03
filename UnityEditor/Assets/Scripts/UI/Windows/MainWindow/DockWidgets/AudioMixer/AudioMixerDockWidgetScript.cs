@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.audio_mixer;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.AudioMixer.AudioMixerDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.AudioMixer.AudioMixerDockWidgetScript"/> class.
+        /// </summary>
         public static AudioMixerDockWidgetScript Create()
         {
             if (Global.audioMixerDockWidgetScript == null)

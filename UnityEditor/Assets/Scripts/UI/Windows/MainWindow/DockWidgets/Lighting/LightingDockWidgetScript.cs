@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.lighting;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Lighting.LightingDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Lighting.LightingDockWidgetScript"/> class.
+        /// </summary>
         public static LightingDockWidgetScript Create()
         {
             if (Global.lightingDockWidgetScript == null)

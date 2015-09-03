@@ -23,10 +23,10 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.console;
         }
 
-		/// <summary>
-		/// Initializes a new instance of the
-		/// <see cref="UI.Windows.MainWindow.DockWidgets.Console.ConsoleDockWidgetScript"/> class.
-		/// </summary>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="UI.Windows.MainWindow.DockWidgets.Console.ConsoleDockWidgetScript"/> class.
+        /// </summary>
         public static ConsoleDockWidgetScript Create()
         {
             if (Global.consoleDockWidgetScript == null)
