@@ -4,6 +4,8 @@
 
 using UnityEngine;
 
+using Common.App;
+
 
 
 namespace Net
@@ -59,7 +61,7 @@ namespace Net
 		{
 			if (!mStarted)
 			{
-				MasterServer.RegisterHost("UnityEditor", "Server_1");
+				MasterServer.RegisterHost(CommonConstants.SERVER_NAME, "Server_1");
 				mStarted = true;
 			}
 			else
