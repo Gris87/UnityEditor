@@ -50,32 +50,6 @@ namespace Net
             }
         }
 
-		/// <summary>
-		/// Handler for server initialized event.
-		/// </summary>
-		void OnServerInitialized()
-		{
-			StartServer();
-		}
-
-		/// <summary>
-		/// Handler for connecting failure event to the master server.
-		/// </summary>
-		/// <param name="error">Error description.</param>
-		void OnFailedToConnectToMasterServer(NetworkConnectionError error)
-		{
-			Debug.Log("Could not connect to master server: " + error);
-		}
-
-		/// <summary>
-		/// Handler for master server event.
-		/// </summary>
-		/// <param name="msEvent">Master server event.</param>
-		void OnMasterServerEvent(MasterServerEvent msEvent)
-		{
-			Debug.Log("Master server event: " + msEvent);
-		}
-
         /// <summary>
         /// Starts the server.
         /// </summary>
@@ -106,6 +80,56 @@ namespace Net
             {
                 Debug.LogError("Server already stopped");
             }
-        }
+		}
+		
+		/// <summary>
+		/// Handler for server initialized event.
+		/// </summary>
+		void OnServerInitialized()
+		{
+			StartServer();
+		}
+		
+		/// <summary>
+		/// Handler for connecting failure event to the master server.
+		/// </summary>
+		/// <param name="error">Error description.</param>
+		void OnFailedToConnectToMasterServer(NetworkConnectionError error)
+		{
+			Debug.LogError("Could not connect to master server: " + error);
+		}
+		
+		/// <summary>
+		/// Handler for master server event.
+		/// </summary>
+		/// <param name="msEvent">Master server event.</param>
+		void OnMasterServerEvent(MasterServerEvent msEvent)
+		{
+			switch (msEvent)
+			{
+				case MasterServerEvent.RegistrationSucceeded:
+				case MasterServerEvent.HostListReceived:
+				{
+					// Nothing
+				}
+				break;
+
+				case MasterServerEvent.RegistrationFailedGameName:
+				case MasterServerEvent.RegistrationFailedGameType:
+				case MasterServerEvent.RegistrationFailedNoServer:
+				{
+					Debug.LogError("Registration failed: " + msEvent);
+
+					mStarted = false;
+				}
+				break;
+
+				default:
+				{
+					Debug.LogError("Unknown master server event: " + msEvent);
+				}
+				break;
+			}
+		}
     }
 }
