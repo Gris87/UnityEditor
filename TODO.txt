@@ -1,3 +1,4 @@
+Create class Timer
 Implement server part
 Implement client part
 Implement lock button on dock widget
