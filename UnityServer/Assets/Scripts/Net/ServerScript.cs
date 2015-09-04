@@ -44,15 +44,37 @@ namespace Net
             Network.natFacilitatorPort = 50005;
 #endif
 
-            if (Network.InitializeServer(10000, 52794, !Network.HavePublicAddress()) == NetworkConnectionError.NoError)
-            {
-                StartServer();
-            }
-            else
+            if (Network.InitializeServer(10000, 52794, !Network.HavePublicAddress()) != NetworkConnectionError.NoError)
             {
                 Debug.LogError("Server initialization failed");
             }
         }
+
+		/// <summary>
+		/// Handler for server initialized event.
+		/// </summary>
+		void OnServerInitialized()
+		{
+			StartServer();
+		}
+
+		/// <summary>
+		/// Handler for connecting failure event to the master server.
+		/// </summary>
+		/// <param name="error">Error description.</param>
+		void OnFailedToConnectToMasterServer(NetworkConnectionError error)
+		{
+			Debug.Log("Could not connect to master server: " + error);
+		}
+
+		/// <summary>
+		/// Handler for master server event.
+		/// </summary>
+		/// <param name="msEvent">Master server event.</param>
+		void OnMasterServerEvent(MasterServerEvent msEvent)
+		{
+			Debug.Log("Master server event: " + msEvent);
+		}
 
         /// <summary>
         /// Starts the server.
