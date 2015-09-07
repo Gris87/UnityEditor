@@ -39,11 +39,6 @@ public static class Global
     public static ClientScript clientScript = null;
 
     /// <summary>
-    /// Server browser script.
-    /// </summary>
-    public static ServerBrowserScript serverBrowserScript = null;
-
-    /// <summary>
     /// Windows transform.
     /// </summary>
     public static Transform windowsTransform = null;

@@ -4,8 +4,6 @@
 
 using UnityEngine;
 
-using Common.App;
-
 
 
 namespace Net
@@ -16,27 +14,10 @@ namespace Net
     public class ServerScript : MonoBehaviour
     {
         /// <summary>
-        /// Gets a value indicating whether this <see cref="ServerScript"/> is started.
-        /// </summary>
-        /// <value><c>true</c> if is started; otherwise, <c>false</c>.</value>
-        public bool isStarted
-        {
-            get { return mStarted; }
-        }
-
-
-
-        private bool mStarted;
-
-
-
-        /// <summary>
         /// Script starting callback.
         /// </summary>
         void Start()
         {
-            mStarted = false;
-
 #if LOOPBACK_SERVER
             MasterServer.ipAddress     = "127.0.0.1";
             MasterServer.port          = 23466;
@@ -50,44 +31,12 @@ namespace Net
             }
         }
 
-        /// <summary>
-        /// Starts the server.
-        /// </summary>
-        public void StartServer()
-        {
-            if (!mStarted)
-            {
-                MasterServer.RegisterHost(CommonConstants.SERVER_NAME, "Server_1");
-                mStarted = true;
-            }
-            else
-            {
-                Debug.LogError("Server already started");
-            }
-        }
-
-        /// <summary>
-        /// Stops the server.
-        /// </summary>
-        public void StopServer()
-        {
-            if (mStarted)
-            {
-                MasterServer.UnregisterHost();
-                mStarted = false;
-            }
-            else
-            {
-                Debug.LogError("Server already stopped");
-            }
-		}
-		
 		/// <summary>
 		/// Handler for server initialized event.
 		/// </summary>
 		void OnServerInitialized()
 		{
-			StartServer();
+			Server.Start();
 		}
 		
 		/// <summary>
@@ -108,7 +57,17 @@ namespace Net
 			switch (msEvent)
 			{
 				case MasterServerEvent.RegistrationSucceeded:
-				case MasterServerEvent.HostListReceived:
+				{
+					if (Server.state == ServerState.Starting)
+					{
+						Debug.Log("Server registered");
+
+						Server.state = ServerState.Started;
+					}
+            	}
+                break;
+
+            	case MasterServerEvent.HostListReceived:
 				{
 					// Nothing
 				}
@@ -118,9 +77,12 @@ namespace Net
 				case MasterServerEvent.RegistrationFailedGameType:
 				case MasterServerEvent.RegistrationFailedNoServer:
 				{
-					Debug.LogError("Registration failed: " + msEvent);
+					if (Server.state == ServerState.Starting)
+                	{
+                    	Debug.LogError("Registration failed: " + msEvent);
 
-					mStarted = false;
+						Server.state = ServerState.Stopped;
+                	}
 				}
 				break;
 

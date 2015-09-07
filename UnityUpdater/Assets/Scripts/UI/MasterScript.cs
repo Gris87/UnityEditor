@@ -193,7 +193,6 @@ namespace UI
             #endregion
 
             CreateClientScript(network.transform);
-            CreateServerBrowserScript(network.transform);
         }
 
         /// <summary>
@@ -222,36 +221,6 @@ namespace UI
             //===========================================================================
             #region ClientScript Component
             Global.clientScript = client.AddComponent<ClientScript>();
-            #endregion
-            #endregion
-        }
-
-        /// <summary>
-        /// Creates server browser script.
-        /// </summary>
-        /// <param name="parent">Parent transform.</param>
-        private void CreateServerBrowserScript(Transform parent)
-        {
-            //***************************************************************************
-            // ServerBrowser GameObject
-            //***************************************************************************
-            #region ServerBrowser GameObject
-            GameObject serverBrowser = new GameObject("ServerBrowser");
-            Utils.InitUIObject(serverBrowser, parent);
-
-            //===========================================================================
-            // RectTransform Component
-            //===========================================================================
-            #region RectTransform Component
-            RectTransform serverBrowserTransform = serverBrowser.AddComponent<RectTransform>();
-            Utils.AlignRectTransformStretchStretch(serverBrowserTransform);
-            #endregion
-
-            //===========================================================================
-            // ServerBrowserScript Component
-            //===========================================================================
-            #region ServerBrowserScript Component
-            Global.serverBrowserScript = serverBrowser.AddComponent<ServerBrowserScript>();
             #endregion
             #endregion
         }
