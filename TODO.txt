@@ -1,4 +1,4 @@
-Create class Timer
+Debug logs everywhere
 Implement server part
 Implement client part
 Implement lock button on dock widget
