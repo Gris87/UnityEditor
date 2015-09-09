@@ -25,6 +25,8 @@ namespace Net
             Network.natFacilitatorPort = 50005;
 #endif
 
+			Network.InitializeSecurity();
+
             if (Network.InitializeServer(10000, 52794, !Network.HavePublicAddress()) != NetworkConnectionError.NoError)
             {
                 Debug.LogError("Server initialization failed");
