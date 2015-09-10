@@ -95,5 +95,26 @@ namespace Net
 				break;
 			}
 		}
+
+		/// <summary>
+		/// RPC for receiving message from client.
+		/// </summary>
+		/// <param name="bytes">Byte array.</param>
+		[RPC]
+		private void RPC_SendToServer(byte[] bytes)
+		{
+			// TODO: Handle it
+			Debug.Log("Message received from client");
+		}
+
+		/// <summary>
+		/// RPC for sending message to client.
+		/// </summary>
+		/// <param name="bytes">Byte array.</param>
+		[RPC]
+		private void RPC_SendToClient(byte[] bytes)
+		{
+			// Nothing
+		}
     }
 }
