@@ -1,3 +1,7 @@
+#pragma warning disable 618
+
+
+
 using UnityEngine;
 
 using Common.App;
@@ -23,7 +27,6 @@ namespace Net
 		
 		
 
-		private static NetworkView sNetworkView;
 		private static ServerState sState;
 
 
@@ -33,8 +36,6 @@ namespace Net
 		/// </summary>
 		static Server()
 		{
-			sNetworkView = new NetworkView();
-
 			sState = ServerState.Stopped;
 		}
 
@@ -53,7 +54,7 @@ namespace Net
 				Debug.LogError("Server already started");
 			}
 		}
-		
+
 		/// <summary>
 		/// Stops the server.
 		/// </summary>
@@ -68,16 +69,6 @@ namespace Net
 			{
 				Debug.LogError("Server already stopped");
 			}
-		}
-
-		/// <summary>
-		/// Sends byte array to specified client.
-		/// </summary>
-		/// <param name="client">Client.</param>
-		/// <param name="bytes">Byte array.</param>
-		public static void Send(NetworkPlayer client, byte[] bytes)
-		{
-			sNetworkView.RPC("RPC_SendToClient", client, bytes);
 		}
 	}
 }

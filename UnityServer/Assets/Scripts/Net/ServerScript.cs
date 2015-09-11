@@ -1,3 +1,7 @@
+#pragma warning disable 618
+
+
+
 #define LOOPBACK_SERVER
 
 
@@ -13,6 +17,10 @@ namespace Net
     /// </summary>
     public class ServerScript : MonoBehaviour
     {
+		private NetworkView mNetworkView;
+
+
+
         /// <summary>
         /// Script starting callback.
         /// </summary>
@@ -23,9 +31,11 @@ namespace Net
             MasterServer.port          = 23466;
             Network.natFacilitatorIP   = "127.0.0.1";
             Network.natFacilitatorPort = 50005;
+#else
+			Network.InitializeSecurity();
 #endif
 
-			Network.InitializeSecurity();
+			mNetworkView = gameObject.AddComponent<NetworkView>();
 
             if (Network.InitializeServer(10000, 52794, !Network.HavePublicAddress()) != NetworkConnectionError.NoError)
             {
@@ -97,14 +107,29 @@ namespace Net
 		}
 
 		/// <summary>
+		/// Sends byte array to specified client.
+		/// </summary>
+		/// <param name="client">Client.</param>
+		/// <param name="bytes">Byte array.</param>
+		public void Send(NetworkPlayer client, byte[] bytes)
+		{
+			mNetworkView.RPC("RPC_SendToClient", client, bytes);
+		}
+
+		/// <summary>
 		/// RPC for receiving message from client.
 		/// </summary>
+		/// <param name="id">Network view ID.</param>
 		/// <param name="bytes">Byte array.</param>
 		[RPC]
-		private void RPC_SendToServer(byte[] bytes)
+		private void RPC_SendToServer(NetworkViewID id, byte[] bytes)
 		{
+			NetworkView   view   = NetworkView.Find(id);
+			NetworkPlayer player = view.owner;
+
+			Debug.Log("Message received from client: " + player.externalIP + ":" + player.externalPort);
+
 			// TODO: Handle it
-			Debug.Log("Message received from client");
 		}
 
 		/// <summary>
