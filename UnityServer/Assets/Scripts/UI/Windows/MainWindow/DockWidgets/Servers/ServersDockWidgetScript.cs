@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in ServersDockWidgetScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in ServersDockWidgetScript.OnDestroy");
             }
         }
     }

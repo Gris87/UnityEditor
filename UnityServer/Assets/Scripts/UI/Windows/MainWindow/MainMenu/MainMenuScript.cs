@@ -84,7 +84,7 @@ namespace UI.Windows.MainWindow.MainMenu
         {
             if (!mShortcuts.Remove(shortcut))
             {
-                Debug.LogError("Failed to deregister shortcut for \"" + shortcut.name + "\"");
+                DebugEx.Error("Failed to deregister shortcut for \"" + shortcut.name + "\"");
             }
         }
 
@@ -97,7 +97,7 @@ namespace UI.Windows.MainWindow.MainMenu
             if (node.data is MenuItem)
             {
                 MenuItem item = node.data as MenuItem;
-                Debug.Log("MainMenuScript.OnShowMenuSubItems(" + item.name + ")");
+                DebugEx.UserInteraction("MainMenuScript.OnShowMenuSubItems(" + item.name + ")");
 
                 if (mPopupMenu != null)
                 {
@@ -116,7 +116,7 @@ namespace UI.Windows.MainWindow.MainMenu
             }
             else
             {
-                Debug.LogError("Unknown menu item type");
+                DebugEx.Error("Unknown menu item type");
             }
         }
 
@@ -125,7 +125,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnPopupMenuDestroyed()
         {
-            Debug.Log("MainMenuScript.OnPopupMenuDestroyed");
+            DebugEx.UserInteraction("MainMenuScript.OnPopupMenuDestroyed");
 
             mPopupMenu = null;
         }
@@ -145,7 +145,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnFile_Exit()
         {
-            Debug.Log("MainMenuScript.OnFile_Exit");
+            DebugEx.UserInteraction("MainMenuScript.OnFile_Exit");
             Application.Quit();
         }
         #endregion
@@ -164,7 +164,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_NextWindow()
         {
-            Debug.Log("MainMenuScript.OnWindow_NextWindow");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_NextWindow");
 
             ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
 
@@ -186,7 +186,7 @@ namespace UI.Windows.MainWindow.MainMenu
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
+                DebugEx.Error("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
             }
         }
 
@@ -195,7 +195,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_PreviousWindow()
         {
-            Debug.Log("MainMenuScript.OnWindow_PreviousWindow");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_PreviousWindow");
 
             ReadOnlyCollection<WindowScript> windows = WindowScript.instances;
 
@@ -217,7 +217,7 @@ namespace UI.Windows.MainWindow.MainMenu
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
+                DebugEx.Error("Unexpected behaviour in MainMenuScript.OnWindow_NextWindow");
             }
         }
 
@@ -227,7 +227,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Layouts_Default()
         {
-            Debug.Log("MainMenuScript.OnWindow_Layouts_Default");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Layouts_Default");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_Default
 
             AppUtils.ShowContributeMessage();
@@ -238,7 +238,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Layouts_SaveLayout()
         {
-            Debug.Log("MainMenuScript.OnWindow_Layouts_SaveLayout");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Layouts_SaveLayout");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_SaveLayout
 
             AppUtils.ShowContributeMessage();
@@ -249,7 +249,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Layouts_DeleteLayout()
         {
-            Debug.Log("MainMenuScript.OnWindow_Layouts_DeleteLayout");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Layouts_DeleteLayout");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_DeleteLayout
 
             AppUtils.ShowContributeMessage();
@@ -260,7 +260,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Layouts_RevertFactorySettings()
         {
-            Debug.Log("MainMenuScript.OnWindow_Layouts_RevertFactorySettings");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Layouts_RevertFactorySettings");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Layouts_RevertFactorySettings
 
             AppUtils.ShowContributeMessage();
@@ -273,7 +273,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Screenshot_SetWindowSize()
         {
-            Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSize");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Screenshot_SetWindowSize");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SetWindowSize
 
             AppUtils.ShowContributeMessage();
@@ -284,7 +284,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Screenshot_SetWindowSizeSmall()
         {
-            Debug.Log("MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SetWindowSizeSmall
 
             AppUtils.ShowContributeMessage();
@@ -295,7 +295,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Screenshot_SnapView()
         {
-            Debug.Log("MainMenuScript.OnWindow_Screenshot_SnapView");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Screenshot_SnapView");
             // TODO: [Minor] Implement MainMenuScript.OnWindow_Screenshot_SnapView
 
             AppUtils.ShowContributeMessage();
@@ -364,7 +364,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnWindow_Servers()
         {
-            Debug.Log("MainMenuScript.OnWindow_Servers");
+            DebugEx.UserInteraction("MainMenuScript.OnWindow_Servers");
 
             ShowDockWidget<ServersDockWidgetScript>(ref Global.serversDockWidgetScript, "Servers");
         }
@@ -392,7 +392,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_ManageLicense()
         {
-            Debug.Log("MainMenuScript.OnHelp_ManageLicense");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_ManageLicense");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ManageLicense
 
             AppUtils.ShowContributeMessage();
@@ -403,7 +403,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_UnityManual()
         {
-            Debug.Log("MainMenuScript.OnHelp_UnityManual");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_UnityManual");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityManual
 
             AppUtils.ShowContributeMessage();
@@ -414,7 +414,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_ScriptingReference()
         {
-            Debug.Log("MainMenuScript.OnHelp_ScriptingReference");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_ScriptingReference");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ScriptingReference
 
             AppUtils.ShowContributeMessage();
@@ -425,7 +425,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_UnityConnect()
         {
-            Debug.Log("MainMenuScript.OnHelp_UnityConnect");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_UnityConnect");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityConnect
 
             AppUtils.ShowContributeMessage();
@@ -436,7 +436,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_UnityForum()
         {
-            Debug.Log("MainMenuScript.OnHelp_UnityForum");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_UnityForum");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityForum
 
             AppUtils.ShowContributeMessage();
@@ -447,7 +447,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_UnityAnswers()
         {
-            Debug.Log("MainMenuScript.OnHelp_UnityAnswers");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_UnityAnswers");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityAnswers
 
             AppUtils.ShowContributeMessage();
@@ -458,7 +458,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_UnityFeedback()
         {
-            Debug.Log("MainMenuScript.OnHelp_UnityFeedback");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_UnityFeedback");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_UnityFeedback
 
             AppUtils.ShowContributeMessage();
@@ -469,7 +469,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_CheckForUpdates()
         {
-            Debug.Log("MainMenuScript.OnHelp_CheckForUpdates");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_CheckForUpdates");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_CheckForUpdates
 
             AppUtils.ShowContributeMessage();
@@ -480,7 +480,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_DownloadBeta()
         {
-            Debug.Log("MainMenuScript.OnHelp_DownloadBeta");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_DownloadBeta");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_DownloadBeta
 
             AppUtils.ShowContributeMessage();
@@ -491,7 +491,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_ReleaseNotes()
         {
-            Debug.Log("MainMenuScript.OnHelp_ReleaseNotes");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_ReleaseNotes");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ReleaseNotes
 
             AppUtils.ShowContributeMessage();
@@ -502,7 +502,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnHelp_ReportABug()
         {
-            Debug.Log("MainMenuScript.OnHelp_ReportABug");
+            DebugEx.UserInteraction("MainMenuScript.OnHelp_ReportABug");
             // TODO: [Minor] Implement MainMenuScript.OnHelp_ReportABug
 
             AppUtils.ShowContributeMessage();

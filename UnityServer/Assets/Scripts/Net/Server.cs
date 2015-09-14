@@ -4,6 +4,7 @@
 
 using UnityEngine;
 
+using Common;
 using Common.App;
 
 
@@ -51,7 +52,7 @@ namespace Net
 			}
 			else
 			{
-				Debug.LogError("Server already started");
+				DebugEx.Error("Server already started");
 			}
 		}
 
@@ -67,7 +68,7 @@ namespace Net
 			}
 			else
 			{
-				Debug.LogError("Server already stopped");
+				DebugEx.Error("Server already stopped");
 			}
 		}
 	}

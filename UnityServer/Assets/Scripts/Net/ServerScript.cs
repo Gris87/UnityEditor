@@ -41,7 +41,7 @@ namespace Net
 
             if (Network.InitializeServer(10000, 52794, !Network.HavePublicAddress()) != NetworkConnectionError.NoError)
             {
-                Debug.LogError("Server initialization failed");
+                DebugEx.Error("Server initialization failed");
             }
         }
 
@@ -59,7 +59,7 @@ namespace Net
 		/// <param name="error">Error description.</param>
 		void OnFailedToConnectToMasterServer(NetworkConnectionError error)
 		{
-			Debug.LogError("Could not connect to master server: " + error);
+			DebugEx.Error("Could not connect to master server: " + error);
 		}
 		
 		/// <summary>
@@ -74,7 +74,7 @@ namespace Net
 				{
 					if (Server.state == ServerState.Starting)
 					{
-						Debug.Log("Server registered");
+						DebugEx.Verbose("Server registered");
 
 						Server.state = ServerState.Started;
 					}
@@ -93,7 +93,7 @@ namespace Net
 				{
 					if (Server.state == ServerState.Starting)
                 	{
-                    	Debug.LogError("Registration failed: " + msEvent);
+                    	DebugEx.Error("Registration failed: " + msEvent);
 
 						Server.state = ServerState.Stopped;
                 	}
@@ -102,7 +102,7 @@ namespace Net
 
 				default:
 				{
-					Debug.LogError("Unknown master server event: " + msEvent);
+					DebugEx.Error("Unknown master server event: " + msEvent);
 				}
 				break;
 			}
@@ -129,8 +129,8 @@ namespace Net
 			NetworkView   view   = NetworkView.Find(id);
 			NetworkPlayer player = view.owner;
 
-			Debug.Log("Message received from client: " + player.externalIP + ":" + player.externalPort);
-			Debug.Log(Utils.BytesInHex(bytes));
+			DebugEx.Verbose("Message received from client: " + player.externalIP + ":" + player.externalPort);
+			DebugEx.Verbose(Utils.BytesInHex(bytes));
 
 			// TODO: Handle it
 		}

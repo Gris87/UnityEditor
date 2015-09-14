@@ -380,7 +380,7 @@ namespace UI.Windows.MainWindow.MainMenu
                     }
                     else
                     {
-                        Debug.LogError("Unknown menu item type");
+                        DebugEx.Error("Unknown menu item type");
                     }
                 }
             }
@@ -498,7 +498,7 @@ namespace UI.Windows.MainWindow.MainMenu
                     }
                     else
                     {
-                        Debug.LogError("Unknown menu item type");
+                        DebugEx.Error("Unknown menu item type");
                     }
 
                     ++index;

@@ -593,7 +593,7 @@ namespace UI.Windows.AboutDialog
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in AboutDialogScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in AboutDialogScript.OnDestroy");
             }
         }
 
@@ -648,7 +648,7 @@ namespace UI.Windows.AboutDialog
 
             Settings.internalMode = !Settings.internalMode;
 
-            Debug.Log("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
+            DebugEx.Verbose("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
             Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
         }
 
@@ -755,7 +755,7 @@ namespace UI.Windows.AboutDialog
 
                         default:
                         {
-                            Debug.LogError("Incorrect screen orientation: " + mScreenOrientation);
+                            DebugEx.Error("Incorrect screen orientation: " + mScreenOrientation);
                         }
                         break;
                     }

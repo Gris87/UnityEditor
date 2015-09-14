@@ -44,7 +44,7 @@ namespace UI
             }
             else
             {
-                Debug.LogWarning("Failed to determine DPI");
+                DebugEx.Warning("Failed to determine DPI");
             }
         }
 
