@@ -8,6 +8,8 @@
 
 using UnityEngine;
 
+using Common;
+
 
 
 namespace Net
@@ -128,6 +130,7 @@ namespace Net
 			NetworkPlayer player = view.owner;
 
 			Debug.Log("Message received from client: " + player.externalIP + ":" + player.externalPort);
+			Debug.Log(Utils.BytesInHex(bytes));
 
 			// TODO: Handle it
 		}
