@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in VersionControlDockWidgetScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in VersionControlDockWidgetScript.OnDestroy");
             }
         }
     }

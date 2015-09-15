@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in AssetStoreDockWidgetScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in AssetStoreDockWidgetScript.OnDestroy");
             }
         }
     }

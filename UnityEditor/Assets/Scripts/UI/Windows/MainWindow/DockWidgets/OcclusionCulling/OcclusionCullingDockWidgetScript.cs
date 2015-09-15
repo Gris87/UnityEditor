@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in OcclusionCullingDockWidgetScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in OcclusionCullingDockWidgetScript.OnDestroy");
             }
         }
     }

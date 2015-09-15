@@ -232,7 +232,7 @@ namespace UI.Windows.MainWindow
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in MainWindowScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in MainWindowScript.OnDestroy");
             }
         }
 

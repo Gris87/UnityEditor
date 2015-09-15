@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in AudioMixerDockWidgetScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in AudioMixerDockWidgetScript.OnDestroy");
             }
         }
     }

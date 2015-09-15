@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
             }
             else
             {
-                Debug.LogError("Unexpected behaviour in NavigationDockWidgetScript.OnDestroy");
+                DebugEx.Error("Unexpected behaviour in NavigationDockWidgetScript.OnDestroy");
             }
         }
     }
