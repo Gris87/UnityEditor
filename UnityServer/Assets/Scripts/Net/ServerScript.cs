@@ -28,6 +28,8 @@ namespace Net
         /// </summary>
         void Start()
         {
+			DebugEx.Verbose("ServerScript.Start()");
+
 #if LOOPBACK_SERVER
             MasterServer.ipAddress     = "127.0.0.1";
             MasterServer.port          = 23466;
@@ -50,6 +52,8 @@ namespace Net
 		/// </summary>
 		void OnServerInitialized()
 		{
+			DebugEx.Verbose("ServerScript.OnServerInitialized()");
+
 			Server.Start();
 		}
 		
@@ -59,6 +63,8 @@ namespace Net
 		/// <param name="error">Error description.</param>
 		void OnFailedToConnectToMasterServer(NetworkConnectionError error)
 		{
+			DebugEx.VerboseFormat("ServerScript.OnFailedToConnectToMasterServer(error = {0})", error);
+
 			DebugEx.Error("Could not connect to master server: " + error);
 		}
 		
@@ -68,13 +74,15 @@ namespace Net
 		/// <param name="msEvent">Master server event.</param>
 		void OnMasterServerEvent(MasterServerEvent msEvent)
 		{
+			DebugEx.VerboseFormat("ServerScript.OnMasterServerEvent(msEvent = {0})", msEvent);
+
 			switch (msEvent)
 			{
 				case MasterServerEvent.RegistrationSucceeded:
 				{
 					if (Server.state == ServerState.Starting)
 					{
-						DebugEx.Verbose("Server registered");
+						DebugEx.Info("Server registered");
 
 						Server.state = ServerState.Started;
 					}
@@ -115,6 +123,8 @@ namespace Net
 		/// <param name="bytes">Byte array.</param>
 		public void Send(NetworkPlayer client, byte[] bytes)
 		{
+			DebugEx.VerboseFormat("ServerScript.Send(client = {0}, bytes = {1})", client, Utils.BytesInHex(bytes));
+
 			mNetworkView.RPC("RPC_SendToClient", client, bytes);
 		}
 
@@ -126,11 +136,13 @@ namespace Net
 		[RPC]
 		private void RPC_SendToServer(NetworkViewID id, byte[] bytes)
 		{
+			DebugEx.VerboseFormat("ServerScript.RPC_SendToServer(id = {0}, bytes = {1})", id, Utils.BytesInHex(bytes));
+
 			NetworkView   view   = NetworkView.Find(id);
 			NetworkPlayer player = view.owner;
 
-			DebugEx.Verbose("Message received from client: " + player.externalIP + ":" + player.externalPort);
-			DebugEx.Verbose(Utils.BytesInHex(bytes));
+			DebugEx.Debug("Message received from client: " + player.externalIP + ":" + player.externalPort);
+			DebugEx.Debug(Utils.BytesInHex(bytes));
 
 			// TODO: Handle it
 		}
@@ -142,7 +154,9 @@ namespace Net
 		[RPC]
 		private void RPC_SendToClient(byte[] bytes)
 		{
-			// Nothing
+			DebugEx.VerboseFormat("ServerScript.RPC_SendToClient(bytes = {0})", Utils.BytesInHex(bytes));
+
+			DebugEx.Fatal("Unexpected behaviour in ServerScript.RPC_SendToClient()");
 		}
     }
 }

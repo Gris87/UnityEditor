@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using Common;
+
 
 
 namespace UI.Windows.MainWindow.Toolbar
@@ -19,6 +21,8 @@ namespace UI.Windows.MainWindow.Toolbar
         public ToolbarScript()
             : base()
         {
+			DebugEx.Verbose("Created ToolbarScript object");
+
             mUi = null;
         }
 
@@ -27,6 +31,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         void Start()
         {
+			DebugEx.Verbose("ToolbarScript.Start()");
+
             mUi = new ToolbarUI(this);
 
             mUi.SetupUI();

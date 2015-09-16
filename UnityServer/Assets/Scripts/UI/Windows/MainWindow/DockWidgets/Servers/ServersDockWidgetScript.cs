@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         private ServersDockWidgetScript()
             : base()
         {
+			DebugEx.Verbose("Created ServersDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Servers.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.servers;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         /// </summary>
         public static ServersDockWidgetScript Create()
         {
+			DebugEx.Verbose("ServersDockWidgetScript.Create()");
+
             if (Global.serversDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+			DebugEx.Verbose("ServersDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Servers.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,13 +72,15 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         /// </summary>
         void OnDestroy()
         {
+			DebugEx.Verbose("ServersDockWidgetScript.OnDestroy()");
+
             if (Global.serversDockWidgetScript == this)
             {
                 Global.serversDockWidgetScript = null;
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in ServersDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in ServersDockWidgetScript.OnDestroy()");
             }
         }
     }

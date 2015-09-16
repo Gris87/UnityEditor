@@ -62,6 +62,8 @@ namespace UI.Windows.MainWindow
         private MainWindowScript()
             : base()
         {
+			DebugEx.Verbose("Created MainWindowScript object");
+
             frame           = WindowFrameType.Frameless;
             state           = WindowState.FullScreen;
             backgroundColor = Assets.Windows.MainWindow.Colors.background;
@@ -72,6 +74,8 @@ namespace UI.Windows.MainWindow
         /// </summary>
         public static MainWindowScript Create()
         {
+			DebugEx.Verbose("MainWindowScript.Create()");
+
             if (Global.mainWindowScript == null)
             {
                 //***************************************************************************
@@ -101,6 +105,8 @@ namespace UI.Windows.MainWindow
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
+			DebugEx.Verbose("MainWindowScript.CreateContent()");
+
             width  = 0f;
             height = 0f;
 
@@ -205,6 +211,8 @@ namespace UI.Windows.MainWindow
         {
             base.OnDestroy();
 
+			DebugEx.Verbose("MainWindowScript.OnDestroy()");
+
 #if HANDLE_ESCAPE_BUTTON
             EscapeButtonListenerScript.RemoveHandler(this);
 #endif
@@ -215,7 +223,7 @@ namespace UI.Windows.MainWindow
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in MainWindowScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in MainWindowScript.OnDestroy()");
             }
         }
 
@@ -226,6 +234,8 @@ namespace UI.Windows.MainWindow
         protected override void Update()
         {
             base.Update();
+
+			DebugEx.VeryVeryVerbose("MainWindowScript.Update()");
 
             if (selected)
             {
@@ -249,6 +259,8 @@ namespace UI.Windows.MainWindow
         /// </summary>
         protected override void OnResize()
         {
+			DebugEx.UserInteraction("MainWindowScript.OnResize()");
+
             if (Global.dockingAreaScript != null)
             {
                 Global.dockingAreaScript.OnResize();
@@ -262,6 +274,8 @@ namespace UI.Windows.MainWindow
         /// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
         public bool OnEscapeButtonPressed()
         {
+			DebugEx.UserInteraction("MainWindowScript.OnEscapeButtonPressed()");
+
 #if MENU_BUTTON_TO_SHOW_MENU
             if (IsMenuVisible())
             {
@@ -294,6 +308,8 @@ namespace UI.Windows.MainWindow
         /// </summary>
         private void ShowMenu()
         {
+			DebugEx.Verbose("MainWindowScript.ShowMenu()");
+
             Global.mainMenuScript.gameObject.SetActive(true);
             Global.toolbarScript.gameObject.SetActive(true);
 
@@ -309,6 +325,8 @@ namespace UI.Windows.MainWindow
         /// </summary>
         private void HideMenu()
         {
+			DebugEx.Verbose("MainWindowScript.HideMenu()");
+
             Global.mainMenuScript.gameObject.SetActive(false);
             Global.toolbarScript.gameObject.SetActive(false);
 
@@ -325,6 +343,8 @@ namespace UI.Windows.MainWindow
         /// </summary>
         private void LoadDockWidgets()
         {
+			DebugEx.Verbose("MainWindowScript.LoadDockWidgets()");
+
             ServersDockWidgetScript.Create().InsertToDockingArea(Global.dockingAreaScript);
         }
     }

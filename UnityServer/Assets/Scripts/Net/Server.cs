@@ -22,8 +22,17 @@ namespace Net
 		/// <value>Server state.</value>
 		public static ServerState state
 		{
-			get { return sState;  }
-			set { sState = value; }
+			get
+			{
+				return sState;
+			}
+
+			set
+			{
+				DebugEx.Verbose("sState: " + sState + " => " + value);
+
+				sState = value;
+			}
 		}
 		
 		
@@ -37,6 +46,8 @@ namespace Net
 		/// </summary>
 		static Server()
 		{
+			DebugEx.Verbose("Static class Server initialized");
+
 			sState = ServerState.Stopped;
 		}
 
@@ -45,6 +56,8 @@ namespace Net
 		/// </summary>
 		public static void Start()
 		{
+			DebugEx.Verbose("Server.Start()");
+
 			if (sState == ServerState.Stopped)
 			{
 				MasterServer.RegisterHost(CommonConstants.SERVER_NAME, "Server_1");
@@ -61,6 +74,8 @@ namespace Net
 		/// </summary>
 		public static void Stop()
 		{
+			DebugEx.Verbose("Server.Stop()");
+
 			if (sState != ServerState.Stopped)
 			{
 				MasterServer.UnregisterHost();

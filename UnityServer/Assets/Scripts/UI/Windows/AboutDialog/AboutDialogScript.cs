@@ -71,6 +71,8 @@ namespace UI.Windows.AboutDialog
         private AboutDialogScript()
             : base()
         {
+			DebugEx.Verbose("Created AboutDialogScript object");
+
             mScreenOrientation = ScreenOrientation.Unknown;
             mIsCreditsDragging = false;
             mCurrentSecretChar = 0;
@@ -124,6 +126,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         public static AboutDialogScript Create()
         {
+			DebugEx.Verbose("AboutDialogScript.Create()");
+
             if (Global.aboutDialogScript == null)
             {
                 //***************************************************************************
@@ -153,6 +157,8 @@ namespace UI.Windows.AboutDialog
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
+			DebugEx.Verbose("AboutDialogScript.CreateContent()");
+
             width  = WINDOW_WIDTH;
             height = WINDOW_HEIGHT;
 
@@ -579,6 +585,8 @@ namespace UI.Windows.AboutDialog
         {
             base.OnDestroy();
 
+			DebugEx.Verbose("AboutDialogScript.OnDestroy()");
+
             if (state != WindowState.FullScreen)
             {
                 Save(WINDOW_KEY);
@@ -593,7 +601,7 @@ namespace UI.Windows.AboutDialog
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in AboutDialogScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in AboutDialogScript.OnDestroy()");
             }
         }
 
@@ -603,6 +611,8 @@ namespace UI.Windows.AboutDialog
         protected override void Update()
         {
             base.Update();
+
+			DebugEx.VeryVeryVerbose("AboutDialogScript.Update()");
 
             if (!mIsCreditsDragging)
             {
@@ -630,6 +640,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         private void OnUnityLogoClick()
         {
+			DebugEx.UserInteraction("AboutDialogScript.OnUnityLogoClick()");
+
             ++mCurrentClick;
 
             if (mCurrentClick >= CLICK_AMOUNT)
@@ -643,12 +655,14 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         private void ToggleInternalMode()
         {
+			DebugEx.UserInteraction("AboutDialogScript.ToggleInternalMode()");
+
             mCurrentSecretChar = 0;
             mCurrentClick      = 0;
 
             Settings.internalMode = !Settings.internalMode;
 
-            DebugEx.Verbose("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
+            DebugEx.Info("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
             Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
         }
 
@@ -657,6 +671,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         public void OnCreditsBeginDrag(BaseEventData eventData)
         {
+			DebugEx.UserInteractionFormat("AboutDialogScript.OnCreditsBeginDrag(eventData = {0})", eventData);
+
             mIsCreditsDragging = true;
         }
 
@@ -665,6 +681,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         public void OnCreditsEndDrag(BaseEventData eventData)
         {
+			DebugEx.UserInteractionFormat("AboutDialogScript.OnCreditsEndDrag(eventData = {0})", eventData);
+
             mIsCreditsDragging = false;
         }
 
@@ -673,6 +691,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         protected override void OnSelected()
         {
+			DebugEx.UserInteraction("AboutDialogScript.OnSelected()");
+
             EscapeButtonListenerScript.PushHandlerToTop(this);
         }
 
@@ -682,6 +702,8 @@ namespace UI.Windows.AboutDialog
         /// <returns><c>true</c>, if escape button was handled, <c>false</c> otherwise.</returns>
         public bool OnEscapeButtonPressed()
         {
+			DebugEx.UserInteraction("AboutDialogScript.OnEscapeButtonPressed()");
+
             if (selected)
             {
                 Close();
@@ -697,6 +719,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         protected override void OnResize()
         {
+			DebugEx.UserInteraction("AboutDialogScript.OnResize()");
+
             if (state == WindowState.FullScreen)
             {
                 ScreenOrientation orientation = ScreenOrientation.Unknown;
@@ -777,6 +801,8 @@ namespace UI.Windows.AboutDialog
         /// </summary>
         public void OnLanguageChanged()
         {
+			DebugEx.Verbose("AboutDialogScript.OnLanguageChanged()");
+
             mVersionText.text = Translator.GetString(R.sections.AboutDialog.strings.version, AppUtils.GetVersionString());
 
             if (state != WindowState.FullScreen)
