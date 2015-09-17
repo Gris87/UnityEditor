@@ -95,7 +95,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// <param name="script">Main menu script.</param>
         public MainMenuUI(MainMenuScript script)
         {
-			DebugEx.Verbose("Created MainMenuUI object");
+            DebugEx.Verbose("Created MainMenuUI object");
 
             mScript = script;
 
@@ -108,7 +108,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void SetupUI()
         {
-			DebugEx.Verbose("MainMenuUI.SetupUI()");
+            DebugEx.Verbose("MainMenuUI.SetupUI()");
 
             CreateMenuItems();
             CreateUI();
@@ -119,7 +119,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void Release()
         {
-			DebugEx.Verbose("MainMenuUI.Release()");
+            DebugEx.Verbose("MainMenuUI.Release()");
 
             Settings.RemoveInternalModeListener(OnInternalModeChanged);
             Translator.RemoveLanguageChangedListener(OnLanguageChanged);
@@ -144,7 +144,7 @@ namespace UI.Windows.MainWindow.MainMenu
                                                   , MenuRadioGroup               radioGroup = null
                                                  )
         {
-			DebugEx.VerboseFormat("MainMenuUI.MakeItem(owner = {0}, tokenId = {1}, onClick = {2}, enabled = {3}, shortcut = {4}, radioGroup = {5})", owner, tokenId, onClick, enabled, shortcut, radioGroup);
+            DebugEx.VerboseFormat("MainMenuUI.MakeItem(owner = {0}, tokenId = {1}, onClick = {2}, enabled = {3}, shortcut = {4}, radioGroup = {5})", owner, tokenId, onClick, enabled, shortcut, radioGroup);
 
             return MenuItem.Create(owner, tokenId, onClick, enabled, mScript, shortcut, radioGroup);
         }
@@ -168,7 +168,7 @@ namespace UI.Windows.MainWindow.MainMenu
                                                   , MenuRadioGroup           radioGroup = null
                                                  )
         {
-			DebugEx.VerboseFormat("MainMenuUI.MakeItem(owner = {0}, text = {1}, onClick = {2}, enabled = {3}, shortcut = {4}, radioGroup = {5})", owner, text, onClick, enabled, shortcut, radioGroup);
+            DebugEx.VerboseFormat("MainMenuUI.MakeItem(owner = {0}, text = {1}, onClick = {2}, enabled = {3}, shortcut = {4}, radioGroup = {5})", owner, text, onClick, enabled, shortcut, radioGroup);
 
             return MenuItem.Create(owner, text, onClick, enabled, mScript, shortcut, radioGroup);
         }
@@ -178,7 +178,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         private void CreateMenuItems()
         {
-			DebugEx.Verbose("MainMenuUI.CreateMenuItems()");
+            DebugEx.Verbose("MainMenuUI.CreateMenuItems()");
 
             // Root
             mItems = new TreeNode<CustomMenuItem>(new CustomMenuItem());
@@ -254,7 +254,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         private void CreateUI()
         {
-			DebugEx.Verbose("MainMenuUI.CreateUI()");
+            DebugEx.Verbose("MainMenuUI.CreateUI()");
 
             //***************************************************************************
             // ScrollArea GameObject
@@ -446,7 +446,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnInternalModeChanged()
         {
-			DebugEx.Verbose("MainMenuUI.OnInternalModeChanged()");
+            DebugEx.Verbose("MainMenuUI.OnInternalModeChanged()");
 
             window_ScreenshotSeparator.data.visible = Settings.internalMode;
             window_ScreenshotItem.data.visible      = Settings.internalMode;
@@ -457,7 +457,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// </summary>
         public void OnLanguageChanged()
         {
-			DebugEx.Verbose("MainMenuUI.OnLanguageChanged()");
+            DebugEx.Verbose("MainMenuUI.OnLanguageChanged()");
 
             float contentWidth = 0f;
 

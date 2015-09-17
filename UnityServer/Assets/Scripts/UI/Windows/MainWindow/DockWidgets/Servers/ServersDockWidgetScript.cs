@@ -19,7 +19,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         private ServersDockWidgetScript()
             : base()
         {
-			DebugEx.Verbose("Created ServersDockWidgetScript object");
+            DebugEx.Verbose("Created ServersDockWidgetScript object");
 
             image   = Assets.Windows.MainWindow.DockWidgets.Servers.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.servers;
@@ -31,7 +31,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         /// </summary>
         public static ServersDockWidgetScript Create()
         {
-			DebugEx.Verbose("ServersDockWidgetScript.Create()");
+            DebugEx.Verbose("ServersDockWidgetScript.Create()");
 
             if (Global.serversDockWidgetScript == null)
             {
@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-			DebugEx.Verbose("ServersDockWidgetScript.CreateContent()");
+            DebugEx.Verbose("ServersDockWidgetScript.CreateContent()");
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Servers.Colors.background;
 
@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Servers
         /// </summary>
         void OnDestroy()
         {
-			DebugEx.Verbose("ServersDockWidgetScript.OnDestroy()");
+            DebugEx.Verbose("ServersDockWidgetScript.OnDestroy()");
 
             if (Global.serversDockWidgetScript == this)
             {

@@ -33,7 +33,7 @@ public static class Controls
     /// </summary>
     static Controls()
     {
-		DebugEx.Verbose("Static class Controls initialized");
+        DebugEx.Verbose("Static class Controls initialized");
 
         buttons.escape = InputControl.SetKey("Escape", KeyCode.Escape);
         buttons.menu   = InputControl.SetKey("Menu",   KeyCode.Menu);
@@ -46,7 +46,7 @@ public static class Controls
     /// </summary>
     public static void Init()
     {
-		DebugEx.Verbose("Controls.Init()");
+        DebugEx.Verbose("Controls.Init()");
 
         // Nothing. It just call static constructor if needed
     }
@@ -56,7 +56,7 @@ public static class Controls
     /// </summary>
     public static void Save()
     {
-		DebugEx.Verbose("Controls.Save()");
+        DebugEx.Verbose("Controls.Save()");
 
         // It is just an example. You may remove it or modify it if you want
         ReadOnlyCollection<KeyMapping> keys = InputControl.GetKeys();
@@ -76,7 +76,7 @@ public static class Controls
     /// </summary>
     public static void Load()
     {
-		DebugEx.Verbose("Controls.Load()");
+        DebugEx.Verbose("Controls.Load()");
 
         // It is just an example. You may remove it or modify it if you want
         ReadOnlyCollection<KeyMapping> keys = InputControl.GetKeys();
@@ -115,7 +115,7 @@ public static class Controls
     /// <param name="value">String representation of CustomInput.</param>
     private static CustomInput CustomInputFromString(string value)
     {
-		DebugEx.VerboseFormat("Controls.CustomInputFromString(value = {0})", value);
+        DebugEx.VerboseFormat("Controls.CustomInputFromString(value = {0})", value);
 
         CustomInput res;
 

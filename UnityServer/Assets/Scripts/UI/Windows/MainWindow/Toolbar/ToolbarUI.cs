@@ -19,7 +19,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="script">Toolbar script.</param>
         public ToolbarUI(ToolbarScript script)
         {
-			DebugEx.Verbose("Created ToolbarUI object");
+            DebugEx.Verbose("Created ToolbarUI object");
 
             //mScript = script;
         }
@@ -29,7 +29,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void SetupUI()
         {
-			DebugEx.Verbose("ToolbarUI.SetupUI()");
+            DebugEx.Verbose("ToolbarUI.SetupUI()");
 
             CreateUI();
         }
@@ -39,7 +39,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         private void CreateUI()
         {
-			DebugEx.Verbose("ToolbarUI.CreateUI()");
+            DebugEx.Verbose("ToolbarUI.CreateUI()");
 
             // TODO: [Minor] Implement Create UI
         }
