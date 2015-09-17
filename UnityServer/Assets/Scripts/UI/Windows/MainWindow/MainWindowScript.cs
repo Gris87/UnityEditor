@@ -300,6 +300,8 @@ namespace UI.Windows.MainWindow
         /// <returns><c>true</c> if menu is visible; otherwise, <c>false</c>.</returns>
         private bool IsMenuVisible()
         {
+            DebugEx.Verbose("MainWindowScript.IsMenuVisible()");
+
             return Global.mainMenuScript.gameObject.activeSelf;
         }
 

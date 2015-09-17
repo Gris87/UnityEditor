@@ -144,7 +144,7 @@ namespace Net
             DebugEx.Debug("Message received from client: " + player.externalIP + ":" + player.externalPort);
             DebugEx.Debug(Utils.BytesInHex(bytes));
 
-            // TODO: Handle it
+            // TODO: [Major] Handle incoming message
         }
 
         /// <summary>
