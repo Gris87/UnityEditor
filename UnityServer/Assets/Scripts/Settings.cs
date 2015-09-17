@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+using Common;
+
 
 
 /// <summary>
@@ -28,6 +30,8 @@ public static class Settings
 
         set
         {
+			DebugEx.Verbose("sInternalMode: " + sInternalMode + " => " + value);
+
             if (sInternalMode != value)
             {
                 sInternalMode = value;
@@ -53,6 +57,8 @@ public static class Settings
     /// </summary>
     static Settings()
     {
+		DebugEx.Verbose("Static class Settings initialized");
+
         sInternalModeListeners = new UnityEvent();
 
         Load();
@@ -64,6 +70,8 @@ public static class Settings
     /// <param name="listener">Listener.</param>
     public static void AddInternalModeListener(UnityAction listener)
     {
+		DebugEx.VerboseFormat("Settings.AddInternalModeListener(listener = {0})", listener);
+
         sInternalModeListeners.AddListener(listener);
     }
 
@@ -73,6 +81,8 @@ public static class Settings
     /// <param name="listener">Listener.</param>
     public static void RemoveInternalModeListener(UnityAction listener)
     {
+		DebugEx.VerboseFormat("Settings.RemoveInternalModeListener(listener = {0})", listener);
+
         sInternalModeListeners.RemoveListener(listener);
     }
 
@@ -81,6 +91,8 @@ public static class Settings
     /// </summary>
     public static void Save()
     {
+		DebugEx.Verbose("Settings.Save()");
+
         PlayerPrefs.SetString(KEY_INTERNAL_MODE, sInternalMode.ToString());
 
         PlayerPrefs.Save();
@@ -91,6 +103,11 @@ public static class Settings
     /// </summary>
     public static void Load()
     {
+		DebugEx.Verbose("Settings.Load()");
+
         sInternalMode = (PlayerPrefs.GetString(KEY_INTERNAL_MODE, "False").ToLower() == "true");
+
+		DebugEx.Debug("Settings loaded:");
+		DebugEx.Debug("  * sInternalMode = " + sInternalMode);
     }
 }
