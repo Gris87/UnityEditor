@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in SceneDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in SceneDockWidgetScript.OnDestroy()");
             }
         }
     }

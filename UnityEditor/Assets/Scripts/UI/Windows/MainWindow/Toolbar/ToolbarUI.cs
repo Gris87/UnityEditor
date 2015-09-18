@@ -38,6 +38,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="script">Toolbar script.</param>
         public ToolbarUI(ToolbarScript script)
         {
+            DebugEx.Verbose("Created ToolbarUI object");
+
             mScript = script;
 
             mScrollAreaContentTransform = null;
@@ -60,6 +62,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void SetupUI()
         {
+            DebugEx.Verbose("ToolbarUI.SetupUI()");
+
             CreateUI();
         }
 
@@ -68,6 +72,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void Release()
         {
+			DebugEx.Verbose("ToolbarUI.Release()");
+
             Translator.RemoveLanguageChangedListener(OnLanguageChanged);
         }
 
@@ -76,6 +82,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         private void CreateUI()
         {
+			DebugEx.Verbose("ToolbarUI.CreateUI()");
+
             //***************************************************************************
             // ScrollArea GameObject
             //***************************************************************************
@@ -165,6 +173,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="contentWidth">Content width.</param>
         private void CreateToolsGameObject(Transform parentTransform, ref float contentWidth)
         {
+			DebugEx.VerboseFormat("ToolbarUI.CreateToolsGameObject(parentTransform = {0}, contentWidth = {1})", parentTransform, contentWidth);
+
             //***************************************************************************
             // Tools GameObject
             //***************************************************************************
@@ -601,6 +611,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="contentWidth">Content width.</param>
         private void CreateBasePointGameObject(Transform parentTransform, ref float contentWidth)
         {
+			DebugEx.VerboseFormat("ToolbarUI.CreateBasePointGameObject(parentTransform = {0}, contentWidth = {1})", parentTransform, contentWidth);
+
             //***************************************************************************
             // BasePoint GameObject
             //***************************************************************************
@@ -854,6 +866,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="contentWidth">Content width.</param>
         private void UpdateBasePointGameObject(ref float contentWidth)
         {
+			DebugEx.VerboseFormat("ToolbarUI.UpdateBasePointGameObject(contentWidth = {0})", contentWidth);
+
             float width = 0f;
             float buttonWidth;
             float maxButtonWidth = 0f;
@@ -912,6 +926,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="contentWidth">Content width.</param>
         private void CreatePopupsGameObject(Transform parentTransform, ref float contentWidth)
         {
+			DebugEx.VerboseFormat("ToolbarUI.CreatePopupsGameObject(parentTransform = {0}, contentWidth = {1})", parentTransform, contentWidth);
+
             //***************************************************************************
             // Popups GameObject
             //***************************************************************************
@@ -1100,6 +1116,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="contentWidth">Content width.</param>
         private void UpdatePopupsGameObject(ref float contentWidth)
         {
+			DebugEx.VerboseFormat("ToolbarUI.UpdatePopupsGameObject(contentWidth = {0})", contentWidth);
+
             float width = 0f;
             float buttonWidth;
             float maxButtonWidth = 0f;
@@ -1139,6 +1157,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="contentWidth">Content width.</param>
         private void CreatePlaybackGameObject(Transform parentTransform, ref float contentWidth)
         {
+			DebugEx.VerboseFormat("ToolbarUI.CreatePlaybackGameObject(parentTransform = {0}, contentWidth = {1})", parentTransform, contentWidth);
+
             //***************************************************************************
             // Playback GameObject
             //***************************************************************************
@@ -1428,6 +1448,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnLanguageChanged()
         {
+			DebugEx.Verbose("ToolbarUI.OnLanguageChanged()");
+
             float contentWidth = mToolsTransform.sizeDelta.x + 30f;
 
             UpdateBasePointGameObject(ref contentWidth);
@@ -1441,6 +1463,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnResize()
         {
+			DebugEx.Verbose("ToolbarUI.OnResize()");
+
             float contentWidth = mToolsTransform.sizeDelta.x + mBasePointTransform.sizeDelta.x + mPopupsTransform.sizeDelta.x + 40f;
             float width = mPlaybackTransform.sizeDelta.x;
 

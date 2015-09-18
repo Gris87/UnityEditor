@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Animator
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in AnimatorDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in AnimatorDockWidgetScript.OnDestroy()");
             }
         }
     }

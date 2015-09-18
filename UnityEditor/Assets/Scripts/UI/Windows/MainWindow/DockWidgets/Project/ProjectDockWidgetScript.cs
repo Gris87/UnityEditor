@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in ProjectDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in ProjectDockWidgetScript.OnDestroy()");
             }
         }
     }

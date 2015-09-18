@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in InspectorDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in InspectorDockWidgetScript.OnDestroy()");
             }
         }
     }

@@ -22,6 +22,8 @@ namespace UI.Windows.MainWindow.Toolbar
         public ToolbarScript()
             : base()
         {
+            DebugEx.Verbose("Created ToolbarScript object");
+
             mUi = null;
         }
 
@@ -30,6 +32,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         void Start()
         {
+            DebugEx.Verbose("ToolbarScript.Start()");
+
             mUi = new ToolbarUI(this);
 
             mUi.SetupUI();
@@ -40,6 +44,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         void OnDestroy()
         {
+			DebugEx.Verbose("ToolbarScript.OnDestroy()");
+
             mUi.Release();
         }
 
@@ -48,6 +54,8 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnResize()
         {
+			DebugEx.Verbose("ToolbarScript.OnResize()");
+
             if (mUi != null)
             {
                 mUi.OnResize();
@@ -59,7 +67,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnToolHandClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnToolHandClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnToolHandClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnToolHandClicked
 
             AppUtils.ShowContributeMessage();
@@ -70,7 +78,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnToolMoveClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnToolMoveClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnToolMoveClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnToolMoveClicked
 
             AppUtils.ShowContributeMessage();
@@ -81,7 +89,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnToolRotateClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnToolRotateClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnToolRotateClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnToolRotateClicked
 
             AppUtils.ShowContributeMessage();
@@ -92,7 +100,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnToolScaleClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnToolScaleClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnToolScaleClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnToolScaleClicked
 
             AppUtils.ShowContributeMessage();
@@ -103,7 +111,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnToolRectTransformClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnToolRectTransformClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnToolRectTransformClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnToolRectTransformClicked
 
             AppUtils.ShowContributeMessage();
@@ -114,7 +122,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnBasePointClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnBasePointClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnBasePointClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnBasePointClicked
 
             AppUtils.ShowContributeMessage();
@@ -125,7 +133,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnCoordinateSystemClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnCoordinateSystemClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnCoordinateSystemClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnCoordinateSystemClicked
 
             AppUtils.ShowContributeMessage();
@@ -136,7 +144,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnPlayClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnPlayClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnPlayClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnPlayClicked
 
             AppUtils.ShowContributeMessage();
@@ -147,7 +155,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnPauseClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnPauseClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnPauseClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnPauseClicked
 
             AppUtils.ShowContributeMessage();
@@ -158,7 +166,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnStepClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnStepClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnStepClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnStepClicked
 
             AppUtils.ShowContributeMessage();
@@ -169,7 +177,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnLayersClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnLayersClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnLayersClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnLayersClicked
 
             AppUtils.ShowContributeMessage();
@@ -180,7 +188,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnLayoutClicked()
         {
-            DebugEx.UserInteraction("ToolbarScript.OnLayoutClicked");
+            DebugEx.UserInteraction("ToolbarScript.OnLayoutClicked()");
             // TODO: [Minor] Implement ToolbarScript.OnLayoutClicked
 
             AppUtils.ShowContributeMessage();

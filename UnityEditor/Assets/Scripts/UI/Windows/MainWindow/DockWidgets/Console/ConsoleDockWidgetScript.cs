@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in ConsoleDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in ConsoleDockWidgetScript.OnDestroy()");
             }
         }
     }

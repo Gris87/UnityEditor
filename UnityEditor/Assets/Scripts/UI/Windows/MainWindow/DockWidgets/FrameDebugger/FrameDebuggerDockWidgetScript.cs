@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in FrameDebuggerDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in FrameDebuggerDockWidgetScript.OnDestroy()");
             }
         }
     }

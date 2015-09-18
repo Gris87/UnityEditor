@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in HierarchyDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in HierarchyDockWidgetScript.OnDestroy()");
             }
         }
     }

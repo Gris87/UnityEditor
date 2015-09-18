@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using Common;
 using Common.App;
 using Common.App.ResourceTypes.Loaders;
 
@@ -41,6 +42,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Fonts.ResetValues()");
+
                 AssetUtils.Fonts.ResetValues();
             }
 
@@ -52,6 +55,8 @@ public static class Assets
             /// <param name="fontSize">Font size.</param>
             public static Font GetFont(string fontName, int fontSize = 12)
             {
+                DebugEx.VerboseFormat("Assets.Common.Fonts.GetFont(fontName = {0}, fontSize = {1})", fontName, fontSize);
+
                 return AssetUtils.Fonts.GetFont(fontName, fontSize);
             }
         }
@@ -75,6 +80,8 @@ public static class Assets
             /// </summary>
             static Cursors()
             {
+                DebugEx.Verbose("Static class Assets.Common.Cursors initialized");
+
                 ResetValues();
             }
 
@@ -83,6 +90,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Cursors.ResetValues()");
+
                 eastWest           = new ScaledTexture2DLoader("Common/Cursors/EastWest");
                 northEastSouthWest = new ScaledTexture2DLoader("Common/Cursors/NorthEastSouthWest");
                 northSouth         = new ScaledTexture2DLoader("Common/Cursors/NorthSouth");
@@ -111,6 +120,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -119,6 +130,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.Colors.ResetValues()");
+
                     background = AssetUtils.LoadColor("Common/Colors/UI/Windows/Background");
                 }
             }
@@ -137,6 +150,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -145,6 +160,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.TextStyles.ResetValues()");
+
                     title = new TextStyleLoader("Common/TextStyles/UI/Windows/Title");
                 }
             }
@@ -196,6 +213,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -204,6 +223,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.Textures.ResetValues()");
+
                     window                     = new SpriteLoader("Common/Textures/UI/Windows/Window");
                     windowDeselected           = new SpriteLoader("Common/Textures/UI/Windows/WindowDeselected");
                     subWindow                  = new SpriteLoader("Common/Textures/UI/Windows/SubWindow");
@@ -259,6 +280,8 @@ public static class Assets
                 /// </summary>
                 static SpriteStates()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.SpriteStates initialized");
+
                     ResetValues();
                 }
 
@@ -267,6 +290,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.SpriteStates.ResetValues()");
+
                     minimizeButton  = new SpriteStateLoader(Textures.minimizeButtonDisabled,  Textures.minimizeButtonHighlighted,  Textures.minimizeButtonPressed);
                     maximizeButton  = new SpriteStateLoader(Textures.maximizeButtonDisabled,  Textures.maximizeButtonHighlighted,  Textures.maximizeButtonPressed);
                     normalizeButton = new SpriteStateLoader(Textures.normalizeButtonDisabled, Textures.normalizeButtonHighlighted, Textures.normalizeButtonPressed);
@@ -282,6 +307,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Windows.ResetValues()");
+
                 Colors.ResetValues();
                 TextStyles.ResetValues();
                 Textures.ResetValues();
@@ -312,6 +339,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -320,6 +349,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.Colors.ResetValues()");
+
                     background      = AssetUtils.LoadColor("Common/Colors/UI/DockWidgets/Background");
                     dummyBackground = AssetUtils.LoadColor("Common/Colors/UI/DockWidgets/DummyBackground");
                     dockingWindow   = AssetUtils.LoadColor("Common/Colors/UI/DockWidgets/DockingWindow");
@@ -340,6 +371,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -348,6 +381,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.TextStyles.ResetValues()");
+
                     title = new TextStyleLoader("Common/TextStyles/UI/DockWidgets/Title");
                 }
             }
@@ -395,6 +430,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -403,6 +440,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.Textures.ResetValues()");
+
                     tab                          = new SpriteLoader("Common/Textures/UI/DockWidgets/Tab");
                     tabDisabled                  = new SpriteLoader("Common/Textures/UI/DockWidgets/TabDisabled");
                     tabHighlighted               = new SpriteLoader("Common/Textures/UI/DockWidgets/TabHighlighted");
@@ -456,6 +495,8 @@ public static class Assets
                 /// </summary>
                 static SpriteStates()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.SpriteStates initialized");
+
                     ResetValues();
                 }
 
@@ -464,6 +505,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.SpriteStates.ResetValues()");
+
                     button            = new SpriteStateLoader(Textures.tabDisabled,               Textures.tabHighlighted,               Textures.tabPressed);
                     activeButton      = new SpriteStateLoader(Textures.tabActiveDisabled,         Textures.tabActiveHighlighted,         Textures.tabActivePressed);
                     maximizeButton    = new SpriteStateLoader(Textures.maximizeButtonDisabled,    Textures.maximizeButtonHighlighted,    Textures.maximizeButtonPressed);
@@ -481,6 +524,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.DockWidgets.ResetValues()");
+
                 Colors.ResetValues();
                 TextStyles.ResetValues();
                 Textures.ResetValues();
@@ -510,6 +555,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Popups.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -518,6 +565,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Popups.TextStyles.ResetValues()");
+
                     button         = new TextStyleLoader("Common/TextStyles/UI/Popups/Button");
                     buttonDisabled = new TextStyleLoader("Common/TextStyles/UI/Popups/ButtonDisabled");
                 }
@@ -545,6 +594,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Popups.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -553,6 +604,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Popups.Textures.ResetValues()");
+
                     popupBackground   = new SpriteLoader("Common/Textures/UI/Popups/PopupBackground");
                     background        = new SpriteLoader("Common/Textures/UI/Popups/Background");
                     separator         = new SpriteLoader("Common/Textures/UI/Popups/Separator");
@@ -580,6 +633,8 @@ public static class Assets
                 /// </summary>
                 static SpriteStates()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Popups.SpriteStates initialized");
+
                     ResetValues();
                 }
 
@@ -588,6 +643,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Popups.SpriteStates.ResetValues()");
+
                     button         = new SpriteStateLoader(Textures.button, Textures.buttonHighlighted, Textures.buttonPressed);
                     buttonDisabled = new SpriteStateLoader(Textures.button, Textures.buttonDisabled,    Textures.buttonDisabled);
                 }
@@ -599,6 +656,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Popups.ResetValues()");
+
                 TextStyles.ResetValues();
                 Textures.ResetValues();
                 SpriteStates.ResetValues();
@@ -626,6 +685,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Tooltips.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -634,6 +695,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Tooltips.TextStyles.ResetValues()");
+
                     tooltipText = new TextStyleLoader("Common/TextStyles/UI/Tooltips/TooltipText");
                 }
             }
@@ -652,6 +715,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Tooltips.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -660,6 +725,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Tooltips.Textures.ResetValues()");
+
                     tooltipBackground = new SpriteLoader("Common/Textures/UI/Tooltips/TooltipBackground");
                 }
             }
@@ -671,6 +738,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Tooltips.ResetValues()");
+
                 TextStyles.ResetValues();
                 Textures.ResetValues();
             }
@@ -697,6 +766,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Toasts.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -705,6 +776,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Toasts.TextStyles.ResetValues()");
+
                     toastText = new TextStyleLoader("Common/TextStyles/UI/Toasts/ToastText");
                 }
             }
@@ -723,6 +796,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Toasts.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -731,6 +806,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Toasts.Textures.ResetValues()");
+
                     toastBackground = new SpriteLoader("Common/Textures/UI/Toasts/ToastBackground");
                 }
             }
@@ -742,6 +819,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Toasts.ResetValues()");
+
                 TextStyles.ResetValues();
                 Textures.ResetValues();
             }
@@ -755,6 +834,8 @@ public static class Assets
         /// </summary>
         public static void ResetValues()
         {
+            DebugEx.Verbose("Assets.Common.ResetValues()");
+
             Fonts.ResetValues();
             Cursors.ResetValues();
             Windows.ResetValues();
@@ -792,6 +873,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Windows.MainWindow.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -800,6 +883,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.MainWindow.Colors.ResetValues()");
+
                     background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/Background");
                 }
             }
@@ -826,6 +911,8 @@ public static class Assets
                     /// </summary>
                     static TextStyles()
                     {
+                        DebugEx.Verbose("Static class Assets.Windows.MainWindow.MainMenu.TextStyles initialized");
+
                         ResetValues();
                     }
 
@@ -834,6 +921,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.MainMenu.TextStyles.ResetValues()");
+
                         button = new TextStyleLoader("TextStyles/UI/Windows/MainWindow/MainMenu/Button");
                     }
                 }
@@ -856,6 +945,8 @@ public static class Assets
                     /// </summary>
                     static Textures()
                     {
+                        DebugEx.Verbose("Static class Assets.Windows.MainWindow.MainMenu.Textures initialized");
+
                         ResetValues();
                     }
 
@@ -864,6 +955,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.MainMenu.Textures.ResetValues()");
+
                         background        = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/Background");
                         button            = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/Button");
                         buttonDisabled    = new SpriteLoader("Textures/UI/Windows/MainWindow/MainMenu/ButtonDisabled");
@@ -886,6 +979,8 @@ public static class Assets
                     /// </summary>
                     static SpriteStates()
                     {
+                        DebugEx.Verbose("Static class Assets.Windows.MainWindow.MainMenu.SpriteStates initialized");
+
                         ResetValues();
                     }
 
@@ -894,6 +989,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.MainMenu.SpriteStates.ResetValues()");
+
                         button = new SpriteStateLoader(Textures.buttonDisabled, Textures.buttonHighlighted, Textures.buttonPressed);
                     }
                 }
@@ -905,6 +1002,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.MainWindow.MainMenu.ResetValues()");
+
                     TextStyles.ResetValues();
                     Textures.ResetValues();
                     SpriteStates.ResetValues();
@@ -935,6 +1034,8 @@ public static class Assets
                     /// </summary>
                     static TextStyles()
                     {
+                        DebugEx.Verbose("Static class Assets.Windows.MainWindow.Toolbar.TextStyles initialized");
+
                         ResetValues();
                     }
 
@@ -943,6 +1044,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.Toolbar.TextStyles.ResetValues()");
+
                         point            = new TextStyleLoader("TextStyles/UI/Windows/MainWindow/Toolbar/Point");
                         coordinateSystem = new TextStyleLoader("TextStyles/UI/Windows/MainWindow/Toolbar/CoordinateSystem");
                         layers           = new TextStyleLoader("TextStyles/UI/Windows/MainWindow/Toolbar/Layers");
@@ -1012,6 +1115,8 @@ public static class Assets
                     /// </summary>
                     static Textures()
                     {
+                        DebugEx.Verbose("Static class Assets.Windows.MainWindow.Toolbar.Textures initialized");
+
                         ResetValues();
                     }
 
@@ -1020,6 +1125,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.Toolbar.Textures.ResetValues()");
+
                         background                        = new SpriteLoader("Textures/UI/Windows/MainWindow/Toolbar/Background");
                         toolLeftButton                    = new SpriteLoader("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButton");
                         toolLeftButtonDisabled            = new SpriteLoader("Textures/UI/Windows/MainWindow/Toolbar/ToolLeftButtonDisabled");
@@ -1092,6 +1199,8 @@ public static class Assets
                     /// </summary>
                     static SpriteStates()
                     {
+                        DebugEx.Verbose("Static class Assets.Windows.MainWindow.Toolbar.SpriteStates initialized");
+
                         ResetValues();
                     }
 
@@ -1100,6 +1209,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.Toolbar.SpriteStates.ResetValues()");
+
                         leftButton         = new SpriteStateLoader(Textures.toolLeftButtonDisabled,         Textures.toolLeftButtonHighlighted,         Textures.toolLeftButtonPressed);
                         leftButtonActive   = new SpriteStateLoader(Textures.toolLeftButtonActiveDisabled,   Textures.toolLeftButtonActiveHighlighted,   Textures.toolLeftButtonActivePressed);
                         middleButton       = new SpriteStateLoader(Textures.toolMiddleButtonDisabled,       Textures.toolMiddleButtonHighlighted,       Textures.toolMiddleButtonPressed);
@@ -1117,6 +1228,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.MainWindow.Toolbar.ResetValues()");
+
                     TextStyles.ResetValues();
                     Textures.ResetValues();
                     SpriteStates.ResetValues();
@@ -1150,6 +1263,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Scene.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1158,6 +1273,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Scene.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Scene/Background");
                         }
                     }
@@ -1176,6 +1293,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Scene.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1184,6 +1303,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Scene.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Scene/Icon");
                         }
                     }
@@ -1195,6 +1316,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Scene.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1221,6 +1344,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Game.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1229,6 +1354,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Game.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Game/Background");
                         }
                     }
@@ -1247,6 +1374,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Game.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1255,6 +1384,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Game.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Game/Icon");
                         }
                     }
@@ -1266,6 +1397,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Game.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1292,6 +1425,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Inspector.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1300,6 +1435,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Inspector.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Inspector/Background");
                         }
                     }
@@ -1318,6 +1455,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Inspector.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1326,6 +1465,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Inspector.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Inspector/Icon");
                         }
                     }
@@ -1337,6 +1478,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Inspector.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1363,6 +1506,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Hierarchy.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1371,6 +1516,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Hierarchy.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Hierarchy/Background");
                         }
                     }
@@ -1389,6 +1536,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Hierarchy.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1397,6 +1546,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Hierarchy.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Hierarchy/Icon");
                         }
                     }
@@ -1408,6 +1559,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Hierarchy.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1434,6 +1587,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Project.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1442,6 +1597,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Project.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Project/Background");
                         }
                     }
@@ -1460,6 +1617,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Project.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1468,6 +1627,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Project.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Project/Icon");
                         }
                     }
@@ -1479,6 +1640,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Project.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1505,6 +1668,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Animation.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1513,6 +1678,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Animation.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Animation/Background");
                         }
                     }
@@ -1531,6 +1698,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Animation.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1539,6 +1708,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Animation.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Animation/Icon");
                         }
                     }
@@ -1550,6 +1721,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Animation.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1576,6 +1749,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Profiler.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1584,6 +1759,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Profiler.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Profiler/Background");
                         }
                     }
@@ -1602,6 +1779,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Profiler.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1610,6 +1789,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Profiler.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Profiler/Icon");
                         }
                     }
@@ -1621,6 +1802,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Profiler.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1647,6 +1830,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.AudioMixer.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1655,6 +1840,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AudioMixer.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/AudioMixer/Background");
                         }
                     }
@@ -1673,6 +1860,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.AudioMixer.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1681,6 +1870,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AudioMixer.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/AudioMixer/Icon");
                         }
                     }
@@ -1692,6 +1883,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AudioMixer.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1718,6 +1911,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.AssetStore.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1726,6 +1921,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AssetStore.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/AssetStore/Background");
                         }
                     }
@@ -1744,6 +1941,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.AssetStore.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1752,6 +1951,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AssetStore.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/AssetStore/Icon");
                         }
                     }
@@ -1763,6 +1964,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AssetStore.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1789,6 +1992,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.VersionControl.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1797,6 +2002,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.VersionControl.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/VersionControl/Background");
                         }
                     }
@@ -1815,6 +2022,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.VersionControl.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1823,6 +2032,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.VersionControl.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/VersionControl/Icon");
                         }
                     }
@@ -1834,6 +2045,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.VersionControl.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1860,6 +2073,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1868,6 +2083,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/AnimatorParameter/Background");
                         }
                     }
@@ -1887,6 +2104,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1895,6 +2114,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/AnimatorParameter/Icon");
                         }
                     }
@@ -1906,6 +2127,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -1932,6 +2155,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Animator.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -1940,6 +2165,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Animator.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Animator/Background");
                         }
                     }
@@ -1958,6 +2185,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Animator.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -1966,6 +2195,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Animator.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Animator/Icon");
                         }
                     }
@@ -1977,6 +2208,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Animator.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2003,6 +2236,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.SpritePacker.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -2011,6 +2246,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.SpritePacker.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/SpritePacker/Background");
                         }
                     }
@@ -2029,6 +2266,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.SpritePacker.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -2037,6 +2276,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.SpritePacker.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/SpritePacker/Icon");
                         }
                     }
@@ -2048,6 +2289,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.SpritePacker.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2074,6 +2317,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Lighting.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -2082,6 +2327,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Lighting.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Lighting/Background");
                         }
                     }
@@ -2100,6 +2347,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Lighting.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -2108,6 +2357,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Lighting.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Lighting/Icon");
                         }
                     }
@@ -2119,6 +2370,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Lighting.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2145,6 +2398,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -2153,6 +2408,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/OcclusionCulling/Background");
                         }
                     }
@@ -2172,6 +2429,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -2180,6 +2439,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/OcclusionCulling/Icon");
                         }
                     }
@@ -2191,6 +2452,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2217,6 +2480,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -2225,6 +2490,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/FrameDebugger/Background");
                         }
                     }
@@ -2243,6 +2510,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -2251,6 +2520,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/FrameDebugger/Icon");
                         }
                     }
@@ -2262,6 +2533,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.FrameDebugger.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2288,6 +2561,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Navigation.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -2296,6 +2571,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Navigation.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Navigation/Background");
                         }
                     }
@@ -2314,6 +2591,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Navigation.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -2322,6 +2601,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Navigation.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Navigation/Icon");
                         }
                     }
@@ -2333,6 +2614,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Navigation.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2359,6 +2642,8 @@ public static class Assets
                         /// </summary>
                         static Colors()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Console.Colors initialized");
+
                             ResetValues();
                         }
 
@@ -2367,6 +2652,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Console.Colors.ResetValues()");
+
                             background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/DockWidgets/Console/Background");
                         }
                     }
@@ -2385,6 +2672,8 @@ public static class Assets
                         /// </summary>
                         static Textures()
                         {
+                            DebugEx.Verbose("Static class Assets.Windows.MainWindow.DockWidgets.Console.Textures initialized");
+
                             ResetValues();
                         }
 
@@ -2393,6 +2682,8 @@ public static class Assets
                         /// </summary>
                         public static void ResetValues()
                         {
+                            DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Console.Textures.ResetValues()");
+
                             icon = new SpriteLoader("Textures/UI/Windows/MainWindow/DockWidgets/Console/Icon");
                         }
                     }
@@ -2404,6 +2695,8 @@ public static class Assets
                     /// </summary>
                     public static void ResetValues()
                     {
+                        DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.Console.ResetValues()");
+
                         Colors.ResetValues();
                         Textures.ResetValues();
                     }
@@ -2417,6 +2710,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.MainWindow.DockWidgets.ResetValues()");
+
                     Scene.ResetValues();
                     Game.ResetValues();
                     Inspector.ResetValues();
@@ -2446,6 +2741,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Windows.MainWindow.ResetValues()");
+
                 Colors.ResetValues();
                 MainMenu.ResetValues();
                 Toolbar.ResetValues();
@@ -2474,6 +2771,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Windows.AboutDialog.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -2482,6 +2781,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.AboutDialog.Colors.ResetValues()");
+
                     background = AssetUtils.LoadColor("Colors/UI/Windows/AboutDialog/Background");
                 }
             }
@@ -2507,6 +2808,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Windows.AboutDialog.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -2515,6 +2818,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.AboutDialog.TextStyles.ResetValues()");
+
                     version    = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/Version");
                     credits    = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/Credits");
                     monoLogo   = new TextStyleLoader("TextStyles/UI/Windows/AboutDialog/MonoLogo");
@@ -2542,6 +2847,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Windows.AboutDialog.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -2550,6 +2857,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.AboutDialog.Textures.ResetValues()");
+
                     unity = new SpriteLoader("Textures/UI/Windows/AboutDialog/Unity");
                     mono  = new SpriteLoader("Textures/UI/Windows/AboutDialog/Mono");
                     physX = new SpriteLoader("Textures/UI/Windows/AboutDialog/PhysX");
@@ -2563,6 +2872,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Windows.AboutDialog.ResetValues()");
+
                 Colors.ResetValues();
                 TextStyles.ResetValues();
                 Textures.ResetValues();
@@ -2577,6 +2888,8 @@ public static class Assets
         /// </summary>
         public static void ResetValues()
         {
+            DebugEx.Verbose("Assets.Windows.ResetValues()");
+
             MainWindow.ResetValues();
             AboutDialog.ResetValues();
         }
@@ -2590,6 +2903,8 @@ public static class Assets
     /// </summary>
     public static void ResetValues()
     {
+        DebugEx.Verbose("Assets.ResetValues()");
+
         Common.ResetValues();
         Windows.ResetValues();
     }

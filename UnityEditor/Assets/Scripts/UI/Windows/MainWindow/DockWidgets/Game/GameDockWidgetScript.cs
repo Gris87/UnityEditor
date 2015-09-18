@@ -70,7 +70,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in GameDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in GameDockWidgetScript.OnDestroy()");
             }
         }
     }

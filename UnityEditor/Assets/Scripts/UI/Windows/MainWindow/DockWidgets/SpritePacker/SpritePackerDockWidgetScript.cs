@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in SpritePackerDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in SpritePackerDockWidgetScript.OnDestroy()");
             }
         }
     }

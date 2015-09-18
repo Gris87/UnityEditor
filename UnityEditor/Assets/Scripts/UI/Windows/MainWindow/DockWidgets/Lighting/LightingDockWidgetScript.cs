@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in LightingDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in LightingDockWidgetScript.OnDestroy()");
             }
         }
     }

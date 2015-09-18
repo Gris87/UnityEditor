@@ -72,7 +72,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in ProfilerDockWidgetScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in ProfilerDockWidgetScript.OnDestroy()");
             }
         }
     }
