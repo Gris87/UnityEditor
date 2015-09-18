@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
         private LightingDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created LightingDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Lighting.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.lighting;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
         /// </summary>
         public static LightingDockWidgetScript Create()
         {
+            DebugEx.Verbose("LightingDockWidgetScript.Create()");
+
             if (Global.lightingDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("LightingDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Lighting.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Lighting
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("LightingDockWidgetScript.OnDestroy()");
+
             if (Global.lightingDockWidgetScript == this)
             {
                 Global.lightingDockWidgetScript = null;

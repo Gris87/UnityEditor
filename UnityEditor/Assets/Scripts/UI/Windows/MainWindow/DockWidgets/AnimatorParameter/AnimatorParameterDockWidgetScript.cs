@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
         private AnimatorParameterDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created AnimatorParameterDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.animator_parameter;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
         /// </summary>
         public static AnimatorParameterDockWidgetScript Create()
         {
+            DebugEx.Verbose("AnimatorParameterDockWidgetScript.Create()");
+
             if (Global.animatorParameterDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("AnimatorParameterDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.AnimatorParameter.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AnimatorParameter
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("AnimatorParameterDockWidgetScript.OnDestroy()");
+
             if (Global.animatorParameterDockWidgetScript == this)
             {
                 Global.animatorParameterDockWidgetScript = null;

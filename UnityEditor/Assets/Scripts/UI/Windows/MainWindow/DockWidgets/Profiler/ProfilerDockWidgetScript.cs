@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
         private ProfilerDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created ProfilerDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Profiler.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.profiler;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
         /// </summary>
         public static ProfilerDockWidgetScript Create()
         {
+            DebugEx.Verbose("ProfilerDockWidgetScript.Create()");
+
             if (Global.profilerDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("ProfilerDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Profiler.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Profiler
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("ProfilerDockWidgetScript.OnDestroy()");
+
             if (Global.profilerDockWidgetScript == this)
             {
                 Global.profilerDockWidgetScript = null;

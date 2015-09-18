@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
         private InspectorDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created InspectorDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Inspector.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.inspector;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
         /// </summary>
         public static InspectorDockWidgetScript Create()
         {
+            DebugEx.Verbose("InspectorDockWidgetScript.Create()");
+
             if (Global.inspectorDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("InspectorDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Inspector.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Inspector
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("InspectorDockWidgetScript.OnDestroy()");
+
             if (Global.inspectorDockWidgetScript == this)
             {
                 Global.inspectorDockWidgetScript = null;

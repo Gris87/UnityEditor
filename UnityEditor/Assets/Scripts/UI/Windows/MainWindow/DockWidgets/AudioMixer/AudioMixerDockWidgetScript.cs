@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
         private AudioMixerDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created AudioMixerDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.AudioMixer.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.audio_mixer;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
         /// </summary>
         public static AudioMixerDockWidgetScript Create()
         {
+            DebugEx.Verbose("AudioMixerDockWidgetScript.Create()");
+
             if (Global.audioMixerDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("AudioMixerDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.AudioMixer.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AudioMixer
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("AudioMixerDockWidgetScript.OnDestroy()");
+
             if (Global.audioMixerDockWidgetScript == this)
             {
                 Global.audioMixerDockWidgetScript = null;

@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
         private ProjectDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created ProjectDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Project.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.project;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
         /// </summary>
         public static ProjectDockWidgetScript Create()
         {
+            DebugEx.Verbose("ProjectDockWidgetScript.Create()");
+
             if (Global.projectDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("ProjectDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Project.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Project
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("ProjectDockWidgetScript.OnDestroy()");
+
             if (Global.projectDockWidgetScript == this)
             {
                 Global.projectDockWidgetScript = null;

@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
         private SceneDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created SceneDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Scene.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.scene;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
         /// </summary>
         public static SceneDockWidgetScript Create()
         {
+            DebugEx.Verbose("SceneDockWidgetScript.Create()");
+
             if (Global.sceneDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("SceneDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Scene.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("SceneDockWidgetScript.OnDestroy()");
+
             if (Global.sceneDockWidgetScript == this)
             {
                 Global.sceneDockWidgetScript = null;

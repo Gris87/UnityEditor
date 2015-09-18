@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
         private FrameDebuggerDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created FrameDebuggerDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.frame_debugger;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
         /// </summary>
         public static FrameDebuggerDockWidgetScript Create()
         {
+            DebugEx.Verbose("FrameDebuggerDockWidgetScript.Create()");
+
             if (Global.frameDebuggerDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("FrameDebuggerDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.FrameDebugger.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.FrameDebugger
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("FrameDebuggerDockWidgetScript.OnDestroy()");
+
             if (Global.frameDebuggerDockWidgetScript == this)
             {
                 Global.frameDebuggerDockWidgetScript = null;

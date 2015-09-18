@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
         private OcclusionCullingDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created OcclusionCullingDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.occlusion_culling;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
         /// </summary>
         public static OcclusionCullingDockWidgetScript Create()
         {
+            DebugEx.Verbose("OcclusionCullingDockWidgetScript.Create()");
+
             if (Global.occlusionCullingDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("OcclusionCullingDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.OcclusionCulling.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.OcclusionCulling
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("OcclusionCullingDockWidgetScript.OnDestroy()");
+
             if (Global.occlusionCullingDockWidgetScript == this)
             {
                 Global.occlusionCullingDockWidgetScript = null;

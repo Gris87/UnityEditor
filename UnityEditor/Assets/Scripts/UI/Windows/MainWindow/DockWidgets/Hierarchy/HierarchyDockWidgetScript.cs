@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
         private HierarchyDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created HierarchyDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.hierarchy;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
         /// </summary>
         public static HierarchyDockWidgetScript Create()
         {
+            DebugEx.Verbose("HierarchyDockWidgetScript.Create()");
+
             if (Global.hierarchyDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("HierarchyDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("HierarchyDockWidgetScript.OnDestroy()");
+
             if (Global.hierarchyDockWidgetScript == this)
             {
                 Global.hierarchyDockWidgetScript = null;

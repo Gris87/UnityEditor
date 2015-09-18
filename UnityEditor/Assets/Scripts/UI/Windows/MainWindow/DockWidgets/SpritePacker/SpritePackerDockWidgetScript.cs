@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
         private SpritePackerDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created SpritePackerDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.SpritePacker.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.sprite_packer;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
         /// </summary>
         public static SpritePackerDockWidgetScript Create()
         {
+            DebugEx.Verbose("SpritePackerDockWidgetScript.Create()");
+
             if (Global.spritePackerDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("SpritePackerDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.SpritePacker.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("SpritePackerDockWidgetScript.OnDestroy()");
+
             if (Global.spritePackerDockWidgetScript == this)
             {
                 Global.spritePackerDockWidgetScript = null;

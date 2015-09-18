@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
         private ConsoleDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created ConsoleDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Console.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.console;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
         /// </summary>
         public static ConsoleDockWidgetScript Create()
         {
+            DebugEx.Verbose("ConsoleDockWidgetScript.Create()");
+
             if (Global.consoleDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("ConsoleDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Console.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Console
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("ConsoleDockWidgetScript.OnDestroy()");
+
             if (Global.consoleDockWidgetScript == this)
             {
                 Global.consoleDockWidgetScript = null;

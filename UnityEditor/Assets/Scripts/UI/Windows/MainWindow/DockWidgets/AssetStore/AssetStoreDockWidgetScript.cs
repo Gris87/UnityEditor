@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
         private AssetStoreDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created AssetStoreDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.AssetStore.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.asset_store;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
         /// </summary>
         public static AssetStoreDockWidgetScript Create()
         {
+            DebugEx.Verbose("AssetStoreDockWidgetScript.Create()");
+
             if (Global.assetStoreDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("AssetStoreDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.AssetStore.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("AssetStoreDockWidgetScript.OnDestroy()");
+
             if (Global.assetStoreDockWidgetScript == this)
             {
                 Global.assetStoreDockWidgetScript = null;

@@ -18,6 +18,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
         private GameDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created GameDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Game.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.game;
         }
@@ -27,6 +29,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
         /// </summary>
         public static GameDockWidgetScript Create()
         {
+            DebugEx.Verbose("GameDockWidgetScript.Create()");
+
             if (Global.gameDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -54,6 +58,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("GameDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Game.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -64,6 +70,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("GameDockWidgetScript.OnDestroy()");
+
             if (Global.gameDockWidgetScript == this)
             {
                 Global.gameDockWidgetScript = null;

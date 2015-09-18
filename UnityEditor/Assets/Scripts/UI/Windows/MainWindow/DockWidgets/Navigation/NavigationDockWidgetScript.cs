@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
         private NavigationDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created NavigationDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.Navigation.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.navigation;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
         /// </summary>
         public static NavigationDockWidgetScript Create()
         {
+            DebugEx.Verbose("NavigationDockWidgetScript.Create()");
+
             if (Global.navigationDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("NavigationDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Navigation.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("NavigationDockWidgetScript.OnDestroy()");
+
             if (Global.navigationDockWidgetScript == this)
             {
                 Global.navigationDockWidgetScript = null;

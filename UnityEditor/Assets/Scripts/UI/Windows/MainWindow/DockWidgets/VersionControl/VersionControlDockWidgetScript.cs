@@ -19,6 +19,8 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
         private VersionControlDockWidgetScript()
             : base()
         {
+            DebugEx.Verbose("Created VersionControlDockWidgetScript object");
+
             image   = Assets.Windows.MainWindow.DockWidgets.VersionControl.Textures.icon.sprite;
             tokenId = UnityTranslation.R.sections.DockWidgets.strings.version_control;
         }
@@ -29,6 +31,8 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
         /// </summary>
         public static VersionControlDockWidgetScript Create()
         {
+            DebugEx.Verbose("VersionControlDockWidgetScript.Create()");
+
             if (Global.versionControlDockWidgetScript == null)
             {
                 //***************************************************************************
@@ -56,6 +60,8 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
+            DebugEx.Verbose("VersionControlDockWidgetScript.CreateContent()");
+
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.VersionControl.Colors.background;
 
             // TODO: [Minor] Implement CreateContent
@@ -66,6 +72,8 @@ namespace UI.Windows.MainWindow.DockWidgets.VersionControl
         /// </summary>
         void OnDestroy()
         {
+            DebugEx.Verbose("VersionControlDockWidgetScript.OnDestroy()");
+
             if (Global.versionControlDockWidgetScript == this)
             {
                 Global.versionControlDockWidgetScript = null;
