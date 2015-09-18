@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using Common;
 using Common.App;
 using Common.App.ResourceTypes.Loaders;
 
@@ -41,6 +42,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Fonts.ResetValues()");
+
                 AssetUtils.Fonts.ResetValues();
             }
 
@@ -52,6 +55,8 @@ public static class Assets
             /// <param name="fontSize">Font size.</param>
             public static Font GetFont(string fontName, int fontSize = 12)
             {
+                DebugEx.VerboseFormat("Assets.Common.Fonts.GetFont(fontName = {0}, fontSize = {1})", fontName, fontSize);
+
                 return AssetUtils.Fonts.GetFont(fontName, fontSize);
             }
         }
@@ -75,6 +80,8 @@ public static class Assets
             /// </summary>
             static Cursors()
             {
+                DebugEx.Verbose("Static class Assets.Common.Cursors initialized");
+
                 ResetValues();
             }
 
@@ -83,6 +90,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Cursors.ResetValues()");
+
                 eastWest           = new ScaledTexture2DLoader("Common/Cursors/EastWest");
                 northEastSouthWest = new ScaledTexture2DLoader("Common/Cursors/NorthEastSouthWest");
                 northSouth         = new ScaledTexture2DLoader("Common/Cursors/NorthSouth");
@@ -111,6 +120,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -119,6 +130,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.Colors.ResetValues()");
+
                     background = AssetUtils.LoadColor("Common/Colors/UI/Windows/Background");
                 }
             }
@@ -137,6 +150,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -145,6 +160,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.TextStyles.ResetValues()");
+
                     title = new TextStyleLoader("Common/TextStyles/UI/Windows/Title");
                 }
             }
@@ -196,6 +213,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -204,6 +223,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.Textures.ResetValues()");
+
                     window                     = new SpriteLoader("Common/Textures/UI/Windows/Window");
                     windowDeselected           = new SpriteLoader("Common/Textures/UI/Windows/WindowDeselected");
                     subWindow                  = new SpriteLoader("Common/Textures/UI/Windows/SubWindow");
@@ -259,6 +280,8 @@ public static class Assets
                 /// </summary>
                 static SpriteStates()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Windows.SpriteStates initialized");
+
                     ResetValues();
                 }
 
@@ -267,6 +290,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Windows.SpriteStates.ResetValues()");
+
                     minimizeButton  = new SpriteStateLoader(Textures.minimizeButtonDisabled,  Textures.minimizeButtonHighlighted,  Textures.minimizeButtonPressed);
                     maximizeButton  = new SpriteStateLoader(Textures.maximizeButtonDisabled,  Textures.maximizeButtonHighlighted,  Textures.maximizeButtonPressed);
                     normalizeButton = new SpriteStateLoader(Textures.normalizeButtonDisabled, Textures.normalizeButtonHighlighted, Textures.normalizeButtonPressed);
@@ -282,6 +307,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Windows.ResetValues()");
+
                 Colors.ResetValues();
                 TextStyles.ResetValues();
                 Textures.ResetValues();
@@ -312,6 +339,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -320,6 +349,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.Colors.ResetValues()");
+
                     background      = AssetUtils.LoadColor("Common/Colors/UI/DockWidgets/Background");
                     dummyBackground = AssetUtils.LoadColor("Common/Colors/UI/DockWidgets/DummyBackground");
                     dockingWindow   = AssetUtils.LoadColor("Common/Colors/UI/DockWidgets/DockingWindow");
@@ -340,6 +371,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -348,6 +381,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.TextStyles.ResetValues()");
+
                     title = new TextStyleLoader("Common/TextStyles/UI/DockWidgets/Title");
                 }
             }
@@ -395,6 +430,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -403,6 +440,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.Textures.ResetValues()");
+
                     tab                          = new SpriteLoader("Common/Textures/UI/DockWidgets/Tab");
                     tabDisabled                  = new SpriteLoader("Common/Textures/UI/DockWidgets/TabDisabled");
                     tabHighlighted               = new SpriteLoader("Common/Textures/UI/DockWidgets/TabHighlighted");
@@ -456,6 +495,8 @@ public static class Assets
                 /// </summary>
                 static SpriteStates()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.DockWidgets.SpriteStates initialized");
+
                     ResetValues();
                 }
 
@@ -464,6 +505,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.DockWidgets.SpriteStates.ResetValues()");
+
                     button            = new SpriteStateLoader(Textures.tabDisabled,               Textures.tabHighlighted,               Textures.tabPressed);
                     activeButton      = new SpriteStateLoader(Textures.tabActiveDisabled,         Textures.tabActiveHighlighted,         Textures.tabActivePressed);
                     maximizeButton    = new SpriteStateLoader(Textures.maximizeButtonDisabled,    Textures.maximizeButtonHighlighted,    Textures.maximizeButtonPressed);
@@ -481,6 +524,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.DockWidgets.ResetValues()");
+
                 Colors.ResetValues();
                 TextStyles.ResetValues();
                 Textures.ResetValues();
@@ -510,6 +555,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Popups.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -518,6 +565,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Popups.TextStyles.ResetValues()");
+
                     button         = new TextStyleLoader("Common/TextStyles/UI/Popups/Button");
                     buttonDisabled = new TextStyleLoader("Common/TextStyles/UI/Popups/ButtonDisabled");
                 }
@@ -545,6 +594,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Popups.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -553,6 +604,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Popups.Textures.ResetValues()");
+
                     popupBackground   = new SpriteLoader("Common/Textures/UI/Popups/PopupBackground");
                     background        = new SpriteLoader("Common/Textures/UI/Popups/Background");
                     separator         = new SpriteLoader("Common/Textures/UI/Popups/Separator");
@@ -580,6 +633,8 @@ public static class Assets
                 /// </summary>
                 static SpriteStates()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Popups.SpriteStates initialized");
+
                     ResetValues();
                 }
 
@@ -588,6 +643,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Popups.SpriteStates.ResetValues()");
+
                     button         = new SpriteStateLoader(Textures.button, Textures.buttonHighlighted, Textures.buttonPressed);
                     buttonDisabled = new SpriteStateLoader(Textures.button, Textures.buttonDisabled,    Textures.buttonDisabled);
                 }
@@ -599,6 +656,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Popups.ResetValues()");
+
                 TextStyles.ResetValues();
                 Textures.ResetValues();
                 SpriteStates.ResetValues();
@@ -626,6 +685,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Tooltips.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -634,6 +695,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Tooltips.TextStyles.ResetValues()");
+
                     tooltipText = new TextStyleLoader("Common/TextStyles/UI/Tooltips/TooltipText");
                 }
             }
@@ -652,6 +715,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Tooltips.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -660,6 +725,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Tooltips.Textures.ResetValues()");
+
                     tooltipBackground = new SpriteLoader("Common/Textures/UI/Tooltips/TooltipBackground");
                 }
             }
@@ -671,6 +738,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Tooltips.ResetValues()");
+
                 TextStyles.ResetValues();
                 Textures.ResetValues();
             }
@@ -697,6 +766,8 @@ public static class Assets
                 /// </summary>
                 static TextStyles()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Toasts.TextStyles initialized");
+
                     ResetValues();
                 }
 
@@ -705,6 +776,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Toasts.TextStyles.ResetValues()");
+
                     toastText = new TextStyleLoader("Common/TextStyles/UI/Toasts/ToastText");
                 }
             }
@@ -723,6 +796,8 @@ public static class Assets
                 /// </summary>
                 static Textures()
                 {
+                    DebugEx.Verbose("Static class Assets.Common.Toasts.Textures initialized");
+
                     ResetValues();
                 }
 
@@ -731,6 +806,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Common.Toasts.Textures.ResetValues()");
+
                     toastBackground = new SpriteLoader("Common/Textures/UI/Toasts/ToastBackground");
                 }
             }
@@ -742,6 +819,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Common.Toasts.ResetValues()");
+
                 TextStyles.ResetValues();
                 Textures.ResetValues();
             }
@@ -755,6 +834,8 @@ public static class Assets
         /// </summary>
         public static void ResetValues()
         {
+            DebugEx.Verbose("Assets.Common.ResetValues()");
+
             Fonts.ResetValues();
             Cursors.ResetValues();
             Windows.ResetValues();
@@ -792,6 +873,8 @@ public static class Assets
                 /// </summary>
                 static Colors()
                 {
+                    DebugEx.Verbose("Static class Assets.Windows.MainWindow.Colors initialized");
+
                     ResetValues();
                 }
 
@@ -800,6 +883,8 @@ public static class Assets
                 /// </summary>
                 public static void ResetValues()
                 {
+                    DebugEx.Verbose("Assets.Windows.MainWindow.Colors.ResetValues()");
+
                     background = AssetUtils.LoadColor("Colors/UI/Windows/MainWindow/Background");
                 }
             }
@@ -811,6 +896,8 @@ public static class Assets
             /// </summary>
             public static void ResetValues()
             {
+                DebugEx.Verbose("Assets.Windows.MainWindow.ResetValues()");
+
                 Colors.ResetValues();
             }
         }
@@ -823,6 +910,8 @@ public static class Assets
         /// </summary>
         public static void ResetValues()
         {
+            DebugEx.Verbose("Assets.Windows.ResetValues()");
+
             MainWindow.ResetValues();
         }
     }
@@ -835,6 +924,8 @@ public static class Assets
     /// </summary>
     public static void ResetValues()
     {
+        DebugEx.Verbose("Assets.ResetValues()");
+
         Common.ResetValues();
         Windows.ResetValues();
     }

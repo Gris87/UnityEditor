@@ -18,6 +18,8 @@ namespace UI.Windows.MainWindow
         private MainWindowScript()
             : base()
         {
+            DebugEx.Verbose("Created MainWindowScript object");
+
             frame           = WindowFrameType.Frameless;
             state           = WindowState.FullScreen;
             backgroundColor = Assets.Windows.MainWindow.Colors.background;
@@ -28,6 +30,8 @@ namespace UI.Windows.MainWindow
         /// </summary>
         public static MainWindowScript Create()
         {
+            DebugEx.Verbose("MainWindowScript.Create()");
+
             if (Global.mainWindowScript == null)
             {
                 //***************************************************************************
@@ -57,6 +61,8 @@ namespace UI.Windows.MainWindow
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
+            DebugEx.Verbose("MainWindowScript.CreateContent()");
+
             width  = 0f;
             height = 0f;
 
@@ -70,13 +76,15 @@ namespace UI.Windows.MainWindow
         {
             base.OnDestroy();
 
+            DebugEx.Verbose("MainWindowScript.OnDestroy()");
+
             if (Global.mainWindowScript == this)
             {
                 Global.mainWindowScript = null;
             }
             else
             {
-                DebugEx.Error("Unexpected behaviour in MainWindowScript.OnDestroy");
+                DebugEx.Fatal("Unexpected behaviour in MainWindowScript.OnDestroy()");
             }
         }
     }

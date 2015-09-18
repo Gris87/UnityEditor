@@ -23,6 +23,8 @@ namespace UI
         /// </summary>
         void Start()
         {
+            DebugEx.Verbose("MasterScript.Start()");
+
             SetupCanvas();
 
             CreateUI();
@@ -33,6 +35,8 @@ namespace UI
         /// </summary>
         private void SetupCanvas()
         {
+            DebugEx.Verbose("MasterScript.SetupCanvas()");
+
             float dpi = Screen.dpi;
 
             if (dpi != 0f)
@@ -52,6 +56,8 @@ namespace UI
         /// </summary>
         private void CreateUI()
         {
+            DebugEx.Verbose("MasterScript.CreateUI()");
+
             CreateCommon();
             CreateWindows();
             CreateOverlap();
@@ -64,6 +70,8 @@ namespace UI
         /// </summary>
         private void CreateCommon()
         {
+            DebugEx.Verbose("MasterScript.CreateCommon()");
+
             //***************************************************************************
             // Common GameObject
             //***************************************************************************
@@ -90,6 +98,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreateCommonListeners(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreateCommonListeners(parent = {0})", parent);
+
             //***************************************************************************
             // Listeners GameObject
             //***************************************************************************
@@ -116,6 +126,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreateResizeListener(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreateResizeListener(parent = {0})", parent);
+
             //***************************************************************************
             // ResizeListener GameObject
             //***************************************************************************
@@ -146,6 +158,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreateEscapeButtonListener(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreateEscapeButtonListener(parent = {0})", parent);
+
             //***************************************************************************
             // EscapeButtonListener GameObject
             //***************************************************************************
@@ -176,6 +190,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreateCommonNetwork(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreateCommonNetwork(parent = {0})", parent);
+
             //***************************************************************************
             // Network GameObject
             //***************************************************************************
@@ -201,6 +217,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreateClientScript(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreateClientScript(parent = {0})", parent);
+
             //***************************************************************************
             // Client GameObject
             //***************************************************************************
@@ -230,6 +248,8 @@ namespace UI
         /// </summary>
         private void CreateWindows()
         {
+            DebugEx.Verbose("MasterScript.CreateWindows()");
+
             //***************************************************************************
             // Windows GameObject
             //***************************************************************************
@@ -254,6 +274,8 @@ namespace UI
         /// </summary>
         private void CreateOverlap()
         {
+            DebugEx.Verbose("MasterScript.CreateOverlap()");
+
             //***************************************************************************
             // Overlap GameObject
             //***************************************************************************
@@ -280,6 +302,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreatePopupMenuArea(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreatePopupMenuArea(parent = {0})", parent);
+
             //***************************************************************************
             // PopupMenuArea GameObject
             //***************************************************************************
@@ -310,6 +334,8 @@ namespace UI
         /// <param name="parent">Parent transform.</param>
         private void CreateTooltipArea(Transform parent)
         {
+            DebugEx.VerboseFormat("MasterScript.CreateTooltipArea(parent = {0})", parent);
+
             //***************************************************************************
             // TooltipArea GameObject
             //***************************************************************************
