@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Scene
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-            DebugEx.Verbose("SceneDockWidgetScript.CreateContent()");
+			DebugEx.VerboseFormat("SceneDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Scene.Colors.background;
 

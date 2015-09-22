@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Animation
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-            DebugEx.Verbose("AnimationDockWidgetScript.CreateContent()");
+			DebugEx.VerboseFormat("AnimationDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Animation.Colors.background;
 

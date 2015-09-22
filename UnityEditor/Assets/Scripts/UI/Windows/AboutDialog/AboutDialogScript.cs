@@ -662,7 +662,7 @@ namespace UI.Windows.AboutDialog
 
             Settings.internalMode = !Settings.internalMode;
 
-            DebugEx.Info("Internal mode: " + (Settings.internalMode ? "ON" : "OFF"));
+			DebugEx.Info("Internal mode: {0}", Settings.internalMode ? "ON" : "OFF");
             Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
         }
 
@@ -779,7 +779,7 @@ namespace UI.Windows.AboutDialog
 
                         default:
                         {
-                            DebugEx.Error("Incorrect screen orientation: " + mScreenOrientation);
+							DebugEx.Error("Incorrect screen orientation: {0}", mScreenOrientation);
                         }
                         break;
                     }

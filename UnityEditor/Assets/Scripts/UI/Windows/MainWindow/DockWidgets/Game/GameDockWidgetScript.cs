@@ -58,7 +58,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Game
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-            DebugEx.Verbose("GameDockWidgetScript.CreateContent()");
+			DebugEx.VerboseFormat("GameDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Game.Colors.background;
 
