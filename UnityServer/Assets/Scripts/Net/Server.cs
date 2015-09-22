@@ -24,12 +24,14 @@ namespace Net
         {
             get
             {
+				DebugEx.VeryVeryVerboseFormat("Server.state = {0}", sState);
+
                 return sState;
             }
 
             set
             {
-                DebugEx.Verbose("sState: " + sState + " => " + value);
+				DebugEx.VeryVerboseFormat("Server.state: {0} => {1}", sState, value);
 
                 sState = value;
             }

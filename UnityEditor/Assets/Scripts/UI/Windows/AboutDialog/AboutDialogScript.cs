@@ -157,7 +157,7 @@ namespace UI.Windows.AboutDialog
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-            DebugEx.Verbose("AboutDialogScript.CreateContent()");
+			DebugEx.VerboseFormat("AboutDialogScript.CreateContent(contentTransform = {0})", contentTransform);
 
             width  = WINDOW_WIDTH;
             height = WINDOW_HEIGHT;

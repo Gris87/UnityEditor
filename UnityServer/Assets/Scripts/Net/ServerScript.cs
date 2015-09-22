@@ -65,7 +65,7 @@ namespace Net
         {
             DebugEx.VerboseFormat("ServerScript.OnFailedToConnectToMasterServer(error = {0})", error);
 
-            DebugEx.Error("Could not connect to master server: " + error);
+			DebugEx.ErrorFormat("Could not connect to master server: {0}", error);
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Net
                 {
                     if (Server.state == ServerState.Starting)
                     {
-                        DebugEx.Error("Registration failed: " + msEvent);
+						DebugEx.ErrorFormat("Registration failed: {0}", msEvent);
 
                         Server.state = ServerState.Stopped;
                     }
@@ -110,7 +110,7 @@ namespace Net
 
                 default:
                 {
-                    DebugEx.Error("Unknown master server event: " + msEvent);
+					DebugEx.ErrorFormat("Unknown master server event: {0}", msEvent);
                 }
                 break;
             }
@@ -141,7 +141,7 @@ namespace Net
             NetworkView   view   = NetworkView.Find(id);
             NetworkPlayer player = view.owner;
 
-            DebugEx.Debug("Message received from client: " + player.externalIP + ":" + player.externalPort);
+			DebugEx.DebugFormat("Message received from client {0}:{1}", player.externalIP, player.externalPort);
             DebugEx.Debug(Utils.BytesInHex(bytes));
 
             // TODO: [Major] Handle incoming message

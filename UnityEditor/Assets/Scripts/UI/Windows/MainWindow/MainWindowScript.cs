@@ -63,11 +63,15 @@ namespace UI.Windows.MainWindow
         {
             get
             {
-                return (
-                        base.selected
-                        ||
-                        WindowScript.selectedWindow is DockingWindowScript
-                       );
+				bool res = (
+					        base.selected
+					        ||
+				            WindowScript.selectedWindow is DockingWindowScript
+					       );
+
+				DebugEx.VeryVeryVerboseFormat("MainWindowScript.selected = {0}", res);
+
+                return res;
             }
         }
 

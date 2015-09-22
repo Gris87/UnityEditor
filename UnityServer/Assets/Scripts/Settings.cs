@@ -25,12 +25,14 @@ public static class Settings
     {
         get
         {
+			DebugEx.VeryVeryVerboseFormat("Settings.internalMode = {0}", sInternalMode);
+
             return sInternalMode;
         }
 
         set
         {
-            DebugEx.Verbose("sInternalMode: " + sInternalMode + " => " + value);
+			DebugEx.VeryVerboseFormat("Settings.internalMode: {0} => {1}", sInternalMode, value);
 
             if (sInternalMode != value)
             {

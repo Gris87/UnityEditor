@@ -38,7 +38,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// <param name="script">Toolbar script.</param>
         public ToolbarUI(ToolbarScript script)
         {
-            DebugEx.Verbose("Created ToolbarUI object");
+            DebugEx.VerboseFormat("Created ToolbarUI(script = {0}) object", script);
 
             mScript = script;
 
