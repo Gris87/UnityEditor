@@ -105,7 +105,7 @@ namespace UI.Windows.MainWindow
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-            DebugEx.Verbose("MainWindowScript.CreateContent()");
+			DebugEx.VerboseFormat("MainWindowScript.CreateContent(contentTransform = {0})", contentTransform);
 
             width  = 0f;
             height = 0f;

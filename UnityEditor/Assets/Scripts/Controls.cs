@@ -61,7 +61,7 @@ public static class Controls
         // It is just an example. You may remove it or modify it if you want
         ReadOnlyCollection<KeyMapping> keys = InputControl.GetKeys();
 
-        foreach(KeyMapping key in keys)
+        foreach (KeyMapping key in keys)
         {
             PlayerPrefs.SetString("Controls." + key.name + ".primary",   key.primaryInput.ToString());
             PlayerPrefs.SetString("Controls." + key.name + ".secondary", key.secondaryInput.ToString());
@@ -81,7 +81,7 @@ public static class Controls
         // It is just an example. You may remove it or modify it if you want
         ReadOnlyCollection<KeyMapping> keys = InputControl.GetKeys();
 
-        foreach(KeyMapping key in keys)
+        foreach (KeyMapping key in keys)
         {
             string inputStr;
 

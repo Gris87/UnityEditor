@@ -31,7 +31,11 @@ public static class Assets
             {
                 get
                 {
-                    return AssetUtils.Fonts.defaultFont;
+					Font res = AssetUtils.Fonts.defaultFont;
+
+					DebugEx.VeryVeryVerboseFormat("Assets.Common.Fonts.defaultFont = {0}", res);
+
+                    return res;
                 }
             }
 
