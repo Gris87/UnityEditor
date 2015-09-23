@@ -30,7 +30,7 @@ namespace UI.Windows.MainWindow
     /// </summary>
     public class MainWindowScript : WindowScript
 #if HANDLE_ESCAPE_BUTTON
-                                  , EscapeButtonHandler
+                                  , IEscapeButtonHandler
 #endif
     {
         private const float MAIN_MENU_HEIGHT = 20f;

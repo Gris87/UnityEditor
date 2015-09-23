@@ -17,7 +17,7 @@ namespace UI.Windows.AboutDialog
     /// <summary>
     /// Script that realize about dialog behaviour.
     /// </summary>
-    public class AboutDialogScript : WindowScript, EscapeButtonHandler
+    public class AboutDialogScript : WindowScript, IEscapeButtonHandler
     {
         private const string WINDOW_KEY           = "AboutDialog";
         private const float  WINDOW_WIDTH         = 570f;
