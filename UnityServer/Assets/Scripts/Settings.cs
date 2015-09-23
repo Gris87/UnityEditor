@@ -25,14 +25,14 @@ public static class Settings
     {
         get
         {
-			DebugEx.VeryVeryVerboseFormat("Settings.internalMode = {0}", sInternalMode);
+            DebugEx.VeryVeryVerboseFormat("Settings.internalMode = {0}", sInternalMode);
 
             return sInternalMode;
         }
 
         set
         {
-			DebugEx.VeryVerboseFormat("Settings.internalMode: {0} => {1}", sInternalMode, value);
+            DebugEx.VeryVerboseFormat("Settings.internalMode: {0} => {1}", sInternalMode, value);
 
             if (sInternalMode != value)
             {
@@ -110,6 +110,6 @@ public static class Settings
         sInternalMode = (PlayerPrefs.GetString(KEY_INTERNAL_MODE, "False").ToLower() == "true");
 
         DebugEx.Debug("Settings loaded:");
-		DebugEx.Debug("  * sInternalMode = {0}", sInternalMode);
+        DebugEx.Debug("  * sInternalMode = {0}", sInternalMode);
     }
 }

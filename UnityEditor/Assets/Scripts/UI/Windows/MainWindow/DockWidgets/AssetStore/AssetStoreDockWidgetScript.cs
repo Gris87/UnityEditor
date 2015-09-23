@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.AssetStore
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-			DebugEx.VerboseFormat("AssetStoreDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
+            DebugEx.VerboseFormat("AssetStoreDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.AssetStore.Colors.background;
 

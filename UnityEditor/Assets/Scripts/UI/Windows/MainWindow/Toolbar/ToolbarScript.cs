@@ -44,7 +44,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         void OnDestroy()
         {
-			DebugEx.Verbose("ToolbarScript.OnDestroy()");
+            DebugEx.Verbose("ToolbarScript.OnDestroy()");
 
             mUi.Release();
         }
@@ -54,7 +54,7 @@ namespace UI.Windows.MainWindow.Toolbar
         /// </summary>
         public void OnResize()
         {
-			DebugEx.Verbose("ToolbarScript.OnResize()");
+            DebugEx.Verbose("ToolbarScript.OnResize()");
 
             if (mUi != null)
             {

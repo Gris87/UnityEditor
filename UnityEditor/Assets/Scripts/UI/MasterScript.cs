@@ -45,7 +45,7 @@ namespace UI
 
                 canvasScaler.scaleFactor = dpi / 96f;
 
-				DebugEx.DebugFormat("Canvas scale factor: {0}", canvasScaler.scaleFactor);
+                DebugEx.DebugFormat("Canvas scale factor: {0}", canvasScaler.scaleFactor);
             }
             else
             {

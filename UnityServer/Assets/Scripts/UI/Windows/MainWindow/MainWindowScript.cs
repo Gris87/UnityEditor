@@ -46,13 +46,13 @@ namespace UI.Windows.MainWindow
         {
             get
             {
-				bool res = (
-					        base.selected
-					        ||
-				            WindowScript.selectedWindow is DockingWindowScript
-					       );
+                bool res = (
+                            base.selected
+                            ||
+                            WindowScript.selectedWindow is DockingWindowScript
+                           );
 
-				DebugEx.VeryVeryVerboseFormat("MainWindowScript.selected = {0}", res);
+                DebugEx.VeryVeryVerboseFormat("MainWindowScript.selected = {0}", res);
 
                 return res;
             }
@@ -109,7 +109,7 @@ namespace UI.Windows.MainWindow
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-			DebugEx.VerboseFormat("MainWindowScript.CreateContent(contentTransform = {0})", contentTransform);
+            DebugEx.VerboseFormat("MainWindowScript.CreateContent(contentTransform = {0})", contentTransform);
 
             width  = 0f;
             height = 0f;

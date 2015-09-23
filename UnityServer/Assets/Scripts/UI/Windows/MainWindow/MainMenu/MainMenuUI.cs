@@ -95,7 +95,7 @@ namespace UI.Windows.MainWindow.MainMenu
         /// <param name="script">Main menu script.</param>
         public MainMenuUI(MainMenuScript script)
         {
-			DebugEx.VerboseFormat("Created MainMenuUI(script = {0}) object", script);
+            DebugEx.VerboseFormat("Created MainMenuUI(script = {0}) object", script);
 
             mScript = script;
 

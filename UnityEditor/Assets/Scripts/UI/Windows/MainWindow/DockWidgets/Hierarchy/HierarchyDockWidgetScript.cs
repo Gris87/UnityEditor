@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Hierarchy
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-			DebugEx.VerboseFormat("HierarchyDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
+            DebugEx.VerboseFormat("HierarchyDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Hierarchy.Colors.background;
 

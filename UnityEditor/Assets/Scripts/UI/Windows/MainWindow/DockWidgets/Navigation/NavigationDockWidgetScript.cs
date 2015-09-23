@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.Navigation
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-			DebugEx.VerboseFormat("NavigationDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
+            DebugEx.VerboseFormat("NavigationDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.Navigation.Colors.background;
 

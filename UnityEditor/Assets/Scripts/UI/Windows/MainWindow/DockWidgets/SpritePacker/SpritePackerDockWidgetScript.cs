@@ -60,7 +60,7 @@ namespace UI.Windows.MainWindow.DockWidgets.SpritePacker
         /// <param name="contentTransform">Content transform.</param>
         protected override void CreateContent(Transform contentTransform)
         {
-			DebugEx.VerboseFormat("SpritePackerDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
+            DebugEx.VerboseFormat("SpritePackerDockWidgetScript.CreateContent(contentTransform = {0})", contentTransform);
 
             backgroundColor = Assets.Windows.MainWindow.DockWidgets.SpritePacker.Colors.background;
 

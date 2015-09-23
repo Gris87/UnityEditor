@@ -157,7 +157,7 @@ namespace UI.Windows.AboutDialog
         /// <param name="height">Height of content.</param>
         protected override void CreateContent(Transform contentTransform, out float width, out float height)
         {
-			DebugEx.VerboseFormat("AboutDialogScript.CreateContent(contentTransform = {0})", contentTransform);
+            DebugEx.VerboseFormat("AboutDialogScript.CreateContent(contentTransform = {0})", contentTransform);
 
             width  = WINDOW_WIDTH;
             height = WINDOW_HEIGHT;
@@ -662,7 +662,7 @@ namespace UI.Windows.AboutDialog
 
             Settings.internalMode = !Settings.internalMode;
 
-			DebugEx.Info("Internal mode: {0}", Settings.internalMode ? "ON" : "OFF");
+            DebugEx.Info("Internal mode: {0}", Settings.internalMode ? "ON" : "OFF");
             Toast.Show(contentTransform, R.sections.Toasts.strings.internal_mode, Toast.LENGTH_LONG, Settings.internalMode ? "ON" : "OFF");
         }
 
@@ -779,7 +779,7 @@ namespace UI.Windows.AboutDialog
 
                         default:
                         {
-							DebugEx.Error("Incorrect screen orientation: {0}", mScreenOrientation);
+                            DebugEx.Error("Incorrect screen orientation: {0}", mScreenOrientation);
                         }
                         break;
                     }
