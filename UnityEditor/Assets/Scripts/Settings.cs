@@ -110,6 +110,6 @@ public static class Settings
         sInternalMode = (PlayerPrefs.GetString(KEY_INTERNAL_MODE, "False").ToLower() == "true");
 
         DebugEx.Debug("Settings loaded:");
-        DebugEx.Debug("  * sInternalMode = {0}", sInternalMode);
+        DebugEx.DebugFormat("  * sInternalMode = {0}", sInternalMode);
     }
 }

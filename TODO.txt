@@ -1,4 +1,3 @@
-Use Timer where it is needed
 Implement server part
 Implement client part
 Implement lock button on dock widget
