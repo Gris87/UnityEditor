@@ -111,7 +111,7 @@ namespace UI.Windows.MainWindow.MainMenu
 
             if (!mShortcuts.Remove(shortcut))
             {
-                DebugEx.Error("Failed to deregister shortcut for \"{0}\"", shortcut.name);
+                DebugEx.ErrorFormat("Failed to deregister shortcut for \"{0}\"", shortcut.name);
             }
         }
 
@@ -126,7 +126,7 @@ namespace UI.Windows.MainWindow.MainMenu
             if (node.data is MenuItem)
             {
                 MenuItem item = node.data as MenuItem;
-                DebugEx.UserInteraction("MainMenuScript.OnShowMenuSubItems({0})", item.name);
+                DebugEx.UserInteractionFormat("MainMenuScript.OnShowMenuSubItems({0})", item.name);
 
                 if (mPopupMenu != null)
                 {
@@ -134,7 +134,7 @@ namespace UI.Windows.MainWindow.MainMenu
                 }
 
                 mPopupMenu = new PopupMenu(node);
-                mPopupMenu.OnDestroy.AddListener(OnPopupMenuDestroyed);
+                mPopupMenu.onDestroy.AddListener(OnPopupMenuDestroyed);
 
                 int index = node.parent.children.IndexOf(node);
 
