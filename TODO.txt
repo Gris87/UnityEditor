@@ -1,7 +1,3 @@
-Debug logs everywhere
-Debug logs replace + to format
-Debug logs in getters and setters.            VeryVeryVerboseFormat for getter and VeryVerboseFormat for setter
-Debug info about type in getters and setters
 Use Timer where it is needed
 Implement server part
 Implement client part
