@@ -35,8 +35,6 @@ namespace Net
             MasterServer.port          = 23466;
             Network.natFacilitatorIP   = "127.0.0.1";
             Network.natFacilitatorPort = 50005;
-#else
-            Network.InitializeSecurity();
 #endif
 
             mNetworkView = gameObject.AddComponent<NetworkView>();
