@@ -9,6 +9,7 @@
 using UnityEngine;
 
 using Common;
+using Common.App.Net;
 
 
 
@@ -126,6 +127,48 @@ namespace Net
             mNetworkView.RPC("RPC_SendToClient", client, bytes);
         }
 
+		/// <summary>
+		/// Handler for message received from client.
+		/// </summary>
+		/// <param name="client">Client.</param>
+		/// <param name="bytes">Byte array.</param>
+		public void OnMessageReceivedFromClient(NetworkPlayer client, byte[] bytes)
+		{
+			DebugEx.VerboseFormat("ServerScript.OnMessageReceivedFromClient(client = {0}, bytes = {1})", client, Utils.BytesInHex(bytes));
+
+			DebugEx.DebugFormat("Message received from client {0}:{1}", client.externalIP, client.externalPort);
+			DebugEx.Debug(Utils.BytesInHex(bytes));
+
+			MessageType messageType = (MessageType)bytes[0];
+
+			DebugEx.DebugFormat("Message type = {0}", messageType);
+
+			switch (messageType)
+			{
+				case MessageType.RevisionRequest:
+				{
+					HandleRevisionRequest(client);
+				}
+				break;
+
+				default:
+				{
+					DebugEx.ErrorFormat("Unknown message type: {0}", messageType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Handles RevisionRequest message.
+		/// </summary>
+		/// <param name="client">Client.</param>
+		private void HandleRevisionRequest(NetworkPlayer client)
+		{
+			DebugEx.VerboseFormat("ServerScript.HandleRevisionRequest(client = {0})", client);
+
+			Send(client, Server.BuildRevisionResponseMessage());
+		}
+
         /// <summary>
         /// RPC for receiving message from client.
         /// </summary>
@@ -139,10 +182,7 @@ namespace Net
             NetworkView   view   = NetworkView.Find(id);
             NetworkPlayer player = view.owner;
 
-            DebugEx.DebugFormat("Message received from client {0}:{1}", player.externalIP, player.externalPort);
-            DebugEx.Debug(Utils.BytesInHex(bytes));
-
-            // TODO: [Major] Handle incoming message
+            OnMessageReceivedFromClient(player, bytes);
         }
 
         /// <summary>

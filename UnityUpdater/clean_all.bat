@@ -29,3 +29,7 @@ if exist UnityUpdater.userprefs (
 if exist UnityUpdater-csharp.sln (
     del /F /Q UnityUpdater-csharp.sln
 )
+
+if exist UnityUpdater.CSharp.csproj (
+    del /F /Q UnityUpdater.CSharp.csproj
+)

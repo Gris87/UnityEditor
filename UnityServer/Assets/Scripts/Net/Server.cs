@@ -2,10 +2,12 @@
 
 
 
+using System.IO;
 using UnityEngine;
 
 using Common;
 using Common.App;
+using Common.App.Net;
 
 
 
@@ -88,5 +90,33 @@ namespace Net
                 DebugEx.Error("Server already stopped");
             }
         }
+
+		/// <summary>
+		/// Fills the message header.
+		/// </summary>
+		/// <param name="writer">Binary writer.</param>
+		/// <param name="type">Message type.</param>
+		private static void FillMessageHeader(BinaryWriter writer, MessageType type)
+		{
+			DebugEx.VerboseFormat("Server.FillMessageHeader(writer = {0}, type = {1})", writer, type);
+			
+			writer.Write((byte)type);
+		}
+		
+		/// <summary>
+		/// Builds RevisionResponse message.
+		/// </summary>
+		/// <returns>Byte array that represents RevisionResponse message.</returns>
+		public static byte[] BuildRevisionResponseMessage()
+		{
+			DebugEx.Verbose("Server.BuildRevisionResponseMessage()");
+			
+			MemoryStream stream = new MemoryStream();
+			BinaryWriter writer = new BinaryWriter(stream);
+			
+			FillMessageHeader(writer, MessageType.RevisionResponse);
+			
+			return stream.ToArray();
+		}
     }
 }

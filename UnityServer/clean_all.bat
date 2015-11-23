@@ -29,3 +29,7 @@ if exist UnityServer.userprefs (
 if exist UnityServer-csharp.sln (
     del /F /Q UnityServer-csharp.sln
 )
+
+if exist UnityServer.CSharp.csproj (
+    del /F /Q UnityServer.CSharp.csproj
+)

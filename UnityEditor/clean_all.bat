@@ -29,3 +29,7 @@ if exist UnityEditor.userprefs (
 if exist UnityEditor-csharp.sln (
     del /F /Q UnityEditor-csharp.sln
 )
+
+if exist UnityEditor.CSharp.csproj (
+    del /F /Q UnityEditor.CSharp.csproj
+)
