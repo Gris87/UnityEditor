@@ -90,18 +90,6 @@ namespace Net
                 DebugEx.Error("Server already stopped");
             }
         }
-
-		/// <summary>
-		/// Fills the message header.
-		/// </summary>
-		/// <param name="writer">Binary writer.</param>
-		/// <param name="type">Message type.</param>
-		private static void FillMessageHeader(BinaryWriter writer, MessageType type)
-		{
-			DebugEx.VerboseFormat("Server.FillMessageHeader(writer = {0}, type = {1})", writer, type);
-			
-			writer.Write((byte)type);
-		}
 		
 		/// <summary>
 		/// Builds RevisionResponse message.
@@ -114,7 +102,7 @@ namespace Net
 			MemoryStream stream = new MemoryStream();
 			BinaryWriter writer = new BinaryWriter(stream);
 			
-			FillMessageHeader(writer, MessageType.RevisionResponse);
+			NetUtils.WriteMessageHeader(writer, MessageType.RevisionResponse);
 			
 			return stream.ToArray();
 		}

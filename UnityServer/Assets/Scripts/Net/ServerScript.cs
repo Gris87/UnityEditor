@@ -6,6 +6,7 @@
 
 
 
+using System.IO;
 using UnityEngine;
 
 using Common;
@@ -139,7 +140,10 @@ namespace Net
 			DebugEx.DebugFormat("Message received from client {0}:{1}", client.externalIP, client.externalPort);
 			DebugEx.Debug(Utils.BytesInHex(bytes));
 
-			MessageType messageType = (MessageType)bytes[0];
+			MemoryStream stream = new MemoryStream(bytes);
+			BinaryReader reader = new BinaryReader(stream);
+
+			MessageType messageType = NetUtils.ReadMessageHeader(reader);
 
 			DebugEx.DebugFormat("Message type = {0}", messageType);
 
@@ -151,10 +155,17 @@ namespace Net
 				}
 				break;
 
+				case MessageType.RevisionResponse:
+				{
+					DebugEx.ErrorFormat("Unexpected message type: {0}", messageType);
+				}
+				break;
+
 				default:
 				{
 					DebugEx.ErrorFormat("Unknown message type: {0}", messageType);
 				}
+				break;
 			}
 		}
 
