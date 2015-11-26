@@ -125,6 +125,7 @@ namespace Net
 			DebugEx.VerboseFormat("ServerScript.OnPlayerConnected(player = {0})", player);
 
 			DebugEx.DebugFormat("Client {0}:{1} connected", player.externalIP, player.externalPort);
+			DebugEx.ErrorFormat("Client GUID {0}", player.guid);
 		}
 
 		/// <summary>
