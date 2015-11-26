@@ -116,6 +116,28 @@ namespace Net
             }
         }
 
+		/// <summary>
+		/// Handler for player connected event.
+		/// </summary>
+		/// <param name="player">Client.</param>
+		void OnPlayerConnected(NetworkPlayer player)
+		{
+			DebugEx.VerboseFormat("ServerScript.OnPlayerConnected(player = {0})", player);
+
+			DebugEx.DebugFormat("Client {0}:{1} connected", player.externalIP, player.externalPort);
+		}
+
+		/// <summary>
+		/// Handler for player disconnected event.
+		/// </summary>
+		/// <param name="player">Client.</param>
+		void OnPlayerDisconnected(NetworkPlayer player)
+		{
+			DebugEx.VerboseFormat("ServerScript.OnPlayerDisconnected(player = {0})", player);
+			
+			DebugEx.DebugFormat("Client {0}:{1} disconnected", player.externalIP, player.externalPort);
+		}
+
         /// <summary>
         /// Sends byte array to specified client.
         /// </summary>
@@ -192,6 +214,10 @@ namespace Net
 
             NetworkView   view   = NetworkView.Find(id);
             NetworkPlayer player = view.owner;
+
+            // TODO: Remove it
+			//DebugEx.DebugFormat("Server = {0}:{1}", mNetworkView.owner.externalIP, mNetworkView.owner.externalPort);
+			//DebugEx.DebugFormat("Player = {0}:{1}", player.externalIP, player.externalPort);
 
             OnMessageReceivedFromClient(player, bytes);
         }
