@@ -39,8 +39,8 @@ echo Mac OSX x64
 mkdir out\MacOSX64
 %UNITY% -batchmode -projectPath %CD% -buildOSX64Player out\MacOSX64\%APP_NAME%.app -quit
 
-echo Web
-%UNITY% -batchmode -projectPath %CD% -buildWebPlayer out\Web\%APP_NAME% -quit
+rem echo Web
+rem %UNITY% -batchmode -projectPath %CD% -buildWebPlayer out\Web\%APP_NAME% -quit
 
 if [%1]==[] (
     pause
