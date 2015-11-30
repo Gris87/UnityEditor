@@ -225,7 +225,6 @@ namespace Net
             //OnMessageReceivedFromClient(player, bytes);
         }
 
-		/*
         /// <summary>
         /// RPC for sending message to client.
         /// </summary>
@@ -237,6 +236,5 @@ namespace Net
 
             DebugEx.Fatal("Unexpected behaviour in ServerScript.RPC_SendToClient()");
         }
-        */
     }
 }
