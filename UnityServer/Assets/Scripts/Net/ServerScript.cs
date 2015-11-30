@@ -209,20 +209,23 @@ namespace Net
         /// <param name="id">Network view ID.</param>
         /// <param name="bytes">Byte array.</param>
         [RPC]
-        private void RPC_SendToServer(NetworkViewID id, byte[] bytes)
+        private void RPC_SendToServer(string guid, byte[] bytes)
         {
-            DebugEx.VerboseFormat("ServerScript.RPC_SendToServer(id = {0}, bytes = {1})", id, Utils.BytesInHex(bytes));
+			DebugEx.VerboseFormat("ServerScript.RPC_SendToServer(guid = {0}, bytes = {1})", guid, Utils.BytesInHex(bytes));
 
-            NetworkView   view   = NetworkView.Find(id);
-            NetworkPlayer player = view.owner;
+			DebugEx.DebugFormat("Message from GUID = {0}", guid);
+
+            //NetworkView   view   = NetworkView.Find(id);
+            //NetworkPlayer player = view.owner;
 
             // TODO: Remove it
 			//DebugEx.DebugFormat("Server = {0}:{1}", mNetworkView.owner.externalIP, mNetworkView.owner.externalPort);
 			//DebugEx.DebugFormat("Player = {0}:{1}", player.externalIP, player.externalPort);
 
-            OnMessageReceivedFromClient(player, bytes);
+            //OnMessageReceivedFromClient(player, bytes);
         }
 
+		/*
         /// <summary>
         /// RPC for sending message to client.
         /// </summary>
@@ -234,5 +237,6 @@ namespace Net
 
             DebugEx.Fatal("Unexpected behaviour in ServerScript.RPC_SendToClient()");
         }
+        */
     }
 }
