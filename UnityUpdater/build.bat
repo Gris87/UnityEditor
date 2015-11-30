@@ -16,7 +16,7 @@ echo Prepare binaries for %APP_NAME%
 echo ---------------------------------------------------------------
 echo.
 
-call clean.bat
+call clean_all.bat
 mkdir out
 
 echo Windows x86
