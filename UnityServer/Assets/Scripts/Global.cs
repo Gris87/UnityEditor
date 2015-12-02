@@ -1,7 +1,6 @@
 using UnityEngine;
 
 using Common.App;
-using Common.App.Net;
 using Common.UI.DockWidgets;
 using Net;
 using UI.Windows.AboutDialog;
@@ -21,11 +20,6 @@ public static class Global
     /// Server script.
     /// </summary>
     public static ServerScript serverScript = null;
-
-    /// <summary>
-    /// Client script.
-    /// </summary>
-    public static ClientScript clientScript = null;
 
     /// <summary>
     /// Windows transform.

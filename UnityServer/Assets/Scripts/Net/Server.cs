@@ -1,9 +1,6 @@
-#pragma warning disable 618
-
-
-
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 using Common;
 using Common.App;
@@ -18,30 +15,9 @@ namespace Net
     /// </summary>
     public static class Server
     {
-        /// <summary>
-        /// Gets or sets server state.
-        /// </summary>
-        /// <value>Server state.</value>
-        public static ServerState state
-        {
-            get
-            {
-                DebugEx.VeryVeryVerboseFormat("Server.state = {0}", sState);
-
-                return sState;
-            }
-
-            set
-            {
-                DebugEx.VeryVerboseFormat("Server.state: {0} => {1}", sState, value);
-
-                sState = value;
-            }
-        }
-
-
-
-        private static ServerState sState;
+		private static byte         sChannelId;
+		private static HostTopology sTopology;
+		private static int          sHostId;
 
 
 
@@ -52,7 +28,13 @@ namespace Net
         {
             DebugEx.Verbose("Static class Server initialized");
 
-            sState = ServerState.Stopped;
+			NetworkTransport.Init();
+
+			ConnectionConfig config = new ConnectionConfig();
+			sChannelId = config.AddChannel(QosType.ReliableSequenced);
+
+			sTopology = new HostTopology(config, 10000);
+			sHostId   = -1;
         }
 
         /// <summary>
@@ -62,10 +44,9 @@ namespace Net
         {
             DebugEx.Verbose("Server.Start()");
 
-            if (sState == ServerState.Stopped)
+			if (sHostId == -1)
             {
-                MasterServer.RegisterHost(CommonConstants.SERVER_NAME, "Server_1");
-                sState = ServerState.Starting;
+				sHostId = NetworkTransport.AddHost(sTopology, CommonConstants.SERVER_PORT);
             }
             else
             {
@@ -80,19 +61,41 @@ namespace Net
         {
             DebugEx.Verbose("Server.Stop()");
 
-            if (sState != ServerState.Stopped)
+			if (sHostId != -1)
             {
-                MasterServer.UnregisterHost();
-                sState = ServerState.Stopped;
+				NetworkTransport.RemoveHost(sHostId);
+
+				sHostId = -1;
             }
             else
             {
                 DebugEx.Error("Server already stopped");
             }
         }
-		
+
 		/// <summary>
-		/// Builds RevisionResponse message.
+		/// Sends byte array to specified client.
+		/// </summary>
+		/// <returns><c>true</c>, if successfully sent, <c>false</c> otherwise.</returns>
+		/// <param name="connectionId">Client.</param>
+		/// <param name="bytes">Byte array.</param>
+		public static bool Send(int connectionId, byte[] bytes)
+		{
+			DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1})", connectionId, Utils.BytesInHex(bytes));
+
+			byte error;
+			NetworkTransport.Send(sHostId, connectionId, sChannelId, bytes, bytes.Length, out error);
+
+			if (error != 0)
+			{
+				DebugEx.ErrorFormat("Impossible to send message to client {0}, error: {1}", connectionId, error);
+			}
+
+			return (error == 0);
+        }
+        
+        /// <summary>
+        /// Builds RevisionResponse message.
 		/// </summary>
 		/// <returns>Byte array that represents RevisionResponse message.</returns>
 		public static byte[] BuildRevisionResponseMessage()

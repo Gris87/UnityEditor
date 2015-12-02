@@ -212,7 +212,6 @@ namespace UI
             #endregion
 
             CreateServerScript(network.transform);
-            CreateClientScript(network.transform);
         }
 
         /// <summary>
@@ -243,38 +242,6 @@ namespace UI
             //===========================================================================
             #region ServerScript Component
             Global.serverScript = server.AddComponent<ServerScript>();
-            #endregion
-            #endregion
-        }
-
-        /// <summary>
-        /// Creates client script.
-        /// </summary>
-        /// <param name="parent">Parent transform.</param>
-        private void CreateClientScript(Transform parent)
-        {
-            DebugEx.VerboseFormat("MasterScript.CreateClientScript(parent = {0})", parent);
-
-            //***************************************************************************
-            // Client GameObject
-            //***************************************************************************
-            #region Client GameObject
-            GameObject client = new GameObject("Client");
-            Utils.InitUIObject(client, parent);
-
-            //===========================================================================
-            // RectTransform Component
-            //===========================================================================
-            #region RectTransform Component
-            RectTransform clientTransform = client.AddComponent<RectTransform>();
-            Utils.AlignRectTransformStretchStretch(clientTransform);
-            #endregion
-
-            //===========================================================================
-            // ClientScript Component
-            //===========================================================================
-            #region ClientScript Component
-            Global.clientScript = client.AddComponent<ClientScript>();
             #endregion
             #endregion
         }
