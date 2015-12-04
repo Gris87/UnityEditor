@@ -25,7 +25,7 @@ namespace Net
         {
             DebugEx.Verbose("ServerScript.Start()");
 
-			mBuffer = new byte[4096]; ;
+			mBuffer = new byte[4096];
 
 			Server.Start();
         }
