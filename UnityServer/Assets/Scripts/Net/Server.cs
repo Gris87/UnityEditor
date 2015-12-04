@@ -86,7 +86,11 @@ namespace Net
 			byte error;
 			NetworkTransport.Send(sHostId, connectionId, sChannelId, bytes, bytes.Length, out error);
 
-			if (error != 0)
+			if (error == 0)
+			{
+				DebugEx.DebugFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
+			}
+			else
 			{
 				DebugEx.ErrorFormat("Impossible to send message to client {0}, error: {1}", connectionId, error);
 			}

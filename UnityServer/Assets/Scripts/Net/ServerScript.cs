@@ -61,7 +61,7 @@ namespace Net
 
 				case NetworkEventType.DataEvent:      
 				{
-					OnMessageReceivedFromClient(connectionId, mBuffer);
+					OnMessageReceivedFromClient(connectionId, mBuffer, dataSize);
 	            }
                 break;
 
@@ -90,11 +90,12 @@ namespace Net
 		/// </summary>
 		/// <param name="connectionId">Client.</param>
 		/// <param name="bytes">Byte array.</param>
-		public void OnMessageReceivedFromClient(int connectionId, byte[] bytes)
+		/// <param name="dataSize">Data size.</param>
+		public void OnMessageReceivedFromClient(int connectionId, byte[] bytes, int dataSize)
 		{
-			DebugEx.VerboseFormat("ServerScript.OnMessageReceivedFromClient(connectionId = {0}, bytes = {1})", connectionId, Utils.BytesInHex(bytes));
+			DebugEx.VerboseFormat("ServerScript.OnMessageReceivedFromClient(connectionId = {0}, bytes = {1}, dataSize = {2})", connectionId, Utils.BytesInHex(bytes, dataSize), dataSize);
 
-			DebugEx.DebugFormat("Message received from client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
+			DebugEx.DebugFormat("Message received from client {0}: {1}", connectionId, Utils.BytesInHex(bytes, dataSize));
 
 			MemoryStream stream = new MemoryStream(bytes);
 			BinaryReader reader = new BinaryReader(stream);
