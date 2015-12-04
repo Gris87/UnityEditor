@@ -47,6 +47,8 @@ namespace Net
 			if (sHostId == -1)
             {
 				sHostId = NetworkTransport.AddHost(sTopology, CommonConstants.SERVER_PORT);
+
+				DebugEx.Debug("Server started");
             }
             else
             {
@@ -64,8 +66,9 @@ namespace Net
 			if (sHostId != -1)
             {
 				NetworkTransport.RemoveHost(sHostId);
-
 				sHostId = -1;
+
+				DebugEx.Debug("Server stopped");
             }
             else
             {
@@ -81,12 +84,12 @@ namespace Net
 		/// <param name="bytes">Byte array.</param>
 		public static bool Send(int connectionId, byte[] bytes)
 		{
-			DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1})", connectionId, Utils.BytesInHex(bytes));
-
 			byte error;
 			NetworkTransport.Send(sHostId, connectionId, sChannelId, bytes, bytes.Length, out error);
 
-			if (error == 0)
+			bool res = (error == 0);
+
+			if (res)
 			{
 				DebugEx.DebugFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
 			}
@@ -95,7 +98,9 @@ namespace Net
 				DebugEx.ErrorFormat("Impossible to send message to client {0}, error: {1}", connectionId, error);
 			}
 
-			return (error == 0);
+			DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1}) = {2}", connectionId, Utils.BytesInHex(bytes), res);
+
+			return res;
         }
         
         /// <summary>
@@ -110,6 +115,7 @@ namespace Net
 			BinaryWriter writer = new BinaryWriter(stream);
 			
 			NetUtils.WriteMessageHeader(writer, MessageType.RevisionResponse);
+			writer.Write(RevisionChecker.revision);
 			
 			return stream.ToArray();
 		}

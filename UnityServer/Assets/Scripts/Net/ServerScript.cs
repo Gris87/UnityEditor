@@ -36,6 +36,8 @@ namespace Net
 		void Update()
 		{
 			DebugEx.VeryVeryVerbose("ServerScript.Update()");
+
+			RevisionChecker.Update();
 			
 			int recHostId; 
 			int connectionId; 
