@@ -1,4 +1,5 @@
 using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 
@@ -74,7 +75,15 @@ namespace Net
 		{
 			DebugEx.VeryVeryVerbose("RevisionChecker.OnTimeout()");
 
+			sTimer.Start();
+
 			RestoreFileStructure();
+
+			if (sRevision < 0)
+			{
+				SetToTheLatestRevision();
+			}
+
 			CheckForNewRevision();
 		}
 
@@ -92,8 +101,7 @@ namespace Net
 
 			if (!Directory.Exists(sAppDir + "/Revisions/NewRevision"))
 			{
-				Directory.CreateDirectory(sAppDir + "/Revisions/NewRevision");
-				File.WriteAllText(sAppDir + "/Revisions/NewRevision/Lock", "", Encoding.UTF8);
+				CreateNewRevisionFolder();
 			}
 
 			if (!File.Exists(sAppDir + "/Revisions/Readme.txt"))
@@ -107,18 +115,14 @@ namespace Net
 		}
 
 		/// <summary>
-		/// Checks for new revision.
+		/// Creates NewRevision folder.
 		/// </summary>
-		private static void CheckForNewRevision()
+		private static void CreateNewRevisionFolder()
 		{
-			DebugEx.VeryVeryVerbose("RevisionChecker.CheckForNewRevision()");
+			DebugEx.Verbose("RevisionChecker.CreateNewRevisionFolder()");
 
-			if (sRevision < 0)
-			{
-				SetToTheLatestRevision();
-			}
-
-
+			Directory.CreateDirectory(sAppDir + "/Revisions/NewRevision");
+			File.WriteAllText(sAppDir + "/Revisions/NewRevision/Lock", "", Encoding.UTF8);
 		}
 
 		/// <summary>
@@ -160,6 +164,68 @@ namespace Net
 
 			DebugEx.DebugFormat("Latest revision: {0}", sRevision);
 		}
+
+		/// <summary>
+		/// Checks for new revision.
+		/// </summary>
+		private static void CheckForNewRevision()
+		{
+			DebugEx.VeryVeryVerbose("RevisionChecker.CheckForNewRevision()");
+
+			if (!File.Exists(sAppDir + "/Revisions/NewRevision/Lock"))
+			{
+				CalculateMD5InFolder(sAppDir + "/Revisions/NewRevision");
+
+				++sRevision;
+				Directory.Move(sAppDir + "/Revisions/NewRevision", sAppDir + "/Revisions/" + sRevision.ToString());
+
+				CreateNewRevisionFolder();
+
+				DebugEx.DebugFormat("New revision: {0}", sRevision);
+			}
+		}
+
+		/// <summary>
+		/// Calculates MD5 hash of each file in folder.
+		/// </summary>
+		/// <param name="path">Path to folder.</param>
+		private static void CalculateMD5InFolder(string path)
+		{
+			DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5InFolder(path = {0})", path);
+
+			string[] files = Directory.GetFiles(path);
+
+			foreach (string file in files)
+			{
+				if (!File.Exists(file + ".md5"))
+				{
+					CalculateMD5ForFile(file);
+				}
+			}
+
+			string[] folders = Directory.GetDirectories(path);
+
+			foreach (string folder in folders)
+			{
+				CalculateMD5InFolder(folder);
+			}
+		}
+
+		/// <summary>
+		/// Calculates MD5 hash for specified file.
+		/// </summary>
+		/// <param name="path">Path to file.</param>
+		private static void CalculateMD5ForFile(string path)
+		{
+			DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5ForFile(path = {0})", path);
+
+			MD5 md5 = MD5.Create();
+
+			FileStream stream = File.OpenRead(path);
+			byte[]     hash   = md5.ComputeHash(stream);
+			stream.Close();
+
+			File.WriteAllText(path + ".md5", Utils.BytesInHex(hash), Encoding.UTF8);
+		}
 	}
 }
-
