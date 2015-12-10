@@ -1,4 +1,5 @@
 using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -14,7 +15,8 @@ namespace Net
     /// </summary>
     public class ServerScript : MonoBehaviour
     {
-		private byte[] mBuffer;
+		private Dictionary<int, ClientContext> mClients;
+		private byte[]                         mBuffer;
 
 
 
@@ -25,7 +27,8 @@ namespace Net
         {
             DebugEx.Verbose("ServerScript.Start()");
 
-			mBuffer = new byte[4096];
+			mClients = new Dictionary<int, ClientContext>();
+			mBuffer  = new byte[4096];
 
 			Server.Start();
         }
@@ -39,13 +42,13 @@ namespace Net
 
 			RevisionChecker.Update();
 			
-			int recHostId; 
+			int hostId; 
 			int connectionId; 
 			int channelId;
 			int dataSize;
 			byte error;
 
-			NetworkEventType eventType = NetworkTransport.Receive(out recHostId, out connectionId, out channelId, mBuffer, 4096, out dataSize, out error);
+			NetworkEventType eventType = NetworkTransport.Receive(out hostId, out connectionId, out channelId, mBuffer, 4096, out dataSize, out error);
 
 			switch (eventType)
 			{
@@ -58,18 +61,31 @@ namespace Net
 				case NetworkEventType.ConnectEvent:   
 				{
 					DebugEx.DebugFormat("Client {0} connected", connectionId);
+
+					mClients.Add(connectionId, new ClientContext(connectionId));
 	            }
                 break;
 
 				case NetworkEventType.DataEvent:      
 				{
-					OnMessageReceivedFromClient(connectionId, mBuffer, dataSize);
-	            }
+					ClientContext client;
+
+					if (mClients.TryGetValue(connectionId, out client))
+					{
+						client.OnMessageReceivedFromClient(mBuffer, dataSize);
+					}
+					else
+					{
+						DebugEx.ErrorFormat("Client {0} not found", connectionId);
+					}
+				}
                 break;
 
             	case NetworkEventType.DisconnectEvent:
 				{
 					DebugEx.DebugFormat("Client {0} disconnected, error: {1}", connectionId, error);
+
+					mClients.Remove(connectionId);
 	            }
                 break;
 
@@ -95,6 +111,7 @@ namespace Net
 		/// <param name="dataSize">Data size.</param>
 		public void OnMessageReceivedFromClient(int connectionId, byte[] bytes, int dataSize)
 		{
+			// TODO: Remove it
 			DebugEx.VerboseFormat("ServerScript.OnMessageReceivedFromClient(connectionId = {0}, bytes = {1}, dataSize = {2})", connectionId, Utils.BytesInHex(bytes, dataSize), dataSize);
 
 			DebugEx.DebugFormat("Message received from client {0}: {1}", connectionId, Utils.BytesInHex(bytes, dataSize));
