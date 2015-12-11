@@ -15,9 +15,9 @@ namespace Net
     /// </summary>
     public static class Server
     {
-		private static byte         sChannelId;
-		private static HostTopology sTopology;
-		private static int          sHostId;
+        private static byte         sChannelId;
+        private static HostTopology sTopology;
+        private static int          sHostId;
 
 
 
@@ -28,13 +28,13 @@ namespace Net
         {
             DebugEx.Verbose("Static class Server initialized");
 
-			NetworkTransport.Init();
+            NetworkTransport.Init();
 
-			ConnectionConfig config = new ConnectionConfig();
-			sChannelId = config.AddChannel(QosType.ReliableSequenced);
+            ConnectionConfig config = new ConnectionConfig();
+            sChannelId = config.AddChannel(QosType.ReliableSequenced);
 
-			sTopology = new HostTopology(config, 10000);
-			sHostId   = -1;
+            sTopology = new HostTopology(config, 10000);
+            sHostId   = -1;
         }
 
         /// <summary>
@@ -44,11 +44,11 @@ namespace Net
         {
             DebugEx.Verbose("Server.Start()");
 
-			if (sHostId == -1)
+            if (sHostId == -1)
             {
-				sHostId = NetworkTransport.AddHost(sTopology, CommonConstants.SERVER_PORT);
+                sHostId = NetworkTransport.AddHost(sTopology, CommonConstants.SERVER_PORT);
 
-				DebugEx.Debug("Server started");
+                DebugEx.Debug("Server started");
             }
             else
             {
@@ -63,12 +63,12 @@ namespace Net
         {
             DebugEx.Verbose("Server.Stop()");
 
-			if (sHostId != -1)
+            if (sHostId != -1)
             {
-				NetworkTransport.RemoveHost(sHostId);
-				sHostId = -1;
+                NetworkTransport.RemoveHost(sHostId);
+                sHostId = -1;
 
-				DebugEx.Debug("Server stopped");
+                DebugEx.Debug("Server stopped");
             }
             else
             {
@@ -76,48 +76,70 @@ namespace Net
             }
         }
 
-		/// <summary>
-		/// Sends byte array to specified client.
-		/// </summary>
-		/// <returns><c>true</c>, if successfully sent, <c>false</c> otherwise.</returns>
-		/// <param name="connectionId">Client.</param>
-		/// <param name="bytes">Byte array.</param>
-		public static bool Send(int connectionId, byte[] bytes)
-		{
-			byte error;
-			NetworkTransport.Send(sHostId, connectionId, sChannelId, bytes, bytes.Length, out error);
+        /// <summary>
+        /// Disconnects the client.
+        /// </summary>
+        /// <returns><c>true</c>, if client successfully disconnected, <c>false</c> otherwise.</returns>
+        /// <param name="connectionId">Client.</param>
+        public static bool DisconnectClient(int connectionId)
+        {
+            byte error;
+            NetworkTransport.Disconnect(sHostId, connectionId, out error);
 
-			bool res = (error == 0);
+            bool res = (error == (byte)NetworkError.Ok);
 
-			if (res)
-			{
-				DebugEx.DebugFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
-			}
-			else
-			{
-				DebugEx.ErrorFormat("Impossible to send message to client {0}, error: {1}", connectionId, error);
-			}
+            if (!res)
+            {
+                DebugEx.ErrorFormat("Impossible to disconnect client {0}, error: {1}({2})", connectionId, (NetworkError)error, error);
+            }
 
-			DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1}) = {2}", connectionId, Utils.BytesInHex(bytes), res);
+            DebugEx.VerboseFormat("Server.DisconnectClient(connectionId = {0}) = {1}", connectionId, res);
 
-			return res;
+            return res;
         }
-        
+
+        /// <summary>
+        /// Sends byte array to specified client.
+        /// </summary>
+        /// <returns><c>true</c>, if successfully sent, <c>false</c> otherwise.</returns>
+        /// <param name="connectionId">Client.</param>
+        /// <param name="bytes">Byte array.</param>
+        public static bool Send(int connectionId, byte[] bytes)
+        {
+            byte error;
+            NetworkTransport.Send(sHostId, connectionId, sChannelId, bytes, bytes.Length, out error);
+
+            bool res = (error == (byte)NetworkError.Ok);
+
+            if (res)
+            {
+                DebugEx.DebugFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
+            }
+            else
+            {
+                DebugEx.ErrorFormat("Impossible to send message to client {0}, error: {1}({2})", connectionId, (NetworkError)error, error);
+            }
+
+            DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1}) = {2}", connectionId, Utils.BytesInHex(bytes), res);
+
+            return res;
+        }
+
         /// <summary>
         /// Builds RevisionResponse message.
-		/// </summary>
-		/// <returns>Byte array that represents RevisionResponse message.</returns>
-		public static byte[] BuildRevisionResponseMessage()
-		{
-			DebugEx.Verbose("Server.BuildRevisionResponseMessage()");
-			
-			MemoryStream stream = new MemoryStream();
-			BinaryWriter writer = new BinaryWriter(stream);
-			
-			NetUtils.WriteMessageHeader(writer, MessageType.RevisionResponse);
-			writer.Write(RevisionChecker.revision);
-			
-			return stream.ToArray();
-		}
+        /// </summary>
+        /// <returns>Byte array that represents RevisionResponse message.</returns>
+        public static byte[] BuildRevisionResponseMessage()
+        {
+            DebugEx.Verbose("Server.BuildRevisionResponseMessage()");
+
+            MemoryStream stream = new MemoryStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+
+            NetUtils.WriteMessageHeader(writer, MessageType.RevisionResponse);
+            writer.Write(RevisionChecker.revision);
+
+            return stream.ToArray();
+        }
     }
 }

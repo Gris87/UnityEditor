@@ -9,223 +9,223 @@ using Common;
 
 namespace Net
 {
-	/// <summary>
-	/// Revision checker.
-	/// </summary>
-	public static class RevisionChecker
-	{
-		private const float CHECK_DURATION = 5000f / 1000f;
+    /// <summary>
+    /// Revision checker.
+    /// </summary>
+    public static class RevisionChecker
+    {
+        private const float CHECK_DURATION = 5000f / 1000f;
 
 
 
-		/// <summary>
-		/// Gets the revision.
-		/// </summary>
-		/// <value>Revision number.</value>
-		public static int revision
-		{
-			get
-			{
-				int res = sRevision;
+        /// <summary>
+        /// Gets the revision.
+        /// </summary>
+        /// <value>Revision number.</value>
+        public static int revision
+        {
+            get
+            {
+                int res = sRevision;
 
-				DebugEx.VeryVeryVerboseFormat("RevisionChecker.revision = {0}", res);
+                DebugEx.VeryVeryVerboseFormat("RevisionChecker.revision = {0}", res);
 
-				return res;
-			}
-		}
-
-
-
-		private static Timer  sTimer;
-		private static string sAppDir;
-		private static int    sRevision;
+                return res;
+            }
+        }
 
 
 
-		/// <summary>
-		/// Initializes the <see cref="Net.RevisionChecker"/> class.
-		/// </summary>
-		static RevisionChecker()
-		{
-			DebugEx.Verbose("Static class RevisionChecker initialized");
+        private static Timer  sTimer;
+        private static string sAppDir;
+        private static int    sRevision;
 
-			sTimer = new Timer(OnTimeout, CHECK_DURATION);
-			sTimer.Start();
 
-			sAppDir   = Application.persistentDataPath;
-			sRevision = -1;
 
-			OnTimeout();
-		}
+        /// <summary>
+        /// Initializes the <see cref="Net.RevisionChecker"/> class.
+        /// </summary>
+        static RevisionChecker()
+        {
+            DebugEx.Verbose("Static class RevisionChecker initialized");
 
-		/// <summary>
-		/// Update is called once per frame.
-		/// </summary>
-		public static void Update()
-		{
-			DebugEx.VeryVeryVerbose("RevisionChecker.Update()");
+            sTimer = new Timer(OnTimeout, CHECK_DURATION);
+            sTimer.Start();
 
-			sTimer.Update();
-		}
+            sAppDir   = Application.persistentDataPath;
+            sRevision = -1;
 
-		/// <summary>
-		/// Handler for timeout event.
-		/// </summary>
-		private static void OnTimeout()
-		{
-			DebugEx.VeryVeryVerbose("RevisionChecker.OnTimeout()");
+            OnTimeout();
+        }
 
-			sTimer.Start();
+        /// <summary>
+        /// Update is called once per frame.
+        /// </summary>
+        public static void Update()
+        {
+            DebugEx.VeryVeryVerbose("RevisionChecker.Update()");
 
-			RestoreFileStructure();
+            sTimer.Update();
+        }
 
-			if (sRevision < 0)
-			{
-				SetToTheLatestRevision();
-			}
+        /// <summary>
+        /// Handler for timeout event.
+        /// </summary>
+        private static void OnTimeout()
+        {
+            DebugEx.VeryVeryVerbose("RevisionChecker.OnTimeout()");
 
-			CheckForNewRevision();
-		}
+            sTimer.Start();
 
-		/// <summary>
-		/// Restores the file structure.
-		/// </summary>
-		private static void RestoreFileStructure()
-		{
-			DebugEx.VeryVeryVerbose("RevisionChecker.RestoreFileStructure()");
+            RestoreFileStructure();
 
-			if (!Directory.Exists(sAppDir + "/Revisions"))
-			{
-				Directory.CreateDirectory(sAppDir + "/Revisions");
-			}
+            if (sRevision < 0)
+            {
+                SetToTheLatestRevision();
+            }
 
-			if (!Directory.Exists(sAppDir + "/Revisions/NewRevision"))
-			{
-				CreateNewRevisionFolder();
-			}
+            CheckForNewRevision();
+        }
 
-			if (!File.Exists(sAppDir + "/Revisions/Readme.txt"))
-			{
-				File.WriteAllText(
-					              sAppDir + "/Revisions/Readme.txt",
-		                          "If you want to commit new revision, please put files in NewRevision folder and then remove Lock file\n",
-					              Encoding.UTF8
-					             );
-			}
-		}
+        /// <summary>
+        /// Restores the file structure.
+        /// </summary>
+        private static void RestoreFileStructure()
+        {
+            DebugEx.VeryVeryVerbose("RevisionChecker.RestoreFileStructure()");
 
-		/// <summary>
-		/// Creates NewRevision folder.
-		/// </summary>
-		private static void CreateNewRevisionFolder()
-		{
-			DebugEx.Verbose("RevisionChecker.CreateNewRevisionFolder()");
+            if (!Directory.Exists(sAppDir + "/Revisions"))
+            {
+                Directory.CreateDirectory(sAppDir + "/Revisions");
+            }
 
-			Directory.CreateDirectory(sAppDir + "/Revisions/NewRevision");
-			File.WriteAllText(sAppDir + "/Revisions/NewRevision/Lock", "", Encoding.UTF8);
-		}
+            if (!Directory.Exists(sAppDir + "/Revisions/NewRevision"))
+            {
+                CreateNewRevisionFolder();
+            }
 
-		/// <summary>
-		/// Sets to the latest revision.
-		/// </summary>
-		private static void SetToTheLatestRevision()
-		{
-			DebugEx.Verbose("RevisionChecker.SetToTheLatestRevision()");
+            if (!File.Exists(sAppDir + "/Revisions/Readme.txt"))
+            {
+                File.WriteAllText(
+                                  sAppDir + "/Revisions/Readme.txt",
+                                  "If you want to commit new revision, please put files in NewRevision folder and then remove Lock file\n",
+                                  Encoding.UTF8
+                                 );
+            }
+        }
 
-			sRevision = 0;
+        /// <summary>
+        /// Creates NewRevision folder.
+        /// </summary>
+        private static void CreateNewRevisionFolder()
+        {
+            DebugEx.Verbose("RevisionChecker.CreateNewRevisionFolder()");
 
-			char[] pathDelimeters = new char[2];
-			pathDelimeters[0]     = '/';
-			pathDelimeters[1]     = '\\';
+            Directory.CreateDirectory(sAppDir + "/Revisions/NewRevision");
+            File.WriteAllText(sAppDir + "/Revisions/NewRevision/Lock", "", Encoding.UTF8);
+        }
 
-			string[] revisions = Directory.GetDirectories(sAppDir + "/Revisions");
+        /// <summary>
+        /// Sets to the latest revision.
+        /// </summary>
+        private static void SetToTheLatestRevision()
+        {
+            DebugEx.Verbose("RevisionChecker.SetToTheLatestRevision()");
 
-			for (int i = 0; i < revisions.Length; ++i)
-			{
-				string revision = revisions[i];
+            sRevision = 0;
 
-				int index = revision.LastIndexOfAny(pathDelimeters);
+            char[] pathDelimeters = new char[2];
+            pathDelimeters[0]     = '/';
+            pathDelimeters[1]     = '\\';
 
-				if (index >= 0)
-				{
-					revision = revision.Substring(index + 1);
-				}
+            string[] revisions = Directory.GetDirectories(sAppDir + "/Revisions");
 
-				int revisionNumber;
+            for (int i = 0; i < revisions.Length; ++i)
+            {
+                string revision = revisions[i];
 
-				if (int.TryParse(revision, out revisionNumber))
-				{
-					if (revisionNumber > sRevision)
-					{
-						sRevision = revisionNumber;
-					}
-				}
-			}
+                int index = revision.LastIndexOfAny(pathDelimeters);
 
-			DebugEx.DebugFormat("Latest revision: {0}", sRevision);
-		}
+                if (index >= 0)
+                {
+                    revision = revision.Substring(index + 1);
+                }
 
-		/// <summary>
-		/// Checks for new revision.
-		/// </summary>
-		private static void CheckForNewRevision()
-		{
-			DebugEx.VeryVeryVerbose("RevisionChecker.CheckForNewRevision()");
+                int revisionNumber;
 
-			if (!File.Exists(sAppDir + "/Revisions/NewRevision/Lock"))
-			{
-				CalculateMD5InFolder(sAppDir + "/Revisions/NewRevision");
+                if (int.TryParse(revision, out revisionNumber))
+                {
+                    if (revisionNumber > sRevision)
+                    {
+                        sRevision = revisionNumber;
+                    }
+                }
+            }
 
-				++sRevision;
-				Directory.Move(sAppDir + "/Revisions/NewRevision", sAppDir + "/Revisions/" + sRevision.ToString());
+            DebugEx.DebugFormat("Latest revision: {0}", sRevision);
+        }
 
-				CreateNewRevisionFolder();
+        /// <summary>
+        /// Checks for new revision.
+        /// </summary>
+        private static void CheckForNewRevision()
+        {
+            DebugEx.VeryVeryVerbose("RevisionChecker.CheckForNewRevision()");
 
-				DebugEx.DebugFormat("New revision: {0}", sRevision);
-			}
-		}
+            if (!File.Exists(sAppDir + "/Revisions/NewRevision/Lock"))
+            {
+                CalculateMD5InFolder(sAppDir + "/Revisions/NewRevision");
 
-		/// <summary>
-		/// Calculates MD5 hash of each file in folder.
-		/// </summary>
-		/// <param name="path">Path to folder.</param>
-		private static void CalculateMD5InFolder(string path)
-		{
-			DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5InFolder(path = {0})", path);
+                ++sRevision;
+                Directory.Move(sAppDir + "/Revisions/NewRevision", sAppDir + "/Revisions/" + sRevision.ToString());
 
-			string[] files = Directory.GetFiles(path);
+                CreateNewRevisionFolder();
 
-			foreach (string file in files)
-			{
-				if (!File.Exists(file + ".md5"))
-				{
-					CalculateMD5ForFile(file);
-				}
-			}
+                DebugEx.DebugFormat("New revision: {0}", sRevision);
+            }
+        }
 
-			string[] folders = Directory.GetDirectories(path);
+        /// <summary>
+        /// Calculates MD5 hash of each file in folder.
+        /// </summary>
+        /// <param name="path">Path to folder.</param>
+        private static void CalculateMD5InFolder(string path)
+        {
+            DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5InFolder(path = {0})", path);
 
-			foreach (string folder in folders)
-			{
-				CalculateMD5InFolder(folder);
-			}
-		}
+            string[] files = Directory.GetFiles(path);
 
-		/// <summary>
-		/// Calculates MD5 hash for specified file.
-		/// </summary>
-		/// <param name="path">Path to file.</param>
-		private static void CalculateMD5ForFile(string path)
-		{
-			DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5ForFile(path = {0})", path);
+            foreach (string file in files)
+            {
+                if (!File.Exists(file + ".md5"))
+                {
+                    CalculateMD5ForFile(file);
+                }
+            }
 
-			MD5 md5 = MD5.Create();
+            string[] folders = Directory.GetDirectories(path);
 
-			FileStream stream = File.OpenRead(path);
-			byte[]     hash   = md5.ComputeHash(stream);
-			stream.Close();
+            foreach (string folder in folders)
+            {
+                CalculateMD5InFolder(folder);
+            }
+        }
 
-			File.WriteAllText(path + ".md5", Utils.BytesInHex(hash), Encoding.UTF8);
-		}
-	}
+        /// <summary>
+        /// Calculates MD5 hash for specified file.
+        /// </summary>
+        /// <param name="path">Path to file.</param>
+        private static void CalculateMD5ForFile(string path)
+        {
+            DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5ForFile(path = {0})", path);
+
+            MD5 md5 = MD5.Create();
+
+            FileStream stream = File.OpenRead(path);
+            byte[]     hash   = md5.ComputeHash(stream);
+            stream.Close();
+
+            File.WriteAllText(path + ".md5", Utils.BytesInHex(hash), Encoding.UTF8);
+        }
+    }
 }
