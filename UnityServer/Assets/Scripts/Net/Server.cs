@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -141,5 +142,16 @@ namespace Net
 
             return stream.ToArray();
         }
+
+		/// <summary>
+		/// Builds MD5HashesResponse messages.
+		/// </summary>
+		/// <returns>Byte arrays that represents MD5HashesResponse messages.</returns>
+        public static List<byte[]> BuildMD5HashesResponseMessages()
+        {
+			// TODO: Implement it
+
+			return null;
+		}
     }
 }

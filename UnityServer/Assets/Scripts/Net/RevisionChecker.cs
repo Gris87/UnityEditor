@@ -81,6 +81,8 @@ namespace Net
 
             if (sRevision < 0)
             {
+				// TODO: Need to unlock all folders
+
                 SetToTheLatestRevision();
             }
 
@@ -180,6 +182,8 @@ namespace Net
                 Directory.Move(sAppDir + "/Revisions/NewRevision", sAppDir + "/Revisions/" + sRevision.ToString());
 
                 CreateNewRevisionFolder();
+
+				RevisionsCache.OnNewRevision();
 
                 DebugEx.DebugFormat("New revision: {0}", sRevision);
             }

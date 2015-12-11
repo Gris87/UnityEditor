@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 
 using Common;
@@ -7,6 +8,9 @@ using Common.App.Net;
 
 namespace Net
 {
+	/// <summary>
+	/// Client context.
+	/// </summary>
     public class ClientContext
     {
         #region States
@@ -127,9 +131,16 @@ namespace Net
             {
                 DebugEx.VerboseFormat("ServerScript.HandleRevisionRequest(context = {0})", context);
 
-                Server.Send(context.mConnectionId, Server.BuildRevisionResponseMessage());
-
-                context.state = ClientState.RequestingMD5Hashes;
+                if (Server.Send(context.mConnectionId, Server.BuildRevisionResponseMessage()))
+				{
+					context.state = ClientState.RequestingMD5Hashes;
+				}
+				else
+				{
+					DebugEx.ErrorFormat("Failed to send RevisionResponse message");
+					
+					context.state = ClientState.Disconnected;
+                }
             }
         }
 
@@ -193,7 +204,35 @@ namespace Net
             {
                 DebugEx.VerboseFormat("ServerScript.HandleMD5HashesRequest(context = {0})", context);
 
-                // TODO: Implement
+				context.mRevision = RevisionsCache.LockRevision();
+
+				// TODO: Need to unlock revision in destructor
+				// TODO: Need to and take files
+
+				List<byte[]> messages = RevisionsCache.md5HashesResponseMessages;
+
+				if (messages.Count > 0)
+				{
+					for (int i = 0; i < messages.Count; ++i)
+					{
+						if (!Server.Send(context.mConnectionId, messages[i]))
+						{
+							DebugEx.ErrorFormat("Failed to send MD5HashesResponse message");
+                            
+                            context.state = ClientState.Disconnected;
+
+							return;
+                        }
+					}
+
+					context.state = ClientState.Downloading;
+				}
+				else
+				{
+					DebugEx.FatalFormat("Incorrect behaviour in HandleMD5HashesRequest");
+
+					context.state = ClientState.Disconnected;
+				}
             }
         }
 
@@ -254,6 +293,7 @@ namespace Net
         private IClientState mCurrentState;
 
         private int          mConnectionId;
+		private int          mRevision;
 
 
 
@@ -279,6 +319,7 @@ namespace Net
             mCurrentState = sAllStates[(int)mState];
 
             mConnectionId = connectionId;
+			mRevision     = -1;
 
 
 
