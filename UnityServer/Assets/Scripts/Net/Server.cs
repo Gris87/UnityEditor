@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -114,7 +116,7 @@ namespace Net
 
             if (res)
             {
-                DebugEx.DebugFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
+				DebugEx.VerboseFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
             }
             else
             {
@@ -135,7 +137,7 @@ namespace Net
             DebugEx.Verbose("Server.BuildRevisionResponseMessage()");
 
             MemoryStream stream = new MemoryStream();
-            BinaryWriter writer = new BinaryWriter(stream);
+            BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8);
 
             NetUtils.WriteMessageHeader(writer, MessageType.RevisionResponse);
             writer.Write(RevisionChecker.revision);
@@ -149,9 +151,70 @@ namespace Net
 		/// <returns>Byte arrays that represents MD5HashesResponse messages.</returns>
         public static List<byte[]> BuildMD5HashesResponseMessages()
         {
-			// TODO: Implement it
+			ReadOnlyCollection<string> files       = RevisionsCache.files;
+			string                     revisionDir = Application.persistentDataPath + "/Revisions/" + RevisionChecker.revision.ToString();
 
-			return null;
+			List<byte[]> res = new List<byte[]>();
+
+			MemoryStream stream = new MemoryStream();
+			BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8);
+
+			NetUtils.WriteMessageHeader(writer, MessageType.MD5HashesResponse);
+			writer.Write((byte)0x00); // To be continued?
+
+			for (int i = 0; i < files.Count; ++i)
+			{
+				string file = files[i];
+
+				if (stream.Length > 50000)
+				{
+					res.Add(stream.ToArray());
+
+					stream = new MemoryStream();
+					writer = new BinaryWriter(stream, Encoding.UTF8);
+					
+					NetUtils.WriteMessageHeader(writer, MessageType.MD5HashesResponse);
+					writer.Write((byte)0x00); // To be continued?
+				}
+
+				writer.Write(file); // Name of file
+
+				if (Directory.Exists(revisionDir + "/" + file))
+				{
+					writer.Write((byte)0xFF); // Is it a folder
+				}
+				else
+				{
+					writer.Write((byte)0x00); // Is it a folder
+
+					if (!File.Exists(revisionDir + "/" + file))
+					{
+						DebugEx.FatalFormat("File {0} not found", revisionDir + "/" + file);
+
+						return null;
+					}
+
+					if (!File.Exists(revisionDir + "/" + file + ".md5"))
+					{
+						RevisionChecker.CalculateMD5ForFile(revisionDir + "/" + file);
+					}
+
+					writer.Write(File.ReadAllText(revisionDir + "/" + file + ".md5", Encoding.UTF8)); // MD5 Hash of file
+				}
+			}
+
+			res.Add(stream.ToArray());
+
+			for (int i = 0; i < res.Count - 1; ++i)
+			{
+				stream = new MemoryStream(res[i]);
+				writer = new BinaryWriter(stream, Encoding.UTF8);
+								
+				NetUtils.WriteMessageHeader(writer, MessageType.MD5HashesResponse);
+				writer.Write((byte)0xFF); // To be continued?
+			}
+
+			return res;
 		}
     }
 }

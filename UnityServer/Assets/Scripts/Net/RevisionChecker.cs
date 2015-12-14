@@ -201,7 +201,7 @@ namespace Net
 
             foreach (string file in files)
             {
-                if (!File.Exists(file + ".md5"))
+                if (!File.Exists(file + ".md5") && !file.EndsWith(".md5"))
                 {
                     CalculateMD5ForFile(file);
                 }
@@ -219,7 +219,7 @@ namespace Net
         /// Calculates MD5 hash for specified file.
         /// </summary>
         /// <param name="path">Path to file.</param>
-        private static void CalculateMD5ForFile(string path)
+        public static void CalculateMD5ForFile(string path)
         {
             DebugEx.VeryVerboseFormat("RevisionChecker.CalculateMD5ForFile(path = {0})", path);
 

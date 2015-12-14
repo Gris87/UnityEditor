@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Text;
 
 using Common;
 using Common.App.Net;
@@ -89,7 +91,7 @@ namespace Net
                 DebugEx.DebugFormat("Message received from client {0}: {1}", context.mConnectionId, Utils.BytesInHex(bytes, dataSize));
 
                 MemoryStream stream = new MemoryStream(bytes);
-                BinaryReader reader = new BinaryReader(stream);
+				BinaryReader reader = new BinaryReader(stream, Encoding.UTF8);
 
                 MessageType messageType = NetUtils.ReadMessageHeader(reader);
 
@@ -162,7 +164,7 @@ namespace Net
                 DebugEx.DebugFormat("Message received from client {0}: {1}", context.mConnectionId, Utils.BytesInHex(bytes, dataSize));
 
                 MemoryStream stream = new MemoryStream(bytes);
-                BinaryReader reader = new BinaryReader(stream);
+				BinaryReader reader = new BinaryReader(stream, Encoding.UTF8);
 
                 MessageType messageType = NetUtils.ReadMessageHeader(reader);
 
@@ -204,12 +206,11 @@ namespace Net
             {
                 DebugEx.VerboseFormat("ServerScript.HandleMD5HashesRequest(context = {0})", context);
 
-				context.mRevision = RevisionsCache.LockRevision();
+				List<byte[]> messages;
+
+				context.mRevision = RevisionsCache.LockRevision(out context.mFiles, out messages);
 
 				// TODO: Need to unlock revision in destructor
-				// TODO: Need to and take files
-
-				List<byte[]> messages = RevisionsCache.md5HashesResponseMessages;
 
 				if (messages.Count > 0)
 				{
@@ -289,11 +290,12 @@ namespace Net
 
 
 
-        private ClientState  mState;
-        private IClientState mCurrentState;
+        private ClientState                mState;
+        private IClientState               mCurrentState;
 
-        private int          mConnectionId;
-		private int          mRevision;
+        private int                        mConnectionId;
+		private int                        mRevision;
+		private ReadOnlyCollection<string> mFiles;
 
 
 
@@ -320,6 +322,7 @@ namespace Net
 
             mConnectionId = connectionId;
 			mRevision     = -1;
+			mFiles        = null;
 
 
 

@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using UnityEngine;
 
 using Common;
 
@@ -16,50 +19,42 @@ namespace Net
 		/// </summary>
 		private class RevisionData
 		{
-			public int          locks;
-			public List<string> files;
+			public int locks;
 
 
 
 			/// <summary>
 			/// Initializes a new instance of the <see cref="Net.RevisionsCache+RevisionData"/> class.
 			/// </summary>
-			/// <param name="filesList">List of files.</param>
-			public RevisionData(List<string> filesList)
+			public RevisionData()
 			{
 				locks = 0;
-				files = filesList;
 			}
 		}
 
 
 
 		/// <summary>
-		/// Gets the MD5HashesResponse messages.
+		/// Gets the files.
 		/// </summary>
-		/// <value>The MD5HashesResponse messages.</value>
-		public static List<byte[]> md5HashesResponseMessages
+		/// <value>The files.</value>
+		public static ReadOnlyCollection<string> files
 		{
 			get
 			{
-				if (sMD5HashesResponseMessages == null)
-				{
-					sMD5HashesResponseMessages = Server.BuildMD5HashesResponseMessages();
-				}
+				ReadOnlyCollection<string> res = sFiles;
 
-				List<byte[]> res = sMD5HashesResponseMessages;
+				DebugEx.VeryVeryVerboseFormat("RevisionsCache.files = {0}", res);
 
-				DebugEx.VeryVeryVerboseFormat("RevisionsMD5Cache.md5HashesMessages = {0}", res);
-
-				return sMD5HashesResponseMessages;
+				return res;
 			}
 		}
 
 
 
 		private static Dictionary<int, RevisionData> sRevisions;
+		private static ReadOnlyCollection<string>    sFiles;
 		private static List<byte[]>                  sMD5HashesResponseMessages;
-		private static List<string>                  sFiles;
 
 
 
@@ -71,8 +66,8 @@ namespace Net
 			DebugEx.Verbose("Static class RevisionsCache initialized");
 
 			sRevisions                 = new Dictionary<int, RevisionData>();
-			sMD5HashesResponseMessages = null;
 			sFiles                     = null;
+			sMD5HashesResponseMessages = null;
 		}
 
 		/// <summary>
@@ -82,30 +77,49 @@ namespace Net
 		{
 			DebugEx.Verbose("RevisionsCache.OnNewRevision()");
 
-			sMD5HashesResponseMessages = null;
 			sFiles                     = null;
+			sMD5HashesResponseMessages = null;
 		}
 
 		/// <summary>
 		/// Locks the revision.
 		/// </summary>
 		/// <returns>The latest revision.</returns>
-		public static int LockRevision()
+		public static int LockRevision(out ReadOnlyCollection<string> files, out List<byte[]> md5HashesResponseMessages)
 		{
 			int res = RevisionChecker.revision;
+
+			if (sFiles == null)
+			{
+				List<string> tempList = new List<string>();
+
+				string revisionDir = Application.persistentDataPath + "/Revisions/" + res.ToString();
+				BuildFilesList(revisionDir, revisionDir.Length + 1, ref tempList);
+
+				sFiles = tempList.AsReadOnly();
+			}
+
+			if (sMD5HashesResponseMessages == null)
+			{
+				sMD5HashesResponseMessages = Server.BuildMD5HashesResponseMessages();
+			}
 
 			RevisionData revisionData;
 
 			if (!sRevisions.TryGetValue(res, out revisionData))
 			{
 				// TODO: Need to lock folder
-				// TODO: Need to get files
 
-				revisionData = new RevisionData(sFiles);
+				revisionData = new RevisionData();
 				sRevisions.Add(res, revisionData);
 			}
 
 			++revisionData.locks;
+
+			files                     = sFiles;
+			md5HashesResponseMessages = sMD5HashesResponseMessages;
+
+			DebugEx.VerboseFormat("RevisionsCache.LockRevision() = {0}", res);
 
 			return res;
 		}
@@ -116,6 +130,8 @@ namespace Net
 		/// <param name="revision">Revision.</param>
 		public static void UnlockRevision(int revision)
 		{
+			DebugEx.VerboseFormat("RevisionsCache.UnlockRevision(revision = {0})", revision);
+
 			RevisionData revisionData;
 			
 			if (sRevisions.TryGetValue(revision, out revisionData))
@@ -132,6 +148,36 @@ namespace Net
 			else
 			{
 				DebugEx.FatalFormat("Data not found for revision {0}", revision);
+			}
+		}
+
+		/// <summary>
+		/// Builds the files list.
+		/// </summary>
+		/// <param name="path">Path.</param>
+		/// <param name="leftTrim">Amount of charachers to be trimmed at the left.</param>
+		/// <param name="filesList">Files list.</param>
+		private static void BuildFilesList(string path, int leftTrim, ref List<string> filesList)
+		{
+			DebugEx.VeryVerboseFormat("RevisionsCache.BuildFilesList(path = {0}, leftTrim = {1}, filesList = {2})", path, leftTrim, filesList);
+
+			string[] folders = Directory.GetDirectories(path);
+			
+			foreach (string folder in folders)
+			{
+				filesList.Add(folder.Substring(leftTrim));
+
+				BuildFilesList(folder, leftTrim, ref filesList);
+			}
+
+			string[] files = Directory.GetFiles(path);
+			
+			foreach (string file in files)
+			{
+				if (!file.EndsWith(".md5"))
+				{
+					filesList.Add(file.Substring(leftTrim));
+				}
 			}
 		}
 	}
