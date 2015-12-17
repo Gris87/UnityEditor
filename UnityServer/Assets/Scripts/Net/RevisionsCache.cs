@@ -19,6 +19,9 @@ namespace Net
 		/// </summary>
 		private class RevisionData
 		{
+			/// <summary>
+			/// Number of locks.
+			/// </summary>
 			public int locks;
 
 

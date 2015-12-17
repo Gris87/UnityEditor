@@ -49,7 +49,7 @@ namespace Net
             /// <param name="dataSize">Data size.</param>
             public virtual void OnMessageReceivedFromClient(ClientContext context, byte[] bytes, int dataSize)
             {
-                DebugEx.VerboseFormat("ClientContext.IClientState.OnMessageReceivedFromClient(context = {0}, bytes = {1}, dataSize = {2}) in {3} state", context, Utils.BytesInHex(bytes, dataSize), dataSize, context.mState);
+                DebugEx.VerboseFormat("ClientContext.IClientState.OnMessageReceivedFromClient(context = {0}, bytes = {1}, dataSize = {2}) in {3} state", context, bytes, dataSize, context.mState);
 
                 DebugEx.FatalFormat("Unexpected OnMessageReceivedFromClient() in {0} state", context.mState);
             }
@@ -86,12 +86,12 @@ namespace Net
             /// <param name="dataSize">Data size.</param>
             public override void OnMessageReceivedFromClient(ClientContext context, byte[] bytes, int dataSize)
             {
-                DebugEx.VerboseFormat("ClientContext.ConnectedState.OnMessageReceivedFromClient(context = {0}, bytes = {1}, dataSize = {2})", context, Utils.BytesInHex(bytes, dataSize), dataSize);
+                DebugEx.VerboseFormat("ClientContext.ConnectedState.OnMessageReceivedFromClient(context = {0}, bytes = {1}, dataSize = {2})", context, bytes, dataSize);
 
-                DebugEx.DebugFormat("Message received from client {0}: {1}", context.mConnectionId, Utils.BytesInHex(bytes, dataSize));
+                DebugEx.VeryVerboseFormat("Message received from client {0}: {1}", context.mConnectionId, Utils.BytesInHex(bytes, dataSize));
 
                 MemoryStream stream = new MemoryStream(bytes);
-				BinaryReader reader = new BinaryReader(stream, Encoding.UTF8);
+                BinaryReader reader = new BinaryReader(stream, Encoding.UTF8);
 
                 MessageType messageType = NetUtils.ReadMessageHeader(reader);
 
@@ -159,12 +159,12 @@ namespace Net
             /// <param name="dataSize">Data size.</param>
             public override void OnMessageReceivedFromClient(ClientContext context, byte[] bytes, int dataSize)
             {
-                DebugEx.VerboseFormat("ClientContext.ConnectedState.OnMessageReceivedFromClient(context = {0}, bytes = {1}, dataSize = {2})", context, Utils.BytesInHex(bytes, dataSize), dataSize);
+                DebugEx.VerboseFormat("ClientContext.RequestingMD5HashesState.OnMessageReceivedFromClient(context = {0}, bytes = {1}, dataSize = {2})", context, bytes, dataSize);
 
-                DebugEx.DebugFormat("Message received from client {0}: {1}", context.mConnectionId, Utils.BytesInHex(bytes, dataSize));
+                DebugEx.VeryVerboseFormat("Message received from client {0}: {1}", context.mConnectionId, Utils.BytesInHex(bytes, dataSize));
 
                 MemoryStream stream = new MemoryStream(bytes);
-				BinaryReader reader = new BinaryReader(stream, Encoding.UTF8);
+                BinaryReader reader = new BinaryReader(stream, Encoding.UTF8);
 
                 MessageType messageType = NetUtils.ReadMessageHeader(reader);
 
@@ -336,7 +336,7 @@ namespace Net
         /// <param name="dataSize">Data size.</param>
         public void OnMessageReceivedFromClient(byte[] bytes, int dataSize)
         {
-            DebugEx.VerboseFormat("ClientContext.OnMessageReceivedFromClient(bytes = {0}, dataSize = {1})", Utils.BytesInHex(bytes, dataSize), dataSize);
+            DebugEx.VerboseFormat("ClientContext.OnMessageReceivedFromClient(bytes = {0}, dataSize = {1})", bytes, dataSize);
 
             mCurrentState.OnMessageReceivedFromClient(this, bytes, dataSize);
         }

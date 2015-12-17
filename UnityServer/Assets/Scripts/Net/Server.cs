@@ -34,7 +34,8 @@ namespace Net
             NetworkTransport.Init();
 
             ConnectionConfig config = new ConnectionConfig();
-            sChannelId = config.AddChannel(QosType.ReliableSequenced);
+            config.PacketSize       = 32000;
+            sChannelId              = config.AddChannel(QosType.ReliableSequenced);
 
             sTopology = new HostTopology(config, 10000);
             sHostId   = -1;
@@ -116,14 +117,14 @@ namespace Net
 
             if (res)
             {
-				DebugEx.VerboseFormat("Message sent to client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
+                DebugEx.VeryVerboseFormat("Message sent to the client {0}: {1}", connectionId, Utils.BytesInHex(bytes));
             }
             else
             {
-                DebugEx.ErrorFormat("Impossible to send message to client {0}, error: {1}({2})", connectionId, (NetworkError)error, error);
+                DebugEx.ErrorFormat("Impossible to send message to the client {0}, error: {1}({2})", connectionId, (NetworkError)error, error);
             }
 
-            DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1}) = {2}", connectionId, Utils.BytesInHex(bytes), res);
+            DebugEx.VerboseFormat("Server.Send(connectionId = {0}, bytes = {1}) = {2}", connectionId, bytes, res);
 
             return res;
         }
@@ -160,13 +161,13 @@ namespace Net
 			BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8);
 
 			NetUtils.WriteMessageHeader(writer, MessageType.MD5HashesResponse);
-			writer.Write((byte)0x00); // To be continued?
+			writer.Write(false); // To be continued?
 
 			for (int i = 0; i < files.Count; ++i)
 			{
 				string file = files[i];
 
-				if (stream.Length > 50000)
+				if (stream.Length > 30000)
 				{
 					res.Add(stream.ToArray());
 
@@ -174,18 +175,18 @@ namespace Net
 					writer = new BinaryWriter(stream, Encoding.UTF8);
 					
 					NetUtils.WriteMessageHeader(writer, MessageType.MD5HashesResponse);
-					writer.Write((byte)0x00); // To be continued?
+					writer.Write(false); // To be continued?
 				}
 
 				writer.Write(file); // Name of file
 
 				if (Directory.Exists(revisionDir + "/" + file))
 				{
-					writer.Write((byte)0xFF); // Is it a folder
+					writer.Write(true); // Is it a folder
 				}
 				else
 				{
-					writer.Write((byte)0x00); // Is it a folder
+					writer.Write(false); // Is it a folder
 
 					if (!File.Exists(revisionDir + "/" + file))
 					{
@@ -211,7 +212,7 @@ namespace Net
 				writer = new BinaryWriter(stream, Encoding.UTF8);
 								
 				NetUtils.WriteMessageHeader(writer, MessageType.MD5HashesResponse);
-				writer.Write((byte)0xFF); // To be continued?
+				writer.Write(true); // To be continued?
 			}
 
 			return res;
