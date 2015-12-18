@@ -34,7 +34,7 @@ namespace Net
             NetworkTransport.Init();
 
             ConnectionConfig config = new ConnectionConfig();
-            config.PacketSize       = 32000;
+            config.PacketSize       = CommonConstants.PACKET_SIZE;
             sChannelId              = config.AddChannel(QosType.ReliableSequenced);
 
             sTopology = new HostTopology(config, 10000);
@@ -167,7 +167,7 @@ namespace Net
 			{
 				string file = files[i];
 
-				if (stream.Length > 30000)
+				if (stream.Length > CommonConstants.PACKET_SIZE - 2000)
 				{
 					res.Add(stream.ToArray());
 

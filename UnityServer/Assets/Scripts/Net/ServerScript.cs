@@ -26,7 +26,7 @@ namespace Net
             DebugEx.Verbose("ServerScript.Start()");
 
             mClients = new List<ClientContext>();
-            mBuffer  = new byte[30000];
+            mBuffer  = new byte[CommonConstants.PACKET_SIZE];
 
             Server.Start();
         }
@@ -46,7 +46,7 @@ namespace Net
             int dataSize;
             byte error;
 
-            NetworkEventType eventType = NetworkTransport.Receive(out hostId, out connectionId, out channelId, mBuffer, 30000, out dataSize, out error);
+            NetworkEventType eventType = NetworkTransport.Receive(out hostId, out connectionId, out channelId, mBuffer, CommonConstants.PACKET_SIZE, out dataSize, out error);
 
             switch (eventType)
             {
