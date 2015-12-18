@@ -1,11 +1,7 @@
 if [ -z "$1" ]; then
-  echo "Usage: ./commit.sh MESSAGE"
+  echo "Usage: ./shared_commit.sh MESSAGE"
 else
-  git submodule foreach "git add ."
-  git submodule foreach "git commit -a -m '$1' || echo Skipped"
-
-  git add .
-  git commit -a -m "$1"
-
-  . push.sh
+  . commit.sh "$1"
+  . submodule_update.sh
+  . commit.sh "Submodule update"
 fi

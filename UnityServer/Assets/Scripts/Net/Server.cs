@@ -167,7 +167,7 @@ namespace Net
 			{
 				string file = files[i];
 
-				if (stream.Length > CommonConstants.PACKET_SIZE - 2000)
+				if (stream.Length > CommonConstants.PACKET_SIZE - CommonConstants.PACKET_SAFE_LIMIT)
 				{
 					res.Add(stream.ToArray());
 
